@@ -3,7 +3,7 @@
 #
 # Author: Denys Dovhan, denysdovhan.com
 # License: MIT
-# https://github.com/denysdovhan/dotfiles
+# https://github.com/denysdovhan/spaceship-zsh-theme
 
 __PROMPT_SYMBOL="➔"
 __UNCOMMITTED="+"
