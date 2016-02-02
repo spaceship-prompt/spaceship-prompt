@@ -35,7 +35,7 @@ __host() {
     echo -n " %Bat%b "
     echo -n "%{$fg_bold[green]%}%m%{$reset_color%}"
     echo -n " %Bin%b "
-  elif [ $LOGNAME != $USER ] || [ $USER == 'root' ]; then
+  elif [[ $LOGNAME != $USER ]] || [[ $USER == 'root' ]]; then
     echo -n "$(__user)"
     echo -n " %Bin%b "
     echo -n "%{$reset_color%}"
@@ -110,7 +110,7 @@ __git_status() {
   command git rev-parse --is-inside-work-tree &>/dev/null || return
 
   # Check if the current directory is in .git before running git checks.
-  if [ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]; then
+  if [[ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]]; then
     # Ensure the index is up to date.
     git update-index --really-refresh -q &>/dev/null
 
