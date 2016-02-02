@@ -9,15 +9,20 @@ Spaceship is an [“Oh My ZSH!”](http://ohmyz.sh/) minimalistic and powerful t
 
 Currently it shows:
 
-* Current git branch
-* Uncommitted (`+`), unstaged (`!`), untracked (`?`), stashed (`$`) changes in git repo
-* Indicates when you have unpulled (`⇣`) and unpushed (`⇡`) commits
-* Prompt character turns red if the last command exits with non-zero code
-* Host only displayed when in an SSH session
-* Username displayed only when it isn't `$LOGNAME`
-* Username turns red when root
-* Current Node.js version, through NVM
-* Current Python virtualenv
+* Current git branch.
+* Git repo status:
+  * `+` — uncommitted changes in the index;
+  * `!` — unstaged changes;
+  * `?` — untracked changes;
+  * `$` — stashed changes;
+  * `⇣` — unpulled commits;
+  * `⇡` — unpushed commits.
+* Prompt character turns red if the last command exits with non-zero code.
+* Hostname only displayed when in an SSH session.
+* Username displayed only when it isn't `$LOGNAME`.
+* Username turns red when root.
+* Current Node.js version, through NVM.
+* Current Python virtualenv.
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new) or send pull request.
 
