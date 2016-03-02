@@ -13,6 +13,7 @@ __STASHED="$"
 __UNPULLED="⇣"
 __UNPUSHED="⇡"
 __NVM_SYMBOL="⬢"
+__RUBY_SYMBOL="💎"
 
 # Username.
 # If user is root, then pain it in red. Otherwise, just print in yellow.
@@ -161,6 +162,25 @@ __nvm_status() {
   echo -n "%{$reset_color%}"
 }
 
+# Ruby
+# Show current version of ruby
+__ruby_version() {
+  if [[ "$(command -v rvm-prompt 2>&1 /dev/null)" ]] then
+    if [[ -z $(rvm gemset list | grep "=> (default)") ]] then
+      ruby_version=$(rvm-prompt i v g)
+    fi
+  elif [[ "$(command -v chruby > /dev/null)" ]] then
+      ruby_version=$(chruby | sed -n -e 's/ \* //p')
+  elif [[ "$(command -v rbenv 2>&1 /dev/null)" ]] then
+     ruby_version=$(rbenv version | sed -e 's/ (set.*$//')
+  fi
+
+  echo -n " %Bvia%b "
+  echo -n "%{$fg_bold[red]%}"
+  echo -n "${__RUBY_SYMBOL}  ${ruby_version}"
+  echo -n "%{$reset_color%}"
+}
+
 # Command prompt.
 # Pain $PROMPT_SYMBOL in red if previous command was fail and
 # pain in green if all OK.
@@ -172,7 +192,7 @@ __return_status() {
 
 # Compose PROMPT
 PROMPT='
-$(__host)$(__current_dir)$(__git_status)$(__nvm_status)$(__venv_status)
+$(__host)$(__current_dir)$(__git_status)$(__nvm_status)$(__ruby_version)$(__venv_status)
 $(__return_status) '
 
 # Set PS2 - continuation interactive prompt
