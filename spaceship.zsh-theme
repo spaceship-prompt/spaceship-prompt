@@ -13,7 +13,7 @@ __STASHED="$"
 __UNPULLED="⇣"
 __UNPUSHED="⇡"
 __NVM_SYMBOL="⬢"
-__RUBY_SYMBOL="*"
+__RUBY_SYMBOL="💎"
 
 # Username.
 # If user is root, then pain it in red. Otherwise, just print in yellow.
@@ -165,21 +165,19 @@ __nvm_status() {
 # Ruby
 # Show current version of ruby
 __ruby_version() {
-
-  if command -v rvm-prompt > /dev/null 2>&1; then
-    if [[ ! -n $(rvm gemset list | grep "=> (default)") ]]
-      then
+  if [[ "$(command -v rvm-prompt 2>&1 /dev/null)" ]] then
+    if [[ -z $(rvm gemset list | grep "=> (default)") ]] then
       ruby_version=$(rvm-prompt i v g)
     fi
-  elif command -v chruby > /dev/null 2>&1; then
+  elif [[ "$(command -v chruby > /dev/null)" ]] then
       ruby_version=$(chruby | sed -n -e 's/ \* //p')
-  elif command -v rbenv > /dev/null 2>&1; then
+  elif [[ "$(command -v rbenv 2>&1 /dev/null)" ]] then
      ruby_version=$(rbenv version | sed -e 's/ (set.*$//')
   fi
 
   echo -n " %Bvia%b "
   echo -n "%{$fg_bold[red]%}"
-  echo -n "${__RUBY_SYMBOL} ${ruby_version}"
+  echo -n "${__RUBY_SYMBOL}  ${ruby_version}"
   echo -n "%{$reset_color%}"
 }
 
