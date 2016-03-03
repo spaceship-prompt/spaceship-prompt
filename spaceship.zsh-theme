@@ -163,16 +163,18 @@ __nvm_status() {
 }
 
 # Ruby
-# Show current version of ruby
+# Show current version of Ruby
 __ruby_version() {
-  if [[ -n "$(command -v rvm-prompt 2>&1 /dev/null)" ]]; then
-    if [[ -z $(rvm gemset list | grep "=> (default)") ]]; then
+  if command -v rvm-prompt 2>&1 /dev/null; then
+    if rvm gemset list | grep "=> (default)"; then
       ruby_version=$(rvm-prompt i v g)
     fi
-  elif [[ -n "$(command -v chruby > /dev/null)" ]]; then
-      ruby_version=$(chruby | sed -n -e 's/ \* //p')
-  elif [[ -n "$(command -v rbenv 2>&1 /dev/null)" ]]; then
-     ruby_version=$(rbenv version | sed -e 's/ (set.*$//')
+  elif command -v chruby > /dev/null; then
+    ruby_version=$(chruby | sed -n -e 's/ \* //p')
+  elif command -v rbenv 2>&1 /dev/null; then
+    ruby_version=$(rbenv version | sed -e 's/ (set.*$//')
+  else
+    return
   fi
 
   echo -n " %Bvia%b "
