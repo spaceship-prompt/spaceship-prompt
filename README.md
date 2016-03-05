@@ -64,7 +64,7 @@ If you have problems, follow these instructions:
 Add the following snippet `~/.zshrc` after the line `antigen use oh-my-zsh`:
 
 ```
-antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship-zsh-theme
+antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 ```
 
 ### For Zgen users
@@ -72,7 +72,7 @@ antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship-zsh-t
 Add the following line to your `~/.zshrc` where you're adding your other zsh plugins:
 
 ```
-zgen load denysdovhan/spaceship-zsh-theme spaceship-zsh-theme
+zgen load denysdovhan/spaceship-zsh-theme spaceship
 ```
 
 ## Screenshots
