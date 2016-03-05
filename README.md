@@ -21,8 +21,8 @@ Currently it shows:
 * Hostname only displayed when in an SSH session.
 * Username displayed only when it isn't `$LOGNAME`.
 * Username turns red when root.
-* Current Node.js version, through NVM.
-* Current Ruby version, through RVM/RBENV/CHRUBY.
+* Current Node.js version, through NVM (`⬢`).
+* Current Ruby version, through RVM/RBENV/CHRUBY (`💎`).
 * Current Python virtualenv.
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new) or send pull request.
