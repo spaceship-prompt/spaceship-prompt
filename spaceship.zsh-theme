@@ -5,6 +5,16 @@
 # License: MIT
 # https://github.com/denysdovhan/spaceship-zsh-theme
 
+NEWLINE='
+'
+
+SPACESHIP_PROMPT_SYMBOL="➔"
+
+# [[ -z "$SPACESHIP_PROMPT_ADD_NEWLINE" ]] && SPACESHIP_PROMPT_ADD_NEWLINE=true
+# [[ -z "$SPACESHIP_PROMPT_SEPARATE_LINE" ]] && SPACESHIP_PROMPT_SEPARATE_LINE=true
+SPACESHIP_PROMPT_ADD_NEWLINE="${SPACESHIP_PROMPT_ADD_NEWLINE:-true}"
+SPACESHIP_PROMPT_SEPARATE_LINE="${SPACESHIP_PROMPT_SEPARATE_LINE:-true}"
+
 SPACESHIP_GIT_UNCOMMITTED="+"
 SPACESHIP_GIT_UNSTAGED="!"
 SPACESHIP_GIT_UNTRACKED="?"
@@ -12,7 +22,6 @@ SPACESHIP_GIT_STASHED="$"
 SPACESHIP_GIT_UNPULLED="⇣"
 SPACESHIP_GIT_UNPUSHED="⇡"
 
-SPACESHIP_PROMPT_SYMBOL="➔"
 SPACESHIP_NVM_SYMBOL="⬢"
 SPACESHIP_RUBY_SYMBOL="💎"
 
@@ -49,7 +58,7 @@ spaceship_host() {
 spaceship_current_dir() {
   echo -n "%{$fg_bold[cyan]%}"
   echo -n "%3~"
-  echo    "%{$reset_color%}"
+  echo -n "%{$reset_color%}"
 }
 
 # Uncommitted changes.
@@ -193,10 +202,22 @@ spaceship_return_status() {
   echo    "%{$reset_color%}"
 }
 
+# Build prompt line
+spaceship_build_prompt() {
+  spaceship_host
+  spaceship_current_dir
+  spaceship_git_status
+  spaceship_nvm_status
+  spaceship_ruby_version
+  spaceship_venv_status
+}
+
 # Compose PROMPT
-PROMPT='
-$(spaceship_host)$(spaceship_current_dir)$(spaceship_git_status)$(spaceship_nvm_status)$(spaceship_ruby_version)$(spaceship_venv_status)
-$(spaceship_return_status) '
+PROMPT=''
+[[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && PROMPT="$PROMPT$NEWLINE"
+PROMPT="$PROMPT"'$(spaceship_build_prompt) '
+[[ $SPACESHIP_PROMPT_SEPARATE_LINE == true ]] && PROMPT="$PROMPT$NEWLINE"
+PROMPT="$PROMPT"'$(spaceship_return_status) '
 
 # Set PS2 - continuation interactive prompt
 PS2="%{$fg_bold[yellow]%}"
