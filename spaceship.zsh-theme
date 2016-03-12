@@ -5,19 +5,20 @@
 # License: MIT
 # https://github.com/denysdovhan/spaceship-zsh-theme
 
-__PROMPT_SYMBOL="➔"
-__UNCOMMITTED="+"
-__UNSTAGED="!"
-__UNTRACKED="?"
-__STASHED="$"
-__UNPULLED="⇣"
-__UNPUSHED="⇡"
-__NVM_SYMBOL="⬢"
-__RUBY_SYMBOL="💎"
+SPACESHIP_GIT_UNCOMMITTED="+"
+SPACESHIP_GIT_UNSTAGED="!"
+SPACESHIP_GIT_UNTRACKED="?"
+SPACESHIP_GIT_STASHED="$"
+SPACESHIP_GIT_UNPULLED="⇣"
+SPACESHIP_GIT_UNPUSHED="⇡"
+
+SPACESHIP_PROMPT_SYMBOL="➔"
+SPACESHIP_NVM_SYMBOL="⬢"
+SPACESHIP_RUBY_SYMBOL="💎"
 
 # Username.
 # If user is root, then pain it in red. Otherwise, just print in yellow.
-__user() {
+spaceship_user() {
   if [[ $USER == 'root' ]]; then
     echo -n "%{$fg_bold[red]%}"
   else
@@ -30,14 +31,14 @@ __user() {
 # Username and SSH host
 # If there is an ssh connections, then show user and current machine.
 # If user is not $USER, then show username.
-__host() {
+spaceship_host() {
   if [[ -n $SSH_CONNECTION ]]; then
-    echo -n "$(__user)"
+    echo -n "$(spaceship_user)"
     echo -n " %Bat%b "
     echo -n "%{$fg_bold[green]%}%m%{$reset_color%}"
     echo -n " %Bin%b "
   elif [[ $LOGNAME != $USER ]] || [[ $USER == 'root' ]]; then
-    echo -n "$(__user)"
+    echo -n "$(spaceship_user)"
     echo -n " %Bin%b "
     echo -n "%{$reset_color%}"
   fi
@@ -45,7 +46,7 @@ __host() {
 
 # Current directory.
 # Return only three last items of path
-__current_dir() {
+spaceship_current_dir() {
   echo -n "%{$fg_bold[cyan]%}"
   echo -n "%3~"
   echo    "%{$reset_color%}"
@@ -53,7 +54,7 @@ __current_dir() {
 
 # Uncommitted changes.
 # Check for uncommitted changes in the index.
-__git_uncomitted() {
+spaceship_git_uncomitted() {
   if ! $(git diff --quiet --ignore-submodules --cached); then
     echo -n '+'
   fi
@@ -61,7 +62,7 @@ __git_uncomitted() {
 
 # Unstaged changes.
 # Check for unstaged changes.
-__git_unstaged() {
+spaceship_git_unstaged() {
   if ! $(git diff-files --quiet --ignore-submodules --); then
     echo -n '!'
   fi
@@ -69,7 +70,7 @@ __git_unstaged() {
 
 # Untracked files.
 # Check for untracked files.
-__git_untracked() {
+spaceship_git_untracked() {
   if [ -n "$(git ls-files --others --exclude-standard)" ]; then
     echo -n '?'
   fi
@@ -77,7 +78,7 @@ __git_untracked() {
 
 # Stashed changes.
 # Check for stashed changes.
-__git_stashed() {
+spaceship_git_stashed() {
   if $(git rev-parse --verify refs/stash &>/dev/null); then
     echo -n '$'
   fi
@@ -85,7 +86,7 @@ __git_stashed() {
 
 # Unpushed and unpulled commits.
 # Get unpushed and unpulled commits from remote and draw arrows.
-__git_unpushed_unpulled() {
+spaceship_git_unpushed_unpulled() {
   # check if there is an upstream configured for this branch
   command git rev-parse --abbrev-ref @'{u}' &>/dev/null || return
 
@@ -98,15 +99,15 @@ __git_unpushed_unpulled() {
   count=(${(ps:\t:)count})
   local arrows left=${count[1]} right=${count[2]}
 
-  (( ${right:-0} > 0 )) && arrows+="${__UNPULLED}"
-  (( ${left:-0} > 0 )) && arrows+="${__UNPUSHED}"
+  (( ${right:-0} > 0 )) && arrows+="${SPACESHIP_GIT_UNPULLED}"
+  (( ${left:-0} > 0 )) && arrows+="${SPACESHIP_GIT_UNPUSHED}"
 
   [ -n $arrows ] && echo -n "${arrows}"
 }
 
 # Git status.
 # Collect indicators, git branch and pring string.
-__git_status() {
+spaceship_git_status() {
   # Check if the current directory is in a Git repository.
   command git rev-parse --is-inside-work-tree &>/dev/null || return
 
@@ -116,13 +117,13 @@ __git_status() {
     git update-index --really-refresh -q &>/dev/null
 
     # String of indicators
-    local s=''
+    local indicators=''
 
-    s+="$(__git_uncomitted)"
-    s+="$(__git_unstaged)"
-    s+="$(__git_untracked)"
-    s+="$(__git_stashed)"
-    s+="$(__git_unpushed_unpulled)"
+    s+="$(spaceship_git_uncomitted)"
+    s+="$(spaceship_git_unstaged)"
+    s+="$(spaceship_git_untracked)"
+    s+="$(spaceship_git_stashed)"
+    s+="$(spaceship_git_unpushed_unpulled)"
 
     [ -n "${s}" ] && s=" [${s}]";
 
@@ -131,14 +132,14 @@ __git_status() {
     echo -n "$(git_current_branch)"
     echo -n "%{$reset_color%}"
     echo -n "%{$fg_bold[red]%}"
-    echo -n "${s}"
+    echo -n "%{$indicators%}"
     echo -n "%{$reset_color%}"
   fi
 }
 
 # Virtual environment.
 # Show current virtual environment (Python).
-__venv_status() {
+spaceship_venv_status() {
   # Check if the current directory running via Virtualenv
   [ -n "$VIRTUAL_ENV" ] || return
   echo -n " %Bvia%b "
@@ -149,7 +150,7 @@ __venv_status() {
 
 # NVM
 # Show current version of node, exception system.
-__nvm_status() {
+spaceship_nvm_status() {
   $(type nvm >/dev/null 2>&1) || return
 
   local nvm_status=$(nvm current 2>/dev/null)
@@ -158,13 +159,13 @@ __nvm_status() {
 
   echo -n " %Bvia%b "
   echo -n "%{$fg_bold[green]%}"
-  echo -n "${__NVM_SYMBOL} ${nvm_status}"
+  echo -n "${SPACESHIP_NVM_SYMBOL} ${nvm_status}"
   echo -n "%{$reset_color%}"
 }
 
 # Ruby
 # Show current version of Ruby
-__ruby_version() {
+spaceship_ruby_version() {
   if command -v rvm-prompt > /dev/null 2>&1; then
     if rvm gemset list | grep "=> (default)"; then
       ruby_version=$(rvm-prompt i v g)
@@ -179,27 +180,27 @@ __ruby_version() {
 
   echo -n " %Bvia%b "
   echo -n "%{$fg_bold[red]%}"
-  echo -n "${__RUBY_SYMBOL}  ${ruby_version}"
+  echo -n "${SPACESHIP_RUBY_SYMBOL}  ${ruby_version}"
   echo -n "%{$reset_color%}"
 }
 
 # Command prompt.
 # Pain $PROMPT_SYMBOL in red if previous command was fail and
 # pain in green if all OK.
-__return_status() {
+spaceship_return_status() {
   echo -n "%(?.%{$fg[green]%}.%{$fg[red]%})"
-  echo -n "%B${__PROMPT_SYMBOL}%b"
+  echo -n "%B${SPACESHIP_PROMPT_SYMBOL}%b"
   echo    "%{$reset_color%}"
 }
 
 # Compose PROMPT
 PROMPT='
-$(__host)$(__current_dir)$(__git_status)$(__nvm_status)$(__ruby_version)$(__venv_status)
-$(__return_status) '
+$(spaceship_host)$(spaceship_current_dir)$(spaceship_git_status)$(spaceship_nvm_status)$(spaceship_ruby_version)$(spaceship_venv_status)
+$(spaceship_return_status) '
 
 # Set PS2 - continuation interactive prompt
 PS2="%{$fg_bold[yellow]%}"
-PS2+="${__PROMPT_SYMBOL} "
+PS2+="%{$SPACESHIP_PROMPT_SYMBOL%} "
 PS2+="%{$reset_color%}"
 
 # LSCOLORS
