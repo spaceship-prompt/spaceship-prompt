@@ -14,6 +14,7 @@ SPACESHIP_PROMPT_ADD_NEWLINE="${SPACESHIP_PROMPT_ADD_NEWLINE:-true}"
 SPACESHIP_PROMPT_SEPARATE_LINE="${SPACESHIP_PROMPT_SEPARATE_LINE:-true}"
 
 # GIT
+SPACESHIP_GIT_SHOW="${SPACESHIP_GIT_SHOW:-true}"
 SPACESHIP_GIT_UNCOMMITTED="${SPACESHIP_GIT_UNCOMMITTED:-'+'}"
 SPACESHIP_GIT_UNSTAGED="${SPACESHIP_GIT_UNSTAGED:-'!'}"
 SPACESHIP_GIT_UNTRACKED="${SPACESHIP_GIT_UNTRACKED:-'?'}"
@@ -21,8 +22,16 @@ SPACESHIP_GIT_STASHED="${SPACESHIP_GIT_STASHED:-'$'}"
 SPACESHIP_GIT_UNPULLED="${SPACESHIP_GIT_UNPULLED:-'⇣'}"
 SPACESHIP_GIT_UNPUSHED="${SPACESHIP_GIT_UNPUSHED:-'⇡'}"
 
+# NVM
+SPACESHIP_NVM_SHOW="${SPACESHIP_NVM_SHOW:-true}"
 SPACESHIP_NVM_SYMBOL="${SPACESHIP_NVM_SYMBOL:-'⬢'}"
+
+# RUBY
+SPACESHIP_RUBY_SHOW="${SPACESHIP_RUBY_SHOW:-true}"
 SPACESHIP_RUBY_SYMBOL="${SPACESHIP_RUBY_SYMBOL:-'💎'}"
+
+# VENV
+SPACESHIP_VENV_SHOW="${SPACESHIP_VENV_SHOW:-true}"
 
 # Username.
 # If user is root, then pain it in red. Otherwise, just print in yellow.
@@ -116,6 +125,8 @@ spaceship_git_unpushed_unpulled() {
 # Git status.
 # Collect indicators, git branch and pring string.
 spaceship_git_status() {
+  [[ $SPACESHIP_GIT_SHOW == false ]] && return
+
   # Check if the current directory is in a Git repository.
   command git rev-parse --is-inside-work-tree &>/dev/null || return
 
@@ -148,6 +159,8 @@ spaceship_git_status() {
 # Virtual environment.
 # Show current virtual environment (Python).
 spaceship_venv_status() {
+  [[ $SPACESHIP_VENV_SHOW == false ]] && return
+
   # Check if the current directory running via Virtualenv
   [ -n "$VIRTUAL_ENV" ] || return
   echo -n " %Bvia%b "
@@ -159,6 +172,8 @@ spaceship_venv_status() {
 # NVM
 # Show current version of node, exception system.
 spaceship_nvm_status() {
+  [[ $SPACESHIP_NVM_SHOW == false ]] && return
+
   $(type nvm >/dev/null 2>&1) || return
 
   local nvm_status=$(nvm current 2>/dev/null)
@@ -174,6 +189,8 @@ spaceship_nvm_status() {
 # Ruby
 # Show current version of Ruby
 spaceship_ruby_version() {
+  [[ $SPACESHIP_RUBY_SHOW == false ]] && return
+
   if command -v rvm-prompt > /dev/null 2>&1; then
     if rvm gemset list | grep "=> (default)"; then
       ruby_version=$(rvm-prompt i v g)
