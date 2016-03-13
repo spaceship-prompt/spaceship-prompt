@@ -138,13 +138,13 @@ spaceship_git_status() {
     # String of indicators
     local indicators=''
 
-    s+="$(spaceship_git_uncomitted)"
-    s+="$(spaceship_git_unstaged)"
-    s+="$(spaceship_git_untracked)"
-    s+="$(spaceship_git_stashed)"
-    s+="$(spaceship_git_unpushed_unpulled)"
+    indicators+="$(spaceship_git_uncomitted)"
+    indicators+="$(spaceship_git_unstaged)"
+    indicators+="$(spaceship_git_untracked)"
+    indicators+="$(spaceship_git_stashed)"
+    indicators+="$(spaceship_git_unpushed_unpulled)"
 
-    [ -n "${s}" ] && s=" [${s}]";
+    [ -n "${indicators}" ] && indicators=" [${indicators}]";
 
     echo -n " %Bon%b "
     echo -n "%{$fg_bold[magenta]%}"
