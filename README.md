@@ -111,33 +111,33 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| SPACESHIP_GIT_SHOW | `true` | Show/hide git status |
-| SPACESHIP_GIT_UNCOMMITTED | `+` | Character to be shown on uncommitted changes |
-| SPACESHIP_GIT_UNSTAGED | `!` | Character to be shown on unstaged changes |
-| SPACESHIP_GIT_UNTRACKED | `?` | Character to be shown on untracked changes |
-| SPACESHIP_GIT_STASHED | `$` | Character to be shown on stashed changes |
-| SPACESHIP_GIT_UNPULLED | `⇣` | Character to be shown on unpulled changes |
-| SPACESHIP_GIT_UNPUSHED | `⇡` | Character to be shown on unpushed changes |
+| `SPACESHIP_GIT_SHOW` | `true` | Show/hide git status |
+| `SPACESHIP_GIT_UNCOMMITTED` | `+` | Character to be shown on uncommitted changes |
+| `SPACESHIP_GIT_UNSTAGED` | `!` | Character to be shown on unstaged changes |
+| `SPACESHIP_GIT_UNTRACKED` | `?` | Character to be shown on untracked changes |
+| `SPACESHIP_GIT_STASHED` | `$` | Character to be shown on stashed changes |
+| `SPACESHIP_GIT_UNPULLED` | `⇣` | Character to be shown on unpulled changes |
+| `SPACESHIP_GIT_UNPUSHED` | `⇡` | Character to be shown on unpushed changes |
 
 ### Nvm
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| SPACESHIP_NVM_SHOW | `true` | Current Node.js version |
-| SPACESHIP_NVM_SYMBOL | `⬢` | Character to be shown before Node.js version |
+| `SPACESHIP_NVM_SHOW` | `true` | Current Node.js version |
+| `SPACESHIP_NVM_SYMBOL` | `⬢` | Character to be shown before Node.js version |
 
 ### Ruby
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| SPACESHIP_RUBY_SHOW | `true` | Current Ruby version |
-| SPACESHIP_RUBY_SYMBOL | `💎` | Character to be shown before Ruby version |
+| `SPACESHIP_RUBY_SHOW` | `true` | Current Ruby version |
+| `SPACESHIP_RUBY_SYMBOL` | `💎` | Character to be shown before Ruby version |
 
 ### Venv
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| SPACESHIP_VENV_SHOW | `true` | Current Python virtualenv |
+| `SPACESHIP_VENV_SHOW` | `true` | Current Python virtualenv |
 
 ### Example
 
