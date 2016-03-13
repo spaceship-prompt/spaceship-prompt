@@ -95,6 +95,81 @@ The spaceship theme looks awesome with some popular color schemes. Take a look t
 
 ![One Dark](https://cloud.githubusercontent.com/assets/3459374/12703428/827c7356-c84b-11e5-8764-372ce30dd3fa.png)
 
+## Options
+
+Now you have ability to disable elements of Spaceship. All options must be overridden in your `.zshrc` file.
+
+### Prompt
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_PROMPT_SYMBOL` | `➔` | Character to be shown before any command |
+| `SPACESHIP_PROMPT_ADD_NEWLINE` | `true` | Make the prompt span across two lines |
+| `SPACESHIP_PROMPT_SEPARATE_LINE` | `true` | Adds a newline character before each prompt line |
+
+### Git
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| SPACESHIP_GIT_SHOW | `true` | Show/hide git status |
+| SPACESHIP_GIT_UNCOMMITTED | `+` | Character to be shown on uncommitted changes |
+| SPACESHIP_GIT_UNSTAGED | `!` | Character to be shown on unstaged changes |
+| SPACESHIP_GIT_UNTRACKED | `?` | Character to be shown on untracked changes |
+| SPACESHIP_GIT_STASHED | `$` | Character to be shown on stashed changes |
+| SPACESHIP_GIT_UNPULLED | `⇣` | Character to be shown on unpulled changes |
+| SPACESHIP_GIT_UNPUSHED | `⇡` | Character to be shown on unpushed changes |
+
+### Nvm
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| SPACESHIP_NVM_SHOW | `true` | Current Node.js version |
+| SPACESHIP_NVM_SYMBOL | `⬢` | Character to be shown before Node.js version |
+
+### Ruby
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| SPACESHIP_RUBY_SHOW | `true` | Current Ruby version |
+| SPACESHIP_RUBY_SYMBOL | `💎` | Character to be shown before Ruby version |
+
+### Venv
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| SPACESHIP_VENV_SHOW | `true` | Current Python virtualenv |
+
+### Example
+
+Here is all optins which may be changed. Copy this to your `~/.zshrc` to make it easy to change.
+
+```zsh
+# PROMPT
+SPACESHIP_PROMPT_SYMBOL='➔'
+SPACESHIP_PROMPT_ADD_NEWLINE=true
+SPACESHIP_PROMPT_SEPARATE_LINE=true
+
+# GIT
+SPACESHIP_GIT_SHOW=true
+SPACESHIP_GIT_UNCOMMITTED='+'
+SPACESHIP_GIT_UNSTAGED='!'
+SPACESHIP_GIT_UNTRACKED='?'
+SPACESHIP_GIT_STASHED='$'
+SPACESHIP_GIT_UNPULLED='⇣'
+SPACESHIP_GIT_UNPUSHED='⇡'
+
+# NVM
+SPACESHIP_NVM_SHOW=true
+SPACESHIP_NVM_SYMBOL='⬢'
+
+# RUBY
+SPACESHIP_RUBY_SHOW=true
+SPACESHIP_RUBY_SYMBOL='💎'
+
+# VENV
+SPACESHIP_VENV_SHOW=true
+```
+
 ## License
 
 MIT © [Denys Dovhan](http://denysdovhan.com)
