@@ -34,6 +34,11 @@ SPACESHIP_RUBY_SYMBOL="${SPACESHIP_RUBY_SYMBOL:-💎}"
 # VENV
 SPACESHIP_VENV_SHOW="${SPACESHIP_VENV_SHOW:-true}"
 
+# VI_MODE
+SPACESHIP_VI_MODE_SHOW="${SPACESHIP_VI_MODE_SHOW:-true}"
+SPACESHIP_VI_MODE_INSERT="${SPACESHIP_VI_MODE_INSERT:-[I]}"
+SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:-[N]}"
+
 # Username.
 # If user is root, then pain it in red. Otherwise, just print in yellow.
 spaceship_user() {
@@ -210,6 +215,23 @@ spaceship_ruby_version() {
   echo -n "%{$reset_color%}"
 }
 
+# Show current vi_mode mode
+spaceship_vi_mode() {
+  echo -n "%{$fg_bold[gray]%}"
+  MODE_INDICATOR="${SPACESHIP_VI_MODE_INSERT}"
+
+  case ${KEYMAP} in
+    main|viins)
+      MODE_INDICATOR="${SPACESHIP_VI_MODE_INSERT}"
+      ;;
+    vicmd)
+      MODE_INDICATOR="${SPACESHIP_VI_MODE_NORMAL}"
+      ;;
+  esac
+  echo -n "${MODE_INDICATOR}"
+  echo -n "%{$reset_color%}"
+}
+
 # Command prompt.
 # Pain $PROMPT_SYMBOL in red if previous command was fail and
 # pain in green if all OK.
@@ -234,6 +256,7 @@ PROMPT=''
 [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && PROMPT="$PROMPT$NEWLINE"
 PROMPT="$PROMPT"'$(spaceship_build_prompt) '
 [[ $SPACESHIP_PROMPT_SEPARATE_LINE == true ]] && PROMPT="$PROMPT$NEWLINE"
+[[ $SPACESHIP_VI_MODE_SHOW == true ]] && PROMPT="$PROMPT"'$(spaceship_vi_mode) '
 PROMPT="$PROMPT"'$(spaceship_return_status) '
 
 # Set PS2 - continuation interactive prompt
