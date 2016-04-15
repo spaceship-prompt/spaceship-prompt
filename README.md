@@ -104,8 +104,8 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_PROMPT_SYMBOL` | `➔` | Character to be shown before any command |
-| `SPACESHIP_PROMPT_ADD_NEWLINE` | `true` | Make the prompt span across two lines |
-| `SPACESHIP_PROMPT_SEPARATE_LINE` | `true` | Adds a newline character before each prompt line |
+| `SPACESHIP_PROMPT_SEPARATE_LINE` | `true` | Make the prompt span across two lines |
+| `SPACESHIP_PROMPT_ADD_NEWLINE` | `true` | Adds a newline character before each prompt line |
 | `SPACESHIP_PROMPT_TRUNC` | `3` | Number of folders of cwd to show in prompt, 0 to show all |
 
 ### Git
