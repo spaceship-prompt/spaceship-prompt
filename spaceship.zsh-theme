@@ -217,6 +217,8 @@ spaceship_ruby_version() {
 
 # Show current vi_mode mode
 spaceship_vi_mode() {
+  [[ $SPACESHIP_VI_MODE_SHOW == true ]] && return
+
   echo -n "%{$fg_bold[gray]%}"
   MODE_INDICATOR="${SPACESHIP_VI_MODE_INSERT}"
 
@@ -256,7 +258,7 @@ PROMPT=''
 [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && PROMPT="$PROMPT$NEWLINE"
 PROMPT="$PROMPT"'$(spaceship_build_prompt) '
 [[ $SPACESHIP_PROMPT_SEPARATE_LINE == true ]] && PROMPT="$PROMPT$NEWLINE"
-[[ $SPACESHIP_VI_MODE_SHOW == true ]] && PROMPT="$PROMPT"'$(spaceship_vi_mode) '
+PROMPT="$PROMPT"'$(spaceship_vi_mode) '
 PROMPT="$PROMPT"'$(spaceship_return_status) '
 
 # Set PS2 - continuation interactive prompt
