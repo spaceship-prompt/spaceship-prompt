@@ -5,7 +5,7 @@
 
 > An [“Oh My ZSH!”](http://ohmyz.sh/) theme for Astronauts.
 
-Spaceship is an [“Oh My ZSH!”](http://ohmyz.sh/) minimalistic and powerful theme. It combines everything you may need for convenient work, like a real spaceship.
+Spaceship is an [“Oh My ZSH!”](http://ohmyz.sh/) minimalistic and powerful theme. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
 
 Currently it shows:
 
