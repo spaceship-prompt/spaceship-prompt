@@ -52,9 +52,10 @@ wget -O - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/mast
 
 If you have problems, follow these instructions:
 
-1. Download the theme [here](https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh-theme)
-2. Put the file `spaceship.zsh-theme` in `$ZSH_CUSTOM/themes/`
-3. Add the line to your `~/.zshrc`:
+1. Download the theme [here](https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh)
+2. Rename `spaceship.zsh` to `spaceship.zsh-theme`
+3. Put the file `spaceship.zsh-theme` in `$ZSH_CUSTOM/themes/`
+4. Add the line to your `~/.zshrc`:
   ```
   ZSH_THEME="spaceship"
   ```
