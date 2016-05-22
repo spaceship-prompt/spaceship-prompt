@@ -74,7 +74,7 @@ spaceship_current_dir() {
 # Check for uncommitted changes in the index.
 spaceship_git_uncomitted() {
   if ! $(git diff --quiet --ignore-submodules --cached); then
-    echo -n '+'
+    echo -n "${SPACESHIP_GIT_UNCOMMITTED}"
   fi
 }
 
@@ -82,7 +82,7 @@ spaceship_git_uncomitted() {
 # Check for unstaged changes.
 spaceship_git_unstaged() {
   if ! $(git diff-files --quiet --ignore-submodules --); then
-    echo -n '!'
+    echo -n "${SPACESHIP_GIT_UNSTAGED}"
   fi
 }
 
@@ -90,7 +90,7 @@ spaceship_git_unstaged() {
 # Check for untracked files.
 spaceship_git_untracked() {
   if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-    echo -n '?'
+    echo -n "${SPACESHIP_GIT_UNTRACKED}"
   fi
 }
 
@@ -98,7 +98,7 @@ spaceship_git_untracked() {
 # Check for stashed changes.
 spaceship_git_stashed() {
   if $(git rev-parse --verify refs/stash &>/dev/null); then
-    echo -n '$'
+    echo -n "${SPACESHIP_GIT_STASHED}"
   fi
 }
 
