@@ -229,6 +229,9 @@ spaceship_build_prompt() {
   spaceship_venv_status
 }
 
+# Disable python virtualenv environment prompt prefix
+VIRTUAL_ENV_DISABLE_PROMPT=true
+
 # Compose PROMPT
 PROMPT=''
 [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && PROMPT="$PROMPT$NEWLINE"
