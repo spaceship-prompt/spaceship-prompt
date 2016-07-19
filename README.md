@@ -24,6 +24,7 @@ Currently it shows:
 * Current Node.js version, through NVM (`⬢`).
 * Current Ruby version, through RVM/RBENV/CHRUBY (`💎`).
 * Current Python virtualenv.
+* **Current Vi-mode (we need some help to finish this feature — [#16](https://github.com/denysdovhan/spaceship-zsh-theme/pull/16))**
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new) or send pull request.
 
