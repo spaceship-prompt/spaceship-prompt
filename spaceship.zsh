@@ -152,7 +152,7 @@ spaceship_git_status() {
     echo -n "$(git_current_branch)"
     echo -n "%{$reset_color%}"
     echo -n "%{$fg_bold[red]%}"
-    echo -n "%{$indicators%}"
+    echo -n "$indicators"
     echo -n "%{$reset_color%}"
   fi
 }
