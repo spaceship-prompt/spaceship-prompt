@@ -34,6 +34,12 @@ SPACESHIP_RUBY_SYMBOL="${SPACESHIP_RUBY_SYMBOL:-💎}"
 # VENV
 SPACESHIP_VENV_SHOW="${SPACESHIP_VENV_SHOW:-true}"
 
+# HOSTNAME AND USER
+SPACESHIP_HOST_ALWAYS="${SPACESHIP_HOST_ALWAYS:-false}"
+SPACESHIP_HOST_SHOW="${SPACESHIP_HOST_SHOW:-true}"
+SPACESHIP_USER_ALWAYS="${SPACESHIP_USER_ALWAYS:-false}"
+SPACESHIP_USER_SHOW="${SPACESHIP_USER_SHOW:-true}"
+
 # Username.
 # If user is root, then pain it in red. Otherwise, just print in yellow.
 spaceship_user() {
@@ -50,11 +56,15 @@ spaceship_user() {
 # If there is an ssh connections, then show user and current machine.
 # If user is not $USER, then show username.
 spaceship_host() {
-  if [[ -n $SSH_CONNECTION ]]; then
-    echo -n "$(spaceship_user)"
-    echo -n " %Bat%b "
-    echo -n "%{$fg_bold[green]%}%m%{$reset_color%}"
-    echo -n " %Bin%b "
+  if [[ -n $SSH_CONNECTION ]] || [[ $SPACESHIP_HOST_ALWAYS == true ]]; then
+    if [[ -n $SPACESHIP_HOST_SHOW ]]; then
+      if [[ -n $SPACESHIP_USER_ALWAYS ]] || [[ $SPACESHIP_USER_SHOW ]]; then
+        echo -n "$(spaceship_user)"
+        echo -n " %Bat%b "
+      fi
+      echo -n "%{$fg_bold[green]%}%m%{$reset_color%}"
+      echo -n " %Bin%b "
+    fi
   elif [[ $LOGNAME != $USER ]] || [[ $USER == 'root' ]]; then
     echo -n "$(spaceship_user)"
     echo -n " %Bin%b "
