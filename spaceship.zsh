@@ -215,10 +215,17 @@ spaceship_ruby_version() {
   echo -n "%{$reset_color%}"
 }
 
+# Temporarily switch to vi-mode
+spaceship_enable_vi_mode() {
+  function zle-keymap-select() { zle reset-prompt; zle -R; };
+  zle -N zle-keymap-select;
+  bindkey -v;
+}
+
 # Show current vi_mode mode
 spaceship_vi_mode() {
   if [[ $(bindkey | grep "vi-quoted-insert") ]]; then # check if vi-mode enabled
-    echo -n "%{$fg_bold[gray]%}"
+    echo -n "%{$fg_bold[white]%}"
 
     MODE_INDICATOR="${SPACESHIP_VI_MODE_INSERT}"
 
@@ -276,4 +283,3 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40
 # Zsh to use the same colors as ls
 # Link: http://superuser.com/a/707567
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
