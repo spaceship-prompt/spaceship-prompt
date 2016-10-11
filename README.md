@@ -24,7 +24,7 @@ Currently it shows:
 * Current Node.js version, through NVM (`⬢`).
 * Current Ruby version, through RVM/RBENV/CHRUBY (`💎`).
 * Current Python virtualenv.
-* **Current Vi-mode (we need some help to finish this feature — [#16](https://github.com/denysdovhan/spaceship-zsh-theme/pull/16))**
+* Current Vi-mode mode.
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new) or send pull request.
 
@@ -142,6 +142,16 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | :------- | :-----: | ------- |
 | `SPACESHIP_VENV_SHOW` | `true` | Current Python virtualenv |
 
+### Vi-mode
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_VI_MODE_SHOW` | `true` | Current Vi-mode  |
+| `SPACESHIP_VI_MODE_INSERT` | `[I]` | Text to be shown when in insert mode |
+| `SPACESHIP_VI_MODE_NORMAL` | `[N]` | Text to be shown when in normal mode |
+
+Note: For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$reset_color%}"` before `source $ZSH/oh-my-zsh.sh` in ~/.zshrc to disable default `<<<` NORMAL mode indicator in right prompt.
+
 ### Example
 
 Here is all optins which may be changed. Copy this to your `~/.zshrc` to make it easy to change.
@@ -171,6 +181,11 @@ SPACESHIP_RUBY_SYMBOL='💎'
 
 # VENV
 SPACESHIP_VENV_SHOW=true
+
+# VI_MODE
+SPACESHIP_VI_MODE_SHOW=true
+SPACESHIP_VI_MODE_INSERT="[I]"
+SPACESHIP_VI_MODE_NORMAL="[N]"
 ```
 
 ## License

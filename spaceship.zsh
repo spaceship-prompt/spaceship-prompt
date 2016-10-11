@@ -40,6 +40,11 @@ SPACESHIP_HOST_SHOW="${SPACESHIP_HOST_SHOW:-true}"
 SPACESHIP_USER_ALWAYS="${SPACESHIP_USER_ALWAYS:-false}"
 SPACESHIP_USER_SHOW="${SPACESHIP_USER_SHOW:-true}"
 
+# VI_MODE
+SPACESHIP_VI_MODE_SHOW="${SPACESHIP_VI_MODE_SHOW:-true}"
+SPACESHIP_VI_MODE_INSERT="${SPACESHIP_VI_MODE_INSERT:-[I]}"
+SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:-[N]}"
+
 # Username.
 # If user is root, then pain it in red. Otherwise, just print in yellow.
 spaceship_user() {
@@ -203,7 +208,7 @@ spaceship_ruby_version() {
   [[ $SPACESHIP_RUBY_SHOW == false ]] && return
 
   if command -v rvm-prompt > /dev/null 2>&1; then
-    if rvm gemset list | grep "=> (default)"; then
+    if rvm gemset list | grep "=> (default)" > /dev/null; then
       ruby_version=$(rvm-prompt i v g)
     fi
   elif command -v chruby > /dev/null 2>&1; then
@@ -218,6 +223,33 @@ spaceship_ruby_version() {
   echo -n "%{$fg_bold[red]%}"
   echo -n "${SPACESHIP_RUBY_SYMBOL}  ${ruby_version}"
   echo -n "%{$reset_color%}"
+}
+
+# Temporarily switch to vi-mode
+spaceship_enable_vi_mode() {
+  function zle-keymap-select() { zle reset-prompt; zle -R; };
+  zle -N zle-keymap-select;
+  bindkey -v;
+}
+
+# Show current vi_mode mode
+spaceship_vi_mode() {
+  if [[ $(bindkey | grep "vi-quoted-insert") ]]; then # check if vi-mode enabled
+    echo -n "%{$fg_bold[white]%}"
+
+    MODE_INDICATOR="${SPACESHIP_VI_MODE_INSERT}"
+
+    case ${KEYMAP} in
+      main|viins)
+        MODE_INDICATOR="${SPACESHIP_VI_MODE_INSERT}"
+        ;;
+      vicmd)
+        MODE_INDICATOR="${SPACESHIP_VI_MODE_NORMAL}"
+        ;;
+    esac
+    echo -n "${MODE_INDICATOR}"
+    echo -n "%{$reset_color%} "
+  fi
 }
 
 # Command prompt.
@@ -247,6 +279,7 @@ PROMPT=''
 [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && PROMPT="$PROMPT$NEWLINE"
 PROMPT="$PROMPT"'$(spaceship_build_prompt) '
 [[ $SPACESHIP_PROMPT_SEPARATE_LINE == true ]] && PROMPT="$PROMPT$NEWLINE"
+[[ $SPACESHIP_VI_MODE_SHOW == true ]] && PROMPT="$PROMPT"'$(spaceship_vi_mode)'
 PROMPT="$PROMPT"'$(spaceship_return_status) '
 
 # Set PS2 - continuation interactive prompt
