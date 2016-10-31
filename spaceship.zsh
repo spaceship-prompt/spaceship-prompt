@@ -224,7 +224,7 @@ spaceship_enable_vi_mode() {
 
 # Show current vi_mode mode
 spaceship_vi_mode() {
-  if [[ $(bindkey | grep "vi-quoted-insert") ]]; then # check if vi-mode enabled
+  if $(bindkey | grep "vi-quoted-insert"); then # check if vi-mode enabled
     echo -n "%{$fg_bold[white]%}"
 
     MODE_INDICATOR="${SPACESHIP_VI_MODE_INSERT}"
