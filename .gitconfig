@@ -1,0 +1,20 @@
+[core]
+	excludesfile = ~/.gitignore
+	editor = "vim"
+
+[alias]
+	st = status
+	plr = pull --rebase
+	ci = commit
+
+[user]
+	email = abraham.sustaita@gmail.com
+	name = Abraham Cruz Sustaita
+[push]
+	default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
