@@ -10,6 +10,8 @@ NEWLINE='
 
 # PROMPT
 SPACESHIP_PROMPT_SYMBOL="${SPACESHIP_PROMPT_SYMBOL:-➔}"
+SPACESHIP_PROMPT_VIA="${SPACESHIP_PROMPT_VIA:-via}"
+SPACESHIP_PROMPT_ON="${SPACESHIP_PROMPT_ON:-on}"
 SPACESHIP_PROMPT_ADD_NEWLINE="${SPACESHIP_PROMPT_ADD_NEWLINE:-true}"
 SPACESHIP_PROMPT_SEPARATE_LINE="${SPACESHIP_PROMPT_SEPARATE_LINE:-true}"
 SPACESHIP_PROMPT_TRUNC="${SPACESHIP_PROMPT_TRUNC:-3}"
@@ -152,7 +154,7 @@ spaceship_git_status() {
 
     [ -n "${indicators}" ] && indicators=" [${indicators}]";
 
-    echo -n " %Bon%b "
+    echo -n " %B${SPACESHIP_PROMPT_ON}%b "
     echo -n "%{$fg_bold[magenta]%}"
     echo -n "$(git_current_branch)"
     echo -n "%{$reset_color%}"
@@ -169,7 +171,7 @@ spaceship_venv_status() {
 
   # Check if the current directory running via Virtualenv
   [ -n "$VIRTUAL_ENV" ] && $(type deactivate >/dev/null 2>&1) || return
-  echo -n " %Bvia%b "
+  echo -n " %B${SPACESHIP_PROMPT_VIA}%b "
   echo -n "%{$fg_bold[blue]%}"
   echo -n "$(basename $VIRTUAL_ENV)"
   echo -n "%{$reset_color%}"
@@ -186,7 +188,7 @@ spaceship_nvm_status() {
   [[ "${nvm_status}" == "system" ]] && return
   nvm_status=${nvm_status}
 
-  echo -n " %Bvia%b "
+  echo -n " %B${SPACESHIP_PROMPT_VIA}%b "
   echo -n "%{$fg_bold[green]%}"
   echo -n "${SPACESHIP_NVM_SYMBOL} ${nvm_status}"
   echo -n "%{$reset_color%}"
@@ -209,7 +211,7 @@ spaceship_ruby_version() {
     return
   fi
 
-  echo -n " %Bvia%b "
+  echo -n " %B${SPACESHIP_PROMPT_VIA}%b "
   echo -n "%{$fg_bold[red]%}"
   echo -n "${SPACESHIP_RUBY_SYMBOL}  ${ruby_version}"
   echo -n "%{$reset_color%}"
