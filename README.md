@@ -23,6 +23,8 @@ Currently it shows:
 * Username turns red when root.
 * Current Node.js version, through NVM (`⬢`).
 * Current Ruby version, through RVM/RBENV/CHRUBY (`💎`).
+* Current Swift version, through swiftenv (`🐦`).
+* Current Xcode version, through xcode-select (`🛠`).
 * Current Python virtualenv.
 * Current Vi-mode mode.
 
@@ -140,7 +142,7 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_XCODE_SHOW` | `true` | Current Swift version based on `swiftenv` |
+| `SPACESHIP_XCODE_SHOW` | `true` | Current Swift version based on [swiftenv](https://github.com/kylef/swiftenv) |
 | `SPACESHIP_XCODE_SYMBOL` | `🐦` | Character to be shown before Swift version |
 
 
@@ -148,7 +150,7 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_SWIFT_SHOW` | `true` | Current Xcode version of `xcode-select` |
+| `SPACESHIP_SWIFT_SHOW` | `true` | Current Xcode version of [xcode-select](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcode-select.1.html) |
 | `SPACESHIP_SWIFT_SYMBOL` | `🛠` | Character to be shown before Swift version |
 
 
