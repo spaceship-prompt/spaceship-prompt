@@ -31,6 +31,14 @@ SPACESHIP_NVM_SYMBOL="${SPACESHIP_NVM_SYMBOL:-⬢}"
 SPACESHIP_RUBY_SHOW="${SPACESHIP_RUBY_SHOW:-true}"
 SPACESHIP_RUBY_SYMBOL="${SPACESHIP_RUBY_SYMBOL:-💎}"
 
+# SWIFT
+SPACESHIP_SWIFT_SHOW="${SPACESHIP_SWIFT_SHOW:-true}"
+SPACESHIP_SWIFT_SYMBOL="${SPACESHIP_SWIFT_SYMBOL:-🐦}"
+
+# XCODE
+SPACESHIP_XCODE_SHOW="${SPACESHIP_XCODE_SHOW:-true}"
+SPACESHIP_XCODE_SYMBOL="${SPACESHIP_XCODE_SYMBOL:-🛠}"
+
 # VENV
 SPACESHIP_VENV_SHOW="${SPACESHIP_VENV_SHOW:-true}"
 
@@ -215,6 +223,43 @@ spaceship_ruby_version() {
   echo -n "%{$reset_color%}"
 }
 
+# Swift
+# Show current version of Swift
+spaceship_swift_version() {
+  [[ $SPACESHIP_SWIFT_SHOW == false ]] && return
+
+  if command -v swiftenv > /dev/null 2>&1; then
+    swift_version=$(swiftenv version | sed 's/ .*//')
+  fi
+
+  echo -n " %B|%b "
+  echo -n "%{$fg_bold[yellow]%}"
+  echo -n "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}"
+  echo -n "%{$reset_color%}"
+}
+
+# Xcode
+# Show current version of Xcode
+spaceship_xcode_version() {
+  [[ $SPACESHIP_XCODE_SHOW == false ]] && return
+
+  if command -v xcode-select > /dev/null 2>&1; then
+    xcode_path=$(xcode-select -p | sed 's/ *Developer//')
+    version_xcode_path=$xcode_path"version.plist"
+    if [ -f $version_xcode_path ]; then
+      if command -v defaults > /dev/null 2>&1 ; then
+        xcode_version=$(defaults read ${version_xcode_path} CFBundleShortVersionString)
+      fi
+    fi
+  fi
+  echo -n " %B|%b "
+  echo -n "%{$fg_bold[blue]%}"
+  echo -n "${SPACESHIP_XCODE_SYMBOL}  ${xcode_version}"
+  echo -n "%{$reset_color%}"
+}
+
+
+
 # Temporarily switch to vi-mode
 spaceship_enable_vi_mode() {
   function zle-keymap-select() { zle reset-prompt; zle -R; };
@@ -258,6 +303,8 @@ spaceship_build_prompt() {
   spaceship_git_status
   spaceship_nvm_status
   spaceship_ruby_version
+  spaceship_xcode_version
+  spaceship_swift_version
   spaceship_venv_status
 }
 
