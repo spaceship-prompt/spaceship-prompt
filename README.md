@@ -151,7 +151,7 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_SWIFT_SHOW` | `true` | Current Xcode version of [xcode-select](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcode-select.1.html) |
-| `SPACESHIP_SWIFT_SYMBOL` | `🛠` | Character to be shown before Swift version |
+| `SPACESHIP_SWIFT_SYMBOL` | `🛠` | Character to be shown before Xcode version |
 
 
 ### Venv
