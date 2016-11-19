@@ -10,11 +10,22 @@ NEWLINE='
 
 # PROMPT
 SPACESHIP_PROMPT_SYMBOL="${SPACESHIP_PROMPT_SYMBOL:-➔}"
-SPACESHIP_PROMPT_VIA="${SPACESHIP_PROMPT_VIA:-via}"
-SPACESHIP_PROMPT_ON="${SPACESHIP_PROMPT_ON:-on}"
 SPACESHIP_PROMPT_ADD_NEWLINE="${SPACESHIP_PROMPT_ADD_NEWLINE:-true}"
 SPACESHIP_PROMPT_SEPARATE_LINE="${SPACESHIP_PROMPT_SEPARATE_LINE:-true}"
 SPACESHIP_PROMPT_TRUNC="${SPACESHIP_PROMPT_TRUNC:-3}"
+
+# PREFIXES
+SPACESHIP_PREFIX_SHOW="${SPACEHIP_PREFIX_SHOW:-true}"
+SPACESHIP_PREFIX_GIT="${SPACESHIP_PREFIX_GIT:-on}"
+SPACESHIP_PREFIX_HOST="${SPACESHIP_PREFIX_HOST:-at}"
+SPACESHIP_PREFIX_USER="${SPACESHIP_PREFIX_USER:-in}"
+SPACESHIP_PREFIX_ENV_DEFAULT="${SPACESHIP_PREFIX_ENV_DEFAULT:-via}"
+SPACESHIP_PREFIX_NVM="${SPACESHIP_PREFIX_NVM:-SPACESHIP_PREFIX_ENV_DEFAULT}"
+SPACESHIP_PREFIX_RUBY="${SPACESHIP_PREFIX_RUBY:-SPACESHIP_PREFIX_ENV_DEFAULT}"
+SPACESHIP_PREFIX_SWIFT="${SPACESHIP_PREFIX_SWIFT:-SPACESHIP_PREFIX_ENV_DEFAULT}"
+SPACESHIP_PREFIX_XCODE="${SPACESHIP_PREFIX_XCODE:-SPACESHIP_PREFIX_ENV_DEFAULT}"
+SPACESHIP_PREFIX_VENV="${SPACESHIP_PREFIX_VENV:-SPACESHIP_PREFIX_ENV_DEFAULT}"
+
 
 # GIT
 SPACESHIP_GIT_SHOW="${SPACESHIP_GIT_SHOW:-true}"
@@ -59,12 +70,12 @@ spaceship_user() {
 spaceship_host() {
   if [[ -n $SSH_CONNECTION ]]; then
     echo -n "$(spaceship_user)"
-    echo -n " %Bat%b "
+    echo -n " %B${SPACESHIP_PREFIX_USER}%b "
     echo -n "%{$fg_bold[green]%}%m%{$reset_color%}"
-    echo -n " %Bin%b "
+    echo -n " %B${SPACESHIP_PREFIX_HOST}%b "
   elif [[ $LOGNAME != $USER ]] || [[ $USER == 'root' ]]; then
     echo -n "$(spaceship_user)"
-    echo -n " %Bin%b "
+    echo -n " %B${SPACESHIP_PREFIX_HOST}%b "
     echo -n "%{$reset_color%}"
   fi
 }
@@ -154,7 +165,7 @@ spaceship_git_status() {
 
     [ -n "${indicators}" ] && indicators=" [${indicators}]";
 
-    echo -n " %B${SPACESHIP_PROMPT_ON}%b "
+    echo -n " %B${SPACESHIP_PREFIX_GIT}%b "
     echo -n "%{$fg_bold[magenta]%}"
     echo -n "$(git_current_branch)"
     echo -n "%{$reset_color%}"
@@ -171,7 +182,7 @@ spaceship_venv_status() {
 
   # Check if the current directory running via Virtualenv
   [ -n "$VIRTUAL_ENV" ] && $(type deactivate >/dev/null 2>&1) || return
-  echo -n " %B${SPACESHIP_PROMPT_VIA}%b "
+  echo -n " %B${SPACESHIP_PREFIX_VENV}%b "
   echo -n "%{$fg_bold[blue]%}"
   echo -n "$(basename $VIRTUAL_ENV)"
   echo -n "%{$reset_color%}"
@@ -188,7 +199,7 @@ spaceship_nvm_status() {
   [[ "${nvm_status}" == "system" ]] && return
   nvm_status=${nvm_status}
 
-  echo -n " %B${SPACESHIP_PROMPT_VIA}%b "
+  echo -n " %B${SPACESHIP_PREFIX_NVM}%b "
   echo -n "%{$fg_bold[green]%}"
   echo -n "${SPACESHIP_NVM_SYMBOL} ${nvm_status}"
   echo -n "%{$reset_color%}"
@@ -211,7 +222,7 @@ spaceship_ruby_version() {
     return
   fi
 
-  echo -n " %B${SPACESHIP_PROMPT_VIA}%b "
+  echo -n " %B${SPACESHIP_PREFIX_RUBY}%b "
   echo -n "%{$fg_bold[red]%}"
   echo -n "${SPACESHIP_RUBY_SYMBOL}  ${ruby_version}"
   echo -n "%{$reset_color%}"
