@@ -106,17 +106,25 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_PROMPT_SYMBOL` | `➔` | Character to be shown before any command |
-| `SPACESHIP_PROMPT_VIA` | `via` | Character to be shown before git status |
-| `SPACESHIP_PROMPT_ON` | `on` | Character to be shown before environment version |
 | `SPACESHIP_PROMPT_SEPARATE_LINE` | `true` | Make the prompt span across two lines |
 | `SPACESHIP_PROMPT_ADD_NEWLINE` | `true` | Adds a newline character before each prompt line |
 | `SPACESHIP_PROMPT_TRUNC` | `3` | Number of folders of cwd to show in prompt, 0 to show all |
+
+### Prefixes
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_PREFIX_SHOW` | `true` | Show Prefix Characters |
+| `SPACESHIP_PREFIX_MACHINE` | `at` | Characters to be shown before the connected SSH machine name |
+| `SPACESHIP_PREFIX_SSH_DIR` | `in` | Characters to be shown before the current SSH Directory |
+| `SPACESHIP_PREFIX_ENV_DEFAULT` | `via` | Default character to be shown before environment versions |
 
 ### Git
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_GIT_SHOW` | `true` | Show/hide git status |
+| `SPACESHIP_PREFIX_GIT` | `on` | Character to be shown before git status |
 | `SPACESHIP_GIT_UNCOMMITTED` | `+` | Character to be shown on uncommitted changes |
 | `SPACESHIP_GIT_UNSTAGED` | `!` | Character to be shown on unstaged changes |
 | `SPACESHIP_GIT_UNTRACKED` | `?` | Character to be shown on untracked changes |
@@ -130,6 +138,7 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | :------- | :-----: | ------- |
 | `SPACESHIP_NVM_SHOW` | `true` | Current Node.js version |
 | `SPACESHIP_NVM_SYMBOL` | `⬢` | Character to be shown before Node.js version |
+| `SPACESHIP_PREFIX_NVM` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the NVM Environment |
 
 ### Ruby
 
@@ -137,12 +146,26 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | :------- | :-----: | ------- |
 | `SPACESHIP_RUBY_SHOW` | `true` | Current Ruby version |
 | `SPACESHIP_RUBY_SYMBOL` | `💎` | Character to be shown before Ruby version |
+| `SPACESHIP_RUBY_PREFIX` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Ruby Environment |
+
+### XCode
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_XCODE_PREFIX` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the XCode Environment |
+
+### Swift
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_SWIFT_PREFIX` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Swift Environment |
 
 ### Venv
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_VENV_SHOW` | `true` | Current Python virtualenv |
+| `SPACESHIP_VENV_PREFIX` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the NVM Environment |
 
 ### Vi-mode
 
