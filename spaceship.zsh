@@ -35,10 +35,12 @@ SPACESHIP_RUBY_SYMBOL="${SPACESHIP_RUBY_SYMBOL:-💎}"
 SPACESHIP_SWIFT_SHOW_LOCAL="${SPACESHIP_SWIFT_SHOW_LOCAL:-true}"
 SPACESHIP_SWIFT_SHOW_GLOBAL="${SPACESHIP_SWIFT_SHOW_GLOBAL:-false}"
 SPACESHIP_SWIFT_SYMBOL="${SPACESHIP_SWIFT_SYMBOL:-🐦}"
+SPACESHIP_PREFIX_SWIFT="$SPACESHIP_PREFIX_SWIFT:-|"
 
 # XCODE
 SPACESHIP_XCODE_SHOW="${SPACESHIP_XCODE_SHOW:-true}"
 SPACESHIP_XCODE_SYMBOL="${SPACESHIP_XCODE_SYMBOL:-🛠}"
+SPACESHIP_PREFIX_XCODE="$SPACESHIP_PREFIX_XCODE:-|"
 
 # VENV
 SPACESHIP_VENV_SHOW="${SPACESHIP_VENV_SHOW:-true}"
@@ -243,7 +245,7 @@ spaceship_swift_version() {
   if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
     if command -v swiftenv > /dev/null 2>&1; then
       swift_version=$(swiftenv version | sed 's/ .*//')
-      echo -n " %B|%b "
+      echo -n " %B${SPACESHIP_PREFIX_SWIFT}%b "
       echo -n "%{$fg_bold[yellow]%}"
       echo -n "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}"
       echo -n "%{$reset_color%}"
@@ -266,7 +268,7 @@ spaceship_xcode_version() {
       fi
     fi
   fi
-  echo -n " %B|%b "
+  echo -n " %B${SPACESHIP_PREFIX_XCODE}%b "
   echo -n "%{$fg_bold[blue]%}"
   echo -n "${SPACESHIP_XCODE_SYMBOL}  ${xcode_version}"
   echo -n "%{$reset_color%}"
