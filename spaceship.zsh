@@ -32,7 +32,8 @@ SPACESHIP_RUBY_SHOW="${SPACESHIP_RUBY_SHOW:-true}"
 SPACESHIP_RUBY_SYMBOL="${SPACESHIP_RUBY_SYMBOL:-💎}"
 
 # SWIFT
-SPACESHIP_SWIFT_SHOW="${SPACESHIP_SWIFT_SHOW:-true}"
+SPACESHIP_SWIFT_SHOW_LOCAL="${SPACESHIP_SWIFT_SHOW_LOCAL:-true}"
+SPACESHIP_SWIFT_SHOW_GLOBAL="${SPACESHIP_SWIFT_SHOW_GLOBAL:-false}"
 SPACESHIP_SWIFT_SYMBOL="${SPACESHIP_SWIFT_SYMBOL:-🐦}"
 
 # XCODE
@@ -226,16 +227,29 @@ spaceship_ruby_version() {
 # Swift
 # Show current version of Swift
 spaceship_swift_version() {
-  [[ $SPACESHIP_SWIFT_SHOW == false ]] && return
 
-  if command -v swiftenv > /dev/null 2>&1; then
-    swift_version=$(swiftenv version | sed 's/ .*//')
+  if [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
+    if command -v swiftenv > /dev/null 2>&1; then
+      if swiftenv version | grep ".swift-version" > /dev/null; then
+        swift_version=$(swiftenv version | sed 's/ .*//')
+        echo -n " %B|%b "
+        echo -n "%{$fg_bold[yellow]%}"
+        echo -n "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}"
+        echo -n "%{$reset_color%}"
+        return
+      fi
+    fi
   fi
-
-  echo -n " %B|%b "
-  echo -n "%{$fg_bold[yellow]%}"
-  echo -n "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}"
-  echo -n "%{$reset_color%}"
+  if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
+    if command -v swiftenv > /dev/null 2>&1; then
+      swift_version=$(swiftenv version | sed 's/ .*//')
+      echo -n " %B|%b "
+      echo -n "%{$fg_bold[yellow]%}"
+      echo -n "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}"
+      echo -n "%{$reset_color%}"
+      return
+    fi
+  fi
 }
 
 # Xcode
@@ -270,21 +284,21 @@ spaceship_enable_vi_mode() {
 # Show current vi_mode mode
 spaceship_vi_mode() {
   if bindkey | grep "vi-quoted-insert" > /dev/null 2>&1; then # check if vi-mode enabled
-    echo -n "%{$fg_bold[white]%}"
+  echo -n "%{$fg_bold[white]%}"
 
+  MODE_INDICATOR="${SPACESHIP_VI_MODE_INSERT}"
+
+  case ${KEYMAP} in
+    main|viins)
     MODE_INDICATOR="${SPACESHIP_VI_MODE_INSERT}"
-
-    case ${KEYMAP} in
-      main|viins)
-        MODE_INDICATOR="${SPACESHIP_VI_MODE_INSERT}"
-        ;;
-      vicmd)
-        MODE_INDICATOR="${SPACESHIP_VI_MODE_NORMAL}"
-        ;;
-    esac
-    echo -n "${MODE_INDICATOR}"
-    echo -n "%{$reset_color%} "
-  fi
+    ;;
+    vicmd)
+    MODE_INDICATOR="${SPACESHIP_VI_MODE_NORMAL}"
+    ;;
+  esac
+  echo -n "${MODE_INDICATOR}"
+  echo -n "%{$reset_color%} "
+fi
 }
 
 # Command prompt.
