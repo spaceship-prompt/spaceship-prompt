@@ -142,7 +142,8 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_XCODE_SHOW` | `true` | Current Swift version based on [swiftenv](https://github.com/kylef/swiftenv) |
+| `SPACESHIP_SWIFT_SHOW_LOCAL` | `true` | Current local Swift version based on [swiftenv](https://github.com/kylef/swiftenv) |
+| `SPACESHIP_SWIFT_SHOW_GLOBAL` | `false` | Global Swift version based on [swiftenv](https://github.com/kylef/swiftenv) |
 | `SPACESHIP_XCODE_SYMBOL` | `🐦` | Character to be shown before Swift version |
 
 
