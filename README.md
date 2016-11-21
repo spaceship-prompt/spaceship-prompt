@@ -115,16 +115,21 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_PREFIX_SHOW` | `true` | Show Prefix Characters |
-| `SPACESHIP_PREFIX_MACHINE` | `at` | Characters to be shown before the connected SSH machine name |
-| `SPACESHIP_PREFIX_SSH_DIR` | `in` | Characters to be shown before the current SSH Directory |
-| `SPACESHIP_PREFIX_ENV_DEFAULT` | `via` | Default character to be shown before environment versions |
+| `SPACESHIP_PREFIX_HOST` | `at` | Characters to be shown before the connected SSH machine name |
+| `SPACESHIP_PREFIX_DIR` | `in` | Characters to be shown before the current SSH Directory |
+| `SPACESHIP_PREFIX_GIT` | `on` | Character to be shown before git status |
+| `SPACESHIP_PREFIX_ENV_DEFAULT` | `via` | Default environment prefix |
+| `SPACESHIP_PREFIX_NVM` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the NVM environment |
+| `SPACESHIP_PREFIX_RUBY` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Ruby environment |
+| `SPACESHIP_PREFIX_XCODE` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the XCode environment |
+| `SPACESHIP_PREFIX_SWIFT` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Swift environment |
+| `SPACESHIP_PREFIX_VENV` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Python virtualenv Environment |
 
 ### Git
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_GIT_SHOW` | `true` | Show/hide git status |
-| `SPACESHIP_PREFIX_GIT` | `on` | Character to be shown before git status |
 | `SPACESHIP_GIT_UNCOMMITTED` | `+` | Character to be shown on uncommitted changes |
 | `SPACESHIP_GIT_UNSTAGED` | `!` | Character to be shown on unstaged changes |
 | `SPACESHIP_GIT_UNTRACKED` | `?` | Character to be shown on untracked changes |
@@ -138,7 +143,6 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | :------- | :-----: | ------- |
 | `SPACESHIP_NVM_SHOW` | `true` | Current Node.js version |
 | `SPACESHIP_NVM_SYMBOL` | `⬢` | Character to be shown before Node.js version |
-| `SPACESHIP_PREFIX_NVM` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the NVM Environment |
 
 ### Ruby
 
@@ -146,26 +150,13 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | :------- | :-----: | ------- |
 | `SPACESHIP_RUBY_SHOW` | `true` | Current Ruby version |
 | `SPACESHIP_RUBY_SYMBOL` | `💎` | Character to be shown before Ruby version |
-| `SPACESHIP_RUBY_PREFIX` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Ruby Environment |
-
-### XCode
-
-| Variable | Default | Meaning |
-| :------- | :-----: | ------- |
-| `SPACESHIP_XCODE_PREFIX` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the XCode Environment |
-
-### Swift
-
-| Variable | Default | Meaning |
-| :------- | :-----: | ------- |
-| `SPACESHIP_SWIFT_PREFIX` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Swift Environment |
 
 ### Venv
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_VENV_SHOW` | `true` | Current Python virtualenv |
-| `SPACESHIP_VENV_PREFIX` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the NVM Environment |
+
 
 ### Vi-mode
 
