@@ -16,10 +16,15 @@ SPACESHIP_PROMPT_TRUNC="${SPACESHIP_PROMPT_TRUNC:-3}"
 
 # PREFIXES
 SPACESHIP_PREFIX_SHOW="${SPACEHIP_PREFIX_SHOW:-true}"
-SPACESHIP_PREFIX_HOST="${SPACESHIP_PREFIX_HOST:-at}"
-SPACESHIP_PREFIX_DIR="${SPACESHIP_PREFIX_DIR:-in}"
-SPACESHIP_PREFIX_GIT="${SPACESHIP_PREFIX_GIT:-on}"
-SPACESHIP_PREFIX_ENV_DEFAULT="${SPACESHIP_PREFIX_ENV_DEFAULT:-via}"
+SPACESHIP_PREFIX_HOST="${SPACESHIP_PREFIX_HOST:-" at "}"
+SPACESHIP_PREFIX_DIR="${SPACESHIP_PREFIX_DIR:-" in "}"
+SPACESHIP_PREFIX_GIT="${SPACESHIP_PREFIX_GIT:-" on "}"
+SPACESHIP_PREFIX_ENV_DEFAULT="${SPACESHIP_PREFIX_ENV_DEFAULT:-" via "}"
+SPACESHIP_PREFIX_NVM="${SPACESHIP_PREFIX_NVM:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
+SPACESHIP_PREFIX_RUBY="${SPACESHIP_PREFIX_RUBY:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
+SPACESHIP_PREFIX_XCODE="${SPACESHIP_PREFIX_XCODE:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
+SPACESHIP_PREFIX_SWIFT="${SPACESHIP_PREFIX_SWIFT:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
+SPACESHIP_PREFIX_VENV="${SPACESHIP_PREFIX_VENV:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 
 # GIT
 SPACESHIP_GIT_SHOW="${SPACESHIP_GIT_SHOW:-true}"
@@ -46,16 +51,6 @@ SPACESHIP_VI_MODE_SHOW="${SPACESHIP_VI_MODE_SHOW:-true}"
 SPACESHIP_VI_MODE_INSERT="${SPACESHIP_VI_MODE_INSERT:-[I]}"
 SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:-[N]}"
 
-# Prefixes
-# Initializes prefix variables
-spaceship_prefixes() {
-  SPACESHIP_PREFIX_NVM="${SPACESHIP_PREFIX_NVM:-${SPACESHIP_PREFIX_ENV_DEFAULT}}"
-  SPACESHIP_PREFIX_RUBY="${SPACESHIP_PREFIX_RUBY:-${SPACESHIP_PREFIX_ENV_DEFAULT}}"
-  SPACESHIP_PREFIX_XCODE="${SPACESHIP_PREFIX_XCODE:-${SPACESHIP_PREFIX_ENV_DEFAULT}}"
-  SPACESHIP_PREFIX_SWIFT="${SPACESHIP_PREFIX_SWIFT:-${SPACESHIP_PREFIX_ENV_DEFAULT}}"
-  SPACESHIP_PREFIX_VENV="${SPACESHIP_PREFIX_VENV:-${SPACESHIP_PREFIX_ENV_DEFAULT}}"
-}
-
 # Username.
 # If user is root, then pain it in red. Otherwise, just print in yellow.
 spaceship_user() {
@@ -75,16 +70,18 @@ spaceship_host() {
   if [[ -n $SSH_CONNECTION ]]; then
     echo -n "$(spaceship_user)"
 
-    [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n " %B${SPACESHIP_PREFIX_DIR}%b "
-
+    # Do not show directory prefix if prefixes are disabled
+    [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_DIR}%b"
+    # Display machine name
     echo -n "%{$fg_bold[green]%}%m%{$reset_color%}"
-
-    [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n " %B${SPACESHIP_PREFIX_HOST}%b "
+    # Do not show host prefix if prefixes are disabled
+    [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_HOST}%b"
 
   elif [[ $LOGNAME != $USER ]] || [[ $USER == 'root' ]]; then
     echo -n "$(spaceship_user)"
 
-    [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n " %B${SPACESHIP_PREFIX_HOST}%b "
+    # Do not show host prefix if prefixes are disabled
+    [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_HOST}%b"
 
     echo -n "%{$reset_color%}"
   fi
@@ -175,7 +172,8 @@ spaceship_git_status() {
 
     [ -n "${indicators}" ] && indicators=" [${indicators}]";
 
-    [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n " %B${SPACESHIP_PREFIX_GIT}%b "
+    # Do not show git prefix if prefixes are disabled
+    [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_GIT}%b"
 
     echo -n "%{$fg_bold[magenta]%}"
     echo -n "$(git_current_branch)"
@@ -194,7 +192,8 @@ spaceship_venv_status() {
   # Check if the current directory running via Virtualenv
   [ -n "$VIRTUAL_ENV" ] && $(type deactivate >/dev/null 2>&1) || return
 
-  [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n " %B${SPACESHIP_PREFIX_VENV}%b "
+  # Do not show venv prefix if prefixes are disabled
+  [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_VENV}%b"
 
   echo -n "%{$fg_bold[blue]%}"
   echo -n "$(basename $VIRTUAL_ENV)"
@@ -212,7 +211,8 @@ spaceship_nvm_status() {
   [[ "${nvm_status}" == "system" ]] && return
   nvm_status=${nvm_status}
 
-  [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n " %B${SPACESHIP_PREFIX_NVM}%b "
+  # Do not show NVM prefix if prefixes are disabled
+  [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_NVM}%b"
 
   echo -n "%{$fg_bold[green]%}"
   echo -n "${SPACESHIP_NVM_SYMBOL} ${nvm_status}"
@@ -236,7 +236,8 @@ spaceship_ruby_version() {
     return
   fi
 
-  [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n " %B${SPACESHIP_PREFIX_RUBY}%b "
+  # Do not show ruby prefix if prefixes are disabled
+  [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_RUBY}%b"
 
   echo -n "%{$fg_bold[red]%}"
   echo -n "${SPACESHIP_RUBY_SYMBOL}  ${ruby_version}"
@@ -281,7 +282,6 @@ spaceship_return_status() {
 
 # Build prompt line
 spaceship_build_prompt() {
-  spaceship_prefixes
   spaceship_host
   spaceship_current_dir
   spaceship_git_status
