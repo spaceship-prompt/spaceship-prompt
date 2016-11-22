@@ -170,13 +170,28 @@ Note: For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$rese
 
 ### Example
 
-Here is all optins which may be changed. Copy this to your `~/.zshrc` to make it easy to change.
+Here is all options which may be changed. Copy this to your `~/.zshrc` to make it easy to change.
+
+**Warning!:** These overridden variables should be placed _after_ the theme in your `.zshrc` file.
 
 ```zsh
 # PROMPT
 SPACESHIP_PROMPT_SYMBOL='➔'
 SPACESHIP_PROMPT_ADD_NEWLINE=true
 SPACESHIP_PROMPT_SEPARATE_LINE=true
+SPACESHIP_PROMPT_TRUNC=3
+
+# PREFIXES
+SPACESHIP_PREFIX_SHOW=true
+SPACESHIP_PREFIX_HOST=' at '
+SPACESHIP_PREFIX_DIR=' in '
+SPACESHIP_PREFIX_GIT=' on '
+SPACESHIP_PREFIX_ENV_DEFAULT=' via '
+SPACESHIP_PREFIX_NVM=$SPACESHIP_PREFIX_ENV_DEFAULT
+SPACESHIP_PREFIX_RUBY=$SPACESHIP_PREFIX_ENV_DEFAULT
+SPACESHIP_PREFIX_XCODE=$SPACESHIP_PREFIX_ENV_DEFAULT
+SPACESHIP_PREFIX_SWIFT=$SPACESHIP_PREFIX_ENV_DEFAULT
+SPACESHIP_PREFIX_VENV=$SPACESHIP_PREFIX_ENV_DEFAULT
 
 # GIT
 SPACESHIP_GIT_SHOW=true
