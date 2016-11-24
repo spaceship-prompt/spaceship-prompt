@@ -38,7 +38,8 @@ SPACESHIP_SWIFT_SYMBOL="${SPACESHIP_SWIFT_SYMBOL:-🐦}"
 SPACESHIP_PREFIX_SWIFT="${SPACESHIP_PREFIX_SWIFT:-|}"
 
 # XCODE
-SPACESHIP_XCODE_SHOW="${SPACESHIP_XCODE_SHOW:-true}"
+SPACESHIP_XCODE_SHOW_LOCAL="${SPACESHIP_XCODE_SHOW:-true}"
+SPACESHIP_XCODE_SHOW_GLOBAL="${SPACESHIP_XCODE_SHOW:-false}"
 SPACESHIP_XCODE_SYMBOL="${SPACESHIP_XCODE_SYMBOL:-🛠}"
 SPACESHIP_PREFIX_XCODE="${SPACESHIP_PREFIX_XCODE:-|}"
 
@@ -233,31 +234,29 @@ spaceship_swift_version() {
   if [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
     if command -v swiftenv > /dev/null 2>&1; then
       if swiftenv version | grep ".swift-version" > /dev/null; then
-        swift_version=$(swiftenv version | sed 's/ .*//')
-        echo -n " %B|%b "
-        echo -n "%{$fg_bold[yellow]%}"
-        echo -n "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}"
-        echo -n "%{$reset_color%}"
-        return
+        local swift_version=$(swiftenv version | sed 's/ .*//')
       fi
     fi
-  fi
-  if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
+  elif [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
     if command -v swiftenv > /dev/null 2>&1; then
-      swift_version=$(swiftenv version | sed 's/ .*//')
-      echo -n " %B${SPACESHIP_PREFIX_SWIFT}%b "
-      echo -n "%{$fg_bold[yellow]%}"
-      echo -n "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}"
-      echo -n "%{$reset_color%}"
-      return
+      local swift_version=$(swiftenv version | sed 's/ .*//')
+      echo -n "Local ko"
     fi
+  fi
+
+  if [ -n "${swift_version}" ]; then
+    echo -n " %B${SPACESHIP_PREFIX_SWIFT}%b "
+    echo -n "%{$fg_bold[yellow]%}"
+    echo -n "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}"
+    echo -n "%{$reset_color%}"
   fi
 }
 
 # Xcode
 # Show current version of Xcode
 spaceship_xcode_version() {
-  [[ $SPACESHIP_XCODE_SHOW == false ]] && return
+
+  [[ $SPACESHIP_XCODE_SHOW_GLOBAL == false ]] && return
 
   if command -v xcode-select > /dev/null 2>&1; then
     xcode_path=$(xcode-select -p | sed 's/ *Developer//')
