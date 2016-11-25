@@ -11,12 +11,12 @@ Currently it shows:
 
 * Current git branch.
 * Git repo status:
-  * `+` — uncommitted changes in the index;
-  * `!` — unstaged changes;
-  * `?` — untracked changes;
-  * `$` — stashed changes;
-  * `⇣` — unpulled commits;
-  * `⇡` — unpushed commits.
+* `+` — uncommitted changes in the index;
+* `!` — unstaged changes;
+* `?` — untracked changes;
+* `$` — stashed changes;
+* `⇣` — unpulled commits;
+* `⇡` — unpushed commits.
 * Prompt character turns red if the last command exits with non-zero code.
 * Hostname only displayed when in an SSH session.
 * Username displayed only when it isn't `$LOGNAME`.
@@ -59,9 +59,9 @@ If you have problems, follow these instructions:
 2. Rename `spaceship.zsh` to `spaceship.zsh-theme`
 3. Put the file `spaceship.zsh-theme` in `$ZSH_CUSTOM/themes/`
 4. Add the line to your `~/.zshrc`:
-  ```
-  ZSH_THEME="spaceship"
-  ```
+```
+ZSH_THEME="spaceship"
+```
 
 ### For antigen users
 
@@ -151,7 +151,8 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_SWIFT_SHOW` | `true` | Current Xcode version of [xcode-select](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcode-select.1.html) |
+| `SPACESHIP_SWIFT_SHOW_LOCAL` | `true` | Current local Xcode version based on [xcenv]() |
+| `SPACESHIP_SWIFT_SHOW_GLOBAL` | `true` | Global Xcode version based on [xcenv]() |
 | `SPACESHIP_SWIFT_SYMBOL` | `🛠` | Character to be shown before Xcode version |
 
 
