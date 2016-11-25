@@ -38,8 +38,8 @@ SPACESHIP_SWIFT_SYMBOL="${SPACESHIP_SWIFT_SYMBOL:-🐦}"
 SPACESHIP_PREFIX_SWIFT="${SPACESHIP_PREFIX_SWIFT:-|}"
 
 # XCODE
-SPACESHIP_XCODE_SHOW_LOCAL="${SPACESHIP_XCODE_SHOW:-true}"
-SPACESHIP_XCODE_SHOW_GLOBAL="${SPACESHIP_XCODE_SHOW:-false}"
+SPACESHIP_XCODE_SHOW_LOCAL="${SPACESHIP_XCODE_SHOW_LOCAL:-true}"
+SPACESHIP_XCODE_SHOW_GLOBAL="${SPACESHIP_XCODE_SHOW_GLOBAL:-false}"
 SPACESHIP_XCODE_SYMBOL="${SPACESHIP_XCODE_SYMBOL:-🛠}"
 SPACESHIP_PREFIX_XCODE="${SPACESHIP_PREFIX_XCODE:-|}"
 
@@ -231,16 +231,15 @@ spaceship_ruby_version() {
 # Show current version of Swift
 spaceship_swift_version() {
 
-  if [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
+  if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
+    if command -v swiftenv > /dev/null 2>&1; then
+      local swift_version=$(swiftenv version | sed 's/ .*//')
+    fi
+  elif [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
     if command -v swiftenv > /dev/null 2>&1; then
       if swiftenv version | grep ".swift-version" > /dev/null; then
         local swift_version=$(swiftenv version | sed 's/ .*//')
       fi
-    fi
-  elif [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
-    if command -v swiftenv > /dev/null 2>&1; then
-      local swift_version=$(swiftenv version | sed 's/ .*//')
-      echo -n "Local ko"
     fi
   fi
 
@@ -256,21 +255,30 @@ spaceship_swift_version() {
 # Show current version of Xcode
 spaceship_xcode_version() {
 
-  [[ $SPACESHIP_XCODE_SHOW_GLOBAL == false ]] && return
-
-  if command -v xcode-select > /dev/null 2>&1; then
-    xcode_path=$(xcode-select -p | sed 's/ *Developer//')
-    version_xcode_path=$xcode_path"version.plist"
-    if [ -f $version_xcode_path ]; then
-      if command -v defaults > /dev/null 2>&1 ; then
-        xcode_version=$(defaults read ${version_xcode_path} CFBundleShortVersionString)
+  if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
+    if command -v xcenv > /dev/null 2>&1; then
+      local xcode_path=$(xcenv version | sed 's/ .*//')
+    fi
+  elif [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
+    if command -v xcenv > /dev/null 2>&1; then
+      if xcenv version | grep ".xcode-version" > /dev/null; then
+        local xcode_path=$(xcenv version | sed 's/ .*//')
       fi
     fi
   fi
-  echo -n " %B${SPACESHIP_PREFIX_XCODE}%b "
-  echo -n "%{$fg_bold[blue]%}"
-  echo -n "${SPACESHIP_XCODE_SYMBOL}  ${xcode_version}"
-  echo -n "%{$reset_color%}"
+
+  if [ -n "${xcode_path}" ]; then
+    local xcode_version_path=$xcode_path"/Contents/version.plist"
+    if [ -f ${xcode_version_path} ]; then
+      if command -v defaults > /dev/null 2>&1 ; then
+        xcode_version=$(defaults read ${xcode_version_path} CFBundleShortVersionString)
+        echo -n " %B${SPACESHIP_PREFIX_XCODE}%b "
+        echo -n "%{$fg_bold[blue]%}"
+        echo -n "${SPACESHIP_XCODE_SYMBOL}  ${xcode_version}"
+        echo -n "%{$reset_color%}"
+      fi
+    fi
+  fi
 }
 
 
