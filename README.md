@@ -23,6 +23,8 @@ Currently it shows:
 * Username turns red when root.
 * Current Node.js version, through NVM (`⬢`).
 * Current Ruby version, through RVM/RBENV/CHRUBY (`💎`).
+* Current Swift version, through swiftenv (`🐦`).
+* Current Xcode version, through xenv (`🛠`).
 * Current Python virtualenv.
 * Current Vi-mode mode.
 
@@ -56,10 +58,7 @@ If you have problems, follow these instructions:
 1. Download the theme [here](https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh)
 2. Rename `spaceship.zsh` to `spaceship.zsh-theme`
 3. Put the file `spaceship.zsh-theme` in `$ZSH_CUSTOM/themes/`
-4. Add the line to your `~/.zshrc`:
-  ```
-  ZSH_THEME="spaceship"
-  ```
+4. Add the line to your `~/.zshrc`: `ZSH_THEME="spaceship"`
 
 ### For antigen users
 
@@ -151,6 +150,24 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | `SPACESHIP_RUBY_SHOW` | `true` | Current Ruby version |
 | `SPACESHIP_RUBY_SYMBOL` | `💎` | Character to be shown before Ruby version |
 
+### Swift
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_SWIFT_SHOW_LOCAL` | `true` | Current local Swift version based on [swiftenv](https://github.com/kylef/swiftenv) |
+| `SPACESHIP_SWIFT_SHOW_GLOBAL` | `false` | Global Swift version based on [swiftenv](https://github.com/kylef/swiftenv) |
+| `SPACESHIP_SWIFT_SYMBOL` | `🐦` | Character to be shown before Swift version |
+
+
+### Xcode
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_XCODE_SHOW_LOCAL` | `true` | Current local Xcode version based on [xcenv](http://xcenv.org/) |
+| `SPACESHIP_XCODE_SHOW_GLOBAL` | `true` | Global Xcode version based on [xcenv](http://xcenv.org/) |
+| `SPACESHIP_XCODE_SYMBOL` | `🛠` | Character to be shown before Xcode version |
+
+
 ### Venv
 
 | Variable | Default | Meaning |
@@ -209,6 +226,16 @@ SPACESHIP_NVM_SYMBOL='⬢'
 # RUBY
 SPACESHIP_RUBY_SHOW=true
 SPACESHIP_RUBY_SYMBOL='💎'
+
+# SWIFT
+SPACESHIP_SWIFT_SHOW_LOCAL=true
+SPACESHIP_SWIFT_SHOW_GLOBAL=false
+SPACESHIP_SWIFT_SYMBOL='🐦'
+
+# XCODE
+SPACESHIP_XCODE_SHOW_LOCAL=true
+SPACESHIP_XCODE_SHOW_GLOBAL=false
+SPACESHIP_XCODE_SYMBOL='🛠'
 
 # VENV
 SPACESHIP_VENV_SHOW=true
