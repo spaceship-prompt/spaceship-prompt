@@ -150,7 +150,7 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | `SPACESHIP_RUBY_SHOW` | `true` | Current Ruby version |
 | `SPACESHIP_RUBY_SYMBOL` | `💎` | Character to be shown before Ruby version |
 
-### Xcode
+### Swift
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -159,12 +159,12 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | `SPACESHIP_XCODE_SYMBOL` | `🐦` | Character to be shown before Swift version |
 
 
-### Swift
+### Xcode
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_SWIFT_SHOW_LOCAL` | `true` | Current local Xcode version based on [xcenv](http://xcenv.org/) |
-| `SPACESHIP_SWIFT_SHOW_GLOBAL` | `true` | Global Xcode version based on [xcenv](http://xcenv.org/) |
+| `SPACESHIP_XCODE_SHOW_LOCAL` | `true` | Current local Xcode version based on [xcenv](http://xcenv.org/) |
+| `SPACESHIP_XCODE_SHOW_GLOBAL` | `true` | Global Xcode version based on [xcenv](http://xcenv.org/) |
 | `SPACESHIP_SWIFT_SYMBOL` | `🛠` | Character to be shown before Xcode version |
 
 

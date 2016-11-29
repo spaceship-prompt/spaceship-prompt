@@ -22,8 +22,8 @@ SPACESHIP_PREFIX_GIT="${SPACESHIP_PREFIX_GIT:-" on "}"
 SPACESHIP_PREFIX_ENV_DEFAULT="${SPACESHIP_PREFIX_ENV_DEFAULT:-" via "}"
 SPACESHIP_PREFIX_NVM="${SPACESHIP_PREFIX_NVM:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_RUBY="${SPACESHIP_PREFIX_RUBY:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
-SPACESHIP_PREFIX_XCODE="${SPACESHIP_PREFIX_XCODE:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_SWIFT="${SPACESHIP_PREFIX_SWIFT:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
+SPACESHIP_PREFIX_XCODE="${SPACESHIP_PREFIX_XCODE:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_VENV="${SPACESHIP_PREFIX_VENV:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 
 # GIT
@@ -47,13 +47,11 @@ SPACESHIP_RUBY_SYMBOL="${SPACESHIP_RUBY_SYMBOL:-💎}"
 SPACESHIP_SWIFT_SHOW_LOCAL="${SPACESHIP_SWIFT_SHOW_LOCAL:-true}"
 SPACESHIP_SWIFT_SHOW_GLOBAL="${SPACESHIP_SWIFT_SHOW_GLOBAL:-false}"
 SPACESHIP_SWIFT_SYMBOL="${SPACESHIP_SWIFT_SYMBOL:-🐦}"
-SPACESHIP_PREFIX_SWIFT="${SPACESHIP_PREFIX_SWIFT:-|}"
 
 # XCODE
 SPACESHIP_XCODE_SHOW_LOCAL="${SPACESHIP_XCODE_SHOW_LOCAL:-true}"
 SPACESHIP_XCODE_SHOW_GLOBAL="${SPACESHIP_XCODE_SHOW_GLOBAL:-false}"
 SPACESHIP_XCODE_SYMBOL="${SPACESHIP_XCODE_SYMBOL:-🛠}"
-SPACESHIP_PREFIX_XCODE="${SPACESHIP_PREFIX_XCODE:-|}"
 
 # VENV
 SPACESHIP_VENV_SHOW="${SPACESHIP_VENV_SHOW:-true}"
@@ -259,16 +257,13 @@ spaceship_ruby_version() {
 # Swift
 # Show current version of Swift
 spaceship_swift_version() {
+  command -v swiftenv > /dev/null 2>&1 || return
 
   if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
-    if command -v swiftenv > /dev/null 2>&1; then
-      local swift_version=$(swiftenv version | sed 's/ .*//')
-    fi
+    local swift_version=$(swiftenv version | sed 's/ .*//')
   elif [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
-    if command -v swiftenv > /dev/null 2>&1; then
-      if swiftenv version | grep ".swift-version" > /dev/null; then
-        local swift_version=$(swiftenv version | sed 's/ .*//')
-      fi
+    if swiftenv version | grep ".swift-version" > /dev/null; then
+      local swift_version=$(swiftenv version | sed 's/ .*//')
     fi
   fi
 
@@ -283,16 +278,13 @@ spaceship_swift_version() {
 # Xcode
 # Show current version of Xcode
 spaceship_xcode_version() {
+  command -v xcenv > /dev/null 2>&1 || return
 
   if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
-    if command -v xcenv > /dev/null 2>&1; then
-      local xcode_path=$(xcenv version | sed 's/ .*//')
-    fi
+    local xcode_path=$(xcenv version | sed 's/ .*//')
   elif [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
-    if command -v xcenv > /dev/null 2>&1; then
-      if xcenv version | grep ".xcode-version" > /dev/null; then
-        local xcode_path=$(xcenv version | sed 's/ .*//')
-      fi
+    if xcenv version | grep ".xcode-version" > /dev/null; then
+      local xcode_path=$(xcenv version | sed 's/ .*//')
     fi
   fi
 
