@@ -24,7 +24,7 @@ Currently it shows:
 * Current Node.js version, through NVM (`⬢`).
 * Current Ruby version, through RVM/RBENV/CHRUBY (`💎`).
 * Current Swift version, through swiftenv (`🐦`).
-* Current Xcode version, through xcode-select (`🛠`).
+* Current Xcode version, through xenv (`🛠`).
 * Current Python virtualenv.
 * Current Vi-mode mode.
 
@@ -156,7 +156,7 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | :------- | :-----: | ------- |
 | `SPACESHIP_SWIFT_SHOW_LOCAL` | `true` | Current local Swift version based on [swiftenv](https://github.com/kylef/swiftenv) |
 | `SPACESHIP_SWIFT_SHOW_GLOBAL` | `false` | Global Swift version based on [swiftenv](https://github.com/kylef/swiftenv) |
-| `SPACESHIP_XCODE_SYMBOL` | `🐦` | Character to be shown before Swift version |
+| `SPACESHIP_SWIFT_SYMBOL` | `🐦` | Character to be shown before Swift version |
 
 
 ### Xcode
@@ -165,7 +165,7 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | :------- | :-----: | ------- |
 | `SPACESHIP_XCODE_SHOW_LOCAL` | `true` | Current local Xcode version based on [xcenv](http://xcenv.org/) |
 | `SPACESHIP_XCODE_SHOW_GLOBAL` | `true` | Global Xcode version based on [xcenv](http://xcenv.org/) |
-| `SPACESHIP_SWIFT_SYMBOL` | `🛠` | Character to be shown before Xcode version |
+| `SPACESHIP_XCODE_SYMBOL` | `🛠` | Character to be shown before Xcode version |
 
 
 ### Venv
@@ -226,6 +226,16 @@ SPACESHIP_NVM_SYMBOL='⬢'
 # RUBY
 SPACESHIP_RUBY_SHOW=true
 SPACESHIP_RUBY_SYMBOL='💎'
+
+# SWIFT
+SPACESHIP_SWIFT_SHOW_LOCAL=true
+SPACESHIP_SWIFT_SHOW_GLOBAL=false
+SPACESHIP_SWIFT_SYMBOL='🐦'
+
+# XCODE
+SPACESHIP_XCODE_SHOW_LOCAL=true
+SPACESHIP_XCODE_SHOW_GLOBAL=false
+SPACESHIP_XCODE_SYMBOL='🛠'
 
 # VENV
 SPACESHIP_VENV_SHOW=true
