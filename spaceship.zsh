@@ -302,8 +302,6 @@ spaceship_xcode_version() {
   fi
 }
 
-
-
 # Temporarily switch to vi-mode
 spaceship_enable_vi_mode() {
   function zle-keymap-select() { zle reset-prompt; zle -R; };
@@ -314,21 +312,21 @@ spaceship_enable_vi_mode() {
 # Show current vi_mode mode
 spaceship_vi_mode() {
   if bindkey | grep "vi-quoted-insert" > /dev/null 2>&1; then # check if vi-mode enabled
-  echo -n "%{$fg_bold[white]%}"
+    echo -n "%{$fg_bold[white]%}"
 
-  MODE_INDICATOR="${SPACESHIP_VI_MODE_INSERT}"
-
-  case ${KEYMAP} in
-    main|viins)
     MODE_INDICATOR="${SPACESHIP_VI_MODE_INSERT}"
-    ;;
-    vicmd)
-    MODE_INDICATOR="${SPACESHIP_VI_MODE_NORMAL}"
-    ;;
-  esac
-  echo -n "${MODE_INDICATOR}"
-  echo -n "%{$reset_color%} "
-fi
+
+    case ${KEYMAP} in
+      main|viins)
+      MODE_INDICATOR="${SPACESHIP_VI_MODE_INSERT}"
+      ;;
+      vicmd)
+      MODE_INDICATOR="${SPACESHIP_VI_MODE_NORMAL}"
+      ;;
+    esac
+    echo -n "${MODE_INDICATOR}"
+    echo -n "%{$reset_color%} "
+  fi
 }
 
 # Command prompt.
