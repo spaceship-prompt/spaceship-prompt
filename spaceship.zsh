@@ -179,6 +179,7 @@ spaceship_git_status() {
     indicators+="$(spaceship_git_untracked)"
     indicators+="$(spaceship_git_stashed)"
     indicators+="$(spaceship_git_unpushed_unpulled)"
+    indicators+="$(work_in_progress)"
 
     [ -n "${indicators}" ] && indicators=" [${indicators}]";
 
