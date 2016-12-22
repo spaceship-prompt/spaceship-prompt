@@ -235,9 +235,7 @@ spaceship_ruby_version() {
   [[ $SPACESHIP_RUBY_SHOW == false ]] && return
 
   if command -v rvm-prompt > /dev/null 2>&1; then
-    if rvm gemset list | grep "=> (default)" > /dev/null; then
-      ruby_version=$(rvm-prompt i v g)
-    fi
+    ruby_version=$(rvm-prompt i v g)
   elif command -v chruby > /dev/null 2>&1; then
     ruby_version=$(chruby | sed -n -e 's/ \* //p')
   elif command -v rbenv > /dev/null 2>&1; then
