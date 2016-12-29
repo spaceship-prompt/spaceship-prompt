@@ -25,6 +25,7 @@ SPACESHIP_PREFIX_RUBY="${SPACESHIP_PREFIX_RUBY:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_SWIFT="${SPACESHIP_PREFIX_SWIFT:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_XCODE="${SPACESHIP_PREFIX_XCODE:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_VENV="${SPACESHIP_PREFIX_VENV:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
+SPACESHIP_PREFIX_PYENV="${SPACESHIP_PREFIX_PYENV:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 
 # GIT
 SPACESHIP_GIT_SHOW="${SPACESHIP_GIT_SHOW:-true}"
@@ -55,6 +56,10 @@ SPACESHIP_XCODE_SYMBOL="${SPACESHIP_XCODE_SYMBOL:-🛠}"
 
 # VENV
 SPACESHIP_VENV_SHOW="${SPACESHIP_VENV_SHOW:-true}"
+
+# PYENV
+SPACESHIP_PYENV_SHOW="${SPACESHIP_PYENV_SHOW:-true}"
+SPACESHIP_PYENV_SYMBOL="${SPACESHIP_PYENV_SYMBOL:-🐍}"
 
 # VI_MODE
 SPACESHIP_VI_MODE_SHOW="${SPACESHIP_VI_MODE_SHOW:-true}"
@@ -210,6 +215,25 @@ spaceship_venv_status() {
   echo -n "%{$reset_color%}"
 }
 
+# Pyenv
+# Show current version of pyenv python, including system.
+# Currently only showing local pyenv version
+# TODO: Show on this order: $PYENV_VERSION > shell > local > global (based on pyenv doc)
+spaceship_pyenv_status() {
+  [[ $SPACESHIP_PYENV_SHOW == false ]] && return
+
+  $(type pyenv >/dev/null 2>&1) || return
+
+  local pyenv_status=$(pyenv local 2>/dev/null)
+
+  # Do not show venv prefix if prefixes are disabled
+  [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_PYENV}%b" || echo -n ' '
+
+  echo -n "%{$fg_bold[yellow]%}"
+  echo -n "${SPACESHIP_PYENV_SYMBOL}  ${pyenv_status}"
+  echo -n "%{$reset_color%}"
+}
+
 # NVM
 # Show current version of node, exception system.
 spaceship_nvm_status() {
@@ -348,6 +372,7 @@ spaceship_build_prompt() {
   spaceship_xcode_version
   spaceship_swift_version
   spaceship_venv_status
+  spaceship_pyenv_status
 }
 
 # Disable python virtualenv environment prompt prefix
