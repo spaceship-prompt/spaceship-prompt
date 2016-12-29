@@ -217,16 +217,30 @@ spaceship_venv_status() {
 
 # Pyenv
 # Show current version of pyenv python, including system.
-# Currently only showing local pyenv version
-# TODO: Show on this order: $PYENV_VERSION > shell > local > global (based on pyenv doc)
 spaceship_pyenv_status() {
   [[ $SPACESHIP_PYENV_SHOW == false ]] && return
 
-  $(type pyenv >/dev/null 2>&1) || return
+  $(type pyenv >/dev/null 2>&1) || return # Do nothing if pyenv is not installed
 
-  local pyenv_status=$(pyenv local 2>/dev/null)
+  local pyenv_shell=$(pyenv shell 2>/dev/null)
+  local pyenv_local=$(pyenv local 2>/dev/null)
+  local pyenv_global=$(pyenv global 2>/dev/null)
 
-  # Do not show venv prefix if prefixes are disabled
+  # Version follows this order: shell > local > global (https://github.com/yyuu/pyenv/blob/master/COMMANDS.md)
+  if [[ ! -z $pyenv_shell ]];
+  then
+      pyenv_status=$pyenv_shell
+  elif [[ ! -z $pyenv_local ]];
+  then
+      pyenv_status=$pyenv_local
+  elif [[ ! -z $pyenv_global ]];
+  then
+      pyenv_status=$pyenv_global
+  else
+      return # If none of these is set, pyenv is not being used. Do nothing.
+  fi
+
+  # Do not show pyenv prefix if prefixes are disabled
   [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_PYENV}%b" || echo -n ' '
 
   echo -n "%{$fg_bold[yellow]%}"
