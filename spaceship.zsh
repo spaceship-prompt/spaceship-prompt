@@ -328,16 +328,21 @@ spaceship_vi_mode() {
 }
 
 # Command prompt.
-# Pain $PROMPT_SYMBOL in red if previous command was fail and
-# pain in green if all OK.
+# Paint $PROMPT_SYMBOL in red if previous command was fail and
+# paint in green if everything was OK.
 spaceship_return_status() {
   echo -n "%(?.%{$fg[green]%}.%{$fg[red]%})"
-  echo -n "%B${SPACESHIP_PROMPT_SYMBOL}%b"
-  echo    "%{$reset_color%}"
+  echo -n "%B${SPACESHIP_PROMPT_SYMBOL}%b "
+  echo -n "%{$reset_color%}"
 }
 
-# Build prompt line
-spaceship_build_prompt() {
+# Entry point
+# Compose whole prompt from smaller parts
+spaceship_prompt() {
+  # Should it add a new line before the prompt?
+  [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
+
+  # Execute all parts
   spaceship_host
   spaceship_current_dir
   spaceship_git_status
@@ -346,23 +351,31 @@ spaceship_build_prompt() {
   spaceship_xcode_version
   spaceship_swift_version
   spaceship_venv_status
+
+  # Should it write prompt in two lines or not?
+  # Write a space before, if it's written in single line
+  [[ $SPACESHIP_PROMPT_SEPARATE_LINE == true ]] && echo -n "$NEWLINE" || echo -n ' '
+
+  # Is vi-mode active?
+  [[ $SPACESHIP_VI_MODE_SHOW == true ]] && spaceship_vi_mode
+
+  # Prompt character
+  spaceship_return_status
+}
+
+# PS2 - continuation interactive prompt
+spaceship_ps2_prompt() {
+  echo -n "%{$fg_bold[yellow]%}"
+  echo -n "%{$SPACESHIP_PROMPT_SYMBOL%} "
+  echo -n "%{$reset_color%}"
 }
 
 # Disable python virtualenv environment prompt prefix
 VIRTUAL_ENV_DISABLE_PROMPT=true
 
-# Compose PROMPT
-PROMPT=''
-[[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && PROMPT="$PROMPT$NEWLINE"
-PROMPT="$PROMPT"'$(spaceship_build_prompt) '
-[[ $SPACESHIP_PROMPT_SEPARATE_LINE == true ]] && PROMPT="$PROMPT$NEWLINE"
-[[ $SPACESHIP_VI_MODE_SHOW == true ]] && PROMPT="$PROMPT"'$(spaceship_vi_mode)'
-PROMPT="$PROMPT"'$(spaceship_return_status) '
-
-# Set PS2 - continuation interactive prompt
-PS2="%{$fg_bold[yellow]%}"
-PS2+="%{$SPACESHIP_PROMPT_SYMBOL%} "
-PS2+="%{$reset_color%}"
+# Expose Spaceship to environment variables
+PROMPT='$(spaceship_prompt)'
+PS2='$(spaceship_ps2_prompt)'
 
 # LSCOLORS
 export LSCOLORS="Gxfxcxdxbxegedabagacab"
