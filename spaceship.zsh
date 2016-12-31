@@ -25,6 +25,7 @@ SPACESHIP_PREFIX_RUBY="${SPACESHIP_PREFIX_RUBY:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_SWIFT="${SPACESHIP_PREFIX_SWIFT:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_XCODE="${SPACESHIP_PREFIX_XCODE:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_VENV="${SPACESHIP_PREFIX_VENV:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
+SPACESHIP_PREFIX_PYENV="${SPACESHIP_PREFIX_PYENV:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 
 # GIT
 SPACESHIP_GIT_SHOW="${SPACESHIP_GIT_SHOW:-true}"
@@ -55,6 +56,10 @@ SPACESHIP_XCODE_SYMBOL="${SPACESHIP_XCODE_SYMBOL:-🛠}"
 
 # VENV
 SPACESHIP_VENV_SHOW="${SPACESHIP_VENV_SHOW:-true}"
+
+# PYENV
+SPACESHIP_PYENV_SHOW="${SPACESHIP_PYENV_SHOW:-true}"
+SPACESHIP_PYENV_SYMBOL="${SPACESHIP_PYENV_SYMBOL:-🐍}"
 
 # VI_MODE
 SPACESHIP_VI_MODE_SHOW="${SPACESHIP_VI_MODE_SHOW:-true}"
@@ -210,6 +215,37 @@ spaceship_venv_status() {
   echo -n "%{$reset_color%}"
 }
 
+# Pyenv
+# Show current version of pyenv python, including system.
+spaceship_pyenv_status() {
+  [[ $SPACESHIP_PYENV_SHOW == false ]] && return
+
+  $(type pyenv >/dev/null 2>&1) || return # Do nothing if pyenv is not installed
+
+  local pyenv_shell=$(pyenv shell 2>/dev/null)
+  local pyenv_local=$(pyenv local 2>/dev/null)
+  local pyenv_global=$(pyenv global 2>/dev/null)
+
+  # Version follows this order: shell > local > global
+  # See: https://github.com/yyuu/pyenv/blob/master/COMMANDS.md
+  if [[ ! -z $pyenv_shell ]]; then
+    pyenv_status=$pyenv_shell
+  elif [[ ! -z $pyenv_local ]]; then
+    pyenv_status=$pyenv_local
+  elif [[ ! -z $pyenv_global ]]; then
+    pyenv_status=$pyenv_global
+  else
+    return # If none of these is set, pyenv is not being used. Do nothing.
+  fi
+
+  # Do not show pyenv prefix if prefixes are disabled
+  [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_PYENV}%b" || echo -n ' '
+
+  echo -n "%{$fg_bold[yellow]%}"
+  echo -n "${SPACESHIP_PYENV_SYMBOL}  ${pyenv_status}"
+  echo -n "%{$reset_color%}"
+}
+
 # NVM
 # Show current version of node, exception system.
 spaceship_nvm_status() {
@@ -351,6 +387,7 @@ spaceship_prompt() {
   spaceship_xcode_version
   spaceship_swift_version
   spaceship_venv_status
+  spaceship_pyenv_status
 
   # Should it write prompt in two lines or not?
   # Write a space before, if it's written in single line

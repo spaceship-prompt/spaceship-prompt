@@ -26,6 +26,7 @@ Currently it shows:
 * Current Swift version, through swiftenv (`🐦`).
 * Current Xcode version, through xenv (`🛠`).
 * Current Python virtualenv.
+* Current Python pyenv.
 * Current Vi-mode mode.
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new) or send pull request.
@@ -123,6 +124,7 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | `SPACESHIP_PREFIX_XCODE` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the XCode environment |
 | `SPACESHIP_PREFIX_SWIFT` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Swift environment |
 | `SPACESHIP_PREFIX_VENV` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Python virtualenv Environment |
+| `SPACESHIP_PREFIX_PYENV` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Python pyenv Environment |
 
 ### Git
 
@@ -174,6 +176,13 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | :------- | :-----: | ------- |
 | `SPACESHIP_VENV_SHOW` | `true` | Current Python virtualenv |
 
+### Pyenv
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_PYENV_SHOW` | `true` | Current Pyenv version |
+| `SPACESHIP_PYENV_SYMBOL` | `🐍` | Character to be shown before Pyenv version |
+
 
 ### Vi-mode
 
@@ -209,6 +218,7 @@ SPACESHIP_PREFIX_RUBY=$SPACESHIP_PREFIX_ENV_DEFAULT
 SPACESHIP_PREFIX_XCODE=$SPACESHIP_PREFIX_ENV_DEFAULT
 SPACESHIP_PREFIX_SWIFT=$SPACESHIP_PREFIX_ENV_DEFAULT
 SPACESHIP_PREFIX_VENV=$SPACESHIP_PREFIX_ENV_DEFAULT
+SPACESHIP_PREFIX_PYENV=$SPACESHIP_PREFIX_ENV_DEFAULT
 
 # GIT
 SPACESHIP_GIT_SHOW=true
@@ -239,6 +249,10 @@ SPACESHIP_XCODE_SYMBOL='🛠'
 
 # VENV
 SPACESHIP_VENV_SHOW=true
+
+# PYENV
+SPACESHIP_PYENV_SHOW=true
+SPACESHIP_PYENV_SYMBOL='🐍'
 
 # VI_MODE
 SPACESHIP_VI_MODE_SHOW=true
