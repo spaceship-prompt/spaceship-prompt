@@ -26,7 +26,7 @@ Currently it shows:
 * Current Swift version, through swiftenv (`🐦`).
 * Current Xcode version, through xenv (`🛠`).
 * Current Python virtualenv.
-* Current Python pyenv.
+* Current Python pyenv (`🐍`).
 * Current Vi-mode mode.
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new) or send pull request.
