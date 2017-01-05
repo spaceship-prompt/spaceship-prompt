@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/denysdovhan/spaceship-zsh-theme">
-    <img alt="spaceship →~ prompt" src="https://cloud.githubusercontent.com/assets/3459374/21679181/46e24706-d34b-11e6-82ee-5efb3d2ba70f.png" width="400" height="400">
+    <img alt="spaceship →~ prompt" src="https://cloud.githubusercontent.com/assets/3459374/21679181/46e24706-d34b-11e6-82ee-5efb3d2ba70f.png" width="400">
   </a>
 </p>
 
