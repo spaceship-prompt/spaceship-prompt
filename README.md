@@ -88,23 +88,28 @@ zgen load denysdovhan/spaceship-zsh-theme spaceship
 
 ## Screenshots
 
-The spaceship theme looks awesome with some popular color schemes. Take a look to make sure:
+The spaceship theme looks awesome with any of popular color schemes. Take a look to make sure:
 
 ### Monokai
 
-![Monokai](https://cloud.githubusercontent.com/assets/3459374/12703427/827bfd5e-c84b-11e5-8bef-44d4e6955c01.png)
+![monokai](https://cloud.githubusercontent.com/assets/3459374/21679596/a3f35d2a-d34d-11e6-8c46-852b83b60fce.png)
 
 ### Solarized Dark
 
-![Solarized](https://cloud.githubusercontent.com/assets/3459374/12703426/82799b72-c84b-11e5-8943-3a7df0d55978.png)
-
-### Night Eighties
-
-![Night Eighties](https://cloud.githubusercontent.com/assets/3459374/12703429/827d2918-c84b-11e5-95a1-bbfe621e77d5.png)
+![solarized-dark](https://cloud.githubusercontent.com/assets/3459374/21679597/a3ff7ef2-d34d-11e6-915f-8bbf7488f855.png)
 
 ### One Dark
 
-![One Dark](https://cloud.githubusercontent.com/assets/3459374/12703428/827c7356-c84b-11e5-8764-372ce30dd3fa.png)
+![one-dark](https://cloud.githubusercontent.com/assets/3459374/21679599/a4011a50-d34d-11e6-9848-d9a912bfbcb9.png)
+
+### Material
+
+![hyper-material-theme](https://cloud.githubusercontent.com/assets/3459374/21679594/a3d52562-d34d-11e6-9a0c-12b738dcce87.png)
+
+### Oceanic Next
+
+![oceanic-next](https://cloud.githubusercontent.com/assets/3459374/21679598/a40101c8-d34d-11e6-9a48-012cca2ad2aa.png)
+
 
 ## Options
 
