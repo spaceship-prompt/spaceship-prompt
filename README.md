@@ -1,5 +1,8 @@
-
-![Spaceship](./preview.png)
+<p align="center">
+  <a href="https://github.com/denysdovhan/spaceship-zsh-theme">
+    <img alt="spaceship →~ prompt" src="./logos/spaceship-letters-outside.svg" width="500" height="500">
+  </a>
+</p>
 
 # ⭐🚀 Spaceship ZSH
 
@@ -30,6 +33,12 @@ Currently it shows:
 * Current Vi-mode mode.
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new) or send pull request.
+
+## Preview
+
+<p align="center">
+  <img alt="Spaceship with Hyper and One Dark" src="./preview.gif" width="800">
+</p>
 
 ## Requirements
 
