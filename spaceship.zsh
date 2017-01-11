@@ -23,6 +23,7 @@ SPACESHIP_PREFIX_ENV_DEFAULT="${SPACESHIP_PREFIX_ENV_DEFAULT:-" via "}"
 SPACESHIP_PREFIX_NVM="${SPACESHIP_PREFIX_NVM:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_RUBY="${SPACESHIP_PREFIX_RUBY:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_SWIFT="${SPACESHIP_PREFIX_SWIFT:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
+SPACESHIP_PREFIX_GOLANG="${SPACESHIP_PREFIX_GOLANG:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_XCODE="${SPACESHIP_PREFIX_XCODE:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_VENV="${SPACESHIP_PREFIX_VENV:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_PYENV="${SPACESHIP_PREFIX_PYENV:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
@@ -48,6 +49,10 @@ SPACESHIP_RUBY_SYMBOL="${SPACESHIP_RUBY_SYMBOL:-💎}"
 SPACESHIP_SWIFT_SHOW_LOCAL="${SPACESHIP_SWIFT_SHOW_LOCAL:-true}"
 SPACESHIP_SWIFT_SHOW_GLOBAL="${SPACESHIP_SWIFT_SHOW_GLOBAL:-false}"
 SPACESHIP_SWIFT_SYMBOL="${SPACESHIP_SWIFT_SYMBOL:-🐦}"
+
+# GOLANG
+SPACESHIP_GOLANG_SHOW="${SPACESHIP_GOLANG_SHOW:-true}"
+SPACESHIP_GOLANG_SYMBOL="${SPACESHIP_GOLANG_SYMBOL:-GO}"
 
 # XCODE
 SPACESHIP_XCODE_SHOW_LOCAL="${SPACESHIP_XCODE_SHOW_LOCAL:-true}"
@@ -309,6 +314,23 @@ spaceship_swift_version() {
   fi
 }
 
+# GOLANG
+# Show current version of golang.
+spaceship_golang_status() {
+  [[ $SPACESHIP_GOLANG_SHOW == false ]] && return
+
+  $(command go version > /dev/null 2>&1) || return
+
+  local go_version=$(go version)
+
+  # Do not show GOLANG prefix if prefixes are disabled
+  [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_GOLANG}%b" || echo -n ' '
+
+  echo -n "%{$fg_bold[cyan]%}"
+  echo -n "${SPACESHIP_GOLANG_SYMBOL} ${go_version/'go version go'/v}"
+  echo -n "%{$reset_color%}"
+}
+
 # Xcode
 # Show current version of Xcode
 spaceship_xcode_version() {
@@ -386,6 +408,7 @@ spaceship_prompt() {
   spaceship_ruby_version
   spaceship_xcode_version
   spaceship_swift_version
+  spaceship_golang_status
   spaceship_venv_status
   spaceship_pyenv_status
 
