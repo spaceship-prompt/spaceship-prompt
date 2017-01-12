@@ -316,18 +316,16 @@ spaceship_swift_version() {
 
 # GOLANG
 # Show current version of golang.
-spaceship_golang_status() {
+spaceship_golang_version() {
   [[ $SPACESHIP_GOLANG_SHOW == false ]] && return
 
-  $(command go version > /dev/null 2>&1) || return
-
-  local go_version=$(go version)
+  $(command -v go > /dev/null 2>&1) || return
 
   # Do not show GOLANG prefix if prefixes are disabled
   [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_GOLANG}%b" || echo -n ' '
 
   echo -n "%{$fg_bold[cyan]%}"
-  echo -n "${SPACESHIP_GOLANG_SYMBOL} ${go_version/'go version go'/v}"
+  echo -n "${SPACESHIP_GOLANG_SYMBOL} v$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')"
   echo -n "%{$reset_color%}"
 }
 
@@ -408,7 +406,7 @@ spaceship_prompt() {
   spaceship_ruby_version
   spaceship_xcode_version
   spaceship_swift_version
-  spaceship_golang_status
+  spaceship_golang_version
   spaceship_venv_status
   spaceship_pyenv_status
 
