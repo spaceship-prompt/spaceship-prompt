@@ -36,6 +36,10 @@ SPACESHIP_GIT_STASHED="${SPACESHIP_GIT_STASHED:-$}"
 SPACESHIP_GIT_UNPULLED="${SPACESHIP_GIT_UNPULLED:-⇣}"
 SPACESHIP_GIT_UNPUSHED="${SPACESHIP_GIT_UNPUSHED:-⇡}"
 
+# TIME
+SPACESHIP_TIME_SHOW="${SPACESHIP_TIME_SHOW:-true}"
+SPACESHIP_TIME_12HR="${SPACESHIP_TIME_12HR:-true}"
+
 # NVM
 SPACESHIP_NVM_SHOW="${SPACESHIP_NVM_SHOW:-true}"
 SPACESHIP_NVM_SYMBOL="${SPACESHIP_NVM_SYMBOL:-⬢}"
@@ -65,6 +69,17 @@ SPACESHIP_PYENV_SYMBOL="${SPACESHIP_PYENV_SYMBOL:-🐍}"
 SPACESHIP_VI_MODE_SHOW="${SPACESHIP_VI_MODE_SHOW:-true}"
 SPACESHIP_VI_MODE_INSERT="${SPACESHIP_VI_MODE_INSERT:-[I]}"
 SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:-[N]}"
+
+# time
+spaceship_time() {
+  [[ $SPACESHIP_TIME_SHOW == false ]] && return
+
+  if [[ $SPACESHIP_TIME_12HR == true ]]; then
+    echo -n "$fg_bold[yellow]%D{%r} "
+  else 
+    echo -n "$fg_bold[yellow]%D{%T} "
+  fi
+}
 
 # Username.
 # If user is root, then pain it in red. Otherwise, just print in yellow.
@@ -379,6 +394,7 @@ spaceship_prompt() {
   [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
 
   # Execute all parts
+  spaceship_time
   spaceship_host
   spaceship_current_dir
   spaceship_git_status

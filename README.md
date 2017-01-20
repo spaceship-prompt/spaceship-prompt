@@ -152,6 +152,12 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | `SPACESHIP_GIT_UNPULLED` | `⇣` | Character to be shown on unpulled changes |
 | `SPACESHIP_GIT_UNPUSHED` | `⇡` | Character to be shown on unpushed changes |
 
+### Time
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_TIME_SHOW` | `true` | Show/hide time |
+| `SPACESHIP_TIME_12HR` | `true` | Format time using 12-hour clock (am/pm) |
+
 ### Nvm
 
 | Variable | Default | Meaning |
