@@ -260,7 +260,6 @@ spaceship_nvm_status() {
 
   local nvm_status=$(nvm current 2>/dev/null)
   [[ "${nvm_status}" == "system" ]] && return
-  nvm_status=${nvm_status}
 
   # Do not show NVM prefix if prefixes are disabled
   [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_NVM}%b" || echo -n ' '
