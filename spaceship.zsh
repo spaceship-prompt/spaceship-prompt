@@ -284,11 +284,13 @@ spaceship_ruby_version() {
     return
   fi
 
+  [[ "${ruby_version}" == "system" ]] && return
+
   # Do not show ruby prefix if prefixes are disabled
   [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_RUBY}%b" || echo -n ' '
 
   echo -n "%{$fg_bold[red]%}"
-  echo -n "${SPACESHIP_RUBY_SYMBOL}  ${ruby_version}"
+  echo -n "${SPACESHIP_RUBY_SYMBOL}  v${ruby_version}"
   echo -n "%{$reset_color%}"
 }
 
