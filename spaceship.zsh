@@ -52,7 +52,6 @@ SPACESHIP_SWIFT_SYMBOL="${SPACESHIP_SWIFT_SYMBOL:-🐦}"
 
 # GOLANG
 SPACESHIP_GOLANG_SHOW="${SPACESHIP_GOLANG_SHOW:-true}"
-SPACESHIP_GOLANG_SHOW_ALWAYS="${SPACESHIP_GOLANG_SHOW_ALWAYS:-false}"
 SPACESHIP_GOLANG_SYMBOL="${SPACESHIP_GOLANG_SYMBOL:-🐹}"
 
 # XCODE
@@ -315,24 +314,6 @@ spaceship_swift_version() {
   fi
 }
 
-# GOLANG
-# Show current version of golang.
-spaceship_golang_version() {
-  [[ $SPACESHIP_GOLANG_SHOW == false ]] && return
-
-  $(command -v go > /dev/null 2>&1) || return
-  
-  local gofiles=`ls -1 *.go 2>/dev/null | wc -l`
-  if [ $SPACESHIP_GOLANG_SHOW_ALWAYS == true -o $gofiles != 0 -o -d Godeps -o -f glide.yaml ]; then
-    # Do not show GOLANG prefix if prefixes are disabled
-    [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_GOLANG}%b" || echo -n ' '
-
-    echo -n "%{$fg_bold[cyan]%}"
-    echo -n "${SPACESHIP_GOLANG_SYMBOL} v$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')"
-    echo -n "%{$reset_color%}"
-  fi
-}
-
 # Xcode
 # Show current version of Xcode
 spaceship_xcode_version() {
@@ -357,6 +338,27 @@ spaceship_xcode_version() {
         echo -n "%{$reset_color%}"
       fi
     fi
+  fi
+}
+
+# Golang
+# Show current version of golang
+spaceship_golang_version() {
+  [[ $SPACESHIP_GOLANG_SHOW == false ]] && return
+
+  command -v go > /dev/null 2>&1 || return
+
+  # How may .go files are in current directory?
+  local gofiles=`ls -1 *.go 2>/dev/null | wc -l`
+  # If there are Go-specific files in current directory
+  if [[ $gofiles != 0 || -d Godeps || -f glide.yaml ]]; then
+    local go_version=$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')
+    # Do not show prefix if prefixes are disabled
+    [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_GOLANG}%b" || echo -n ' '
+
+    echo -n "%{$fg_bold[cyan]%}"
+    echo -n "${SPACESHIP_GOLANG_SYMBOL} v${go_version}"
+    echo -n "%{$reset_color%}"
   fi
 }
 
