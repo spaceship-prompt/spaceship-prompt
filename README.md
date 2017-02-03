@@ -155,8 +155,8 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 ### Time
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_TIME_SHOW` | `true` | Show/hide time |
-| `SPACESHIP_TIME_12HR` | `true` | Format time using 12-hour clock (am/pm) |
+| `SPACESHIP_TIME_SHOW` | `false` | Show/hide time |
+| `SPACESHIP_TIME_12HR` | `false` | Format time using 12-hour clock (am/pm) |
 
 ### Nvm
 
