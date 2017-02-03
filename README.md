@@ -28,6 +28,7 @@ Currently it shows:
 * Current Ruby version, through RVM/RBENV/CHRUBY (`💎`).
 * Current Swift version, through swiftenv (`🐦`).
 * Current Xcode version, through xenv (`🛠`).
+* Current Go version (`🐹`).
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
 * Current Vi-mode mode.
@@ -183,6 +184,12 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | `SPACESHIP_XCODE_SHOW_GLOBAL` | `true` | Global Xcode version based on [xcenv](http://xcenv.org/) |
 | `SPACESHIP_XCODE_SYMBOL` | `🛠` | Character to be shown before Xcode version |
 
+### Go
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_GOLANG_SHOW` | `true` | Current Go version |
+| `SPACESHIP_GOLANG_SYMBOL` | `🐹` | Character to be shown before Go version |
 
 ### Venv
 
@@ -260,6 +267,10 @@ SPACESHIP_SWIFT_SYMBOL='🐦'
 SPACESHIP_XCODE_SHOW_LOCAL=true
 SPACESHIP_XCODE_SHOW_GLOBAL=false
 SPACESHIP_XCODE_SYMBOL='🛠'
+
+# GO
+SPACESHIP_GOLANG_SHOW=true
+SPACESHIP_GOLANG_SYMBOL='🐹'
 
 # VENV
 SPACESHIP_VENV_SHOW=true
