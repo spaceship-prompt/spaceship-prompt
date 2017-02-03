@@ -307,7 +307,9 @@ spaceship_swift_version() {
   fi
 
   if [ -n "${swift_version}" ]; then
-    echo -n " %B${SPACESHIP_PREFIX_SWIFT}%b "
+    # Do not show prefix if prefixes are disabled
+    [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_SWIFT}%b" || echo -n ' '
+
     echo -n "%{$fg_bold[yellow]%}"
     echo -n "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}"
     echo -n "%{$reset_color%}"
@@ -331,8 +333,10 @@ spaceship_xcode_version() {
     local xcode_version_path=$xcode_path"/Contents/version.plist"
     if [ -f ${xcode_version_path} ]; then
       if command -v defaults > /dev/null 2>&1 ; then
-        xcode_version=$(defaults read ${xcode_version_path} CFBundleShortVersionString)
-        echo -n " %B${SPACESHIP_PREFIX_XCODE}%b "
+        local xcode_version=$(defaults read ${xcode_version_path} CFBundleShortVersionString)
+        # Do not show prefix if prefixes are disabled
+        [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_XCODE}%b" || echo -n ' '
+
         echo -n "%{$fg_bold[blue]%}"
         echo -n "${SPACESHIP_XCODE_SYMBOL}  ${xcode_version}"
         echo -n "%{$reset_color%}"
