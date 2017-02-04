@@ -75,15 +75,17 @@ SPACESHIP_VI_MODE_SHOW="${SPACESHIP_VI_MODE_SHOW:-true}"
 SPACESHIP_VI_MODE_INSERT="${SPACESHIP_VI_MODE_INSERT:-[I]}"
 SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:-[N]}"
 
-# time
+# Time
 spaceship_time() {
   [[ $SPACESHIP_TIME_SHOW == false ]] && return
 
   if [[ $SPACESHIP_TIME_12HR == true ]]; then
-    echo -n "$fg_bold[yellow]%D{%r} "
-  else 
-    echo -n "$fg_bold[yellow]%D{%T} "
+    echo -n "%{$fg_bold[yellow]%}%D{%r}"
+  else
+    echo -n "%{$fg_bold[yellow]%}%D{%T}"
   fi
+
+  echo -n "%{$reset_color%} "
 }
 
 # Username.
