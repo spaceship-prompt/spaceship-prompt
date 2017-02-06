@@ -32,7 +32,7 @@ Currently it shows:
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
 * Current Vi-mode mode.
-* Time stamps (optional).
+* Optional time stamps 12/24hr in format ([how to enable](#time)).
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new) or send pull request.
 
@@ -155,9 +155,12 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | `SPACESHIP_GIT_UNPUSHED` | `⇡` | Character to be shown on unpushed changes |
 
 ### Time
+
+Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if you need to show time stamps.
+
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_TIME_SHOW` | `false` | Show/hide time |
+| `SPACESHIP_TIME_SHOW` | `false` | Show time (set to `true` for enabling) |
 | `SPACESHIP_TIME_12HR` | `false` | Format time using 12-hour clock (am/pm) |
 
 ### Nvm
@@ -256,6 +259,10 @@ SPACESHIP_GIT_UNTRACKED='?'
 SPACESHIP_GIT_STASHED='$'
 SPACESHIP_GIT_UNPULLED='⇣'
 SPACESHIP_GIT_UNPUSHED='⇡'
+
+# TIME
+SPACESHIP_TIME_SHOW=false
+SPACESHIP_TIME_12HR=false
 
 # NVM
 SPACESHIP_NVM_SHOW=true
