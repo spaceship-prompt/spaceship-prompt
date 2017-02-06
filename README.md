@@ -31,7 +31,7 @@ Currently it shows:
 * Current Go version (`🐹`).
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
-* Current Vi-mode mode.
+* Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode)).
 * Optional time stamps 12/24hr in format ([how to enable](#time)).
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new) or send pull request.
@@ -223,7 +223,14 @@ Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | `SPACESHIP_VI_MODE_INSERT` | `[I]` | Text to be shown when in insert mode |
 | `SPACESHIP_VI_MODE_NORMAL` | `[N]` | Text to be shown when in normal mode |
 
-Note: For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$reset_color%}"` before `source $ZSH/oh-my-zsh.sh` in ~/.zshrc to disable default `<<<` NORMAL mode indicator in right prompt.
+You can temporarily enable or disable vi-mode with handy functions (just execute them in terminal as any other regular command):
+
+| Function | Meaning |
+| :------- | ------- |
+| `spaceship_vi_mode_enable` | Enable vi-mode for current terminal session |
+| `spaceship_vi_mode_disable` | Disable vi-mode for current terminal session |
+
+**Note:** For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$reset_color%}"` before `source $ZSH/oh-my-zsh.sh` in `.zshrc` to disable default `<<<` NORMAL mode indicator in right prompt.
 
 ### Example
 

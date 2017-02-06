@@ -384,13 +384,6 @@ spaceship_golang_version() {
   fi
 }
 
-# Temporarily switch to vi-mode
-spaceship_enable_vi_mode() {
-  function zle-keymap-select() { zle reset-prompt; zle -R; };
-  zle -N zle-keymap-select;
-  bindkey -v;
-}
-
 # Show current vi_mode mode
 spaceship_vi_mode() {
   if bindkey | grep "vi-quoted-insert" > /dev/null 2>&1; then # check if vi-mode enabled
@@ -409,6 +402,18 @@ spaceship_vi_mode() {
     echo -n "${MODE_INDICATOR}"
     echo -n "%{$reset_color%} "
   fi
+}
+
+# Temporarily switch to vi-mode
+spaceship_vi_mode_enable() {
+  function zle-keymap-select() { zle reset-prompt ; zle -R }
+  zle -N zle-keymap-select
+  bindkey -v
+}
+
+# Temporarily switch to emacs-mode
+spaceship_vi_mode_disable() {
+  bindkey -e
 }
 
 # Command prompt.
