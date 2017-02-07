@@ -370,10 +370,9 @@ spaceship_golang_version() {
 
   command -v go > /dev/null 2>&1 || return
 
-  # How may .go files are in current directory?
-  local gofiles=$(ls -1 *.go 2>/dev/null | wc -l)
+  local gofiles=(*.go(N))
   # If there are Go-specific files in current directory
-  if [[ $gofiles != 0 || -d Godeps || -f glide.yaml ]]; then
+  if [[ -n $gofiles || -d Godeps || -f glide.yaml ]]; then
     local go_version=$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')
     # Do not show prefix if prefixes are disabled
     [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_GOLANG}%b" || echo -n ' '
