@@ -371,7 +371,7 @@ spaceship_golang_version() {
   command -v go > /dev/null 2>&1 || return
 
   # How may .go files are in current directory?
-  local gofiles=`ls -1 *.go 2>/dev/null | wc -l`
+  local gofiles=$(ls -1 *.go 2>/dev/null | wc -l)
   # If there are Go-specific files in current directory
   if [[ $gofiles != 0 || -d Godeps || -f glide.yaml ]]; then
     local go_version=$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')
