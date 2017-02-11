@@ -370,9 +370,14 @@ spaceship_golang_version() {
 
   command -v go > /dev/null 2>&1 || return
 
+  # Option EXTENDED_GLOB is set locally to force filename generation on
+  # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
+  # See the description of filename generation in
+  # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
   setopt EXTENDED_GLOB LOCAL_OPTIONS
+
   # If there are Go-specific files in current directory
-  if [[ -n *.go(N) || -d Godeps || -f glide.yaml ]]; then
+  if [[ -n *.go(#qN) || -d Godeps || -f glide.yaml ]]; then
     local go_version=$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')
     # Do not show prefix if prefixes are disabled
     [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_GOLANG}%b" || echo -n ' '
