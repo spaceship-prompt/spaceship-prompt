@@ -386,7 +386,7 @@ spaceship_golang_version() {
     [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_GOLANG}%b" || echo -n ' '
 
     echo -n "%{$fg_bold[cyan]%}"
-    echo -n "${SPACESHIP_GOLANG_SYMBOL} v${go_version}"
+    echo -n "${SPACESHIP_GOLANG_SYMBOL}  v${go_version}"
     echo -n "%{$reset_color%}"
   fi
 }
