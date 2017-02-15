@@ -306,8 +306,11 @@ spaceship_ruby_version() {
   # Do not show ruby prefix if prefixes are disabled
   [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_RUBY}%b" || echo -n ' '
 
+  # Add 'v' before ruby version that starts with a number
+  [[ "${ruby_version}" =~ ^[0-9].+$ ]] && ruby_version="v${ruby_version}"
+
   echo -n "%{$fg_bold[red]%}"
-  echo -n "${SPACESHIP_RUBY_SYMBOL}  v${ruby_version}"
+  echo -n "${SPACESHIP_RUBY_SYMBOL}  ${ruby_version}"
   echo -n "%{$reset_color%}"
 }
 
