@@ -43,6 +43,7 @@ SPACESHIP_TIME_12HR="${SPACESHIP_TIME_12HR:-false}"
 
 # NVM
 SPACESHIP_NVM_SHOW="${SPACESHIP_NVM_SHOW:-true}"
+SPACESHIP_NVM_SHOW_ON_PROJECT_ONLY="${SPACESHIP_NVM_SHOW_ON_PROJECT_ONLY:-false}"
 SPACESHIP_NVM_SYMBOL="${SPACESHIP_NVM_SYMBOL:-⬢}"
 
 # RUBY
@@ -277,6 +278,9 @@ spaceship_nvm_status() {
 
   local nvm_status=$(nvm current 2>/dev/null)
   [[ "${nvm_status}" == "system" ]] && return
+
+  # Only show NVM status if folder contains package.json or yarn.lock
+  [[ $SPACESHIP_NVM_SHOW_ON_PROJECT_ONLY == true ]] && ! test -f package.json && ! test -f yarn.lock && return
 
   # Do not show NVM prefix if prefixes are disabled
   [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_NVM}%b" || echo -n ' '

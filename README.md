@@ -169,6 +169,7 @@ Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | :------- | :-----: | ------- |
 | `SPACESHIP_NVM_SHOW` | `true` | Current Node.js version |
 | `SPACESHIP_NVM_SYMBOL` | `⬢` | Character to be shown before Node.js version |
+| `SPACESHIP_NVM_SHOW_ON_PROJECT_ONLY` | `false` | Show Node.js version only in Node.js projects |
 
 ### Ruby
 
@@ -274,6 +275,7 @@ SPACESHIP_TIME_12HR=false
 # NVM
 SPACESHIP_NVM_SHOW=true
 SPACESHIP_NVM_SYMBOL='⬢'
+SPACESHIP_NVM_SHOW_ON_PROJECT_ONLY=false
 
 # RUBY
 SPACESHIP_RUBY_SHOW=true
