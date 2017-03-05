@@ -276,11 +276,9 @@ spaceship_nvm_status() {
 
   $(type nvm >/dev/null 2>&1) || return
 
-  local nvm_status=$(nvm current 2>/dev/null)
-  [[ "${nvm_status}" == "system" ]] && return
 
-  # Only show NVM status if folder contains package.json or yarn.lock
-  [[ $SPACESHIP_NVM_SHOW_ON_PROJECT_ONLY == true ]] && ! test -f package.json && ! test -f yarn.lock && return
+  local nvm_status=$(nvm current 2>/dev/null)
+  [[ "${nvm_status}" == "system" || "${nvm_status}" == "node" ]] && return
 
   # Do not show NVM prefix if prefixes are disabled
   [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_NVM}%b" || echo -n ' '
