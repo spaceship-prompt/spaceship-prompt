@@ -443,7 +443,6 @@ spaceship_prompt() {
 
   # Option EXTENDED_GLOB is set locally to force filename generation on
   # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
-  # Needed for NVM and Golang.
   # See the description of filename generation in
   # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
   setopt EXTENDED_GLOB LOCAL_OPTIONS
