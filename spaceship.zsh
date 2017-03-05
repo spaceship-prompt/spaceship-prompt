@@ -43,7 +43,6 @@ SPACESHIP_TIME_12HR="${SPACESHIP_TIME_12HR:-false}"
 
 # NVM
 SPACESHIP_NVM_SHOW="${SPACESHIP_NVM_SHOW:-true}"
-SPACESHIP_NVM_SHOW_ON_PROJECT_ONLY="${SPACESHIP_NVM_SHOW_ON_PROJECT_ONLY:-false}"
 SPACESHIP_NVM_SYMBOL="${SPACESHIP_NVM_SYMBOL:-⬢}"
 
 # RUBY
@@ -243,7 +242,10 @@ spaceship_venv_status() {
 spaceship_pyenv_status() {
   [[ $SPACESHIP_PYENV_SHOW == false ]] && return
 
-  $(type pyenv >/dev/null 2>&1) || return # Do nothing if pyenv is not installed
+  # Show NVM status only for Python-specific folders
+  [[ -f requirements.txt || -n *.py(#qN) ]] || return
+
+  command -v pyenv > /dev/null 2>&1 || return # Do nothing if pyenv is not installed
 
   local pyenv_shell=$(pyenv shell 2>/dev/null)
   local pyenv_local=$(pyenv local 2>/dev/null)
@@ -274,8 +276,10 @@ spaceship_pyenv_status() {
 spaceship_nvm_status() {
   [[ $SPACESHIP_NVM_SHOW == false ]] && return
 
-  $(type nvm >/dev/null 2>&1) || return
+  # Show NVM status only for JS-specific folders
+  [[ -f package.json || -d node_modules || -n *.js(#qN) ]] || return
 
+  command -v nvm > /dev/null 2>&1 || return
 
   local nvm_status=$(nvm current 2>/dev/null)
   [[ "${nvm_status}" == "system" || "${nvm_status}" == "node" ]] && return
@@ -292,6 +296,9 @@ spaceship_nvm_status() {
 # Show current version of Ruby
 spaceship_ruby_version() {
   [[ $SPACESHIP_RUBY_SHOW == false ]] && return
+
+  # Show versions only for Ruby-specific folders
+  [[ -f Gemfile || -f Rakefile || -n *.rb(#qN) ]] || return
 
   if command -v rvm-prompt > /dev/null 2>&1; then
     ruby_version=$(rvm-prompt i v g)
@@ -373,24 +380,18 @@ spaceship_xcode_version() {
 spaceship_golang_version() {
   [[ $SPACESHIP_GOLANG_SHOW == false ]] && return
 
+  # If there are Go-specific files in current directory
+  [[ -d Godeps || -f glide.yaml || -n *.go(#qN) ]] || return
+
   command -v go > /dev/null 2>&1 || return
 
-  # Option EXTENDED_GLOB is set locally to force filename generation on
-  # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
-  # See the description of filename generation in
-  # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
-  setopt EXTENDED_GLOB LOCAL_OPTIONS
+  local go_version=$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')
+  # Do not show prefix if prefixes are disabled
+  [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_GOLANG}%b" || echo -n ' '
 
-  # If there are Go-specific files in current directory
-  if [[ -n *.go(#qN) || -d Godeps || -f glide.yaml ]]; then
-    local go_version=$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')
-    # Do not show prefix if prefixes are disabled
-    [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_GOLANG}%b" || echo -n ' '
-
-    echo -n "%{$fg_bold[cyan]%}"
-    echo -n "${SPACESHIP_GOLANG_SYMBOL}  v${go_version}"
-    echo -n "%{$reset_color%}"
-  fi
+  echo -n "%{$fg_bold[cyan]%}"
+  echo -n "${SPACESHIP_GOLANG_SYMBOL}  v${go_version}"
+  echo -n "%{$reset_color%}"
 }
 
 # Show current vi_mode mode
