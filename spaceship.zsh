@@ -440,6 +440,13 @@ spaceship_prompt() {
   # Should it add a new line before the prompt?
   [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
 
+  # Option EXTENDED_GLOB is set locally to force filename generation on
+  # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
+  # Needed for NVM and Golang.
+  # See the description of filename generation in
+  # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
+  setopt EXTENDED_GLOB LOCAL_OPTIONS
+
   # Execute all parts
   spaceship_time
   spaceship_host
