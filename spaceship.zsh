@@ -39,6 +39,7 @@ SPACESHIP_GIT_UNPUSHED="${SPACESHIP_GIT_UNPUSHED:-⇡}"
 
 # TIME
 SPACESHIP_TIME_SHOW="${SPACESHIP_TIME_SHOW:-false}"
+SPACESHIP_TIME_FORMAT="${SPACESHIP_TIME_FORMAT:-false}"
 SPACESHIP_TIME_12HR="${SPACESHIP_TIME_12HR:-false}"
 
 # NVM
@@ -79,7 +80,9 @@ SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:-[N]}"
 spaceship_time() {
   [[ $SPACESHIP_TIME_SHOW == false ]] && return
 
-  if [[ $SPACESHIP_TIME_12HR == true ]]; then
+  if [[ $SPACESHIP_TIME_FORMAT != false ]]; then
+    echo -n "%{$fg_bold[yellow]%}${SPACESHIP_TIME_FORMAT}"
+  elif [[ $SPACESHIP_TIME_12HR == true ]]; then
     echo -n "%{$fg_bold[yellow]%}%D{%r}"
   else
     echo -n "%{$fg_bold[yellow]%}%D{%T}"
