@@ -162,6 +162,7 @@ Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | :------- | :-----: | ------- |
 | `SPACESHIP_TIME_SHOW` | `false` | Show time (set to `true` for enabling) |
 | `SPACESHIP_TIME_12HR` | `false` | Format time using 12-hour clock (am/pm) |
+| `SPACESHIP_TIME_FORMAT` | `false` | Custom date formatting (e.g. `%D{%a %R}`) [ZSH date formats](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Date-and-time) |
 
 ### Nvm
 
@@ -270,6 +271,7 @@ SPACESHIP_GIT_UNPUSHED='⇡'
 # TIME
 SPACESHIP_TIME_SHOW=false
 SPACESHIP_TIME_12HR=false
+SPACESHIP_TIME_FORMAT=false
 
 # NVM
 SPACESHIP_NVM_SHOW=true
