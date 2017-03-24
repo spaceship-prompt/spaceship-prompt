@@ -141,7 +141,7 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | `SPACESHIP_PREFIX_SWIFT` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Swift environment |
 | `SPACESHIP_PREFIX_VENV` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Python virtualenv Environment |
 | `SPACESHIP_PREFIX_PYENV` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Python pyenv Environment |
-| `SPACESHIP_PREFIX_DOCKER` | `SPACESHIP_PREFIX_GIT` | Prefix before the Docker version |
+| `SPACESHIP_PREFIX_DOCKER` | `on` | Prefix before the Docker version |
 
 ### Git
 
