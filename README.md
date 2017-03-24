@@ -141,6 +141,7 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | `SPACESHIP_PREFIX_SWIFT` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Swift environment |
 | `SPACESHIP_PREFIX_VENV` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Python virtualenv Environment |
 | `SPACESHIP_PREFIX_PYENV` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Python pyenv Environment |
+| `SPACESHIP_PREFIX_DOCKER` | `on` | Prefix before the Docker version |
 
 ### Git
 
@@ -201,6 +202,13 @@ Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | :------- | :-----: | ------- |
 | `SPACESHIP_GOLANG_SHOW` | `true` | Current Go version |
 | `SPACESHIP_GOLANG_SYMBOL` | `🐹` | Character to be shown before Go version |
+
+### Docker
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_DOCKER_SHOW` | `true` | Current Docker version and connected docker-machine |
+| `SPACESHIP_DOCKER_SYMBOL` | `🐳` | Character to be shown before Docker version |
 
 ### Venv
 
@@ -295,6 +303,10 @@ SPACESHIP_XCODE_SYMBOL='🛠'
 # GO
 SPACESHIP_GOLANG_SHOW=true
 SPACESHIP_GOLANG_SYMBOL='🐹'
+
+# DOCKER
+SPACESHIP_DOCKER_SHOW=true
+SPACESHIP_DOCKER_SYMBOL='🐳'
 
 # VENV
 SPACESHIP_VENV_SHOW=true
