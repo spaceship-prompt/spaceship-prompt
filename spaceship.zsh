@@ -38,6 +38,9 @@ SPACESHIP_GIT_STASHED="${SPACESHIP_GIT_STASHED:-$}"
 SPACESHIP_GIT_UNPULLED="${SPACESHIP_GIT_UNPULLED:-⇣}"
 SPACESHIP_GIT_UNPUSHED="${SPACESHIP_GIT_UNPUSHED:-⇡}"
 
+# Mercurial
+SPACESHIP_HG_SHOW="${SPACESHIP_HG_SHOW:-true}"
+
 # TIME
 SPACESHIP_TIME_SHOW="${SPACESHIP_TIME_SHOW:-false}"
 SPACESHIP_TIME_FORMAT="${SPACESHIP_TIME_FORMAT:-false}"
@@ -227,6 +230,19 @@ spaceship_git_status() {
     echo -n "$indicators"
     echo -n "%{$reset_color%}"
   fi
+}
+
+# Mercurial status
+# Shows Mercurial branch
+spaceship_hg_status() {
+
+	[[ $SPACESHIP_HG_SHOW == false ]] && return
+
+	if [[ -d .hg ]]; then
+		echo -n "%{$fg_bold[magenta]%}"
+		echo -n " $(hg branch)"
+		echo -n "%{$reset_color%}"
+	fi
 }
 
 # Virtual environment.
@@ -478,6 +494,7 @@ spaceship_prompt() {
   spaceship_host
   spaceship_current_dir
   spaceship_git_status
+  spaceship_hg_status
   spaceship_nvm_status
   spaceship_ruby_version
   spaceship_xcode_version
