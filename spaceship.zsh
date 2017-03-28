@@ -239,8 +239,11 @@ spaceship_hg_status() {
 	[[ $SPACESHIP_HG_SHOW == false ]] && return
 
 	if [[ -d .hg ]]; then
+
+		[[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_GIT}%b" || echo -n ' '
+
 		echo -n "%{$fg_bold[magenta]%}"
-		echo -n " $(hg branch)"
+		echo -n "$(hg branch)"
 		echo -n "%{$reset_color%}"
 	fi
 }
