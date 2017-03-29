@@ -19,6 +19,7 @@ SPACESHIP_PREFIX_SHOW="${SPACEHIP_PREFIX_SHOW:-true}"
 SPACESHIP_PREFIX_HOST="${SPACESHIP_PREFIX_HOST:-" at "}"
 SPACESHIP_PREFIX_DIR="${SPACESHIP_PREFIX_DIR:-" in "}"
 SPACESHIP_PREFIX_GIT="${SPACESHIP_PREFIX_GIT:-" on "}"
+SPACESHIP_PREFIX_HG="${SPACESHIP_PREFIX_HG:-$SPACESHIP_PREFIX_GIT}"
 SPACESHIP_PREFIX_ENV_DEFAULT="${SPACESHIP_PREFIX_ENV_DEFAULT:-" via "}"
 SPACESHIP_PREFIX_NVM="${SPACESHIP_PREFIX_NVM:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_RUBY="${SPACESHIP_PREFIX_RUBY:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
@@ -40,6 +41,10 @@ SPACESHIP_GIT_UNPUSHED="${SPACESHIP_GIT_UNPUSHED:-⇡}"
 
 # Mercurial
 SPACESHIP_HG_SHOW="${SPACESHIP_HG_SHOW:-true}"
+SPACESHIP_HG_UNCOMMITTED="${SPACESHIP_HG_UNCOMMITTED:-$SPACESHIP_GIT_UNCOMMITTED}"
+SPACESHIP_HG_UNSTAGED="${SPACESHIP_HG_UNSTAGED:-$SPACESHIP_GIT_UNSTAGED}"
+SPACESHIP_HG_UNTRACKED="${SPACESHIP_HG_UNTRACKED:-$SPACESHIP_GIT_UNTRACKED}"
+
 
 # TIME
 SPACESHIP_TIME_SHOW="${SPACESHIP_TIME_SHOW:-false}"
@@ -236,7 +241,7 @@ spaceship_git_status() {
 # Check for uncommitted changes in the index.
 spaceship_hg_uncomitted() {
   if $(hg st | grep -Eq "^(A)"); then
-    echo -n "${SPACESHIP_GIT_UNCOMMITTED}"
+    echo -n "${SPACESHIP_HG_UNCOMMITTED}"
   fi
 }
 
@@ -244,7 +249,7 @@ spaceship_hg_uncomitted() {
 # Check for unstaged changes.
 spaceship_hg_unstaged() {
   if $(hg st | grep -Eq "^(M)"); then
-    echo -n "${SPACESHIP_GIT_UNSTAGED}"
+    echo -n "${SPACESHIP_HG_UNSTAGED}"
   fi
 }
 
@@ -252,7 +257,7 @@ spaceship_hg_unstaged() {
 # Check for untracked files.
 spaceship_hg_untracked() {
   if $(hg st | grep -Eq "^\?"); then
-    echo -n "${SPACESHIP_GIT_UNTRACKED}"
+    echo -n "${SPACESHIP_HG_UNTRACKED}"
   fi
 }
 
@@ -265,7 +270,7 @@ spaceship_hg_status() {
 	if $( hg id >/dev/null 2>&1 ); then
 
 		# Show prefix before branch name. Currently using GIT_PREFIX
-		[[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_GIT}%b" || echo -n ' '
+		[[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_HG}%b" || echo -n ' '
 
 		# String of indicators
 	    local indicators=''
