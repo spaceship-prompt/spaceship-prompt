@@ -232,19 +232,56 @@ spaceship_git_status() {
   fi
 }
 
+# Uncommitted changes.
+# Check for uncommitted changes in the index.
+spaceship_hg_uncomitted() {
+  if $(hg st | grep -Eq "^(A)"); then
+    echo -n "${SPACESHIP_GIT_UNCOMMITTED}"
+  fi
+}
+
+# Unstaged changes.
+# Check for unstaged changes.
+spaceship_hg_unstaged() {
+  if $(hg st | grep -Eq "^(M)"); then
+    echo -n "${SPACESHIP_GIT_UNSTAGED}"
+  fi
+}
+
+# Untracked files.
+# Check for untracked files.
+spaceship_hg_untracked() {
+  if $(hg st | grep -Eq "^\?"); then
+    echo -n "${SPACESHIP_GIT_UNTRACKED}"
+  fi
+}
+
 # Mercurial status
 # Shows Mercurial branch
 spaceship_hg_status() {
 
 	[[ $SPACESHIP_HG_SHOW == false ]] && return
 
-	if [[ -d .hg ]]; then
+	if $( hg id >/dev/null 2>&1 ); then
 
+		# Show prefix before branch name. Currently using GIT_PREFIX
 		[[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_GIT}%b" || echo -n ' '
+
+		# String of indicators
+	    local indicators=''
+
+	    indicators+="$(spaceship_hg_untracked)"
+	    indicators+="$(spaceship_hg_uncomitted)"
+	    indicators+="$(spaceship_hg_unstaged)"
+
+	    [ -n "${indicators}" ] && indicators=" [${indicators}]";
 
 		echo -n "%{$fg_bold[magenta]%}"
 		echo -n "$(hg branch)"
 		echo -n "%{$reset_color%}"
+	    echo -n "%{$fg_bold[red]%}"
+	    echo -n "$indicators"
+	    echo -n "%{$reset_color%}"
 	fi
 }
 
