@@ -40,10 +40,13 @@ SPACESHIP_GIT_UNPULLED="${SPACESHIP_GIT_UNPULLED:-⇣}"
 SPACESHIP_GIT_UNPUSHED="${SPACESHIP_GIT_UNPUSHED:-⇡}"
 
 # Mercurial
-SPACESHIP_HG_SHOW="${SPACESHIP_HG_SHOW:-true}"
+SPACESHIP_HG_SHOW="${SPACESHIP_HG_SHOW:-false}"
+SPACESHIP_HG_SYMBOL="${SPACESHIP_HG_SYMBOL:-☿}"
 SPACESHIP_HG_UNCOMMITTED="${SPACESHIP_HG_UNCOMMITTED:-$SPACESHIP_GIT_UNCOMMITTED}"
 SPACESHIP_HG_UNSTAGED="${SPACESHIP_HG_UNSTAGED:-$SPACESHIP_GIT_UNSTAGED}"
 SPACESHIP_HG_UNTRACKED="${SPACESHIP_HG_UNTRACKED:-$SPACESHIP_GIT_UNTRACKED}"
+SPACESHIP_HG_UNPULLED="${SPACESHIP_HG_UNPULLED:-$SPACESHIP_GIT_UNPULLED}"
+SPACESHIP_HG_UNPUSHED="${SPACESHIP_HG_UNPUSHED:-$SPACESHIP_GIT_UNPUSHED}"
 
 
 # TIME
@@ -238,28 +241,47 @@ spaceship_git_status() {
 }
 
 # Uncommitted changes.
-# Check for uncommitted changes in the index.
+# Check for files added to index But, not committed
 spaceship_hg_uncomitted() {
-  if $(hg st | grep -Eq "^(A)"); then
+  if $(hg st | grep -Eq "^(A)" &>/dev/null ); then
     echo -n "${SPACESHIP_HG_UNCOMMITTED}"
   fi
 }
 
 # Unstaged changes.
-# Check for unstaged changes.
+# Check for modified files already in index
 spaceship_hg_unstaged() {
-  if $(hg st | grep -Eq "^(M)"); then
+  if $(hg st | grep -Eq "^(M)" &>/dev/null); then
     echo -n "${SPACESHIP_HG_UNSTAGED}"
   fi
 }
 
 # Untracked files.
-# Check for untracked files.
+# Check for files not added to index
 spaceship_hg_untracked() {
-  if $(hg st | grep -Eq "^\?"); then
+  if $(hg st | grep -Eq "^\?" &>/dev/null); then
     echo -n "${SPACESHIP_HG_UNTRACKED}"
   fi
 }
+
+# Outgoing and incoming changesets.
+# Get unpushed and unpulled changesets from default path and draw arrows
+# Requires atleast one path in configuration
+spaceship_hg_unpushed_unpulled() {
+
+  local arrows
+
+  if $(hg outgoing | grep -Eq "changeset" &>/dev/null); then
+    arrows+="${SPACESHIP_HG_UNPUSHED}"
+  fi
+
+  if $(hg incoming | grep -Eq "changeset" &>/dev/null); then
+    arrows+="${SPACESHIP_HG_UNPULLED}"
+  fi
+
+  [ -n $arrows ] && echo -n "${arrows}"
+}
+
 
 # Mercurial status
 # Shows Mercurial branch
@@ -269,7 +291,7 @@ spaceship_hg_status() {
 
 	if $( hg id >/dev/null 2>&1 ); then
 
-		# Show prefix before branch name. Currently using GIT_PREFIX
+		# Show prefix before branch name.
 		[[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_HG}%b" || echo -n ' '
 
 		# String of indicators
@@ -278,12 +300,16 @@ spaceship_hg_status() {
 	    indicators+="$(spaceship_hg_untracked)"
 	    indicators+="$(spaceship_hg_uncomitted)"
 	    indicators+="$(spaceship_hg_unstaged)"
+	    indicators+="$(spaceship_hg_unpushed_unpulled)"
 
 	    [ -n "${indicators}" ] && indicators=" [${indicators}]";
 
-		echo -n "%{$fg_bold[magenta]%}"
-		echo -n "$(hg branch)"
-		echo -n "%{$reset_color%}"
+	    echo -n "%{$fg_bold[yellow]%}"
+		  echo -n "${SPACESHIP_HG_SYMBOL}"
+		  echo -n "%{$reset_color%}"
+		  echo -n "%{$fg_bold[magenta]%}"
+		  echo -n "$(hg branch)"
+		  echo -n "%{$reset_color%}"
 	    echo -n "%{$fg_bold[red]%}"
 	    echo -n "$indicators"
 	    echo -n "%{$reset_color%}"
