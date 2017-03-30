@@ -20,6 +20,12 @@ Currently it shows:
   * `$` — stashed changes;
   * `⇣` — unpulled commits;
   * `⇡` — unpushed commits.
+* Mercurial repo status (`☿`)([how to enable](#mercurial)):
+  * `+` — uncommitted changes in the index;
+  * `!` — unstaged changes;
+  * `?` — untracked changes;
+  * `⇣` — unpulled changesets;
+  * `⇡` — unpushed changesets.
 * Prompt character turns red if the last command exits with non-zero code.
 * Hostname only displayed when in an SSH session.
 * Username displayed only when it isn't `$LOGNAME`.
@@ -136,6 +142,7 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | `SPACESHIP_PREFIX_DIR` | `in` | Characters to be shown before the current SSH Directory |
 | `SPACESHIP_PREFIX_GIT` | `on` | Character to be shown before git status |
 | `SPACESHIP_PREFIX_ENV_DEFAULT` | `via` | Default environment prefix |
+| `SPACESHIP_PREFIX_HG` | `SPACESHIP_PREFIX_GIT` | Character to be shown before mercurial status |
 | `SPACESHIP_PREFIX_NVM` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the NVM environment |
 | `SPACESHIP_PREFIX_RUBY` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Ruby environment |
 | `SPACESHIP_PREFIX_XCODE` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the XCode environment |
@@ -155,6 +162,21 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | `SPACESHIP_GIT_STASHED` | `$` | Character to be shown on stashed changes |
 | `SPACESHIP_GIT_UNPULLED` | `⇣` | Character to be shown on unpulled changes |
 | `SPACESHIP_GIT_UNPUSHED` | `⇡` | Character to be shown on unpushed changes |
+
+
+### Mercurial
+
+Disabled as default. Set `SPACESHIP_HG_SHOW` to `true` in your `.zshrc`, if you need to show time stamps. Known to increase startup time.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_HG_SHOW` | `false` | Show/hide git status (set to `true` for enabling)|
+| `SPACESHIP_HG_SYMBOL` | `☿` | Character to be shown before branch information | 
+| `SPACESHIP_HG_UNCOMMITTED` | `+` | Character to be shown on uncommitted changes |
+| `SPACESHIP_HG_UNSTAGED` | `!` | Character to be shown on unstaged changes |
+| `SPACESHIP_HG_UNTRACKED` | `?` | Character to be shown on untracked changes |
+| `SPACESHIP_HG_UNPULLED` | `⇣` | Character to be shown on unpulled changes |
+| `SPACESHIP_HG_UNPUSHED` | `⇡` | Character to be shown on unpushed changes |
 
 ### Time
 
@@ -261,6 +283,7 @@ SPACESHIP_PREFIX_HOST=' at '
 SPACESHIP_PREFIX_DIR=' in '
 SPACESHIP_PREFIX_GIT=' on '
 SPACESHIP_PREFIX_ENV_DEFAULT=' via '
+SPACESHIP_PREFIX_HG=$SPACESHIP_PREFIX_GIT
 SPACESHIP_PREFIX_NVM=$SPACESHIP_PREFIX_ENV_DEFAULT
 SPACESHIP_PREFIX_RUBY=$SPACESHIP_PREFIX_ENV_DEFAULT
 SPACESHIP_PREFIX_XCODE=$SPACESHIP_PREFIX_ENV_DEFAULT
@@ -276,6 +299,15 @@ SPACESHIP_GIT_UNTRACKED='?'
 SPACESHIP_GIT_STASHED='$'
 SPACESHIP_GIT_UNPULLED='⇣'
 SPACESHIP_GIT_UNPUSHED='⇡'
+
+# Mercurial
+SPACESHIP_HG_SHOW=false
+SPACESHIP_HG_SYMBOL=☿
+SPACESHIP_HG_UNCOMMITTED=SPACESHIP_GIT_UNCOMMITTED
+SPACESHIP_HG_UNSTAGED=$SPACESHIP_GIT_UNSTAGED
+SPACESHIP_HG_UNTRACKED=SPACESHIP_GIT_UNTRACKED
+SPACESHIP_HG_UNPULLED=$SPACESHIP_GIT_UNPULLED
+SPACESHIP_HG_UNPUSHED=SPACESHIP_GIT_UNPUSHED
 
 # TIME
 SPACESHIP_TIME_SHOW=false
