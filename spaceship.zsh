@@ -81,6 +81,10 @@ SPACESHIP_VI_MODE_SHOW="${SPACESHIP_VI_MODE_SHOW:-true}"
 SPACESHIP_VI_MODE_INSERT="${SPACESHIP_VI_MODE_INSERT:-[I]}"
 SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:-[N]}"
 
+# BACKGROUND JOBS
+SPACESHIP_BACKGROUND_JOBS_SHOW="${SPACESHIP_BACKGROUND_JOBS_SHOW:-true}"
+SPACESHIP_BACKGROUND_JOBS_SYMBOL="${SPACESHIP_BACKGROUND_JOBS_SYMBOL:-⚙}"
+
 # Time
 spaceship_time() {
   [[ $SPACESHIP_TIME_SHOW == false ]] && return
@@ -138,6 +142,13 @@ spaceship_current_dir() {
   echo -n "%{$fg_bold[cyan]%}"
   echo -n "%${SPACESHIP_PROMPT_TRUNC}~";
   echo -n "%{$reset_color%}"
+}
+
+# Are there background jobs running?
+spaceship_background_jobs_status() {
+  [[ $SPACESHIP_BACKGROUND_JOBS_SHOW == false ]] && return
+
+  [[ $(jobs -l | wc -l) -gt 0 ]] && echo -n "${SPACESHIP_BACKGROUND_JOBS_SYMBOL}"
 }
 
 # Uncommitted changes.
@@ -486,6 +497,7 @@ spaceship_prompt() {
   spaceship_docker_version
   spaceship_venv_status
   spaceship_pyenv_status
+  spaceship_background_jobs_status
 
   # Should it write prompt in two lines or not?
   # Write a space before, if it's written in single line
