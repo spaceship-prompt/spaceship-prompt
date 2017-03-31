@@ -33,7 +33,7 @@ Currently it shows:
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
 * Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode)).
-* Indicator for jobs in the background (`⚙ ).
+* Indicator for jobs in the background (`⚙`).
 * Optional time stamps 12/24hr in format ([how to enable](#time)).
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new) or send pull request.
@@ -243,6 +243,14 @@ You can temporarily enable or disable vi-mode with handy functions (just execute
 
 **Note:** For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$reset_color%}"` before `source $ZSH/oh-my-zsh.sh` in `.zshrc` to disable default `<<<` NORMAL mode indicator in right prompt.
 
+
+### Jobs
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_BACKGROUND_JOBS_SHOW` | `true` | Indicator for jobs in the background |
+| `SPACESHIP_BACKGROUND_JOBS_SYMBOL` | `⚙` | Character to be shown when jobs are hiding |
+
 ### Example
 
 Here is all options which may be changed. Copy this to your `~/.zshrc` to make it easy to change.
@@ -321,6 +329,10 @@ SPACESHIP_PYENV_SYMBOL='🐍'
 SPACESHIP_VI_MODE_SHOW=true
 SPACESHIP_VI_MODE_INSERT="[I]"
 SPACESHIP_VI_MODE_NORMAL="[N]"
+
+# JOBS
+SPACESHIP_BACKGROUND_JOBS_SHOW=true
+SPACESHIP_BACKGROUND_JOBS_SYMBOL='⚙'
 ```
 
 ## License
