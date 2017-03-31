@@ -406,6 +406,8 @@ spaceship_docker_version() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
 
   command -v docker > /dev/null 2>&1 || return
+  # if docker daemon isn't running you'll get an error message saying it can't connect...
+  $(docker info 2>&1 | grep -q "Cannot connect") && return
 
   local docker_version=$(docker version -f "{{.Server.Version}}")
 
