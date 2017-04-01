@@ -287,33 +287,33 @@ spaceship_hg_unpushed_unpulled() {
 # Shows Mercurial branch
 spaceship_hg_status() {
 
-	[[ $SPACESHIP_HG_SHOW == false ]] && return
+    [[ $SPACESHIP_HG_SHOW == false ]] && return
 
-	if $( hg id >/dev/null 2>&1 ); then
+    if $( hg id >/dev/null 2>&1 ); then
 
-		# Show prefix before branch name.
-		[[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_HG}%b" || echo -n ' '
+        # Show prefix before branch name.
+        [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_HG}%b" || echo -n ' '
 
-		# String of indicators
-	    local indicators=''
+        # String of indicators
+        local indicators=''
 
-	    indicators+="$(spaceship_hg_untracked)"
-	    indicators+="$(spaceship_hg_uncomitted)"
-	    indicators+="$(spaceship_hg_unstaged)"
-	    indicators+="$(spaceship_hg_unpushed_unpulled)"
+        indicators+="$(spaceship_hg_untracked)"
+        indicators+="$(spaceship_hg_uncomitted)"
+        indicators+="$(spaceship_hg_unstaged)"
+        indicators+="$(spaceship_hg_unpushed_unpulled)"
 
-	    [ -n "${indicators}" ] && indicators=" [${indicators}]";
+        [ -n "${indicators}" ] && indicators=" [${indicators}]";
 
-	    echo -n "%{$fg_bold[yellow]%}"
-		  echo -n "${SPACESHIP_HG_SYMBOL}"
-		  echo -n "%{$reset_color%}"
-		  echo -n "%{$fg_bold[magenta]%}"
-		  echo -n "$(hg branch)"
-		  echo -n "%{$reset_color%}"
-	    echo -n "%{$fg_bold[red]%}"
-	    echo -n "$indicators"
-	    echo -n "%{$reset_color%}"
-	fi
+        echo -n "%{$fg_bold[yellow]%}"
+        echo -n "${SPACESHIP_HG_SYMBOL}"
+        echo -n "%{$reset_color%}"
+        echo -n "%{$fg_bold[magenta]%}"
+        echo -n "$(hg branch)"
+        echo -n "%{$reset_color%}"
+        echo -n "%{$fg_bold[red]%}"
+        echo -n "$indicators"
+        echo -n "%{$reset_color%}"
+    fi
 }
 
 # Virtual environment.
