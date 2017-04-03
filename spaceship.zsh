@@ -14,6 +14,11 @@ SPACESHIP_PROMPT_ADD_NEWLINE="${SPACESHIP_PROMPT_ADD_NEWLINE:-true}"
 SPACESHIP_PROMPT_SEPARATE_LINE="${SPACESHIP_PROMPT_SEPARATE_LINE:-true}"
 SPACESHIP_PROMPT_TRUNC="${SPACESHIP_PROMPT_TRUNC:-3}"
 
+# Exit Status
+SPACESHIP_EXIT_STATUS_SHOW="${SPACESHIP_EXIT_STATUS_SHOW:-true}"
+SPACESHIP_EXIT_STATUS_SYMBOL="${SPACESHIP_EXIT_STATUS_SYMBOL:-✘}"
+SPACESHIP_EXIT_STATUS_SYMBOL_SHOW="${SPACESHIP_EXIT_STATUS_SYMBOL_SHOW:-false}"
+
 # PREFIXES
 SPACESHIP_PREFIX_SHOW="${SPACEHIP_PREFIX_SHOW:-true}"
 SPACESHIP_PREFIX_HOST="${SPACESHIP_PREFIX_HOST:-" at "}"
@@ -453,10 +458,20 @@ spaceship_vi_mode_disable() {
 }
 
 # Command prompt.
-# Paint $PROMPT_SYMBOL in red if previous command was fail and
+# Paint $PROMPT_SYMBOL in red and show exit code if previous command was fail and
 # paint in green if everything was OK.
 spaceship_return_status() {
-  echo -n "%(?.%{$fg[green]%}.%{$fg[red]%})"
+  if [[ $RETVAL -ne 0 ]]; then
+     echo -n "%{$fg_bold[red]%}"
+     if [[ $SPACESHIP_EXIT_STATUS_SHOW == true ]]; then
+      if [[ $SPACESHIP_EXIT_STATUS_SYMBOL_SHOW == true ]]; then
+        echo -n "${SPACESHIP_EXIT_STATUS_SYMBOL} "
+      fi
+      echo -n "${RETVAL}"
+    fi
+  else
+     echo -n "%{$fg_bold[green]%}"
+   fi
   echo -n "%B${SPACESHIP_PROMPT_SYMBOL}%b "
   echo -n "%{$reset_color%}"
 }
@@ -464,6 +479,7 @@ spaceship_return_status() {
 # Entry point
 # Compose whole prompt from smaller parts
 spaceship_prompt() {
+  RETVAL=$?
   # Should it add a new line before the prompt?
   [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
 
