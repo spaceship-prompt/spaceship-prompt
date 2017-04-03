@@ -417,7 +417,7 @@ spaceship_docker_version() {
   if [[ -z $DOCKER_MACHINE_NAME ]]; then
     echo -n "${SPACESHIP_DOCKER_SYMBOL}  v${docker_version}"
   else
-    echo -n "${SPACESHIP_DOCKER_SYMBOL}  v${docker_version} via〔$DOCKER_MACHINE_NAME〕"
+    echo -n "${SPACESHIP_DOCKER_SYMBOL}  v${docker_version} via ($DOCKER_MACHINE_NAME)"
   fi
   echo -n "%{$reset_color%}"
 }
