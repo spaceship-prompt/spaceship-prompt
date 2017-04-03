@@ -20,7 +20,7 @@ Currently it shows:
   * `$` — stashed changes;
   * `⇣` — unpulled commits;
   * `⇡` — unpushed commits.
-* Prompt character turns red if the last command exits with non-zero code.
+* Prompt character turns red and display exit code if the last command exits with non-zero code.
 * Hostname only displayed when in an SSH session.
 * Username displayed only when it isn't `$LOGNAME`.
 * Username turns red when root.
@@ -126,6 +126,14 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 | `SPACESHIP_PROMPT_SEPARATE_LINE` | `true` | Make the prompt span across two lines |
 | `SPACESHIP_PROMPT_ADD_NEWLINE` | `true` | Adds a newline character before each prompt line |
 | `SPACESHIP_PROMPT_TRUNC` | `3` | Number of folders of cwd to show in prompt, 0 to show all |
+
+### Exit Status
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_EXIT_STAUS_SHOW` | `true` | Show/hide exit status of the last command|
+| `SPACESHIP_EXIT_STAUS_SYMBOL` | `✘` | Character to be shown before exit code |
+| `SPACESHIP_EXIT_STATUS_SYMBOL_SHOW` | `false` | Show/hide character before exit staus |
 
 ### Prefixes
 
@@ -254,6 +262,11 @@ SPACESHIP_PROMPT_SYMBOL='➔'
 SPACESHIP_PROMPT_ADD_NEWLINE=true
 SPACESHIP_PROMPT_SEPARATE_LINE=true
 SPACESHIP_PROMPT_TRUNC=3
+
+# Exit Status
+SPACESHIP_EXIT_STATUS_SHOW=true
+SPACESHIP_EXIT_STATUS_SYMBOL='✘'
+SPACESHIP_EXIT_STATUS_SYMBOL_SHOW=false
 
 # PREFIXES
 SPACESHIP_PREFIX_SHOW=true
