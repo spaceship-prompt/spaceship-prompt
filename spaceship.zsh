@@ -134,7 +134,7 @@ spaceship_host() {
 
 # Current directory.
 # Return only three last items of path
-spaceship_current_dir() {
+spaceship_dir() {
   echo -n "%{$fg_bold[cyan]%}"
   echo -n "%${SPACESHIP_PROMPT_TRUNC}~";
   echo -n "%{$reset_color%}"
@@ -195,7 +195,7 @@ spaceship_git_unpushed_unpulled() {
 
 # Git status.
 # Collect indicators, git branch and pring string.
-spaceship_git_status() {
+spaceship_git() {
   [[ $SPACESHIP_GIT_SHOW == false ]] && return
 
   # Check if the current directory is in a Git repository.
@@ -231,7 +231,7 @@ spaceship_git_status() {
 
 # Virtual environment.
 # Show current virtual environment (Python).
-spaceship_venv_status() {
+spaceship_venv() {
   [[ $SPACESHIP_VENV_SHOW == false ]] && return
 
   # Check if the current directory running via Virtualenv
@@ -247,7 +247,7 @@ spaceship_venv_status() {
 
 # Pyenv
 # Show current version of pyenv python, including system.
-spaceship_pyenv_status() {
+spaceship_pyenv() {
   [[ $SPACESHIP_PYENV_SHOW == false ]] && return
 
   # Show NVM status only for Python-specific folders
@@ -281,7 +281,7 @@ spaceship_pyenv_status() {
 
 # NVM
 # Show current version of node, exception system.
-spaceship_nvm_status() {
+spaceship_nvm() {
   [[ $SPACESHIP_NVM_SHOW == false ]] && return
 
   # Show NVM status only for JS-specific folders
@@ -302,7 +302,7 @@ spaceship_nvm_status() {
 
 # Ruby
 # Show current version of Ruby
-spaceship_ruby_version() {
+spaceship_ruby() {
   [[ $SPACESHIP_RUBY_SHOW == false ]] && return
 
   # Show versions only for Ruby-specific folders
@@ -333,7 +333,7 @@ spaceship_ruby_version() {
 
 # Swift
 # Show current version of Swift
-spaceship_swift_version() {
+spaceship_swift() {
   command -v swiftenv > /dev/null 2>&1 || return
 
   if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
@@ -356,7 +356,7 @@ spaceship_swift_version() {
 
 # Xcode
 # Show current version of Xcode
-spaceship_xcode_version() {
+spaceship_xcode() {
   command -v xcenv > /dev/null 2>&1 || return
 
   if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
@@ -385,7 +385,7 @@ spaceship_xcode_version() {
 
 # Golang
 # Show current version of golang
-spaceship_golang_version() {
+spaceship_golang() {
   [[ $SPACESHIP_GOLANG_SHOW == false ]] && return
 
   # If there are Go-specific files in current directory
@@ -402,7 +402,7 @@ spaceship_golang_version() {
   echo -n "%{$reset_color%}"
 }
 
-spaceship_docker_version() {
+spaceship_docker() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
 
   command -v docker > /dev/null 2>&1 || return
@@ -476,16 +476,16 @@ spaceship_prompt() {
   # Execute all parts
   spaceship_time
   spaceship_host
-  spaceship_current_dir
-  spaceship_git_status
-  spaceship_nvm_status
-  spaceship_ruby_version
-  spaceship_xcode_version
-  spaceship_swift_version
-  spaceship_golang_version
-  spaceship_docker_version
-  spaceship_venv_status
-  spaceship_pyenv_status
+  spaceship_dir
+  spaceship_git
+  spaceship_nvm
+  spaceship_ruby
+  spaceship_xcode
+  spaceship_swift
+  spaceship_golang
+  spaceship_docker
+  spaceship_venv
+  spaceship_pyenv
 
   # Should it write prompt in two lines or not?
   # Write a space before, if it's written in single line
