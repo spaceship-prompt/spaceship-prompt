@@ -81,6 +81,11 @@ SPACESHIP_VI_MODE_SHOW="${SPACESHIP_VI_MODE_SHOW:-true}"
 SPACESHIP_VI_MODE_INSERT="${SPACESHIP_VI_MODE_INSERT:-[I]}"
 SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:-[N]}"
 
+# HELPER: Check if command exists in path
+_exists? () {
+  command -v $1 > /dev/null 2>&1 || return
+}
+
 # Time
 spaceship_time() {
   [[ $SPACESHIP_TIME_SHOW == false ]] && return
@@ -253,7 +258,7 @@ spaceship_pyenv() {
   # Show NVM status only for Python-specific folders
   [[ -f requirements.txt || -n *.py(#qN) ]] || return
 
-  command -v pyenv > /dev/null 2>&1 || return # Do nothing if pyenv is not installed
+  _exists? pyenv || return # Do nothing if pyenv is not installed
 
   local pyenv_shell=$(pyenv shell 2>/dev/null)
   local pyenv_local=$(pyenv local 2>/dev/null)
@@ -287,7 +292,7 @@ spaceship_nvm() {
   # Show NVM status only for JS-specific folders
   [[ -f package.json || -d node_modules || -n *.js(#qN) ]] || return
 
-  command -v nvm > /dev/null 2>&1 || return
+  _exists? nvm || return
 
   local nvm_status=$(nvm current 2>/dev/null)
   [[ "${nvm_status}" == "system" || "${nvm_status}" == "node" ]] && return
@@ -308,11 +313,11 @@ spaceship_ruby() {
   # Show versions only for Ruby-specific folders
   [[ -f Gemfile || -f Rakefile || -n *.rb(#qN) ]] || return
 
-  if command -v rvm-prompt > /dev/null 2>&1; then
+  if _exists? rvm-prompt; then
     ruby_version=$(rvm-prompt i v g)
-  elif command -v chruby > /dev/null 2>&1; then
+  elif _exists? chruby; then
     ruby_version=$(chruby | sed -n -e 's/ \* //p')
-  elif command -v rbenv > /dev/null 2>&1; then
+  elif _exists? rbenv; then
     ruby_version=$(rbenv version | sed -e 's/ (set.*$//')
   else
     return
@@ -334,7 +339,7 @@ spaceship_ruby() {
 # Swift
 # Show current version of Swift
 spaceship_swift() {
-  command -v swiftenv > /dev/null 2>&1 || return
+  _exists? swiftenv || return
 
   if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
     local swift_version=$(swiftenv version | sed 's/ .*//')
@@ -357,7 +362,7 @@ spaceship_swift() {
 # Xcode
 # Show current version of Xcode
 spaceship_xcode() {
-  command -v xcenv > /dev/null 2>&1 || return
+  _exists? xcenv || return
 
   if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
     local xcode_path=$(xcenv version | sed 's/ .*//')
@@ -370,7 +375,7 @@ spaceship_xcode() {
   if [ -n "${xcode_path}" ]; then
     local xcode_version_path=$xcode_path"/Contents/version.plist"
     if [ -f ${xcode_version_path} ]; then
-      if command -v defaults > /dev/null 2>&1 ; then
+      if _exists? defaults; then
         local xcode_version=$(defaults read ${xcode_version_path} CFBundleShortVersionString)
         # Do not show prefix if prefixes are disabled
         [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_XCODE}%b" || echo -n ' '
@@ -391,7 +396,7 @@ spaceship_golang() {
   # If there are Go-specific files in current directory
   [[ -d Godeps || -f glide.yaml || -n *.go(#qN) ]] || return
 
-  command -v go > /dev/null 2>&1 || return
+  _exists? go || return
 
   local go_version=$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')
   # Do not show prefix if prefixes are disabled
@@ -405,12 +410,12 @@ spaceship_golang() {
 spaceship_docker() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
 
-  command -v docker > /dev/null 2>&1 || return
+  _exists? docker || return
 
   if [[ -z $DOCKER_MACHINE_NAME ]]; then
     DOCKER_MACHINE_NAME="localhost"
   fi
-  
+
   local docker_version=$(docker version -f "{{.Server.Version}}")
 
   [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_DOCKER}%b" || echo -n ' '
