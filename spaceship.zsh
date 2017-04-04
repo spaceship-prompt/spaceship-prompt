@@ -86,6 +86,11 @@ _exists? () {
   command -v $1 > /dev/null 2>&1 || return
 }
 
+# HELPER: Show prefix or not
+_prefixed?() {
+  [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${1}%b" || echo -n ' '
+}
+
 # Time
 spaceship_time() {
   [[ $SPACESHIP_TIME_SHOW == false ]] && return
@@ -121,17 +126,17 @@ spaceship_host() {
     echo -n "$(spaceship_user)"
 
     # Do not show directory prefix if prefixes are disabled
-    [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_DIR}%b" || echo -n ' '
+    _prefixed? $SPACESHIP_PREFIX_DIR
     # Display machine name
     echo -n "%{$fg_bold[green]%}%m%{$reset_color%}"
     # Do not show host prefix if prefixes are disabled
-    [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_HOST}%b" || echo -n ' '
+    _prefixed? $SPACESHIP_PREFIX_HOST
 
   elif [[ $LOGNAME != $USER ]] || [[ $USER == 'root' ]]; then
     echo -n "$(spaceship_user)"
 
     # Do not show host prefix if prefixes are disabled
-    [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_HOST}%b" || echo -n ' '
+    _prefixed? $SPACESHIP_PREFIX_HOST
 
     echo -n "%{$reset_color%}"
   fi
@@ -223,7 +228,7 @@ spaceship_git() {
     [ -n "${indicators}" ] && indicators=" [${indicators}]";
 
     # Do not show git prefix if prefixes are disabled
-    [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_GIT}%b" || echo -n ' '
+    _prefixed? $SPACESHIP_PREFIX_GIT
 
     echo -n "%{$fg_bold[magenta]%}"
     echo -n "$(git_current_branch)"
@@ -243,7 +248,7 @@ spaceship_venv() {
   [ -n "$VIRTUAL_ENV" ] && $(type deactivate >/dev/null 2>&1) || return
 
   # Do not show venv prefix if prefixes are disabled
-  [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_VENV}%b" || echo -n ' '
+  _prefixed? $SPACESHIP_PREFIX_VENV
 
   echo -n "%{$fg_bold[blue]%}"
   echo -n "$(basename $VIRTUAL_ENV)"
@@ -277,7 +282,7 @@ spaceship_pyenv() {
   fi
 
   # Do not show pyenv prefix if prefixes are disabled
-  [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_PYENV}%b" || echo -n ' '
+  _prefixed? $SPACESHIP_PREFIX_PYENV
 
   echo -n "%{$fg_bold[yellow]%}"
   echo -n "${SPACESHIP_PYENV_SYMBOL}  ${pyenv_status}"
@@ -298,7 +303,7 @@ spaceship_nvm() {
   [[ "${nvm_status}" == "system" || "${nvm_status}" == "node" ]] && return
 
   # Do not show NVM prefix if prefixes are disabled
-  [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_NVM}%b" || echo -n ' '
+  _prefixed? $SPACESHIP_PREFIX_NVM
 
   echo -n "%{$fg_bold[green]%}"
   echo -n "${SPACESHIP_NVM_SYMBOL} ${nvm_status}"
@@ -326,7 +331,7 @@ spaceship_ruby() {
   [[ "${ruby_version}" == "system" ]] && return
 
   # Do not show ruby prefix if prefixes are disabled
-  [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_RUBY}%b" || echo -n ' '
+  _prefixed? $SPACESHIP_PREFIX_RUBY
 
   # Add 'v' before ruby version that starts with a number
   [[ "${ruby_version}" =~ ^[0-9].+$ ]] && ruby_version="v${ruby_version}"
@@ -351,7 +356,7 @@ spaceship_swift() {
 
   if [ -n "${swift_version}" ]; then
     # Do not show prefix if prefixes are disabled
-    [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_SWIFT}%b" || echo -n ' '
+    _prefixed? $SPACESHIP_PREFIX_SWIFT
 
     echo -n "%{$fg_bold[yellow]%}"
     echo -n "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}"
@@ -378,7 +383,7 @@ spaceship_xcode() {
       if _exists? defaults; then
         local xcode_version=$(defaults read ${xcode_version_path} CFBundleShortVersionString)
         # Do not show prefix if prefixes are disabled
-        [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_XCODE}%b" || echo -n ' '
+        _prefixed? $SPACESHIP_PREFIX_XCODE
 
         echo -n "%{$fg_bold[blue]%}"
         echo -n "${SPACESHIP_XCODE_SYMBOL}  ${xcode_version}"
@@ -399,8 +404,9 @@ spaceship_golang() {
   _exists? go || return
 
   local go_version=$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')
+
   # Do not show prefix if prefixes are disabled
-  [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_GOLANG}%b" || echo -n ' '
+  _prefixed? $SPACESHIP_PREFIX_GOLANG
 
   echo -n "%{$fg_bold[cyan]%}"
   echo -n "${SPACESHIP_GOLANG_SYMBOL}  v${go_version}"
@@ -418,7 +424,7 @@ spaceship_docker() {
 
   local docker_version=$(docker version -f "{{.Server.Version}}")
 
-  [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_DOCKER}%b" || echo -n ' '
+  _prefixed? $SPACESHIP_PREFIX_DOCKER
 
   echo -n "%{$fg_bold[cyan]%}"
   echo -n "${SPACESHIP_DOCKER_SYMBOL}  v${docker_version} via〔$DOCKER_MACHINE_NAME〕"
