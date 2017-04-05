@@ -5,6 +5,11 @@
 # License: MIT
 # https://github.com/denysdovhan/spaceship-zsh-theme
 
+# ------------------------------------------------------------------------------
+# CONFIGURATION
+# The default configuration that can be overridden in .zshrc
+# ------------------------------------------------------------------------------
+
 NEWLINE='
 '
 
@@ -81,17 +86,27 @@ SPACESHIP_VI_MODE_SHOW="${SPACESHIP_VI_MODE_SHOW:=true}"
 SPACESHIP_VI_MODE_INSERT="${SPACESHIP_VI_MODE_INSERT:="[I]"}"
 SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:="[N]"}"
 
-# HELPER: Check if command exists in path
+# ------------------------------------------------------------------------------
+# HELPERS
+# Helpers for common used actions
+# ------------------------------------------------------------------------------
+
+# Check if command exists in path
 _exists? () {
   command -v $1 > /dev/null 2>&1 || return
 }
 
-# HELPER: Show prefix or not
+# Show prefix or not
 _prefixed?() {
   [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${1}%b" || echo -n ' '
 }
 
-# Time
+# ------------------------------------------------------------------------------
+# SECTIONS
+# The parts the prompt consists of
+# ------------------------------------------------------------------------------
+
+# TIME
 spaceship_time() {
   [[ $SPACESHIP_TIME_SHOW == false ]] && return
 
@@ -106,7 +121,8 @@ spaceship_time() {
   echo -n "%{$reset_color%} "
 }
 
-# Username.
+# FIXME: should be stanalone
+# USER
 # If user is root, then pain it in red. Otherwise, just print in yellow.
 spaceship_user() {
   if [[ $USER == 'root' ]]; then
@@ -118,6 +134,7 @@ spaceship_user() {
   echo -n "%{$reset_color%}"
 }
 
+# FIXME: Shouldn't use USER
 # Username and SSH host
 # If there is an ssh connections, then show user and current machine.
 # If user is not $USER, then show username.
@@ -142,8 +159,8 @@ spaceship_host() {
   fi
 }
 
-# Current directory.
-# Return only three last items of path
+# DIR
+# Current directory. Return only three last items of path
 spaceship_dir() {
   echo -n "%{$fg_bold[cyan]%}"
   echo -n "%${SPACESHIP_PROMPT_TRUNC}~";
@@ -203,7 +220,7 @@ spaceship_git_unpushed_unpulled() {
   [ -n $arrows ] && echo -n "${arrows}"
 }
 
-# Git status.
+# GIT
 # Collect indicators, git branch and pring string.
 spaceship_git() {
   [[ $SPACESHIP_GIT_SHOW == false ]] && return
@@ -239,7 +256,7 @@ spaceship_git() {
   fi
 }
 
-# Virtual environment.
+# VENV
 # Show current virtual environment (Python).
 spaceship_venv() {
   [[ $SPACESHIP_VENV_SHOW == false ]] && return
@@ -255,7 +272,7 @@ spaceship_venv() {
   echo -n "%{$reset_color%}"
 }
 
-# Pyenv
+# PYENV
 # Show current version of pyenv python, including system.
 spaceship_pyenv() {
   [[ $SPACESHIP_PYENV_SHOW == false ]] && return
@@ -310,7 +327,7 @@ spaceship_nvm() {
   echo -n "%{$reset_color%}"
 }
 
-# Ruby
+# RUBY
 # Show current version of Ruby
 spaceship_ruby() {
   [[ $SPACESHIP_RUBY_SHOW == false ]] && return
@@ -341,7 +358,7 @@ spaceship_ruby() {
   echo -n "%{$reset_color%}"
 }
 
-# Swift
+# SWIFT
 # Show current version of Swift
 spaceship_swift() {
   _exists? swiftenv || return
@@ -364,7 +381,7 @@ spaceship_swift() {
   fi
 }
 
-# Xcode
+# XCODE
 # Show current version of Xcode
 spaceship_xcode() {
   _exists? xcenv || return
@@ -393,7 +410,7 @@ spaceship_xcode() {
   fi
 }
 
-# Golang
+# GOLANG
 # Show current version of golang
 spaceship_golang() {
   [[ $SPACESHIP_GOLANG_SHOW == false ]] && return
@@ -413,6 +430,7 @@ spaceship_golang() {
   echo -n "%{$reset_color%}"
 }
 
+# DOCKER
 spaceship_docker() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
 
@@ -431,6 +449,7 @@ spaceship_docker() {
   echo -n "%{$reset_color%}"
 }
 
+# VI_MODE
 # Show current vi_mode mode
 spaceship_vi_mode() {
   if bindkey | grep "vi-quoted-insert" > /dev/null 2>&1; then # check if vi-mode enabled
@@ -471,6 +490,11 @@ spaceship_return_status() {
   echo -n "%B${SPACESHIP_PROMPT_SYMBOL}%b "
   echo -n "%{$reset_color%}"
 }
+
+# ------------------------------------------------------------------------------
+# MAIN
+# An entry point of prompt
+# ------------------------------------------------------------------------------
 
 # Entry point
 # Compose whole prompt from smaller parts
