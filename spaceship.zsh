@@ -13,6 +13,24 @@
 NEWLINE='
 '
 
+SPACESHIP_PROMPT_ORDER=(
+  time
+  host
+  dir
+  git
+  nvm
+  ruby
+  xcode
+  swift
+  golang
+  docker
+  venv
+  pyenv
+  line_sep
+  vi_mode
+  char
+)
+
 # PROMPT
 SPACESHIP_PROMPT_SYMBOL="${SPACESHIP_PROMPT_SYMBOL:="➔"}"
 SPACESHIP_PROMPT_ADD_NEWLINE="${SPACESHIP_PROMPT_ADD_NEWLINE:=true}"
@@ -452,6 +470,8 @@ spaceship_docker() {
 # VI_MODE
 # Show current vi_mode mode
 spaceship_vi_mode() {
+  [[ $SPACESHIP_VI_MODE_SHOW == true ]] || return
+
   if bindkey | grep "vi-quoted-insert" > /dev/null 2>&1; then # check if vi-mode enabled
     echo -n "%{$fg_bold[white]%}"
 
@@ -482,10 +502,17 @@ spaceship_vi_mode_disable() {
   bindkey -e
 }
 
-# Command prompt.
+# LINE SEPARATOR
+# Should it write prompt in two lines or not?
+# Write a space before, if it's written in single line
+spaceship_line_sep() {
+  [[ $SPACESHIP_PROMPT_SEPARATE_LINE == true ]] && echo -n "$NEWLINE" || echo -n ' '
+}
+
+# PROMPT CHARACTER
 # Paint $PROMPT_SYMBOL in red if previous command was fail and
 # paint in green if everything was OK.
-spaceship_return_status() {
+spaceship_char() {
   echo -n "%(?.%{$fg[green]%}.%{$fg[red]%})"
   echo -n "%B${SPACESHIP_PROMPT_SYMBOL}%b "
   echo -n "%{$reset_color%}"
@@ -499,38 +526,19 @@ spaceship_return_status() {
 # Entry point
 # Compose whole prompt from smaller parts
 spaceship_prompt() {
-  # Should it add a new line before the prompt?
-  [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
-
   # Option EXTENDED_GLOB is set locally to force filename generation on
   # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
   # See the description of filename generation in
   # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
   setopt EXTENDED_GLOB LOCAL_OPTIONS
 
+  # Should it add a new line before the prompt?
+  [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
+
   # Execute all parts
-  spaceship_time
-  spaceship_host
-  spaceship_dir
-  spaceship_git
-  spaceship_nvm
-  spaceship_ruby
-  spaceship_xcode
-  spaceship_swift
-  spaceship_golang
-  spaceship_docker
-  spaceship_venv
-  spaceship_pyenv
-
-  # Should it write prompt in two lines or not?
-  # Write a space before, if it's written in single line
-  [[ $SPACESHIP_PROMPT_SEPARATE_LINE == true ]] && echo -n "$NEWLINE" || echo -n ' '
-
-  # Is vi-mode active?
-  [[ $SPACESHIP_VI_MODE_SHOW == true ]] && spaceship_vi_mode
-
-  # Prompt character
-  spaceship_return_status
+  for section in $SPACESHIP_PROMPT_ORDER; do
+    spaceship_$section
+  done
 }
 
 # PS2 - continuation interactive prompt
