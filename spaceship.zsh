@@ -406,17 +406,19 @@ spaceship_docker_version() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
 
   command -v docker > /dev/null 2>&1 || return
+  # if docker daemon isn't running you'll get an error message saying it can't connect...
+  docker info 2>&1 | grep -q "Cannot connect" && return
 
-  if [[ -z $DOCKER_MACHINE_NAME ]]; then
-    DOCKER_MACHINE_NAME="localhost"
-  fi
-  
   local docker_version=$(docker version -f "{{.Server.Version}}")
 
   [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_DOCKER}%b" || echo -n ' '
 
   echo -n "%{$fg_bold[cyan]%}"
-  echo -n "${SPACESHIP_DOCKER_SYMBOL}  v${docker_version} via〔$DOCKER_MACHINE_NAME〕"
+  if [[ -z $DOCKER_MACHINE_NAME ]]; then
+    echo -n "${SPACESHIP_DOCKER_SYMBOL}  v${docker_version}"
+  else
+    echo -n "${SPACESHIP_DOCKER_SYMBOL}  v${docker_version} via ($DOCKER_MACHINE_NAME)"
+  fi
   echo -n "%{$reset_color%}"
 }
 
