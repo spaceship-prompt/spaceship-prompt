@@ -24,6 +24,7 @@ SPACESHIP_PREFIX_NVM="${SPACESHIP_PREFIX_NVM:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_RUBY="${SPACESHIP_PREFIX_RUBY:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_SWIFT="${SPACESHIP_PREFIX_SWIFT:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_GOLANG="${SPACESHIP_PREFIX_GOLANG:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
+SPACESHIP_PREFIX_PHP="${SPACESHIP_PREFIX_PHP:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_DOCKER="${SPACESHIP_PREFIX_DOCKER:-" on "}"
 SPACESHIP_PREFIX_XCODE="${SPACESHIP_PREFIX_XCODE:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_VENV="${SPACESHIP_PREFIX_VENV:-$SPACESHIP_PREFIX_ENV_DEFAULT}"
@@ -59,6 +60,10 @@ SPACESHIP_SWIFT_SYMBOL="${SPACESHIP_SWIFT_SYMBOL:-🐦}"
 # GOLANG
 SPACESHIP_GOLANG_SHOW="${SPACESHIP_GOLANG_SHOW:-true}"
 SPACESHIP_GOLANG_SYMBOL="${SPACESHIP_GOLANG_SYMBOL:-🐹}"
+
+# PHP
+SPACESHIP_PHP_SHOW="${SPACESHIP_PHP_SHOW:-true}"
+SPACESHIP_PHP_SYMBOL="${SPACESHIP_PHP_SYMBOL:-🐘}"
 
 # DOCKER
 SPACESHIP_DOCKER_SHOW="${SPACESHIP_DOCKER_SHOW:-true}"
@@ -402,6 +407,22 @@ spaceship_golang_version() {
   echo -n "%{$reset_color%}"
 }
 
+spaceship_php_version() {
+  [[ $SPACESHIP_PHP_SHOW == false ]] && return
+
+  [[ -n *.php(#qN) ]] || return
+
+  command -v php > /dev/null 2>&1 || return
+
+	local php_version=$(php -v 2>&1 | grep -oe "^PHP\s*[0-9.]*" | awk '{print $2}')
+
+	[[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_PHP}%b" || echo -n ' '
+
+  echo -n "%{$fg_bold[blue]%}"
+  echo -n "${SPACESHIP_PHP_SYMBOL}v${php_version}"
+  echo -n "%{$reset_color%}"
+}
+
 spaceship_docker_version() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
 
@@ -483,6 +504,7 @@ spaceship_prompt() {
   spaceship_xcode_version
   spaceship_swift_version
   spaceship_golang_version
+  spaceship_php_version
   spaceship_docker_version
   spaceship_venv_status
   spaceship_pyenv_status
