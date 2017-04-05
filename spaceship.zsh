@@ -93,7 +93,7 @@ SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:="[N]"}"
 
 # Check if command exists in path
 _exists? () {
-  command -v $1 > /dev/null 2>&1 || return
+  command -v $1 > /dev/null 2>&1
 }
 
 # Show prefix or not
