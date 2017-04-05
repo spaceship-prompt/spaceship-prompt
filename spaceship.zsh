@@ -43,6 +43,12 @@ SPACESHIP_TIME_SHOW="${SPACESHIP_TIME_SHOW:-false}"
 SPACESHIP_TIME_FORMAT="${SPACESHIP_TIME_FORMAT:-false}"
 SPACESHIP_TIME_12HR="${SPACESHIP_TIME_12HR:-false}"
 
+# BATTERY
+SPACESHIP_BATTERY_SHOW="${SPACESHIP_BATTERY_SHOW:-false}"
+SPACESHIP_BATTERY_CHARGING="${SPACESHIP_BATTERY_CHARGING:-⇡}"
+SPACESHIP_BATTERY_DISCHARGING="${SPACESHIP_BATTERY_DISCHARGING:-⇣}"
+SPACESHIP_BATTERY_FULL="${SPACESHIP_BATTERY_FULL:-•}"
+
 # NVM
 SPACESHIP_NVM_SHOW="${SPACESHIP_NVM_SHOW:-true}"
 SPACESHIP_NVM_SYMBOL="${SPACESHIP_NVM_SYMBOL:-⬢}"
@@ -92,6 +98,55 @@ spaceship_time() {
   else
     echo -n "%{$fg_bold[yellow]%}%D{%T}"
   fi
+
+  echo -n "%{$reset_color%} "
+}
+
+# Battery
+spaceship_battery(){
+  [[ $SPACESHIP_BATTERY_SHOW == false ]] && return
+
+  local os=$(uname);
+  local battery_status="";
+  local battery_percent="0";
+
+  if [[ "$os" = "Linux" ]]; then
+    if which upower > /dev/null ; then
+      local battery_power=$(upower -i $(upower -e | grep BAT | tail -1) | grep state | awk '{print $2}');
+      if [[ $battery_power = "charging" ]]; then
+        battery_status=$SPACESHIP_BATTERY_CHARGING;
+      elif [[ $battery_power = "discharging" ]]; then
+        battery_status=$SPACESHIP_BATTERY_DISCHARGING;
+      elif [[ $battery_power = "fully-charged" ]]; then
+        battery_status=$SPACESHIP_BATTERY_FULL;
+      fi
+      battery_percent=$(upower -i $(upower -e | grep BAT | tail -1) | grep percentage | awk '{print $2}' | sed "s|%||g");
+    fi
+  fi
+
+  if [[ "$os" = "Darwin" ]]; then
+    local battery_power=$(pmset -g batt | tail -1 | awk '{print $4}' | tr -d "%;");
+    if [[ $battery_power = "charging" ]]; then
+      battery_status=$SPACESHIP_BATTERY_CHARGING;
+    elif [[ $battery_power = "finishing" ]]; then
+      battery_status=$SPACESHIP_BATTERY_CHARGING;
+    elif [[ $battery_power = "discharging" ]]; then
+      battery_status=$SPACESHIP_BATTERY_DISCHARGING;
+    elif [[ $battery_power = "charged" ]]; then
+      battery_status=$SPACESHIP_BATTERY_FULL;
+    fi
+    battery_percent=$(pmset -g batt | tail -1 | awk '{print $3}' | tr -d "%;");
+  fi
+
+  if [[ $battery_percent -ge "50" ]]; then
+    echo -n "%{$fg_bold[green]%}"
+  elif [[ $battery_percent -ge "20" ]]; then
+    echo -n "%{$fg_bold[yellow]%}"
+  else
+    echo -n "%{$fg_bold[red]%}"
+  fi
+
+  echo -n "${battery_status}${battery_percent}";
 
   echo -n "%{$reset_color%} "
 }
@@ -477,6 +532,7 @@ spaceship_prompt() {
 
   # Execute all parts
   spaceship_time
+  spaceship_battery
   spaceship_host
   spaceship_current_dir
   spaceship_git_status

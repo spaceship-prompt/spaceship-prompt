@@ -166,6 +166,17 @@ Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | `SPACESHIP_TIME_12HR` | `false` | Format time using 12-hour clock (am/pm) |
 | `SPACESHIP_TIME_FORMAT` | `false` | Custom date formatting (e.g. `%D{%a %R}`) [ZSH date formats](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Date-and-time) |
 
+### Battery
+
+Disabled as default. Set `SPACESHIP_BATTERY_SHOW` to `true` in your `.zshrc`, if you need to show battery status.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_BATTERY_SHOW` | `false` | Show battery (set to `true` for enabling) |
+| `SPACESHIP_BATTERY_CHARGING` | `⇡` | Character to be shown on battery charging |
+| `SPACESHIP_BATTERY_DISCHARGING` | `⇣` | Character to be shown on battery discharging |
+| `SPACESHIP_BATTERY_FULL` | `•` | Character to be shown on battery fully-charged |
+
 ### Nvm
 
 | Variable | Default | Meaning |
@@ -281,6 +292,12 @@ SPACESHIP_GIT_UNPUSHED='⇡'
 SPACESHIP_TIME_SHOW=false
 SPACESHIP_TIME_12HR=false
 SPACESHIP_TIME_FORMAT=false
+
+# BATTERY
+SPACESHIP_BATTERY_SHOW=false
+SPACESHIP_BATTERY_CHARGING='⇡'
+SPACESHIP_BATTERY_DISCHARGING='⇣'
+SPACESHIP_BATTERY_FULL='•'
 
 # NVM
 SPACESHIP_NVM_SHOW=true
