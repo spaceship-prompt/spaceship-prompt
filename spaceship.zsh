@@ -419,7 +419,7 @@ spaceship_php_version() {
 	[[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_PHP}%b" || echo -n ' '
 
   echo -n "%{$fg_bold[blue]%}"
-  echo -n "${SPACESHIP_PHP_SYMBOL}v${php_version}"
+  echo -n "${SPACESHIP_PHP_SYMBOL} v${php_version}"
   echo -n "%{$reset_color%}"
 }
 
