@@ -154,7 +154,7 @@ spaceship_time() {
     echo -n "%{$fg_bold[yellow]%}%D{%T}"
   fi
 
-  echo -n "%{$reset_color%} "
+  echo -n "%{$reset_color%}"
 }
 
 # FIXME: should be stanalone
@@ -359,7 +359,7 @@ spaceship_nvm() {
   _prefixed? $SPACESHIP_PREFIX_NVM
 
   echo -n "%{$fg_bold[green]%}"
-  echo -n "${SPACESHIP_NVM_SYMBOL} ${nvm_status}"
+  echo -n "${SPACESHIP_NVM_SYMBOL}  ${nvm_status}"
   echo -n "%{$reset_color%}"
 }
 
@@ -504,7 +504,7 @@ spaceship_vi_mode() {
       ;;
     esac
     echo -n "${MODE_INDICATOR}"
-    echo -n "%{$reset_color%} "
+    echo -n "%{$reset_color%}"
   fi
 }
 
