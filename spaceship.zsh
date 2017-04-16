@@ -26,10 +26,28 @@ SPACESHIP_PROMPT_ORDER=(
   docker
   venv
   pyenv
-  line_sep
-  vi_mode
-  char
 )
+
+# ORDER
+if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
+  SPACESHIP_PROMPT_ORDER=(
+    time
+    host
+    dir
+    git
+    nvm # FIXME: expose as `node`. fix backward compat
+    ruby
+    xcode
+    swift
+    golang
+    docker
+    venv
+    pyenv
+    line_sep
+    vi_mode
+    char
+  )
+fi
 
 # PROMPT
 SPACESHIP_PROMPT_SYMBOL="${SPACESHIP_PROMPT_SYMBOL:="➔"}"
