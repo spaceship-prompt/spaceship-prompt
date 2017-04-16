@@ -298,7 +298,7 @@ spaceship_venv() {
   [[ $SPACESHIP_VENV_SHOW == false ]] && return
 
   # Check if the current directory running via Virtualenv
-  [ -n "$VIRTUAL_ENV" ] && $(type deactivate >/dev/null 2>&1) || return
+  [ -n "$VIRTUAL_ENV" ] && _exists? deactivate || return
 
   # Do not show venv prefix if prefixes are disabled
   _prefixed? $SPACESHIP_PREFIX_VENV
