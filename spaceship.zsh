@@ -189,10 +189,7 @@ spaceship_host() {
 # DIR
 # Current directory. Return only three last items of path
 spaceship_dir() {
-  # echo -n "%{$fg_bold[cyan]%}"
-  # echo -n "%${SPACESHIP_PROMPT_TRUNC}~";
-  # echo -n "%{$reset_color%}"
-  prompt_section cyan '' "%${SPACESHIP_PROMPT_TRUNC}~" ''
+  prompt_section cyan $SPACESHIP_PREFIX_DIR "%${SPACESHIP_PROMPT_TRUNC}~" ''
 }
 
 # Uncommitted changes.
