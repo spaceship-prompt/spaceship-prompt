@@ -32,6 +32,7 @@ SPACESHIP_PROMPT_ORDER=(
 if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
   SPACESHIP_PROMPT_ORDER=(
     time
+    user
     host
     dir
     git
@@ -161,17 +162,21 @@ spaceship_time() {
   prompt_section yellow '' $time_str ''
 }
 
-# FIXME: should be stanalone
 # USER
 # If user is root, then pain it in red. Otherwise, just print in yellow.
 spaceship_user() {
-  if [[ $USER == 'root' ]]; then
-    echo -n "%{$fg_bold[red]%}"
-  else
-    echo -n "%{$fg_bold[yellow]%}"
+  if [[ $LOGNAME != $USER ]] || [[ $USER == 'root' ]] || [[ -n $SSH_CONNECTION ]]; then
+    local user_color
+
+    # TODO: Use corresponding variables for colors
+    if [[ $USER == 'root' ]]; then
+      user_color='red'
+    else
+      user_color='yellow'
+    fi
+
+    prompt_section $user_color 'with ' '%n' '' 
   fi
-  echo -n "%n"
-  echo -n "%{$reset_color%}"
 }
 
 # FIXME: Shouldn't use USER
