@@ -179,28 +179,11 @@ spaceship_user() {
   fi
 }
 
-# FIXME: Shouldn't use USER
-# Username and SSH host
-# If there is an ssh connections, then show user and current machine.
-# If user is not $USER, then show username.
+# HOST
+# If there is an ssh connections, current machine name.
 spaceship_host() {
-  if [[ -n $SSH_CONNECTION ]]; then
-    echo -n "$(spaceship_user)"
-
-    # Do not show directory prefix if prefixes are disabled
-    _prefixed? $SPACESHIP_PREFIX_DIR
-    # Display machine name
-    echo -n "%{$fg_bold[green]%}%m%{$reset_color%}"
-    # Do not show host prefix if prefixes are disabled
-    _prefixed? $SPACESHIP_PREFIX_HOST
-  elif [[ $LOGNAME != $USER ]] || [[ $USER == 'root' ]]; then
-    echo -n "$(spaceship_user)"
-
-    # Do not show host prefix if prefixes are disabled
-    _prefixed? $SPACESHIP_PREFIX_HOST
-
-    echo -n "%{$reset_color%}"
-  fi
+  [[ -n $SSH_CONNECTION ]] || return
+  prompt_section green $SPACESHIP_PREFIX_HOST '%m' ''
 }
 
 # DIR
