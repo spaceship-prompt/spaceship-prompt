@@ -493,19 +493,19 @@ spaceship_vi_mode() {
   [[ $SPACESHIP_VI_MODE_SHOW == true ]] || return
 
   if bindkey | grep "vi-quoted-insert" > /dev/null 2>&1; then # check if vi-mode enabled
-    local MODE_INDICATOR="${SPACESHIP_VI_MODE_INSERT}"
+    local mode_indicator="${SPACESHIP_VI_MODE_INSERT}"
 
-    case ${KEYMAP} in
+    case "${KEYMAP}" in
       main|viins)
-      MODE_INDICATOR="${SPACESHIP_VI_MODE_INSERT}"
+      mode_indicator="${SPACESHIP_VI_MODE_INSERT}"
       ;;
       vicmd)
-      MODE_INDICATOR="${SPACESHIP_VI_MODE_NORMAL}"
+      mode_indicator="${SPACESHIP_VI_MODE_NORMAL}"
       ;;
     esac
 
     # TODO: use variables for prefix and sufix
-    prompt_section white '' $MODE_INDICATOR ''
+    prompt_section white '' $mode_indicator ''
   fi
 }
 
