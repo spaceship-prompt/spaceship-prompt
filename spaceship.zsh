@@ -532,11 +532,7 @@ spaceship_line_sep() {
 # Paint $PROMPT_SYMBOL in red if previous command was fail and
 # paint in green if everything was OK.
 spaceship_char() {
-  # FIXME: Use prompt_section
-  # FIXME: Better not to use conditional seqs
-  echo -n "%(?.%{%F{green}%}.%{%F{red}%})"
-  echo -n "%B${SPACESHIP_PROMPT_SYMBOL}%b "
-  echo -n "%{%f%}"
+  prompt_section "%(?.green.red)" '' "${SPACESHIP_PROMPT_SYMBOL}" ''
 }
 
 # ------------------------------------------------------------------------------
