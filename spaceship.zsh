@@ -147,16 +147,18 @@ _prefixed?() {
 # TIME
 spaceship_time() {
   [[ $SPACESHIP_TIME_SHOW == false ]] && return
+  
+  local time_str
 
   if [[ $SPACESHIP_TIME_FORMAT != false ]]; then
-    echo -n "%{$fg_bold[yellow]%}${SPACESHIP_TIME_FORMAT}"
+    time_str="${SPACESHIP_TIME_FORMAT}"
   elif [[ $SPACESHIP_TIME_12HR == true ]]; then
-    echo -n "%{$fg_bold[yellow]%}%D{%r}"
+    time_str="%D{%r}"
   else
-    echo -n "%{$fg_bold[yellow]%}%D{%T}"
+    time_str="%D{%T}"
   fi
 
-  echo -n "%{$reset_color%}"
+  prompt_section yellow '' $time_str ''
 }
 
 # FIXME: should be stanalone
