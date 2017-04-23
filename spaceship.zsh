@@ -51,6 +51,8 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
 fi
 
 # PROMPT
+# TODO: Document SEPARATOR
+SPACESHIP_PROMPT_SEPARATOR="${SPACESHIP_PROMPT_SEPARATOR:=" "}"
 SPACESHIP_PROMPT_SYMBOL="${SPACESHIP_PROMPT_SYMBOL:="➔"}"
 SPACESHIP_PROMPT_ADD_NEWLINE="${SPACESHIP_PROMPT_ADD_NEWLINE:=true}"
 SPACESHIP_PROMPT_SEPARATE_LINE="${SPACESHIP_PROMPT_SEPARATE_LINE:=true}"
@@ -130,14 +132,35 @@ SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:="[N]"}"
 
 # Check if command exists in $PATH
 # USAGE:
-#   __exists? <command>
-__exists? () {
+#   _exists? <command>
+_exists? () {
   command -v $1 > /dev/null 2>&1
 }
 
-# FIXME: get rid of it, when prompt_section will be done
-_prefixed?() {
-  [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${1}%b" || echo -n ' '
+# Draw prompt section (bold is used as default)
+# USAGE:
+#   _prompt_section <color> [prefix] [content] [suffix]
+SPACESHIP_OPENED=false # Internal variable for checking if prompt is opened
+_prompt_section() {
+  local color prefix content suffix
+  [[ -n $1 ]] && color="%F{$1}"  || color="%f"
+  [[ -n $2 ]] && prefix="$2"     || prefix=""
+  [[ -n $3 ]] && content="$3"    || content=""
+  [[ -n $4 ]] && suffix="$4"      || suffix=""
+
+  echo -n "%{%B%}" # set bold
+
+  if [[ $SPACESHIP_OPENED == true ]] && [[ $SPACESHIP_PREFIX_SHOW == true ]]; then
+    echo -n "$prefix"
+  fi
+  SPACESHIP_OPENED=true
+
+  echo -n "%{$color%}" # set color
+  echo -n "$content"   # section content
+  echo -n "%{%f%}"     # unset color
+  echo -n "$suffix"    # section suffix
+  echo -n "%{%b%}"     # unset bold
+  echo -n $SPACESHIP_PROMPT_SEPARATOR
 }
 
 # ------------------------------------------------------------------------------
@@ -159,7 +182,7 @@ spaceship_time() {
     time_str="%D{%T}"
   fi
 
-  prompt_section yellow '' $time_str ''
+  _prompt_section yellow '' $time_str ''
 }
 
 # USER
@@ -175,7 +198,7 @@ spaceship_user() {
       user_color='yellow'
     fi
 
-    prompt_section $user_color 'with ' '%n' ''
+    _prompt_section $user_color 'with ' '%n' ''
   fi
 }
 
@@ -183,18 +206,18 @@ spaceship_user() {
 # If there is an ssh connections, current machine name.
 spaceship_host() {
   [[ -n $SSH_CONNECTION ]] || return
-  prompt_section green $SPACESHIP_PREFIX_HOST '%m' ''
+  _prompt_section green $SPACESHIP_PREFIX_HOST '%m' ''
 }
 
 # DIR
 # Current directory. Return only three last items of path
 spaceship_dir() {
-  prompt_section cyan $SPACESHIP_PREFIX_DIR "%${SPACESHIP_PROMPT_TRUNC}~" ''
+  _prompt_section cyan $SPACESHIP_PREFIX_DIR "%${SPACESHIP_PROMPT_TRUNC}~" ''
 }
 
 # Uncommitted changes.
 # Check for uncommitted changes in the index.
-spaceship_git_uncomitted() {
+_git_uncomitted() {
   if ! $(git diff --quiet --ignore-submodules --cached); then
     echo -n "${SPACESHIP_GIT_UNCOMMITTED}"
   fi
@@ -202,7 +225,7 @@ spaceship_git_uncomitted() {
 
 # Unstaged changes.
 # Check for unstaged changes.
-spaceship_git_unstaged() {
+_git_unstaged() {
   if ! $(git diff-files --quiet --ignore-submodules --); then
     echo -n "${SPACESHIP_GIT_UNSTAGED}"
   fi
@@ -210,7 +233,7 @@ spaceship_git_unstaged() {
 
 # Untracked files.
 # Check for untracked files.
-spaceship_git_untracked() {
+_git_untracked() {
   if [ -n "$(git ls-files --others --exclude-standard)" ]; then
     echo -n "${SPACESHIP_GIT_UNTRACKED}"
   fi
@@ -218,7 +241,7 @@ spaceship_git_untracked() {
 
 # Stashed changes.
 # Check for stashed changes.
-spaceship_git_stashed() {
+_git_stashed() {
   if $(git rev-parse --verify refs/stash &>/dev/null); then
     echo -n "${SPACESHIP_GIT_STASHED}"
   fi
@@ -226,7 +249,7 @@ spaceship_git_stashed() {
 
 # Unpushed and unpulled commits.
 # Get unpushed and unpulled commits from remote and draw arrows.
-spaceship_git_unpushed_unpulled() {
+_git_unpushed_unpulled() {
   # check if there is an upstream configured for this branch
   command git rev-parse --abbrev-ref @'{u}' &>/dev/null || return
 
@@ -261,18 +284,18 @@ spaceship_git() {
     # String of indicators
     local indicators=''
 
-    indicators+="$(spaceship_git_uncomitted)"
-    indicators+="$(spaceship_git_unstaged)"
-    indicators+="$(spaceship_git_untracked)"
-    indicators+="$(spaceship_git_stashed)"
-    indicators+="$(spaceship_git_unpushed_unpulled)"
+    indicators+="$(_git_uncomitted)"
+    indicators+="$(_git_unstaged)"
+    indicators+="$(_git_untracked)"
+    indicators+="$(_git_stashed)"
+    indicators+="$(_git_unpushed_unpulled)"
 
     [ -n "${indicators}" ] && indicators="[${indicators}]";
 
     # Show git branch
-    prompt_section magenta $SPACESHIP_PREFIX_GIT "$(git_current_branch)" ''
+    _prompt_section magenta $SPACESHIP_PREFIX_GIT "$(git_current_branch)" ''
     # Show git indicators
-    prompt_section red '' "$indicators" ''
+    _prompt_section red '' "$indicators" ''
   fi
 }
 
@@ -282,9 +305,9 @@ spaceship_venv() {
   [[ $SPACESHIP_VENV_SHOW == false ]] && return
 
   # Check if the current directory running via Virtualenv
-  [ -n "$VIRTUAL_ENV" ] && __exists? deactivate || return
+  [ -n "$VIRTUAL_ENV" ] && _exists? deactivate || return
 
-  prompt_section blue $SPACESHIP_PREFIX_VENV "$(basename $VIRTUAL_ENV)" ''
+  _prompt_section blue $SPACESHIP_PREFIX_VENV "$(basename $VIRTUAL_ENV)" ''
 }
 
 # PYENV
@@ -295,7 +318,7 @@ spaceship_pyenv() {
   # Show NVM status only for Python-specific folders
   test -f requirements.txt || test -n *.py(#qN) || return
 
-  __exists? pyenv || return # Do nothing if pyenv is not installed
+  _exists? pyenv || return # Do nothing if pyenv is not installed
 
   local pyenv_shell=$(pyenv shell 2>/dev/null)
   local pyenv_local=$(pyenv local 2>/dev/null)
@@ -313,7 +336,7 @@ spaceship_pyenv() {
     return # If none of these is set, pyenv is not being used. Do nothing.
   fi
 
-  prompt_section yellow $SPACESHIP_PREFIX_PYENV "${SPACESHIP_PYENV_SYMBOL}  ${pyenv_status}" ''
+  _prompt_section yellow $SPACESHIP_PREFIX_PYENV "${SPACESHIP_PYENV_SYMBOL}  ${pyenv_status}" ''
 }
 
 # NVM
@@ -324,12 +347,12 @@ spaceship_nvm() {
   # Show NVM status only for JS-specific folders
   [[ -f package.json || -d node_modules || -n *.js(#qN) ]] || return
 
-  __exists? nvm || return
+  _exists? nvm || return
 
   local nvm_status=$(nvm current 2>/dev/null)
   [[ "${nvm_status}" == "system" || "${nvm_status}" == "node" ]] && return
 
-  prompt_section green $SPACESHIP_PREFIX_NVM "${SPACESHIP_NVM_SYMBOL}  ${nvm_status}" ''
+  _prompt_section green $SPACESHIP_PREFIX_NVM "${SPACESHIP_NVM_SYMBOL}  ${nvm_status}" ''
 }
 
 # RUBY
@@ -341,11 +364,11 @@ spaceship_ruby() {
   # Show versions only for Ruby-specific folders
   [[ -f Gemfile || -f Rakefile || -n *.rb(#qN) ]] || return
 
-  if __exists? rvm-prompt; then
+  if _exists? rvm-prompt; then
     ruby_version=$(rvm-prompt i v g)
-  elif __exists? chruby; then
+  elif _exists? chruby; then
     ruby_version=$(chruby | sed -n -e 's/ \* //p')
-  elif __exists? rbenv; then
+  elif _exists? rbenv; then
     ruby_version=$(rbenv version | sed -e 's/ (set.*$//')
   else
     return
@@ -356,13 +379,13 @@ spaceship_ruby() {
   # Add 'v' before ruby version that starts with a number
   [[ "${ruby_version}" =~ ^[0-9].+$ ]] && ruby_version="v${ruby_version}"
 
-  prompt_section red $SPACESHIP_PREFIX_RUBY "${SPACESHIP_RUBY_SYMBOL}  ${ruby_version}" ''
+  _prompt_section red $SPACESHIP_PREFIX_RUBY "${SPACESHIP_RUBY_SYMBOL}  ${ruby_version}" ''
 }
 
 # SWIFT
 # Show current version of Swift
 spaceship_swift() {
-  __exists? swiftenv || return
+  _exists? swiftenv || return
 
   if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
     local swift_version=$(swiftenv version | sed 's/ .*//')
@@ -374,13 +397,13 @@ spaceship_swift() {
 
   [ -n "${swift_version}" ] || return
 
-  prompt_section yellow $SPACESHIP_PREFIX_SWIFT "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}" ''
+  _prompt_section yellow $SPACESHIP_PREFIX_SWIFT "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}" ''
 }
 
 # XCODE
 # Show current version of Xcode
 spaceship_xcode() {
-  __exists? xcenv || return
+  _exists? xcenv || return
 
   if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
     local xcode_path=$(xcenv version | sed 's/ .*//')
@@ -393,10 +416,10 @@ spaceship_xcode() {
   if [ -n "${xcode_path}" ]; then
     local xcode_version_path=$xcode_path"/Contents/version.plist"
     if [ -f ${xcode_version_path} ]; then
-      if __exists? defaults; then
+      if _exists? defaults; then
         local xcode_version=$(defaults read ${xcode_version_path} CFBundleShortVersionString)
 
-        prompt_section blue $SPACESHIP_PREFIX_XCODE "${SPACESHIP_XCODE_SYMBOL}  ${xcode_version}" ''
+        _prompt_section blue $SPACESHIP_PREFIX_XCODE "${SPACESHIP_XCODE_SYMBOL}  ${xcode_version}" ''
       fi
     fi
   fi
@@ -410,18 +433,18 @@ spaceship_golang() {
   # If there are Go-specific files in current directory
   [[ -d Godeps || -f glide.yaml || -n *.go(#qN) ]] || return
 
-  __exists? go || return
+  _exists? go || return
 
   local go_version=$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')
 
-  prompt_section cyan $SPACESHIP_PREFIX_GOLANG "${SPACESHIP_GOLANG_SYMBOL}  v${go_version}" ''
+  _prompt_section cyan $SPACESHIP_PREFIX_GOLANG "${SPACESHIP_GOLANG_SYMBOL}  v${go_version}" ''
 }
 
 # DOCKER
 spaceship_docker() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
 
-  __exists? docker || return
+  _exists? docker || return
 
   if [[ -z $DOCKER_MACHINE_NAME ]]; then
     DOCKER_MACHINE_NAME="localhost"
@@ -429,7 +452,7 @@ spaceship_docker() {
 
   local docker_version=$(docker version -f "{{.Server.Version}}")
 
-  prompt_section \
+  _prompt_section \
     cyan \
     $SPACESHIP_PREFIX_DOCKER \
     "${SPACESHIP_DOCKER_SYMBOL}  v${docker_version} via〔$DOCKER_MACHINE_NAME〕" \
@@ -454,7 +477,7 @@ spaceship_vi_mode() {
     esac
 
     # TODO: use variables for prefix and sufix
-    prompt_section white '' $mode_indicator ''
+    _prompt_section white '' $mode_indicator ''
   fi
 }
 
@@ -480,39 +503,13 @@ spaceship_line_sep() {
 # Paint $PROMPT_SYMBOL in red if previous command was fail and
 # paint in green if everything was OK.
 spaceship_char() {
-  prompt_section "%(?.green.red)" '' "${SPACESHIP_PROMPT_SYMBOL}" ''
+  _prompt_section "%(?.green.red)" '' "${SPACESHIP_PROMPT_SYMBOL}" ''
 }
 
 # ------------------------------------------------------------------------------
 # MAIN
 # An entry point of prompt
 # ------------------------------------------------------------------------------
-
-SPACESHIP_OPENED=false
-SECTION_SEPARATOR=' '
-
-# prompt_section <color> [prefix] [content] [sufix]
-prompt_section() {
-  local color prefix content sufix
-  [[ -n $1 ]] && color="%F{$1}"  || color="%f"
-  [[ -n $2 ]] && prefix="$2"     || prefix=""
-  [[ -n $3 ]] && content="$3"    || content=""
-  [[ -n $4 ]] && sufix="$4"      || sufix=""
-
-  echo -n "%{%B%}"
-
-  if [[ $SPACESHIP_OPENED == true ]] && [[ $SPACESHIP_PREFIX_SHOW == true ]]; then
-    echo -n "$prefix"
-  fi
-  SPACESHIP_OPENED=true
-
-  echo -n "%{$color%}"
-  echo -n "$content"
-  echo -n "%{%f%}"
-  echo -n "$sufix"
-  echo -n "%{%b%}"
-  echo -n $SECTION_SEPARATOR
-}
 
 # Entry point
 # Compose whole prompt from smaller parts
@@ -534,7 +531,7 @@ spaceship_prompt() {
 
 # PS2 - continuation interactive prompt
 spaceship_ps2() {
-  prompt_section yellow '' $SPACESHIP_PROMPT_SYMBOL ''
+  _prompt_section yellow '' $SPACESHIP_PROMPT_SYMBOL ''
 }
 
 # Disable python virtualenv environment prompt prefix
@@ -542,7 +539,7 @@ VIRTUAL_ENV_DISABLE_PROMPT=true
 
 # Expose Spaceship to environment variables
 PROMPT='$(spaceship_prompt)'
-PS2='$(spaceship_ps2_prompt)'
+PS2='$(spaceship_ps2)'
 
 # LSCOLORS
 export LSCOLORS="Gxfxcxdxbxegedabagacab"
