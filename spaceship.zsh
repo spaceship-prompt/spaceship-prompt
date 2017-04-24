@@ -414,12 +414,12 @@ spaceship_php_version() {
 
   command -v php > /dev/null 2>&1 || return
 
-	local php_version=$(php -v 2>&1 | grep -oe "^PHP\s*[0-9.]*" | awk '{print $2}')
+    local php_version=$(php -v 2>&1 | grep -oe "^PHP\s*[0-9.]*" | awk '{print $2}')
 
-	[[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_PHP}%b" || echo -n ' '
+    [[ ${SPACESHIP_PREFIX_SHOW} == true ]] && echo -n "%B${SPACESHIP_PREFIX_PHP}%b" || echo -n ' '
 
   echo -n "%{$fg_bold[blue]%}"
-  echo -n "${SPACESHIP_PHP_SYMBOL} v${php_version}"
+  echo -n "${SPACESHIP_PHP_SYMBOL}  v${php_version}"
   echo -n "%{$reset_color%}"
 }
 
