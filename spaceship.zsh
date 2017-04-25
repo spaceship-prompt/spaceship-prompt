@@ -158,8 +158,12 @@ _prompt_section() {
   echo -n "%{$color%}" # set color
   echo -n "$content"   # section content
   echo -n "%{%f%}"     # unset color
-  echo -n "$suffix"    # section suffix
-  echo -n "%{%b%}"     # unset bold
+
+  if [[ $SPACEHIP_SUFFIX_SHOW == true ]]; then
+    echo -n "$suffix"
+  fi
+
+  echo -n "%{%b%}" # unset bold
   echo -n $SPACESHIP_PROMPT_SEPARATOR
 }
 
