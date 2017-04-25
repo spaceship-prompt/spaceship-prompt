@@ -297,19 +297,19 @@ _git_unpushed_unpulled() {
   # check if there is an upstream configured for this branch
   command git rev-parse --abbrev-ref @'{u}' &>/dev/null || return
 
-  local count
-  count="$(command git rev-list --left-right --count HEAD...@'{u}' 2>/dev/null)"
+  local count="$(command git rev-list --left-right --count HEAD...@'{u}' 2>/dev/null)"
   # exit if the command failed
-  (( !$? )) || return
+  [[ !$? ]] || return
 
   # counters are tab-separated, split on tab and store as array
   count=(${(ps:\t:)count})
+
   local arrows left=${count[1]} right=${count[2]}
 
-  (( ${right:-0} > 0 )) && arrows+="${SPACESHIP_GIT_UNPULLED}"
-  (( ${left:-0} > 0 )) && arrows+="${SPACESHIP_GIT_UNPUSHED}"
+  [[ ${right:=0} > 0 ]] && arrows+="${SPACESHIP_GIT_UNPULLED}"
+  [[ ${left:=0} > 0 ]] && arrows+="${SPACESHIP_GIT_UNPUSHED}"
 
-  [ -n $arrows ] && echo -n "${arrows}"
+  [[ -n $arrows ]] && echo -n "${arrows}"
 }
 
 # GIT
