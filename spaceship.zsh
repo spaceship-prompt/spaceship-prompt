@@ -13,22 +13,8 @@
 NEWLINE='
 '
 
-SPACESHIP_PROMPT_ORDER=(
-  time
-  host
-  dir
-  git
-  nvm
-  ruby
-  xcode
-  swift
-  golang
-  docker
-  venv
-  pyenv
-)
-
 # ORDER
+# TODO: Document ORDER
 if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
   SPACESHIP_PROMPT_ORDER=(
     time
@@ -60,6 +46,8 @@ SPACESHIP_PROMPT_TRUNC="${SPACESHIP_PROMPT_TRUNC:=3}"
 
 # PREFIXES
 SPACESHIP_PREFIX_SHOW="${SPACEHIP_PREFIX_SHOW:=true}"
+SPACESHIP_PREFIX_TIME="${SPACESHIP_PREFIX_TIME:="at "}"
+SPACESHIP_PREFIX_USER="${SPACESHIP_PREFIX_USER:="with "}"
 SPACESHIP_PREFIX_HOST="${SPACESHIP_PREFIX_HOST:="at "}"
 SPACESHIP_PREFIX_DIR="${SPACESHIP_PREFIX_DIR:="in "}"
 SPACESHIP_PREFIX_GIT="${SPACESHIP_PREFIX_GIT:="on "}"
@@ -72,6 +60,42 @@ SPACESHIP_PREFIX_DOCKER="${SPACESHIP_PREFIX_DOCKER:="on "}"
 SPACESHIP_PREFIX_XCODE="${SPACESHIP_PREFIX_XCODE:=$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_VENV="${SPACESHIP_PREFIX_VENV:=$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_PYENV="${SPACESHIP_PREFIX_PYENV:=$SPACESHIP_PREFIX_ENV_DEFAULT}"
+SPACESHIP_PREFIX_VI_MODE="${SPACESHIP_PREFIX_VI_MODE:=""}"
+
+# SUFFIX
+# TODO: Document suffixes
+SPACESHIP_SUFFIX_SHOW="${SPACEHIP_SUFFIX_SHOW:=true}" # TODO: use in _prompt_section
+SPACESHIP_SUFFIX_TIME="${SPACESHIP_SUFFIX_TIME:=""}"
+SPACESHIP_SUFFIX_USER="${SPACESHIP_SUFFIX_USER:=""}"
+SPACESHIP_SUFFIX_HOST="${SPACESHIP_SUFFIX_HOST:=""}"
+SPACESHIP_SUFFIX_DIR="${SPACESHIP_SUFFIX_DIR:=""}"
+SPACESHIP_SUFFIX_GIT="${SPACESHIP_SUFFIX_GIT:=""}"
+SPACESHIP_SUFFIX_NVM="${SPACESHIP_SUFFIX_NVM:=""}"
+SPACESHIP_SUFFIX_RUBY="${SPACESHIP_SUFFIX_RUBY:=""}"
+SPACESHIP_SUFFIX_SWIFT="${SPACESHIP_SUFFIX_SWIFT:=""}"
+SPACESHIP_SUFFIX_GOLANG="${SPACESHIP_SUFFIX_GOLANG:=""}"
+SPACESHIP_SUFFIX_DOCKER="${SPACESHIP_SUFFIX_DOCKER:="on "}"
+SPACESHIP_SUFFIX_XCODE="${SPACESHIP_SUFFIX_XCODE:=""}"
+SPACESHIP_SUFFIX_VENV="${SPACESHIP_SUFFIX_VENV:=""}"
+SPACESHIP_SUFFIX_PYENV="${SPACESHIP_SUFFIX_PYENV:=""}"
+SPACESHIP_SUFFIX_VI_MODE="${SPACESHIP_SUFFIX_VI_MODE:=""}"
+
+# COLORS
+SPACESHIP_TIME_COLOR="${SPACESHIP_TIME_COLOR:="yellow"}"
+SPACESHIP_USER_COLOR="${SPACESHIP_USER_COLOR:="yellow"}" # TODO: root ↓
+# SPACESHIP_ROOT_COLOR="${SPACESHIP_ROOT_COLOR:="red"}"
+SPACESHIP_HOST_COLOR="${SPACESHIP_HOST_COLOR:="green"}"
+SPACESHIP_DIR_COLOR="${SPACESHIP_DIR_COLOR:="cyan"}"
+SPACESHIP_GIT_COLOR="${SPACESHIP_GIT_COLOR:="magenta"}"
+SPACESHIP_NVM_COLOR="${SPACESHIP_NVM_COLOR:="green"}"
+SPACESHIP_RUBY_COLOR="${SPACESHIP_RUBY_COLOR:="red"}"
+SPACESHIP_SWIFT_COLOR="${SPACESHIP_SWIFT_COLOR:="yellow"}"
+SPACESHIP_GOLANG_COLOR="${SPACESHIP_GOLANG_COLOR:="cyan"}"
+SPACESHIP_DOCKER_COLOR="${SPACESHIP_DOCKER_COLOR:="cyan"}"
+SPACESHIP_XCODE_COLOR="${SPACESHIP_XCODE_COLOR:="blue"}"
+SPACESHIP_VENV_COLOR="${SPACESHIP_VENV_COLOR:="blue"}"
+SPACESHIP_PYENV_COLOR="${SPACESHIP_PYENV_COLOR:="yellow"}"
+SPACESHIP_VI_MODE_COLOR="${SPACESHIP_VI_MODE_COLOR:="white"}"
 
 # GIT
 SPACESHIP_GIT_SHOW="${SPACESHIP_GIT_SHOW:=true}"
@@ -186,7 +210,11 @@ spaceship_time() {
     time_str="%D{%T}"
   fi
 
-  _prompt_section yellow '' $time_str ''
+  _prompt_section \
+    $SPACESHIP_TIME_COLOR \
+    $SPACESHIP_PREFIX_TIME \
+    $time_str \
+    $SPACESHIP_SUFFIX_TIME
 }
 
 # USER
@@ -195,14 +223,17 @@ spaceship_user() {
   if [[ $LOGNAME != $USER ]] || [[ $USER == 'root' ]] || [[ -n $SSH_CONNECTION ]]; then
     local user_color
 
-    # TODO: Use corresponding variables for colors
     if [[ $USER == 'root' ]]; then
-      user_color='red'
+      user_color='red' # TODO: Probably should be exposed as variable
     else
-      user_color='yellow'
+      user_color="$SPACESHIP_USER_COLOR"
     fi
 
-    _prompt_section $user_color 'with ' '%n' ''
+    _prompt_section \
+      $user_color \
+      $SPACESHIP_PREFIX_USER \
+      '%n' \
+      $SPACESHIP_SUFFIX_USER
   fi
 }
 
@@ -210,13 +241,22 @@ spaceship_user() {
 # If there is an ssh connections, current machine name.
 spaceship_host() {
   [[ -n $SSH_CONNECTION ]] || return
-  _prompt_section green $SPACESHIP_PREFIX_HOST '%m' ''
+
+  _prompt_section \
+    $SPACESHIP_HOST_COLOR \
+    $SPACESHIP_PREFIX_HOST \
+    '%m' \
+    $SPACESHIP_SUFFIX_USER
 }
 
 # DIR
 # Current directory. Return only three last items of path
 spaceship_dir() {
-  _prompt_section cyan $SPACESHIP_PREFIX_DIR "%${SPACESHIP_PROMPT_TRUNC}~" ''
+  _prompt_section \
+    $SPACESHIP_DIR_COLOR \
+    $SPACESHIP_PREFIX_DIR \
+    "%${SPACESHIP_PROMPT_TRUNC}~" \
+    $SPACESHIP_SUFFIX_DIR
 }
 
 # Uncommitted changes.
@@ -297,8 +337,14 @@ spaceship_git() {
     [ -n "${indicators}" ] && indicators="[${indicators}]";
 
     # Show git branch
-    _prompt_section magenta $SPACESHIP_PREFIX_GIT "$(git_current_branch)" ''
+    _prompt_section \
+      $SPACESHIP_GIT_COLOR \
+      $SPACESHIP_PREFIX_GIT \
+      "$(git_current_branch)" \
+      $SPACESHIP_SUFFIX_GIT
+
     # Show git indicators
+    # TODO: move to the git_indicators section
     _prompt_section red '' "$indicators" ''
   fi
 }
@@ -311,7 +357,11 @@ spaceship_venv() {
   # Check if the current directory running via Virtualenv
   [ -n "$VIRTUAL_ENV" ] && _exists? deactivate || return
 
-  _prompt_section blue $SPACESHIP_PREFIX_VENV "$(basename $VIRTUAL_ENV)" ''
+  _prompt_section \
+    $SPACESHIP_VENV_COLOR \
+    $SPACESHIP_PREFIX_VENV \
+    "$(basename $VIRTUAL_ENV)" \
+    $SPACESHIP_SUFFIX_VENV
 }
 
 # PYENV
@@ -324,6 +374,7 @@ spaceship_pyenv() {
 
   _exists? pyenv || return # Do nothing if pyenv is not installed
 
+  local pyenv_status
   local pyenv_shell=$(pyenv shell 2>/dev/null)
   local pyenv_local=$(pyenv local 2>/dev/null)
   local pyenv_global=$(pyenv global 2>/dev/null)
@@ -340,7 +391,11 @@ spaceship_pyenv() {
     return # If none of these is set, pyenv is not being used. Do nothing.
   fi
 
-  _prompt_section yellow $SPACESHIP_PREFIX_PYENV "${SPACESHIP_PYENV_SYMBOL}  ${pyenv_status}" ''
+  _prompt_section \
+    $SPACESHIP_PYENV_COLOR \
+    $SPACESHIP_PREFIX_PYENV \
+    "${SPACESHIP_PYENV_SYMBOL}  ${pyenv_status}" \
+    $SPACESHIP_SUFFIX_PYENV
 }
 
 # NVM
@@ -356,7 +411,11 @@ spaceship_nvm() {
   local nvm_status=$(nvm current 2>/dev/null)
   [[ "${nvm_status}" == "system" || "${nvm_status}" == "node" ]] && return
 
-  _prompt_section green $SPACESHIP_PREFIX_NVM "${SPACESHIP_NVM_SYMBOL}  ${nvm_status}" ''
+  _prompt_section \
+    $SPACESHIP_NVM_COLOR \
+    $SPACESHIP_PREFIX_NVM \
+    "${SPACESHIP_NVM_SYMBOL}  ${nvm_status}" \
+    $SPACESHIP_SUFFIX_NVM
 }
 
 # RUBY
@@ -367,6 +426,8 @@ spaceship_ruby() {
 
   # Show versions only for Ruby-specific folders
   [[ -f Gemfile || -f Rakefile || -n *.rb(#qN) ]] || return
+
+  local ruby_version
 
   if _exists? rvm-prompt; then
     ruby_version=$(rvm-prompt i v g)
@@ -383,7 +444,11 @@ spaceship_ruby() {
   # Add 'v' before ruby version that starts with a number
   [[ "${ruby_version}" =~ ^[0-9].+$ ]] && ruby_version="v${ruby_version}"
 
-  _prompt_section red $SPACESHIP_PREFIX_RUBY "${SPACESHIP_RUBY_SYMBOL}  ${ruby_version}" ''
+  _prompt_section \
+    $SPACESHIP_RUBY_COLOR \
+    $SPACESHIP_PREFIX_RUBY \
+    "${SPACESHIP_RUBY_SYMBOL}  ${ruby_version}" \
+    $SPACESHIP_SUFFIX_RUBY
 }
 
 # SWIFT
@@ -391,17 +456,23 @@ spaceship_ruby() {
 spaceship_swift() {
   _exists? swiftenv || return
 
+  local swift_version
+
   if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
-    local swift_version=$(swiftenv version | sed 's/ .*//')
+    swift_version=$(swiftenv version | sed 's/ .*//')
   elif [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
     if swiftenv version | grep ".swift-version" > /dev/null; then
-      local swift_version=$(swiftenv version | sed 's/ .*//')
+      swift_version=$(swiftenv version | sed 's/ .*//')
     fi
   fi
 
   [ -n "${swift_version}" ] || return
 
-  _prompt_section yellow $SPACESHIP_PREFIX_SWIFT "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}" ''
+  _prompt_section \
+    $SPACESHIP_SWIFT_COLOR \
+    $SPACESHIP_PREFIX_SWIFT \
+    "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}" \
+    $SPACESHIP_SUFFIX_SWIFT
 }
 
 # XCODE
@@ -409,11 +480,13 @@ spaceship_swift() {
 spaceship_xcode() {
   _exists? xcenv || return
 
+  local xcode_path
+
   if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
-    local xcode_path=$(xcenv version | sed 's/ .*//')
+    xcode_path=$(xcenv version | sed 's/ .*//')
   elif [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
     if xcenv version | grep ".xcode-version" > /dev/null; then
-      local xcode_path=$(xcenv version | sed 's/ .*//')
+      xcode_path=$(xcenv version | sed 's/ .*//')
     fi
   fi
 
@@ -423,7 +496,11 @@ spaceship_xcode() {
       if _exists? defaults; then
         local xcode_version=$(defaults read ${xcode_version_path} CFBundleShortVersionString)
 
-        _prompt_section blue $SPACESHIP_PREFIX_XCODE "${SPACESHIP_XCODE_SYMBOL}  ${xcode_version}" ''
+        _prompt_section \
+          $SPACESHIP_XCODE_COLOR \
+          $SPACESHIP_PREFIX_XCODE \
+          "${SPACESHIP_XCODE_SYMBOL}  ${xcode_version}" \
+          $SPACESHIP_SUFFIX_XCODE
       fi
     fi
   fi
@@ -441,7 +518,11 @@ spaceship_golang() {
 
   local go_version=$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')
 
-  _prompt_section cyan $SPACESHIP_PREFIX_GOLANG "${SPACESHIP_GOLANG_SYMBOL}  v${go_version}" ''
+  _prompt_section \
+    $SPACESHIP_GOLANG_COLOR \
+    $SPACESHIP_PREFIX_GOLANG \
+    "${SPACESHIP_GOLANG_SYMBOL}  v${go_version}" \
+    $SPACESHIP_SUFFIX_GOLANG
 }
 
 # DOCKER
@@ -457,10 +538,10 @@ spaceship_docker() {
   local docker_version=$(docker version -f "{{.Server.Version}}")
 
   _prompt_section \
-    cyan \
+    $SPACESHIP_DOCKER_COLOR \
     $SPACESHIP_PREFIX_DOCKER \
     "${SPACESHIP_DOCKER_SYMBOL}  v${docker_version} via〔$DOCKER_MACHINE_NAME〕" \
-    ''
+    $SPACESHIP_SUFFIX_DOCKER
 }
 
 # VI_MODE
@@ -480,8 +561,12 @@ spaceship_vi_mode() {
       ;;
     esac
 
-    # TODO: use variables for prefix and sufix
-    _prompt_section white '' $mode_indicator ''
+    # TODO: use variable for color
+    _prompt_section \
+      $SPACESHIP_VI_MODE_COLOR \
+      $SPACESHIP_PREFIX_VI_MODE \
+      $mode_indicator \
+      $SPACESHIP_SUFFIX_VI_MODE
   fi
 }
 
