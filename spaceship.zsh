@@ -54,10 +54,10 @@ SPACESHIP_PREFIX_GIT="${SPACESHIP_PREFIX_GIT:="on "}"
 SPACESHIP_PREFIX_ENV_DEFAULT="${SPACESHIP_PREFIX_ENV_DEFAULT:="via "}"
 SPACESHIP_PREFIX_NODE="${SPACESHIP_PREFIX_NODE:=$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_RUBY="${SPACESHIP_PREFIX_RUBY:=$SPACESHIP_PREFIX_ENV_DEFAULT}"
+SPACESHIP_PREFIX_XCODE="${SPACESHIP_PREFIX_XCODE:=$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_SWIFT="${SPACESHIP_PREFIX_SWIFT:=$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_GOLANG="${SPACESHIP_PREFIX_GOLANG:=$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_DOCKER="${SPACESHIP_PREFIX_DOCKER:="on "}"
-SPACESHIP_PREFIX_XCODE="${SPACESHIP_PREFIX_XCODE:=$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_VENV="${SPACESHIP_PREFIX_VENV:=$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_PYENV="${SPACESHIP_PREFIX_PYENV:=$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_VI_MODE="${SPACESHIP_PREFIX_VI_MODE:=""}"
@@ -72,30 +72,35 @@ SPACESHIP_SUFFIX_DIR="${SPACESHIP_SUFFIX_DIR:=""}"
 SPACESHIP_SUFFIX_GIT="${SPACESHIP_SUFFIX_GIT:=""}"
 SPACESHIP_SUFFIX_NODE="${SPACESHIP_SUFFIX_NODE:=""}"
 SPACESHIP_SUFFIX_RUBY="${SPACESHIP_SUFFIX_RUBY:=""}"
+SPACESHIP_SUFFIX_XCODE="${SPACESHIP_SUFFIX_XCODE:=""}"
 SPACESHIP_SUFFIX_SWIFT="${SPACESHIP_SUFFIX_SWIFT:=""}"
 SPACESHIP_SUFFIX_GOLANG="${SPACESHIP_SUFFIX_GOLANG:=""}"
 SPACESHIP_SUFFIX_DOCKER="${SPACESHIP_SUFFIX_DOCKER:="on "}"
-SPACESHIP_SUFFIX_XCODE="${SPACESHIP_SUFFIX_XCODE:=""}"
 SPACESHIP_SUFFIX_VENV="${SPACESHIP_SUFFIX_VENV:=""}"
 SPACESHIP_SUFFIX_PYENV="${SPACESHIP_SUFFIX_PYENV:=""}"
 SPACESHIP_SUFFIX_VI_MODE="${SPACESHIP_SUFFIX_VI_MODE:=""}"
 
 # COLORS
 SPACESHIP_TIME_COLOR="${SPACESHIP_TIME_COLOR:="yellow"}"
-SPACESHIP_USER_COLOR="${SPACESHIP_USER_COLOR:="yellow"}" # TODO: root ↓
-# SPACESHIP_ROOT_COLOR="${SPACESHIP_ROOT_COLOR:="red"}"
+SPACESHIP_USER_COLOR="${SPACESHIP_USER_COLOR:="yellow"}"
+# SPACESHIP_ROOT_COLOR="${SPACESHIP_ROOT_COLOR:="red"}" # TODO: Document
 SPACESHIP_HOST_COLOR="${SPACESHIP_HOST_COLOR:="green"}"
 SPACESHIP_DIR_COLOR="${SPACESHIP_DIR_COLOR:="cyan"}"
 SPACESHIP_GIT_COLOR="${SPACESHIP_GIT_COLOR:="magenta"}"
 SPACESHIP_NODE_COLOR="${SPACESHIP_NODE_COLOR:="green"}"
 SPACESHIP_RUBY_COLOR="${SPACESHIP_RUBY_COLOR:="red"}"
+SPACESHIP_XCODE_COLOR="${SPACESHIP_XCODE_COLOR:="blue"}"
 SPACESHIP_SWIFT_COLOR="${SPACESHIP_SWIFT_COLOR:="yellow"}"
 SPACESHIP_GOLANG_COLOR="${SPACESHIP_GOLANG_COLOR:="cyan"}"
 SPACESHIP_DOCKER_COLOR="${SPACESHIP_DOCKER_COLOR:="cyan"}"
-SPACESHIP_XCODE_COLOR="${SPACESHIP_XCODE_COLOR:="blue"}"
 SPACESHIP_VENV_COLOR="${SPACESHIP_VENV_COLOR:="blue"}"
 SPACESHIP_PYENV_COLOR="${SPACESHIP_PYENV_COLOR:="yellow"}"
 SPACESHIP_VI_MODE_COLOR="${SPACESHIP_VI_MODE_COLOR:="white"}"
+
+# TIME
+SPACESHIP_TIME_SHOW="${SPACESHIP_TIME_SHOW:=false}"
+SPACESHIP_TIME_FORMAT="${SPACESHIP_TIME_FORMAT:=false}"
+SPACESHIP_TIME_12HR="${SPACESHIP_TIME_12HR:=false}"
 
 # GIT
 SPACESHIP_GIT_SHOW="${SPACESHIP_GIT_SHOW:=true}"
@@ -106,11 +111,6 @@ SPACESHIP_GIT_STASHED="${SPACESHIP_GIT_STASHED:="$"}"
 SPACESHIP_GIT_UNPULLED="${SPACESHIP_GIT_UNPULLED:="⇣"}"
 SPACESHIP_GIT_UNPUSHED="${SPACESHIP_GIT_UNPUSHED:="⇡"}"
 
-# TIME
-SPACESHIP_TIME_SHOW="${SPACESHIP_TIME_SHOW:=false}"
-SPACESHIP_TIME_FORMAT="${SPACESHIP_TIME_FORMAT:=false}"
-SPACESHIP_TIME_12HR="${SPACESHIP_TIME_12HR:=false}"
-
 # NODE
 SPACESHIP_NODE_SHOW="${SPACESHIP_NODE_SHOW:=true}"
 SPACESHIP_NODE_SYMBOL="${SPACESHIP_NODE_SYMBOL:="⬢"}"
@@ -119,6 +119,11 @@ SPACESHIP_NODE_DEFAULT_VERSION="${SPACESHIP_NODE_DEFAULT_VERSION:=""}"
 # RUBY
 SPACESHIP_RUBY_SHOW="${SPACESHIP_RUBY_SHOW:=true}"
 SPACESHIP_RUBY_SYMBOL="${SPACESHIP_RUBY_SYMBOL:="💎"}"
+
+# XCODE
+SPACESHIP_XCODE_SHOW_LOCAL="${SPACESHIP_XCODE_SHOW_LOCAL:=true}"
+SPACESHIP_XCODE_SHOW_GLOBAL="${SPACESHIP_XCODE_SHOW_GLOBAL:=false}"
+SPACESHIP_XCODE_SYMBOL="${SPACESHIP_XCODE_SYMBOL:="🛠"}"
 
 # SWIFT
 SPACESHIP_SWIFT_SHOW_LOCAL="${SPACESHIP_SWIFT_SHOW_LOCAL:=true}"
@@ -132,11 +137,6 @@ SPACESHIP_GOLANG_SYMBOL="${SPACESHIP_GOLANG_SYMBOL:="🐹"}"
 # DOCKER
 SPACESHIP_DOCKER_SHOW="${SPACESHIP_DOCKER_SHOW:=true}"
 SPACESHIP_DOCKER_SYMBOL="${SPACESHIP_DOCKER_SYMBOL:="🐳"}"
-
-# XCODE
-SPACESHIP_XCODE_SHOW_LOCAL="${SPACESHIP_XCODE_SHOW_LOCAL:=true}"
-SPACESHIP_XCODE_SHOW_GLOBAL="${SPACESHIP_XCODE_SHOW_GLOBAL:=false}"
-SPACESHIP_XCODE_SYMBOL="${SPACESHIP_XCODE_SYMBOL:="🛠"}"
 
 # VENV
 SPACESHIP_VENV_SHOW="${SPACESHIP_VENV_SHOW:=true}"
@@ -358,6 +358,158 @@ spaceship_git() {
   fi
 }
 
+# NVM
+# Show current version of node, exception system.
+spaceship_node() {
+  [[ $SPACESHIP_NODE_SHOW == false ]] && return
+
+  # Show NODE status only for JS-specific folders
+  [[ -f package.json || -d node_modules || -n *.js(#qN) ]] || return
+
+  local node_version
+
+  if _exists nvm; then
+    node_version=$(nvm current 2>/dev/null)
+    [[ $node_version == "system" || $node_version == "node" ]] && return
+  elif _exists node; then
+    node_version=$(node -v)
+    [[ $node_version == $SPACESHIP_NODE_DEFAULT_VERSION ]] && return
+  else
+    return
+  fi
+
+  _prompt_section \
+    "$SPACESHIP_NODE_COLOR" \
+    "$SPACESHIP_PREFIX_NODE" \
+    "${SPACESHIP_NODE_SYMBOL} ${node_version}" \
+    "$SPACESHIP_SUFFIX_NODE"
+}
+
+# RUBY
+# Show current version of Ruby
+spaceship_ruby() {
+  [[ $SPACESHIP_RUBY_SHOW == false ]] && return
+
+  # Show versions only for Ruby-specific folders
+  [[ -f Gemfile || -f Rakefile || -n *.rb(#qN) ]] || return
+
+  local ruby_version
+
+  if _exists rvm-prompt; then
+    ruby_version=$(rvm-prompt i v g)
+  elif _exists chruby; then
+    ruby_version=$(chruby | sed -n -e 's/ \* //p')
+  elif _exists rbenv; then
+    ruby_version=$(rbenv version | sed -e 's/ (set.*$//')
+  else
+    return
+  fi
+
+  [[ "${ruby_version}" == "system" ]] && return
+
+  # Add 'v' before ruby version that starts with a number
+  [[ "${ruby_version}" =~ ^[0-9].+$ ]] && ruby_version="v${ruby_version}"
+
+  _prompt_section \
+    "$SPACESHIP_RUBY_COLOR" \
+    "$SPACESHIP_PREFIX_RUBY" \
+    "${SPACESHIP_RUBY_SYMBOL}  ${ruby_version}" \
+    "$SPACESHIP_SUFFIX_RUBY"
+}
+
+# XCODE
+# Show current version of Xcode
+spaceship_xcode() {
+  _exists xcenv || return
+
+  local xcode_path
+
+  if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
+    xcode_path=$(xcenv version | sed 's/ .*//')
+  elif [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
+    if xcenv version | grep ".xcode-version" > /dev/null; then
+      xcode_path=$(xcenv version | sed 's/ .*//')
+    fi
+  fi
+
+  if [ -n "${xcode_path}" ]; then
+    local xcode_version_path=$xcode_path"/Contents/version.plist"
+    if [ -f ${xcode_version_path} ]; then
+      if _exists defaults; then
+        local xcode_version=$(defaults read ${xcode_version_path} CFBundleShortVersionString)
+
+        _prompt_section \
+          "$SPACESHIP_XCODE_COLOR" \
+          "$SPACESHIP_PREFIX_XCODE" \
+          "${SPACESHIP_XCODE_SYMBOL}  ${xcode_version}" \
+          "$SPACESHIP_SUFFIX_XCODE"
+      fi
+    fi
+  fi
+}
+
+# SWIFT
+# Show current version of Swift
+spaceship_swift() {
+  _exists swiftenv || return
+
+  local swift_version
+
+  if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
+    swift_version=$(swiftenv version | sed 's/ .*//')
+  elif [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
+    if swiftenv version | grep ".swift-version" > /dev/null; then
+      swift_version=$(swiftenv version | sed 's/ .*//')
+    fi
+  fi
+
+  [ -n "${swift_version}" ] || return
+
+  _prompt_section \
+    "$SPACESHIP_SWIFT_COLOR" \
+    "$SPACESHIP_PREFIX_SWIFT" \
+    "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}" \
+    "$SPACESHIP_SUFFIX_SWIFT"
+}
+
+# GOLANG
+# Show current version of golang
+spaceship_golang() {
+  [[ $SPACESHIP_GOLANG_SHOW == false ]] && return
+
+  # If there are Go-specific files in current directory
+  [[ -d Godeps || -f glide.yaml || -n *.go(#qN) ]] || return
+
+  _exists go || return
+
+  local go_version=$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')
+
+  _prompt_section \
+    "$SPACESHIP_GOLANG_COLOR" \
+    "$SPACESHIP_PREFIX_GOLANG" \
+    "${SPACESHIP_GOLANG_SYMBOL}  v${go_version}" \
+    "$SPACESHIP_SUFFIX_GOLANG"
+}
+
+# DOCKER
+spaceship_docker() {
+  [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
+
+  _exists docker || return
+
+  if [[ -z $DOCKER_MACHINE_NAME ]]; then
+    DOCKER_MACHINE_NAME="localhost"
+  fi
+
+  local docker_version=$(docker version -f "{{.Server.Version}}")
+
+  _prompt_section \
+    "$SPACESHIP_DOCKER_COLOR" \
+    "$SPACESHIP_PREFIX_DOCKER" \
+    "${SPACESHIP_DOCKER_SYMBOL}  v${docker_version} via〔$DOCKER_MACHINE_NAME〕" \
+    "$SPACESHIP_SUFFIX_DOCKER"
+}
+
 # VENV
 # Show current virtual environment (Python).
 spaceship_venv() {
@@ -405,159 +557,6 @@ spaceship_pyenv() {
     "$SPACESHIP_PREFIX_PYENV" \
     "${SPACESHIP_PYENV_SYMBOL}  ${pyenv_status}" \
     "$SPACESHIP_SUFFIX_PYENV"
-}
-
-# NVM
-# Show current version of node, exception system.
-spaceship_node() {
-  [[ $SPACESHIP_NODE_SHOW == false ]] && return
-
-  # Show NODE status only for JS-specific folders
-  [[ -f package.json || -d node_modules || -n *.js(#qN) ]] || return
-
-  local node_version
-
-  if _exists nvm; then
-    node_version=$(nvm current 2>/dev/null)
-    [[ $node_version == "system" || $node_version == "node" ]] && return
-  elif _exists node; then
-    node_version=$(node -v)
-    [[ $node_version == $SPACESHIP_NODE_DEFAULT_VERSION ]] && return
-  else
-    return
-  fi
-
-  _prompt_section \
-    "$SPACESHIP_NODE_COLOR" \
-    "$SPACESHIP_PREFIX_NODE" \
-    "${SPACESHIP_NODE_SYMBOL} ${node_version}" \
-    "$SPACESHIP_SUFFIX_NODE"
-}
-
-# RUBY
-# Show current version of Ruby
-# FIXME: ruby_version should be local
-spaceship_ruby() {
-  [[ $SPACESHIP_RUBY_SHOW == false ]] && return
-
-  # Show versions only for Ruby-specific folders
-  [[ -f Gemfile || -f Rakefile || -n *.rb(#qN) ]] || return
-
-  local ruby_version
-
-  if _exists rvm-prompt; then
-    ruby_version=$(rvm-prompt i v g)
-  elif _exists chruby; then
-    ruby_version=$(chruby | sed -n -e 's/ \* //p')
-  elif _exists rbenv; then
-    ruby_version=$(rbenv version | sed -e 's/ (set.*$//')
-  else
-    return
-  fi
-
-  [[ "${ruby_version}" == "system" ]] && return
-
-  # Add 'v' before ruby version that starts with a number
-  [[ "${ruby_version}" =~ ^[0-9].+$ ]] && ruby_version="v${ruby_version}"
-
-  _prompt_section \
-    "$SPACESHIP_RUBY_COLOR" \
-    "$SPACESHIP_PREFIX_RUBY" \
-    "${SPACESHIP_RUBY_SYMBOL}  ${ruby_version}" \
-    "$SPACESHIP_SUFFIX_RUBY"
-}
-
-# SWIFT
-# Show current version of Swift
-spaceship_swift() {
-  _exists swiftenv || return
-
-  local swift_version
-
-  if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
-    swift_version=$(swiftenv version | sed 's/ .*//')
-  elif [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
-    if swiftenv version | grep ".swift-version" > /dev/null; then
-      swift_version=$(swiftenv version | sed 's/ .*//')
-    fi
-  fi
-
-  [ -n "${swift_version}" ] || return
-
-  _prompt_section \
-    "$SPACESHIP_SWIFT_COLOR" \
-    "$SPACESHIP_PREFIX_SWIFT" \
-    "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}" \
-    "$SPACESHIP_SUFFIX_SWIFT"
-}
-
-# XCODE
-# Show current version of Xcode
-spaceship_xcode() {
-  _exists xcenv || return
-
-  local xcode_path
-
-  if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
-    xcode_path=$(xcenv version | sed 's/ .*//')
-  elif [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
-    if xcenv version | grep ".xcode-version" > /dev/null; then
-      xcode_path=$(xcenv version | sed 's/ .*//')
-    fi
-  fi
-
-  if [ -n "${xcode_path}" ]; then
-    local xcode_version_path=$xcode_path"/Contents/version.plist"
-    if [ -f ${xcode_version_path} ]; then
-      if _exists defaults; then
-        local xcode_version=$(defaults read ${xcode_version_path} CFBundleShortVersionString)
-
-        _prompt_section \
-          "$SPACESHIP_XCODE_COLOR" \
-          "$SPACESHIP_PREFIX_XCODE" \
-          "${SPACESHIP_XCODE_SYMBOL}  ${xcode_version}" \
-          "$SPACESHIP_SUFFIX_XCODE"
-      fi
-    fi
-  fi
-}
-
-# GOLANG
-# Show current version of golang
-spaceship_golang() {
-  [[ $SPACESHIP_GOLANG_SHOW == false ]] && return
-
-  # If there are Go-specific files in current directory
-  [[ -d Godeps || -f glide.yaml || -n *.go(#qN) ]] || return
-
-  _exists go || return
-
-  local go_version=$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')
-
-  _prompt_section \
-    "$SPACESHIP_GOLANG_COLOR" \
-    "$SPACESHIP_PREFIX_GOLANG" \
-    "${SPACESHIP_GOLANG_SYMBOL}  v${go_version}" \
-    "$SPACESHIP_SUFFIX_GOLANG"
-}
-
-# DOCKER
-spaceship_docker() {
-  [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
-
-  _exists docker || return
-
-  if [[ -z $DOCKER_MACHINE_NAME ]]; then
-    DOCKER_MACHINE_NAME="localhost"
-  fi
-
-  local docker_version=$(docker version -f "{{.Server.Version}}")
-
-  _prompt_section \
-    "$SPACESHIP_DOCKER_COLOR" \
-    "$SPACESHIP_PREFIX_DOCKER" \
-    "${SPACESHIP_DOCKER_SYMBOL}  v${docker_version} via〔$DOCKER_MACHINE_NAME〕" \
-    "$SPACESHIP_SUFFIX_DOCKER"
 }
 
 # VI_MODE
@@ -644,6 +643,7 @@ spaceship_prompt() {
 }
 
 # PS2 - continuation interactive prompt
+# TODO: Expose as PS2 variables
 spaceship_ps2() {
   _prompt_section yellow '' $SPACESHIP_PROMPT_SYMBOL ''
 }
