@@ -151,6 +151,35 @@ SPACESHIP_VI_MODE_INSERT="${SPACESHIP_VI_MODE_INSERT:="[I]"}"
 SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:="[N]"}"
 
 # ------------------------------------------------------------------------------
+# BACKWARD COMPATIBILITY
+# Helpers for common used actions
+# ------------------------------------------------------------------------------
+if [[ -n $SPACESHIP_NVM_SHOW || -n $SPACESHIP_NVM_SYMBOL || -n $SPACESHIP_PREFIX_NVM ]]; then
+  _b="$bold_color"
+  _w="$fg[yellow]"
+  _r="$reset_color"
+  echo
+  echo "${_b}${_w}You're using deprecated option!${_r}"
+  echo
+  echo "Don't panic! Everything is OK."
+  echo "This message means you use deprecated options for spaceship-zsh-theme"
+  echo "For backward compatibility these options are used:"
+  echo
+  [[ -n $SPACESHIP_NVM_SHOW ]] && {
+    SPACESHIP_NODE_SHOW=$SPACESHIP_NVM_SHOW
+    echo "\t${_b}\$SPACESHIP_NODE_SHOW${_r} is set to $SPACESHIP_NODE_SHOW. Use ${_b}\$SPACESHIP_NODE_SHOW${_r} instead."
+  }
+  [[ -n $SPACESHIP_NVM_SYMBOL ]] && {
+    SPACESHIP_NODE_SYMBOL=$SPACESHIP_NVM_SYMBOL
+    echo "\t${_b}\$SPACESHIP_NODE_SYMBOL${_r} is set to $SPACESHIP_NODE_SYMBOL. Use ${_b}\$SPACESHIP_NODE_SYMBOL${_r} instead."
+  }
+  [[ -n $SPACESHIP_PREFIX_NVM ]] && {
+    SPACESHIP_PREFIX_NODE=$SPACESHIP_PREFIX_NVM
+    echo "\t${_b}\$SPACESHIP_PREFIX_NODE${_r} is set to $SPACESHIP_PREFIX_NODE. Use ${_b}\$SPACESHIP_PREFIX_NODE${_r} instead."
+  }
+fi
+
+# ------------------------------------------------------------------------------
 # HELPERS
 # Helpers for common used actions
 # ------------------------------------------------------------------------------
@@ -401,30 +430,6 @@ spaceship_pyenv() {
 
 # NVM
 # Show current version of node, exception system.
-if [[ -n $SPACESHIP_NVM_SHOW || -n $SPACESHIP_NVM_SYMBOL || -n $SPACESHIP_PREFIX_NVM ]]; then
-  echo
-  echo $fg_bold[yellow]'NVM options are deprecated, use NODE instead!'$reset_color
-  echo
-  echo "Don't panic! Everything is OK."
-  echo "This message means you use deprecated options related to NVM."
-  echo "All $bold_color*_NVM_*$reset_color options has been renamed to $bold_color*_NODE_*$reset_color"
-  echo "Please, use new $bold_color*_NODE_*$reset_color options and these message will disappear."
-  echo
-  echo "For backward compatibility these options are used:"
-  echo
-  [[ -n $SPACESHIP_NVM_SHOW ]] && {
-    SPACESHIP_NODE_SHOW=$SPACESHIP_NVM_SHOW
-    echo "\t$bold_color\$SPACESHIP_NODE_SHOW$reset_color is set to $SPACESHIP_NODE_SYMBOL"
-  }
-  [[ -n $SPACESHIP_NVM_SYMBOL ]] && {
-    SPACESHIP_NODE_SYMBOL=$SPACESHIP_NVM_SYMBOL
-    echo "\t$bold_color\$SPACESHIP_NODE_SYMBOL$reset_color is set to $bold_color$SPACESHIP_NODE_SYMBOL$reset_color"
-  }
-  [[ -n $SPACESHIP_PREFIX_NVM ]] && {
-    SPACESHIP_PREFIX_NODE=$SPACESHIP_PREFIX_NVM
-    echo "\t$bold_color\$SPACESHIP_PREFIX_NODE$reset_color is set to $bold_color$SPACESHIP_PREFIX_NODE$reset_color"
-  }
-fi
 spaceship_node() {
   [[ $SPACESHIP_NODE_SHOW == false ]] && return
 
