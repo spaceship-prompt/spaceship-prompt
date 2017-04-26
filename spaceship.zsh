@@ -151,35 +151,6 @@ SPACESHIP_VI_MODE_INSERT="${SPACESHIP_VI_MODE_INSERT:="[I]"}"
 SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:="[N]"}"
 
 # ------------------------------------------------------------------------------
-# BACKWARD COMPATIBILITY
-# Helpers for common used actions
-# ------------------------------------------------------------------------------
-if [[ -n $SPACESHIP_NVM_SHOW || -n $SPACESHIP_NVM_SYMBOL || -n $SPACESHIP_PREFIX_NVM ]]; then
-  _b="$bold_color"
-  _w="$fg[yellow]"
-  _r="$reset_color"
-  echo
-  echo "${_b}${_w}You're using deprecated option!${_r}"
-  echo
-  echo "Don't panic! Everything is OK."
-  echo "This message means you use deprecated options for spaceship-zsh-theme"
-  echo "For backward compatibility these options are used:"
-  echo
-  [[ -n $SPACESHIP_NVM_SHOW ]] && {
-    SPACESHIP_NODE_SHOW=$SPACESHIP_NVM_SHOW
-    echo "\t${_b}\$SPACESHIP_NODE_SHOW${_r} is set to $SPACESHIP_NODE_SHOW. Use ${_b}\$SPACESHIP_NODE_SHOW${_r} instead."
-  }
-  [[ -n $SPACESHIP_NVM_SYMBOL ]] && {
-    SPACESHIP_NODE_SYMBOL=$SPACESHIP_NVM_SYMBOL
-    echo "\t${_b}\$SPACESHIP_NODE_SYMBOL${_r} is set to $SPACESHIP_NODE_SYMBOL. Use ${_b}\$SPACESHIP_NODE_SYMBOL${_r} instead."
-  }
-  [[ -n $SPACESHIP_PREFIX_NVM ]] && {
-    SPACESHIP_PREFIX_NODE=$SPACESHIP_PREFIX_NVM
-    echo "\t${_b}\$SPACESHIP_PREFIX_NODE${_r} is set to $SPACESHIP_PREFIX_NODE. Use ${_b}\$SPACESHIP_PREFIX_NODE${_r} instead."
-  }
-fi
-
-# ------------------------------------------------------------------------------
 # HELPERS
 # Helpers for common used actions
 # ------------------------------------------------------------------------------
@@ -219,6 +190,14 @@ _prompt_section() {
 
   echo -n "%{%b%}" # unset bold
   echo -n $SPACESHIP_PROMPT_SEPARATOR
+}
+
+# Print message backward compatibility warning
+# USAGE:
+#  _deprecate <deprecated> <actual>
+_deprecated() {
+  local b=$bold_color r=$reset_color
+  [[ -n $1 && -n $2 ]] && echo "${b}\$$1${r} is deprecated. Use ${b}\$$2${r} instead."
 }
 
 # ------------------------------------------------------------------------------
@@ -631,6 +610,15 @@ spaceship_line_sep() {
 spaceship_char() {
   _prompt_section "%(?.green.red)" '' "${SPACESHIP_PROMPT_SYMBOL}" ''
 }
+
+# ------------------------------------------------------------------------------
+# BACKWARD COMPATIBILITY
+# Helpers for common used actions
+# ------------------------------------------------------------------------------
+
+[[ -n $SPACESHIP_NVM_SHOW ]] && _deprecated SPACESHIP_NVM_SHOW SPACESHIP_NODE_SHOW
+[[ -n $SPACESHIP_NVM_SYMBOL ]] && _deprecated SPACESHIP_NVM_SYMBOL SPACESHIP_NODE_SYMBOL
+[[ -n $SPACESHIP_PREFIX_NVM ]] && _deprecated SPACESHIP_PREFIX_NVM SPACESHIP_PREFIX_NODE
 
 # ------------------------------------------------------------------------------
 # MAIN
