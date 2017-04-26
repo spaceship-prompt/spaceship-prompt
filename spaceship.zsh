@@ -156,8 +156,8 @@ SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:="[N]"}"
 
 # Check if command exists in $PATH
 # USAGE:
-#   _exists? <command>
-_exists? () {
+#   _exists <command>
+_exists() {
   command -v $1 > /dev/null 2>&1
 }
 
@@ -355,7 +355,7 @@ spaceship_venv() {
   [[ $SPACESHIP_VENV_SHOW == false ]] && return
 
   # Check if the current directory running via Virtualenv
-  [ -n "$VIRTUAL_ENV" ] && _exists? deactivate || return
+  [ -n "$VIRTUAL_ENV" ] && _exists deactivate || return
 
   _prompt_section \
     $SPACESHIP_VENV_COLOR \
@@ -372,7 +372,7 @@ spaceship_pyenv() {
   # Show NVM status only for Python-specific folders
   test -f requirements.txt || test -n *.py(#qN) || return
 
-  _exists? pyenv || return # Do nothing if pyenv is not installed
+  _exists pyenv || return # Do nothing if pyenv is not installed
 
   local pyenv_status
   local pyenv_shell=$(pyenv shell 2>/dev/null)
@@ -429,11 +429,11 @@ spaceship_ruby() {
 
   local ruby_version
 
-  if _exists? rvm-prompt; then
+  if _exists rvm-prompt; then
     ruby_version=$(rvm-prompt i v g)
-  elif _exists? chruby; then
+  elif _exists chruby; then
     ruby_version=$(chruby | sed -n -e 's/ \* //p')
-  elif _exists? rbenv; then
+  elif _exists rbenv; then
     ruby_version=$(rbenv version | sed -e 's/ (set.*$//')
   else
     return
@@ -454,7 +454,7 @@ spaceship_ruby() {
 # SWIFT
 # Show current version of Swift
 spaceship_swift() {
-  _exists? swiftenv || return
+  _exists swiftenv || return
 
   local swift_version
 
@@ -478,7 +478,7 @@ spaceship_swift() {
 # XCODE
 # Show current version of Xcode
 spaceship_xcode() {
-  _exists? xcenv || return
+  _exists xcenv || return
 
   local xcode_path
 
@@ -493,7 +493,7 @@ spaceship_xcode() {
   if [ -n "${xcode_path}" ]; then
     local xcode_version_path=$xcode_path"/Contents/version.plist"
     if [ -f ${xcode_version_path} ]; then
-      if _exists? defaults; then
+      if _exists defaults; then
         local xcode_version=$(defaults read ${xcode_version_path} CFBundleShortVersionString)
 
         _prompt_section \
@@ -514,7 +514,7 @@ spaceship_golang() {
   # If there are Go-specific files in current directory
   [[ -d Godeps || -f glide.yaml || -n *.go(#qN) ]] || return
 
-  _exists? go || return
+  _exists go || return
 
   local go_version=$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')
 
@@ -529,7 +529,7 @@ spaceship_golang() {
 spaceship_docker() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
 
-  _exists? docker || return
+  _exists docker || return
 
   if [[ -z $DOCKER_MACHINE_NAME ]]; then
     DOCKER_MACHINE_NAME="localhost"
