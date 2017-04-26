@@ -22,7 +22,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     host
     dir
     git
-    nvm # FIXME: expose as `node`. fix backward compat
+    node
     ruby
     xcode
     swift
@@ -52,7 +52,7 @@ SPACESHIP_PREFIX_HOST="${SPACESHIP_PREFIX_HOST:="at "}"
 SPACESHIP_PREFIX_DIR="${SPACESHIP_PREFIX_DIR:="in "}"
 SPACESHIP_PREFIX_GIT="${SPACESHIP_PREFIX_GIT:="on "}"
 SPACESHIP_PREFIX_ENV_DEFAULT="${SPACESHIP_PREFIX_ENV_DEFAULT:="via "}"
-SPACESHIP_PREFIX_NVM="${SPACESHIP_PREFIX_NVM:=$SPACESHIP_PREFIX_ENV_DEFAULT}"
+SPACESHIP_PREFIX_NODE="${SPACESHIP_PREFIX_NODE:=$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_RUBY="${SPACESHIP_PREFIX_RUBY:=$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_SWIFT="${SPACESHIP_PREFIX_SWIFT:=$SPACESHIP_PREFIX_ENV_DEFAULT}"
 SPACESHIP_PREFIX_GOLANG="${SPACESHIP_PREFIX_GOLANG:=$SPACESHIP_PREFIX_ENV_DEFAULT}"
@@ -70,7 +70,7 @@ SPACESHIP_SUFFIX_USER="${SPACESHIP_SUFFIX_USER:=""}"
 SPACESHIP_SUFFIX_HOST="${SPACESHIP_SUFFIX_HOST:=""}"
 SPACESHIP_SUFFIX_DIR="${SPACESHIP_SUFFIX_DIR:=""}"
 SPACESHIP_SUFFIX_GIT="${SPACESHIP_SUFFIX_GIT:=""}"
-SPACESHIP_SUFFIX_NVM="${SPACESHIP_SUFFIX_NVM:=""}"
+SPACESHIP_SUFFIX_NODE="${SPACESHIP_SUFFIX_NODE:=""}"
 SPACESHIP_SUFFIX_RUBY="${SPACESHIP_SUFFIX_RUBY:=""}"
 SPACESHIP_SUFFIX_SWIFT="${SPACESHIP_SUFFIX_SWIFT:=""}"
 SPACESHIP_SUFFIX_GOLANG="${SPACESHIP_SUFFIX_GOLANG:=""}"
@@ -87,7 +87,7 @@ SPACESHIP_USER_COLOR="${SPACESHIP_USER_COLOR:="yellow"}" # TODO: root ↓
 SPACESHIP_HOST_COLOR="${SPACESHIP_HOST_COLOR:="green"}"
 SPACESHIP_DIR_COLOR="${SPACESHIP_DIR_COLOR:="cyan"}"
 SPACESHIP_GIT_COLOR="${SPACESHIP_GIT_COLOR:="magenta"}"
-SPACESHIP_NVM_COLOR="${SPACESHIP_NVM_COLOR:="green"}"
+SPACESHIP_NODE_COLOR="${SPACESHIP_NODE_COLOR:="green"}"
 SPACESHIP_RUBY_COLOR="${SPACESHIP_RUBY_COLOR:="red"}"
 SPACESHIP_SWIFT_COLOR="${SPACESHIP_SWIFT_COLOR:="yellow"}"
 SPACESHIP_GOLANG_COLOR="${SPACESHIP_GOLANG_COLOR:="cyan"}"
@@ -111,9 +111,10 @@ SPACESHIP_TIME_SHOW="${SPACESHIP_TIME_SHOW:=false}"
 SPACESHIP_TIME_FORMAT="${SPACESHIP_TIME_FORMAT:=false}"
 SPACESHIP_TIME_12HR="${SPACESHIP_TIME_12HR:=false}"
 
-# NVM
-SPACESHIP_NVM_SHOW="${SPACESHIP_NVM_SHOW:=true}"
-SPACESHIP_NVM_SYMBOL="${SPACESHIP_NVM_SYMBOL:="⬢"}"
+# NODE
+SPACESHIP_NODE_SHOW="${SPACESHIP_NODE_SHOW:=true}"
+SPACESHIP_NODE_SYMBOL="${SPACESHIP_NODE_SYMBOL:="⬢"}"
+SPACESHIP_NODE_DEFAULT_VERSION="${SPACESHIP_NODE_DEFAULT_VERSION:=""}"
 
 # RUBY
 SPACESHIP_RUBY_SHOW="${SPACESHIP_RUBY_SHOW:=true}"
@@ -170,7 +171,7 @@ _prompt_section() {
   [[ -n $1 ]] && color="%F{$1}"  || color="%f"
   [[ -n $2 ]] && prefix="$2"     || prefix=""
   [[ -n $3 ]] && content="$3"    || content=""
-  [[ -n $4 ]] && suffix="$4"      || suffix=""
+  [[ -n $4 ]] && suffix="$4"     || suffix=""
 
   echo -n "%{%B%}" # set bold
 
@@ -400,22 +401,53 @@ spaceship_pyenv() {
 
 # NVM
 # Show current version of node, exception system.
-spaceship_nvm() {
-  [[ $SPACESHIP_NVM_SHOW == false ]] && return
+if [[ -n $SPACESHIP_NVM_SHOW || -n $SPACESHIP_NVM_SYMBOL || -n $SPACESHIP_PREFIX_NVM ]]; then
+  echo
+  echo $fg_bold[yellow]'NVM options are deprecated, use NODE instead!'$reset_color
+  echo
+  echo "Don't panic! Everything is OK."
+  echo "This message means you use deprecated options related to NVM."
+  echo "All $bold_color*_NVM_*$reset_color options has been renamed to $bold_color*_NODE_*$reset_color"
+  echo "Please, use new $bold_color*_NODE_*$reset_color options and these message will disappear."
+  echo
+  echo "For backward compatibility these options are used:"
+  echo
+  [[ -n $SPACESHIP_NVM_SHOW ]] && {
+    SPACESHIP_NODE_SHOW=$SPACESHIP_NVM_SHOW
+    echo "\t$bold_color\$SPACESHIP_NODE_SHOW$reset_color is set to $SPACESHIP_NODE_SYMBOL"
+  }
+  [[ -n $SPACESHIP_NVM_SYMBOL ]] && {
+    SPACESHIP_NODE_SYMBOL=$SPACESHIP_NVM_SYMBOL
+    echo "\t$bold_color\$SPACESHIP_NODE_SYMBOL$reset_color is set to $bold_color$SPACESHIP_NODE_SYMBOL$reset_color"
+  }
+  [[ -n $SPACESHIP_PREFIX_NVM ]] && {
+    SPACESHIP_PREFIX_NODE=$SPACESHIP_PREFIX_NVM
+    echo "\t$bold_color\$SPACESHIP_PREFIX_NODE$reset_color is set to $bold_color$SPACESHIP_PREFIX_NODE$reset_color"
+  }
+fi
+spaceship_node() {
+  [[ $SPACESHIP_NODE_SHOW == false ]] && return
 
-  # Show NVM status only for JS-specific folders
+  # Show NODE status only for JS-specific folders
   [[ -f package.json || -d node_modules || -n *.js(#qN) ]] || return
 
-  _exists? nvm || return
+  local node_version
 
-  local nvm_status=$(nvm current 2>/dev/null)
-  [[ "${nvm_status}" == "system" || "${nvm_status}" == "node" ]] && return
+  if _exists nvm; then
+    node_version=$(nvm current 2>/dev/null)
+    [[ $node_version == "system" || $node_version == "node" ]] && return
+  elif _exists node; then
+    node_version=$(node -v)
+    [[ $node_version == $SPACESHIP_NODE_DEFAULT_VERSION ]] && return
+  else
+    return
+  fi
 
   _prompt_section \
-    $SPACESHIP_NVM_COLOR \
-    $SPACESHIP_PREFIX_NVM \
-    "${SPACESHIP_NVM_SYMBOL}  ${nvm_status}" \
-    $SPACESHIP_SUFFIX_NVM
+    $SPACESHIP_NODE_COLOR \
+    $SPACESHIP_PREFIX_NODE \
+    "${SPACESHIP_NODE_SYMBOL} ${node_version}" \
+    $SPACESHIP_SUFFIX_NODE
 }
 
 # RUBY
