@@ -212,10 +212,10 @@ spaceship_time() {
   fi
 
   _prompt_section \
-    $SPACESHIP_TIME_COLOR \
-    $SPACESHIP_PREFIX_TIME \
-    $time_str \
-    $SPACESHIP_SUFFIX_TIME
+    "$SPACESHIP_TIME_COLOR" \
+    "$SPACESHIP_PREFIX_TIME" \
+    "$time_str" \
+    "$SPACESHIP_SUFFIX_TIME"
 }
 
 # USER
@@ -231,10 +231,10 @@ spaceship_user() {
     fi
 
     _prompt_section \
-      $user_color \
-      $SPACESHIP_PREFIX_USER \
+      "$user_color" \
+      "$SPACESHIP_PREFIX_USER" \
       '%n' \
-      $SPACESHIP_SUFFIX_USER
+      "$SPACESHIP_SUFFIX_USER"
   fi
 }
 
@@ -244,20 +244,20 @@ spaceship_host() {
   [[ -n $SSH_CONNECTION ]] || return
 
   _prompt_section \
-    $SPACESHIP_HOST_COLOR \
-    $SPACESHIP_PREFIX_HOST \
+    "$SPACESHIP_HOST_COLOR" \
+    "$SPACESHIP_PREFIX_HOST" \
     '%m' \
-    $SPACESHIP_SUFFIX_USER
+    "$SPACESHIP_SUFFIX_USER"
 }
 
 # DIR
 # Current directory. Return only three last items of path
 spaceship_dir() {
   _prompt_section \
-    $SPACESHIP_DIR_COLOR \
-    $SPACESHIP_PREFIX_DIR \
+    "$SPACESHIP_DIR_COLOR" \
+    "$SPACESHIP_PREFIX_DIR" \
     "%${SPACESHIP_PROMPT_TRUNC}~" \
-    $SPACESHIP_SUFFIX_DIR
+    "$SPACESHIP_SUFFIX_DIR"
 }
 
 # Uncommitted changes.
@@ -339,10 +339,10 @@ spaceship_git() {
 
     # Show git branch
     _prompt_section \
-      $SPACESHIP_GIT_COLOR \
-      $SPACESHIP_PREFIX_GIT \
+      "$SPACESHIP_GIT_COLOR" \
+      "$SPACESHIP_PREFIX_GIT" \
       "$(git_current_branch)" \
-      $SPACESHIP_SUFFIX_GIT
+      "$SPACESHIP_SUFFIX_GIT"
 
     # Show git indicators
     # TODO: move to the git_indicators section
@@ -359,10 +359,10 @@ spaceship_venv() {
   [ -n "$VIRTUAL_ENV" ] && _exists deactivate || return
 
   _prompt_section \
-    $SPACESHIP_VENV_COLOR \
-    $SPACESHIP_PREFIX_VENV \
+    "$SPACESHIP_VENV_COLOR" \
+    "$SPACESHIP_PREFIX_VENV" \
     "$(basename $VIRTUAL_ENV)" \
-    $SPACESHIP_SUFFIX_VENV
+    "$SPACESHIP_SUFFIX_VENV"
 }
 
 # PYENV
@@ -393,10 +393,10 @@ spaceship_pyenv() {
   fi
 
   _prompt_section \
-    $SPACESHIP_PYENV_COLOR \
-    $SPACESHIP_PREFIX_PYENV \
+    "$SPACESHIP_PYENV_COLOR" \
+    "$SPACESHIP_PREFIX_PYENV" \
     "${SPACESHIP_PYENV_SYMBOL}  ${pyenv_status}" \
-    $SPACESHIP_SUFFIX_PYENV
+    "$SPACESHIP_SUFFIX_PYENV"
 }
 
 # NVM
@@ -444,10 +444,10 @@ spaceship_node() {
   fi
 
   _prompt_section \
-    $SPACESHIP_NODE_COLOR \
-    $SPACESHIP_PREFIX_NODE \
+    "$SPACESHIP_NODE_COLOR" \
+    "$SPACESHIP_PREFIX_NODE" \
     "${SPACESHIP_NODE_SYMBOL} ${node_version}" \
-    $SPACESHIP_SUFFIX_NODE
+    "$SPACESHIP_SUFFIX_NODE"
 }
 
 # RUBY
@@ -477,10 +477,10 @@ spaceship_ruby() {
   [[ "${ruby_version}" =~ ^[0-9].+$ ]] && ruby_version="v${ruby_version}"
 
   _prompt_section \
-    $SPACESHIP_RUBY_COLOR \
-    $SPACESHIP_PREFIX_RUBY \
+    "$SPACESHIP_RUBY_COLOR" \
+    "$SPACESHIP_PREFIX_RUBY" \
     "${SPACESHIP_RUBY_SYMBOL}  ${ruby_version}" \
-    $SPACESHIP_SUFFIX_RUBY
+    "$SPACESHIP_SUFFIX_RUBY"
 }
 
 # SWIFT
@@ -501,10 +501,10 @@ spaceship_swift() {
   [ -n "${swift_version}" ] || return
 
   _prompt_section \
-    $SPACESHIP_SWIFT_COLOR \
-    $SPACESHIP_PREFIX_SWIFT \
+    "$SPACESHIP_SWIFT_COLOR" \
+    "$SPACESHIP_PREFIX_SWIFT" \
     "${SPACESHIP_SWIFT_SYMBOL}  ${swift_version}" \
-    $SPACESHIP_SUFFIX_SWIFT
+    "$SPACESHIP_SUFFIX_SWIFT"
 }
 
 # XCODE
@@ -529,10 +529,10 @@ spaceship_xcode() {
         local xcode_version=$(defaults read ${xcode_version_path} CFBundleShortVersionString)
 
         _prompt_section \
-          $SPACESHIP_XCODE_COLOR \
-          $SPACESHIP_PREFIX_XCODE \
+          "$SPACESHIP_XCODE_COLOR" \
+          "$SPACESHIP_PREFIX_XCODE" \
           "${SPACESHIP_XCODE_SYMBOL}  ${xcode_version}" \
-          $SPACESHIP_SUFFIX_XCODE
+          "$SPACESHIP_SUFFIX_XCODE"
       fi
     fi
   fi
@@ -551,10 +551,10 @@ spaceship_golang() {
   local go_version=$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')
 
   _prompt_section \
-    $SPACESHIP_GOLANG_COLOR \
-    $SPACESHIP_PREFIX_GOLANG \
+    "$SPACESHIP_GOLANG_COLOR" \
+    "$SPACESHIP_PREFIX_GOLANG" \
     "${SPACESHIP_GOLANG_SYMBOL}  v${go_version}" \
-    $SPACESHIP_SUFFIX_GOLANG
+    "$SPACESHIP_SUFFIX_GOLANG"
 }
 
 # DOCKER
@@ -570,10 +570,10 @@ spaceship_docker() {
   local docker_version=$(docker version -f "{{.Server.Version}}")
 
   _prompt_section \
-    $SPACESHIP_DOCKER_COLOR \
-    $SPACESHIP_PREFIX_DOCKER \
+    "$SPACESHIP_DOCKER_COLOR" \
+    "$SPACESHIP_PREFIX_DOCKER" \
     "${SPACESHIP_DOCKER_SYMBOL}  v${docker_version} via〔$DOCKER_MACHINE_NAME〕" \
-    $SPACESHIP_SUFFIX_DOCKER
+    "$SPACESHIP_SUFFIX_DOCKER"
 }
 
 # VI_MODE
@@ -595,10 +595,10 @@ spaceship_vi_mode() {
 
     # TODO: use variable for color
     _prompt_section \
-      $SPACESHIP_VI_MODE_COLOR \
-      $SPACESHIP_PREFIX_VI_MODE \
-      $mode_indicator \
-      $SPACESHIP_SUFFIX_VI_MODE
+      "$SPACESHIP_VI_MODE_COLOR" \
+      "$SPACESHIP_PREFIX_VI_MODE" \
+      "$mode_indicator" \
+      "$SPACESHIP_SUFFIX_VI_MODE"
   fi
 }
 
