@@ -76,13 +76,27 @@ SPACESHIP_DIR_COLOR="${SPACESHIP_DIR_COLOR:="cyan"}"
 SPACESHIP_GIT_SHOW="${SPACESHIP_GIT_SHOW:=true}"
 SPACESHIP_GIT_PREFIX="${SPACESHIP_GIT_PREFIX:="on "}"
 SPACESHIP_GIT_SUFFIX="${SPACESHIP_GIT_SUFFIX:=""}"
-SPACESHIP_GIT_UNCOMMITTED="${SPACESHIP_GIT_UNCOMMITTED:="+"}"
-SPACESHIP_GIT_UNSTAGED="${SPACESHIP_GIT_UNSTAGED:="!"}"
-SPACESHIP_GIT_UNTRACKED="${SPACESHIP_GIT_UNTRACKED:="?"}"
-SPACESHIP_GIT_STASHED="${SPACESHIP_GIT_STASHED:="$"}"
-SPACESHIP_GIT_UNPULLED="${SPACESHIP_GIT_UNPULLED:="⇣"}"
-SPACESHIP_GIT_UNPUSHED="${SPACESHIP_GIT_UNPUSHED:="⇡"}"
-SPACESHIP_GIT_COLOR="${SPACESHIP_GIT_COLOR:="magenta"}"
+SPACESHIP_GIT_SYMBOL="${SPACESHIP_GIT_SYMBOL:=" "}"
+# GIT BRANCH
+SPACEHIP_GIT_BRANCH_SHOW="${SPACEHIP_GIT_BRANCH_SHOW:=true}"
+SPACESHIP_GIT_BRANCH_COLOR="${SPACESHIP_GIT_BRANCH_COLOR:="magenta"}"
+SPACESHIP_GIT_BRANCH_PREFIX="${SPACESHIP_GIT_BRANCH_PREFIX:="$SPACESHIP_GIT_SYMBOL"}"
+SPACESHIP_GIT_BRANCH_SUFFIX="${SPACESHIP_GIT_BRANCH_SUFFIX:=""}"
+# GIT STATUS
+SPACESHIP_GIT_STATUS_SHOW="${SPACESHIP_GIT_STATUS_SHOW:=true}"
+SPACESHIP_GIT_STATUS_COLOR="${SPACESHIP_GIT_STATUS_COLOR:="red"}"
+SPACESHIP_GIT_STATUS_PREFIX="${SPACESHIP_GIT_STATUS_PREFIX:="["}"
+SPACESHIP_GIT_STATUS_SUFFIX="${SPACESHIP_GIT_STATUS_SUFFIX:="]"}"
+SPACESHIP_GIT_STATUS_UNTRACKED="${SPACESHIP_GIT_STATUS_UNTRACKED:="?"}"
+SPACESHIP_GIT_STATUS_ADDED="${SPACESHIP_GIT_STATUS_ADDED:="+"}"
+SPACESHIP_GIT_STATUS_MODIFIED="${SPACESHIP_GIT_STATUS_MODIFIED:="!"}"
+SPACESHIP_GIT_STATUS_RENAMED="${SPACESHIP_GIT_STATUS_RENAMED:="»"}"
+SPACESHIP_GIT_STATUS_DELETED="${SPACESHIP_GIT_STATUS_DELETED:="✘"}"
+SPACESHIP_GIT_STATUS_STASHED="${SPACESHIP_GIT_STATUS_STASHED:="$"}"
+SPACESHIP_GIT_STATUS_UNMERGED="${SPACESHIP_GIT_STATUS_UNMERGED:="="}"
+SPACESHIP_GIT_STATUS_AHEAD="${SPACESHIP_GIT_STATUS_AHEAD:="⇡"}"
+SPACESHIP_GIT_STATUS_BEHIND="${SPACESHIP_GIT_STATUS_BEHIND:="⇣"}"
+SPACESHIP_GIT_STATUS_DIVERGED="${SPACESHIP_GIT_STATUS_DIVERGED:="⇕"}"
 
 # NODE
 SPACESHIP_NODE_SHOW="${SPACESHIP_NODE_SHOW:=true}"
@@ -285,94 +299,71 @@ spaceship_dir() {
     "$SPACESHIP_DIR_SUFFIX"
 }
 
-# Uncommitted changes.
-# Check for uncommitted changes in the index.
-_git_uncomitted() {
-  if ! $(git diff --quiet --ignore-submodules --cached); then
-    echo -n "${SPACESHIP_GIT_UNCOMMITTED}"
-  fi
+# GIT BRANCH
+# Show current git brunch using git_current_status from Oh-My-Zsh
+spaceship_git_branch() {
+  [[ $SPACEHIP_GIT_BRANCH_SHOW == false ]] && return
+
+  _is_git || return
+
+  _prompt_section \
+    "$SPACESHIP_GIT_BRANCH_COLOR" \
+    "$SPACESHIP_GIT_BRANCH_PREFIX$(git_current_branch)$SPACESHIP_GIT_BRANCH_SUFFIX"
 }
 
-# Unstaged changes.
-# Check for unstaged changes.
-_git_unstaged() {
-  if ! $(git diff-files --quiet --ignore-submodules --); then
-    echo -n "${SPACESHIP_GIT_UNSTAGED}"
+# GIT STATUS
+# Check if current dir is a git repo, set up ZSH_THEME_* variables
+# and show git status using git_prompt_status from Oh-My-Zsh
+# Reference:
+#   https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/git.zsh
+spaceship_git_status() {
+  [[ $SPACESHIP_GIT_STATUS == false ]] && return
+
+  _is_git || return
+
+  ZSH_THEME_GIT_PROMPT_UNTRACKED=$SPACESHIP_GIT_STATUS_UNTRACKED
+  ZSH_THEME_GIT_PROMPT_ADDED=$SPACESHIP_GIT_STATUS_ADDED
+  ZSH_THEME_GIT_PROMPT_MODIFIED=$SPACESHIP_GIT_STATUS_MODIFIED
+  ZSH_THEME_GIT_PROMPT_RENAMED=$SPACESHIP_GIT_STATUS_RENAMED
+  ZSH_THEME_GIT_PROMPT_DELETED=$SPACESHIP_GIT_STATUS_DELETED
+  ZSH_THEME_GIT_PROMPT_STASHED=$SPACESHIP_GIT_STATUS_STASHED
+  ZSH_THEME_GIT_PROMPT_UNMERGED=$SPACESHIP_GIT_STATUS_UNMERGED
+  ZSH_THEME_GIT_PROMPT_AHEAD=$SPACESHIP_GIT_STATUS_AHEAD
+  ZSH_THEME_GIT_PROMPT_BEHIND=$SPACESHIP_GIT_STATUS_BEHIND
+  ZSH_THEME_GIT_PROMPT_DIVERGED=$SPACESHIP_GIT_STATUS_DIVERGED
+
+  local git_status="$(git_prompt_status)"
+
+  if [[ -n $git_status ]]; then
+    # Status prefixes are colorized
+    _prompt_section \
+      "$SPACESHIP_GIT_STATUS_COLOR" \
+      "$SPACESHIP_GIT_STATUS_PREFIX$git_status$SPACESHIP_GIT_STATUS_SUFFIX"
   fi
-}
-
-# Untracked files.
-# Check for untracked files.
-_git_untracked() {
-  if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-    echo -n "${SPACESHIP_GIT_UNTRACKED}"
-  fi
-}
-
-# Stashed changes.
-# Check for stashed changes.
-_git_stashed() {
-  if $(git rev-parse --verify refs/stash &>/dev/null); then
-    echo -n "${SPACESHIP_GIT_STASHED}"
-  fi
-}
-
-# Unpushed and unpulled commits.
-# Get unpushed and unpulled commits from remote and draw arrows.
-_git_unpushed_unpulled() {
-  # check if there is an upstream configured for this branch
-  command git rev-parse --abbrev-ref @'{u}' &>/dev/null || return
-
-  local count="$(command git rev-list --left-right --count HEAD...@'{u}' 2>/dev/null)"
-  # exit if the command failed
-  [[ !$? ]] || return
-
-  # counters are tab-separated, split on tab and store as array
-  count=(${(ps:\t:)count})
-
-  local arrows left=${count[1]} right=${count[2]}
-
-  [[ ${right:=0} > 0 ]] && arrows+="${SPACESHIP_GIT_UNPULLED}"
-  [[ ${left:=0} > 0 ]] && arrows+="${SPACESHIP_GIT_UNPUSHED}"
-
-  [[ -n $arrows ]] && echo -n "${arrows}"
 }
 
 # GIT
-# Collect indicators, git branch and pring string.
+# Show both git branch and git status:
+#   spaceship_git_branch
+#   spaceship_git_status
+# Similar to _prompt_section
 spaceship_git() {
   [[ $SPACESHIP_GIT_SHOW == false ]] && return
 
-  # Check if the current directory is in a Git repository.
-  command git rev-parse --is-inside-work-tree &>/dev/null || return
+  echo -n "%{%B%}" # set bold
 
-  # Check if the current directory is in .git before running git checks.
-  if [[ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]]; then
-    # Ensure the index is up to date.
-    git update-index --really-refresh -q &>/dev/null
-
-    # String of indicators
-    local indicators=''
-
-    indicators+="$(_git_uncomitted)"
-    indicators+="$(_git_unstaged)"
-    indicators+="$(_git_untracked)"
-    indicators+="$(_git_stashed)"
-    indicators+="$(_git_unpushed_unpulled)"
-
-    [ -n "${indicators}" ] && indicators="[${indicators}]";
-
-    # Show git branch
-    _prompt_section \
-      "$SPACESHIP_GIT_COLOR" \
-      "$SPACESHIP_GIT_PREFIX" \
-      "$(git_current_branch)" \
-      "$SPACESHIP_GIT_SUFFIX"
-
-    # Show git indicators
-    # TODO: move to the git_indicators section
-    _prompt_section red '' "$indicators" ''
+  if [[ $SPACESHIP_OPENED == true ]] && [[ $SPACESHIP_PROMPT_PREFIXES_SHOW == true ]]; then
+    echo -n "$SPACESHIP_GIT_PREFIX"
   fi
+  SPACESHIP_OPENED=true
+
+  echo -n "$(spaceship_git_branch)$(spaceship_git_status)"
+
+  if [[ $SPACESHIP_PROMPT_SUFFIXES_SHOW == true ]]; then
+    echo -n "$SPACESHIP_GIT_SUFFIX"
+  fi
+
+  echo -n "%{%b%}" # unset bold
 }
 
 # NVM
