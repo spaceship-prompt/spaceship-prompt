@@ -54,18 +54,19 @@ SPACESHIP_TIME_FORMAT="${SPACESHIP_TIME_FORMAT:=false}"
 SPACESHIP_TIME_12HR="${SPACESHIP_TIME_12HR:=false}"
 
 # USER
-# TODO: add SPACESHIP_USER_SHOW
+SPACESHIP_USER_SHOW="${SPACESHIP_USER_SHOW:=true}"
 SPACESHIP_USER_PREFIX="${SPACESHIP_USER_PREFIX:="with "}"
 SPACESHIP_USER_SUFFIX="${SPACESHIP_USER_SUFFIX:=""}"
 SPACESHIP_USER_COLOR="${SPACESHIP_USER_COLOR:="yellow"}"
 
 # HOST
-# TODO: add SPACESHIP_HOST_SHOW
+SPACESHIP_HOST_SHOW="${SPACESHIP_HOST_SHOW:=true}"
 SPACESHIP_HOST_PREFIX="${SPACESHIP_HOST_PREFIX:="at "}"
 SPACESHIP_SUFFIX_HOST="${SPACESHIP_SUFFIX_HOST:=""}"
+SPACESHIP_HOST_COLOR="${SPACESHIP_HOST_COLOR:="green"}"
 
 # DIR
-# TODO: add SPACESHIP_DIR_SHOW
+SPACESHIP_DIR_SHOW="${SPACESHIP_DIR_SHOW:=true}"
 SPACESHIP_DIR_PREFIX="${SPACESHIP_DIR_PREFIX:="in "}"
 SPACESHIP_SUFFIX_DIR="${SPACESHIP_SUFFIX_DIR:=""}"
 SPACESHIP_DIR_TRUNC="${SPACESHIP_DIR_TRUNC:=3}"
@@ -230,6 +231,8 @@ spaceship_time() {
 # USER
 # If user is root, then pain it in red. Otherwise, just print in yellow.
 spaceship_user() {
+  [[ $SPACESHIP_USER_SHOW == false ]] && return
+
   if [[ $LOGNAME != $USER ]] || [[ $USER == 'root' ]] || [[ -n $SSH_CONNECTION ]]; then
     local user_color
 
@@ -250,6 +253,8 @@ spaceship_user() {
 # HOST
 # If there is an ssh connections, current machine name.
 spaceship_host() {
+  [[ $SPACESHIP_HOST_SHOW == false ]] && return
+
   [[ -n $SSH_CONNECTION ]] || return
 
   _prompt_section \
@@ -262,6 +267,8 @@ spaceship_host() {
 # DIR
 # Current directory. Return only three last items of path
 spaceship_dir() {
+  [[ $SPACESHIP_DIR_SHOW == false ]] && return
+
   _prompt_section \
     "$SPACESHIP_DIR_COLOR" \
     "$SPACESHIP_DIR_PREFIX" \
