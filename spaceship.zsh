@@ -171,7 +171,7 @@ _is_git() {
 
 # Draw prompt section (bold is used as default)
 # USAGE:
-#   _prompt_section <color> [prefix] [content] [suffix]
+#   _prompt_section <color> [prefix] <content> [suffix]
 SPACESHIP_OPENED=false # Internal variable for checking if prompt is opened
 _prompt_section() {
   local color prefix content suffix
@@ -179,6 +179,8 @@ _prompt_section() {
   [[ -n $2 ]] && prefix="$2"     || prefix=""
   [[ -n $3 ]] && content="$3"    || content=""
   [[ -n $4 ]] && suffix="$4"     || suffix=""
+
+  [[ -z $3 && -z $4 ]] && content=$2 prefix=''
 
   echo -n "%{%B%}" # set bold
 
