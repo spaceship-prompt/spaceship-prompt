@@ -162,6 +162,13 @@ _exists() {
   command -v $1 > /dev/null 2>&1
 }
 
+# Check if the current directory is in a Git repository.
+# USAGE:
+#   _is_git
+_is_git() {
+  command git rev-parse --is-inside-work-tree &>/dev/null
+}
+
 # Draw prompt section (bold is used as default)
 # USAGE:
 #   _prompt_section <color> [prefix] [content] [suffix]
