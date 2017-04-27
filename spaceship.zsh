@@ -14,7 +14,6 @@ NEWLINE='
 '
 
 # ORDER
-# TODO: Document ORDER
 if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
   SPACESHIP_PROMPT_ORDER=(
     time
@@ -584,7 +583,6 @@ spaceship_vi_mode() {
       ;;
     esac
 
-    # TODO: use variable for color
     _prompt_section \
       "$SPACESHIP_VI_MODE_COLOR" \
       "$SPACESHIP_VI_MODE_PREFIX" \
