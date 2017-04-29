@@ -215,7 +215,7 @@ spaceship_git_status() {
     indicators+="$(spaceship_git_stashed)"
     indicators+="$(spaceship_git_unpushed_unpulled)"
 
-    [ -n "${indicators}" ] && indicators=" [${indicators}]";
+    [[ -n "${indicators}" ]] && indicators=" [${indicators}]";
 
     # Do not show git prefix if prefixes are disabled
     [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_GIT}%b" || echo -n ' '
