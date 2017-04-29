@@ -349,6 +349,10 @@ spaceship_git_status() {
 spaceship_git() {
   [[ $SPACESHIP_GIT_SHOW == false ]] && return
 
+  local git_branch="$(spaceship_git_branch)" git_status="$(spaceship_git_status)"
+
+  [[ -z $git_branch ]] && return
+
   echo -n "%{%B%}" # set bold
 
   if [[ $SPACESHIP_OPENED == true ]] && [[ $SPACESHIP_PROMPT_PREFIXES_SHOW == true ]]; then
@@ -356,7 +360,7 @@ spaceship_git() {
   fi
   SPACESHIP_OPENED=true
 
-  echo -n "$(spaceship_git_branch)$(spaceship_git_status)"
+  echo -n "$git_branch$git_status"
 
   if [[ $SPACESHIP_PROMPT_SUFFIXES_SHOW == true ]]; then
     echo -n "$SPACESHIP_GIT_SUFFIX"
