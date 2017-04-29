@@ -618,7 +618,7 @@ spaceship_line_sep() {
 # Paint $PROMPT_SYMBOL in red if previous command was fail and
 # paint in green if everything was OK.
 spaceship_char() {
-  _prompt_section "%(?.green.red)" '' "${SPACESHIP_PROMPT_SYMBOL}" ''
+  _prompt_section "%(?.green.red)" "${SPACESHIP_PROMPT_SYMBOL}"
 }
 
 # ------------------------------------------------------------------------------
@@ -681,9 +681,8 @@ spaceship_prompt() {
 }
 
 # PS2 - continuation interactive prompt
-# TODO: Expose as PS2 variables
 spaceship_ps2() {
-  _prompt_section yellow '' $SPACESHIP_PROMPT_SYMBOL ''
+  _prompt_section "yellow" $SPACESHIP_PROMPT_SYMBOL
 }
 
 # Disable python virtualenv environment prompt prefix
