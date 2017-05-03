@@ -115,18 +115,19 @@ spaceship_host() {
   if [[ -n $SSH_CONNECTION ]]; then
     echo -n "$(spaceship_user)"
 
-    # Do not show directory prefix if prefixes are disabled
-    [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_DIR}%b" || echo -n ' '
-    # Display machine name
-    echo -n "%{$fg_bold[green]%}%m%{$reset_color%}"
     # Do not show host prefix if prefixes are disabled
     [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_HOST}%b" || echo -n ' '
+    # Display machine name
+    echo -n "%{$fg_bold[green]%}%m%{$reset_color%}"
+
+    # Do not show directory prefix if prefixes are disabled
+    [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_DIR}%b" || echo -n ' '
 
   elif [[ $LOGNAME != $USER ]] || [[ $USER == 'root' ]]; then
     echo -n "$(spaceship_user)"
 
-    # Do not show host prefix if prefixes are disabled
-    [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_HOST}%b" || echo -n ' '
+    # Do not show directory prefix if prefixes are disabled
+    [[ $SPACESHIP_PREFIX_SHOW == true ]] && echo -n "%B${SPACESHIP_PREFIX_DIR}%b" || echo -n ' '
 
     echo -n "%{$reset_color%}"
   fi
