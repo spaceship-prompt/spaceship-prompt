@@ -58,6 +58,7 @@ SPACESHIP_USER_SHOW="${SPACESHIP_USER_SHOW:=true}"
 SPACESHIP_USER_PREFIX="${SPACESHIP_USER_PREFIX:="with "}"
 SPACESHIP_USER_SUFFIX="${SPACESHIP_USER_SUFFIX:=""}"
 SPACESHIP_USER_COLOR="${SPACESHIP_USER_COLOR:="yellow"}"
+SPACESHIP_USER_COLOR_ROOT="${SPACESHIP_USER_COLOR_ROOT:="red"}"
 
 # HOST
 SPACESHIP_HOST_SHOW="${SPACESHIP_HOST_SHOW:=true}"
@@ -260,7 +261,7 @@ spaceship_user() {
     local user_color
 
     if [[ $USER == 'root' ]]; then
-      user_color='red' # TODO: Probably should be exposed as variable
+      user_color=$SPACESHIP_USER_COLOR_ROOT
     else
       user_color="$SPACESHIP_USER_COLOR"
     fi
