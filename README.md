@@ -56,28 +56,31 @@ For correct work you will first need:
 
 ## Installing
 
-### For oh-my-zsh users
+### [npm]
+
+```
+npm install -g spaceship-zsh-theme
+```
+
+Done. This command should link `spaceship.zsh-theme` to your `$ZSH_CUSTOM/themes` and set `$ZSH_CUSTOM` to `"spaceship"`. Just reload your terminal.
+
+**Tip:** Update Spaceship to new versions as any other package.
+
+### [oh-my-zsh]
 
 Installing using **curl**:
 
-```
-curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.sh | zsh
+```zsh
+curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh
 ```
 
 Installing using **wget**:
 
+```zsh
+wget -O - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh
 ```
-wget -O - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.sh | zsh
-```
 
-If you have problems, follow these instructions:
-
-1. Download the theme [here](https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh)
-2. Rename `spaceship.zsh` to `spaceship.zsh-theme`
-3. Put the file `spaceship.zsh-theme` in `$ZSH_CUSTOM/themes/`
-4. Add the line to your `~/.zshrc`: `ZSH_THEME="spaceship"`
-
-### For antigen users
+### [antigen]
 
 Add the following snippet `~/.zshrc` after the line `antigen use oh-my-zsh`:
 
@@ -85,7 +88,15 @@ Add the following snippet `~/.zshrc` after the line `antigen use oh-my-zsh`:
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 ```
 
-### For Zgen users
+### [antibody]
+
+Update your `.zshrc` file with the following line:
+
+```
+antibody bundle denysdovhan/spaceship-zsh-theme
+```
+
+### [zgen]
 
 Add the following line to your `~/.zshrc` where you're adding your other zsh plugins:
 
@@ -93,30 +104,22 @@ Add the following line to your `~/.zshrc` where you're adding your other zsh plu
 zgen load denysdovhan/spaceship-zsh-theme spaceship
 ```
 
-## Screenshots
+### [zplug]
 
-The spaceship theme looks awesome with any of popular color schemes. Take a look to make sure:
+Use this command in your `.zshrc` to load Spaceship as prompt theme:
 
-### Monokai
+```
+zplug denysdovhan/spaceship-zsh-theme, use:spaceship.zsh, from:github, as:theme
+```
 
-![monokai](https://cloud.githubusercontent.com/assets/3459374/21679596/a3f35d2a-d34d-11e6-8c46-852b83b60fce.png)
+### Manual
 
-### Solarized Dark
+If you have problems with approches above, follow these instructions:
 
-![solarized-dark](https://cloud.githubusercontent.com/assets/3459374/21679597/a3ff7ef2-d34d-11e6-915f-8bbf7488f855.png)
-
-### One Dark
-
-![one-dark](https://cloud.githubusercontent.com/assets/3459374/21679599/a4011a50-d34d-11e6-9848-d9a912bfbcb9.png)
-
-### Material
-
-![hyper-material-theme](https://cloud.githubusercontent.com/assets/3459374/21679594/a3d52562-d34d-11e6-9a0c-12b738dcce87.png)
-
-### Oceanic Next
-
-![oceanic-next](https://cloud.githubusercontent.com/assets/3459374/21679598/a40101c8-d34d-11e6-9a48-012cca2ad2aa.png)
-
+1. Download the theme [here](https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh)
+2. Rename `spaceship.zsh` to `spaceship.zsh-theme`
+3. Put the file `spaceship.zsh-theme` in `$ZSH_CUSTOM/themes/`
+4. Add the line to your `~/.zshrc`: `ZSH_THEME="spaceship"`
 
 ## Options
 
