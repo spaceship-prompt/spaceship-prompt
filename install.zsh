@@ -22,15 +22,15 @@ exists() {
 # USAGE:
 #   paint <color> [text...]
 paint() {
-  echo "$fg_bold[$1]${@:2}$reset_color"
+  echo "$fg[$1]${@:2}$reset_color"
 }
 
 # Logging functions.
 # USAGE:
 #   log|error|success [text...]
-log()     {        paint 'cyan'  "$*"        }
-error()   { echo ; paint 'red'   "$*" ; echo }
-success() { echo ; paint 'green' "$*" ; echo }
+log()     {        paint 'cyan'  "SPACESHIP: $*"        }
+error()   { echo ; paint 'red'   "SPACESHIP: $*" ; echo }
+success() { echo ; paint 'green' "SPACESHIP: $*" ; echo }
 
 # ------------------------------------------------------------------------------
 # VARIABLES
@@ -74,16 +74,14 @@ if [[ -z $ZSH_CUSTOM ]]; then
 fi
 
 # Linking
-log "Linking $SPACESHIP to $DIST"
+log "Linking $SPACESHIP to $DIST..."
 mkdir -p "$(dirname $DIST)"
 ln -sf "$SPACESHIP" "$DIST"
 
 # Add source command to ~/.zshrc
 log "Sourcing Spacehsip in ~/.zshrc..."
 echo '\n'                           >> "$HOME/.zshrc"
-echo '# Source spaceship-zsh-theme' >> "$HOME/.zshrc"
 echo 'source "'"$DIST"'"'           >> "$HOME/.zshrc"
-log ""
 
 # Replace current theme to Spaceship
 log 'Attempting to change $ZSH_THEME to "spaceship"...'
