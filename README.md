@@ -14,18 +14,22 @@ Currently it shows:
 
 * Current git branch.
 * Git repo status:
+  * `?` — untracked changes;
   * `+` — uncommitted changes in the index;
   * `!` — unstaged changes;
-  * `?` — untracked changes;
+  * `»` — renamed files;
+  * `✘` — deleted files;
   * `$` — stashed changes;
-  * `⇣` — unpulled commits;
-  * `⇡` — unpushed commits.
+  * `=` — unmerged changes;
+  * `⇡` — ahead of remote branch;
+  * `⇣` — behind of remote branch;
+  * `⇕` — diverged chages.
 * Prompt character turns red if the last command exits with non-zero code.
 * Hostname only displayed when in an SSH session.
 * Username displayed only when it isn't `$LOGNAME`.
 * Username turns red when root.
-* Current Node.js version, through NVM (`⬢`).
-* Current Ruby version, through RVM/RBENV/CHRUBY (`💎`).
+* Current Node.js version, through nvm or n (`⬢`).
+* Current Ruby version, through rvm/rbenv/chruby (`💎`).
 * Current Swift version, through swiftenv (`🐦`).
 * Current Xcode version, through xenv (`🛠`).
 * Current Go version (`🐹`).
