@@ -6,9 +6,9 @@
 
 # ⭐🚀 Spaceship ZSH
 
-> An [“Oh My ZSH!”](http://ohmyz.sh/) theme for Astronauts.
+> An [“Oh My ZSH!”][oh-my-zsh] theme for Astronauts.
 
-Spaceship is a minimalistic, powerful and extremely customizable [“Oh My ZSH!”](http://ohmyz.sh/) theme. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
+Spaceship is a minimalistic, powerful and extremely customizable [“Oh My ZSH!”][oh-my-zsh] theme. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
 
 Currently it shows:
 
@@ -48,7 +48,7 @@ Want more features? Please, [open an issue](https://github.com/denysdovhan/space
 For correct work you will first need:
 
 * A [`zsh`](http://www.zsh.org/) must be installed
-* A zsh–framework like [oh-my-zsh](http://ohmyz.sh/), [antigen](http://antigen.sharats.me/) or [zgen](https://github.com/tarjoilija/zgen)
+* A zsh–framework like [oh-my-zsh], [antigen] or [zgen]
 
 ## Installing
 
@@ -325,3 +325,12 @@ SPACESHIP_VI_MODE_NORMAL="[N]"
 ## License
 
 MIT © [Denys Dovhan](http://denysdovhan.com)
+
+<!-- Reference -->
+
+[oh-my-zsh]: http://ohmyz.sh/
+[antigen]: http://antigen.sharats.me/
+[zgen]: https://github.com/tarjoilija/zgen
+[npm]: https://www.npmjs.com/
+[antibody]: https://github.com/getantibody/antibody
+[zplug]: https://github.com/zplug/zplug
