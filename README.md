@@ -47,6 +47,8 @@ Want more features? Please, [open an issue](https://github.com/denysdovhan/space
   <img alt="Spaceship with Hyper and One Dark" src="./preview.gif" width="980px">
 </p>
 
+You can find more examples with different color schemes in [Screenshots](https://github.com/denysdovhan/spaceship-zsh-theme/wiki/Screenshots) wiki-page.
+
 ## Requirements
 
 For correct work you will first need:
@@ -124,6 +126,8 @@ If you have problems with approches above, follow these instructions:
 ## Options
 
 Now you have ability to disable elements of Spaceship. All options must be overridden in your `.zshrc` file.
+
+Take a look at popular option presets or share your own configuration in [Presets](https://github.com/denysdovhan/spaceship-zsh-theme/wiki/Presets) wiki page.
 
 ### Order
 
