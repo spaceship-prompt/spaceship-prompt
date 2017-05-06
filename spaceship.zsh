@@ -69,8 +69,8 @@ SPACESHIP_HOST_COLOR="${SPACESHIP_HOST_COLOR:="green"}"
 SPACESHIP_DIR_SHOW="${SPACESHIP_DIR_SHOW:=true}"
 SPACESHIP_DIR_PREFIX="${SPACESHIP_DIR_PREFIX:="in "}"
 SPACESHIP_DIR_SUFFIX="${SPACESHIP_DIR_SUFFIX:=""}"
-SPACESHIP_DIR_COLOR="${SPACESHIP_DIR_COLOR:="cyan"}"
 SPACESHIP_DIR_TRUNC="${SPACESHIP_DIR_TRUNC:=3}"
+SPACESHIP_DIR_COLOR="${SPACESHIP_DIR_COLOR:="cyan"}"
 
 # GIT
 SPACESHIP_GIT_SHOW="${SPACESHIP_GIT_SHOW:=true}"
@@ -252,7 +252,7 @@ spaceship_time() {
 }
 
 # USER
-# If user is root, then pain it in red. Otherwise, just print in yellow.
+# If user is root, then paint it in red. Otherwise, just print in yellow.
 spaceship_user() {
   [[ $SPACESHIP_USER_SHOW == false ]] && return
 
@@ -485,7 +485,7 @@ spaceship_swift() {
 }
 
 # GOLANG
-# Show current version of golang
+# Show current version of Go
 spaceship_golang() {
   [[ $SPACESHIP_GOLANG_SHOW == false ]] && return
 
@@ -504,6 +504,7 @@ spaceship_golang() {
 }
 
 # DOCKER
+# Show current Docker version and connected machine
 spaceship_docker() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
 

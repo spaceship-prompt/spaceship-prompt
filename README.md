@@ -125,6 +125,31 @@ If you have problems with approches above, follow these instructions:
 
 Now you have ability to disable elements of Spaceship. All options must be overridden in your `.zshrc` file.
 
+### Order
+
+You can specify the order of prompt section using `SPACESHIP_PROMPT_ORDER` option. Use zsh array syntax to define your own prompt order. The default order is:
+
+```zsh
+SPACESHIP_PROMPT_ORDER=(
+  time      # Time stampts section
+  user      # Username section
+  host      # Hostname section
+  dir       # Current directory section
+  git       # Git section (git_branch + git_status)
+  node      # Node.js section
+  ruby      # Ruby section
+  xcode     # Xcode section
+  swift     # Swift section
+  golang    # Go section
+  docker    # Docker section
+  venv      # virtualenv section
+  pyenv     # Pyenv section
+  line_sep  # Line break
+  vi_mode   # Vi-mode indicator
+  char      # Prompt character
+)
+```
+
 ### Prompt
 
 | Variable | Default | Meaning |
@@ -150,7 +175,9 @@ Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | `SPACESHIP_TIME_FORMAT` | `false` | Custom date formatting (e.g. `%D{%a %R}`) [ZSH date formats](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Date-and-time) |
 | `SPACESHIP_TIME_12HR` | `false` | Format time using 12-hour clock (am/pm) |
 
-### User
+### Username (`user`)
+
+Username is shown only when it's not the same as `$LOGNAME`, when you're connected via SSH or when you're root. Root user is highlighted in `SPACESHIP_USER_COLOR_ROOT` color (red as default).
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -160,7 +187,9 @@ Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | `SPACESHIP_USER_COLOR` | `yellow` | Color of user section |
 | `SPACESHIP_USER_COLOR_ROOT` | `red` | Color of user section when it's root |
 
-### Host
+### Hostname (`host`)
+
+Hostname is shown only when you're connected via SSH.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -169,16 +198,21 @@ Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | `SPACESHIP_HOST_SUFFIX` | `` | Suffix to be shown after the connected SSH machine name |
 | `SPACESHIP_HOST_COLOR` | `green` | Color of host section |
 
-### Directory
+### Directory (`dir`)
+
+Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_DIR_SHOW` | `true` | Show directory section |
 | `SPACESHIP_DIR_PREFIX` | `in ` | Prefix to be shown before current directory |
 | `SPACESHIP_DIR_SUFFIX` | `` | Suffix to be shown after current directory |
+| `SPACESHIP_DIR_TRUNC` | `3` | Number of folders of cwd to show in prompt, 0 to show all |
 | `SPACESHIP_DIR_COLOR` | `cyan` | Color of directory section |
 
-### Git
+### Git (`git`)
+
+Git section is consists with `git_branch` and `git_status` subsections. It is shown only in Git repositories.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -187,7 +221,7 @@ Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | `SPACESHIP_GIT_SUFFIX` | `` | Suffix to be shown after Git section |
 | `SPACESHIP_GIT_SYMBOL` | ` ` | Character to be shown before Git section |
 
-#### Git branch
+#### Git branch (`git_branch`)
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -196,7 +230,9 @@ Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | `SPACESHIP_GIT_BRANCH_SUFFIX` | `` | Suffix to be shown after Git branch subsection |
 | `SPACESHIP_GIT_BRANCH_COLOR` | `magenta` | Color of Git branch subsection |
 
-#### Git status
+#### Git status (`git_status`)
+
+Git status indicators is shown only when you have dirty repository.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -215,9 +251,11 @@ Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | `SPACESHIP_GIT_STATUS_BEHIND` | `⇣` | Indicator for unpulled changes (behind of remote branch) |
 | `SPACESHIP_GIT_STATUS_DIVERGED` | `⇕` | Indicator for diverged chages (diverged with remote branch) |
 
-### Node.js
+### Node.js (`node`)
 
-TODO: shown only in specific folders
+Node.js section is shown only in directories that contain `package.json` file, or `node_modules` folder, or any other file with `.js` extension.
+
+If you use [n] as Node.js version manager, please, set `SPACESHIP_NODE_DEFAULT_VERSION` to the default Node.js version. If current version is the same as `SPACESHIP_NODE_DEFAULT_VERSION`, then Node.js section will be hidden.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -228,9 +266,9 @@ TODO: shown only in specific folders
 | `SPACESHIP_NODE_DEFAULT_VERSION` | `` | Node.js version to be treated as default (for [n] support) |
 | `SPACESHIP_NODE_COLOR` | `green` | Color of Node.js section |
 
-### Ruby
+### Ruby (`ruby`)
 
-TODO: shown only in specific folders
+Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`, or any other file with `.rb` extension.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -240,7 +278,9 @@ TODO: shown only in specific folders
 | `SPACESHIP_RUBY_SYMBOL` | `💎` | Character to be shown before Ruby version |
 | `SPACESHIP_RUBY_COLOR` | `red` | Color of Ruby section |
 
-### Xcode
+### Xcode (`xcode`)
+
+Shows current version of Xcode. Local version has more priority than global.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -251,7 +291,9 @@ TODO: shown only in specific folders
 | `SPACESHIP_XCODE_SYMBOL` | `🛠` | Character to be shown before Xcode version |
 | `SPACESHIP_XCODE_COLOR` | `blue` | Color of Xcode section |
 
-### Swift
+### Swift (`swift`)
+
+Shows current version of Swift. Local version has more priority than global.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -262,7 +304,9 @@ TODO: shown only in specific folders
 | `SPACESHIP_SWIFT_SYMBOL` | `🐦` | Character to be shown before Swift version |
 | `SPACESHIP_SWIFT_COLOR` | `yellow` | Color of Swift section |
 
-### Go
+### Go (`golang`)
+
+Go section is shown only in directories that contain `Godeps`, or `glide.yaml`, or any other file with `.go` extension.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -272,7 +316,9 @@ TODO: shown only in specific folders
 | `SPACESHIP_GOLANG_SYMBOL` | `🐹` | Character to be shown before Go version |
 | `SPACESHIP_GOLANG_COLOR` | `cyan` | Color of Go section |
 
-### Docker
+### Docker (`docker`)
+
+Shows Docker version and current connected machine name.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -282,7 +328,7 @@ TODO: shown only in specific folders
 | `SPACESHIP_DOCKER_SYMBOL` | `🐳` | Character to be shown before Docker version |
 | `SPACESHIP_DOCKER_COLOR` | `cyan` | Color of Docker section |
 
-### Venv
+### Virtualenv (`venv`)
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -291,7 +337,9 @@ TODO: shown only in specific folders
 | `SPACESHIP_VENV_SUFFIX` | `` | Suffix to be shown after the virtualenv section |
 | `SPACESHIP_VENV_COLOR` | `blue` | Color of virtualenv environment section |
 
-### Pyenv
+### Pyenv (`pyenv`)
+
+Go section is shown only in directories that contain `requirements.txt` or any other file with `.py` extension.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -301,7 +349,9 @@ TODO: shown only in specific folders
 | `SPACESHIP_PYENV_SYMBOL` | `🐍` | Character to be shown before Pyenv version |
 | `SPACESHIP_PYENV_COLOR` | `yellow` | Color of Pyenv section |
 
-### Vi-mode
+### Vi-mode (`vi_mode`)
+
+This section shows mode indicator only when Vi-mode is enabled.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
