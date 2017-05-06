@@ -528,6 +528,14 @@ SPACESHIP_VI_MODE_NORMAL="[N]"
 SPACESHIP_VI_MODE_COLOR="white"
 ```
 
+## Donate
+
+Hi! I work on this project in my spare time, beside my primary job. I hope enjoy using Spaceship, and if you do, please, [buy me a cup of chamomile tea ☕️ or cheese cake 🍰][donate]
+
+[![qr](https://cloud.githubusercontent.com/assets/3459374/25771981/6f2ba08c-3268-11e7-9fc8-49e3f7b9e0e5.png)][donate]
+
+I would appreciate your support! _Thank you!_
+
 ## License
 
 MIT © [Denys Dovhan](http://denysdovhan.com)
@@ -543,3 +551,4 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [n]: https://github.com/tj/n
 [xcenv]: http://xcenv.org/
 [swiftenv]: https://github.com/kylef/swiftenv
+[donate]: https://www.liqpay.com/en/checkout/380951100392
