@@ -129,39 +129,13 @@ Now you have ability to disable elements of Spaceship. All options must be overr
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_PROMPT_SYMBOL` | `➔` | Character to be shown before any command |
-| `SPACESHIP_PROMPT_SEPARATE_LINE` | `true` | Make the prompt span across two lines |
+| `SPACESHIP_PROMPT_SEPARATOR` | ` ` | Character that separates prompt sections |
+| `SPACESHIP_PROMPT_SYMBOL` | `➜` | Character to be shown before any command |
 | `SPACESHIP_PROMPT_ADD_NEWLINE` | `true` | Adds a newline character before each prompt line |
-| `SPACESHIP_PROMPT_TRUNC` | `3` | Number of folders of cwd to show in prompt, 0 to show all |
-
-### Prefixes
-
-| Variable | Default | Meaning |
-| :------- | :-----: | ------- |
-| `SPACESHIP_PREFIX_SHOW` | `true` | Show Prefix Characters |
-| `SPACESHIP_PREFIX_HOST` | `at` | Characters to be shown before the connected SSH machine name |
-| `SPACESHIP_PREFIX_DIR` | `in` | Characters to be shown before the current SSH Directory |
-| `SPACESHIP_PREFIX_GIT` | `on` | Character to be shown before git status |
-| `SPACESHIP_PREFIX_ENV_DEFAULT` | `via` | Default environment prefix |
-| `SPACESHIP_PREFIX_NVM` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the NVM environment |
-| `SPACESHIP_PREFIX_RUBY` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Ruby environment |
-| `SPACESHIP_PREFIX_XCODE` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the XCode environment |
-| `SPACESHIP_PREFIX_SWIFT` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Swift environment |
-| `SPACESHIP_PREFIX_VENV` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Python virtualenv Environment |
-| `SPACESHIP_PREFIX_PYENV` | `SPACESHIP_PREFIX_ENV_DEFAULT` | Prefix before the Python pyenv Environment |
-| `SPACESHIP_PREFIX_DOCKER` | `on` | Prefix before the Docker version |
-
-### Git
-
-| Variable | Default | Meaning |
-| :------- | :-----: | ------- |
-| `SPACESHIP_GIT_SHOW` | `true` | Show/hide git status |
-| `SPACESHIP_GIT_UNCOMMITTED` | `+` | Character to be shown on uncommitted changes |
-| `SPACESHIP_GIT_UNSTAGED` | `!` | Character to be shown on unstaged changes |
-| `SPACESHIP_GIT_UNTRACKED` | `?` | Character to be shown on untracked changes |
-| `SPACESHIP_GIT_STASHED` | `$` | Character to be shown on stashed changes |
-| `SPACESHIP_GIT_UNPULLED` | `⇣` | Character to be shown on unpulled changes |
-| `SPACESHIP_GIT_UNPUSHED` | `⇡` | Character to be shown on unpushed changes |
+| `SPACESHIP_PROMPT_SEPARATE_LINE` | `true` | Make the prompt span across two lines |
+| `SPACESHIP_PROMPT_PREFIXES_SHOW` | `true` | Show prefixes before prompt sections or not |
+| `SPACESHIP_PROMPT_SUFFIXES_SHOW` | `true` | Show suffixes before prompt sections or not |
+| `SPACESHIP_PROMPT_DEFAULT_PREFIX` | `via ` | Default prefix environment |
 
 ### Time
 
@@ -170,75 +144,173 @@ Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_TIME_SHOW` | `false` | Show time (set to `true` for enabling) |
-| `SPACESHIP_TIME_12HR` | `false` | Format time using 12-hour clock (am/pm) |
+| `SPACESHIP_TIME_PREFIX` | `at ` | Prefix to be shown before time section |
+| `SPACESHIP_TIME_SUFFIX` | `` | Suffix to be shown after time section |
+| `SPACESHIP_TIME_COLOR` | `yellow` | Color of time section |
 | `SPACESHIP_TIME_FORMAT` | `false` | Custom date formatting (e.g. `%D{%a %R}`) [ZSH date formats](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Date-and-time) |
+| `SPACESHIP_TIME_12HR` | `false` | Format time using 12-hour clock (am/pm) |
 
-### Nvm
+### User
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_NVM_SHOW` | `true` | Current Node.js version |
-| `SPACESHIP_NVM_SYMBOL` | `⬢` | Character to be shown before Node.js version |
+| `SPACESHIP_USER_SHOW` | `true` | Show user section |
+| `SPACESHIP_USER_PREFIX` | `with ` | Prefix to be shown before user section |
+| `SPACESHIP_USER_SUFFIX` | `` | Suffix to be shown after user section |
+| `SPACESHIP_USER_COLOR` | `yellow` | Color of user section |
+| `SPACESHIP_USER_COLOR_ROOT` | `red` | Color of user section when it's root |
+
+### Host
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_ROOT_SHOW` | `true` | Show user section |
+| `SPACESHIP_HOST_PREFIX` | `at ` | Prefix to be shown before the connected SSH machine name |
+| `SPACESHIP_HOST_SUFFIX` | `` | Suffix to be shown after the connected SSH machine name |
+| `SPACESHIP_HOST_COLOR` | `green` | Color of host section |
+
+### Directory
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_DIR_SHOW` | `true` | Show directory section |
+| `SPACESHIP_DIR_PREFIX` | `in ` | Prefix to be shown before current directory |
+| `SPACESHIP_DIR_SUFFIX` | `` | Suffix to be shown after current directory |
+| `SPACESHIP_DIR_COLOR` | `cyan` | Color of directory section |
+
+### Git
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_GIT_SHOW` | `true` | Show Git section |
+| `SPACESHIP_GIT_PREFIX` | `on ` | Prefix to be shown before Git section |
+| `SPACESHIP_GIT_SUFFIX` | `` | Suffix to be shown after Git section |
+| `SPACESHIP_GIT_SYMBOL` | ` ` | Character to be shown before Git section |
+
+#### Git branch
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_GIT_BRANCH_SHOW` | `true` | Show Git branch subsection |
+| `SPACESHIP_GIT_BRANCH_PREFIX` | `SPACESHIP_GIT_SYMBOL` | Prefix to be shown before Git branch subsection |
+| `SPACESHIP_GIT_BRANCH_SUFFIX` | `` | Suffix to be shown after Git branch subsection |
+| `SPACESHIP_GIT_BRANCH_COLOR` | `magenta` | Color of Git branch subsection |
+
+#### Git status
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_GIT_STATUS_SHOW` | `true` | Show Git status subsection |
+| `SPACESHIP_GIT_STATUS_PREFIX` | `[` | Prefix to be shown before Git status subsection |
+| `SPACESHIP_GIT_STATUS_SUFFIX` | `]` | Suffix to be shown after Git status subsection |
+| `SPACESHIP_GIT_STATUS_COLOR` | `red` | Color of Git status subsection |
+| `SPACESHIP_GIT_STATUS_UNTRACKED` | `?` | Indicator for untracked changes |
+| `SPACESHIP_GIT_STATUS_ADDED` | `+` | Indicator for added changes |
+| `SPACESHIP_GIT_STATUS_MODIFIED` | `!` | Indicator for unstaged files |
+| `SPACESHIP_GIT_STATUS_RENAMED` | `»` | Indicator for renamed files |
+| `SPACESHIP_GIT_STATUS_DELETED` | `✘` | Indicator for deleted files |
+| `SPACESHIP_GIT_STATUS_STASHED` | `$` | Indicator for stashed changes |
+| `SPACESHIP_GIT_STATUS_UNMERGED` | `=` | Indicator for unmerged changes |
+| `SPACESHIP_GIT_STATUS_AHEAD` | `⇡` | Indicator for unpushed changes (ahead of remote branch) |
+| `SPACESHIP_GIT_STATUS_BEHIND` | `⇣` | Indicator for unpulled changes (behind of remote branch) |
+| `SPACESHIP_GIT_STATUS_DIVERGED` | `⇕` | Indicator for diverged chages (diverged with remote branch) |
+
+### Node.js
+
+TODO: shown only in specific folders
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_NODE_SHOW` | `true` | Current Node.js section |
+| `SPACESHIP_NODE_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix to be shown before Node.js section |
+| `SPACESHIP_NODE_SUFFIX` | `` | Suffix to be shown after Node.js section |
+| `SPACESHIP_NODE_SYMBOL` | `⬢` | Character to be shown before Node.js version |
+| `SPACESHIP_NODE_DEFAULT_VERSION` | `` | Node.js version to be treated as default (for [n] support) |
+| `SPACESHIP_NODE_COLOR` | `green` | Color of Node.js section |
 
 ### Ruby
 
+TODO: shown only in specific folders
+
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_RUBY_SHOW` | `true` | Current Ruby version |
+| `SPACESHIP_RUBY_SHOW` | `true` | Show Ruby section |
+| `SPACESHIP_RUBY_PREFIX` | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix to be shown before Ruby section |
+| `SPACESHIP_RUBY_SUFFIX` | `` | Suffix to be shown after Ruby section |
 | `SPACESHIP_RUBY_SYMBOL` | `💎` | Character to be shown before Ruby version |
-
-### Swift
-
-| Variable | Default | Meaning |
-| :------- | :-----: | ------- |
-| `SPACESHIP_SWIFT_SHOW_LOCAL` | `true` | Current local Swift version based on [swiftenv](https://github.com/kylef/swiftenv) |
-| `SPACESHIP_SWIFT_SHOW_GLOBAL` | `false` | Global Swift version based on [swiftenv](https://github.com/kylef/swiftenv) |
-| `SPACESHIP_SWIFT_SYMBOL` | `🐦` | Character to be shown before Swift version |
-
+| `SPACESHIP_RUBY_COLOR` | `red` | Color of Ruby section |
 
 ### Xcode
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_XCODE_SHOW_LOCAL` | `true` | Current local Xcode version based on [xcenv](http://xcenv.org/) |
-| `SPACESHIP_XCODE_SHOW_GLOBAL` | `true` | Global Xcode version based on [xcenv](http://xcenv.org/) |
+| `SPACESHIP_XCODE_SHOW_LOCAL` | `true` | Current local Xcode version based on [xcenv] |
+| `SPACESHIP_XCODE_SHOW_GLOBAL` | `true` | Global Xcode version based on [xcenv] |
+| `SPACESHIP_XCODE_PREFIX` | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix to be shown before Xcode section |
+| `SPACESHIP_XCODE_SUFFIX` | `` | Suffix to be shown after Xcode section |
 | `SPACESHIP_XCODE_SYMBOL` | `🛠` | Character to be shown before Xcode version |
+| `SPACESHIP_XCODE_COLOR` | `blue` | Color of Xcode section |
+
+### Swift
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_SWIFT_SHOW_LOCAL` | `true` | Current local Swift version based on [swiftenv] |
+| `SPACESHIP_SWIFT_SHOW_GLOBAL` | `false` | Global Swift version based on [swiftenv] |
+| `SPACESHIP_SWIFT_PREFIX` | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix to be shown before the Swift section |
+| `SPACESHIP_SWIFT_SUFFIX` | `` | Suffix to be shown before the Swift section |
+| `SPACESHIP_SWIFT_SYMBOL` | `🐦` | Character to be shown before Swift version |
+| `SPACESHIP_SWIFT_COLOR` | `yellow` | Color of Swift section |
 
 ### Go
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_GOLANG_SHOW` | `true` | Current Go version |
+| `SPACESHIP_GOLANG_SHOW` | `true` | Shown current Go version or not |
+| `SPACESHIP_GOLANG_PREFIX` | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix to be shown before the Go section |
+| `SPACESHIP_GOLANG_SUFFIX` | `` | Suffix to be shown after the Go section |
 | `SPACESHIP_GOLANG_SYMBOL` | `🐹` | Character to be shown before Go version |
+| `SPACESHIP_GOLANG_COLOR` | `cyan` | Color of Go section |
 
 ### Docker
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_DOCKER_SHOW` | `true` | Current Docker version and connected docker-machine |
+| `SPACESHIP_DOCKER_SHOW` | `true` | Show current Docker version and connected docker-machine ot not |
+| `SPACESHIP_DOCKER_PREFIX` | `on ` | Prefix to be shown before the Docker section |
+| `SPACESHIP_DOCKER_SUFFIX` | `` | Suffix to be shown after the Docker section |
 | `SPACESHIP_DOCKER_SYMBOL` | `🐳` | Character to be shown before Docker version |
+| `SPACESHIP_DOCKER_COLOR` | `cyan` | Color of Docker section |
 
 ### Venv
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_VENV_SHOW` | `true` | Current Python virtualenv |
+| `SPACESHIP_VENV_SHOW` | `true` | Show current Python virtualenv or not |
+| `SPACESHIP_VENV_PREFIX` | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix to be shown before the virtualenv section |
+| `SPACESHIP_VENV_SUFFIX` | `` | Suffix to be shown after the virtualenv section |
+| `SPACESHIP_VENV_COLOR` | `blue` | Color of virtualenv environment section |
 
 ### Pyenv
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_PYENV_SHOW` | `true` | Current Pyenv version |
+| `SPACESHIP_PYENV_SHOW` | `true` | Show current Pyenv version or not |
+| `SPACESHIP_PYENV_PREFIX` | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix to be shown before the pyenv section |
+| `SPACESHIP_PYENV_SUFFIX` | `` | Suffix to be shown after the pyenv section |
 | `SPACESHIP_PYENV_SYMBOL` | `🐍` | Character to be shown before Pyenv version |
-
+| `SPACESHIP_PYENV_COLOR` | `yellow` | Color of Pyenv section |
 
 ### Vi-mode
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_VI_MODE_SHOW` | `true` | Current Vi-mode  |
+| `SPACESHIP_VI_MODE_SHOW` | `true` | Shown current Vi-mode or not |
+| `SPACESHIP_VI_MODE_PREFIX` | `` | Prefix to be shown before Vi-mode section |
+| `SPACESHIP_VI_MODE_SUFFIX` | `` | Suffix to be shown after Vi-mode section |
 | `SPACESHIP_VI_MODE_INSERT` | `[I]` | Text to be shown when in insert mode |
 | `SPACESHIP_VI_MODE_NORMAL` | `[N]` | Text to be shown when in normal mode |
+| `SPACESHIP_VI_MODE_COLOR` | `white` | Color of Vi-mode section |
 
 You can temporarily enable or disable vi-mode with handy functions (just execute them in terminal as any other regular command):
 
@@ -341,3 +413,6 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [npm]: https://www.npmjs.com/
 [antibody]: https://github.com/getantibody/antibody
 [zplug]: https://github.com/zplug/zplug
+[n]: https://github.com/tj/n
+[xcenv]: http://xcenv.org/
+[swiftenv]: https://github.com/kylef/swiftenv
