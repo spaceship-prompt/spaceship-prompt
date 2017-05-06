@@ -44,7 +44,7 @@ Want more features? Please, [open an issue](https://github.com/denysdovhan/space
 ## Preview
 
 <p align="center">
-  <img alt="Spaceship with Hyper and One Dark" src="./preview.gif" width="800">
+  <img alt="Spaceship with Hyper and One Dark" src="./preview.gif" width="980px">
 </p>
 
 ## Requirements
