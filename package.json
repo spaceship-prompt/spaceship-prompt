@@ -1,10 +1,11 @@
 {
   "name": "spaceship-zsh-theme",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "An “Oh My ZSH!” theme for Astronauts.",
   "scripts": {
     "postinstall": "./install.zsh",
     "postuninstall": "./uninstall.zsh",
+    "postpublish": "git push --follow-tags",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
