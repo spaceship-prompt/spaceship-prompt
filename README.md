@@ -6,6 +6,11 @@
 
 # ⭐🚀 Spaceship ZSH
 
+[![NPM version][npm-image]][npm-url]
+[![ZSH][zsh-image]][zsh-url]
+[![Oh-My-Zsh][omz-image]][omz-url]
+[![Donatation][donate-image]][donate-url]
+
 > An [“Oh My ZSH!”][oh-my-zsh] theme for Astronauts.
 
 Spaceship is a minimalistic, powerful and extremely customizable [“Oh My ZSH!”][oh-my-zsh] theme. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
@@ -534,9 +539,9 @@ SPACESHIP_VI_MODE_COLOR="white"
 
 ## Donate
 
-Hi! I work on this project in my spare time, beside my primary job. I hope enjoy using Spaceship, and if you do, please, [buy me a cup of chamomile tea ☕️ or cheese cake 🍰][donate]
+Hi! I work on this project in my spare time, beside my primary job. I hope enjoy using Spaceship, and if you do, please, [buy me a cup of chamomile tea ☕️ or cheese cake 🍰][donate-url]
 
-[![qr](https://cloud.githubusercontent.com/assets/3459374/25771981/6f2ba08c-3268-11e7-9fc8-49e3f7b9e0e5.png)][donate]
+[![qr](https://cloud.githubusercontent.com/assets/3459374/25771981/6f2ba08c-3268-11e7-9fc8-49e3f7b9e0e5.png)][donate-url]
 
 I would appreciate your support! _Thank you!_
 
@@ -544,7 +549,20 @@ I would appreciate your support! _Thank you!_
 
 MIT © [Denys Dovhan](http://denysdovhan.com)
 
-<!-- Reference -->
+<!-- Badges -->
+
+[npm-url]: https://npmjs.org/package/spaceship-zsh-theme
+[npm-image]: https://img.shields.io/npm/v/spaceship-zsh-theme.svg?style=flat-square
+
+[zsh-url]: http://zsh.org/
+[zsh-image]: https://img.shields.io/badge/shell-zsh-777777.svg?style=flat-square
+
+[omz-url]: http://ohmyz.sh/
+[omz-image]: https://img.shields.io/badge/dependency-oh--my--zsh-c5d928.svg?style=flat-square
+
+[donate-url]: https://www.liqpay.com/en/checkout/380951100392
+[donate-image]: https://img.shields.io/badge/support-donate-yellow.svg?style=flat-square
+<!-- References -->
 
 [oh-my-zsh]: http://ohmyz.sh/
 [antigen]: http://antigen.sharats.me/
@@ -555,4 +573,3 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [n]: https://github.com/tj/n
 [xcenv]: http://xcenv.org/
 [swiftenv]: https://github.com/kylef/swiftenv
-[donate]: https://www.liqpay.com/en/checkout/380951100392
