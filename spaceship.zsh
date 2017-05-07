@@ -13,7 +13,6 @@
 NEWLINE='
 '
 
-
 # ORDER
 if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
   SPACESHIP_PROMPT_ORDER=(
@@ -36,7 +35,6 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     char
   )
 fi
-
 
 # PROMPT
 SPACESHIP_PROMPT_SYMBOL="${SPACESHIP_PROMPT_SYMBOL:="➜"}"
@@ -525,7 +523,6 @@ spaceship_php() {
 # DOCKER
 # Show current Docker version and connected machine
 spaceship_docker() {
-
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
 
   _exists docker || return
@@ -697,11 +694,9 @@ spaceship_prompt() {
   [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
 
   # Execute all parts
-
   for section in $SPACESHIP_PROMPT_ORDER; do
     spaceship_$section
   done
-
 }
 
 # PS2 - continuation interactive prompt
