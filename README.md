@@ -42,6 +42,7 @@ Currently it shows:
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
 * Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode)).
+* Optional exit-code of last command
 * Optional time stamps 12/24hr in format ([how to enable](#time)).
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new) or send pull request.
@@ -154,6 +155,7 @@ SPACESHIP_PROMPT_ORDER=(
   venv          # virtualenv section
   pyenv         # Pyenv section
   line_sep      # Line break
+  exit_code     # Exit code section
   vi_mode       # Vi-mode indicator
   char          # Prompt character
 )
@@ -170,6 +172,18 @@ SPACESHIP_PROMPT_ORDER=(
 | `SPACESHIP_PROMPT_SUFFIXES_SHOW` | `true` | Show suffixes before prompt sections or not |
 | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | `via ` | Default prefix for prompt sections |
 | `SPACESHIP_PROMPT_DEFAULT_SUFFIX` | ` ` | Default suffix for prompt section |
+
+### Exit code (`exit_code`)
+
+Disabled as default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show exit code of last command.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_EXIT_CODE_SHOW` | `false` | Show exit code of last command |
+| `SPACESHIP_EXIT_CODE_PREFIX` | `(` | Prefix before exit code section |
+| `SPACESHIP_EXIT_CODE_SUFFIX` | `) ` | Suffix after exit code section |
+| `SPACESHIP_EXIT_CODE_SYMBOL` | `✘ ` | Character to be shown before exit code |
+| `SPACESHIP_EXIT_CODE_COLOR` | `red` | Color of exit code section |
 
 ### Time
 
@@ -403,6 +417,7 @@ SPACESHIP_PROMPT_ORDER=(
   venv
   pyenv
   line_sep
+  exit_code
   vi_mode
   char
 )
@@ -415,6 +430,13 @@ SPACESHIP_PROMPT_PREFIXES_SHOW=true
 SPACESHIP_PROMPT_SUFFIXES_SHOW=true
 SPACESHIP_PROMPT_DEFAULT_PREFIX="via "
 SPACESHIP_PROMPT_DEFAULT_SUFFIX=" "
+
+# EXIT CODE
+SPACESHIP_EXIT_CODE_SHOW=false
+SPACESHIP_EXIT_CODE_PREFIX="("
+SPACESHIP_EXIT_CODE_SUFFIX=") "
+SPACESHIP_EXIT_CODE_SYMBOl="✘ "
+SPACESHIP_EXIT_CODE_COLOR="red"
 
 # TIME
 SPACESHIP_TIME_SHOW=false
