@@ -158,7 +158,6 @@ SPACESHIP_PROMPT_ORDER=(
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_PROMPT_SEPARATOR` | ` ` | Character that separates prompt sections |
 | `SPACESHIP_PROMPT_SYMBOL` | `➜` | Character to be shown before any command |
 | `SPACESHIP_PROMPT_ADD_NEWLINE` | `true` | Adds a newline character before each prompt line |
 | `SPACESHIP_PROMPT_SEPARATE_LINE` | `true` | Make the prompt span across two lines |
