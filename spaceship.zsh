@@ -27,6 +27,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     xcode
     swift
     golang
+    php
     docker
     venv
     pyenv
@@ -139,8 +140,11 @@ SPACESHIP_GOLANG_SYMBOL="${SPACESHIP_GOLANG_SYMBOL:="🐹  "}"
 SPACESHIP_GOLANG_COLOR="${SPACESHIP_GOLANG_COLOR:="cyan"}"
 
 # PHP
-SPACESHIP_PHP_SHOW="${SPACESHIP_PHP_SHOW:-true}"
-SPACESHIP_PHP_SYMBOL="${SPACESHIP_PHP_SYMBOL:-🐘}"
+SPACESHIP_PHP_SHOW="${SPACESHIP_PHP_SHOW:=true}"
+SPACESHIP_PHP_PREFIX="${SPACESHIP_PHP_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_PHP_SUFFIX="${SPACESHIP_PHP_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_PHP_SYMBOL="${SPACESHIP_PHP_SYMBOL:="🐘  "}"
+SPACEHIP_PHP_COLOR="${SPACEHIP_PHP_COLOR:="blue"}"
 
 # DOCKER
 SPACESHIP_DOCKER_SHOW="${SPACESHIP_DOCKER_SHOW:=true}"
@@ -499,6 +503,24 @@ spaceship_golang() {
     "$SPACESHIP_GOLANG_SUFFIX"
 }
 
+# PHP
+# Show current version of PHP
+spaceship_php() {
+  [[ $SPACESHIP_PHP_SHOW == false ]] && return
+
+  # Show only if php files exist in current directory
+  [[ -n *.php(#qN) ]] || return
+
+  _exists php || return
+
+  local php_version=$(php -v 2>&1 | grep --color=never -oe "^PHP\s*[0-9.]*" | awk '{print $2}')
+
+  _prompt_section \
+    "$SPACEHIP_PHP_COLOR" \
+    "$SPACESHIP_PHP_PREFIX" \
+    "${SPACESHIP_PHP_SYMBOL}v${php_version}" \
+    "${SPACESHIP_PHP_SUFFIX}"
+}
 
 # DOCKER
 # Show current Docker version and connected machine
