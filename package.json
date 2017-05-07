@@ -1,0 +1,28 @@
+{
+  "name": "spaceship-zsh-theme",
+  "version": "2.0.0",
+  "description": "An “Oh My ZSH!” theme for Astronauts.",
+  "scripts": {
+    "postinstall": "./install.zsh",
+    "postuninstall": "./uninstall.zsh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denysdovhan/spaceship-zsh-theme.git"
+  },
+  "keywords": [
+    "prompt",
+    "shell",
+    "zsh",
+    "zsh-theme",
+    "oh-my-zsh",
+    "terminal"
+  ],
+  "author": "Denys Dovhan <email@denysdovhan.com> (http://denysdovhan.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/denysdovhan/spaceship-zsh-theme/issues"
+  },
+  "homepage": "https://github.com/denysdovhan/spaceship-zsh-theme#readme"
+}
