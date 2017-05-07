@@ -13,7 +13,6 @@
 NEWLINE='
 '
 
-
 # ORDER
 if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
   SPACESHIP_PROMPT_ORDER=(
@@ -31,11 +30,11 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     venv
     pyenv
     line_sep
+    exit_code
     vi_mode
     char
   )
 fi
-
 
 # PROMPT
 SPACESHIP_PROMPT_SYMBOL="${SPACESHIP_PROMPT_SYMBOL:="➜"}"
@@ -45,6 +44,13 @@ SPACESHIP_PROMPT_PREFIXES_SHOW="${SPACESHIP_PROMPT_PREFIXES_SHOW:=true}"
 SPACESHIP_PROMPT_SUFFIXES_SHOW="${SPACESHIP_PROMPT_SUFFIXES_SHOW:=true}"
 SPACESHIP_PROMPT_DEFAULT_PREFIX="${SPACESHIP_PROMPT_DEFAULT_PREFIX:="via "}"
 SPACESHIP_PROMPT_DEFAULT_SUFFIX="${SPACESHIP_PROMPT_DEFAULT_SUFFIX:=" "}"
+
+# EXIT CODE
+SPACESHIP_EXIT_CODE_SHOW="${SPACESHIP_EXIT_CODE_SHOW:=false}"
+SPACESHIP_EXIT_CODE_PREFIX="${SPACESHIP_EXIT_CODE_PREFIX:="("}"
+SPACESHIP_EXIT_CODE_SUFFIX="${SPACESHIP_EXIT_CODE_SUFFIX:=") "}"
+SPACESHIP_EXIT_CODE_SYMBOl="${SPACESHIP_EXIT_CODE_SYMBOl:="✘ "}"
+SPACESHIP_EXIT_CODE_COLOR="${SPACESHIP_EXIT_CODE_COLOR:="red"}"
 
 # TIME
 SPACESHIP_TIME_SHOW="${SPACESHIP_TIME_SHOW:=false}"
@@ -566,6 +572,18 @@ spaceship_pyenv() {
     "$SPACESHIP_PYENV_SUFFIX"
 }
 
+# Exit code
+# Show exit code of last statement
+spaceship_exit_code() {
+  [[ $SPACESHIP_EXIT_CODE_SHOW == false || $RETVAL == 0 ]] && return
+
+  _prompt_section \
+    "$SPACESHIP_EXIT_CODE_COLOR" \
+    "$SPACESHIP_EXIT_CODE_PREFIX" \
+    "${SPACESHIP_EXIT_CODE_SYMBOl}$RETVAL" \
+    "$SPACESHIP_EXIT_CODE_SUFFIX"
+}
+
 # VI_MODE
 # Show current vi_mode mode
 spaceship_vi_mode() {
@@ -603,7 +621,6 @@ spaceship_vi_mode_disable() {
   bindkey -e
 }
 
-
 # LINE SEPARATOR
 # Should it write prompt in two lines or not?
 spaceship_line_sep() {
@@ -615,7 +632,6 @@ spaceship_line_sep() {
 # paint in green if everything was OK.
 spaceship_char() {
   _prompt_section "%(?.green.red)" "${SPACESHIP_PROMPT_SYMBOL} "
-
 }
 
 # ------------------------------------------------------------------------------
@@ -661,6 +677,9 @@ _deprecated SPACESHIP_GIT_UNPUSHED SPACESHIP_GIT_STATUS_AHEAD
 
 # Compose whole prompt from smaller parts
 spaceship_prompt() {
+  # Retirve exit code of last command to use in exit_code
+  # Must be captured before any other command in prompt is executed
+  RETVAL=$?
 
   # Option EXTENDED_GLOB is set locally to force filename generation on
   # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
