@@ -230,7 +230,7 @@ Git section is consists with `git_branch` and `git_status` subsections. It is sh
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_GIT_BRANCH_SHOW` | `true` | Show Git branch subsection |
-| `SPACESHIP_GIT_BRANCH_PREFIX` | `SPACESHIP_GIT_SYMBOL` | Prefix before Git branch subsection |
+| `SPACESHIP_GIT_BRANCH_PREFIX` | `$SPACESHIP_GIT_SYMBOL` | Prefix before Git branch subsection |
 | `SPACESHIP_GIT_BRANCH_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Git branch subsection |
 | `SPACESHIP_GIT_BRANCH_COLOR` | `magenta` | Color of Git branch subsection |
 
@@ -277,7 +277,7 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_RUBY_SHOW` | `true` | Show Ruby section |
-| `SPACESHIP_RUBY_PREFIX` | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Ruby section |
+| `SPACESHIP_RUBY_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Ruby section |
 | `SPACESHIP_RUBY_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Ruby section |
 | `SPACESHIP_RUBY_SYMBOL` | `💎  ` | Character to be shown before Ruby version |
 | `SPACESHIP_RUBY_COLOR` | `red` | Color of Ruby section |
@@ -290,7 +290,7 @@ Shows current version of Xcode. Local version has more priority than global.
 | :------- | :-----: | ------- |
 | `SPACESHIP_XCODE_SHOW_LOCAL` | `true` | Current local Xcode version based on [xcenv] |
 | `SPACESHIP_XCODE_SHOW_GLOBAL` | `true` | Global Xcode version based on [xcenv] |
-| `SPACESHIP_XCODE_PREFIX` | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Xcode section |
+| `SPACESHIP_XCODE_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Xcode section |
 | `SPACESHIP_XCODE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Xcode section |
 | `SPACESHIP_XCODE_SYMBOL` | `🛠  ` | Character to be shown before Xcode version |
 | `SPACESHIP_XCODE_COLOR` | `blue` | Color of Xcode section |
@@ -303,7 +303,7 @@ Shows current version of Swift. Local version has more priority than global.
 | :------- | :-----: | ------- |
 | `SPACESHIP_SWIFT_SHOW_LOCAL` | `true` | Current local Swift version based on [swiftenv] |
 | `SPACESHIP_SWIFT_SHOW_GLOBAL` | `false` | Global Swift version based on [swiftenv] |
-| `SPACESHIP_SWIFT_PREFIX` | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Swift section |
+| `SPACESHIP_SWIFT_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Swift section |
 | `SPACESHIP_SWIFT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix to be shown before the Swift section |
 | `SPACESHIP_SWIFT_SYMBOL` | `🐦  ` | Character to be shown before Swift version |
 | `SPACESHIP_SWIFT_COLOR` | `yellow` | Color of Swift section |
@@ -315,7 +315,7 @@ Go section is shown only in directories that contain `Godeps`, or `glide.yaml`, 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_GOLANG_SHOW` | `true` | Shown current Go version or not |
-| `SPACESHIP_GOLANG_PREFIX` | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Go section |
+| `SPACESHIP_GOLANG_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Go section |
 | `SPACESHIP_GOLANG_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Go section |
 | `SPACESHIP_GOLANG_SYMBOL` | `🐹  ` | Character to be shown before Go version |
 | `SPACESHIP_GOLANG_COLOR` | `cyan` | Color of Go section |
@@ -337,7 +337,7 @@ Shows Docker version and current connected machine name.
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_VENV_SHOW` | `true` | Show current Python virtualenv or not |
-| `SPACESHIP_VENV_PREFIX` | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the virtualenv section |
+| `SPACESHIP_VENV_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the virtualenv section |
 | `SPACESHIP_VENV_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the virtualenv section |
 | `SPACESHIP_VENV_COLOR` | `blue` | Color of virtualenv environment section |
 
@@ -348,7 +348,7 @@ Go section is shown only in directories that contain `requirements.txt` or any o
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_PYENV_SHOW` | `true` | Show current Pyenv version or not |
-| `SPACESHIP_PYENV_PREFIX` | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the pyenv section |
+| `SPACESHIP_PYENV_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the pyenv section |
 | `SPACESHIP_PYENV_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the pyenv section |
 | `SPACESHIP_PYENV_SYMBOL` | `🐍  ` | Character to be shown before Pyenv version |
 | `SPACESHIP_PYENV_COLOR` | `yellow` | Color of Pyenv section |
