@@ -21,6 +21,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     host
     dir
     git
+    hg
     node
     ruby
     xcode
@@ -43,16 +44,6 @@ SPACESHIP_PROMPT_PREFIXES_SHOW="${SPACESHIP_PROMPT_PREFIXES_SHOW:=true}"
 SPACESHIP_PROMPT_SUFFIXES_SHOW="${SPACESHIP_PROMPT_SUFFIXES_SHOW:=true}"
 SPACESHIP_PROMPT_DEFAULT_PREFIX="${SPACESHIP_PROMPT_DEFAULT_PREFIX:="via "}"
 SPACESHIP_PROMPT_DEFAULT_SUFFIX="${SPACESHIP_PROMPT_DEFAULT_SUFFIX:=" "}"
-
-# Mercurial
-SPACESHIP_HG_SHOW="${SPACESHIP_HG_SHOW:-false}"
-SPACESHIP_HG_SYMBOL="${SPACESHIP_HG_SYMBOL:-☿}"
-SPACESHIP_HG_UNCOMMITTED="${SPACESHIP_HG_UNCOMMITTED:-$SPACESHIP_GIT_UNCOMMITTED}"
-SPACESHIP_HG_UNSTAGED="${SPACESHIP_HG_UNSTAGED:-$SPACESHIP_GIT_UNSTAGED}"
-SPACESHIP_HG_UNTRACKED="${SPACESHIP_HG_UNTRACKED:-$SPACESHIP_GIT_UNTRACKED}"
-SPACESHIP_HG_UNPULLED="${SPACESHIP_HG_UNPULLED:-$SPACESHIP_GIT_UNPULLED}"
-SPACESHIP_HG_UNPUSHED="${SPACESHIP_HG_UNPUSHED:-$SPACESHIP_GIT_UNPUSHED}"
-
 
 # TIME
 SPACESHIP_TIME_SHOW="${SPACESHIP_TIME_SHOW:=false}"
@@ -107,6 +98,28 @@ SPACESHIP_GIT_STATUS_UNMERGED="${SPACESHIP_GIT_STATUS_UNMERGED:="="}"
 SPACESHIP_GIT_STATUS_AHEAD="${SPACESHIP_GIT_STATUS_AHEAD:="⇡"}"
 SPACESHIP_GIT_STATUS_BEHIND="${SPACESHIP_GIT_STATUS_BEHIND:="⇣"}"
 SPACESHIP_GIT_STATUS_DIVERGED="${SPACESHIP_GIT_STATUS_DIVERGED:="⇕"}"
+
+# MERCURIAL
+SPACESHIP_HG_SHOW="${SPACESHIP_HG_SHOW:=true}"
+SPACESHIP_HG_PREFIX="${SPACESHIP_HG_PREFIX:="on "}"
+SPACESHIP_HG_SUFFIX="${SPACESHIP_HG_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_HG_SYMBOL="${SPACESHIP_HG_SYMBOL:="☿ "}"
+# MERCURIAL BRANCH
+SPACESHIP_HG_BRANCH_SHOW="${SPACESHIP_HG_BRANCH_SHOW:=true}"
+SPACESHIP_HG_BRANCH_PREFIX="${SPACESHIP_HG_BRANCH_PREFIX:="$SPACESHIP_HG_SYMBOL"}"
+SPACESHIP_HG_BRANCH_SUFFIX="${SPACESHIP_HG_BRANCH_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_HG_BRANCH_COLOR="${SPACESHIP_HG_BRANCH_COLOR:="magenta"}"
+# MERCURIAL STATUS
+SPACESHIP_HG_STATUS_SHOW="${SPACESHIP_HG_STATUS_SHOW:=true}"
+SPACESHIP_HG_STATUS_PREFIX="${SPACESHIP_HG_STATUS_PREFIX:="["}"
+SPACESHIP_HG_STATUS_SUFFIX="${SPACESHIP_HG_STATUS_SUFFIX:="]"}"
+SPACESHIP_HG_STATUS_COLOR="${SPACESHIP_HG_STATUS_COLOR:="red"}"
+SPACESHIP_HG_STATUS_UNTRACKED="${SPACESHIP_HG_STATUS_UNTRACKED:="?"}"
+SPACESHIP_HG_STATUS_ADDED="${SPACESHIP_HG_STATUS_ADDED:="+"}"
+SPACESHIP_HG_STATUS_MODIFIED="${SPACESHIP_HG_STATUD_MODIFIED:="!"}"
+SPACESHIP_HG_STATUS_DELETED="${SPACESHIP_HG_STATUS_DELETED:="✘"}"
+SPACESHIP_HG_STATUS_AHEAD="${SPACESHIP_HG_STATUS_AHEAD:="⇡"}"
+SPACESHIP_HG_STATUS_BEHIND="${SPACESHIP_HG_STATUS_BEHIND:="⇣"}"
 
 # NODE
 SPACESHIP_NODE_SHOW="${SPACESHIP_NODE_SHOW:=true}"
@@ -191,6 +204,13 @@ _exists() {
 #   _is_git
 _is_git() {
   command git rev-parse --is-inside-work-tree &>/dev/null
+}
+
+# Check if the current direcotory is in a Mercurial repository
+# USAGE:
+#   _is_hg
+_is_hg() {
+  [[ -d .hg || $(hg summary > /dev/null 2>&1) ]]
 }
 
 # Draw prompt section (bold is used as default)
@@ -368,6 +388,71 @@ spaceship_git() {
     "$SPACESHIP_GIT_PREFIX" \
     "${git_branch}${git_status}" \
     "$SPACESHIP_GIT_SUFFIX"
+}
+
+spaceship_hg_branch() {
+  [[ $SPACESHIP_HG_BRANCH_SHOW == false ]] && return
+
+  _is_hg || return
+
+  local hg_branch="$(cat $PWD/.hg/branch)"
+
+  _prompt_section \
+    "$SPACESHIP_HG_BRANCH_COLOR" \
+    "$SPACESHIP_HG_BRANCH_PREFIX"$hg_branch"$SPACESHIP_HG_BRANCH_SUFFIX"
+}
+
+spaceship_hg_status() {
+  [[ $SPACESHIP_HG_STATUS_SHOW == false ]] && return
+
+  _is_hg || return
+
+  local INDEX=$(command hg status 2>/dev/null) hg_status=""
+
+  # Indicators are suffixed instead of prefixed to each other to
+  # provide uniform view across git and mercurial indicators
+  if $(echo "$INDEX" | command grep -E '^\? ' &> /dev/null); then
+    hg_status="$SPACESHIP_HG_STATUS_UNTRACKED$hg_status"
+  fi
+  if $(echo "$INDEX" | command grep -E '^A ' &> /dev/null); then
+    hg_status="$SPACESHIP_HG_STATUS_ADDED$hg_status"
+  fi
+  if $(echo "$INDEX" | command grep -E '^M ' &> /dev/null); then
+    hg_status="$SPACESHIP_HG_STATUS_MODIFIED$hg_status"
+  fi
+  if $(echo "$INDEX" | command grep -E '^(R|!)' &> /dev/null); then
+    hg_status="$SPACESHIP_HG_STATUS_DELETED$hg_status"
+  fi
+
+  # outgoing and incoming compare with remote branches, everytime.
+  # Works only if connected to internet
+  # Increases prompt redraw time considerably
+  if $(hg outgoing 2>/dev/null | grep -E "^changeset" &> /dev/null); then
+    hg_status="$SPACESHIP_HG_STATUS_AHEAD$hg_status"
+  fi
+  if $(hg incoming 2>/dev/null | grep -E "^changeset" &> /dev/null); then
+    hg_status="$SPACESHIP_HG_STATUS_BEHIND$hg_status"
+  fi
+
+  if [[ -n $hg_status ]]; then
+    _prompt_section \
+      "$SPACESHIP_HG_STATUS_COLOR" \
+      "$SPACESHIP_HG_STATUS_PREFIX"$hg_status"$SPACESHIP_HG_STATUS_SUFFIX"
+  fi
+}
+
+spaceship_hg() {
+  [[ $SPACESHIP_HG_SHOW == false ]] && return
+
+  local hg_branch="$(spaceship_hg_branch)" hg_status="$(spaceship_hg_status)"
+
+  [[ -z $hg_branch ]] && return
+
+  _prompt_section \
+    'white' \
+    "$SPACESHIP_HG_PREFIX" \
+    "${hg_branch}${hg_status}" \
+    "$SPACESHIP_HG_SUFFIX"
 }
 
 # NVM
