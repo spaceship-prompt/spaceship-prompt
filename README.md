@@ -228,7 +228,7 @@ Git section is consists with `git_branch` and `git_status` subsections. It is sh
 | `SPACESHIP_GIT_SHOW` | `true` | Show Git section |
 | `SPACESHIP_GIT_PREFIX` | `on ` | Prefix before Git section |
 | `SPACESHIP_GIT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Git section |
-| `SPACESHIP_GIT_SYMBOL` | ` ` | Character to be shown before Git section (Requires powerline patched font) |
+| `SPACESHIP_GIT_SYMBOL` | ` ` | Character to be shown before Git section (requires [powerline patched font][powerline]) |
 
 #### Git branch (`git_branch`)
 
@@ -573,3 +573,4 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [n]: https://github.com/tj/n
 [xcenv]: http://xcenv.org/
 [swiftenv]: https://github.com/kylef/swiftenv
+[powerline]: https://github.com/powerline/fonts
