@@ -2,7 +2,9 @@
 
 Describe your issue, steps to reproduce, additional information..
 
-#### Screenshot that shows your issue
+#### Screenshot
+
+Provide a screenshot that show your issue
 
 ![screenshot](url)
 
