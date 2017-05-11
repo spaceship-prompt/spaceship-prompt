@@ -1,7 +1,0 @@
-#### Issue
-
-
-#### Screenshot
-
-
-#### Relevant `.zshrc`
