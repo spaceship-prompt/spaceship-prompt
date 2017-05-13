@@ -38,6 +38,7 @@ Currently it shows:
 * Current Swift version, through swiftenv (`🐦`).
 * Current Xcode version, through xenv (`🛠`).
 * Current Go version (`🐹`).
+* Current Rust version (`𝗥`)
 * Current Docker version and connected machine (`🐳`).
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
@@ -150,6 +151,7 @@ SPACESHIP_PROMPT_ORDER=(
   xcode         # Xcode section
   swift         # Swift section
   golang        # Go section
+  rust          # Rust section
   docker        # Docker section
   venv          # virtualenv section
   pyenv         # Pyenv section
@@ -324,6 +326,18 @@ Go section is shown only in directories that contain `Godeps`, or `glide.yaml`, 
 | `SPACESHIP_GOLANG_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Go section |
 | `SPACESHIP_GOLANG_SYMBOL` | `🐹  ` | Character to be shown before Go version |
 | `SPACESHIP_GOLANG_COLOR` | `cyan` | Color of Go section |
+
+### Rust (`rust`)
+
+Rust section is shown only in directories that contain `Cargo.toml` or any other file with `.rs` extension.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_RUST_SHOW` | `true` | Shown current Rust version or not |
+| `SPACESHIP_RUST_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Rust section |
+| `SPACESHIP_RUST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Rust section |
+| `SPACESHIP_RUST_SYMBOL` | `𝗥  ` | Character to be shown before Rust version |
+| `SPACESHIP_RUST_COLOR` | `red` | Color of Rust section |
 
 ### Docker (`docker`)
 
@@ -507,6 +521,13 @@ SPACESHIP_GOLANG_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_GOLANG_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_GOLANG_SYMBOL="🐹  "
 SPACESHIP_GOLANG_COLOR="cyan"
+
+# RUST
+SPACESHIP_RUST_SHOW="${SPACESHIP_RUST_SHOW:=true}"
+SPACESHIP_RUST_PREFIX="${SPACESHIP_RUST_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_RUST_SUFFIX="${SPACESHIP_RUST_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_RUST_SYMBOL="${SPACESHIP_RUST_SYMBOL:="𝗥"}"
+SPACESHIP_RUST_COLOR="${SPACESHIP_RUST_COLOR:="red"}"
 
 # DOCKER
 SPACESHIP_DOCKER_SHOW=true
