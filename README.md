@@ -34,8 +34,6 @@ Currently it shows:
   * `+` — uncommitted changes in the index;
   * `!` — unstaged changes;
   * `✘` — deleted files;
-  * `⇡` — ahead of remote branch;
-  * `⇣` — behind of remote branch;
 * Prompt character turns red if the last command exits with non-zero code.
 * Hostname only displayed when in an SSH session.
 * Username displayed only when it isn't `$LOGNAME`.
@@ -302,8 +300,6 @@ Mercurial status indicators is shown only when you have dirty repository.
 | `SPACESHIP_HG_STATUS_ADDED` | `+` | Indicator for added changes |
 | `SPACESHIP_HG_STATUS_MODIFIED` | `!` | Indicator for unstaged files |
 | `SPACESHIP_HG_STATUS_DELETED` | `✘` | Indicator for deleted files |
-| `SPACESHIP_HG_STATUS_AHEAD` | `⇡` | Indicator for unpushed changes (ahead of remote branch) |
-| `SPACESHIP_HG_STATUS_BEHIND` | `⇣` | Indicator for unpulled changes (behind of remote branch) |
 
 ### Node.js (`node`)
 
@@ -535,8 +531,6 @@ SPACESHIP_HG_STATUS_UNTRACKED="?"
 SPACESHIP_HG_STATUS_ADDED="+"
 SPACESHIP_HG_STATUS_MODIFIED="!"
 SPACESHIP_HG_STATUS_DELETED="✘"
-SPACESHIP_HG_STATUS_AHEAD="⇡"
-SPACESHIP_HG_STATUS_BEHIND="⇣"
 
 # NODE
 SPACESHIP_NODE_SHOW=true

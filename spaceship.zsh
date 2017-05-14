@@ -118,8 +118,6 @@ SPACESHIP_HG_STATUS_UNTRACKED="${SPACESHIP_HG_STATUS_UNTRACKED:="?"}"
 SPACESHIP_HG_STATUS_ADDED="${SPACESHIP_HG_STATUS_ADDED:="+"}"
 SPACESHIP_HG_STATUS_MODIFIED="${SPACESHIP_HG_STATUD_MODIFIED:="!"}"
 SPACESHIP_HG_STATUS_DELETED="${SPACESHIP_HG_STATUS_DELETED:="✘"}"
-SPACESHIP_HG_STATUS_AHEAD="${SPACESHIP_HG_STATUS_AHEAD:="⇡"}"
-SPACESHIP_HG_STATUS_BEHIND="${SPACESHIP_HG_STATUS_BEHIND:="⇣"}"
 
 # NODE
 SPACESHIP_NODE_SHOW="${SPACESHIP_NODE_SHOW:=true}"
@@ -422,16 +420,6 @@ spaceship_hg_status() {
   fi
   if $(echo "$INDEX" | command grep -E '^(R|!)' &> /dev/null); then
     hg_status="$SPACESHIP_HG_STATUS_DELETED$hg_status"
-  fi
-
-  # outgoing and incoming compare with remote branches, everytime.
-  # Works only if connected to internet
-  # Increases prompt redraw time considerably
-  if $(hg outgoing 2>/dev/null | grep -E "^changeset" &> /dev/null); then
-    hg_status="$SPACESHIP_HG_STATUS_AHEAD$hg_status"
-  fi
-  if $(hg incoming 2>/dev/null | grep -E "^changeset" &> /dev/null); then
-    hg_status="$SPACESHIP_HG_STATUS_BEHIND$hg_status"
   fi
 
   if [[ -n $hg_status ]]; then
