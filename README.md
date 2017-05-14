@@ -39,6 +39,7 @@ Currently it shows:
 * Current Xcode version, through xenv (`🛠`).
 * Current Go version (`🐹`).
 * Current PHP version (`🐘`).
+* Current Rust version (`𝗥`)
 * Current Docker version and connected machine (`🐳`).
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
@@ -152,6 +153,7 @@ SPACESHIP_PROMPT_ORDER=(
   swift         # Swift section
   golang        # Go section
   php           # PHP section
+  rust          # Rust section
   docker        # Docker section
   venv          # virtualenv section
   pyenv         # Pyenv section
@@ -230,7 +232,7 @@ Git section is consists with `git_branch` and `git_status` subsections. It is sh
 | `SPACESHIP_GIT_SHOW` | `true` | Show Git section |
 | `SPACESHIP_GIT_PREFIX` | `on ` | Prefix before Git section |
 | `SPACESHIP_GIT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Git section |
-| `SPACESHIP_GIT_SYMBOL` | ` ` | Character to be shown before Git section |
+| `SPACESHIP_GIT_SYMBOL` | ` ` | Character to be shown before Git section (requires [powerline patched font][powerline]) |
 
 #### Git branch (`git_branch`)
 
@@ -327,6 +329,7 @@ Go section is shown only in directories that contain `Godeps`, or `glide.yaml`, 
 | `SPACESHIP_GOLANG_SYMBOL` | `🐹  ` | Character to be shown before Go version |
 | `SPACESHIP_GOLANG_COLOR` | `cyan` | Color of Go section |
 
+
 ### PHP (`php`)
 
 PHP section is shown only in directories that contain any file with `.php` extension.
@@ -338,6 +341,19 @@ PHP section is shown only in directories that contain any file with `.php` exten
 | `SPACESHIP_PHP_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the PHP section |
 | `SPACESHIP_PHP_SYMBOL` | `🐘  ` | Character to be shown before PHP version |
 | `SPACESHIP_PHP_COLOR` | `blue` | Color of PHP section |
+
+### Rust (`rust`)
+
+Rust section is shown only in directories that contain `Cargo.toml` or any other file with `.rs` extension.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_RUST_SHOW` | `true` | Shown current Rust version or not |
+| `SPACESHIP_RUST_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Rust section |
+| `SPACESHIP_RUST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Rust section |
+| `SPACESHIP_RUST_SYMBOL` | `𝗥  ` | Character to be shown before Rust version |
+| `SPACESHIP_RUST_COLOR` | `red` | Color of Rust section |
+
 
 ### Docker (`docker`)
 
@@ -530,6 +546,13 @@ SPACESHIP_PHP_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_PHP_SYMBOL="🐘  "
 SPACEHIP_PHP_COLOR="blue"
 
+# RUST
+SPACESHIP_RUST_SHOW="${SPACESHIP_RUST_SHOW:=true}"
+SPACESHIP_RUST_PREFIX="${SPACESHIP_RUST_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_RUST_SUFFIX="${SPACESHIP_RUST_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_RUST_SYMBOL="${SPACESHIP_RUST_SYMBOL:="𝗥"}"
+SPACESHIP_RUST_COLOR="${SPACESHIP_RUST_COLOR:="red"}"
+
 # DOCKER
 SPACESHIP_DOCKER_SHOW=true
 SPACESHIP_DOCKER_PREFIX="on "
@@ -595,3 +618,4 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [n]: https://github.com/tj/n
 [xcenv]: http://xcenv.org/
 [swiftenv]: https://github.com/kylef/swiftenv
+[powerline]: https://github.com/powerline/fonts
