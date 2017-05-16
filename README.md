@@ -329,7 +329,6 @@ Go section is shown only in directories that contain `Godeps`, or `glide.yaml`, 
 | `SPACESHIP_GOLANG_SYMBOL` | `🐹  ` | Character to be shown before Go version |
 | `SPACESHIP_GOLANG_COLOR` | `cyan` | Color of Go section |
 
-
 ### PHP (`php`)
 
 PHP section is shown only in directories that contain any file with `.php` extension.
@@ -353,7 +352,6 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 | `SPACESHIP_RUST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Rust section |
 | `SPACESHIP_RUST_SYMBOL` | `𝗥  ` | Character to be shown before Rust version |
 | `SPACESHIP_RUST_COLOR` | `red` | Color of Rust section |
-
 
 ### Docker (`docker`)
 
@@ -430,6 +428,7 @@ SPACESHIP_PROMPT_ORDER=(
   swift
   golang
   php
+  rust
   docker
   venv
   pyenv

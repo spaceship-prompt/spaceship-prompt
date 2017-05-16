@@ -526,6 +526,7 @@ spaceship_php() {
     "$SPACESHIP_PHP_PREFIX" \
     "${SPACESHIP_PHP_SYMBOL}v${php_version}" \
     "${SPACESHIP_PHP_SUFFIX}"
+}
 
 # RUST
 # Show current version of Rust
