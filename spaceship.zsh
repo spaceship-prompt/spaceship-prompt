@@ -263,7 +263,7 @@ spaceship_time() {
 spaceship_user() {
   [[ $SPACESHIP_USER_SHOW == false ]] && return
 
-  if [[ $LOGNAME != $USER ]] || [[ $USER == 'root' ]] || [[ -n $SSH_CONNECTION ]]; then
+  if [[ $LOGNAME != $USER ]] || [[ $(id -u) == 0 ]] || [[ -n $SSH_CONNECTION ]]; then
     local user_color
 
     if [[ $USER == 'root' ]]; then
