@@ -47,6 +47,11 @@ SPACESHIP_PROMPT_SUFFIXES_SHOW="${SPACESHIP_PROMPT_SUFFIXES_SHOW:=true}"
 SPACESHIP_PROMPT_DEFAULT_PREFIX="${SPACESHIP_PROMPT_DEFAULT_PREFIX:="via "}"
 SPACESHIP_PROMPT_DEFAULT_SUFFIX="${SPACESHIP_PROMPT_DEFAULT_SUFFIX:=" "}"
 
+# CHAR
+SPACESHIP_CHAR_SUCCESS_COLOR="${SPACESHIP_CHAR_SUCCESS_COLOR:=green}"
+SPACESHIP_CHAR_FAILURE_COLOR="${SPACESHIP_CHAR_FAILURE_COLOR:=red}"
+SPACESHIP_CHAR_SECONDARY_COLOR="${SPACESHIP_CHAR_SECONDARY_COLOR:=yellow}"
+
 # TIME
 SPACESHIP_TIME_SHOW="${SPACESHIP_TIME_SHOW:=false}"
 SPACESHIP_TIME_PREFIX="${SPACESHIP_TIME_PREFIX:="at "}"
@@ -692,7 +697,7 @@ spaceship_line_sep() {
 # Paint $PROMPT_SYMBOL in red if previous command was fail and
 # paint in green if everything was OK.
 spaceship_char() {
-  _prompt_section "%(?.green.red)" "${SPACESHIP_PROMPT_SYMBOL} "
+  _prompt_section "%(?.$SPACESHIP_CHAR_SUCCESS_COLOR.$SPACESHIP_CHAR_FAILURE_COLOR)" "${SPACESHIP_PROMPT_SYMBOL} "
 }
 
 # ------------------------------------------------------------------------------
@@ -755,7 +760,7 @@ spaceship_prompt() {
 
 # PS2 - continuation interactive prompt
 spaceship_ps2() {
-  _prompt_section "yellow" $SPACESHIP_PROMPT_SYMBOL
+  _prompt_section "$SPACESHIP_CHAR_SECONDARY_COLOR" $SPACESHIP_PROMPT_SYMBOL
 }
 
 # Setup required environment variables
