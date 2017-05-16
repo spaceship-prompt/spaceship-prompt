@@ -38,6 +38,7 @@ Currently it shows:
 * Current Swift version, through swiftenv (`🐦`).
 * Current Xcode version, through xenv (`🛠`).
 * Current Go version (`🐹`).
+* Current PHP version (`🐘`).
 * Current Rust version (`𝗥`)
 * Current Docker version and connected machine (`🐳`).
 * Current Python virtualenv.
@@ -151,6 +152,7 @@ SPACESHIP_PROMPT_ORDER=(
   xcode         # Xcode section
   swift         # Swift section
   golang        # Go section
+  php           # PHP section
   rust          # Rust section
   docker        # Docker section
   venv          # virtualenv section
@@ -327,6 +329,18 @@ Go section is shown only in directories that contain `Godeps`, or `glide.yaml`, 
 | `SPACESHIP_GOLANG_SYMBOL` | `🐹  ` | Character to be shown before Go version |
 | `SPACESHIP_GOLANG_COLOR` | `cyan` | Color of Go section |
 
+### PHP (`php`)
+
+PHP section is shown only in directories that contain any file with `.php` extension.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_PHP_SHOW` | true | Show PHP section |
+| `SPACESHIP_PHP_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the PHP section |
+| `SPACESHIP_PHP_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the PHP section |
+| `SPACESHIP_PHP_SYMBOL` | `🐘  ` | Character to be shown before PHP version |
+| `SPACESHIP_PHP_COLOR` | `blue` | Color of PHP section |
+
 ### Rust (`rust`)
 
 Rust section is shown only in directories that contain `Cargo.toml` or any other file with `.rs` extension.
@@ -413,6 +427,8 @@ SPACESHIP_PROMPT_ORDER=(
   xcode
   swift
   golang
+  php
+  rust
   docker
   venv
   pyenv
@@ -521,6 +537,13 @@ SPACESHIP_GOLANG_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_GOLANG_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_GOLANG_SYMBOL="🐹  "
 SPACESHIP_GOLANG_COLOR="cyan"
+
+# PHP
+SPACESHIP_PHP_SHOW=true
+SPACESHIP_PHP_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_PHP_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_PHP_SYMBOL="🐘  "
+SPACEHIP_PHP_COLOR="blue"
 
 # RUST
 SPACESHIP_RUST_SHOW="${SPACESHIP_RUST_SHOW:=true}"
