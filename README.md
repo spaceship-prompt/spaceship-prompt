@@ -275,7 +275,7 @@ If you use [n] as Node.js version manager, please, set `SPACESHIP_NODE_DEFAULT_V
 | `SPACESHIP_NODE_SHOW` | `true` | Current Node.js section |
 | `SPACESHIP_NODE_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Node.js section |
 | `SPACESHIP_NODE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Node.js section |
-| `SPACESHIP_NODE_SYMBOL` | `⬢  ` | Character to be shown before Node.js version |
+| `SPACESHIP_NODE_SYMBOL` | `⬢ ` | Character to be shown before Node.js version |
 | `SPACESHIP_NODE_DEFAULT_VERSION` | `` | Node.js version to be treated as default (for [n] support) |
 | `SPACESHIP_NODE_COLOR` | `green` | Color of Node.js section |
 
@@ -301,7 +301,7 @@ Shows current version of Xcode. Local version has more priority than global.
 | `SPACESHIP_XCODE_SHOW_GLOBAL` | `true` | Global Xcode version based on [xcenv] |
 | `SPACESHIP_XCODE_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Xcode section |
 | `SPACESHIP_XCODE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Xcode section |
-| `SPACESHIP_XCODE_SYMBOL` | `🛠  ` | Character to be shown before Xcode version |
+| `SPACESHIP_XCODE_SYMBOL` | `🛠 ` | Character to be shown before Xcode version |
 | `SPACESHIP_XCODE_COLOR` | `blue` | Color of Xcode section |
 
 ### Swift (`swift`)
@@ -314,7 +314,7 @@ Shows current version of Swift. Local version has more priority than global.
 | `SPACESHIP_SWIFT_SHOW_GLOBAL` | `false` | Global Swift version based on [swiftenv] |
 | `SPACESHIP_SWIFT_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Swift section |
 | `SPACESHIP_SWIFT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix to be shown before the Swift section |
-| `SPACESHIP_SWIFT_SYMBOL` | `🐦  ` | Character to be shown before Swift version |
+| `SPACESHIP_SWIFT_SYMBOL` | `🐦 ` | Character to be shown before Swift version |
 | `SPACESHIP_SWIFT_COLOR` | `yellow` | Color of Swift section |
 
 ### Go (`golang`)
@@ -326,7 +326,7 @@ Go section is shown only in directories that contain `Godeps`, or `glide.yaml`, 
 | `SPACESHIP_GOLANG_SHOW` | `true` | Shown current Go version or not |
 | `SPACESHIP_GOLANG_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Go section |
 | `SPACESHIP_GOLANG_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Go section |
-| `SPACESHIP_GOLANG_SYMBOL` | `🐹  ` | Character to be shown before Go version |
+| `SPACESHIP_GOLANG_SYMBOL` | `🐹 ` | Character to be shown before Go version |
 | `SPACESHIP_GOLANG_COLOR` | `cyan` | Color of Go section |
 
 ### PHP (`php`)
@@ -338,7 +338,7 @@ PHP section is shown only in directories that contain any file with `.php` exten
 | `SPACESHIP_PHP_SHOW` | true | Show PHP section |
 | `SPACESHIP_PHP_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the PHP section |
 | `SPACESHIP_PHP_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the PHP section |
-| `SPACESHIP_PHP_SYMBOL` | `🐘  ` | Character to be shown before PHP version |
+| `SPACESHIP_PHP_SYMBOL` | `🐘 ` | Character to be shown before PHP version |
 | `SPACESHIP_PHP_COLOR` | `blue` | Color of PHP section |
 
 ### Rust (`rust`)
@@ -350,7 +350,7 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 | `SPACESHIP_RUST_SHOW` | `true` | Shown current Rust version or not |
 | `SPACESHIP_RUST_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Rust section |
 | `SPACESHIP_RUST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Rust section |
-| `SPACESHIP_RUST_SYMBOL` | `𝗥  ` | Character to be shown before Rust version |
+| `SPACESHIP_RUST_SYMBOL` | `𝗥 ` | Character to be shown before Rust version |
 | `SPACESHIP_RUST_COLOR` | `red` | Color of Rust section |
 
 ### Docker (`docker`)
@@ -362,7 +362,7 @@ Shows Docker version and current connected machine name.
 | `SPACESHIP_DOCKER_SHOW` | `true` | Show current Docker version and connected docker-machine ot not |
 | `SPACESHIP_DOCKER_PREFIX` | `on ` | Prefix before the Docker section |
 | `SPACESHIP_DOCKER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Docker section |
-| `SPACESHIP_DOCKER_SYMBOL` | `🐳  ` | Character to be shown before Docker version |
+| `SPACESHIP_DOCKER_SYMBOL` | `🐳 ` | Character to be shown before Docker version |
 | `SPACESHIP_DOCKER_COLOR` | `cyan` | Color of Docker section |
 
 ### Virtualenv (`venv`)
@@ -383,7 +383,7 @@ Go section is shown only in directories that contain `requirements.txt` or any o
 | `SPACESHIP_PYENV_SHOW` | `true` | Show current Pyenv version or not |
 | `SPACESHIP_PYENV_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the pyenv section |
 | `SPACESHIP_PYENV_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the pyenv section |
-| `SPACESHIP_PYENV_SYMBOL` | `🐍  ` | Character to be shown before Pyenv version |
+| `SPACESHIP_PYENV_SYMBOL` | `🐍 ` | Character to be shown before Pyenv version |
 | `SPACESHIP_PYENV_COLOR` | `yellow` | Color of Pyenv section |
 
 ### Vi-mode (`vi_mode`)
@@ -504,7 +504,7 @@ SPACESHIP_GIT_STATUS_DIVERGED="⇕"
 SPACESHIP_NODE_SHOW=true
 SPACESHIP_NODE_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_NODE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
-SPACESHIP_NODE_SYMBOL="⬢  "
+SPACESHIP_NODE_SYMBOL="⬢ "
 SPACESHIP_NODE_DEFAULT_VERSION=""
 SPACESHIP_NODE_COLOR="green"
 
@@ -512,7 +512,7 @@ SPACESHIP_NODE_COLOR="green"
 SPACESHIP_RUBY_SHOW=true
 SPACESHIP_RUBY_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_RUBY_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
-SPACESHIP_RUBY_SYMBOL="💎  "
+SPACESHIP_RUBY_SYMBOL="💎 "
 SPACESHIP_RUBY_COLOR="red"
 
 # XCODE
@@ -520,7 +520,7 @@ SPACESHIP_XCODE_SHOW_LOCAL=true
 SPACESHIP_XCODE_SHOW_GLOBAL=false
 SPACESHIP_XCODE_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_XCODE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
-SPACESHIP_XCODE_SYMBOL="🛠  "
+SPACESHIP_XCODE_SYMBOL="🛠 "
 SPACESHIP_XCODE_COLOR="blue"
 
 # SWIFT
@@ -528,21 +528,21 @@ SPACESHIP_SWIFT_SHOW_LOCAL=true
 SPACESHIP_SWIFT_SHOW_GLOBAL=false
 SPACESHIP_SWIFT_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_SWIFT_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
-SPACESHIP_SWIFT_SYMBOL="🐦  "
+SPACESHIP_SWIFT_SYMBOL="🐦 "
 SPACESHIP_SWIFT_COLOR="yellow"
 
 # GOLANG
 SPACESHIP_GOLANG_SHOW=true
 SPACESHIP_GOLANG_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_GOLANG_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
-SPACESHIP_GOLANG_SYMBOL="🐹  "
+SPACESHIP_GOLANG_SYMBOL="🐹 "
 SPACESHIP_GOLANG_COLOR="cyan"
 
 # PHP
 SPACESHIP_PHP_SHOW=true
 SPACESHIP_PHP_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_PHP_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
-SPACESHIP_PHP_SYMBOL="🐘  "
+SPACESHIP_PHP_SYMBOL="🐘 "
 SPACEHIP_PHP_COLOR="blue"
 
 # RUST
@@ -556,7 +556,7 @@ SPACESHIP_RUST_COLOR="red"
 SPACESHIP_DOCKER_SHOW=true
 SPACESHIP_DOCKER_PREFIX="on "
 SPACESHIP_DOCKER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
-SPACESHIP_DOCKER_SYMBOL="🐳  "
+SPACESHIP_DOCKER_SYMBOL="🐳 "
 SPACESHIP_DOCKER_COLOR="cyan"
 
 # VENV
@@ -569,7 +569,7 @@ SPACESHIP_VENV_COLOR="blue"
 SPACESHIP_PYENV_SHOW=true
 SPACESHIP_PYENV_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_PYENV_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
-SPACESHIP_PYENV_SYMBOL="🐍  "
+SPACESHIP_PYENV_SYMBOL="🐍 "
 SPACESHIP_PYENV_COLOR="yellow"
 
 # VI_MODE
