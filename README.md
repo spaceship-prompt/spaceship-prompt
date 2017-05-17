@@ -240,7 +240,7 @@ Git section is consists with `git_branch` and `git_status` subsections. It is sh
 | :------- | :-----: | ------- |
 | `SPACESHIP_GIT_BRANCH_SHOW` | `true` | Show Git branch subsection |
 | `SPACESHIP_GIT_BRANCH_PREFIX` | `$SPACESHIP_GIT_SYMBOL` | Prefix before Git branch subsection |
-| `SPACESHIP_GIT_BRANCH_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Git branch subsection |
+| `SPACESHIP_GIT_BRANCH_SUFFIX` | `` | Suffix after Git branch subsection |
 | `SPACESHIP_GIT_BRANCH_COLOR` | `magenta` | Color of Git branch subsection |
 
 #### Git status (`git_status`)
@@ -250,7 +250,7 @@ Git status indicators is shown only when you have dirty repository.
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_GIT_STATUS_SHOW` | `true` | Show Git status subsection |
-| `SPACESHIP_GIT_STATUS_PREFIX` | `[` | Prefix before Git status subsection |
+| `SPACESHIP_GIT_STATUS_PREFIX` | ` [` | Prefix before Git status subsection |
 | `SPACESHIP_GIT_STATUS_SUFFIX` | `]` | Suffix after Git status subsection |
 | `SPACESHIP_GIT_STATUS_COLOR` | `red` | Color of Git status subsection |
 | `SPACESHIP_GIT_STATUS_UNTRACKED` | `?` | Indicator for untracked changes |
@@ -477,7 +477,7 @@ SPACESHIP_DIR_COLOR="cyan"
 # GIT
 SPACESHIP_GIT_SHOW=true
 SPACESHIP_GIT_PREFIX="on "
-SPACESHIP_GIT_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_GIT_SUFFIX=""
 SPACESHIP_GIT_SYMBOL=" "
 # GIT BRANCH
 SPACESHIP_GIT_BRANCH_SHOW=true
@@ -486,7 +486,7 @@ SPACESHIP_GIT_BRANCH_SUFFIX=""
 SPACESHIP_GIT_BRANCH_COLOR="magenta"
 # GIT STATUS
 SPACESHIP_GIT_STATUS_SHOW=true
-SPACESHIP_GIT_STATUS_PREFIX="["
+SPACESHIP_GIT_STATUS_PREFIX=" ["
 SPACESHIP_GIT_STATUS_SUFFIX="]"
 SPACESHIP_GIT_STATUS_COLOR="red"
 SPACESHIP_GIT_STATUS_UNTRACKED="?"
