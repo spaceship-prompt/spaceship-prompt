@@ -40,6 +40,7 @@ Currently it shows:
 * Current Go version (`🐹`).
 * Current PHP version (`🐘`).
 * Current Rust version (`𝗥`)
+* Current Julia version (`ஃ`)
 * Current Docker version and connected machine (`🐳`).
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
@@ -154,6 +155,7 @@ SPACESHIP_PROMPT_ORDER=(
   golang        # Go section
   php           # PHP section
   rust          # Rust section
+  julia         # Julia section
   docker        # Docker section
   venv          # virtualenv section
   pyenv         # Pyenv section
@@ -353,6 +355,18 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 | `SPACESHIP_RUST_SYMBOL` | `𝗥 ` | Character to be shown before Rust version |
 | `SPACESHIP_RUST_COLOR` | `red` | Color of Rust section |
 
+### Julia (`julia`)
+
+Julia section is shown only in directories that contain file with `.jl` extension.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_JULIA_SHOW` | `true` | Shown current Julia version or not |
+| `SPACESHIP_JULIA_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Julia section |
+| `SPACESHIP_JULIA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Julia section |
+| `SPACESHIP_JULIA_SYMBOL` | `ஃ ` | Character to be shown before Julia version |
+| `SPACESHIP_JULIA_COLOR` | `green` | Color of Julia section |
+
 ### Docker (`docker`)
 
 Shows Docker version and current connected machine name.
@@ -429,6 +443,7 @@ SPACESHIP_PROMPT_ORDER=(
   golang
   php
   rust
+  julia
   docker
   venv
   pyenv
@@ -551,6 +566,13 @@ SPACESHIP_RUST_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_RUST_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_RUST_SYMBOL="𝗥 "
 SPACESHIP_RUST_COLOR="red"
+
+# JULIA
+SPACESHIP_JULIA_SHOW=true
+SPACESHIP_JULIA_PREFIX="SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_JULIA_SUFFIX="SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_JULIA_SYMBOL="ஃ "
+SPACESHIP_JULIA_COLOR= "green"
 
 # DOCKER
 SPACESHIP_DOCKER_SHOW=true
