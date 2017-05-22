@@ -244,7 +244,8 @@ _prompt_section() {
 _deprecated() {
   [[ -n $1 && -n $2 ]] || return
   local deprecated=$1 actual=$2 b=$bold_color r=$reset_color
-  [[ -n ${(P)deprecated} ]] || return
+  local deprecated_value=${(P)deprecated} # the value of variable name $deprecated
+  [[ -n $deprecated_value ]] || return
   echo "${b}\$$deprecated${r} is deprecated. Use ${b}\$$actual${r} instead."
 }
 
