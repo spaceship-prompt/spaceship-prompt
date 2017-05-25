@@ -385,7 +385,7 @@ spaceship_git() {
     "$SPACESHIP_GIT_SUFFIX"
 }
 
-# NVM
+# NVM / nodenv
 # Show current version of node, exception system.
 spaceship_node() {
   [[ $SPACESHIP_NODE_SHOW == false ]] && return
@@ -397,6 +397,9 @@ spaceship_node() {
 
   if _exists nvm; then
     node_version=$(nvm current 2>/dev/null)
+    [[ $node_version == "system" || $node_version == "node" ]] && return
+  elif _exists nodenv; then
+    node_version=$(nodenv version-name)
     [[ $node_version == "system" || $node_version == "node" ]] && return
   elif _exists node; then
     node_version=$(node -v)
