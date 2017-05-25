@@ -385,7 +385,7 @@ spaceship_git() {
     "$SPACESHIP_GIT_SUFFIX"
 }
 
-# NVM / nodenv
+# NODE
 # Show current version of node, exception system.
 spaceship_node() {
   [[ $SPACESHIP_NODE_SHOW == false ]] && return

@@ -33,7 +33,7 @@ Currently it shows:
 * Hostname only displayed when in an SSH session.
 * Username displayed only when it isn't `$LOGNAME`.
 * Username turns red when root.
-* Current Node.js version, through nvm or n (`⬢`).
+* Current Node.js version, through nvm/nodenv/n (`⬢`).
 * Current Ruby version, through rvm/rbenv/chruby (`💎`).
 * Current Swift version, through swiftenv (`🐦`).
 * Current Xcode version, through xenv (`🛠`).
