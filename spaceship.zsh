@@ -57,6 +57,7 @@ SPACESHIP_TIME_COLOR="${SPACESHIP_TIME_COLOR:="yellow"}"
 
 # USER
 SPACESHIP_USER_SHOW="${SPACESHIP_USER_SHOW:=true}"
+SPACESHIP_USER_SHOW_ALWAYS="${SPACESHIP_USER_SHOW_ALWAYS:=false}"
 SPACESHIP_USER_PREFIX="${SPACESHIP_USER_PREFIX:="with "}"
 SPACESHIP_USER_SUFFIX="${SPACESHIP_USER_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_USER_COLOR="${SPACESHIP_USER_COLOR:="yellow"}"
@@ -278,9 +279,9 @@ spaceship_time() {
 # USER
 # If user is root, then paint it in red. Otherwise, just print in yellow.
 spaceship_user() {
-  [[ $SPACESHIP_USER_SHOW == false ]] && return
+  [[ $SPACESHIP_USER_SHOW == false ]] && [[ $SPACESHIP_USER_SHOW_ALWAYS == false  ]] && return
 
-  if [[ $LOGNAME != $USER ]] || [[ $UID == 0 ]] || [[ -n $SSH_CONNECTION ]]; then
+  if [[ $SPACESHIP_USER_SHOW_ALWAYS == true ]] || [[ $LOGNAME != $USER ]] || [[ $UID == 0 ]] || [[ -n $SSH_CONNECTION ]]; then
     local user_color
 
     if [[ $USER == 'root' ]]; then

@@ -197,6 +197,7 @@ Username is shown only when it's not the same as `$LOGNAME`, when you're connect
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_USER_SHOW` | `true` | Show user section |
+| `SPACESHIP_USER_SHOW_ALWAYS` | `false` | Ignore other settings and always show user section |
 | `SPACESHIP_USER_PREFIX` | `with ` | Prefix before user section |
 | `SPACESHIP_USER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after user section |
 | `SPACESHIP_USER_COLOR` | `yellow` | Color of user section |
