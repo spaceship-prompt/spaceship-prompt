@@ -65,6 +65,7 @@ SPACESHIP_USER_COLOR_ROOT="${SPACESHIP_USER_COLOR_ROOT:="red"}"
 
 # HOST
 SPACESHIP_HOST_SHOW="${SPACESHIP_HOST_SHOW:=true}"
+SPACESHIP_HOST_SHOW_ALWAYS="${SPACESHIP_HOST_SHOW_ALWAYS:=false}"
 SPACESHIP_HOST_PREFIX="${SPACESHIP_HOST_PREFIX:="at "}"
 SPACESHIP_HOST_SUFFIX="${SPACESHIP_HOST_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_HOST_COLOR="${SPACESHIP_HOST_COLOR:="green"}"
@@ -301,16 +302,16 @@ spaceship_user() {
 # HOST
 # If there is an ssh connections, current machine name.
 spaceship_host() {
-  [[ $SPACESHIP_HOST_SHOW == false ]] && return
+  [[ $SPACESHIP_HOST_SHOW == false ]] && [[ $SPACESHIP_HOST_SHOW_ALWAYS == false ]] && return
 
-  [[ -n $SSH_CONNECTION ]] || return
-
-  _prompt_section \
-    "$SPACESHIP_HOST_COLOR" \
-    "$SPACESHIP_HOST_PREFIX" \
-    '%m' \
-    "$SPACESHIP_HOST_SUFFIX"
+  if [[ -n $SSH_CONNECTION ]] || [[ $SPACESHIP_HOST_SHOW_ALWAYS == true ]]; then
+    _prompt_section \
+      "$SPACESHIP_HOST_COLOR" \
+      "$SPACESHIP_HOST_PREFIX" \
+      '%m' \
+      "$SPACESHIP_HOST_SUFFIX"
 }
+  fi
 
 # DIR
 # Current directory. Return only three last items of path
