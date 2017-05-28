@@ -301,15 +301,15 @@ spaceship_user() {
 # HOST
 # If there is an ssh connections, current machine name.
 spaceship_host() {
-  [[ $SPACESHIP_HOST_SHOW == false ]] && return
+  [[ $SPACESHIP_HOST_SHOW == false ]] && [[ $SPACESHIP_HOST_SHOW_ALWAYS == false ]] && return
 
-  [[ -n $SSH_CONNECTION ]] || return
-
-  _prompt_section \
-    "$SPACESHIP_HOST_COLOR" \
-    "$SPACESHIP_HOST_PREFIX" \
-    '%m' \
-    "$SPACESHIP_HOST_SUFFIX"
+  if [[ $SPACESHIP_HOST_SHOW_ALWAYS == true ]] || [[ -n $SSH_CONNECTION ]]; then
+    _prompt_section \
+      "$SPACESHIP_HOST_COLOR" \
+      "$SPACESHIP_HOST_PREFIX" \
+      '%m' \
+      "$SPACESHIP_HOST_SUFFIX"
+  fi
 }
 
 # DIR

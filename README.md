@@ -210,6 +210,7 @@ Hostname is shown only when you're connected via SSH.
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_HOST_SHOW` | `true` | Show host section |
+| `SPACESHIP_HOST_SHOW_ALWAYS` | `false` | Ignore other settings and always show host section |
 | `SPACESHIP_HOST_PREFIX` | `at ` | Prefix before the connected SSH machine name |
 | `SPACESHIP_HOST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the connected SSH machine name |
 | `SPACESHIP_HOST_COLOR` | `green` | Color of host section |
