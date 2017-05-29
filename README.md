@@ -29,6 +29,11 @@ Currently it shows:
   * `⇡` — ahead of remote branch;
   * `⇣` — behind of remote branch;
   * `⇕` — diverged chages.
+* Mercurial repo status:
+  * `?` — untracked changes;
+  * `+` — uncommitted changes in the index;
+  * `!` — unstaged changes;
+  * `✘` — deleted files;
 * Prompt character turns red if the last command exits with non-zero code.
 * Hostname only displayed when in an SSH session.
 * Username displayed only when it isn't `$LOGNAME`.
@@ -148,6 +153,7 @@ SPACESHIP_PROMPT_ORDER=(
   host          # Hostname section
   dir           # Current directory section
   git           # Git section (git_branch + git_status)
+  hg            # Mercurial section (hg_branch  + hg_status)
   node          # Node.js section
   ruby          # Ruby section
   xcode         # Xcode section
@@ -265,6 +271,41 @@ Git status indicators is shown only when you have dirty repository.
 | `SPACESHIP_GIT_STATUS_AHEAD` | `⇡` | Indicator for unpushed changes (ahead of remote branch) |
 | `SPACESHIP_GIT_STATUS_BEHIND` | `⇣` | Indicator for unpulled changes (behind of remote branch) |
 | `SPACESHIP_GIT_STATUS_DIVERGED` | `⇕` | Indicator for diverged chages (diverged with remote branch) |
+
+### Mercurial (`hg`)
+
+Mercurial section is consists with `hg_branch` and `hg_status` subsections. It is shown only in Mercurial repositories.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_HG_SHOW` | `true` | Show Mercurial section |
+| `SPACESHIP_HG_PREFIX` | `on ` | Prefix before Mercurial section |
+| `SPACESHIP_HG_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Mercurial section |
+| `SPACESHIP_HG_SYMBOL` | `☿ ` | Character to be shown before Mercurial section |
+
+#### Mercurial branch (`hg_branch`)
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_HG_BRANCH_SHOW` | `true` | Show Mercurial branch subsection |
+| `SPACESHIP_HG_BRANCH_PREFIX` | `$SPACESHIP_HG_SYMBOL` | Prefix before Mercurial branch subsection |
+| `SPACESHIP_HG_BRANCH_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Mercurial branch subsection |
+| `SPACESHIP_HG_BRANCH_COLOR` | `magenta` | Color of Mercurial branch subsection |
+
+#### Mercurial status (`hg_status`)
+
+Mercurial status indicators is shown only when you have dirty repository.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_HG_STATUS_SHOW` | `true` | Show Mercurial status subsection |
+| `SPACESHIP_HG_STATUS_PREFIX` | `[` | Prefix before Mercurial status subsection |
+| `SPACESHIP_HG_STATUS_SUFFIX` | `]` | Suffix after Mercurial status subsection |
+| `SPACESHIP_HG_STATUS_COLOR` | `red` | Color of Mercurial status subsection |
+| `SPACESHIP_HG_STATUS_UNTRACKED` | `?` | Indicator for untracked changes |
+| `SPACESHIP_HG_STATUS_ADDED` | `+` | Indicator for added changes |
+| `SPACESHIP_HG_STATUS_MODIFIED` | `!` | Indicator for unstaged files |
+| `SPACESHIP_HG_STATUS_DELETED` | `✘` | Indicator for deleted files |
 
 ### Node.js (`node`)
 
@@ -436,6 +477,7 @@ SPACESHIP_PROMPT_ORDER=(
   host
   dir
   git
+  hg
   node
   ruby
   xcode
@@ -514,6 +556,26 @@ SPACESHIP_GIT_STATUS_UNMERGED="="
 SPACESHIP_GIT_STATUS_AHEAD="⇡"
 SPACESHIP_GIT_STATUS_BEHIND="⇣"
 SPACESHIP_GIT_STATUS_DIVERGED="⇕"
+
+# HG
+SPACESHIP_HG_SHOW=true
+SPACESHIP_HG_PREFIX="on "
+SPACESHIP_HG_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_HG_SYMBOL="☿ "
+# HG BRANCH
+SPACESHIP_HG_BRANCH_SHOW=true
+SPACESHIP_HG_BRANCH_PREFIX="$SPACESHIP_HG_SYMBOL"
+SPACESHIP_HG_BRANCH_SUFFIX=""
+SPACESHIP_HG_BRANCH_COLOR="magenta"
+# HG STATUS
+SPACESHIP_HG_STATUS_SHOW=true
+SPACESHIP_HG_STATUS_PREFIX="["
+SPACESHIP_HG_STATUS_SUFFIX="]"
+SPACESHIP_HG_STATUS_COLOR="red"
+SPACESHIP_HG_STATUS_UNTRACKED="?"
+SPACESHIP_HG_STATUS_ADDED="+"
+SPACESHIP_HG_STATUS_MODIFIED="!"
+SPACESHIP_HG_STATUS_DELETED="✘"
 
 # NODE
 SPACESHIP_NODE_SHOW=true
