@@ -489,7 +489,7 @@ spaceship_node() {
     node_version=$(nodenv version-name)
     [[ $node_version == "system" || $node_version == "node" ]] && return
   elif _exists node; then
-    node_version=$(node -v)
+    node_version=$(node -v 2>/dev/null)
     [[ $node_version == $SPACESHIP_NODE_DEFAULT_VERSION ]] && return
   else
     return
