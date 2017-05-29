@@ -232,7 +232,7 @@ _is_git() {
 # USAGE:
 #   _is_hg
 _is_hg() {
-  [[ -d .hg || $(hg summary > /dev/null 2>&1) ]]
+  command hg --cwd $PWD root &>/dev/null
 }
 
 # Draw prompt section (bold is used as default)
