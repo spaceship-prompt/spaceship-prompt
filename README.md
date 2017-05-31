@@ -161,6 +161,7 @@ SPACESHIP_PROMPT_ORDER=(
   golang        # Go section
   php           # PHP section
   rust          # Rust section
+  stack         # Haskell Stack section
   julia         # Julia section
   docker        # Docker section
   venv          # virtualenv section
@@ -395,6 +396,18 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 | `SPACESHIP_RUST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Rust section |
 | `SPACESHIP_RUST_SYMBOL` | `𝗥 ` | Character to be shown before Rust version |
 | `SPACESHIP_RUST_COLOR` | `red` | Color of Rust section |
+
+### Stack (`stack`)
+
+Stack section is shown only in directories that contain `stack.yaml` file.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_STACK_SHOW` | `true` | Shown current Stack version or not |
+| `SPACESHIP_STACK_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Stack section |
+| `SPACESHIP_STACK_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Stack section |
+| `SPACESHIP_STACK_SYMBOL` | `λ ` | Character to be shown before Stack version |
+| `SPACESHIP_STACK_COLOR` | `red` | Color of Stack section |
 
 ### Julia (`julia`)
 

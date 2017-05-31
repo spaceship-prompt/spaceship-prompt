@@ -29,6 +29,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     golang
     php
     rust
+    stack
     julia
     docker
     venv
@@ -173,6 +174,13 @@ SPACESHIP_RUST_PREFIX="${SPACESHIP_RUST_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFI
 SPACESHIP_RUST_SUFFIX="${SPACESHIP_RUST_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_RUST_SYMBOL="${SPACESHIP_RUST_SYMBOL:="𝗥 "}"
 SPACESHIP_RUST_COLOR="${SPACESHIP_RUST_COLOR:="red"}"
+
+# STACK
+SPACESHIP_STACK_SHOW="${SPACESHIP_STACK_SHOW:=true}"
+SPACESHIP_STACK_PREFIX="${SPACESHIP_STACK_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_STACK_SUFFIX="${SPACESHIP_STACK_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_STACK_SYMBOL="${SPACESHIP_STACK_SYMBOL:="λ "}"
+SPACESHIP_STACK_COLOR="${SPACESHIP_STACK_COLOR:="red"}"
 
 # JULIA
 SPACESHIP_JULIA_SHOW="${SPACESHIP_JULIA_SHOW:=true}"
@@ -644,6 +652,28 @@ spaceship_rust() {
     "$SPACESHIP_RUST_PREFIX" \
     "${SPACESHIP_RUST_SYMBOL}v${rust_version}" \
     "$SPACESHIP_RUST_SUFFIX"
+}
+
+# STACK
+# Show current version of Haskell Tool Stack.
+spaceship_stack() {
+  [[ $SPACESHIP_STACK_SHOW == false ]] && return
+
+  # If there are stack files in current directory
+  [[ -f stack.yaml ]] || return
+
+  _exists stack || return
+
+  # With head -1 we take only the first result.
+  # Stack gives hpack version too, which matches the regex.
+  # Remove carriage return using tr.
+  local stack_version=$(stack --version | grep --colour=never -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]' | head -1 | tr -d '\r')
+
+  _prompt_section \
+    "$SPACESHIP_STACK_COLOR" \
+    "$SPACESHIP_STACK_PREFIX" \
+    "${SPACESHIP_STACK_SYMBOL}v${stack_version}" \
+    "$SPACESHIP_STACK_SUFFIX"
 }
 
 # JULIA
