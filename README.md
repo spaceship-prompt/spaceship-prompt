@@ -162,7 +162,7 @@ SPACESHIP_PROMPT_ORDER=(
   golang        # Go section
   php           # PHP section
   rust          # Rust section
-  stack         # Haskell Stack section
+  haskell       # Haskell Stack section
   julia         # Julia section
   docker        # Docker section
   venv          # virtualenv section
