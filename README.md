@@ -154,6 +154,7 @@ SPACESHIP_PROMPT_ORDER=(
   dir           # Current directory section
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
+  npm_package_version # NPM package.json version
   node          # Node.js section
   ruby          # Ruby section
   xcode         # Xcode section
@@ -322,6 +323,20 @@ If you use [n] as Node.js version manager, please, set `SPACESHIP_NODE_DEFAULT_V
 | `SPACESHIP_NODE_DEFAULT_VERSION` | `` | Node.js version to be treated as default (for [n] support) |
 | `SPACESHIP_NODE_COLOR` | `green` | Color of Node.js section |
 
+### npm package version (`npm_package_version`)
+
+npm package version section is shown only in directories that contain a `package.json` file.
+
+This is the version of the package you are working on, not the version of `npm` itself.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_NPM_PACKAGE_VERSION_SHOW` | `true` | Show npm package.json version |
+| `SPACESHIP_NPM_PACKAGE_VERSION_PREFIX` | `at ` | Prefix before npm package version section |
+| `SPACESHIP_NPM_PACKAGE_VERSION_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after npm package version section |
+| `SPACESHIP_NPM_PACKAGE_VERSION_SYMBOL` | `pkg version: ` | Character to be shown before npm package.json version |
+| `SPACESHIP_NPM_PACKAGE_VERSION_COLOR` | `red` | Color of npm package version section |
+
 ### Ruby (`ruby`)
 
 Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`, or any other file with `.rb` extension.
@@ -478,6 +493,7 @@ SPACESHIP_PROMPT_ORDER=(
   dir
   git
   hg
+  npm_package_version
   node
   ruby
   xcode
@@ -584,6 +600,13 @@ SPACESHIP_NODE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_NODE_SYMBOL="⬢ "
 SPACESHIP_NODE_DEFAULT_VERSION=""
 SPACESHIP_NODE_COLOR="green"
+
+# NPM
+SPACESHIP_NPM_PACKAGE_VERSION_SHOW="${SPACESHIP_NPM_PACKAGE_VERSION_SHOW:=true}"
+SPACESHIP_NPM_PACKAGE_VERSION_PREFIX="${SPACESHIP_NPM_PACKAGE_VERSION_PREFIX:="at "}"
+SPACESHIP_NPM_PACKAGE_VERSION_SUFFIX="${SPACESHIP_NPM_PACKAGE_VERSION_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_NPM_PACKAGE_VERSION_SYMBOL="${SPACESHIP_NPM_PACKAGE_VERSION_SYMBOL:="pkg version: "}"
+SPACESHIP_NPM_PACKAGE_VERSION_COLOR="${SPACESHIP_NPM_PACKAGE_VERSION_COLOR:="red"}"
 
 # RUBY
 SPACESHIP_RUBY_SHOW=true

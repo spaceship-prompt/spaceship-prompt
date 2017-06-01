@@ -22,6 +22,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     dir
     git
     hg
+    npm_package_version
     node
     ruby
     xcode
@@ -129,6 +130,13 @@ SPACESHIP_NODE_SUFFIX="${SPACESHIP_NODE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFI
 SPACESHIP_NODE_SYMBOL="${SPACESHIP_NODE_SYMBOL:="⬢ "}"
 SPACESHIP_NODE_DEFAULT_VERSION="${SPACESHIP_NODE_DEFAULT_VERSION:=""}"
 SPACESHIP_NODE_COLOR="${SPACESHIP_NODE_COLOR:="green"}"
+
+# NPM
+SPACESHIP_NPM_PACKAGE_VERSION_SHOW="${SPACESHIP_NPM_PACKAGE_VERSION_SHOW:=true}"
+SPACESHIP_NPM_PACKAGE_VERSION_PREFIX="${SPACESHIP_NPM_PACKAGE_VERSION_PREFIX:="at "}"
+SPACESHIP_NPM_PACKAGE_VERSION_SUFFIX="${SPACESHIP_NPM_PACKAGE_VERSION_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_NPM_PACKAGE_VERSION_SYMBOL="${SPACESHIP_NPM_PACKAGE_VERSION_SYMBOL:="pkg version: "}"
+SPACESHIP_NPM_PACKAGE_VERSION_COLOR="${SPACESHIP_NPM_PACKAGE_VERSION_COLOR:="red"}"
 
 # RUBY
 SPACESHIP_RUBY_SHOW="${SPACESHIP_RUBY_SHOW:=true}"
@@ -500,6 +508,28 @@ spaceship_node() {
     "$SPACESHIP_NODE_PREFIX" \
     "${SPACESHIP_NODE_SYMBOL}${node_version}" \
     "$SPACESHIP_NODE_SUFFIX"
+}
+
+# Show current package version
+spaceship_npm_package_version() {
+  [[ $SPACESHIP_NPM_PACKAGE_VERSION_SHOW == false ]] && return
+
+  # Show NODE status only for JS-specific folders
+  [[ -f package.json ]] || return
+
+  local package_version
+
+  if _exists npm; then
+    package_version=$(grep '"version":' package.json | cut -d\" -f4 2>/dev/null)
+  else
+    return
+  fi
+
+  _prompt_section \
+    "$SPACESHIP_NPM_PACKAGE_VERSION_COLOR" \
+    "$SPACESHIP_NPM_PACKAGE_VERSION_PREFIX" \
+    "${SPACESHIP_NPM_PACKAGE_VERSION_SYMBOL}${package_version}" \
+    "$SPACESHIP_NPM_PACKAGE_VERSION_SUFFIX"
 }
 
 # RUBY
