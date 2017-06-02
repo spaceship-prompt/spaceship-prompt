@@ -33,6 +33,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     docker
     venv
     pyenv
+    exec_time
     line_sep
     vi_mode
     char
@@ -55,6 +56,14 @@ SPACESHIP_TIME_SUFFIX="${SPACESHIP_TIME_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFI
 SPACESHIP_TIME_FORMAT="${SPACESHIP_TIME_FORMAT:=false}"
 SPACESHIP_TIME_12HR="${SPACESHIP_TIME_12HR:=false}"
 SPACESHIP_TIME_COLOR="${SPACESHIP_TIME_COLOR:="yellow"}"
+
+# EXECUTION TIME
+SPACESHIP_EXEC_TIME_SHOW="${SPACESHIP_EXEC_TIME_SHOW:=true}"
+SPACESHIP_EXEC_TIME_PREFIX="${SPACESHIP_EXEC_TIME_PREFIX:="took "}"
+SPACESHIP_EXEC_TIME_SUFFIX="${SPACESHIP_EXEC_TIME_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_EXEC_TIME_COLOR="${SPACESHIP_EXEC_TIME_COLOR:="yellow"}"
+SPACESHIP_EXEC_TIME_THRESHOLD="${SPACESHIP_EXEC_TIME_THRESHOLD:=5000}"
+SPACESHIP_EXEC_TIME_MS="${SPACESHIP_EXEC_TIME_MS:=false}"
 
 # USER
 SPACESHIP_USER_SHOW="${SPACESHIP_USER_SHOW:=true}"
@@ -278,6 +287,29 @@ _deprecated() {
 }
 
 # ------------------------------------------------------------------------------
+# HOOKS
+# ZSH hooks for advanced actions
+# ------------------------------------------------------------------------------
+
+# Execution time start
+spaceship_exec_time_start_hook() {
+  [[ $SPACESHIP_EXEC_TIME_SHOW == true ]] && spaceship_exec_time_start=$(( $(date +%s%N) / 1000000 ))
+}
+
+# Execution time end
+spaceship_exec_time_end_hook() {
+  if [[ $SPACESHIP_EXEC_TIME_SHOW == true ]]; then
+    if [[ -n $spaceship_exec_time_start ]]; then
+      spaceship_exec_time_elapsed=$(( $(date +%s%N) / 1000000 - $spaceship_exec_time_start ))
+      unset -v spaceship_exec_time_start
+    else
+      # Remove elapsed time if exists
+      [[ -n $spaceship_exec_time_elapsed ]] && unset spaceship_exec_time_elapsed
+    fi
+  fi
+}
+
+# ------------------------------------------------------------------------------
 # SECTIONS
 # The parts the prompt consists of
 # ------------------------------------------------------------------------------
@@ -301,6 +333,39 @@ spaceship_time() {
     "$SPACESHIP_TIME_PREFIX" \
     "$time_str" \
     "$SPACESHIP_TIME_SUFFIX"
+}
+
+# EXECUTION TIME
+spaceship_exec_time() {
+  [[ $SPACESHIP_EXEC_TIME_SHOW == false ]] && return
+
+  if [[ $spaceship_exec_time_elapsed -ge $SPACESHIP_EXEC_TIME_THRESHOLD ]]; then
+    local output
+    local days=$(( spaceship_exec_time_elapsed / 1000 / 60 / 60 / 24 ))
+    local hours=$(( spaceship_exec_time_elapsed / 1000 / 60 / 60 % 24 ))
+    local minutes=$(( spaceship_exec_time_elapsed / 1000 / 60 % 60 ))
+    local seconds=$(( spaceship_exec_time_elapsed / 1000 % 60 ))
+    local milliseconds=$(( spaceship_exec_time_elapsed % 1000 ))
+    (( days > 0 )) && output+="${days}d "
+    (( hours > 0 )) && output+="${hours}h "
+    (( minutes > 0 )) && output+="${minutes}m "
+    (( seconds > 0 )) && output+="${seconds}s"
+
+    if [[ $SPACESHIP_EXEC_TIME_MS == true ]]; then
+      (( spaceship_exec_time_elapsed >= 1000 )) && output+=" "
+      (( milliseconds > 0 )) && output+="${milliseconds}ms"
+    else
+      (( spaceship_exec_time_elapsed < 1000 )) && (( milliseconds > 0 )) && output+="${milliseconds}ms"
+    fi
+
+    if [[ -n $output ]]; then
+      _prompt_section \
+        "$SPACESHIP_EXEC_TIME_COLOR" \
+        "$SPACESHIP_EXEC_TIME_PREFIX" \
+        "$output" \
+        "$SPACESHIP_EXEC_TIME_SUFFIX"
+    fi
+  fi
 }
 
 # USER
@@ -852,6 +917,10 @@ spaceship_ps2() {
 # Setup required environment variables
 # All preparation before drawing prompt should be done here
 spaceship_setup() {
+  # Add exec_time hooks
+  add-zsh-hook preexec spaceship_exec_time_start_hook
+  add-zsh-hook precmd spaceship_exec_time_end_hook
+
   # Disable python virtualenv environment prompt prefix
   VIRTUAL_ENV_DISABLE_PROMPT=true
 
