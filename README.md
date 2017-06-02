@@ -51,6 +51,7 @@ Currently it shows:
 * Current Python pyenv (`🐍`).
 * Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode)).
 * Optional time stamps 12/24hr in format ([how to enable](#time)).
+* Execution time of the last command if it exceeds the set threshold.
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new) or send pull request.
 
@@ -165,6 +166,7 @@ SPACESHIP_PROMPT_ORDER=(
   docker        # Docker section
   venv          # virtualenv section
   pyenv         # Pyenv section
+  exec_time     # Execution time
   line_sep      # Line break
   vi_mode       # Vi-mode indicator
   char          # Prompt character
@@ -195,6 +197,19 @@ Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | `SPACESHIP_TIME_COLOR` | `yellow` | Color of time section |
 | `SPACESHIP_TIME_FORMAT` | `false` | Custom date formatting (e.g. `%D{%a %R}`) [ZSH date formats](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Date-and-time) |
 | `SPACESHIP_TIME_12HR` | `false` | Format time using 12-hour clock (am/pm) |
+
+### Execution time
+
+Execution time of the last command. Will be displayed if it exceeds the set threshold.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_EXEC_TIME_SHOW` | `true` | Show execution time |
+| `SPACESHIP_EXEC_TIME_PREFIX` | `took ` | Prefix before execution time section |
+| `SPACESHIP_EXEC_TIME_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after execution time section |
+| `SPACESHIP_EXEC_TIME_COLOR` | `yellow` | Color of execution time section |
+| `SPACESHIP_EXEC_TIME_THRESHOLD` | `5000` | The minimum number of milliseconds for showing execution time section |
+| `SPACESHIP_EXEC_TIME_MS` | `false` | Show milliseconds (set to `true` for enabling) |
 
 ### Username (`user`)
 
@@ -489,6 +504,7 @@ SPACESHIP_PROMPT_ORDER=(
   docker
   venv
   pyenv
+  exec_time
   line_sep
   vi_mode
   char
@@ -510,6 +526,14 @@ SPACESHIP_TIME_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_TIME_FORMAT=false
 SPACESHIP_TIME_12HR=false
 SPACESHIP_TIME_COLOR="yellow"
+
+# EXECUTION TIME
+SPACESHIP_EXEC_TIME_SHOW="${SPACESHIP_EXEC_TIME_SHOW:=true}"
+SPACESHIP_EXEC_TIME_PREFIX="${SPACESHIP_EXEC_TIME_PREFIX:="took "}"
+SPACESHIP_EXEC_TIME_SUFFIX="${SPACESHIP_EXEC_TIME_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_EXEC_TIME_COLOR="${SPACESHIP_EXEC_TIME_COLOR:="yellow"}"
+SPACESHIP_EXEC_TIME_THRESHOLD="${SPACESHIP_EXEC_TIME_THRESHOLD:=5000}"
+SPACESHIP_EXEC_TIME_MS="${SPACESHIP_EXEC_TIME_MS:=false}"
 
 # USER
 SPACESHIP_USER_SHOW=true
