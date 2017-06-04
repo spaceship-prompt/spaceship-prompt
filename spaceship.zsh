@@ -62,8 +62,7 @@ SPACESHIP_EXEC_TIME_SHOW="${SPACESHIP_EXEC_TIME_SHOW:=true}"
 SPACESHIP_EXEC_TIME_PREFIX="${SPACESHIP_EXEC_TIME_PREFIX:="took "}"
 SPACESHIP_EXEC_TIME_SUFFIX="${SPACESHIP_EXEC_TIME_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_EXEC_TIME_COLOR="${SPACESHIP_EXEC_TIME_COLOR:="yellow"}"
-SPACESHIP_EXEC_TIME_THRESHOLD="${SPACESHIP_EXEC_TIME_THRESHOLD:=5000}"
-SPACESHIP_EXEC_TIME_MS="${SPACESHIP_EXEC_TIME_MS:=false}"
+SPACESHIP_EXEC_TIME_ELAPSED="${SPACESHIP_EXEC_TIME_ELAPSED:=2}"
 
 # USER
 SPACESHIP_USER_SHOW="${SPACESHIP_USER_SHOW:=true}"
@@ -286,27 +285,40 @@ _deprecated() {
   echo "${b}\$$deprecated${r} is deprecated. Use ${b}\$$actual${r} instead."
 }
 
+# Display seconds in human readable fromat
+# Based on http://stackoverflow.com/a/32164707/3859566
+# USAGE:
+#   _displaytime <seconds>
+_displaytime() {
+  local T=$1
+  local D=$((T/60/60/24))
+  local H=$((T/60/60%24))
+  local M=$((T/60%60))
+  local S=$((T%60))
+  [[ $D > 0 ]] && printf '%dd' $D
+  [[ $H > 0 ]] && printf '%dh' $H
+  [[ $M > 0 ]] && printf '%dm' $M
+  printf '%ds' $S
+}
+
 # ------------------------------------------------------------------------------
 # HOOKS
 # ZSH hooks for advanced actions
 # ------------------------------------------------------------------------------
 
 # Execution time start
-spaceship_exec_time_start_hook() {
-  [[ $SPACESHIP_EXEC_TIME_SHOW == true ]] && spaceship_exec_time_start=$(( $(date +%s%N) / 1000000 ))
+spaceship_exec_time_preexec_hook() {
+  [[ $SPACESHIP_EXEC_TIME_SHOW == false ]] && return
+  SPACESHIP_EXEC_TIME_start=$(date +%s)
 }
 
 # Execution time end
-spaceship_exec_time_end_hook() {
-  if [[ $SPACESHIP_EXEC_TIME_SHOW == true ]]; then
-    if [[ -n $spaceship_exec_time_start ]]; then
-      spaceship_exec_time_elapsed=$(( $(date +%s%N) / 1000000 - $spaceship_exec_time_start ))
-      unset -v spaceship_exec_time_start
-    else
-      # Remove elapsed time if exists
-      [[ -n $spaceship_exec_time_elapsed ]] && unset spaceship_exec_time_elapsed
-    fi
-  fi
+spaceship_exec_time_precmd_hook() {
+  [[ $SPACESHIP_EXEC_TIME_SHOW == false ]] && return
+  [[ -z $SPACESHIP_EXEC_TIME_start ]] && return
+  local SPACESHIP_EXEC_TIME_stop=$(date +%s)
+  SPACESHIP_EXEC_TIME_duration=$(( $SPACESHIP_EXEC_TIME_stop - $SPACESHIP_EXEC_TIME_start ))
+  SPACESHIP_EXEC_TIME_start=''
 }
 
 # ------------------------------------------------------------------------------
@@ -339,32 +351,12 @@ spaceship_time() {
 spaceship_exec_time() {
   [[ $SPACESHIP_EXEC_TIME_SHOW == false ]] && return
 
-  if [[ $spaceship_exec_time_elapsed -ge $SPACESHIP_EXEC_TIME_THRESHOLD ]]; then
-    local output
-    local days=$(( spaceship_exec_time_elapsed / 1000 / 60 / 60 / 24 ))
-    local hours=$(( spaceship_exec_time_elapsed / 1000 / 60 / 60 % 24 ))
-    local minutes=$(( spaceship_exec_time_elapsed / 1000 / 60 % 60 ))
-    local seconds=$(( spaceship_exec_time_elapsed / 1000 % 60 ))
-    local milliseconds=$(( spaceship_exec_time_elapsed % 1000 ))
-    (( days > 0 )) && output+="${days}d "
-    (( hours > 0 )) && output+="${hours}h "
-    (( minutes > 0 )) && output+="${minutes}m "
-    (( seconds > 0 )) && output+="${seconds}s"
-
-    if [[ $SPACESHIP_EXEC_TIME_MS == true ]]; then
-      (( spaceship_exec_time_elapsed >= 1000 )) && output+=" "
-      (( milliseconds > 0 )) && output+="${milliseconds}ms"
-    else
-      (( spaceship_exec_time_elapsed < 1000 )) && (( milliseconds > 0 )) && output+="${milliseconds}ms"
-    fi
-
-    if [[ -n $output ]]; then
-      _prompt_section \
-        "$SPACESHIP_EXEC_TIME_COLOR" \
-        "$SPACESHIP_EXEC_TIME_PREFIX" \
-        "$output" \
-        "$SPACESHIP_EXEC_TIME_SUFFIX"
-    fi
+  if [[ $SPACESHIP_EXEC_TIME_duration -ge $SPACESHIP_EXEC_TIME_ELAPSED ]]; then
+    _prompt_section \
+      "$SPACESHIP_EXEC_TIME_COLOR" \
+      "$SPACESHIP_EXEC_TIME_PREFIX" \
+      "$(_displaytime $SPACESHIP_EXEC_TIME_duration)" \
+      "$SPACESHIP_EXEC_TIME_SUFFIX"
   fi
 }
 
@@ -918,8 +910,8 @@ spaceship_ps2() {
 # All preparation before drawing prompt should be done here
 spaceship_setup() {
   # Add exec_time hooks
-  add-zsh-hook preexec spaceship_exec_time_start_hook
-  add-zsh-hook precmd spaceship_exec_time_end_hook
+  add-zsh-hook preexec spaceship_exec_time_preexec_hook
+  add-zsh-hook precmd spaceship_exec_time_precmd_hook
 
   # Disable python virtualenv environment prompt prefix
   VIRTUAL_ENV_DISABLE_PROMPT=true
