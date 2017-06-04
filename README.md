@@ -45,6 +45,7 @@ Currently it shows:
 * Current Go version (`🐹`).
 * Current PHP version (`🐘`).
 * Current Rust version (`𝗥`)
+* Current version of Haskell Tool Stack (`λ`)
 * Current Julia version (`ஃ`)
 * Current Docker version and connected machine (`🐳`).
 * Current Python virtualenv.
@@ -162,6 +163,7 @@ SPACESHIP_PROMPT_ORDER=(
   golang        # Go section
   php           # PHP section
   rust          # Rust section
+  haskell       # Haskell Stack section
   julia         # Julia section
   docker        # Docker section
   venv          # virtualenv section
@@ -397,6 +399,18 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 | `SPACESHIP_RUST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Rust section |
 | `SPACESHIP_RUST_SYMBOL` | `𝗥 ` | Character to be shown before Rust version |
 | `SPACESHIP_RUST_COLOR` | `red` | Color of Rust section |
+
+### Haskell (`haskell`)
+
+Haskell section is shown only in directories that contain `stack.yaml` file.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_HASKELL_SHOW` | `true` | Shown current Haskell Tool Stack version or not |
+| `SPACESHIP_HASKELL_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Haskell section |
+| `SPACESHIP_HASKELL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Haskell section |
+| `SPACESHIP_HASKELL_SYMBOL` | `λ ` | Character to be shown before Haskell Tool Stack version |
+| `SPACESHIP_HASKELL_COLOR` | `red` | Color of Haskell section |
 
 ### Julia (`julia`)
 
