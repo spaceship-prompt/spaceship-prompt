@@ -939,6 +939,7 @@ spaceship_ps2() {
 # Setup required environment variables
 # All preparation before drawing prompt should be done here
 spaceship_setup() {
+  autoload -Uz add-zsh-hook
   # Add exec_time hooks
   add-zsh-hook preexec spaceship_exec_time_preexec_hook
   add-zsh-hook precmd spaceship_exec_time_precmd_hook
