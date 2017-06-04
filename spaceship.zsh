@@ -33,6 +33,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     docker
     venv
     pyenv
+    exec_time
     line_sep
     vi_mode
     char
@@ -209,6 +210,13 @@ SPACESHIP_VI_MODE_INSERT="${SPACESHIP_VI_MODE_INSERT:="[I]"}"
 SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:="[N]"}"
 SPACESHIP_VI_MODE_COLOR="${SPACESHIP_VI_MODE_COLOR:="white"}"
 
+# EXECUTION TIME
+SPACESHIP_EXEC_TIME_SHOW="${SPACESHIP_EXEC_TIME_SHOW:=true}"
+SPACESHIP_EXEC_TIME_PREFIX="${SPACESHIP_EXEC_TIME_PREFIX:="took "}"
+SPACESHIP_EXEC_TIME_SUFFIX="${SPACESHIP_EXEC_TIME_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_EXEC_TIME_COLOR="${SPACESHIP_EXEC_TIME_COLOR:="yellow"}"
+SPACESHIP_EXEC_TIME_ELAPSED="${SPACESHIP_EXEC_TIME_ELAPSED:=2}"
+
 # ------------------------------------------------------------------------------
 # HELPERS
 # Helpers for common used actions
@@ -275,6 +283,42 @@ _deprecated() {
   local deprecated_value=${(P)deprecated} # the value of variable name $deprecated
   [[ -n $deprecated_value ]] || return
   echo "${b}\$$deprecated${r} is deprecated. Use ${b}\$$actual${r} instead."
+}
+
+# Display seconds in human readable fromat
+# Based on http://stackoverflow.com/a/32164707/3859566
+# USAGE:
+#   _displaytime <seconds>
+_displaytime() {
+  local T=$1
+  local D=$((T/60/60/24))
+  local H=$((T/60/60%24))
+  local M=$((T/60%60))
+  local S=$((T%60))
+  [[ $D > 0 ]] && printf '%dd' $D
+  [[ $H > 0 ]] && printf '%dh' $H
+  [[ $M > 0 ]] && printf '%dm' $M
+  printf '%ds' $S
+}
+
+# ------------------------------------------------------------------------------
+# HOOKS
+# ZSH hooks for advanced actions
+# ------------------------------------------------------------------------------
+
+# Execution time start
+spaceship_exec_time_preexec_hook() {
+  [[ $SPACESHIP_EXEC_TIME_SHOW == false ]] && return
+  SPACESHIP_EXEC_TIME_start=$(date +%s)
+}
+
+# Execution time end
+spaceship_exec_time_precmd_hook() {
+  [[ $SPACESHIP_EXEC_TIME_SHOW == false ]] && return
+  [[ -z $SPACESHIP_EXEC_TIME_start ]] && return
+  local SPACESHIP_EXEC_TIME_stop=$(date +%s)
+  SPACESHIP_EXEC_TIME_duration=$(( $SPACESHIP_EXEC_TIME_stop - $SPACESHIP_EXEC_TIME_start ))
+  SPACESHIP_EXEC_TIME_start=''
 }
 
 # ------------------------------------------------------------------------------
@@ -736,6 +780,20 @@ spaceship_pyenv() {
     "$SPACESHIP_PYENV_SUFFIX"
 }
 
+# EXECUTION TIME
+# Execution time of the last command.
+spaceship_exec_time() {
+  [[ $SPACESHIP_EXEC_TIME_SHOW == false ]] && return
+
+  if [[ $SPACESHIP_EXEC_TIME_duration -ge $SPACESHIP_EXEC_TIME_ELAPSED ]]; then
+    _prompt_section \
+      "$SPACESHIP_EXEC_TIME_COLOR" \
+      "$SPACESHIP_EXEC_TIME_PREFIX" \
+      "$(_displaytime $SPACESHIP_EXEC_TIME_duration)" \
+      "$SPACESHIP_EXEC_TIME_SUFFIX"
+  fi
+}
+
 # VI_MODE
 # Show current vi_mode mode
 spaceship_vi_mode() {
@@ -852,6 +910,10 @@ spaceship_ps2() {
 # Setup required environment variables
 # All preparation before drawing prompt should be done here
 spaceship_setup() {
+  # Add exec_time hooks
+  add-zsh-hook preexec spaceship_exec_time_preexec_hook
+  add-zsh-hook precmd spaceship_exec_time_precmd_hook
+
   # Disable python virtualenv environment prompt prefix
   VIRTUAL_ENV_DISABLE_PROMPT=true
 
