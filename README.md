@@ -198,19 +198,6 @@ Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | `SPACESHIP_TIME_FORMAT` | `false` | Custom date formatting (e.g. `%D{%a %R}`) [ZSH date formats](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Date-and-time) |
 | `SPACESHIP_TIME_12HR` | `false` | Format time using 12-hour clock (am/pm) |
 
-### Execution time (`exec_time`)
-
-Execution time of the last command. Will be displayed if it exceeds the set threshold.
-
-| Variable | Default | Meaning |
-| :------- | :-----: | ------- |
-| `SPACESHIP_EXEC_TIME_SHOW` | `true` | Show execution time |
-| `SPACESHIP_EXEC_TIME_PREFIX` | `took ` | Prefix before execution time section |
-| `SPACESHIP_EXEC_TIME_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after execution time section |
-| `SPACESHIP_EXEC_TIME_COLOR` | `yellow` | Color of execution time section |
-| `SPACESHIP_EXEC_TIME_THRESHOLD` | `5000` | The minimum number of milliseconds for showing execution time section |
-| `SPACESHIP_EXEC_TIME_MS` | `false` | Show milliseconds (set to `true` for enabling) |
-
 ### Username (`user`)
 
 Username is shown only when it's not the same as `$LOGNAME`, when you're connected via SSH or when you're root. Root user is highlighted in `SPACESHIP_USER_COLOR_ROOT` color (red as default).
@@ -455,6 +442,18 @@ Go section is shown only in directories that contain `requirements.txt` or any o
 | `SPACESHIP_PYENV_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the pyenv section |
 | `SPACESHIP_PYENV_SYMBOL` | `🐍 ` | Character to be shown before Pyenv version |
 | `SPACESHIP_PYENV_COLOR` | `yellow` | Color of Pyenv section |
+
+### Execution time (`exec_time`)
+
+Execution time of the last command. Will be displayed if it exceeds the set threshold of time.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_EXEC_TIME_SHOW` | `true` | Show execution time |
+| `SPACESHIP_EXEC_TIME_PREFIX` | `took ` | Prefix before execution time section |
+| `SPACESHIP_EXEC_TIME_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after execution time section |
+| `SPACESHIP_EXEC_TIME_COLOR` | `yellow` | Color of execution time section |
+| `SPACESHIP_EXEC_TIME_ELAPSED` | `2` | The minimum number of seconds for showing execution time section |
 
 ### Vi-mode (`vi_mode`)
 
