@@ -323,10 +323,11 @@ spaceship_exec_time_preexec_hook() {
 # Execution time end
 spaceship_exec_time_precmd_hook() {
   [[ $SPACESHIP_EXEC_TIME_SHOW == false ]] && return
+  [[ -n $SPACESHIP_EXEC_TIME_duration ]] && unset SPACESHIP_EXEC_TIME_duration
   [[ -z $SPACESHIP_EXEC_TIME_start ]] && return
   local SPACESHIP_EXEC_TIME_stop=$(date +%s)
   SPACESHIP_EXEC_TIME_duration=$(( $SPACESHIP_EXEC_TIME_stop - $SPACESHIP_EXEC_TIME_start ))
-  SPACESHIP_EXEC_TIME_start=''
+  unset SPACESHIP_EXEC_TIME_start
 }
 
 # ------------------------------------------------------------------------------
