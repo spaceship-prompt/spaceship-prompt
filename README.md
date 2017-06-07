@@ -40,6 +40,7 @@ Currently it shows:
 * Username turns red when root.
 * Current Node.js version, through nvm/nodenv/n (`⬢`).
 * Current Ruby version, through rvm/rbenv/chruby (`💎`).
+* Current Elixir version, through kiex/exenv/`elixir -v` (`💧`).
 * Current Swift version, through swiftenv (`🐦`).
 * Current Xcode version, through xenv (`🛠`).
 * Current Go version (`🐹`).
@@ -158,6 +159,7 @@ SPACESHIP_PROMPT_ORDER=(
   hg            # Mercurial section (hg_branch  + hg_status)
   node          # Node.js section
   ruby          # Ruby section
+  elixir        # Elixir section
   xcode         # Xcode section
   swift         # Swift section
   golang        # Go section
@@ -338,6 +340,19 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 | `SPACESHIP_RUBY_SYMBOL` | `💎  ` | Character to be shown before Ruby version |
 | `SPACESHIP_RUBY_COLOR` | `red` | Color of Ruby section |
 
+### Elixir (`elixir`)
+
+Elixir section is shown only in directories that contain `Gemfile`, or `Rakefile`, or any other file with `.rb` extension.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_ELIXIR_SHOW` | `true` | Show Elixir section |
+| `SPACESHIP_ELIXIR_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Elixir section |
+| `SPACESHIP_ELIXIR_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Elixir section |
+| `SPACESHIP_ELIXIR_SYMBOL` | `💧  ` | Character to be shown before Elixir version |
+| `SPACESHIP_ELIXIR_COLOR` | `magenta` | Color of Elixir section |
+
+
 ### Xcode (`xcode`)
 
 Shows current version of Xcode. Local version has more priority than global.
@@ -508,6 +523,7 @@ SPACESHIP_PROMPT_ORDER=(
   hg
   node
   ruby
+  elixir
   xcode
   swift
   golang
@@ -628,6 +644,13 @@ SPACESHIP_RUBY_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_RUBY_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_RUBY_SYMBOL="💎 "
 SPACESHIP_RUBY_COLOR="red"
+
+# ELIXIR
+SPACESHIP_ELIXIR_SHOW=true
+SPACESHIP_ELIXIR_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_ELIXIR_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_ELIXIR_SYMBOL="💧 "
+SPACESHIP_ELIXIR_COLOR="magenta"
 
 # XCODE
 SPACESHIP_XCODE_SHOW_LOCAL=true
