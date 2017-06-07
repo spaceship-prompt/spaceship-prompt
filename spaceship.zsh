@@ -610,10 +610,12 @@ spaceship_elixir() {
   elif _exists exenv; then
     elixir_version=$(exenv version-name)
   else
-    return
+    elixir_version=$(elixir -v | grep "Elixir" --color=never | cut -d ' ' -f 2)
   fi
 
-  [[ "${elixir_version}" == "system" ]] && return
+  if [[ "${elixir_version}" == "system" ]]; then
+    elixir_version=$(elixir -v | grep "Elixir" --color=never | cut -d ' ' -f 2)
+  fi
 
   # Add 'v' before elixir version that starts with a number
   [[ "${elixir_version}" =~ ^[0-9].+$ ]] && elixir_version="v${elixir_version}"
