@@ -349,7 +349,7 @@ Elixir section is shown only in directories that contain `Gemfile`, or `Rakefile
 | `SPACESHIP_ELIXIR_SHOW` | `true` | Show Elixir section |
 | `SPACESHIP_ELIXIR_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Elixir section |
 | `SPACESHIP_ELIXIR_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Elixir section |
-| `SPACESHIP_ELIXIR_DEFAULT_VERSION` | `` | Elixir version to be treated as default (for [e] support) |
+| `SPACESHIP_ELIXIR_DEFAULT_VERSION` | `` | Elixir version to be treated as default |
 | `SPACESHIP_ELIXIR_SYMBOL` | `💧  ` | Character to be shown before Elixir version |
 | `SPACESHIP_ELIXIR_COLOR` | `magenta` | Color of Elixir section |
 
