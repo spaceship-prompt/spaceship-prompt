@@ -145,6 +145,7 @@ SPACESHIP_ELIXIR_SHOW="${SPACESHIP_ELIXIR_SHOW:=true}"
 SPACESHIP_ELIXIR_PREFIX="${SPACESHIP_ELIXIR_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_ELIXIR_SUFFIX="${SPACESHIP_ELIXIR_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_ELIXIR_SYMBOL="${SPACESHIP_ELIXIR_SYMBOL:="💧 "}"
+SPACESHIP_ELIXIR_DEFAULT_VERSION="${SPACESHIP_ELIXIR_DEFAULT_VERSION:=""}"
 SPACESHIP_ELIXIR_COLOR="${SPACESHIP_ELIXIR_COLOR:="magenta"}"
 
 # XCODE
@@ -609,18 +610,12 @@ spaceship_elixir() {
     elixir_version="${ELIXIR_VERSION}"
   elif _exists exenv; then
     elixir_version=$(exenv version-name)
-  elif _exists elixir; then
-    elixir_version=$(elixir -v | grep "Elixir" --color=never | cut -d ' ' -f 2)
+  elif _exists elixir || [[ "${elixir_version}" == "system" ]]; then
+    elixir_version=$(elixir -v 2>/dev/null | grep "Elixir" --color=never | cut -d ' ' -f 2)
+    
+    [[ $elixir_version == $SPACESHIP_ELIXIR_DEFAULT_VERSION ]] && return
   else
     return
-  fi
-
-  if [[ "${elixir_version}" == "system" ]]; then
-    if _exists elixir; then
-      elixir_version=$(elixir -v | grep "Elixir" --color=never | cut -d ' ' -f 2)
-    else
-      return
-    fi
   fi
 
   # Add 'v' before elixir version that starts with a number
