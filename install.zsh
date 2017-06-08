@@ -74,7 +74,7 @@ if [[ -z $ZSH_CUSTOM ]]; then
 fi
 
 # Linking
-log "Moving $SPACESHIP to $DIST..."
+log "Copying $SPACESHIP to $DIST..."
 mkdir -p "$(dirname $DIST)"
 cp -f "$SPACESHIP" "$DIST"
 
