@@ -76,7 +76,7 @@ fi
 # Linking
 log "Moving $SPACESHIP to $DIST..."
 mkdir -p "$(dirname $DIST)"
-mv -f "$SPACESHIP" "$DIST"
+cp -f "$SPACESHIP" "$DIST"
 
 # Add source command to ~/.zshrc
 log "Sourcing Spacehsip in ~/.zshrc..."
