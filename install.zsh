@@ -54,10 +54,10 @@ if [ ! -f "$SPACESHIP" ]; then
 
   if exists curl; then
     log "Downloading using curl:"
-    curl "$URL" -o "$SPACESHIP" || error "Filed to load using curl!" ; exit 1
+    curl "$URL" -o "$SPACESHIP" || $(error "Failed to load using curl!" && exit 1)
   elif exists wget; then
     log "Downloading using wget:"
-    wget "$URL" -O "$SPACESHIP" || error "Filed to load using wget!" ; exit 1
+    wget "$URL" -O "$SPACESHIP" || $(error "Failed to load using wget!" && exit 1)
   else
     # Exit with error
     error "curl and wget are unavailable!"
@@ -74,9 +74,9 @@ if [[ -z $ZSH_CUSTOM ]]; then
 fi
 
 # Linking
-log "Linking $SPACESHIP to $DIST..."
+log "Moving $SPACESHIP to $DIST..."
 mkdir -p "$(dirname $DIST)"
-ln -sf "$SPACESHIP" "$DIST"
+mv -f "$SPACESHIP" "$DIST"
 
 # Add source command to ~/.zshrc
 log "Sourcing Spacehsip in ~/.zshrc..."
@@ -85,6 +85,6 @@ echo 'source "'"$DIST"'"'           >> "$HOME/.zshrc"
 
 # Replace current theme to Spaceship
 log 'Attempting to change $ZSH_THEME to "spaceship"...'
-sed -i '' 's/ZSH_THEME=.*$/ZSH_THEME="spaceship"/g' "$HOME/.zshrc" \
+sed -i'' 's/ZSH_THEME=.*$/ZSH_THEME="spaceship"/g' "$HOME/.zshrc" \
   && success "Done! Please, reload your terminal." \
   || error "Cannot change theme in ~/.zshrc. Please, do it by yourself." \
