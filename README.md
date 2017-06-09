@@ -342,7 +342,7 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 
 ### Elixir (`elixir`)
 
-Elixir section is shown only in directories that contain `Gemfile`, or `Rakefile`, or any other file with `.rb` extension. If the current elixir version is the same as the version set in `SPACESHIP_ELIXIR_DEFAULT_VERSION`, the elixir section will be hidden.
+Elixir section is shown only in directories that contain `mix.exs`, or any other file with `.ex` or `.exs` extension. If the current elixir version is the same as the version set in `SPACESHIP_ELIXIR_DEFAULT_VERSION`, the elixir section will be hidden.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
