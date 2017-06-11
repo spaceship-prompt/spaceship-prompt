@@ -50,6 +50,7 @@ Currently it shows:
 * Current Docker version and connected machine (`🐳`).
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
+* Current .NET SDK version, through dotnet-cli (`.NET`).
 * Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode)).
 * Optional time stamps 12/24hr in format ([how to enable](#time)).
 * Execution time of the last command if it exceeds the set threshold.
@@ -168,6 +169,7 @@ SPACESHIP_PROMPT_ORDER=(
   docker        # Docker section
   venv          # virtualenv section
   pyenv         # Pyenv section
+  dotnet        # .NET section
   exec_time     # Execution time
   line_sep      # Line break
   vi_mode       # Vi-mode indicator
@@ -457,6 +459,18 @@ Go section is shown only in directories that contain `requirements.txt` or any o
 | `SPACESHIP_PYENV_SYMBOL` | `🐍 ` | Character to be shown before Pyenv version |
 | `SPACESHIP_PYENV_COLOR` | `yellow` | Color of Pyenv section |
 
+### .NET (`dotnet`)
+
+.NET section is shown only in directories that contains a `project.json` or `global.json` file, or a file with one of these extensions: `.csproj`, `.xproj` or `.sln`.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_DOTNET_SHOW` | `true` | Current .NET section |
+| `SPACESHIP_DOTNET_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before .NET section |
+| `SPACESHIP_DOTNET_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after .NET section |
+| `SPACESHIP_DOTNET_SYMBOL` | `.NET ` | Character to be shown before .NET version |
+| `SPACESHIP_DOTNET_COLOR` | `128` | [Color code](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg) of .NET section |
+
 ### Execution time (`exec_time`)
 
 Execution time of the last command. Will be displayed if it exceeds the set threshold of time.
@@ -692,6 +706,13 @@ SPACESHIP_PYENV_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_PYENV_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_PYENV_SYMBOL="🐍 "
 SPACESHIP_PYENV_COLOR="yellow"
+
+# DOTNET
+SPACESHIP_DOTNET_SHOW=true
+SPACESHIP_DOTNET_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_DOTNET_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_DOTNET_SYMBOL=".NET "
+SPACESHIP_DOTNET_COLOR="128"
 
 # VI_MODE
 SPACESHIP_VI_MODE_SHOW=true
