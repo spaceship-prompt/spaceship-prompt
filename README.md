@@ -47,6 +47,7 @@ Currently it shows:
 * Current Rust version (`𝗥`)
 * Current version of Haskell Tool Stack (`λ`)
 * Current Julia version (`ஃ`)
+* Current Java version (`☕`)
 * Current Docker version and connected machine (`🐳`).
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
@@ -165,6 +166,7 @@ SPACESHIP_PROMPT_ORDER=(
   rust          # Rust section
   haskell       # Haskell Stack section
   julia         # Julia section
+  java          # Java version
   docker        # Docker section
   venv          # virtualenv section
   pyenv         # Pyenv section
@@ -423,6 +425,18 @@ Julia section is shown only in directories that contain file with `.jl` extensio
 | `SPACESHIP_JULIA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Julia section |
 | `SPACESHIP_JULIA_SYMBOL` | `ஃ ` | Character to be shown before Julia version |
 | `SPACESHIP_JULIA_COLOR` | `green` | Color of Julia section |
+
+### Java (`java`)
+
+Shows Java version.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_JAVA_SHOW` | `true` | Show current Java version or not |
+| `SPACESHIP_JAVA_PREFIX` | `on ` | Prefix before the Java section |
+| `SPACESHIP_JAVA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Java section |
+| `SPACESHIP_JAVA_SYMBOL` | `☕` | Character to be shown before DJava version |
+| `SPACESHIP_JAVA_COLOR` | `magenta` | Color of Java section |
 
 ### Docker (`docker`)
 

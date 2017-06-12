@@ -31,6 +31,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     rust
     haskell
     julia
+    java
     docker
     venv
     pyenv
@@ -189,6 +190,13 @@ SPACESHIP_JULIA_PREFIX="${SPACESHIP_JULIA_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PRE
 SPACESHIP_JULIA_SUFFIX="${SPACESHIP_JULIA_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_JULIA_SYMBOL="${SPACESHIP_JULIA_SYMBOL:="ஃ "}"
 SPACESHIP_JULIA_COLOR="${SPACESHIP_JULIA_COLOR:="green"}"
+
+# JAVA
+SPACESHIP_JAVA_SHOW="${SPACESHIP_JAVA_SHOW:=true}"
+SPACESHIP_JAVA_PREFIX="${SPACESHIP_JAVA_PREFIX:="on "}"
+SPACESHIP_JAVA_SUFFIX="${SPACESHIP_JAVA_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_JAVA_SYMBOL="${SPACESHIP_JAVA_SYMBOL:="☕ "}"
+SPACESHIP_JAVA_COLOR="${SPACESHIP_JAVA_COLOR:="magenta"}"
 
 # DOCKER
 SPACESHIP_DOCKER_SHOW="${SPACESHIP_DOCKER_SHOW:=true}"
@@ -736,6 +744,22 @@ spaceship_julia() {
     "$SPACESHIP_JULIA_PREFIX" \
     "${SPACESHIP_JULIA_SYMBOL}v${julia_version}" \
     "$SPACESHIP_JULIA_SUFFIX"
+}
+
+# JAVA
+# Show current Java version
+spaceship_java() {
+  [[ $SPACESHIP_JAVA_SHOW == false ]] && return
+
+  _exists java || return
+
+  local java_version=$(java -version 2>&1 | head -n 1 | awk -F '"' '{print $2}')
+
+  _prompt_section \
+    "$SPACESHIP_JAVA_COLOR" \
+    "$SPACESHIP_JAVA_PREFIX" \
+    "${SPACESHIP_JAVA_SYMBOL}v${java_version}" \
+    "$SPACESHIP_JAVA_SUFFIX"
 }
 
 # DOCKER
