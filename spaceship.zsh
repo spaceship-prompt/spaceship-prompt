@@ -753,6 +753,9 @@ spaceship_java() {
 
   _exists java || return
 
+  # Show Java version only for Java-related folders
+  [[ -f pom.xml ]] || return
+
   local java_version=$(java -version 2>&1 | head -n 1 | awk -F '"' '{print $2}')
 
   _prompt_section \
