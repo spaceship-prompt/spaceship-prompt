@@ -435,7 +435,7 @@ Shows Java version.
 | `SPACESHIP_JAVA_SHOW` | `true` | Show current Java version or not |
 | `SPACESHIP_JAVA_PREFIX` | `on ` | Prefix before the Java section |
 | `SPACESHIP_JAVA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Java section |
-| `SPACESHIP_JAVA_SYMBOL` | `☕` | Character to be shown before DJava version |
+| `SPACESHIP_JAVA_SYMBOL` | `☕` | Character to be shown before Java version |
 | `SPACESHIP_JAVA_COLOR` | `magenta` | Color of Java section |
 
 ### Docker (`docker`)
@@ -528,6 +528,7 @@ SPACESHIP_PROMPT_ORDER=(
   php
   rust
   julia
+  java
   docker
   venv
   pyenv
@@ -686,6 +687,13 @@ SPACESHIP_JULIA_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_JULIA_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_JULIA_SYMBOL="ஃ "
 SPACESHIP_JULIA_COLOR="green"
+
+# JAVA
+SPACESHIP_JAVA_SHOW=true
+SPACESHIP_JAVA_PREFIX="on "
+SPACESHIP_JAVA_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_JAVA_SYMBOL="☕ "
+SPACESHIP_JAVA_COLOR="magenta"
 
 # DOCKER
 SPACESHIP_DOCKER_SHOW=true
