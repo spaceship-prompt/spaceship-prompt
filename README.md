@@ -430,7 +430,7 @@ Shows Docker version and current connected machine name.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_DOCKER_SHOW` | `true` | Show current Docker version and connected docker-machine ot not |
+| `SPACESHIP_DOCKER_SHOW` | `true` | Show current Docker version and connected docker-machine or not |
 | `SPACESHIP_DOCKER_PREFIX` | `on ` | Prefix before the Docker section |
 | `SPACESHIP_DOCKER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Docker section |
 | `SPACESHIP_DOCKER_SYMBOL` | `🐳 ` | Character to be shown before Docker version |
