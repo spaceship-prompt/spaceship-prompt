@@ -620,6 +620,8 @@ spaceship_elixir() {
     fi
   fi
 
+  [[ $elixir_version == "system" ]] && return
+
   [[ $elixir_version == $SPACESHIP_ELIXIR_DEFAULT_VERSION ]] && return
 
   # Add 'v' before elixir version that starts with a number
