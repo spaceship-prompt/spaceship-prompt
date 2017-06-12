@@ -612,7 +612,7 @@ spaceship_elixir() {
     elixir_version=$(exenv version-name)
   fi
 
-  if [[ $elixir_version == "system" ]] || [[ $elixir_version == "" ]]; then
+  if [[ $elixir_version == "" ]]; then
     if $(_exists elixir); then
       elixir_version=$(elixir -v 2>/dev/null | grep "Elixir" --color=never | cut -d ' ' -f 2)
     else
