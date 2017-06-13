@@ -68,7 +68,7 @@ You can find more examples with different color schemes in [Screenshots](https:/
 
 For correct work you will first need:
 
-* A [`zsh`](http://www.zsh.org/) must be installed
+* A [`zsh`](http://www.zsh.org/) (v5.0.5 or recent) must be installed
 * A zsh–framework like [oh-my-zsh], [antigen] or [zgen]
 
 ## Installing
@@ -720,7 +720,7 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [npm-image]: https://img.shields.io/npm/v/spaceship-zsh-theme.svg?style=flat-square
 
 [zsh-url]: http://zsh.org/
-[zsh-image]: https://img.shields.io/badge/shell-zsh-777777.svg?style=flat-square
+[zsh-image]: https://img.shields.io/badge/zsh->=v5.0.5-777777.svg?style=flat-square
 
 [omz-url]: http://ohmyz.sh/
 [omz-image]: https://img.shields.io/badge/dependency-oh--my--zsh-c5d928.svg?style=flat-square
