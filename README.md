@@ -38,6 +38,7 @@ Currently it shows:
 * Hostname only displayed when in an SSH session.
 * Username displayed only when it isn't `$LOGNAME`.
 * Username turns red when root.
+* Current Ember.js version, through ember-cli (`🔥`).
 * Current Node.js version, through nvm/nodenv/n (`⬢`).
 * Current Ruby version, through rvm/rbenv/chruby (`💎`).
 * Current Swift version, through swiftenv (`🐦`).
@@ -156,6 +157,7 @@ SPACESHIP_PROMPT_ORDER=(
   dir           # Current directory section
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
+  ember         # Ember.js section
   node          # Node.js section
   ruby          # Ruby section
   xcode         # Xcode section
@@ -310,6 +312,18 @@ Mercurial status indicators is shown only when you have dirty repository.
 | `SPACESHIP_HG_STATUS_ADDED` | `+` | Indicator for added changes |
 | `SPACESHIP_HG_STATUS_MODIFIED` | `!` | Indicator for unstaged files |
 | `SPACESHIP_HG_STATUS_DELETED` | `✘` | Indicator for deleted files |
+
+### Ember.js (`ember`)
+
+Ember.js section is shown only in directories that contain a `ember-cli-build.js` file.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_EMBER_SHOW` | `true` | Current Ember.js section |
+| `SPACESHIP_EMBER_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Ember.js section |
+| `SPACESHIP_EMBER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Ember.js section |
+| `SPACESHIP_EMBER_SYMBOL` | `🔥 ` | Character to be shown before Ember.js version |
+| `SPACESHIP_EMBER_COLOR` | `red` | Color of Ember.js section |
 
 ### Node.js (`node`)
 
@@ -506,6 +520,7 @@ SPACESHIP_PROMPT_ORDER=(
   dir
   git
   hg
+  ember
   node
   ruby
   xcode
@@ -613,6 +628,13 @@ SPACESHIP_HG_STATUS_UNTRACKED="?"
 SPACESHIP_HG_STATUS_ADDED="+"
 SPACESHIP_HG_STATUS_MODIFIED="!"
 SPACESHIP_HG_STATUS_DELETED="✘"
+
+# EMBER
+SPACESHIP_EMBER_SHOW=true
+SPACESHIP_EMBER_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_EMBER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_EMBER_SYMBOL="🔥 "
+SPACESHIP_EMBER_COLOR="red"
 
 # NODE
 SPACESHIP_NODE_SHOW=true
