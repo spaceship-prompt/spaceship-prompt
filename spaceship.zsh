@@ -405,7 +405,7 @@ spaceship_dir() {
 }
 
 # GIT BRANCH
-# Show current git brunch using git_current_status from Oh-My-Zsh
+# Show current git branch
 spaceship_git_branch() {
   [[ $SPACEHIP_GIT_BRANCH_SHOW == false ]] && return
 
@@ -417,27 +417,67 @@ spaceship_git_branch() {
 }
 
 # GIT STATUS
-# Check if current dir is a git repo, set up ZSH_THEME_* variables
-# and show git status using git_prompt_status from Oh-My-Zsh
-# Reference:
-#   https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/git.zsh
+# Show git status
 spaceship_git_status() {
   [[ $SPACESHIP_GIT_STATUS_SHOW == false ]] && return
 
   _is_git || return
 
-  ZSH_THEME_GIT_PROMPT_UNTRACKED=$SPACESHIP_GIT_STATUS_UNTRACKED
-  ZSH_THEME_GIT_PROMPT_ADDED=$SPACESHIP_GIT_STATUS_ADDED
-  ZSH_THEME_GIT_PROMPT_MODIFIED=$SPACESHIP_GIT_STATUS_MODIFIED
-  ZSH_THEME_GIT_PROMPT_RENAMED=$SPACESHIP_GIT_STATUS_RENAMED
-  ZSH_THEME_GIT_PROMPT_DELETED=$SPACESHIP_GIT_STATUS_DELETED
-  ZSH_THEME_GIT_PROMPT_STASHED=$SPACESHIP_GIT_STATUS_STASHED
-  ZSH_THEME_GIT_PROMPT_UNMERGED=$SPACESHIP_GIT_STATUS_UNMERGED
-  ZSH_THEME_GIT_PROMPT_AHEAD=$SPACESHIP_GIT_STATUS_AHEAD
-  ZSH_THEME_GIT_PROMPT_BEHIND=$SPACESHIP_GIT_STATUS_BEHIND
-  ZSH_THEME_GIT_PROMPT_DIVERGED=$SPACESHIP_GIT_STATUS_DIVERGED
+  local INDEX STATUS
+  INDEX=$(command git status --porcelain -b 2> /dev/null)
+  git_status=""
 
-  local git_status="$(git_prompt_status)"
+  if $(echo "$INDEX" | command grep -E '^\?\? ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_UNTRACKED$git_status"
+  fi
+
+  if $(echo "$INDEX" | command grep '^A[ MDAU] ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_ADDED$git_status"
+  elif $(echo "$INDEX" | command grep '^UA' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_ADDED$git_status"
+  fi
+
+  if $(echo "$INDEX" | command grep '^M[ MD] ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_MODIFIED$git_status"
+  elif $(echo "$INDEX" | command grep '^[ MARC]M ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_MODIFIED$git_status"
+  fi
+
+  if $(echo "$INDEX" | command grep '^R[ MD] ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_RENAMED$git_status"
+  fi
+
+  if $(echo "$INDEX" | command grep '^[MARCDU] D ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_DELETED$git_status"
+  elif $(echo "$INDEX" | command grep '^D[ UM] ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_DELETED$git_status"
+  fi
+
+  if $(command git rev-parse --verify refs/stash >/dev/null 2>&1); then
+    git_status="$SPACESHIP_GIT_STATUS_STASHED$git_status"
+  fi
+
+  if $(echo "$INDEX" | command grep '^U[UDA] ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_UNMERGED$git_status"
+  elif $(echo "$INDEX" | command grep '^AA ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_UNMERGED$git_status"
+  elif $(echo "$INDEX" | command grep '^DD ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_UNMERGED$git_status"
+  elif $(echo "$INDEX" | command grep '^[DA]U ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_UNMERGED$git_status"
+  fi
+
+  if $(echo "$INDEX" | command grep '^## [^ ]\+ .*ahead' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_AHEAD$git_status"
+  fi
+
+  if $(echo "$INDEX" | command grep '^## [^ ]\+ .*behind' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_BEHIND$git_status"
+  fi
+
+  if $(echo "$INDEX" | command grep '^## [^ ]\+ .*diverged' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_DIVERGED$git_status"
+  fi
 
   if [[ -n $git_status ]]; then
     # Status prefixes are colorized
