@@ -29,6 +29,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     golang
     php
     rust
+    yarn
     haskell
     julia
     docker
@@ -196,6 +197,13 @@ SPACESHIP_DOCKER_PREFIX="${SPACESHIP_DOCKER_PREFIX:="on "}"
 SPACESHIP_DOCKER_SUFFIX="${SPACESHIP_DOCKER_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_DOCKER_SYMBOL="${SPACESHIP_DOCKER_SYMBOL:="🐳 "}"
 SPACESHIP_DOCKER_COLOR="${SPACESHIP_DOCKER_COLOR:="cyan"}"
+
+# YARN
+SPACESHIP_YARN_SHOW="${SPACESHIP_YARN_SHOW:=true}"
+SPACESHIP_DOCKER_PREFIX="${SPACESHIP_YARN_PREFIX:="on "}"
+SPACESHIP_YARN_SUFFIX="${SPACESHIP_YARN_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_YARN_SYMBOL="${SPACESHIP_YARN_SYMBOL:="🐱 "}"
+SPACESHIP_YARN_COLOR="${SPACESHIP_YARN_COLOR:="blue"}"
 
 # VENV
 SPACESHIP_VENV_SHOW="${SPACESHIP_VENV_SHOW:=true}"
@@ -659,6 +667,22 @@ spaceship_golang() {
     "$SPACESHIP_GOLANG_PREFIX" \
     "${SPACESHIP_GOLANG_SYMBOL}v${go_version}" \
     "$SPACESHIP_GOLANG_SUFFIX"
+}
+
+# YARN
+# Show current Yarn version
+spaceship_yarn() {
+  [[ $SPACESHIP_YARN_SHOW == false ]] && return
+
+  _exists yarn || return
+
+  local yarn_version=$(yarn --version)
+
+  _prompt_section \
+    "$SPACESHIP_YARN_COLOR" \
+    "$SPACESHIP_YARN_PREFIX" \
+    "${SPACESHIP_YARN_SYMBOL}v${yarn_version}" \
+    "$SPACESHIP_YARN_SUFFIX"
 }
 
 # PHP
