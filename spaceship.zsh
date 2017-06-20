@@ -405,7 +405,9 @@ spaceship_dir() {
 }
 
 # GIT BRANCH
-# Show current git brunch using git_current_status from Oh-My-Zsh
+# Show current git brunch using git_current_branch from Oh-My-Zsh
+# Reference:
+#   https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/git.zsh
 spaceship_git_branch() {
   [[ $SPACEHIP_GIT_BRANCH_SHOW == false ]] && return
 
