@@ -411,9 +411,8 @@ spaceship_git_branch() {
 
   _is_git || return
 
-  if [[ $ret != 0 ]]; then
-    [[ $ret == 128 ]] && return
   local ref=$(command git symbolic-ref --quiet HEAD 2> /dev/null) ret=$?
+  if [[ $ret != 0 && $ret != 128 ]]; then
     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
   fi
 
