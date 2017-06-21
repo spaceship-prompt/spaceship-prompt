@@ -411,6 +411,16 @@ spaceship_git_branch() {
 
   _is_git || return
 
+  local ref
+  ref=$(command git symbolic-ref --quiet HEAD 2> /dev/null)
+  local ret=$?
+  if [[ $ret != 0 ]]; then
+    [[ $ret == 128 ]] && return
+    ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
+  fi
+
+  local git_current_branch=${ref#refs/heads/}
+
   _prompt_section \
     "$SPACESHIP_GIT_BRANCH_COLOR" \
     "$SPACESHIP_GIT_BRANCH_PREFIX$(git_current_branch)$SPACESHIP_GIT_BRANCH_SUFFIX"
