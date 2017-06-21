@@ -411,11 +411,9 @@ spaceship_git_branch() {
 
   _is_git || return
 
-  local ref
-  ref=$(command git symbolic-ref --quiet HEAD 2> /dev/null)
-  local ret=$?
   if [[ $ret != 0 ]]; then
     [[ $ret == 128 ]] && return
+  local ref=$(command git symbolic-ref --quiet HEAD 2> /dev/null) ret=$?
     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
   fi
 
@@ -433,9 +431,9 @@ spaceship_git_status() {
 
   _is_git || return
 
-  local INDEX STATUS
+  local INDEX git_status=""
+
   INDEX=$(command git status --porcelain -b 2> /dev/null)
-  git_status=""
 
   if $(echo "$INDEX" | command grep -E '^\?\? ' &> /dev/null); then
     git_status="$SPACESHIP_GIT_STATUS_UNTRACKED$git_status"
