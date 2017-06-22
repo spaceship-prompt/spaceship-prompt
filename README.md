@@ -8,12 +8,11 @@
 
 [![NPM version][npm-image]][npm-url]
 [![ZSH][zsh-image]][zsh-url]
-[![Oh-My-Zsh][omz-image]][omz-url]
 [![Donatation][donate-image]][donate-url]
 
-> An [“Oh My ZSH!”][oh-my-zsh] theme for Astronauts.
+> An [“ZSH!”][zsh-url] theme for Astronauts.
 
-Spaceship is a minimalistic, powerful and extremely customizable [“Oh My ZSH!”][oh-my-zsh] theme. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
+Spaceship is a minimalistic, powerful and extremely customizable [“ZSH!”][zsh-url] theme. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
 
 Currently it shows:
 
@@ -99,7 +98,7 @@ wget -O - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/mast
 
 ### [antigen]
 
-Add the following snippet `~/.zshrc` after the line `antigen use oh-my-zsh`:
+Add the following snippet in your `~/.zshrc``:
 
 ```
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
@@ -721,9 +720,6 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 
 [zsh-url]: http://zsh.org/
 [zsh-image]: https://img.shields.io/badge/zsh->=v5.0.5-777777.svg?style=flat-square
-
-[omz-url]: http://ohmyz.sh/
-[omz-image]: https://img.shields.io/badge/dependency-oh--my--zsh-c5d928.svg?style=flat-square
 
 [donate-url]: https://www.liqpay.com/en/checkout/380951100392
 [donate-image]: https://img.shields.io/badge/support-donate-yellow.svg?style=flat-square
