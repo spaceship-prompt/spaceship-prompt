@@ -22,6 +22,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     dir
     git
     hg
+    package
     node
     ruby
     elixir
@@ -133,6 +134,13 @@ SPACESHIP_NODE_SUFFIX="${SPACESHIP_NODE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFI
 SPACESHIP_NODE_SYMBOL="${SPACESHIP_NODE_SYMBOL:="⬢ "}"
 SPACESHIP_NODE_DEFAULT_VERSION="${SPACESHIP_NODE_DEFAULT_VERSION:=""}"
 SPACESHIP_NODE_COLOR="${SPACESHIP_NODE_COLOR:="green"}"
+
+# NPM
+SPACESHIP_PACKAGE_SHOW="${SPACESHIP_PACKAGE_SHOW:=true}"
+SPACESHIP_PACKAGE_PREFIX="${SPACESHIP_PACKAGE_PREFIX:="at "}"
+SPACESHIP_PACKAGE_SUFFIX="${SPACESHIP_PACKAGE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL:="📦  "}"
+SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR:="red"}"
 
 # RUBY
 SPACESHIP_RUBY_SHOW="${SPACESHIP_RUBY_SHOW:=true}"
@@ -570,6 +578,28 @@ spaceship_node() {
     "$SPACESHIP_NODE_PREFIX" \
     "${SPACESHIP_NODE_SYMBOL}${node_version}" \
     "$SPACESHIP_NODE_SUFFIX"
+}
+
+# Show current package version
+spaceship_package() {
+  [[ $SPACESHIP_PACKAGE_SHOW == false ]] && return
+
+  # Show NODE status only for JS-specific folders
+  [[ -f package.json ]] || return
+
+  local package_version
+
+  if _exists npm; then
+    package_version=$(grep '"version":' package.json | cut -d\" -f4 2>/dev/null)
+  else
+    return
+  fi
+
+  _prompt_section \
+    "$SPACESHIP_PACKAGE_COLOR" \
+    "$SPACESHIP_PACKAGE_PREFIX" \
+    "${SPACESHIP_PACKAGE_SYMBOL}${package_version}" \
+    "$SPACESHIP_PACKAGE_SUFFIX"
 }
 
 # RUBY

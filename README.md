@@ -158,6 +158,7 @@ SPACESHIP_PROMPT_ORDER=(
   dir           # Current directory section
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
+  package       # package.json version
   node          # Node.js section
   ruby          # Ruby section
   elixir        # Elixir section
@@ -329,6 +330,20 @@ If you use [n] as Node.js version manager, please, set `SPACESHIP_NODE_DEFAULT_V
 | `SPACESHIP_NODE_SYMBOL` | `⬢ ` | Character to be shown before Node.js version |
 | `SPACESHIP_NODE_DEFAULT_VERSION` | `` | Node.js version to be treated as default (for [n] support) |
 | `SPACESHIP_NODE_COLOR` | `green` | Color of Node.js section |
+
+### npm package version (`package`)
+
+npm package version section is shown only in directories that contain a `package.json` file.
+
+This is the version of the package you are working on, not the version of `npm` itself.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_PACKAGE_SHOW` | `true` | Show package.json version |
+| `SPACESHIP_PACKAGE_PREFIX` | `at ` | Prefix before npm package version section |
+| `SPACESHIP_PACKAGE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after npm package version section |
+| `SPACESHIP_PACKAGE_SYMBOL` | `📦 ` | Character to be shown before package.json version |
+| `SPACESHIP_PACKAGE_COLOR` | `red` | Color of npm package version section |
 
 ### Ruby (`ruby`)
 
@@ -536,6 +551,7 @@ SPACESHIP_PROMPT_ORDER=(
   dir
   git
   hg
+  package
   node
   ruby
   elixir
@@ -652,6 +668,13 @@ SPACESHIP_NODE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_NODE_SYMBOL="⬢ "
 SPACESHIP_NODE_DEFAULT_VERSION=""
 SPACESHIP_NODE_COLOR="green"
+
+# NPM
+SPACESHIP_PACKAGE_SHOW="${SPACESHIP_PACKAGE_SHOW:=true}"
+SPACESHIP_PACKAGE_PREFIX="${SPACESHIP_PACKAGE_PREFIX:="at "}"
+SPACESHIP_PACKAGE_SUFFIX="${SPACESHIP_PACKAGE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL:="📦 "}"
+SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR:="red"}"
 
 # RUBY
 SPACESHIP_RUBY_SHOW=true
