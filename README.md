@@ -53,9 +53,10 @@ Currently it shows:
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
 * Current .NET SDK version, through dotnet-cli (`.NET`).
-* Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode)).
+* Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode-vi_mode)).
 * Indicator for jobs in the background (`✦`).
-* Optional time stamps 12/24hr in format ([how to enable](#time)).
+* Optional exit-code of last command ([how to enable](#exit-code-exit_code)).
+* Optional time stamps 12/24hr in format ([how to enable](#time-time)).
 * Execution time of the last command if it exceeds the set threshold.
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new) or send pull request.
@@ -179,6 +180,7 @@ SPACESHIP_PROMPT_ORDER=(
   line_sep      # Line break
   vi_mode       # Vi-mode indicator
   jobs          # Backgound jobs indicator
+  exit_code     # Exit code section
   char          # Prompt character
 )
 ```
@@ -195,7 +197,7 @@ SPACESHIP_PROMPT_ORDER=(
 | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | `via ` | Default prefix for prompt sections |
 | `SPACESHIP_PROMPT_DEFAULT_SUFFIX` | ` ` | Default suffix for prompt section |
 
-### Time
+### Time (`time`)
 
 Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if you need to show time stamps.
 
@@ -539,7 +541,6 @@ You can temporarily enable or disable vi-mode with handy functions (just execute
 
 **Note:** For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$reset_color%}"` before `source $ZSH/oh-my-zsh.sh` in `.zshrc` to disable default `<<<` NORMAL mode indicator in right prompt.
 
-
 ### Jobs (`jobs`)
 
 This section show only when there are active jobs in the background.
@@ -551,6 +552,18 @@ This section show only when there are active jobs in the background.
 | `SPACESHIP_JOBS_SUFFIX` | ` ` | Suffix after the jobs indicator |
 | `SPACESHIP_JOBS_SYMBOL` | `✦` | Character to be shown when jobs are hiding |
 | `SPACESHIP_JOBS_COLOR` | `blue` | Color of background jobs section |
+
+### Exit code (`exit_code`)
+
+Disabled as default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show exit code of last command.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_EXIT_CODE_SHOW` | `false` | Show exit code of last command |
+| `SPACESHIP_EXIT_CODE_PREFIX` | `` | Prefix before exit code section |
+| `SPACESHIP_EXIT_CODE_SUFFIX` | ` ` | Suffix after exit code section |
+| `SPACESHIP_EXIT_CODE_SYMBOL` | `✘` | Character to be shown before exit code |
+| `SPACESHIP_EXIT_CODE_COLOR` | `red` | Color of exit code section |
 
 ### Example
 
@@ -584,6 +597,7 @@ SPACESHIP_PROMPT_ORDER=(
   line_sep
   vi_mode
   jobs
+  exit_code
   char
 )
 
@@ -793,6 +807,13 @@ SPACESHIP_JOBS_PREFIX=""
 SPACESHIP_JOBS_SUFFIX=" "
 SPACESHIP_JOBS_SYMBOL="✦"
 SPACESHIP_JOBS_COLOR="blue"
+
+# EXIT CODE
+SPACESHIP_EXIT_CODE_SHOW=false
+SPACESHIP_EXIT_CODE_PREFIX="("
+SPACESHIP_EXIT_CODE_SUFFIX=") "
+SPACESHIP_EXIT_CODE_SYMBOl="✘ "
+SPACESHIP_EXIT_CODE_COLOR="red"
 ```
 
 ## Donate

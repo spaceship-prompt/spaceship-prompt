@@ -41,6 +41,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     line_sep
     vi_mode
     jobs
+    exit_code
     char
   )
 fi
@@ -257,6 +258,13 @@ SPACESHIP_JOBS_PREFIX="${SPACESHIP_JOBS_PREFIX:=""}"
 SPACESHIP_JOBS_SUFFIX="${SPACESHIP_JOBS_SUFFIX:=" "}"
 SPACESHIP_JOBS_SYMBOL="${SPACESHIP_JOBS_SYMBOL:="✦"}"
 SPACESHIP_JOBS_COLOR="${SPACESHIP_JOBS_COLOR:="blue"}"
+
+# EXIT CODE
+SPACESHIP_EXIT_CODE_SHOW="${SPACESHIP_EXIT_CODE_SHOW:=false}"
+SPACESHIP_EXIT_CODE_PREFIX="${SPACESHIP_EXIT_CODE_PREFIX:=""}"
+SPACESHIP_EXIT_CODE_SUFFIX="${SPACESHIP_EXIT_CODE_SUFFIX:=" "}"
+SPACESHIP_EXIT_CODE_SYMBOl="${SPACESHIP_EXIT_CODE_SYMBOl:="✘"}"
+SPACESHIP_EXIT_CODE_COLOR="${SPACESHIP_EXIT_CODE_COLOR:="red"}"
 
 # ------------------------------------------------------------------------------
 # HELPERS
@@ -984,6 +992,18 @@ spaceship_jobs() {
     "$SPACESHIP_JOBS_SUFFIX"
 }
 
+# EXIT CODE
+# Show exit code of last statement
+spaceship_exit_code() {
+  [[ $SPACESHIP_EXIT_CODE_SHOW == false || $RETVAL == 0 ]] && return
+
+  _prompt_section \
+    "$SPACESHIP_EXIT_CODE_COLOR" \
+    "$SPACESHIP_EXIT_CODE_PREFIX" \
+    "${SPACESHIP_EXIT_CODE_SYMBOl}$RETVAL" \
+    "$SPACESHIP_EXIT_CODE_SUFFIX"
+}
+
 # LINE SEPARATOR
 # Should it write prompt in two lines or not?
 spaceship_line_sep() {
@@ -1040,6 +1060,10 @@ _deprecated SPACESHIP_GIT_UNPUSHED SPACESHIP_GIT_STATUS_AHEAD
 
 # Compose whole prompt from smaller parts
 spaceship_prompt() {
+  # Retirve exit code of last command to use in exit_code
+  # Must be captured before any other command in prompt is executed
+  RETVAL=$?
+
   # Option EXTENDED_GLOB is set locally to force filename generation on
   # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
   # See the description of filename generation in
