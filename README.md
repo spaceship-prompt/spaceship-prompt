@@ -8,11 +8,12 @@
 
 [![NPM version][npm-image]][npm-url]
 [![ZSH][zsh-image]][zsh-url]
+![Dependency][dependency-image]
 [![Donatation][donate-image]][donate-url]
 
-> An [“ZSH!”][zsh-url] theme for Astronauts.
+> An [ZSH][zsh-url] prompt for Astronauts.
 
-Spaceship is a minimalistic, powerful and extremely customizable [“ZSH!”][zsh-url] theme. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
+Spaceship is a minimalistic, powerful and extremely customizable [ZSH][zsh-url] prompt. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
 
 Currently it shows:
 
@@ -720,6 +721,8 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 
 [zsh-url]: http://zsh.org/
 [zsh-image]: https://img.shields.io/badge/zsh->=v5.0.5-777777.svg?style=flat-square
+
+[dependency-image]:  https://img.shields.io/badge/dependencies-none-c5d928.svg?style=flat-square
 
 [donate-url]: https://www.liqpay.com/en/checkout/380951100392
 [donate-image]: https://img.shields.io/badge/support-donate-yellow.svg?style=flat-square
