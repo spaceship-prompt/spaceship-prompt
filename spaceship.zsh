@@ -34,6 +34,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     docker
     venv
     pyenv
+    dotnet
     exec_time
     line_sep
     vi_mode
@@ -209,6 +210,13 @@ SPACESHIP_PYENV_PREFIX="${SPACESHIP_PYENV_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PRE
 SPACESHIP_PYENV_SUFFIX="${SPACESHIP_PYENV_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_PYENV_SYMBOL="${SPACESHIP_PYENV_SYMBOL:="🐍 "}"
 SPACESHIP_PYENV_COLOR="${SPACESHIP_PYENV_COLOR:="yellow"}"
+
+# DOTNET
+SPACESHIP_DOTNET_SHOW="${SPACESHIP_DOTNET_SHOW:=true}"
+SPACESHIP_DOTNET_PREFIX="${SPACESHIP_DOTNET_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_DOTNET_SUFFIX="${SPACESHIP_DOTNET_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_DOTNET_SYMBOL="${SPACESHIP_DOTNET_SYMBOL:=".NET "}"
+SPACESHIP_DOTNET_COLOR="${SPACESHIP_DOTNET_COLOR:="128"}"
 
 # VI_MODE
 SPACESHIP_VI_MODE_SHOW="${SPACESHIP_VI_MODE_SHOW:=true}"
@@ -807,6 +815,31 @@ spaceship_pyenv() {
     "$SPACESHIP_PYENV_PREFIX" \
     "${SPACESHIP_PYENV_SYMBOL}${pyenv_status}" \
     "$SPACESHIP_PYENV_SUFFIX"
+}
+
+# DOTNET
+# Show current version of .NET SDK
+spaceship_dotnet() {
+  [[ $SPACESHIP_DOTNET_SHOW == false ]] && return
+
+  # Show DOTNET status only for folders containing project.json, global.json, .csproj, .xproj or .sln files
+  [[ -f project.json || -f global.json || -n *.csproj(#qN) || -n *.xproj(#qN) || -n *.sln(#qN) ]] || return
+
+  local dotnet_version
+
+  if _exists dotnet; then
+    # dotnet-cli automatically handles SDK pinning (specified in a global.json file)
+    # therefore, this already returns the expected version for the current directory
+    dotnet_version=$(dotnet --version 2>/dev/null)
+  else
+    return
+  fi
+
+  _prompt_section \
+    "$SPACESHIP_DOTNET_COLOR" \
+    "$SPACESHIP_DOTNET_PREFIX" \
+    "${SPACESHIP_DOTNET_SYMBOL}${dotnet_version}" \
+    "$SPACESHIP_DOTNET_SUFFIX"
 }
 
 # EXECUTION TIME
