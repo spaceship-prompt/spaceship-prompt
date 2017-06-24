@@ -38,6 +38,7 @@ Currently it shows:
 * Hostname only displayed when in an SSH session.
 * Username displayed only when it isn't `$LOGNAME`.
 * Username turns red when root.
+* If repo is a package, shows its version through npm (`📦`).
 * Current Node.js version, through nvm/nodenv/n (`⬢`).
 * Current Ruby version, through rvm/rbenv/chruby (`💎`).
 * Current Elixir version, through kiex/exenv/elixir (`💧`).
@@ -158,6 +159,7 @@ SPACESHIP_PROMPT_ORDER=(
   dir           # Current directory section
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
+  package       # Package version
   node          # Node.js section
   ruby          # Ruby section
   elixir        # Elixir section
@@ -314,6 +316,20 @@ Mercurial status indicators is shown only when you have dirty repository.
 | `SPACESHIP_HG_STATUS_ADDED` | `+` | Indicator for added changes |
 | `SPACESHIP_HG_STATUS_MODIFIED` | `!` | Indicator for unstaged files |
 | `SPACESHIP_HG_STATUS_DELETED` | `✘` | Indicator for deleted files |
+
+### Package version (`package`)
+
+> Works only for npm at the moment. Please, help us improve this section!
+
+Package version is shown when repository is a package (contains a `package.json` file). This is the version of the package you are working on, not the version of package manager itself.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_PACKAGE_SHOW` | `true` | Show package version |
+| `SPACESHIP_PACKAGE_PREFIX` | `is ` | Prefix before package version section |
+| `SPACESHIP_PACKAGE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after package version section |
+| `SPACESHIP_PACKAGE_SYMBOL` | `📦 ` | Character to be shown before package version |
+| `SPACESHIP_PACKAGE_COLOR` | `red` | Color of package version section |
 
 ### Node.js (`node`)
 
@@ -536,6 +552,7 @@ SPACESHIP_PROMPT_ORDER=(
   dir
   git
   hg
+  package
   node
   ruby
   elixir
@@ -644,6 +661,13 @@ SPACESHIP_HG_STATUS_UNTRACKED="?"
 SPACESHIP_HG_STATUS_ADDED="+"
 SPACESHIP_HG_STATUS_MODIFIED="!"
 SPACESHIP_HG_STATUS_DELETED="✘"
+
+# PACKAGE
+SPACESHIP_PACKAGE_SHOW="${SPACESHIP_PACKAGE_SHOW:=true}"
+SPACESHIP_PACKAGE_PREFIX="${SPACESHIP_PACKAGE_PREFIX:="is "}"
+SPACESHIP_PACKAGE_SUFFIX="${SPACESHIP_PACKAGE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL:="📦 "}"
+SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR:="red"}"
 
 # NODE
 SPACESHIP_NODE_SHOW=true

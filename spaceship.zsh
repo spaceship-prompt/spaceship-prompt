@@ -22,6 +22,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     dir
     git
     hg
+    package
     node
     ruby
     elixir
@@ -125,6 +126,13 @@ SPACESHIP_HG_STATUS_UNTRACKED="${SPACESHIP_HG_STATUS_UNTRACKED:="?"}"
 SPACESHIP_HG_STATUS_ADDED="${SPACESHIP_HG_STATUS_ADDED:="+"}"
 SPACESHIP_HG_STATUS_MODIFIED="${SPACESHIP_HG_STATUD_MODIFIED:="!"}"
 SPACESHIP_HG_STATUS_DELETED="${SPACESHIP_HG_STATUS_DELETED:="✘"}"
+
+# PACKAGE
+SPACESHIP_PACKAGE_SHOW="${SPACESHIP_PACKAGE_SHOW:=true}"
+SPACESHIP_PACKAGE_PREFIX="${SPACESHIP_PACKAGE_PREFIX:="is "}"
+SPACESHIP_PACKAGE_SUFFIX="${SPACESHIP_PACKAGE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL:="📦  "}"
+SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR:="red"}"
 
 # NODE
 SPACESHIP_NODE_SHOW="${SPACESHIP_NODE_SHOW:=true}"
@@ -540,6 +548,28 @@ spaceship_hg() {
     "$SPACESHIP_HG_PREFIX" \
     "${hg_branch}${hg_status}" \
     "$SPACESHIP_HG_SUFFIX"
+}
+
+# PACKAGE
+# Show current package version
+spaceship_package() {
+  [[ $SPACESHIP_PACKAGE_SHOW == false ]] && return
+
+  # Show package version only when repository is a package
+  # @todo: add more package managers
+  [[ -f package.json ]] || return
+
+  _exists npm || return
+
+  # Grep and cut out package version
+  local package_version=$(grep '"version":' package.json | cut -d\" -f4 2> /dev/null)
+  package_version="v${package_version}"
+
+  _prompt_section \
+    "$SPACESHIP_PACKAGE_COLOR" \
+    "$SPACESHIP_PACKAGE_PREFIX" \
+    "${SPACESHIP_PACKAGE_SYMBOL}${package_version}" \
+    "$SPACESHIP_PACKAGE_SUFFIX"
 }
 
 # NODE
