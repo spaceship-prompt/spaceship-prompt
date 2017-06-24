@@ -825,15 +825,11 @@ spaceship_dotnet() {
   # Show DOTNET status only for folders containing project.json, global.json, .csproj, .xproj or .sln files
   [[ -f project.json || -f global.json || -n *.csproj(#qN) || -n *.xproj(#qN) || -n *.sln(#qN) ]] || return
 
-  local dotnet_version
+  _exists dotnet || return
 
-  if _exists dotnet; then
-    # dotnet-cli automatically handles SDK pinning (specified in a global.json file)
-    # therefore, this already returns the expected version for the current directory
-    dotnet_version=$(dotnet --version 2>/dev/null)
-  else
-    return
-  fi
+  # dotnet-cli automatically handles SDK pinning (specified in a global.json file)
+  # therefore, this already returns the expected version for the current directory
+  local dotnet_version=$(dotnet --version 2>/dev/null)
 
   _prompt_section \
     "$SPACESHIP_DOTNET_COLOR" \
