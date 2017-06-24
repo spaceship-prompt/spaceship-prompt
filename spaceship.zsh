@@ -983,12 +983,15 @@ spaceship_vi_mode_disable() {
 spaceship_jobs() {
   [[ $SPACESHIP_JOBS_SHOW == false ]] && return
 
-  [[ $(jobs -l | wc -l) -gt 0 ]] || return
+  local jobs_amount=$(jobs -l | wc -l | xargs)
+
+  [[ $jobs_amount -gt 0 ]] || return
+  [[ $jobs_amount -eq 1 ]] && jobs_amount=''
 
   _prompt_section \
     "$SPACESHIP_JOBS_COLOR" \
     "$SPACESHIP_JOBS_PREFIX" \
-    "${SPACESHIP_JOBS_SYMBOL}" \
+    "${SPACESHIP_JOBS_SYMBOL}${jobs_amount}" \
     "$SPACESHIP_JOBS_SUFFIX"
 }
 
