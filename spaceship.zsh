@@ -13,6 +13,10 @@
 NEWLINE='
 '
 
+# @todo: Split single large source file by sections into smaller modules
+# @idea: Source only those sections, which are needed (listed in $SPACESHIP_PROMPT_ORDER)
+SPACESHIP_ROOT=${0:A:h}
+
 # ORDER
 if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
   SPACESHIP_PROMPT_ORDER=(
