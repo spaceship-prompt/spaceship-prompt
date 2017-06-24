@@ -621,15 +621,11 @@ spaceship_elixir() {
   fi
 
   if [[ $elixir_version == "" ]]; then
-    if $(_exists elixir); then
-      elixir_version=$(elixir -v 2>/dev/null | grep "Elixir" --color=never | cut -d ' ' -f 2)
-    else
-      return
-    fi
+    _exists elixir || return
+    elixir_version=$(elixir -v 2>/dev/null | grep "Elixir" --color=never | cut -d ' ' -f 2)
   fi
 
   [[ $elixir_version == "system" ]] && return
-
   [[ $elixir_version == $SPACESHIP_ELIXIR_DEFAULT_VERSION ]] && return
 
   # Add 'v' before elixir version that starts with a number

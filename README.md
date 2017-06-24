@@ -40,7 +40,7 @@ Currently it shows:
 * Username turns red when root.
 * Current Node.js version, through nvm/nodenv/n (`⬢`).
 * Current Ruby version, through rvm/rbenv/chruby (`💎`).
-* Current Elixir version, through kiex/exenv/`elixir -v` (`💧`).
+* Current Elixir version, through kiex/exenv/elixir (`💧`).
 * Current Swift version, through swiftenv (`🐦`).
 * Current Xcode version, through xenv (`🛠`).
 * Current Go version (`🐹`).
