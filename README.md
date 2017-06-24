@@ -54,6 +54,7 @@ Currently it shows:
 * Current Python pyenv (`🐍`).
 * Current .NET SDK version, through dotnet-cli (`.NET`).
 * Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode)).
+* Indicator for jobs in the background (`✦`).
 * Optional time stamps 12/24hr in format ([how to enable](#time)).
 * Execution time of the last command if it exceeds the set threshold.
 
@@ -177,6 +178,7 @@ SPACESHIP_PROMPT_ORDER=(
   exec_time     # Execution time
   line_sep      # Line break
   vi_mode       # Vi-mode indicator
+  jobs          # Backgound jobs indicator
   char          # Prompt character
 )
 ```
@@ -537,6 +539,19 @@ You can temporarily enable or disable vi-mode with handy functions (just execute
 
 **Note:** For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$reset_color%}"` before `source $ZSH/oh-my-zsh.sh` in `.zshrc` to disable default `<<<` NORMAL mode indicator in right prompt.
 
+
+### Jobs (`jobs`)
+
+This section show only when there are active jobs in the background.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_JOBS_SHOW` | `true` | Show background jobs indicator  |
+| `SPACESHIP_JOBS_PREFIX` | `` | Prefix before the jobs indicator |
+| `SPACESHIP_JOBS_SUFFIX` | ` ` | Suffix after the jobs indicator |
+| `SPACESHIP_JOBS_SYMBOL` | `✦` | Character to be shown when jobs are hiding |
+| `SPACESHIP_JOBS_COLOR` | `blue` | Color of background jobs section |
+
 ### Example
 
 Here is all options which may be changed. Copy this to your `~/.zshrc` to make it easy to change.
@@ -568,6 +583,7 @@ SPACESHIP_PROMPT_ORDER=(
   exec_time
   line_sep
   vi_mode
+  jobs
   char
 )
 
@@ -770,6 +786,13 @@ SPACESHIP_VI_MODE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_VI_MODE_INSERT="[I]"
 SPACESHIP_VI_MODE_NORMAL="[N]"
 SPACESHIP_VI_MODE_COLOR="white"
+
+# JOBS
+SPACESHIP_JOBS_SHOW="true"
+SPACESHIP_JOBS_PREFIX=""
+SPACESHIP_JOBS_SUFFIX=" "
+SPACESHIP_JOBS_SYMBOL="✦"
+SPACESHIP_JOBS_COLOR="blue"
 ```
 
 ## Donate
