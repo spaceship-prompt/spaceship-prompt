@@ -38,6 +38,7 @@ Currently it shows:
 * Hostname only displayed when in an SSH session.
 * Username displayed only when it isn't `$LOGNAME`.
 * Username turns red when root.
+* If repo is a package, shows its version through npm (`📦`).
 * Current Node.js version, through nvm/nodenv/n (`⬢`).
 * Current Ruby version, through rvm/rbenv/chruby (`💎`).
 * Current Elixir version, through kiex/exenv/elixir (`💧`).
@@ -158,7 +159,7 @@ SPACESHIP_PROMPT_ORDER=(
   dir           # Current directory section
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
-  package       # package.json version
+  package       # Package version
   node          # Node.js section
   ruby          # Ruby section
   elixir        # Elixir section
@@ -316,6 +317,20 @@ Mercurial status indicators is shown only when you have dirty repository.
 | `SPACESHIP_HG_STATUS_MODIFIED` | `!` | Indicator for unstaged files |
 | `SPACESHIP_HG_STATUS_DELETED` | `✘` | Indicator for deleted files |
 
+### Package version (`package`)
+
+> Works only for npm at the moment. Please, help us improve this section!
+
+Package version is shown when repository is a package (contains a `package.json` file). This is the version of the package you are working on, not the version of package manager itself.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_PACKAGE_SHOW` | `true` | Show package version |
+| `SPACESHIP_PACKAGE_PREFIX` | `is ` | Prefix before package version section |
+| `SPACESHIP_PACKAGE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after package version section |
+| `SPACESHIP_PACKAGE_SYMBOL` | `📦 ` | Character to be shown before package version |
+| `SPACESHIP_PACKAGE_COLOR` | `red` | Color of package version section |
+
 ### Node.js (`node`)
 
 Node.js section is shown only in directories that contain `package.json` file, or `node_modules` folder, or any other file with `.js` extension.
@@ -330,20 +345,6 @@ If you use [n] as Node.js version manager, please, set `SPACESHIP_NODE_DEFAULT_V
 | `SPACESHIP_NODE_SYMBOL` | `⬢ ` | Character to be shown before Node.js version |
 | `SPACESHIP_NODE_DEFAULT_VERSION` | `` | Node.js version to be treated as default (for [n] support) |
 | `SPACESHIP_NODE_COLOR` | `green` | Color of Node.js section |
-
-### npm package version (`package`)
-
-npm package version section is shown only in directories that contain a `package.json` file.
-
-This is the version of the package you are working on, not the version of `npm` itself.
-
-| Variable | Default | Meaning |
-| :------- | :-----: | ------- |
-| `SPACESHIP_PACKAGE_SHOW` | `true` | Show package.json version |
-| `SPACESHIP_PACKAGE_PREFIX` | `at ` | Prefix before npm package version section |
-| `SPACESHIP_PACKAGE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after npm package version section |
-| `SPACESHIP_PACKAGE_SYMBOL` | `📦 ` | Character to be shown before package.json version |
-| `SPACESHIP_PACKAGE_COLOR` | `red` | Color of npm package version section |
 
 ### Ruby (`ruby`)
 
@@ -661,6 +662,13 @@ SPACESHIP_HG_STATUS_ADDED="+"
 SPACESHIP_HG_STATUS_MODIFIED="!"
 SPACESHIP_HG_STATUS_DELETED="✘"
 
+# PACKAGE
+SPACESHIP_PACKAGE_SHOW="${SPACESHIP_PACKAGE_SHOW:=true}"
+SPACESHIP_PACKAGE_PREFIX="${SPACESHIP_PACKAGE_PREFIX:="is "}"
+SPACESHIP_PACKAGE_SUFFIX="${SPACESHIP_PACKAGE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL:="📦 "}"
+SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR:="red"}"
+
 # NODE
 SPACESHIP_NODE_SHOW=true
 SPACESHIP_NODE_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
@@ -668,13 +676,6 @@ SPACESHIP_NODE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_NODE_SYMBOL="⬢ "
 SPACESHIP_NODE_DEFAULT_VERSION=""
 SPACESHIP_NODE_COLOR="green"
-
-# NPM
-SPACESHIP_PACKAGE_SHOW="${SPACESHIP_PACKAGE_SHOW:=true}"
-SPACESHIP_PACKAGE_PREFIX="${SPACESHIP_PACKAGE_PREFIX:="at "}"
-SPACESHIP_PACKAGE_SUFFIX="${SPACESHIP_PACKAGE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL:="📦 "}"
-SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR:="red"}"
 
 # RUBY
 SPACESHIP_RUBY_SHOW=true

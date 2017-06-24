@@ -127,6 +127,13 @@ SPACESHIP_HG_STATUS_ADDED="${SPACESHIP_HG_STATUS_ADDED:="+"}"
 SPACESHIP_HG_STATUS_MODIFIED="${SPACESHIP_HG_STATUD_MODIFIED:="!"}"
 SPACESHIP_HG_STATUS_DELETED="${SPACESHIP_HG_STATUS_DELETED:="✘"}"
 
+# PACKAGE
+SPACESHIP_PACKAGE_SHOW="${SPACESHIP_PACKAGE_SHOW:=true}"
+SPACESHIP_PACKAGE_PREFIX="${SPACESHIP_PACKAGE_PREFIX:="is "}"
+SPACESHIP_PACKAGE_SUFFIX="${SPACESHIP_PACKAGE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL:="📦  "}"
+SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR:="red"}"
+
 # NODE
 SPACESHIP_NODE_SHOW="${SPACESHIP_NODE_SHOW:=true}"
 SPACESHIP_NODE_PREFIX="${SPACESHIP_NODE_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
@@ -134,13 +141,6 @@ SPACESHIP_NODE_SUFFIX="${SPACESHIP_NODE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFI
 SPACESHIP_NODE_SYMBOL="${SPACESHIP_NODE_SYMBOL:="⬢ "}"
 SPACESHIP_NODE_DEFAULT_VERSION="${SPACESHIP_NODE_DEFAULT_VERSION:=""}"
 SPACESHIP_NODE_COLOR="${SPACESHIP_NODE_COLOR:="green"}"
-
-# NPM
-SPACESHIP_PACKAGE_SHOW="${SPACESHIP_PACKAGE_SHOW:=true}"
-SPACESHIP_PACKAGE_PREFIX="${SPACESHIP_PACKAGE_PREFIX:="at "}"
-SPACESHIP_PACKAGE_SUFFIX="${SPACESHIP_PACKAGE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL:="📦  "}"
-SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR:="red"}"
 
 # RUBY
 SPACESHIP_RUBY_SHOW="${SPACESHIP_RUBY_SHOW:=true}"
@@ -550,6 +550,28 @@ spaceship_hg() {
     "$SPACESHIP_HG_SUFFIX"
 }
 
+# PACKAGE
+# Show current package version
+spaceship_package() {
+  [[ $SPACESHIP_PACKAGE_SHOW == false ]] && return
+
+  # Show package version only when repository is a package
+  # @todo: add more package managers
+  [[ -f package.json ]] || return
+
+  _exists npm || return
+
+  # Grep and cut out package version
+  local package_version=$(grep '"version":' package.json | cut -d\" -f4 2> /dev/null)
+  package_version="v${package_version}"
+
+  _prompt_section \
+    "$SPACESHIP_PACKAGE_COLOR" \
+    "$SPACESHIP_PACKAGE_PREFIX" \
+    "${SPACESHIP_PACKAGE_SYMBOL}${package_version}" \
+    "$SPACESHIP_PACKAGE_SUFFIX"
+}
+
 # NODE
 # Show current version of node, exception system.
 spaceship_node() {
@@ -578,28 +600,6 @@ spaceship_node() {
     "$SPACESHIP_NODE_PREFIX" \
     "${SPACESHIP_NODE_SYMBOL}${node_version}" \
     "$SPACESHIP_NODE_SUFFIX"
-}
-
-# Show current package version
-spaceship_package() {
-  [[ $SPACESHIP_PACKAGE_SHOW == false ]] && return
-
-  # Show NODE status only for JS-specific folders
-  [[ -f package.json ]] || return
-
-  local package_version
-
-  if _exists npm; then
-    package_version=$(grep '"version":' package.json | cut -d\" -f4 2>/dev/null)
-  else
-    return
-  fi
-
-  _prompt_section \
-    "$SPACESHIP_PACKAGE_COLOR" \
-    "$SPACESHIP_PACKAGE_PREFIX" \
-    "${SPACESHIP_PACKAGE_SYMBOL}${package_version}" \
-    "$SPACESHIP_PACKAGE_SUFFIX"
 }
 
 # RUBY
