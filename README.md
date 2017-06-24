@@ -46,9 +46,10 @@ Currently it shows:
 * Current Xcode version, through xenv (`🛠`).
 * Current Go version (`🐹`).
 * Current PHP version (`🐘`).
-* Current Rust version (`𝗥`)
-* Current version of Haskell Tool Stack (`λ`)
-* Current Julia version (`ஃ`)
+* Current Rust version (`𝗥`).
+* Current Yarn version (`🐱`).
+* Current version of Haskell Tool Stack (`λ`).
+* Current Julia version (`ஃ`).
 * Current Docker version and connected machine (`🐳`).
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
@@ -167,6 +168,7 @@ SPACESHIP_PROMPT_ORDER=(
   swift         # Swift section
   golang        # Go section
   php           # PHP section
+  yarn          # YARN section
   rust          # Rust section
   haskell       # Haskell Stack section
   julia         # Julia section
@@ -458,6 +460,18 @@ Julia section is shown only in directories that contain file with `.jl` extensio
 | `SPACESHIP_JULIA_SYMBOL` | `ஃ ` | Character to be shown before Julia version |
 | `SPACESHIP_JULIA_COLOR` | `green` | Color of Julia section |
 
+### Yarn (`yarn`)
+
+Shows Yarn version
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_YARN_SHOW` | `true` | Shown current Yarn version or not |
+| `SPACESHIP_YARN_PREFIX` | `on ` | Prefix before the Yarn section |
+| `SPACESHIP_YARN_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Yarn section |
+| `SPACESHIP_YARN_SYMBOL` | `🐱 ` | Character to be shown before Yarn version |
+| `SPACESHIP_YARN_COLOR` | `blue` | Color of Yarn section |
+
 ### Docker (`docker`)
 
 Shows Docker version and current connected machine name.
@@ -561,6 +575,7 @@ SPACESHIP_PROMPT_ORDER=(
   golang
   php
   rust
+  yarn
   julia
   docker
   venv
@@ -735,6 +750,13 @@ SPACESHIP_JULIA_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_JULIA_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_JULIA_SYMBOL="ஃ "
 SPACESHIP_JULIA_COLOR="green"
+
+# YARN
+SPACESHIP_YARN_SHOW=true
+SPACESHIP_YARN_PREFIX="on"
+SPACESHIP_YARN_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_YARN_SYMBOL="🐱 "
+SPACESHIP_YARN_COLOR="cyan"
 
 # DOCKER
 SPACESHIP_DOCKER_SHOW=true
