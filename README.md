@@ -79,23 +79,14 @@ For correct work you will first need:
 npm install -g spaceship-zsh-theme
 ```
 
-Done. This command should link `spaceship.zsh-theme` to your `$ZSH_CUSTOM/themes` and set `$ZSH_CUSTOM` to `"spaceship"`. Just reload your terminal.
+Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath` and set `prompt spaceship` in `.zshrc`. Just reload your terminal.
 
 **Tip:** Update Spaceship to new versions as any other package.
 
 ### [oh-my-zsh]
 
-Installing using **curl**:
-
-```zsh
-curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh
-```
-
-Installing using **wget**:
-
-```zsh
-wget -O - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh
-```
+- Set `ZSH_THEME=""` in your `.zshrc`
+- Follow instructions in [manual](https://github.com/denysdovhan/spaceship-zsh-theme#manual) installation.
 
 ### [antigen]
 
@@ -133,10 +124,31 @@ zplug denysdovhan/spaceship-zsh-theme, use:spaceship.zsh, from:github, as:theme
 
 If you have problems with approches above, follow these instructions:
 
-1. Download the theme [here](https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh)
-2. Rename `spaceship.zsh` to `spaceship.zsh-theme`
-3. Put the file `spaceship.zsh-theme` in `$ZSH_CUSTOM/themes/`
-4. Add the line to your `~/.zshrc`: `ZSH_THEME="spaceship"`
+- Download the theme [here](https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh)
+- Symlink `spaceship.zsh` to somewhere in `$fpath` as `prompt_spaceship_setup`.
+
+Run `echo $fpath` to see possible locations. Like,
+```console
+$ ln -sf "$PWD/spaceship.zsh" "/usr/local/share/zsh/site-functions/prompt_spaceship_setup"
+```
+
+For a user-specific installation (which would not require escalated privileges), simply add a directory to `$fpath` for that user:
+```sh
+# .zshrc
+fpath=( "$HOME/.zfunctions" $fpath )
+```
+Then install the theme there:
+```console
+$ ln -sf "$PWD/spaceship.zsh" "$HOME/.zfunctions/prompt_spaceship_setup"
+```
+
+- Initialize prompt system and choose `spaceship`
+
+```sh
+# .zshrc
+autoload -U promptinit; promptinit
+prompt spaceship
+```
 
 ## Options
 
