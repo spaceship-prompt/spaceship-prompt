@@ -39,8 +39,10 @@ Currently it shows:
 * Username displayed only when it isn't `$LOGNAME`.
 * Username turns red when root.
 * Current Ember.js version, through ember-cli (`🔥`).
+* If repo is a package, shows its version through npm (`📦`).
 * Current Node.js version, through nvm/nodenv/n (`⬢`).
 * Current Ruby version, through rvm/rbenv/chruby (`💎`).
+* Current Elixir version, through kiex/exenv/elixir (`💧`).
 * Current Swift version, through swiftenv (`🐦`).
 * Current Xcode version, through xenv (`🛠`).
 * Current Go version (`🐹`).
@@ -51,8 +53,11 @@ Currently it shows:
 * Current Docker version and connected machine (`🐳`).
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
-* Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode)).
-* Optional time stamps 12/24hr in format ([how to enable](#time)).
+* Current .NET SDK version, through dotnet-cli (`.NET`).
+* Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode-vi_mode)).
+* Indicator for jobs in the background (`✦`).
+* Optional exit-code of last command ([how to enable](#exit-code-exit_code)).
+* Optional time stamps 12/24hr in format ([how to enable](#time-time)).
 * Execution time of the last command if it exceeds the set threshold.
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new) or send pull request.
@@ -158,8 +163,10 @@ SPACESHIP_PROMPT_ORDER=(
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
   ember         # Ember.js section
+  package       # Package version
   node          # Node.js section
   ruby          # Ruby section
+  elixir        # Elixir section
   xcode         # Xcode section
   swift         # Swift section
   golang        # Go section
@@ -170,9 +177,12 @@ SPACESHIP_PROMPT_ORDER=(
   docker        # Docker section
   venv          # virtualenv section
   pyenv         # Pyenv section
+  dotnet        # .NET section
   exec_time     # Execution time
   line_sep      # Line break
   vi_mode       # Vi-mode indicator
+  jobs          # Backgound jobs indicator
+  exit_code     # Exit code section
   char          # Prompt character
 )
 ```
@@ -189,7 +199,7 @@ SPACESHIP_PROMPT_ORDER=(
 | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | `via ` | Default prefix for prompt sections |
 | `SPACESHIP_PROMPT_DEFAULT_SUFFIX` | ` ` | Default suffix for prompt section |
 
-### Time
+### Time (`time`)
 
 Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if you need to show time stamps.
 
@@ -325,6 +335,20 @@ Ember.js section is shown only in directories that contain a `ember-cli-build.js
 | `SPACESHIP_EMBER_SYMBOL` | `🔥 ` | Character to be shown before Ember.js version |
 | `SPACESHIP_EMBER_COLOR` | `red` | Color of Ember.js section |
 
+### Package version (`package`)
+
+> Works only for npm at the moment. Please, help us improve this section!
+
+Package version is shown when repository is a package (contains a `package.json` file). This is the version of the package you are working on, not the version of package manager itself.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_PACKAGE_SHOW` | `true` | Show package version |
+| `SPACESHIP_PACKAGE_PREFIX` | `is ` | Prefix before package version section |
+| `SPACESHIP_PACKAGE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after package version section |
+| `SPACESHIP_PACKAGE_SYMBOL` | `📦 ` | Character to be shown before package version |
+| `SPACESHIP_PACKAGE_COLOR` | `red` | Color of package version section |
+
 ### Node.js (`node`)
 
 Node.js section is shown only in directories that contain `package.json` file, or `node_modules` folder, or any other file with `.js` extension.
@@ -351,6 +375,20 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 | `SPACESHIP_RUBY_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Ruby section |
 | `SPACESHIP_RUBY_SYMBOL` | `💎  ` | Character to be shown before Ruby version |
 | `SPACESHIP_RUBY_COLOR` | `red` | Color of Ruby section |
+
+### Elixir (`elixir`)
+
+Elixir section is shown only in directories that contain `mix.exs`, or any other file with `.ex` or `.exs` extension. If the current elixir version is the same as the version set in `SPACESHIP_ELIXIR_DEFAULT_VERSION`, the elixir section will be hidden.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_ELIXIR_SHOW` | `true` | Show Elixir section |
+| `SPACESHIP_ELIXIR_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Elixir section |
+| `SPACESHIP_ELIXIR_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Elixir section |
+| `SPACESHIP_ELIXIR_DEFAULT_VERSION` | `` | Elixir version to be treated as default |
+| `SPACESHIP_ELIXIR_SYMBOL` | `💧  ` | Character to be shown before Elixir version |
+| `SPACESHIP_ELIXIR_COLOR` | `magenta` | Color of Elixir section |
+
 
 ### Xcode (`xcode`)
 
@@ -471,6 +509,18 @@ Go section is shown only in directories that contain `requirements.txt` or any o
 | `SPACESHIP_PYENV_SYMBOL` | `🐍 ` | Character to be shown before Pyenv version |
 | `SPACESHIP_PYENV_COLOR` | `yellow` | Color of Pyenv section |
 
+### .NET (`dotnet`)
+
+.NET section is shown only in directories that contains a `project.json` or `global.json` file, or a file with one of these extensions: `.csproj`, `.xproj` or `.sln`.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_DOTNET_SHOW` | `true` | Current .NET section |
+| `SPACESHIP_DOTNET_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before .NET section |
+| `SPACESHIP_DOTNET_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after .NET section |
+| `SPACESHIP_DOTNET_SYMBOL` | `.NET ` | Character to be shown before .NET version |
+| `SPACESHIP_DOTNET_COLOR` | `128` | [Color code](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg) of .NET section |
+
 ### Execution time (`exec_time`)
 
 Execution time of the last command. Will be displayed if it exceeds the set threshold of time.
@@ -505,6 +555,30 @@ You can temporarily enable or disable vi-mode with handy functions (just execute
 
 **Note:** For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$reset_color%}"` before `source $ZSH/oh-my-zsh.sh` in `.zshrc` to disable default `<<<` NORMAL mode indicator in right prompt.
 
+### Jobs (`jobs`)
+
+This section show only when there are active jobs in the background.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_JOBS_SHOW` | `true` | Show background jobs indicator  |
+| `SPACESHIP_JOBS_PREFIX` | `` | Prefix before the jobs indicator |
+| `SPACESHIP_JOBS_SUFFIX` | ` ` | Suffix after the jobs indicator |
+| `SPACESHIP_JOBS_SYMBOL` | `✦` | Character to be shown when jobs are hiding |
+| `SPACESHIP_JOBS_COLOR` | `blue` | Color of background jobs section |
+
+### Exit code (`exit_code`)
+
+Disabled as default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show exit code of last command.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_EXIT_CODE_SHOW` | `false` | Show exit code of last command |
+| `SPACESHIP_EXIT_CODE_PREFIX` | `` | Prefix before exit code section |
+| `SPACESHIP_EXIT_CODE_SUFFIX` | ` ` | Suffix after exit code section |
+| `SPACESHIP_EXIT_CODE_SYMBOL` | `✘` | Character to be shown before exit code |
+| `SPACESHIP_EXIT_CODE_COLOR` | `red` | Color of exit code section |
+
 ### Example
 
 Here is all options which may be changed. Copy this to your `~/.zshrc` to make it easy to change.
@@ -521,8 +595,10 @@ SPACESHIP_PROMPT_ORDER=(
   git
   hg
   ember
+  package
   node
   ruby
+  elixir
   xcode
   swift
   golang
@@ -535,6 +611,8 @@ SPACESHIP_PROMPT_ORDER=(
   exec_time
   line_sep
   vi_mode
+  jobs
+  exit_code
   char
 )
 
@@ -636,6 +714,13 @@ SPACESHIP_EMBER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_EMBER_SYMBOL="🔥 "
 SPACESHIP_EMBER_COLOR="red"
 
+# PACKAGE
+SPACESHIP_PACKAGE_SHOW="${SPACESHIP_PACKAGE_SHOW:=true}"
+SPACESHIP_PACKAGE_PREFIX="${SPACESHIP_PACKAGE_PREFIX:="is "}"
+SPACESHIP_PACKAGE_SUFFIX="${SPACESHIP_PACKAGE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL:="📦 "}"
+SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR:="red"}"
+
 # NODE
 SPACESHIP_NODE_SHOW=true
 SPACESHIP_NODE_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
@@ -650,6 +735,14 @@ SPACESHIP_RUBY_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_RUBY_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_RUBY_SYMBOL="💎 "
 SPACESHIP_RUBY_COLOR="red"
+
+# ELIXIR
+SPACESHIP_ELIXIR_SHOW=true
+SPACESHIP_ELIXIR_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_ELIXIR_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_ELIXIR_SYMBOL="💧 "
+SPACESHIP_ELIXIR_DEFAULT_VERSION=""
+SPACESHIP_ELIXIR_COLOR="magenta"
 
 # XCODE
 SPACESHIP_XCODE_SHOW_LOCAL=true
@@ -715,6 +808,13 @@ SPACESHIP_PYENV_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_PYENV_SYMBOL="🐍 "
 SPACESHIP_PYENV_COLOR="yellow"
 
+# DOTNET
+SPACESHIP_DOTNET_SHOW=true
+SPACESHIP_DOTNET_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_DOTNET_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_DOTNET_SYMBOL=".NET "
+SPACESHIP_DOTNET_COLOR="128"
+
 # VI_MODE
 SPACESHIP_VI_MODE_SHOW=true
 SPACESHIP_VI_MODE_PREFIX=""
@@ -722,6 +822,20 @@ SPACESHIP_VI_MODE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_VI_MODE_INSERT="[I]"
 SPACESHIP_VI_MODE_NORMAL="[N]"
 SPACESHIP_VI_MODE_COLOR="white"
+
+# JOBS
+SPACESHIP_JOBS_SHOW="true"
+SPACESHIP_JOBS_PREFIX=""
+SPACESHIP_JOBS_SUFFIX=" "
+SPACESHIP_JOBS_SYMBOL="✦"
+SPACESHIP_JOBS_COLOR="blue"
+
+# EXIT CODE
+SPACESHIP_EXIT_CODE_SHOW=false
+SPACESHIP_EXIT_CODE_PREFIX="("
+SPACESHIP_EXIT_CODE_SUFFIX=") "
+SPACESHIP_EXIT_CODE_SYMBOl="✘ "
+SPACESHIP_EXIT_CODE_COLOR="red"
 ```
 
 ## Donate

@@ -23,8 +23,10 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     git
     hg
     ember
+    package
     node
     ruby
+    elixir
     xcode
     swift
     golang
@@ -35,9 +37,12 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     docker
     venv
     pyenv
+    dotnet
     exec_time
     line_sep
     vi_mode
+    jobs
+    exit_code
     char
   )
 fi
@@ -132,6 +137,13 @@ SPACESHIP_EMBER_SUFFIX="${SPACESHIP_EMBER_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUF
 SPACESHIP_EMBER_SYMBOL="${SPACESHIP_EMBER_SYMBOL:="🔥 "}"
 SPACESHIP_EMBER_COLOR="${SPACESHIP_EMBER_COLOR:="red"}"
 
+# PACKAGE
+SPACESHIP_PACKAGE_SHOW="${SPACESHIP_PACKAGE_SHOW:=true}"
+SPACESHIP_PACKAGE_PREFIX="${SPACESHIP_PACKAGE_PREFIX:="is "}"
+SPACESHIP_PACKAGE_SUFFIX="${SPACESHIP_PACKAGE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL:="📦  "}"
+SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR:="red"}"
+
 # NODE
 SPACESHIP_NODE_SHOW="${SPACESHIP_NODE_SHOW:=true}"
 SPACESHIP_NODE_PREFIX="${SPACESHIP_NODE_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
@@ -146,6 +158,14 @@ SPACESHIP_RUBY_PREFIX="${SPACESHIP_RUBY_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFI
 SPACESHIP_RUBY_SUFFIX="${SPACESHIP_RUBY_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_RUBY_SYMBOL="${SPACESHIP_RUBY_SYMBOL:="💎 "}"
 SPACESHIP_RUBY_COLOR="${SPACESHIP_RUBY_COLOR:="red"}"
+
+# ELIXIR
+SPACESHIP_ELIXIR_SHOW="${SPACESHIP_ELIXIR_SHOW:=true}"
+SPACESHIP_ELIXIR_PREFIX="${SPACESHIP_ELIXIR_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_ELIXIR_SUFFIX="${SPACESHIP_ELIXIR_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_ELIXIR_SYMBOL="${SPACESHIP_ELIXIR_SYMBOL:="💧 "}"
+SPACESHIP_ELIXIR_DEFAULT_VERSION="${SPACESHIP_ELIXIR_DEFAULT_VERSION:=""}"
+SPACESHIP_ELIXIR_COLOR="${SPACESHIP_ELIXIR_COLOR:="magenta"}"
 
 # XCODE
 SPACESHIP_XCODE_SHOW_LOCAL="${SPACESHIP_XCODE_SHOW_LOCAL:=true}"
@@ -218,6 +238,20 @@ SPACESHIP_PYENV_SUFFIX="${SPACESHIP_PYENV_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUF
 SPACESHIP_PYENV_SYMBOL="${SPACESHIP_PYENV_SYMBOL:="🐍 "}"
 SPACESHIP_PYENV_COLOR="${SPACESHIP_PYENV_COLOR:="yellow"}"
 
+# DOTNET
+SPACESHIP_DOTNET_SHOW="${SPACESHIP_DOTNET_SHOW:=true}"
+SPACESHIP_DOTNET_PREFIX="${SPACESHIP_DOTNET_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_DOTNET_SUFFIX="${SPACESHIP_DOTNET_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_DOTNET_SYMBOL="${SPACESHIP_DOTNET_SYMBOL:=".NET "}"
+SPACESHIP_DOTNET_COLOR="${SPACESHIP_DOTNET_COLOR:="128"}"
+
+# EXECUTION TIME
+SPACESHIP_EXEC_TIME_SHOW="${SPACESHIP_EXEC_TIME_SHOW:=true}"
+SPACESHIP_EXEC_TIME_PREFIX="${SPACESHIP_EXEC_TIME_PREFIX:="took "}"
+SPACESHIP_EXEC_TIME_SUFFIX="${SPACESHIP_EXEC_TIME_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_EXEC_TIME_COLOR="${SPACESHIP_EXEC_TIME_COLOR:="yellow"}"
+SPACESHIP_EXEC_TIME_ELAPSED="${SPACESHIP_EXEC_TIME_ELAPSED:=2}"
+
 # VI_MODE
 SPACESHIP_VI_MODE_SHOW="${SPACESHIP_VI_MODE_SHOW:=true}"
 SPACESHIP_VI_MODE_PREFIX="${SPACESHIP_VI_MODE_PREFIX:=""}"
@@ -226,12 +260,19 @@ SPACESHIP_VI_MODE_INSERT="${SPACESHIP_VI_MODE_INSERT:="[I]"}"
 SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:="[N]"}"
 SPACESHIP_VI_MODE_COLOR="${SPACESHIP_VI_MODE_COLOR:="white"}"
 
-# EXECUTION TIME
-SPACESHIP_EXEC_TIME_SHOW="${SPACESHIP_EXEC_TIME_SHOW:=true}"
-SPACESHIP_EXEC_TIME_PREFIX="${SPACESHIP_EXEC_TIME_PREFIX:="took "}"
-SPACESHIP_EXEC_TIME_SUFFIX="${SPACESHIP_EXEC_TIME_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_EXEC_TIME_COLOR="${SPACESHIP_EXEC_TIME_COLOR:="yellow"}"
-SPACESHIP_EXEC_TIME_ELAPSED="${SPACESHIP_EXEC_TIME_ELAPSED:=2}"
+# JOBS
+SPACESHIP_JOBS_SHOW="${SPACESHIP_JOBS_SHOW:=true}"
+SPACESHIP_JOBS_PREFIX="${SPACESHIP_JOBS_PREFIX:=""}"
+SPACESHIP_JOBS_SUFFIX="${SPACESHIP_JOBS_SUFFIX:=" "}"
+SPACESHIP_JOBS_SYMBOL="${SPACESHIP_JOBS_SYMBOL:="✦"}"
+SPACESHIP_JOBS_COLOR="${SPACESHIP_JOBS_COLOR:="blue"}"
+
+# EXIT CODE
+SPACESHIP_EXIT_CODE_SHOW="${SPACESHIP_EXIT_CODE_SHOW:=false}"
+SPACESHIP_EXIT_CODE_PREFIX="${SPACESHIP_EXIT_CODE_PREFIX:=""}"
+SPACESHIP_EXIT_CODE_SUFFIX="${SPACESHIP_EXIT_CODE_SUFFIX:=" "}"
+SPACESHIP_EXIT_CODE_SYMBOl="${SPACESHIP_EXIT_CODE_SYMBOl:="✘"}"
+SPACESHIP_EXIT_CODE_COLOR="${SPACESHIP_EXIT_CODE_COLOR:="red"}"
 
 # ------------------------------------------------------------------------------
 # HELPERS
@@ -553,6 +594,28 @@ spaceship_ember() {
     "$SPACESHIP_EMBER_SUFFIX"
 }
 
+# PACKAGE
+# Show current package version
+spaceship_package() {
+  [[ $SPACESHIP_PACKAGE_SHOW == false ]] && return
+
+  # Show package version only when repository is a package
+  # @todo: add more package managers
+  [[ -f package.json ]] || return
+
+  _exists npm || return
+
+  # Grep and cut out package version
+  local package_version=$(grep '"version":' package.json | cut -d\" -f4 2> /dev/null)
+  package_version="v${package_version}"
+
+  _prompt_section \
+    "$SPACESHIP_PACKAGE_COLOR" \
+    "$SPACESHIP_PACKAGE_PREFIX" \
+    "${SPACESHIP_PACKAGE_SYMBOL}${package_version}" \
+    "$SPACESHIP_PACKAGE_SUFFIX"
+}
+
 # NODE
 # Show current version of node, exception system.
 spaceship_node() {
@@ -613,6 +676,40 @@ spaceship_ruby() {
     "$SPACESHIP_RUBY_PREFIX" \
     "${SPACESHIP_RUBY_SYMBOL}${ruby_version}" \
     "$SPACESHIP_RUBY_SUFFIX"
+}
+
+# ELIXIR
+# Show current version of Elixir
+spaceship_elixir() {
+  [[ $SPACESHIP_ELIXIR_SHOW == false ]] && return
+
+  # Show versions only for Elixir-specific folders
+  [[ -f mix.exs || -n *.ex(#qN) || -n *.exs(#qN) ]] || return
+
+  local elixir_version
+
+  if _exists kiex; then
+    elixir_version="${ELIXIR_VERSION}"
+  elif _exists exenv; then
+    elixir_version=$(exenv version-name)
+  fi
+
+  if [[ $elixir_version == "" ]]; then
+    _exists elixir || return
+    elixir_version=$(elixir -v 2>/dev/null | grep "Elixir" --color=never | cut -d ' ' -f 2)
+  fi
+
+  [[ $elixir_version == "system" ]] && return
+  [[ $elixir_version == $SPACESHIP_ELIXIR_DEFAULT_VERSION ]] && return
+
+  # Add 'v' before elixir version that starts with a number
+  [[ "${elixir_version}" =~ ^[0-9].+$ ]] && elixir_version="v${elixir_version}"
+
+  _prompt_section \
+    "$SPACESHIP_ELIXIR_COLOR" \
+    "$SPACESHIP_ELIXIR_PREFIX" \
+    "${SPACESHIP_ELIXIR_SYMBOL}${elixir_version}" \
+    "$SPACESHIP_ELIXIR_SUFFIX"
 }
 
 # XCODE
@@ -837,6 +934,27 @@ spaceship_pyenv() {
     "$SPACESHIP_PYENV_SUFFIX"
 }
 
+# DOTNET
+# Show current version of .NET SDK
+spaceship_dotnet() {
+  [[ $SPACESHIP_DOTNET_SHOW == false ]] && return
+
+  # Show DOTNET status only for folders containing project.json, global.json, .csproj, .xproj or .sln files
+  [[ -f project.json || -f global.json || -n *.csproj(#qN) || -n *.xproj(#qN) || -n *.sln(#qN) ]] || return
+
+  _exists dotnet || return
+
+  # dotnet-cli automatically handles SDK pinning (specified in a global.json file)
+  # therefore, this already returns the expected version for the current directory
+  local dotnet_version=$(dotnet --version 2>/dev/null)
+
+  _prompt_section \
+    "$SPACESHIP_DOTNET_COLOR" \
+    "$SPACESHIP_DOTNET_PREFIX" \
+    "${SPACESHIP_DOTNET_SYMBOL}${dotnet_version}" \
+    "$SPACESHIP_DOTNET_SUFFIX"
+}
+
 # EXECUTION TIME
 # Execution time of the last command.
 spaceship_exec_time() {
@@ -886,6 +1004,32 @@ spaceship_vi_mode_enable() {
 # Temporarily switch to emacs-mode
 spaceship_vi_mode_disable() {
   bindkey -e
+}
+
+# JOBS
+# Show icon if there's a working jobs in the background
+spaceship_jobs() {
+  [[ $SPACESHIP_JOBS_SHOW == false ]] && return
+
+  [[ $(jobs -l | wc -l) -gt 0 ]] || return
+
+  _prompt_section \
+    "$SPACESHIP_JOBS_COLOR" \
+    "$SPACESHIP_JOBS_PREFIX" \
+    "${SPACESHIP_JOBS_SYMBOL}" \
+    "$SPACESHIP_JOBS_SUFFIX"
+}
+
+# EXIT CODE
+# Show exit code of last statement
+spaceship_exit_code() {
+  [[ $SPACESHIP_EXIT_CODE_SHOW == false || $RETVAL == 0 ]] && return
+
+  _prompt_section \
+    "$SPACESHIP_EXIT_CODE_COLOR" \
+    "$SPACESHIP_EXIT_CODE_PREFIX" \
+    "${SPACESHIP_EXIT_CODE_SYMBOl}$RETVAL" \
+    "$SPACESHIP_EXIT_CODE_SUFFIX"
 }
 
 # LINE SEPARATOR
@@ -944,6 +1088,10 @@ _deprecated SPACESHIP_GIT_UNPUSHED SPACESHIP_GIT_STATUS_AHEAD
 
 # Compose whole prompt from smaller parts
 spaceship_prompt() {
+  # Retirve exit code of last command to use in exit_code
+  # Must be captured before any other command in prompt is executed
+  RETVAL=$?
+
   # Option EXTENDED_GLOB is set locally to force filename generation on
   # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
   # See the description of filename generation in
