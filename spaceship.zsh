@@ -541,14 +541,10 @@ spaceship_ember() {
   # Show EMBER status only for folders w/ ember-cli-build.js files
   [[ -f ember-cli-build.js ]] || return
 
-  local ember_version
+  _exists ember || return
 
-  if _exists ember version; then
-    ember_version=$(ember version | grep -Po "(?<=ember-cli\: ).*$")
-    [[ $ember_version == "system" || $ember_version == "ember" ]] && return
-  else
-    return
-  fi
+  local ember_version=$(ember version | grep -Po "(?<=ember-cli\: ).*$")
+  [[ $ember_version == "system" || $ember_version == "ember" ]] && return
 
   _prompt_section \
     "$SPACESHIP_EMBER_COLOR" \
