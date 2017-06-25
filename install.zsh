@@ -67,10 +67,14 @@ else
   log "Spaceship is present in current directory"
 fi
 
-# Check if $ZSH_CUSTOM is available
-if [[ -z $ZSH_CUSTOM ]]; then
-  error '$ZSH_CUSTOM is not defined!'
-  exit 1
+# Choose Installation path
+
+DIST="/usr/local/share/zsh/site-functions"
+if [[ ! -w "$DIST" ]]; then
+  log "Failed to symlink $SPACESHIP to $DIST, Using $HOME/.zfunctions"
+  DIST="$HOME/.zfunctions"
+  log  "Adding $DIST to fpath"
+  echo 'fpath=( "'"$DIST"'" $fpath )' >> "$HOME/.zshrc"
 fi
 
 # Linking
