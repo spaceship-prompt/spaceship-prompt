@@ -69,7 +69,6 @@ You can find more examples with different color schemes in [Screenshots](https:/
 For correct work you will first need:
 
 * A [`zsh`](http://www.zsh.org/) (v5.0.5 or recent) must be installed
-* A zsh–framework like [oh-my-zsh], [antigen] or [zgen]
 
 ## Installing
 
