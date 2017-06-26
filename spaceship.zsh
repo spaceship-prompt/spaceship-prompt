@@ -22,7 +22,6 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     dir
     git
     hg
-    ember
     package
     node
     ruby
@@ -38,6 +37,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     venv
     pyenv
     dotnet
+    ember
     exec_time
     line_sep
     vi_mode
@@ -129,13 +129,6 @@ SPACESHIP_HG_STATUS_UNTRACKED="${SPACESHIP_HG_STATUS_UNTRACKED:="?"}"
 SPACESHIP_HG_STATUS_ADDED="${SPACESHIP_HG_STATUS_ADDED:="+"}"
 SPACESHIP_HG_STATUS_MODIFIED="${SPACESHIP_HG_STATUD_MODIFIED:="!"}"
 SPACESHIP_HG_STATUS_DELETED="${SPACESHIP_HG_STATUS_DELETED:="✘"}"
-
-# EMBER
-SPACESHIP_EMBER_SHOW="${SPACESHIP_EMBER_SHOW:=true}"
-SPACESHIP_EMBER_PREFIX="${SPACESHIP_EMBER_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
-SPACESHIP_EMBER_SUFFIX="${SPACESHIP_EMBER_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_EMBER_SYMBOL="${SPACESHIP_EMBER_SYMBOL:="🔥 "}"
-SPACESHIP_EMBER_COLOR="${SPACESHIP_EMBER_COLOR:="red"}"
 
 # PACKAGE
 SPACESHIP_PACKAGE_SHOW="${SPACESHIP_PACKAGE_SHOW:=true}"
@@ -244,6 +237,13 @@ SPACESHIP_DOTNET_PREFIX="${SPACESHIP_DOTNET_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_P
 SPACESHIP_DOTNET_SUFFIX="${SPACESHIP_DOTNET_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_DOTNET_SYMBOL="${SPACESHIP_DOTNET_SYMBOL:=".NET "}"
 SPACESHIP_DOTNET_COLOR="${SPACESHIP_DOTNET_COLOR:="128"}"
+
+# EMBER
+SPACESHIP_EMBER_SHOW="${SPACESHIP_EMBER_SHOW:=true}"
+SPACESHIP_EMBER_PREFIX="${SPACESHIP_EMBER_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_EMBER_SUFFIX="${SPACESHIP_EMBER_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_EMBER_SYMBOL="${SPACESHIP_EMBER_SYMBOL:="🐹 "}"
+SPACESHIP_EMBER_COLOR="${SPACESHIP_EMBER_COLOR:="210"}"
 
 # EXECUTION TIME
 SPACESHIP_EXEC_TIME_SHOW="${SPACESHIP_EXEC_TIME_SHOW:=true}"
@@ -572,26 +572,6 @@ spaceship_hg() {
     "$SPACESHIP_HG_PREFIX" \
     "${hg_branch}${hg_status}" \
     "$SPACESHIP_HG_SUFFIX"
-}
-
-# EMBER
-# Show current version of ember, exception system.
-spaceship_ember() {
-  [[ $SPACESHIP_EMBER_SHOW == false ]] && return
-
-  # Show EMBER status only for folders w/ ember-cli-build.js files
-  [[ -f ember-cli-build.js ]] || return
-
-  _exists ember || return
-
-  local ember_version=$(ember version | grep -Po "(?<=ember-cli\: ).*$")
-  [[ $ember_version == "system" || $ember_version == "ember" ]] && return
-
-  _prompt_section \
-    "$SPACESHIP_EMBER_COLOR" \
-    "$SPACESHIP_EMBER_PREFIX" \
-    "${SPACESHIP_EMBER_SYMBOL}${ember_version}" \
-    "$SPACESHIP_EMBER_SUFFIX"
 }
 
 # PACKAGE
@@ -953,6 +933,26 @@ spaceship_dotnet() {
     "$SPACESHIP_DOTNET_PREFIX" \
     "${SPACESHIP_DOTNET_SYMBOL}${dotnet_version}" \
     "$SPACESHIP_DOTNET_SUFFIX"
+}
+
+# EMBER
+# Show current version of ember, exception system.
+spaceship_ember() {
+  [[ $SPACESHIP_EMBER_SHOW == false ]] && return
+
+  # Show EMBER status only for folders w/ ember-cli-build.js files
+  [[ -f ember-cli-build.js ]] || return
+
+  _exists ember || return
+
+  local ember_version=$(ember version | grep -Po "(?<=ember-cli\: ).*$")
+  [[ $ember_version == "system" || $ember_version == "ember" ]] && return
+
+  _prompt_section \
+    "$SPACESHIP_EMBER_COLOR" \
+    "$SPACESHIP_EMBER_PREFIX" \
+    "${SPACESHIP_EMBER_SYMBOL}${ember_version}" \
+    "$SPACESHIP_EMBER_SUFFIX"
 }
 
 # EXECUTION TIME

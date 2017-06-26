@@ -38,7 +38,6 @@ Currently it shows:
 * Hostname only displayed when in an SSH session.
 * Username displayed only when it isn't `$LOGNAME`.
 * Username turns red when root.
-* Current Ember.js version, through ember-cli (`🔥`).
 * If repo is a package, shows its version through npm (`📦`).
 * Current Node.js version, through nvm/nodenv/n (`⬢`).
 * Current Ruby version, through rvm/rbenv/chruby (`💎`).
@@ -54,6 +53,7 @@ Currently it shows:
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
 * Current .NET SDK version, through dotnet-cli (`.NET`).
+* Current Ember.js version, through ember-cli (`🔥`).
 * Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode-vi_mode)).
 * Indicator for jobs in the background (`✦`).
 * Optional exit-code of last command ([how to enable](#exit-code-exit_code)).
@@ -162,7 +162,6 @@ SPACESHIP_PROMPT_ORDER=(
   dir           # Current directory section
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
-  ember         # Ember.js section
   package       # Package version
   node          # Node.js section
   ruby          # Ruby section
@@ -178,6 +177,7 @@ SPACESHIP_PROMPT_ORDER=(
   venv          # virtualenv section
   pyenv         # Pyenv section
   dotnet        # .NET section
+  ember         # Ember.js section
   exec_time     # Execution time
   line_sep      # Line break
   vi_mode       # Vi-mode indicator
@@ -323,18 +323,6 @@ Mercurial status indicators is shown only when you have dirty repository.
 | `SPACESHIP_HG_STATUS_MODIFIED` | `!` | Indicator for unstaged files |
 | `SPACESHIP_HG_STATUS_DELETED` | `✘` | Indicator for deleted files |
 
-### Ember.js (`ember`)
-
-Ember.js section is shown only in directories that contain a `ember-cli-build.js` file.
-
-| Variable | Default | Meaning |
-| :------- | :-----: | ------- |
-| `SPACESHIP_EMBER_SHOW` | `true` | Current Ember.js section |
-| `SPACESHIP_EMBER_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Ember.js section |
-| `SPACESHIP_EMBER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Ember.js section |
-| `SPACESHIP_EMBER_SYMBOL` | `🔥 ` | Character to be shown before Ember.js version |
-| `SPACESHIP_EMBER_COLOR` | `red` | Color of Ember.js section |
-
 ### Package version (`package`)
 
 > Works only for npm at the moment. Please, help us improve this section!
@@ -388,7 +376,6 @@ Elixir section is shown only in directories that contain `mix.exs`, or any other
 | `SPACESHIP_ELIXIR_DEFAULT_VERSION` | `` | Elixir version to be treated as default |
 | `SPACESHIP_ELIXIR_SYMBOL` | `💧  ` | Character to be shown before Elixir version |
 | `SPACESHIP_ELIXIR_COLOR` | `magenta` | Color of Elixir section |
-
 
 ### Xcode (`xcode`)
 
@@ -521,6 +508,18 @@ Go section is shown only in directories that contain `requirements.txt` or any o
 | `SPACESHIP_DOTNET_SYMBOL` | `.NET ` | Character to be shown before .NET version |
 | `SPACESHIP_DOTNET_COLOR` | `128` | [Color code](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg) of .NET section |
 
+### Ember.js (`ember`)
+
+Ember.js section is shown only in directories that contain a `ember-cli-build.js` file.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_EMBER_SHOW` | `true` | Current Ember.js section |
+| `SPACESHIP_EMBER_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Ember.js section |
+| `SPACESHIP_EMBER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Ember.js section |
+| `SPACESHIP_EMBER_SYMBOL` | `🐹 ` | Character to be shown before Ember.js version |
+| `SPACESHIP_EMBER_COLOR` | `210` | Color of Ember.js section |
+
 ### Execution time (`exec_time`)
 
 Execution time of the last command. Will be displayed if it exceeds the set threshold of time.
@@ -594,7 +593,6 @@ SPACESHIP_PROMPT_ORDER=(
   dir
   git
   hg
-  ember
   package
   node
   ruby
@@ -608,6 +606,8 @@ SPACESHIP_PROMPT_ORDER=(
   docker
   venv
   pyenv
+  dotnet
+  ember
   exec_time
   line_sep
   vi_mode
@@ -706,13 +706,6 @@ SPACESHIP_HG_STATUS_UNTRACKED="?"
 SPACESHIP_HG_STATUS_ADDED="+"
 SPACESHIP_HG_STATUS_MODIFIED="!"
 SPACESHIP_HG_STATUS_DELETED="✘"
-
-# EMBER
-SPACESHIP_EMBER_SHOW=true
-SPACESHIP_EMBER_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
-SPACESHIP_EMBER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
-SPACESHIP_EMBER_SYMBOL="🔥 "
-SPACESHIP_EMBER_COLOR="red"
 
 # PACKAGE
 SPACESHIP_PACKAGE_SHOW="${SPACESHIP_PACKAGE_SHOW:=true}"
@@ -814,6 +807,13 @@ SPACESHIP_DOTNET_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_DOTNET_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_DOTNET_SYMBOL=".NET "
 SPACESHIP_DOTNET_COLOR="128"
+
+# EMBER
+SPACESHIP_EMBER_SHOW=true
+SPACESHIP_EMBER_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_EMBER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_EMBER_SYMBOL="🐹 "
+SPACESHIP_EMBER_COLOR="210"
 
 # VI_MODE
 SPACESHIP_VI_MODE_SHOW=true
