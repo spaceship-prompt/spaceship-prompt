@@ -890,22 +890,7 @@ spaceship_pyenv() {
 
   _exists pyenv || return # Do nothing if pyenv is not installed
 
-  local pyenv_status
-  local pyenv_shell=$(pyenv shell 2>/dev/null)
-  local pyenv_local=$(pyenv local 2>/dev/null)
-  local pyenv_global=$(pyenv global 2>/dev/null)
-
-  # Version follows this order: shell > local > global
-  # See: https://github.com/yyuu/pyenv/blob/master/COMMANDS.md
-  if [[ ! -z $pyenv_shell ]]; then
-    pyenv_status=$pyenv_shell
-  elif [[ ! -z $pyenv_local ]]; then
-    pyenv_status=$pyenv_local
-  elif [[ ! -z $pyenv_global ]]; then
-    pyenv_status=$pyenv_global
-  else
-    return # If none of these is set, pyenv is not being used. Do nothing.
-  fi
+  local pyenv_status=${$(pyenv version-name 2>/dev/null)//:/ }
 
   _prompt_section \
     "$SPACESHIP_PYENV_COLOR" \
