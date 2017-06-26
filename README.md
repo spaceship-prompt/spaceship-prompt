@@ -53,7 +53,7 @@ Currently it shows:
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
 * Current .NET SDK version, through dotnet-cli (`.NET`).
-* Current Ember.js version, through ember-cli (`🔥`).
+* Current Ember.js version, through ember-cli (`🐹`).
 * Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode-vi_mode)).
 * Indicator for jobs in the background (`✦`).
 * Optional exit-code of last command ([how to enable](#exit-code-exit_code)).
