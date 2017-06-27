@@ -930,7 +930,7 @@ spaceship_ember() {
 
   _exists ember && _exists npm || return
 
-  local ember_version=$(npm view ember-cli version)
+  local ember_version=$(grep '"version":' ./node_modules/ember-cli/package.json | cut -d\" -f4)
   [[ $ember_version == "system" || $ember_version == "ember" ]] && return
 
   _prompt_section \
