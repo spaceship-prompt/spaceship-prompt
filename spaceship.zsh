@@ -928,9 +928,9 @@ spaceship_ember() {
   # Show EMBER status only for folders w/ ember-cli-build.js files
   [[ -f ember-cli-build.js ]] || return
 
-  _exists ember || return
+  _exists ember && _exists npm || return
 
-  local ember_version=$(ember version | grep -Po "(?<=ember-cli\: ).*$")
+  local ember_version=$(npm view ember-cli version)
   [[ $ember_version == "system" || $ember_version == "ember" ]] && return
 
   _prompt_section \
