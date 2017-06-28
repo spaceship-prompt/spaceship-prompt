@@ -521,7 +521,7 @@ spaceship_hg_branch() {
 
   _is_hg || return
 
-  local hg_branch="$(cat $PWD/.hg/branch)"
+  local hg_branch="$(cat $(command hg --cwd $PWD root)/.hg/branch)"
 
   _prompt_section \
     "$SPACESHIP_HG_BRANCH_COLOR" \
