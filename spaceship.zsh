@@ -926,11 +926,11 @@ spaceship_ember() {
   [[ $SPACESHIP_EMBER_SHOW == false ]] && return
 
   # Show EMBER status only for folders w/ ember-cli-build.js files
-  [[ -f ember-cli-build.js ]] || return
+  [[ -f ember-cli-build.js && -f node_modules/ember-cli/package.json ]] || return
 
   _exists ember || return
 
-  local ember_version=$(ember version | grep -Po "(?<=ember-cli\: ).*$")
+  local ember_version=$(grep '"version":' ./node_modules/ember-cli/package.json | cut -d\" -f4)
   [[ $ember_version == "system" || $ember_version == "ember" ]] && return
 
   _prompt_section \
