@@ -295,7 +295,7 @@ _is_git() {
 
 # Check if the current directory is in a Mercurial repository.
 # USAGE:
-#   if [ $(_is_hg) ]
+#   _is_hg
 _is_hg() {
   local root="$(pwd -P)"
 
@@ -304,7 +304,7 @@ _is_hg() {
     root="${root%/*}"
   done
 
-  echo "$root"
+  [[ -n "$root" ]] &>/dev/null
 }
 
 # Draw prompt section (bold is used as default)
@@ -526,11 +526,11 @@ spaceship_git() {
 spaceship_hg_branch() {
   [[ $SPACESHIP_HG_BRANCH_SHOW == false ]] && return
 
-  if [ $(_is_hg) ]; then
-    _prompt_section \
-      "$SPACESHIP_HG_BRANCH_COLOR" \
-      "$SPACESHIP_HG_BRANCH_PREFIX"$(hg branch)"$SPACESHIP_HG_BRANCH_SUFFIX"
-  fi
+  _is_hg || return
+
+  _prompt_section \
+    "$SPACESHIP_HG_BRANCH_COLOR" \
+    "$SPACESHIP_HG_BRANCH_PREFIX"$(hg branch)"$SPACESHIP_HG_BRANCH_SUFFIX"
 }
 
 # MERCURIAL STATUS
@@ -538,26 +538,26 @@ spaceship_hg_branch() {
 spaceship_hg_status() {
   [[ $SPACESHIP_HG_STATUS_SHOW == false ]] && return
 
-  if [ $(_is_hg) ]; then
-    local INDEX=$(hg status 2>/dev/null) hg_status=""
+  _is_hg || return
 
-    # Indicators are suffixed instead of prefixed to each other to
-    # provide uniform view across git and mercurial indicators
-    if $(echo "$INDEX" | grep -E '^\? ' &> /dev/null); then
-      hg_status="$SPACESHIP_HG_STATUS_UNTRACKED$hg_status"
-    elif $(echo "$INDEX" | grep -E '^A ' &> /dev/null); then
-      hg_status="$SPACESHIP_HG_STATUS_ADDED$hg_status"
-    elif $(echo "$INDEX" | grep -E '^M ' &> /dev/null); then
-      hg_status="$SPACESHIP_HG_STATUS_MODIFIED$hg_status"
-    elif $(echo "$INDEX" | grep -E '^(R|!)' &> /dev/null); then
-      hg_status="$SPACESHIP_HG_STATUS_DELETED$hg_status"
-    fi
+  local INDEX=$(hg status 2>/dev/null) hg_status=""
 
-    if [[ -n $hg_status ]]; then
-      _prompt_section \
-        "$SPACESHIP_HG_STATUS_COLOR" \
-        "$SPACESHIP_HG_STATUS_PREFIX"$hg_status"$SPACESHIP_HG_STATUS_SUFFIX"
-    fi
+  # Indicators are suffixed instead of prefixed to each other to
+  # provide uniform view across git and mercurial indicators
+  if $(echo "$INDEX" | grep -E '^\? ' &> /dev/null); then
+    hg_status="$SPACESHIP_HG_STATUS_UNTRACKED$hg_status"
+  elif $(echo "$INDEX" | grep -E '^A ' &> /dev/null); then
+    hg_status="$SPACESHIP_HG_STATUS_ADDED$hg_status"
+  elif $(echo "$INDEX" | grep -E '^M ' &> /dev/null); then
+    hg_status="$SPACESHIP_HG_STATUS_MODIFIED$hg_status"
+  elif $(echo "$INDEX" | grep -E '^(R|!)' &> /dev/null); then
+    hg_status="$SPACESHIP_HG_STATUS_DELETED$hg_status"
+  fi
+
+  if [[ -n $hg_status ]]; then
+    _prompt_section \
+      "$SPACESHIP_HG_STATUS_COLOR" \
+      "$SPACESHIP_HG_STATUS_PREFIX"$hg_status"$SPACESHIP_HG_STATUS_SUFFIX"
   fi
 }
 
