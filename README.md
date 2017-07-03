@@ -50,11 +50,11 @@ Currently it shows:
 * Current version of Haskell Tool Stack (`λ`)
 * Current Julia version (`ஃ`)
 * Current Docker version and connected machine (`🐳`).
+* Current AWS-cli profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html))
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
 * Current .NET SDK version, through dotnet-cli (`.NET`).
 * Current Ember.js version, through ember-cli (`🐹`).
-* Current AWS-cli profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html))
 * Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode-vi_mode)).
 * Indicator for jobs in the background (`✦`).
 * Optional exit-code of last command ([how to enable](#exit-code-exit_code)).
@@ -175,7 +175,7 @@ SPACESHIP_PROMPT_ORDER=(
   haskell       # Haskell Stack section
   julia         # Julia section
   docker        # Docker section
-  aws
+  aws           # Aws section
   venv          # virtualenv section
   pyenv         # Pyenv section
   dotnet        # .NET section
@@ -484,9 +484,9 @@ Shows selected aws-cli profile using '[named profiles](http://docs.aws.amazon.co
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_AWS_SHOW` | `true` | Show current selected aws-cli profile or not |
-| `SPACESHIP_AWS_PREFIX` | `on ` | Prefix before the aws section |
+| `SPACESHIP_AWS_PREFIX` | `using ` | Prefix before the aws section |
 | `SPACESHIP_AWS_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the aws section |
-| `SPACESHIP_AWS_SYMBOL` | `☁️ ` | Character to be shown before Docker version |
+| `SPACESHIP_AWS_SYMBOL` | `☁️ ` | Character to be shown before aws profile |
 | `SPACESHIP_AWS_COLOR` | `208` | Color of aws section |
 
 ### Virtualenv (`venv`)
@@ -805,7 +805,7 @@ SPACESHIP_DOCKER_COLOR="cyan"
 
 # AWS
 SPACESHIP_AWS_SHOW=true
-SPACESHIP_AWS_PREFIX="on "
+SPACESHIP_AWS_PREFIX="using "
 SPACESHIP_AWS_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_AWS_SYMBOL="☁️ "
 SPACESHIP_AWS_COLOR="208"

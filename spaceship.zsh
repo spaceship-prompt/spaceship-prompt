@@ -34,6 +34,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     haskell
     julia
     docker
+    aws
     venv
     pyenv
     dotnet
@@ -44,7 +45,6 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     jobs
     exit_code
     char
-    aws
   )
 fi
 
