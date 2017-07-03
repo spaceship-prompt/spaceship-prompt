@@ -44,6 +44,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     jobs
     exit_code
     char
+    aws
   )
 fi
 
@@ -273,6 +274,13 @@ SPACESHIP_EXIT_CODE_PREFIX="${SPACESHIP_EXIT_CODE_PREFIX:=""}"
 SPACESHIP_EXIT_CODE_SUFFIX="${SPACESHIP_EXIT_CODE_SUFFIX:=" "}"
 SPACESHIP_EXIT_CODE_SYMBOl="${SPACESHIP_EXIT_CODE_SYMBOl:="✘"}"
 SPACESHIP_EXIT_CODE_COLOR="${SPACESHIP_EXIT_CODE_COLOR:="red"}"
+
+# AWS
+SPACESHIP_AWS_SHOW="${SPACESHIP_AWS_SHOW:=true}"
+SPACESHIP_AWS_PREFIX="${SPACESHIP_AWS_PREFIX:="using "}"
+SPACESHIP_AWS_SUFFIX="${SPACESHIP_AWS_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_AWS_SYMBOL="${SPACESHIP_AWS_SYMBOL:="☁️ "}"
+SPACESHIP_AWS_COLOR="${SPACESHIP_AWS_COLOR:="208"}"
 
 # ------------------------------------------------------------------------------
 # HELPERS
@@ -864,6 +872,21 @@ spaceship_docker() {
     "${SPACESHIP_DOCKER_SYMBOL}v${docker_version}" \
     "$SPACESHIP_DOCKER_SUFFIX"
 }
+
+# AWS
+# Shows selected aws cli profile.
+spaceship_aws() {
+  [[ $SPACESHIP_AWS_SHOW == false ]] && return
+  _exists aws || return
+  [[ -z $AWS_DEFAULT_PROFILE ]] && return
+  
+  _prompt_section \
+    "$SPACESHIP_AWS_COLOR" \
+    "$SPACESHIP_AWS_PREFIX" \
+    "${SPACESHIP_AWS_SYMBOL}$AWS_DEFAULT_PROFILE" \
+    "$SPACESHIP_AWS_SUFFIX"
+}
+
 
 # VENV
 # Show current virtual environment (Python).
