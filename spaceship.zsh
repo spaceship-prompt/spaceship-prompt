@@ -642,6 +642,8 @@ spaceship_ruby() {
     ruby_version=$(chruby | sed -n -e 's/ \* //p')
   elif _exists rbenv; then
     ruby_version=$(rbenv version-name)
+  elif _exists asdf; then
+    ruby_version=$(asdf current ruby | sed -n -e 's/ .*//p')
   else
     return
   fi
