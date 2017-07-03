@@ -878,7 +878,7 @@ spaceship_docker() {
 spaceship_aws() {
   [[ $SPACESHIP_AWS_SHOW == false ]] && return
   _exists aws || return
-  [[ -z $AWS_DEFAULT_PROFILE ]] && return
+  [[ -z $AWS_DEFAULT_PROFILE ]] || [[ "$AWS_DEFAULT_PROFILE" == "default" ]] && return
   
   _prompt_section \
     "$SPACESHIP_AWS_COLOR" \
