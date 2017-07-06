@@ -479,15 +479,15 @@ Shows Docker version and current connected machine name.
 
 ### AWS-Cli (`aws`)
 
-Shows selected aws-cli profile using '[named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)'.
+Shows selected AWS-cli profile using '[named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)'.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_AWS_SHOW` | `true` | Show current selected aws-cli profile or not |
-| `SPACESHIP_AWS_PREFIX` | `using ` | Prefix before the aws section |
-| `SPACESHIP_AWS_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the aws section |
-| `SPACESHIP_AWS_SYMBOL` | `☁️ ` | Character to be shown before aws profile |
-| `SPACESHIP_AWS_COLOR` | `208` | Color of aws section |
+| `SPACESHIP_AWS_SHOW` | `true` | Show current selected AWS-cli profile or not |
+| `SPACESHIP_AWS_PREFIX` | `using ` | Prefix before the AWS section |
+| `SPACESHIP_AWS_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the AWS section |
+| `SPACESHIP_AWS_SYMBOL` | `☁️ ` | Character to be shown before AWS profile |
+| `SPACESHIP_AWS_COLOR` | `208` | Color of AWS section |
 
 ### Virtualenv (`venv`)
 
