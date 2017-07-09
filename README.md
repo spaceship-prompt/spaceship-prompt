@@ -187,6 +187,8 @@ SPACESHIP_PROMPT_ORDER=(
 )
 ```
 
+You can also add items to the right side prompt by specifying them in the `SPACESHIP_RPROMPT_ORDER` option.
+
 ### Prompt
 
 | Variable | Default | Meaning |

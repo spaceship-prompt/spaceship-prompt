@@ -47,6 +47,11 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
   )
 fi
 
+if [ ! -n "$SPACESHIP_RPROMPT_ORDER" ]; then
+  SPACESHIP_RPROMPT_ORDER=(
+  )
+fi
+
 # PROMPT
 SPACESHIP_PROMPT_SYMBOL="${SPACESHIP_PROMPT_SYMBOL:="➜"}"
 SPACESHIP_PROMPT_ADD_NEWLINE="${SPACESHIP_PROMPT_ADD_NEWLINE:=true}"
@@ -1093,6 +1098,23 @@ spaceship_prompt() {
   done
 }
 
+spaceship_rprompt() {
+  # Retirve exit code of last command to use in exit_code
+  # Must be captured before any other command in prompt is executed
+  RETVAL=$?
+
+  # Option EXTENDED_GLOB is set locally to force filename generation on
+  # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
+  # See the description of filename generation in
+  # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
+  setopt EXTENDED_GLOB LOCAL_OPTIONS
+
+  # Execute all parts
+  for section in $SPACESHIP_RPROMPT_ORDER; do
+    spaceship_$section
+  done
+}
+
 # PS2 - continuation interactive prompt
 spaceship_ps2() {
   _prompt_section "yellow" $SPACESHIP_PROMPT_SYMBOL
@@ -1112,6 +1134,7 @@ spaceship_setup() {
   # Expose Spaceship to environment variables
   PROMPT='$(spaceship_prompt)'
   PS2='$(spaceship_ps2)'
+  RPS1='$(spaceship_rprompt)'
 
   # LSCOLORS
   # Online editor: https://geoff.greer.fm/lscolors/
