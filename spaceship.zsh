@@ -84,7 +84,7 @@ SPACESHIP_DIR_SUFFIX="${SPACESHIP_DIR_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_DIR_TRUNC="${SPACESHIP_DIR_TRUNC:=3}"
 SPACESHIP_DIR_COLOR="${SPACESHIP_DIR_COLOR:="cyan"}"
 
-SPACESHIP_DIR_TRUNC_IN_GIT=true;
+SPACESHIP_DIR_TRUNC_IN_GIT="${SPACESHIP_DIR_COLOR:=false}"
 
 # GIT
 SPACESHIP_GIT_SHOW="${SPACESHIP_GIT_SHOW:=true}"
@@ -448,12 +448,11 @@ spaceship_host() {
 spaceship_dir() {
   [[ $SPACESHIP_DIR_SHOW == false ]] && return
 
-  _is_git
-  if [ $? -eq 0 ] && [ $SPACESHIP_DIR_TRUNC_IN_GIT == true ]; then
+  if _is_git && [[ $SPACESHIP_DIR_TRUNC_IN_GIT == true ]]; then
     _prompt_section \
       "$SPACESHIP_DIR_COLOR" \
       "$SPACESHIP_DIR_PREFIX" \
-      "${PWD##*/}" \
+      "$(basename $(git rev-parse --show-toplevel))" \
       "$SPACESHIP_DIR_SUFFIX"
   else
     _prompt_section \
