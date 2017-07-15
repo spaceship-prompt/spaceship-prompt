@@ -449,10 +449,12 @@ spaceship_dir() {
   [[ $SPACESHIP_DIR_SHOW == false ]] && return
 
   if _is_git && [[ $SPACESHIP_DIR_TRUNC_IN_GIT == true ]]; then
+    GIT_ROOT=$(git rev-parse --show-toplevel)
+
     _prompt_section \
       "$SPACESHIP_DIR_COLOR" \
       "$SPACESHIP_DIR_PREFIX" \
-      "$(basename $(git rev-parse --show-toplevel))" \
+      "${$(basename $GIT_ROOT)}${$(expr $(pwd) : "$GIT_ROOT\(.*\)")}" \
       "$SPACESHIP_DIR_SUFFIX"
   else
     _prompt_section \
