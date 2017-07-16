@@ -188,7 +188,7 @@ SPACESHIP_PHP_SHOW="${SPACESHIP_PHP_SHOW:=true}"
 SPACESHIP_PHP_PREFIX="${SPACESHIP_PHP_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_PHP_SUFFIX="${SPACESHIP_PHP_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_PHP_SYMBOL="${SPACESHIP_PHP_SYMBOL:="🐘 "}"
-SPACEHIP_PHP_COLOR="${SPACEHIP_PHP_COLOR:="blue"}"
+SPACESHIP_PHP_COLOR="${SPACESHIP_PHP_COLOR:="blue"}"
 
 # RUST
 SPACESHIP_RUST_SHOW="${SPACESHIP_RUST_SHOW:=true}"
@@ -456,7 +456,7 @@ spaceship_dir() {
 # GIT BRANCH
 # Show current git brunch using git_current_status from Oh-My-Zsh
 spaceship_git_branch() {
-  [[ $SPACEHIP_GIT_BRANCH_SHOW == false ]] && return
+  [[ $SPACESHIP_GIT_BRANCH_SHOW == false ]] && return
 
   _is_git || return
 
@@ -779,7 +779,7 @@ spaceship_php() {
   local php_version=$(php -v 2>&1 | grep --color=never -oe "^PHP\s*[0-9.]*" | awk '{print $2}')
 
   _prompt_section \
-    "$SPACEHIP_PHP_COLOR" \
+    "$SPACESHIP_PHP_COLOR" \
     "$SPACESHIP_PHP_PREFIX" \
     "${SPACESHIP_PHP_SYMBOL}v${php_version}" \
     "${SPACESHIP_PHP_SUFFIX}"
@@ -1039,7 +1039,7 @@ spaceship_char() {
 # PROMPT
 _deprecated SPACESHIP_PROMPT_TRUNC SPACESHIP_DIR_TRUNC
 # PREFIXES
-_deprecated SPACEHIP_PREFIX_SHOW SPACESHIP_PROMPT_PREFIXES_SHOW
+_deprecated SPACESHIP_PREFIX_SHOW SPACESHIP_PROMPT_PREFIXES_SHOW
 _deprecated SPACESHIP_PREFIX_TIME SPACESHIP_TIME_PREFIX
 _deprecated SPACESHIP_PREFIX_USER SPACESHIP_USER_PREFIX
 _deprecated SPACESHIP_PREFIX_HOST SPACESHIP_HOST_PREFIX
