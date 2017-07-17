@@ -454,7 +454,7 @@ spaceship_dir() {
     _prompt_section \
       "$SPACESHIP_DIR_COLOR" \
       "$SPACESHIP_DIR_PREFIX" \
-      "${$(basename $GIT_ROOT)}${$(expr $(pwd) : "$GIT_ROOT\(.*\)")}" \
+      "$GIT_ROOT:t${$(expr $(pwd) : "$GIT_ROOT\(.*\)")}" \
       "$SPACESHIP_DIR_SUFFIX"
   else
     _prompt_section \
