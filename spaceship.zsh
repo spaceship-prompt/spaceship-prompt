@@ -847,6 +847,9 @@ spaceship_julia() {
 # Show current Docker version and connected machine
 spaceship_docker() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
+  
+  # If there are Docker-specific files in current directory
+  [[ -f docker-compose.yml || -f Dockerfile ]] || return
 
   _exists docker || return
   # if docker daemon isn't running you'll get an error saying it can't connect
