@@ -51,6 +51,7 @@ Currently it shows:
 * Current Julia version (`ஃ`)
 * Current Docker version and connected machine (`🐳`).
 * Current Python virtualenv.
+* Current Conda virtualenv.
 * Current Python pyenv (`🐍`).
 * Current .NET SDK version, through dotnet-cli (`.NET`).
 * Current Ember.js version, through ember-cli (`🐹`).
@@ -175,6 +176,7 @@ SPACESHIP_PROMPT_ORDER=(
   julia         # Julia section
   docker        # Docker section
   venv          # virtualenv section
+  conda         # conda virtualenv section
   pyenv         # Pyenv section
   dotnet        # .NET section
   ember         # Ember.js section
@@ -484,6 +486,17 @@ Shows Docker version and current connected machine name.
 | `SPACESHIP_VENV_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the virtualenv section |
 | `SPACESHIP_VENV_COLOR` | `blue` | Color of virtualenv environment section |
 
+### Conda virtualenv (`conda`)
+
+Show activated conda virtual environment. Disable native conda prompt by `conda config --set changeps1 False`.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_CONDA_SHOW` | `true` | Show current Python conda virtualenv or not |
+| `SPACESHIP_CONDA_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the conda virtualenv section |
+| `SPACESHIP_CONDA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the conda virtualenv section |
+| `SPACESHIP_CONDA_COLOR` | `blue` | Color of conda virtualenv environment section |
+
 ### Pyenv (`pyenv`)
 
 Go section is shown only in directories that contain `requirements.txt` or any other file with `.py` extension.
@@ -605,6 +618,7 @@ SPACESHIP_PROMPT_ORDER=(
   julia
   docker
   venv
+  conda
   pyenv
   dotnet
   ember
@@ -793,6 +807,12 @@ SPACESHIP_VENV_SHOW=true
 SPACESHIP_VENV_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_VENV_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_VENV_COLOR="blue"
+
+# CONDA
+SPACESHIP_CONDA_SHOW=true
+SPACESHIP_CONDA_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_CONDA_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_CONDA_COLOR="blue"
 
 # PYENV
 SPACESHIP_PYENV_SHOW=true
