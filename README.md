@@ -486,7 +486,7 @@ Shows Docker version and current connected machine name.
 
 ### Pyenv (`pyenv`)
 
-Go section is shown only in directories that contain `requirements.txt` or any other file with `.py` extension.
+pyenv section is shown only in directories that contain `requirements.txt` or any other file with `.py` extension.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
