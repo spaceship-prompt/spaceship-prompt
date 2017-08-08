@@ -37,6 +37,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     venv
     pyenv
     dotnet
+    gradle
     ember
     exec_time
     line_sep
@@ -237,6 +238,13 @@ SPACESHIP_DOTNET_PREFIX="${SPACESHIP_DOTNET_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_P
 SPACESHIP_DOTNET_SUFFIX="${SPACESHIP_DOTNET_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_DOTNET_SYMBOL="${SPACESHIP_DOTNET_SYMBOL:=".NET "}"
 SPACESHIP_DOTNET_COLOR="${SPACESHIP_DOTNET_COLOR:="128"}"
+
+# GRADLE
+SPACESHIP_GRADLE_SHOW="${SPACESHIP_GRADLE_SHOW:=true}"
+SPACESHIP_GRADLE_PREFIX="${SPACESHIP_GRADLE_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_GRADLE_SUFFIX="${SPACESHIP_GRADLE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_GRADLE_SYMBOL="${SPACESHIP_GRADLE_SYMBOL:="🐘 "}"
+SPACESHIP_GRADLE_COLOR="${SPACESHIP_GRADLE_COLOR:="green"}"
 
 # EMBER
 SPACESHIP_EMBER_SHOW="${SPACESHIP_EMBER_SHOW:=true}"
@@ -918,6 +926,23 @@ spaceship_dotnet() {
     "$SPACESHIP_DOTNET_PREFIX" \
     "${SPACESHIP_DOTNET_SYMBOL}${dotnet_version}" \
     "$SPACESHIP_DOTNET_SUFFIX"
+}
+
+# GRADLE
+# Show current version of ember, exception system.
+spaceship_gradle() {
+  [[ $SPACESHIP_GRADLE_SHOW == false ]] && return
+
+  # Show GRADLE status only for folders w/ *.gradle files
+  [[ -n *.gradle(#qN) ]] || return
+
+  local gradle_version=$(gradle -version | grep  --colour=never -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]' | head -1)
+
+  _prompt_section \
+    "$SPACESHIP_GRADLE_COLOR" \
+    "$SPACESHIP_GRADLE_PREFIX" \
+    "${SPACESHIP_GRADLE_SYMBOL}${gradle_version}" \
+    "$SPACESHIP_GRADLE_SUFFIX"
 }
 
 # EMBER
