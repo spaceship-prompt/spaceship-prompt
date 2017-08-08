@@ -38,6 +38,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     pyenv
     dotnet
     ember
+    groovy
     exec_time
     line_sep
     vi_mode
@@ -244,6 +245,13 @@ SPACESHIP_EMBER_PREFIX="${SPACESHIP_EMBER_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PRE
 SPACESHIP_EMBER_SUFFIX="${SPACESHIP_EMBER_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_EMBER_SYMBOL="${SPACESHIP_EMBER_SYMBOL:="🐹 "}"
 SPACESHIP_EMBER_COLOR="${SPACESHIP_EMBER_COLOR:="210"}"
+
+# GROOVY
+SPACESHIP_GROOVY_SHOW="${SPACESHIP_GROOVY_SHOW:=true}"
+SPACESHIP_GROOVY_PREFIX="${SPACESHIP_GROOVY_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_GROOVY_SUFFIX="${SPACESHIP_GROOVY_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_GROOVY_SYMBOL="${SPACESHIP_GROOVY_SYMBOL:="⭐ "}"
+SPACESHIP_GROOVY_COLOR="${SPACESHIP_GROOVY_COLOR:="blue"}"
 
 # EXECUTION TIME
 SPACESHIP_EXEC_TIME_SHOW="${SPACESHIP_EXEC_TIME_SHOW:=true}"
@@ -936,6 +944,23 @@ spaceship_ember() {
     "$SPACESHIP_EMBER_PREFIX" \
     "${SPACESHIP_EMBER_SYMBOL}${ember_version}" \
     "$SPACESHIP_EMBER_SUFFIX"
+}
+
+# GROOVY
+# Show current version of ember, exception system.
+spaceship_groovy() {
+  [[ $SPACESHIP_GROOVY_SHOW == false ]] && return
+
+  # Show GROOVY status only for folders w/ *.groovy files
+  [[ -n *.groovy(#qN) || -n *.gradle(#qN) ]] || return
+
+  local groovy_version=$(groovy -version | grep  --colour=never -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]' | head -1)
+
+  _prompt_section \
+    "$SPACESHIP_GROOVY_COLOR" \
+    "$SPACESHIP_GROOVY_PREFIX" \
+    "${SPACESHIP_GROOVY_SYMBOL}${groovy_version}" \
+    "$SPACESHIP_GROOVY_SUFFIX"
 }
 
 # EXECUTION TIME
