@@ -495,6 +495,7 @@ Show activated conda virtual environment. Disable native conda prompt by `conda 
 | `SPACESHIP_CONDA_SHOW` | `true` | Show current Python conda virtualenv or not |
 | `SPACESHIP_CONDA_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the conda virtualenv section |
 | `SPACESHIP_CONDA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the conda virtualenv section |
+| `SPACESHIP_CONDA_SYMBOL` | `` | Character to be shown before conda virtualenv section |
 | `SPACESHIP_CONDA_COLOR` | `blue` | Color of conda virtualenv environment section |
 
 ### Pyenv (`pyenv`)
@@ -812,6 +813,7 @@ SPACESHIP_VENV_COLOR="blue"
 SPACESHIP_CONDA_SHOW=true
 SPACESHIP_CONDA_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_CONDA_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_CONDA_SYMBOL=""
 SPACESHIP_CONDA_COLOR="blue"
 
 # PYENV
