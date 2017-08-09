@@ -192,6 +192,8 @@ SPACESHIP_PHP_COLOR="${SPACESHIP_PHP_COLOR:="blue"}"
 
 # RUST
 SPACESHIP_RUST_SHOW="${SPACESHIP_RUST_SHOW:=true}"
+SPACESHIP_RUST_SHOW_VERSION="${SPACESHIP_RUST_SHOW_VERSION:=true}"
+SPACESHIP_RUST_SHOW_TOOLCHAIN="${SPACESHIP_RUST_SHOW_TOOLCHAIN:=false}"
 SPACESHIP_RUST_PREFIX="${SPACESHIP_RUST_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_RUST_SUFFIX="${SPACESHIP_RUST_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_RUST_SYMBOL="${SPACESHIP_RUST_SYMBOL:="𝗥 "}"
@@ -795,12 +797,14 @@ spaceship_rust() {
 
   _exists rustc || return
 
-  local rust_version=$(rustc --version | grep --colour=never -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]')
+  local -a rust_version
+  [[ $SPACESHIP_RUST_SHOW_VERSION == false ]] || rust_version+="v$(rustc --version | grep --colour=never -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]')"
+  [[ $SPACESHIP_RUST_SHOW_TOOLCHAIN == false ]] || rust_version+=$(rustc --version | grep --colour=never -oE '(stable|beta|nightly)' || echo stable)
 
   _prompt_section \
     "$SPACESHIP_RUST_COLOR" \
     "$SPACESHIP_RUST_PREFIX" \
-    "${SPACESHIP_RUST_SYMBOL}v${rust_version}" \
+    "${SPACESHIP_RUST_SYMBOL}${rust_version}" \
     "$SPACESHIP_RUST_SUFFIX"
 }
 

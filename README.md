@@ -421,7 +421,7 @@ PHP section is shown only in directories that contain any file with `.php` exten
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_PHP_SHOW` | true | Show PHP section |
+| `SPACESHIP_PHP_SHOW` | `true` | Show PHP section |
 | `SPACESHIP_PHP_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the PHP section |
 | `SPACESHIP_PHP_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the PHP section |
 | `SPACESHIP_PHP_SYMBOL` | `🐘 ` | Character to be shown before PHP version |
@@ -433,7 +433,9 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_RUST_SHOW` | `true` | Shown current Rust version or not |
+| `SPACESHIP_RUST_SHOW` | `true` | Shown Rust section or not |
+| `SPACESHIP_RUST_SHOW_VERSION` | `true` | Shown current Rust version number or not |
+| `SPACESHIP_RUST_SHOW_TOOLCHAIN` | `false` | Shown current Rust toolchain or not |
 | `SPACESHIP_RUST_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Rust section |
 | `SPACESHIP_RUST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Rust section |
 | `SPACESHIP_RUST_SYMBOL` | `𝗥 ` | Character to be shown before Rust version |
@@ -769,6 +771,8 @@ SPACESHIP_PHP_COLOR="blue"
 
 # RUST
 SPACESHIP_RUST_SHOW=true
+SPACESHIP_RUST_SHOW_VERSION=true
+SPACESHIP_RUST_SHOW_TOOLCHAIN=false
 SPACESHIP_RUST_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_RUST_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_RUST_SYMBOL="𝗥 "
