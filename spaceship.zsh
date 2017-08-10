@@ -885,7 +885,7 @@ spaceship_venv() {
 spaceship_pyenv() {
   [[ $SPACESHIP_PYENV_SHOW == false ]] && return
 
-  # Show NVM status only for Python-specific folders
+  # Show pyenv python version only for Python-specific folders
   [[ -f requirements.txt ]] || [[ -n *.py(#qN^/) ]] || return
 
   _exists pyenv || return # Do nothing if pyenv is not installed
