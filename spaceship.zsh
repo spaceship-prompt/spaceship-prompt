@@ -876,7 +876,7 @@ spaceship_venv() {
   _prompt_section \
     "$SPACESHIP_VENV_COLOR" \
     "$SPACESHIP_VENV_PREFIX" \
-    "$(basename $VIRTUAL_ENV)" \
+    "$($VIRTUAL_ENV:t)" \
     "$SPACESHIP_VENV_SUFFIX"
 }
 
