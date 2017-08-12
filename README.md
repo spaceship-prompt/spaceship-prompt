@@ -50,6 +50,7 @@ Currently it shows:
 * Current version of Haskell Tool Stack (`λ`)
 * Current Julia version (`ஃ`)
 * Current Docker version and connected machine (`🐳`).
+* Current AWS-cli profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html))
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
 * Current .NET SDK version, through dotnet-cli (`.NET`).
@@ -174,6 +175,7 @@ SPACESHIP_PROMPT_ORDER=(
   haskell       # Haskell Stack section
   julia         # Julia section
   docker        # Docker section
+  aws           # Aws section
   venv          # virtualenv section
   pyenv         # Pyenv section
   dotnet        # .NET section
@@ -475,6 +477,18 @@ Shows Docker version and current connected machine name.
 | `SPACESHIP_DOCKER_SYMBOL` | `🐳 ` | Character to be shown before Docker version |
 | `SPACESHIP_DOCKER_COLOR` | `cyan` | Color of Docker section |
 
+### AWS-Cli (`aws`)
+
+Shows selected AWS-cli profile using '[named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)'.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_AWS_SHOW` | `true` | Show current selected AWS-cli profile or not |
+| `SPACESHIP_AWS_PREFIX` | `using ` | Prefix before the AWS section |
+| `SPACESHIP_AWS_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the AWS section |
+| `SPACESHIP_AWS_SYMBOL` | `☁️ ` | Character to be shown before AWS profile |
+| `SPACESHIP_AWS_COLOR` | `208` | Color of AWS section |
+
 ### Virtualenv (`venv`)
 
 | Variable | Default | Meaning |
@@ -604,6 +618,7 @@ SPACESHIP_PROMPT_ORDER=(
   rust
   julia
   docker
+  aws
   venv
   pyenv
   dotnet
@@ -787,6 +802,13 @@ SPACESHIP_DOCKER_PREFIX="on "
 SPACESHIP_DOCKER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_DOCKER_SYMBOL="🐳 "
 SPACESHIP_DOCKER_COLOR="cyan"
+
+# AWS
+SPACESHIP_AWS_SHOW=true
+SPACESHIP_AWS_PREFIX="using "
+SPACESHIP_AWS_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_AWS_SYMBOL="☁️ "
+SPACESHIP_AWS_COLOR="208"
 
 # VENV
 SPACESHIP_VENV_SHOW=true
