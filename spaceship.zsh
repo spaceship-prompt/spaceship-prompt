@@ -123,7 +123,7 @@ SPACESHIP_HG_BRANCH_SUFFIX="${SPACESHIP_HG_BRANCH_SUFFIX:=""}"
 SPACESHIP_HG_BRANCH_COLOR="${SPACESHIP_HG_BRANCH_COLOR:="magenta"}"
 # MERCURIAL STATUS
 SPACESHIP_HG_STATUS_SHOW="${SPACESHIP_HG_STATUS_SHOW:=true}"
-SPACESHIP_HG_STATUS_PREFIX="${SPACESHIP_HG_STATUS_PREFIX:="["}"
+SPACESHIP_HG_STATUS_PREFIX="${SPACESHIP_HG_STATUS_PREFIX:=" ["}"
 SPACESHIP_HG_STATUS_SUFFIX="${SPACESHIP_HG_STATUS_SUFFIX:="]"}"
 SPACESHIP_HG_STATUS_COLOR="${SPACESHIP_HG_STATUS_COLOR:="red"}"
 SPACESHIP_HG_STATUS_UNTRACKED="${SPACESHIP_HG_STATUS_UNTRACKED:="?"}"
@@ -301,11 +301,18 @@ _is_git() {
   command git rev-parse --is-inside-work-tree &>/dev/null
 }
 
-# Check if the current direcotory is in a Mercurial repository
+# Check if the current directory is in a Mercurial repository.
 # USAGE:
 #   _is_hg
 _is_hg() {
-  command hg --cwd $PWD root &>/dev/null
+  local root="$(pwd -P)"
+
+  while [[ $root && ! -d $root/.hg ]]
+  do
+    root="${root%/*}"
+  done
+
+  [[ -n "$root" ]] &>/dev/null
 }
 
 # Draw prompt section (bold is used as default)
@@ -523,17 +530,15 @@ spaceship_git() {
 }
 
 # MERCURIAL BRANCH
-# Show current hg brunch
+# Show current hg branch
 spaceship_hg_branch() {
   [[ $SPACESHIP_HG_BRANCH_SHOW == false ]] && return
 
   _is_hg || return
 
-  local hg_branch="$(cat $(command hg --cwd $PWD root)/.hg/branch)"
-
   _prompt_section \
     "$SPACESHIP_HG_BRANCH_COLOR" \
-    "$SPACESHIP_HG_BRANCH_PREFIX"$hg_branch"$SPACESHIP_HG_BRANCH_SUFFIX"
+    "$SPACESHIP_HG_BRANCH_PREFIX"$(hg branch)"$SPACESHIP_HG_BRANCH_SUFFIX"
 }
 
 # MERCURIAL STATUS
@@ -543,17 +548,17 @@ spaceship_hg_status() {
 
   _is_hg || return
 
-  local INDEX=$(command hg status 2>/dev/null) hg_status=""
+  local INDEX=$(hg status 2>/dev/null) hg_status=""
 
   # Indicators are suffixed instead of prefixed to each other to
   # provide uniform view across git and mercurial indicators
-  if $(echo "$INDEX" | command grep -E '^\? ' &> /dev/null); then
+  if $(echo "$INDEX" | grep -E '^\? ' &> /dev/null); then
     hg_status="$SPACESHIP_HG_STATUS_UNTRACKED$hg_status"
-  elif $(echo "$INDEX" | command grep -E '^A ' &> /dev/null); then
+  elif $(echo "$INDEX" | grep -E '^A ' &> /dev/null); then
     hg_status="$SPACESHIP_HG_STATUS_ADDED$hg_status"
-  elif $(echo "$INDEX" | command grep -E '^M ' &> /dev/null); then
+  elif $(echo "$INDEX" | grep -E '^M ' &> /dev/null); then
     hg_status="$SPACESHIP_HG_STATUS_MODIFIED$hg_status"
-  elif $(echo "$INDEX" | command grep -E '^(R|!)' &> /dev/null); then
+  elif $(echo "$INDEX" | grep -E '^(R|!)' &> /dev/null); then
     hg_status="$SPACESHIP_HG_STATUS_DELETED$hg_status"
   fi
 
@@ -565,7 +570,7 @@ spaceship_hg_status() {
 }
 
 # MERCURIAL
-# Show both git branch and git status:
+# Show both hg branch and hg status:
 #   spaceship_hg_branch
 #   spaceship_hg_status
 spaceship_hg() {
