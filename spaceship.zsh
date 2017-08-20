@@ -275,7 +275,7 @@ SPACESHIP_EXIT_CODE_SUFFIX="${SPACESHIP_EXIT_CODE_SUFFIX:=" "}"
 SPACESHIP_EXIT_CODE_SYMBOl="${SPACESHIP_EXIT_CODE_SYMBOl:="✘"}"
 SPACESHIP_EXIT_CODE_COLOR="${SPACESHIP_EXIT_CODE_COLOR:="red"}"
 
-# AWS
+# Amazon Web Services (AWS)
 SPACESHIP_AWS_SHOW="${SPACESHIP_AWS_SHOW:=true}"
 SPACESHIP_AWS_PREFIX="${SPACESHIP_AWS_PREFIX:="using "}"
 SPACESHIP_AWS_SUFFIX="${SPACESHIP_AWS_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
@@ -873,15 +873,16 @@ spaceship_docker() {
     "$SPACESHIP_DOCKER_SUFFIX"
 }
 
-# AWS
-# Shows selected aws cli profile.
+# Amazon Web Services (AWS)
+# Shows selected AWS cli profile.
 spaceship_aws() {
   [[ $SPACESHIP_AWS_SHOW == false ]] && return
   # Check if the AWS-cli is installed
   _exists aws || return
+
   # Is the current profile not the default profile
   [[ -z $AWS_DEFAULT_PROFILE ]] || [[ "$AWS_DEFAULT_PROFILE" == "default" ]] && return
-  
+
   # Show prompt section
   _prompt_section \
     "$SPACESHIP_AWS_COLOR" \

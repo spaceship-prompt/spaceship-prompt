@@ -50,7 +50,7 @@ Currently it shows:
 * Current version of Haskell Tool Stack (`λ`)
 * Current Julia version (`ஃ`)
 * Current Docker version and connected machine (`🐳`).
-* Current AWS-cli profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html))
+* Current Amazon Web Services (AWS) profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html))
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
 * Current .NET SDK version, through dotnet-cli (`.NET`).
@@ -175,7 +175,7 @@ SPACESHIP_PROMPT_ORDER=(
   haskell       # Haskell Stack section
   julia         # Julia section
   docker        # Docker section
-  aws           # Aws section
+  aws           # Amazon Web Services section
   venv          # virtualenv section
   pyenv         # Pyenv section
   dotnet        # .NET section
@@ -477,9 +477,9 @@ Shows Docker version and current connected machine name.
 | `SPACESHIP_DOCKER_SYMBOL` | `🐳 ` | Character to be shown before Docker version |
 | `SPACESHIP_DOCKER_COLOR` | `cyan` | Color of Docker section |
 
-### AWS-Cli (`aws`)
+### Amazon Web Services (AWS) (`aws`)
 
-Shows selected AWS-cli profile using '[named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)'.
+Shows selected Amazon Web Services profile using '[named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)'.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -803,7 +803,7 @@ SPACESHIP_DOCKER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_DOCKER_SYMBOL="🐳 "
 SPACESHIP_DOCKER_COLOR="cyan"
 
-# AWS
+# Amazon Web Services (AWS)
 SPACESHIP_AWS_SHOW=true
 SPACESHIP_AWS_PREFIX="using "
 SPACESHIP_AWS_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
