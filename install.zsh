@@ -40,6 +40,7 @@ success() { echo ; paint 'green' "SPACESHIP: $*" ; echo }
 URL='https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh'
 SPACESHIP="$PWD/spaceship.zsh"
 DIST="$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+DOWNLOADED=false
 
 # ------------------------------------------------------------------------------
 # MAIN
@@ -63,6 +64,8 @@ if [ ! -f "$SPACESHIP" ]; then
     error "curl and wget are unavailable!"
     exit 1
   fi
+
+  DOWNLOADED=true
 else
   log "Spaceship is present in current directory"
 fi
@@ -73,9 +76,16 @@ if [[ -z $ZSH_CUSTOM ]]; then
   exit 1
 fi
 
-# Linking
-log "Copying $SPACESHIP to $DIST..."
 mkdir -p "$(dirname $DIST)"
+
+if [[ ! $DOWNLOADED ]]; then
+  log "Linking $SPACESHIP to $DIST..."
+  ln -sf "$SPACESHIP" "$DIST"
+else
+  log "Copying $SPACESHIP to $DIST..."
+  cp -f "$SPACESHIP" "$DIST"
+fi
+
 cp -f "$SPACESHIP" "$DIST"
 
 # Add source command to ~/.zshrc
