@@ -873,6 +873,10 @@ spaceship_docker() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
 
   _exists docker || return
+  
+  # Show Docker status only for Docker-specific folders
+  [[ -f Dockerfile || -f docker-compose.yml ]] || return
+
   # if docker daemon isn't running you'll get an error saying it can't connect
   docker info 2>&1 | grep -q "Cannot connect" && return
 
