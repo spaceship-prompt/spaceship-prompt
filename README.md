@@ -54,6 +54,10 @@ Currently it shows:
 * Current Python pyenv (`🐍`).
 * Current .NET SDK version, through dotnet-cli (`.NET`).
 * Current Ember.js version, through ember-cli (`🐹`).
+* Current battery level and status (`🔋 `):
+  * `⇡` - charging;
+  * `⇣` - discharging;
+  * `•` - fully charged;
 * Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode-vi_mode)).
 * Indicator for jobs in the background (`✦`).
 * Optional exit-code of last command ([how to enable](#exit-code-exit_code)).
@@ -178,6 +182,7 @@ SPACESHIP_PROMPT_ORDER=(
   pyenv         # Pyenv section
   dotnet        # .NET section
   ember         # Ember.js section
+  battery       # Battery level and status
   exec_time     # Execution time
   line_sep      # Line break
   vi_mode       # Vi-mode indicator
@@ -520,6 +525,21 @@ Ember.js section is shown only in directories that contain a `ember-cli-build.js
 | `SPACESHIP_EMBER_SYMBOL` | `🐹 ` | Character to be shown before Ember.js version |
 | `SPACESHIP_EMBER_COLOR` | `210` | Color of Ember.js section |
 
+### Battery (`battery`)
+
+By default, Battery section is shown only if battery level is below `SPACESHIP_BATTERY_THRESHOLD` (default: 10%) or it's fully charged.  It can be made always visible by setting `SPACESHIP_BATTERY_ALWAYS_SHOW=true`.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_BATTERY_SHOW` | `true` | Show battery section or not |
+| `SPACESHIP_BATTERY_ALWAYS_SHOW` | `false` | Always show battery section or not |
+| `SPACESHIP_BATTERY_PREFIX` | `🔋 ` | Prefix before battery section |
+| `SPACESHIP_BATTERY_SUFFIX` | `SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after battery section |
+| `SPACESHIP_BATTERY_CHARGING_SYMBOL` | `⇡` | Character to be shown if battery is charging |
+| `SPACESHIP_BATTERY_DISCHARGING_SYMBOL` | `⇣` | Character to be shown if battery is discharging |
+| `SPACESHIP_BATTERY_FULL_SYMBOL` | `•` | Character to be shown if battery is full |
+| `SPACESHIP_BATTERY_THRESHOLD` | 10 | Battery level below which battery section will be shown |
+
 ### Execution time (`exec_time`)
 
 Execution time of the last command. Will be displayed if it exceeds the set threshold of time.
@@ -608,6 +628,7 @@ SPACESHIP_PROMPT_ORDER=(
   pyenv
   dotnet
   ember
+  battery
   exec_time
   line_sep
   vi_mode
@@ -814,6 +835,16 @@ SPACESHIP_EMBER_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_EMBER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_EMBER_SYMBOL="🐹 "
 SPACESHIP_EMBER_COLOR="210"
+
+# BATTERY
+SPACESHIP_BATTERY_SHOW=true
+SPACESHIP_BATTERY_ALWAYS_SHOW=false
+SPACESHIP_BATTERY_PREFIX="🔋 "
+SPACESHIP_BATTERY_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_BATTERY_CHARGING_SYMBOL="⇡"
+SPACESHIP_BATTERY_DISCHARGING_SYMBOL="⇣"
+SPACESHIP_BATTERY_FULL_SYMBOL="•"
+SPACESHIP_BATTERY_THRESHOLD=10
 
 # VI_MODE
 SPACESHIP_VI_MODE_SHOW=true
