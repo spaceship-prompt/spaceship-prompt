@@ -610,8 +610,14 @@ spaceship_package() {
   _exists npm || return
 
   # Grep and cut out package version
-  local package_version=$(grep '"version":' package.json | cut -d\" -f4 2> /dev/null)
-  package_version="v${package_version}"
+  local package_version=$(grep -E '"version": "v?((\d)+\.){1,}' package.json | cut -d\" -f4 2> /dev/null)
+
+  # Handle version not found
+  if [ ! "$package_version" ]; then
+    package_version=" ⚠"
+  else
+    package_version=" v${package_version}"
+  fi
 
   _prompt_section \
     "$SPACESHIP_PACKAGE_COLOR" \
