@@ -765,8 +765,8 @@ spaceship_swift() {
 spaceship_golang() {
   [[ $SPACESHIP_GOLANG_SHOW == false ]] && return
 
-  # If there are Go-specific files in current directory
-  [[ -d Godeps || -f glide.yaml || -n *.go(#qN) || -f Gopkg.yml || -f Gopkg.lock ]] || return
+  # If there are Go-specific files in current directory, or current directory is under the GOPATH
+  [[ -d Godeps || -f glide.yaml || -n *.go(#qN) || -f Gopkg.yml || -f Gopkg.lock || (-v GOPATH && $PWD =~ $GOPATH) ]] || return
 
   _exists go || return
 
