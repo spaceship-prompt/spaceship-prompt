@@ -472,7 +472,7 @@ Julia section is shown only in directories that contain file with `.jl` extensio
 
 ### Docker (`docker`)
 
-Shows Docker version and current connected machine name.
+Docker section is shown only in directories that contain `Dockerfile` or `docker-compose.yml` file.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
