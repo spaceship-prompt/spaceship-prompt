@@ -610,13 +610,13 @@ spaceship_package() {
   _exists npm || return
 
   # Grep and cut out package version
-  local _package_version=$(grep -E '"version": "v?((\d)+\.){1,}' package.json | cut -d\" -f4 2> /dev/null)
+  local package_version=$(grep -E '"version": "v?((\d)+\.){1,}' package.json | cut -d\" -f4 2> /dev/null)
 
   # Handle version not found
-  if [ ! "$_package_version" ]; then
+  if [ ! "$package_version" ]; then
     package_version=" ⚠"
   else
-    package_version=" v${_package_version}"
+    package_version=" v${package_version}"
   fi
 
   _prompt_section \
