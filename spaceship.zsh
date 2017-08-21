@@ -39,9 +39,9 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     pyenv
     dotnet
     ember
-    battery
     exec_time
     line_sep
+    battery
     vi_mode
     jobs
     exit_code
@@ -250,7 +250,7 @@ SPACESHIP_EMBER_COLOR="${SPACESHIP_EMBER_COLOR:="210"}"
 # BATTERY
 SPACESHIP_BATTERY_SHOW="${SPACESSHIP_BATTERY_SHOW:=true}"
 SPACESHIP_BATTERY_ALWAYS_SHOW="${SPACESHIP_BATTERY_ALWAYS_SHOW:=false}"
-SPACESHIP_BATTERY_PREFIX="${SPACESHIP_BATTERY_PREFFIX:="🔋 "}"
+SPACESHIP_BATTERY_PREFIX="${SPACESHIP_BATTERY_PREFFIX:=""}"
 SPACESHIP_BATTERY_SUFFIX="${SPACESHIP_BATTERY_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_BATTERY_CHARGING_SYMBOL="${SPACESHIP_BATTERY_CHARGING_SYMBOL:="⇡"}"
 SPACESHIP_BATTERY_DISCHARGING_SYMBOL="${SPACESHIP_BATTERY_DISCHARGING_SYMBOL:="⇣"}"
@@ -1043,7 +1043,7 @@ spaceship_battery() {
     _prompt_section \
       "$battery_color" \
       "$SPACESHIP_BATTERY_PREFIX" \
-      "$battery_percent%%$battery_symbol" \
+      "$battery_symbol$battery_percent%%" \
       "$SPACESHIP_BATTERY_SUFFIX"
   fi
 }

@@ -55,7 +55,7 @@ Currently it shows:
 * Current Python pyenv (`🐍`).
 * Current .NET SDK version, through dotnet-cli (`.NET`).
 * Current Ember.js version, through ember-cli (`🐹`).
-* Current battery level and status (`🔋 `):
+* Current battery level and status:
   * `⇡` - charging;
   * `⇣` - discharging;
   * `•` - fully charged;
@@ -547,7 +547,7 @@ By default, Battery section is shown only if battery level is below `SPACESHIP_B
 | :------- | :-----: | ------- |
 | `SPACESHIP_BATTERY_SHOW` | `true` | Show battery section or not |
 | `SPACESHIP_BATTERY_ALWAYS_SHOW` | `false` | Always show battery section or not |
-| `SPACESHIP_BATTERY_PREFIX` | `🔋 ` | Prefix before battery section |
+| `SPACESHIP_BATTERY_PREFIX` | `` | Prefix before battery section |
 | `SPACESHIP_BATTERY_SUFFIX` | `SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after battery section |
 | `SPACESHIP_BATTERY_CHARGING_SYMBOL` | `⇡` | Character to be shown if battery is charging |
 | `SPACESHIP_BATTERY_DISCHARGING_SYMBOL` | `⇣` | Character to be shown if battery is discharging |
@@ -861,7 +861,7 @@ SPACESHIP_EMBER_COLOR="210"
 # BATTERY
 SPACESHIP_BATTERY_SHOW=true
 SPACESHIP_BATTERY_ALWAYS_SHOW=false
-SPACESHIP_BATTERY_PREFIX="🔋 "
+SPACESHIP_BATTERY_PREFIX=""
 SPACESHIP_BATTERY_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_BATTERY_CHARGING_SYMBOL="⇡"
 SPACESHIP_BATTERY_DISCHARGING_SYMBOL="⇣"
