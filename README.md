@@ -184,9 +184,9 @@ SPACESHIP_PROMPT_ORDER=(
   pyenv         # Pyenv section
   dotnet        # .NET section
   ember         # Ember.js section
-  battery       # Battery level and status
   exec_time     # Execution time
   line_sep      # Line break
+  battery       # Battery level and status
   vi_mode       # Vi-mode indicator
   jobs          # Backgound jobs indicator
   exit_code     # Exit code section
@@ -539,6 +539,18 @@ Ember.js section is shown only in directories that contain a `ember-cli-build.js
 | `SPACESHIP_EMBER_SYMBOL` | `🐹 ` | Character to be shown before Ember.js version |
 | `SPACESHIP_EMBER_COLOR` | `210` | Color of Ember.js section |
 
+### Execution time (`exec_time`)
+
+Execution time of the last command. Will be displayed if it exceeds the set threshold of time.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_EXEC_TIME_SHOW` | `true` | Show execution time |
+| `SPACESHIP_EXEC_TIME_PREFIX` | `took ` | Prefix before execution time section |
+| `SPACESHIP_EXEC_TIME_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after execution time section |
+| `SPACESHIP_EXEC_TIME_COLOR` | `yellow` | Color of execution time section |
+| `SPACESHIP_EXEC_TIME_ELAPSED` | `2` | The minimum number of seconds for showing execution time section |
+
 ### Battery (`battery`)
 
 By default, Battery section is shown only if battery level is below `SPACESHIP_BATTERY_THRESHOLD` (default: 10%) or it's fully charged.  It can be made always visible by setting `SPACESHIP_BATTERY_ALWAYS_SHOW=true`.
@@ -551,20 +563,8 @@ By default, Battery section is shown only if battery level is below `SPACESHIP_B
 | `SPACESHIP_BATTERY_SUFFIX` | `SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after battery section |
 | `SPACESHIP_BATTERY_CHARGING_SYMBOL` | `⇡` | Character to be shown if battery is charging |
 | `SPACESHIP_BATTERY_DISCHARGING_SYMBOL` | `⇣` | Character to be shown if battery is discharging |
-| `SPACESHIP_BATTERY_FULL_SYMBOL` | `•` | Character to be shown if battery is full |
+| `SPACESHIP_w_FULL_SYMBOL` | `•` | Character to be shown if battery is full |
 | `SPACESHIP_BATTERY_THRESHOLD` | 10 | Battery level below which battery section will be shown |
-
-### Execution time (`exec_time`)
-
-Execution time of the last command. Will be displayed if it exceeds the set threshold of time.
-
-| Variable | Default | Meaning |
-| :------- | :-----: | ------- |
-| `SPACESHIP_EXEC_TIME_SHOW` | `true` | Show execution time |
-| `SPACESHIP_EXEC_TIME_PREFIX` | `took ` | Prefix before execution time section |
-| `SPACESHIP_EXEC_TIME_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after execution time section |
-| `SPACESHIP_EXEC_TIME_COLOR` | `yellow` | Color of execution time section |
-| `SPACESHIP_EXEC_TIME_ELAPSED` | `2` | The minimum number of seconds for showing execution time section |
 
 ### Vi-mode (`vi_mode`)
 
