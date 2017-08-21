@@ -50,10 +50,15 @@ Currently it shows:
 * Current version of Haskell Tool Stack (`λ`)
 * Current Julia version (`ஃ`)
 * Current Docker version and connected machine (`🐳`).
+* Current Amazon Web Services (AWS) profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html))
 * Current Python virtualenv.
 * Current Python pyenv (`🐍`).
 * Current .NET SDK version, through dotnet-cli (`.NET`).
 * Current Ember.js version, through ember-cli (`🐹`).
+* Current battery level and status:
+  * `⇡` - charging;
+  * `⇣` - discharging;
+  * `•` - fully charged;
 * Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode-vi_mode)).
 * Indicator for jobs in the background (`✦`).
 * Optional exit-code of last command ([how to enable](#exit-code-exit_code)).
@@ -174,12 +179,14 @@ SPACESHIP_PROMPT_ORDER=(
   haskell       # Haskell Stack section
   julia         # Julia section
   docker        # Docker section
+  aws           # Amazon Web Services section
   venv          # virtualenv section
   pyenv         # Pyenv section
   dotnet        # .NET section
   ember         # Ember.js section
   exec_time     # Execution time
   line_sep      # Line break
+  battery       # Battery level and status
   vi_mode       # Vi-mode indicator
   jobs          # Backgound jobs indicator
   exit_code     # Exit code section
@@ -405,7 +412,7 @@ Shows current version of Swift. Local version has more priority than global.
 
 ### Go (`golang`)
 
-Go section is shown only in directories that contain `Godeps`, or `glide.yaml`, or any other file with `.go` extension.
+Go section is shown only in directories that contain `Godeps`, `glide.yaml`, any other file with `.go` extension, or when current directory is in the Go workspace defined in `$GOPATH`.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -465,7 +472,7 @@ Julia section is shown only in directories that contain file with `.jl` extensio
 
 ### Docker (`docker`)
 
-Shows Docker version and current connected machine name.
+Docker section is shown only in directories that contain `Dockerfile` or `docker-compose.yml` file.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -474,6 +481,18 @@ Shows Docker version and current connected machine name.
 | `SPACESHIP_DOCKER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Docker section |
 | `SPACESHIP_DOCKER_SYMBOL` | `🐳 ` | Character to be shown before Docker version |
 | `SPACESHIP_DOCKER_COLOR` | `cyan` | Color of Docker section |
+
+### Amazon Web Services (AWS) (`aws`)
+
+Shows selected Amazon Web Services profile using '[named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)'.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_AWS_SHOW` | `true` | Show current selected AWS-cli profile or not |
+| `SPACESHIP_AWS_PREFIX` | `using ` | Prefix before the AWS section |
+| `SPACESHIP_AWS_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the AWS section |
+| `SPACESHIP_AWS_SYMBOL` | `☁️ ` | Character to be shown before AWS profile |
+| `SPACESHIP_AWS_COLOR` | `208` | Color of AWS section |
 
 ### Virtualenv (`venv`)
 
@@ -531,6 +550,21 @@ Execution time of the last command. Will be displayed if it exceeds the set thre
 | `SPACESHIP_EXEC_TIME_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after execution time section |
 | `SPACESHIP_EXEC_TIME_COLOR` | `yellow` | Color of execution time section |
 | `SPACESHIP_EXEC_TIME_ELAPSED` | `2` | The minimum number of seconds for showing execution time section |
+
+### Battery (`battery`)
+
+By default, Battery section is shown only if battery level is below `SPACESHIP_BATTERY_THRESHOLD` (default: 10%) or it's fully charged.  It can be made always visible by setting `SPACESHIP_BATTERY_ALWAYS_SHOW=true`.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_BATTERY_SHOW` | `true` | Show battery section or not |
+| `SPACESHIP_BATTERY_ALWAYS_SHOW` | `false` | Always show battery section or not |
+| `SPACESHIP_BATTERY_PREFIX` | `` | Prefix before battery section |
+| `SPACESHIP_BATTERY_SUFFIX` | `SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after battery section |
+| `SPACESHIP_BATTERY_CHARGING_SYMBOL` | `⇡` | Character to be shown if battery is charging |
+| `SPACESHIP_BATTERY_DISCHARGING_SYMBOL` | `⇣` | Character to be shown if battery is discharging |
+| `SPACESHIP_w_FULL_SYMBOL` | `•` | Character to be shown if battery is full |
+| `SPACESHIP_BATTERY_THRESHOLD` | 10 | Battery level below which battery section will be shown |
 
 ### Vi-mode (`vi_mode`)
 
@@ -604,10 +638,12 @@ SPACESHIP_PROMPT_ORDER=(
   rust
   julia
   docker
+  aws
   venv
   pyenv
   dotnet
   ember
+  battery
   exec_time
   line_sep
   vi_mode
@@ -634,12 +670,12 @@ SPACESHIP_TIME_12HR=false
 SPACESHIP_TIME_COLOR="yellow"
 
 # EXECUTION TIME
-SPACESHIP_EXEC_TIME_SHOW="${SPACESHIP_EXEC_TIME_SHOW:=true}"
-SPACESHIP_EXEC_TIME_PREFIX="${SPACESHIP_EXEC_TIME_PREFIX:="took "}"
-SPACESHIP_EXEC_TIME_SUFFIX="${SPACESHIP_EXEC_TIME_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_EXEC_TIME_COLOR="${SPACESHIP_EXEC_TIME_COLOR:="yellow"}"
-SPACESHIP_EXEC_TIME_THRESHOLD="${SPACESHIP_EXEC_TIME_THRESHOLD:=5000}"
-SPACESHIP_EXEC_TIME_MS="${SPACESHIP_EXEC_TIME_MS:=false}"
+SPACESHIP_EXEC_TIME_SHOW=true
+SPACESHIP_EXEC_TIME_PREFIX="took "
+SPACESHIP_EXEC_TIME_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_EXEC_TIME_COLOR="yellow"
+SPACESHIP_EXEC_TIME_THRESHOLD=5000
+SPACESHIP_EXEC_TIME_MS=false
 
 # USER
 SPACESHIP_USER_SHOW=true
@@ -708,11 +744,11 @@ SPACESHIP_HG_STATUS_MODIFIED="!"
 SPACESHIP_HG_STATUS_DELETED="✘"
 
 # PACKAGE
-SPACESHIP_PACKAGE_SHOW="${SPACESHIP_PACKAGE_SHOW:=true}"
-SPACESHIP_PACKAGE_PREFIX="${SPACESHIP_PACKAGE_PREFIX:="is "}"
-SPACESHIP_PACKAGE_SUFFIX="${SPACESHIP_PACKAGE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL:="📦 "}"
-SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR:="red"}"
+SPACESHIP_PACKAGE_SHOW=true
+SPACESHIP_PACKAGE_PREFIX="is "
+SPACESHIP_PACKAGE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_PACKAGE_SYMBOL="📦 "
+SPACESHIP_PACKAGE_COLOR="red"
 
 # NODE
 SPACESHIP_NODE_SHOW=true
@@ -788,6 +824,13 @@ SPACESHIP_DOCKER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_DOCKER_SYMBOL="🐳 "
 SPACESHIP_DOCKER_COLOR="cyan"
 
+# Amazon Web Services (AWS)
+SPACESHIP_AWS_SHOW=true
+SPACESHIP_AWS_PREFIX="using "
+SPACESHIP_AWS_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_AWS_SYMBOL="☁️ "
+SPACESHIP_AWS_COLOR="208"
+
 # VENV
 SPACESHIP_VENV_SHOW=true
 SPACESHIP_VENV_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
@@ -814,6 +857,16 @@ SPACESHIP_EMBER_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_EMBER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_EMBER_SYMBOL="🐹 "
 SPACESHIP_EMBER_COLOR="210"
+
+# BATTERY
+SPACESHIP_BATTERY_SHOW=true
+SPACESHIP_BATTERY_ALWAYS_SHOW=false
+SPACESHIP_BATTERY_PREFIX=""
+SPACESHIP_BATTERY_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_BATTERY_CHARGING_SYMBOL="⇡"
+SPACESHIP_BATTERY_DISCHARGING_SYMBOL="⇣"
+SPACESHIP_BATTERY_FULL_SYMBOL="•"
+SPACESHIP_BATTERY_THRESHOLD=10
 
 # VI_MODE
 SPACESHIP_VI_MODE_SHOW=true
