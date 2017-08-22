@@ -644,7 +644,7 @@ spaceship_node() {
   [[ $SPACESHIP_NODE_SHOW == false ]] && return
 
   # Show NODE status only for JS-specific folders
-  [[ -f package.json || -d node_modules || -n *.js(#qN) ]] || return
+  [[ -f package.json || -d node_modules || -n *.js(#qN^/) ]] || return
 
   local node_version
 
@@ -674,7 +674,7 @@ spaceship_ruby() {
   [[ $SPACESHIP_RUBY_SHOW == false ]] && return
 
   # Show versions only for Ruby-specific folders
-  [[ -f Gemfile || -f Rakefile || -n *.rb(#qN) ]] || return
+  [[ -f Gemfile || -f Rakefile || -n *.rb(#qN^/) ]] || return
 
   local ruby_version
 
@@ -706,7 +706,7 @@ spaceship_elixir() {
   [[ $SPACESHIP_ELIXIR_SHOW == false ]] && return
 
   # Show versions only for Elixir-specific folders
-  [[ -f mix.exs || -n *.ex(#qN) || -n *.exs(#qN) ]] || return
+  [[ -f mix.exs || -n *.ex(#qN^/) || -n *.exs(#qN^/) ]] || return
 
   local elixir_version
 
@@ -795,7 +795,7 @@ spaceship_golang() {
   [[ $SPACESHIP_GOLANG_SHOW == false ]] && return
 
   # If there are Go-specific files in current directory, or current directory is under the GOPATH
-  [[ -d Godeps || -f glide.yaml || -n *.go(#qN) || -f Gopkg.yml || -f Gopkg.lock || ( $GOPATH && $PWD =~ $GOPATH ) ]] || return
+  [[ -d Godeps || -f glide.yaml || -n *.go(#qN^/) || -f Gopkg.yml || -f Gopkg.lock || ( $GOPATH && $PWD =~ $GOPATH ) ]] || return
 
   _exists go || return
 
@@ -814,7 +814,7 @@ spaceship_php() {
   [[ $SPACESHIP_PHP_SHOW == false ]] && return
 
   # Show only if php files exist in current directory
-  [[ -n *.php(#qN) ]] || return
+  [[ -n *.php(#qN^/) ]] || return
 
   _exists php || return
 
@@ -833,7 +833,7 @@ spaceship_rust() {
   [[ $SPACESHIP_RUST_SHOW == false ]] && return
 
   # If there are Rust-specific files in current directory
-  [[ -f Cargo.toml || -n *.rs(#qN) ]] || return
+  [[ -f Cargo.toml || -n *.rs(#qN^/) ]] || return
 
   _exists rustc || return
 
@@ -872,7 +872,7 @@ spaceship_julia() {
   [[ $SPACESHIP_JULIA_SHOW == false ]] && return
 
   # If there are julia files in current directory
-  [[ -n *.jl(#qN) ]] || return
+  [[ -n *.jl(#qN^/) ]] || return
 
   _exists julia || return
 
@@ -891,7 +891,7 @@ spaceship_docker() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
 
   _exists docker || return
-  
+
   # Show Docker status only for Docker-specific folders
   [[ -f Dockerfile || -f docker-compose.yml ]] || return
 
@@ -940,7 +940,7 @@ spaceship_venv() {
   _prompt_section \
     "$SPACESHIP_VENV_COLOR" \
     "$SPACESHIP_VENV_PREFIX" \
-    "$($VIRTUAL_ENV:t)" \
+    "$VIRTUAL_ENV:t" \
     "$SPACESHIP_VENV_SUFFIX"
 }
 
@@ -965,7 +965,7 @@ spaceship_pyenv() {
   [[ $SPACESHIP_PYENV_SHOW == false ]] && return
 
   # Show pyenv python version only for Python-specific folders
-  [[ -f requirements.txt ]] || [[ -n *.py(#qN) ]] || return
+  [[ -f requirements.txt ]] || [[ -n *.py(#qN^/) ]] || return
 
   _exists pyenv || return # Do nothing if pyenv is not installed
 
@@ -984,7 +984,7 @@ spaceship_dotnet() {
   [[ $SPACESHIP_DOTNET_SHOW == false ]] && return
 
   # Show DOTNET status only for folders containing project.json, global.json, .csproj, .xproj or .sln files
-  [[ -f project.json || -f global.json || -n *.csproj(#qN) || -n *.xproj(#qN) || -n *.sln(#qN) ]] || return
+  [[ -f project.json || -f global.json || -n *.csproj(#qN^/) || -n *.xproj(#qN^/) || -n *.sln(#qN^/) ]] || return
 
   _exists dotnet || return
 
