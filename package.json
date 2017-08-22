@@ -1,6 +1,6 @@
 {
   "name": "spaceship-zsh-theme",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "description": "An “Oh My ZSH!” theme for Astronauts.",
   "scripts": {
     "postinstall": "./install.zsh",
