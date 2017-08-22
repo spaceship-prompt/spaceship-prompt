@@ -548,7 +548,7 @@ Shows the active kubectl context.
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_KUBECONTEXT_SHOW` | `true` | Current Kubectl context section |
-| `SPACESHIP_KUBECONTEXT_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Kubectl context section |
+| `SPACESHIP_KUBECONTEXT_PREFIX` | `at ` | Prefix before Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_SYMBOL` | `☸️ ` | Character to be shown before Kubectl context |
 | `SPACESHIP_KUBECONTEXT_COLOR` | `cyan` | Color of Kubectl context section |
@@ -875,7 +875,7 @@ SPACESHIP_EMBER_COLOR="210"
 
 # KUBECONTEXT
 SPACESHIP_KUBECONTEXT_SHOW=true
-SPACESHIP_KUBECONTEXT_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_KUBECONTEXT_PREFIX="at "
 SPACESHIP_KUBECONTEXT_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_KUBECONTEXT_SYMBOL="☸️ "
 SPACESHIP_KUBECONTEXT_COLOR="cyan"
