@@ -55,6 +55,7 @@ Currently it shows:
 * Current Python pyenv (`🐍`).
 * Current .NET SDK version, through dotnet-cli (`.NET`).
 * Current Ember.js version, through ember-cli (`🐹`).
+* Current Kubectl context.
 * Current battery level and status:
   * `⇡` - charging;
   * `⇣` - discharging;
@@ -184,6 +185,7 @@ SPACESHIP_PROMPT_ORDER=(
   pyenv         # Pyenv section
   dotnet        # .NET section
   ember         # Ember.js section
+  kubecontext   # Kubectl context section
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status
@@ -539,6 +541,18 @@ Ember.js section is shown only in directories that contain a `ember-cli-build.js
 | `SPACESHIP_EMBER_SYMBOL` | `🐹 ` | Character to be shown before Ember.js version |
 | `SPACESHIP_EMBER_COLOR` | `210` | Color of Ember.js section |
 
+### Kubectl context (`kubecontext`)
+
+Shows the active kubectl context.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_KUBECONTEXT_SHOW` | `true` | Current Kubectl context section |
+| `SPACESHIP_KUBECONTEXT_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Kubectl context section |
+| `SPACESHIP_KUBECONTEXT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubectl context section |
+| `SPACESHIP_KUBECONTEXT_SYMBOL` | `k8s: ` | Character to be shown before Kubectl context |
+| `SPACESHIP_KUBECONTEXT_COLOR` | `cyan` | Color of Kubectl context section |
+
 ### Execution time (`exec_time`)
 
 Execution time of the last command. Will be displayed if it exceeds the set threshold of time.
@@ -643,6 +657,7 @@ SPACESHIP_PROMPT_ORDER=(
   pyenv
   dotnet
   ember
+  kubecontext
   battery
   exec_time
   line_sep
@@ -857,6 +872,13 @@ SPACESHIP_EMBER_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_EMBER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_EMBER_SYMBOL="🐹 "
 SPACESHIP_EMBER_COLOR="210"
+
+# KUBECONTEXT
+SPACESHIP_KUBECONTEXT_SHOW="${SPACESHIP_KUBECONTEXT_SHOW:=true}"
+SPACESHIP_KUBECONTEXT_PREFIX="${SPACESHIP_KUBECONTEXT_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_KUBECONTEXT_SUFFIX="${SPACESHIP_KUBECONTEXT_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_KUBECONTEXT_SYMBOL="${SPACESHIP_KUBECONTEXT_SYMBOL:="k8s: "}"
+SPACESHIP_KUBECONTEXT_COLOR="${SPACESHIP_KUBECONTEXT_COLOR:="cyan"}"
 
 # BATTERY
 SPACESHIP_BATTERY_SHOW=true
