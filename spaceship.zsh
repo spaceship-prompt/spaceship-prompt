@@ -26,8 +26,10 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     dir
     git
     hg
+    package
     node
     ruby
+    elixir
     xcode
     swift
     golang
@@ -36,11 +38,18 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     haskell
     julia
     docker
+    aws
     venv
+    conda
     pyenv
+    dotnet
+    ember
     exec_time
     line_sep
+    battery
     vi_mode
+    jobs
+    exit_code
     char
   )
 fi
@@ -116,17 +125,24 @@ SPACESHIP_HG_SYMBOL="${SPACESHIP_HG_SYMBOL:="☿ "}"
 # MERCURIAL BRANCH
 SPACESHIP_HG_BRANCH_SHOW="${SPACESHIP_HG_BRANCH_SHOW:=true}"
 SPACESHIP_HG_BRANCH_PREFIX="${SPACESHIP_HG_BRANCH_PREFIX:="$SPACESHIP_HG_SYMBOL"}"
-SPACESHIP_HG_BRANCH_SUFFIX="${SPACESHIP_HG_BRANCH_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_HG_BRANCH_SUFFIX="${SPACESHIP_HG_BRANCH_SUFFIX:=""}"
 SPACESHIP_HG_BRANCH_COLOR="${SPACESHIP_HG_BRANCH_COLOR:="magenta"}"
 # MERCURIAL STATUS
 SPACESHIP_HG_STATUS_SHOW="${SPACESHIP_HG_STATUS_SHOW:=true}"
-SPACESHIP_HG_STATUS_PREFIX="${SPACESHIP_HG_STATUS_PREFIX:="["}"
+SPACESHIP_HG_STATUS_PREFIX="${SPACESHIP_HG_STATUS_PREFIX:=" ["}"
 SPACESHIP_HG_STATUS_SUFFIX="${SPACESHIP_HG_STATUS_SUFFIX:="]"}"
 SPACESHIP_HG_STATUS_COLOR="${SPACESHIP_HG_STATUS_COLOR:="red"}"
 SPACESHIP_HG_STATUS_UNTRACKED="${SPACESHIP_HG_STATUS_UNTRACKED:="?"}"
 SPACESHIP_HG_STATUS_ADDED="${SPACESHIP_HG_STATUS_ADDED:="+"}"
 SPACESHIP_HG_STATUS_MODIFIED="${SPACESHIP_HG_STATUD_MODIFIED:="!"}"
 SPACESHIP_HG_STATUS_DELETED="${SPACESHIP_HG_STATUS_DELETED:="✘"}"
+
+# PACKAGE
+SPACESHIP_PACKAGE_SHOW="${SPACESHIP_PACKAGE_SHOW:=true}"
+SPACESHIP_PACKAGE_PREFIX="${SPACESHIP_PACKAGE_PREFIX:="is "}"
+SPACESHIP_PACKAGE_SUFFIX="${SPACESHIP_PACKAGE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL:="📦 "}"
+SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR:="red"}"
 
 # NODE
 SPACESHIP_NODE_SHOW="${SPACESHIP_NODE_SHOW:=true}"
@@ -142,6 +158,14 @@ SPACESHIP_RUBY_PREFIX="${SPACESHIP_RUBY_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFI
 SPACESHIP_RUBY_SUFFIX="${SPACESHIP_RUBY_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_RUBY_SYMBOL="${SPACESHIP_RUBY_SYMBOL:="💎 "}"
 SPACESHIP_RUBY_COLOR="${SPACESHIP_RUBY_COLOR:="red"}"
+
+# ELIXIR
+SPACESHIP_ELIXIR_SHOW="${SPACESHIP_ELIXIR_SHOW:=true}"
+SPACESHIP_ELIXIR_PREFIX="${SPACESHIP_ELIXIR_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_ELIXIR_SUFFIX="${SPACESHIP_ELIXIR_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_ELIXIR_SYMBOL="${SPACESHIP_ELIXIR_SYMBOL:="💧 "}"
+SPACESHIP_ELIXIR_DEFAULT_VERSION="${SPACESHIP_ELIXIR_DEFAULT_VERSION:=""}"
+SPACESHIP_ELIXIR_COLOR="${SPACESHIP_ELIXIR_COLOR:="magenta"}"
 
 # XCODE
 SPACESHIP_XCODE_SHOW_LOCAL="${SPACESHIP_XCODE_SHOW_LOCAL:=true}"
@@ -171,7 +195,7 @@ SPACESHIP_PHP_SHOW="${SPACESHIP_PHP_SHOW:=true}"
 SPACESHIP_PHP_PREFIX="${SPACESHIP_PHP_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_PHP_SUFFIX="${SPACESHIP_PHP_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_PHP_SYMBOL="${SPACESHIP_PHP_SYMBOL:="🐘 "}"
-SPACEHIP_PHP_COLOR="${SPACEHIP_PHP_COLOR:="blue"}"
+SPACESHIP_PHP_COLOR="${SPACESHIP_PHP_COLOR:="blue"}"
 
 # RUST
 SPACESHIP_RUST_SHOW="${SPACESHIP_RUST_SHOW:=true}"
@@ -207,12 +231,50 @@ SPACESHIP_VENV_PREFIX="${SPACESHIP_VENV_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFI
 SPACESHIP_VENV_SUFFIX="${SPACESHIP_VENV_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_VENV_COLOR="${SPACESHIP_VENV_COLOR:="blue"}"
 
+# CONDA
+SPACESHIP_CONDA_SHOW="${SPACESHIP_CONDA_SHOW:=true}"
+SPACESHIP_CONDA_PREFIX="${SPACESHIP_CONDA_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_CONDA_SUFFIX="${SPACESHIP_CONDA_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_CONDA_SYMBOL="${SPACESHIP_CONDA_SYMBOL:="🅒 "}"
+SPACESHIP_CONDA_COLOR="${SPACESHIP_CONDA_COLOR:="blue"}"
+
 # PYENV
 SPACESHIP_PYENV_SHOW="${SPACESHIP_PYENV_SHOW:=true}"
 SPACESHIP_PYENV_PREFIX="${SPACESHIP_PYENV_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_PYENV_SUFFIX="${SPACESHIP_PYENV_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_PYENV_SYMBOL="${SPACESHIP_PYENV_SYMBOL:="🐍 "}"
 SPACESHIP_PYENV_COLOR="${SPACESHIP_PYENV_COLOR:="yellow"}"
+
+# DOTNET
+SPACESHIP_DOTNET_SHOW="${SPACESHIP_DOTNET_SHOW:=true}"
+SPACESHIP_DOTNET_PREFIX="${SPACESHIP_DOTNET_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_DOTNET_SUFFIX="${SPACESHIP_DOTNET_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_DOTNET_SYMBOL="${SPACESHIP_DOTNET_SYMBOL:=".NET "}"
+SPACESHIP_DOTNET_COLOR="${SPACESHIP_DOTNET_COLOR:="128"}"
+
+# EMBER
+SPACESHIP_EMBER_SHOW="${SPACESHIP_EMBER_SHOW:=true}"
+SPACESHIP_EMBER_PREFIX="${SPACESHIP_EMBER_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_EMBER_SUFFIX="${SPACESHIP_EMBER_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_EMBER_SYMBOL="${SPACESHIP_EMBER_SYMBOL:="🐹 "}"
+SPACESHIP_EMBER_COLOR="${SPACESHIP_EMBER_COLOR:="210"}"
+
+# EXECUTION TIME
+SPACESHIP_EXEC_TIME_SHOW="${SPACESHIP_EXEC_TIME_SHOW:=true}"
+SPACESHIP_EXEC_TIME_PREFIX="${SPACESHIP_EXEC_TIME_PREFIX:="took "}"
+SPACESHIP_EXEC_TIME_SUFFIX="${SPACESHIP_EXEC_TIME_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_EXEC_TIME_COLOR="${SPACESHIP_EXEC_TIME_COLOR:="yellow"}"
+SPACESHIP_EXEC_TIME_ELAPSED="${SPACESHIP_EXEC_TIME_ELAPSED:=2}"
+
+# BATTERY
+SPACESHIP_BATTERY_SHOW="${SPACESSHIP_BATTERY_SHOW:=true}"
+SPACESHIP_BATTERY_ALWAYS_SHOW="${SPACESHIP_BATTERY_ALWAYS_SHOW:=false}"
+SPACESHIP_BATTERY_PREFIX="${SPACESHIP_BATTERY_PREFFIX:=""}"
+SPACESHIP_BATTERY_SUFFIX="${SPACESHIP_BATTERY_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_BATTERY_CHARGING_SYMBOL="${SPACESHIP_BATTERY_CHARGING_SYMBOL:="⇡"}"
+SPACESHIP_BATTERY_DISCHARGING_SYMBOL="${SPACESHIP_BATTERY_DISCHARGING_SYMBOL:="⇣"}"
+SPACESHIP_BATTERY_FULL_SYMBOL="${SPACESHIP_BATTERY_FULL_SYMBOL:="•"}"
+SPACESHIP_BATTERY_THRESHOLD="${SPACESHIP_BATTERY_THRESHOLD:=10}"
 
 # VI_MODE
 SPACESHIP_VI_MODE_SHOW="${SPACESHIP_VI_MODE_SHOW:=true}"
@@ -222,12 +284,26 @@ SPACESHIP_VI_MODE_INSERT="${SPACESHIP_VI_MODE_INSERT:="[I]"}"
 SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:="[N]"}"
 SPACESHIP_VI_MODE_COLOR="${SPACESHIP_VI_MODE_COLOR:="white"}"
 
-# EXECUTION TIME
-SPACESHIP_EXEC_TIME_SHOW="${SPACESHIP_EXEC_TIME_SHOW:=true}"
-SPACESHIP_EXEC_TIME_PREFIX="${SPACESHIP_EXEC_TIME_PREFIX:="took "}"
-SPACESHIP_EXEC_TIME_SUFFIX="${SPACESHIP_EXEC_TIME_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_EXEC_TIME_COLOR="${SPACESHIP_EXEC_TIME_COLOR:="yellow"}"
-SPACESHIP_EXEC_TIME_ELAPSED="${SPACESHIP_EXEC_TIME_ELAPSED:=2}"
+# JOBS
+SPACESHIP_JOBS_SHOW="${SPACESHIP_JOBS_SHOW:=true}"
+SPACESHIP_JOBS_PREFIX="${SPACESHIP_JOBS_PREFIX:=""}"
+SPACESHIP_JOBS_SUFFIX="${SPACESHIP_JOBS_SUFFIX:=" "}"
+SPACESHIP_JOBS_SYMBOL="${SPACESHIP_JOBS_SYMBOL:="✦"}"
+SPACESHIP_JOBS_COLOR="${SPACESHIP_JOBS_COLOR:="blue"}"
+
+# EXIT CODE
+SPACESHIP_EXIT_CODE_SHOW="${SPACESHIP_EXIT_CODE_SHOW:=false}"
+SPACESHIP_EXIT_CODE_PREFIX="${SPACESHIP_EXIT_CODE_PREFIX:=""}"
+SPACESHIP_EXIT_CODE_SUFFIX="${SPACESHIP_EXIT_CODE_SUFFIX:=" "}"
+SPACESHIP_EXIT_CODE_SYMBOl="${SPACESHIP_EXIT_CODE_SYMBOl:="✘"}"
+SPACESHIP_EXIT_CODE_COLOR="${SPACESHIP_EXIT_CODE_COLOR:="red"}"
+
+# Amazon Web Services (AWS)
+SPACESHIP_AWS_SHOW="${SPACESHIP_AWS_SHOW:=true}"
+SPACESHIP_AWS_PREFIX="${SPACESHIP_AWS_PREFIX:="using "}"
+SPACESHIP_AWS_SUFFIX="${SPACESHIP_AWS_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_AWS_SYMBOL="${SPACESHIP_AWS_SYMBOL:="☁️ "}"
+SPACESHIP_AWS_COLOR="${SPACESHIP_AWS_COLOR:="208"}"
 
 # ------------------------------------------------------------------------------
 # HELPERS
@@ -248,11 +324,18 @@ _is_git() {
   command git rev-parse --is-inside-work-tree &>/dev/null
 }
 
-# Check if the current direcotory is in a Mercurial repository
+# Check if the current directory is in a Mercurial repository.
 # USAGE:
 #   _is_hg
 _is_hg() {
-  command hg --cwd $PWD root &>/dev/null
+  local root="$(pwd -P)"
+
+  while [[ $root && ! -d $root/.hg ]]
+  do
+    root="${root%/*}"
+  done
+
+  [[ -n "$root" ]] &>/dev/null
 }
 
 # Draw prompt section (bold is used as default)
@@ -411,7 +494,7 @@ spaceship_dir() {
 # GIT BRANCH
 # Show current git brunch using git_current_status from Oh-My-Zsh
 spaceship_git_branch() {
-  [[ $SPACEHIP_GIT_BRANCH_SHOW == false ]] && return
+  [[ $SPACESHIP_GIT_BRANCH_SHOW == false ]] && return
 
   _is_git || return
 
@@ -470,17 +553,15 @@ spaceship_git() {
 }
 
 # MERCURIAL BRANCH
-# Show current hg brunch
+# Show current hg branch
 spaceship_hg_branch() {
   [[ $SPACESHIP_HG_BRANCH_SHOW == false ]] && return
 
   _is_hg || return
 
-  local hg_branch="$(cat $PWD/.hg/branch)"
-
   _prompt_section \
     "$SPACESHIP_HG_BRANCH_COLOR" \
-    "$SPACESHIP_HG_BRANCH_PREFIX"$hg_branch"$SPACESHIP_HG_BRANCH_SUFFIX"
+    "$SPACESHIP_HG_BRANCH_PREFIX"$(hg branch)"$SPACESHIP_HG_BRANCH_SUFFIX"
 }
 
 # MERCURIAL STATUS
@@ -490,17 +571,17 @@ spaceship_hg_status() {
 
   _is_hg || return
 
-  local INDEX=$(command hg status 2>/dev/null) hg_status=""
+  local INDEX=$(hg status 2>/dev/null) hg_status=""
 
   # Indicators are suffixed instead of prefixed to each other to
   # provide uniform view across git and mercurial indicators
-  if $(echo "$INDEX" | command grep -E '^\? ' &> /dev/null); then
+  if $(echo "$INDEX" | grep -E '^\? ' &> /dev/null); then
     hg_status="$SPACESHIP_HG_STATUS_UNTRACKED$hg_status"
-  elif $(echo "$INDEX" | command grep -E '^A ' &> /dev/null); then
+  elif $(echo "$INDEX" | grep -E '^A ' &> /dev/null); then
     hg_status="$SPACESHIP_HG_STATUS_ADDED$hg_status"
-  elif $(echo "$INDEX" | command grep -E '^M ' &> /dev/null); then
+  elif $(echo "$INDEX" | grep -E '^M ' &> /dev/null); then
     hg_status="$SPACESHIP_HG_STATUS_MODIFIED$hg_status"
-  elif $(echo "$INDEX" | command grep -E '^(R|!)' &> /dev/null); then
+  elif $(echo "$INDEX" | grep -E '^(R|!)' &> /dev/null); then
     hg_status="$SPACESHIP_HG_STATUS_DELETED$hg_status"
   fi
 
@@ -512,7 +593,7 @@ spaceship_hg_status() {
 }
 
 # MERCURIAL
-# Show both git branch and git status:
+# Show both hg branch and hg status:
 #   spaceship_hg_branch
 #   spaceship_hg_status
 spaceship_hg() {
@@ -527,6 +608,34 @@ spaceship_hg() {
     "$SPACESHIP_HG_PREFIX" \
     "${hg_branch}${hg_status}" \
     "$SPACESHIP_HG_SUFFIX"
+}
+
+# PACKAGE
+# Show current package version
+spaceship_package() {
+  [[ $SPACESHIP_PACKAGE_SHOW == false ]] && return
+
+  # Show package version only when repository is a package
+  # @todo: add more package managers
+  [[ -f package.json ]] || return
+
+  _exists npm || return
+
+  # Grep and cut out package version
+  local package_version=$(grep -E '"version": "v?((\d)+\.){1,}' package.json | cut -d\" -f4 2> /dev/null)
+
+  # Handle version not found
+  if [ ! "$package_version" ]; then
+    package_version=" ⚠"
+  else
+    package_version=" v${package_version}"
+  fi
+
+  _prompt_section \
+    "$SPACESHIP_PACKAGE_COLOR" \
+    "$SPACESHIP_PACKAGE_PREFIX" \
+    "${SPACESHIP_PACKAGE_SYMBOL}${package_version}" \
+    "$SPACESHIP_PACKAGE_SUFFIX"
 }
 
 # NODE
@@ -591,6 +700,40 @@ spaceship_ruby() {
     "$SPACESHIP_RUBY_SUFFIX"
 }
 
+# ELIXIR
+# Show current version of Elixir
+spaceship_elixir() {
+  [[ $SPACESHIP_ELIXIR_SHOW == false ]] && return
+
+  # Show versions only for Elixir-specific folders
+  [[ -f mix.exs || -n *.ex(#qN) || -n *.exs(#qN) ]] || return
+
+  local elixir_version
+
+  if _exists kiex; then
+    elixir_version="${ELIXIR_VERSION}"
+  elif _exists exenv; then
+    elixir_version=$(exenv version-name)
+  fi
+
+  if [[ $elixir_version == "" ]]; then
+    _exists elixir || return
+    elixir_version=$(elixir -v 2>/dev/null | grep "Elixir" --color=never | cut -d ' ' -f 2)
+  fi
+
+  [[ $elixir_version == "system" ]] && return
+  [[ $elixir_version == $SPACESHIP_ELIXIR_DEFAULT_VERSION ]] && return
+
+  # Add 'v' before elixir version that starts with a number
+  [[ "${elixir_version}" =~ ^[0-9].+$ ]] && elixir_version="v${elixir_version}"
+
+  _prompt_section \
+    "$SPACESHIP_ELIXIR_COLOR" \
+    "$SPACESHIP_ELIXIR_PREFIX" \
+    "${SPACESHIP_ELIXIR_SYMBOL}${elixir_version}" \
+    "$SPACESHIP_ELIXIR_SUFFIX"
+}
+
 # XCODE
 # Show current version of Xcode
 spaceship_xcode() {
@@ -651,8 +794,8 @@ spaceship_swift() {
 spaceship_golang() {
   [[ $SPACESHIP_GOLANG_SHOW == false ]] && return
 
-  # If there are Go-specific files in current directory
-  [[ -d Godeps || -f glide.yaml || -n *.go(#qN) ]] || return
+  # If there are Go-specific files in current directory, or current directory is under the GOPATH
+  [[ -d Godeps || -f glide.yaml || -n *.go(#qN) || -f Gopkg.yml || -f Gopkg.lock || ( $GOPATH && $PWD =~ $GOPATH ) ]] || return
 
   _exists go || return
 
@@ -678,7 +821,7 @@ spaceship_php() {
   local php_version=$(php -v 2>&1 | grep --color=never -oe "^PHP\s*[0-9.]*" | awk '{print $2}')
 
   _prompt_section \
-    "$SPACEHIP_PHP_COLOR" \
+    "$SPACESHIP_PHP_COLOR" \
     "$SPACESHIP_PHP_PREFIX" \
     "${SPACESHIP_PHP_SYMBOL}v${php_version}" \
     "${SPACESHIP_PHP_SUFFIX}"
@@ -748,6 +891,10 @@ spaceship_docker() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
 
   _exists docker || return
+  
+  # Show Docker status only for Docker-specific folders
+  [[ -f Dockerfile || -f docker-compose.yml ]] || return
+
   # if docker daemon isn't running you'll get an error saying it can't connect
   docker info 2>&1 | grep -q "Cannot connect" && return
 
@@ -764,6 +911,24 @@ spaceship_docker() {
     "$SPACESHIP_DOCKER_SUFFIX"
 }
 
+# Amazon Web Services (AWS)
+# Shows selected AWS cli profile.
+spaceship_aws() {
+  [[ $SPACESHIP_AWS_SHOW == false ]] && return
+  # Check if the AWS-cli is installed
+  _exists aws || return
+
+  # Is the current profile not the default profile
+  [[ -z $AWS_DEFAULT_PROFILE ]] || [[ "$AWS_DEFAULT_PROFILE" == "default" ]] && return
+
+  # Show prompt section
+  _prompt_section \
+    "$SPACESHIP_AWS_COLOR" \
+    "$SPACESHIP_AWS_PREFIX" \
+    "${SPACESHIP_AWS_SYMBOL}$AWS_DEFAULT_PROFILE" \
+    "$SPACESHIP_AWS_SUFFIX"
+}
+
 # VENV
 # Show current virtual environment (Python).
 spaceship_venv() {
@@ -775,8 +940,23 @@ spaceship_venv() {
   _prompt_section \
     "$SPACESHIP_VENV_COLOR" \
     "$SPACESHIP_VENV_PREFIX" \
-    "$(basename $VIRTUAL_ENV)" \
+    "$($VIRTUAL_ENV:t)" \
     "$SPACESHIP_VENV_SUFFIX"
+}
+
+# CONDA
+# Show current conda virtual environment
+spaceship_conda() {
+  [[ $SPACESHIP_CONDA_SHOW == false ]] && return
+
+  # Check if running via conda virtualenv
+  _exists conda && [ -n "$CONDA_DEFAULT_ENV" ] || return
+
+  _prompt_section \
+    "$SPACESHIP_CONDA_COLOR" \
+    "$SPACESHIP_CONDA_PREFIX" \
+    "${SPACESHIP_CONDA_SYMBOL}${CONDA_DEFAULT_ENV}" \
+    "$SPACESHIP_CONDA_SUFFIX"
 }
 
 # PYENV
@@ -784,33 +964,57 @@ spaceship_venv() {
 spaceship_pyenv() {
   [[ $SPACESHIP_PYENV_SHOW == false ]] && return
 
-  # Show NVM status only for Python-specific folders
+  # Show pyenv python version only for Python-specific folders
   [[ -f requirements.txt ]] || [[ -n *.py(#qN) ]] || return
 
   _exists pyenv || return # Do nothing if pyenv is not installed
 
-  local pyenv_status
-  local pyenv_shell=$(pyenv shell 2>/dev/null)
-  local pyenv_local=$(pyenv local 2>/dev/null)
-  local pyenv_global=$(pyenv global 2>/dev/null)
-
-  # Version follows this order: shell > local > global
-  # See: https://github.com/yyuu/pyenv/blob/master/COMMANDS.md
-  if [[ ! -z $pyenv_shell ]]; then
-    pyenv_status=$pyenv_shell
-  elif [[ ! -z $pyenv_local ]]; then
-    pyenv_status=$pyenv_local
-  elif [[ ! -z $pyenv_global ]]; then
-    pyenv_status=$pyenv_global
-  else
-    return # If none of these is set, pyenv is not being used. Do nothing.
-  fi
+  local pyenv_status=${$(pyenv version-name 2>/dev/null)//:/ }
 
   _prompt_section \
     "$SPACESHIP_PYENV_COLOR" \
     "$SPACESHIP_PYENV_PREFIX" \
     "${SPACESHIP_PYENV_SYMBOL}${pyenv_status}" \
     "$SPACESHIP_PYENV_SUFFIX"
+}
+
+# DOTNET
+# Show current version of .NET SDK
+spaceship_dotnet() {
+  [[ $SPACESHIP_DOTNET_SHOW == false ]] && return
+
+  # Show DOTNET status only for folders containing project.json, global.json, .csproj, .xproj or .sln files
+  [[ -f project.json || -f global.json || -n *.csproj(#qN) || -n *.xproj(#qN) || -n *.sln(#qN) ]] || return
+
+  _exists dotnet || return
+
+  # dotnet-cli automatically handles SDK pinning (specified in a global.json file)
+  # therefore, this already returns the expected version for the current directory
+  local dotnet_version=$(dotnet --version 2>/dev/null)
+
+  _prompt_section \
+    "$SPACESHIP_DOTNET_COLOR" \
+    "$SPACESHIP_DOTNET_PREFIX" \
+    "${SPACESHIP_DOTNET_SYMBOL}${dotnet_version}" \
+    "$SPACESHIP_DOTNET_SUFFIX"
+}
+
+# EMBER
+# Show current version of ember, exception system.
+spaceship_ember() {
+  [[ $SPACESHIP_EMBER_SHOW == false ]] && return
+
+  # Show EMBER status only for folders w/ ember-cli-build.js files
+  [[ -f ember-cli-build.js && -f node_modules/ember-cli/package.json ]] || return
+
+  local ember_version=$(grep '"version":' ./node_modules/ember-cli/package.json | cut -d\" -f4)
+  [[ $ember_version == "system" || $ember_version == "ember" ]] && return
+
+  _prompt_section \
+    "$SPACESHIP_EMBER_COLOR" \
+    "$SPACESHIP_EMBER_PREFIX" \
+    "${SPACESHIP_EMBER_SYMBOL}${ember_version}" \
+    "$SPACESHIP_EMBER_SUFFIX"
 }
 
 # EXECUTION TIME
@@ -824,6 +1028,74 @@ spaceship_exec_time() {
       "$SPACESHIP_EXEC_TIME_PREFIX" \
       "$(_displaytime $SPACESHIP_EXEC_TIME_duration)" \
       "$SPACESHIP_EXEC_TIME_SUFFIX"
+  fi
+}
+
+# BATTERY
+# Show section only if either of follow is true
+# - Always show is true
+# - battery percentage is below the given limit (default: 10%)
+# - Battery is fully charged
+# Escape % for display since it's a special character in zsh prompt expansion
+spaceship_battery() {
+  [[ $SPACESHIP_BATTERY_SHOW == false ]] && return
+
+  local battery_data battery_percent battery_status battery_color
+
+  if _exists pmset; then
+    battery_data=$(pmset -g batt)
+
+    # Return if no internal battery
+    [[ -z $(echo $battery_data | grep "InternalBattery") ]] && return
+
+    battery_percent="$( echo $battery_data | grep -oE '[0-9]{1,3}%' )"
+    battery_status="$( echo $battery_data | awk -F '; *' 'NR==2 { print $2 }' )"
+  elif _exists upower; then
+    local battery=$(command upower -e | grep battery | head -1)
+
+    # Return if no battery
+    [[ -z $battery ]] && return
+
+    battery_data=$(upower -i $battery)
+    battery_percent="$( echo $battery_data | grep percentage | awk '{print $2}' )"
+    battery_status="$( echo $battery_data | grep state | awk '{print $2}' )"
+  elif _exists acpi; then
+    battery_data=$(acpi -b)
+
+    # Return if no battery
+    [[ -z $battery_data ]] && return
+    battery_percent="$( echo $battery_data | awk '{print $4}' )"
+    battery_status="$( echo $battery_data | awk '{print tolower($3)}' )"
+  fi
+
+  # Remove trailing % and symbols for comparison
+  battery_percent="$(echo $battery_percent | tr -d '%[,;]')"
+
+  # Change color based on battery percentage
+  if [[ $battery_percent == 100 || $battery_status =~ "(charged|full)" ]]; then
+    battery_color="green"
+  elif [[ $battery_percent -lt $SPACESHIP_BATTERY_THRESHOLD ]]; then
+    battery_color="red"
+  else
+    battery_color="yellow"
+  fi
+
+  # Battery indicator based on current status of battery
+  if [[ $battery_status == "charging" ]];then
+    battery_symbol="${SPACESHIP_BATTERY_CHARGING_SYMBOL}"
+  elif [[ $battery_status =~ "^[dD]ischarg.*" ]]; then
+    battery_symbol="${SPACESHIP_BATTERY_DISCHARGING_SYMBOL}"
+  else
+    battery_symbol="${SPACESHIP_BATTERY_FULL_SYMBOL}"
+  fi
+
+  # Escape % for display since it's a special character in zsh prompt expansion
+  if [[ $SPACESHIP_BATTERY_ALWAYS_SHOW == true || $battery_percent -lt $SPACESHIP_BATTERY_THRESHOLD || $battery_status =~ "(charged|full)"  ]]; then
+    _prompt_section \
+      "$battery_color" \
+      "$SPACESHIP_BATTERY_PREFIX" \
+      "$battery_symbol$battery_percent%%" \
+      "$SPACESHIP_BATTERY_SUFFIX"
   fi
 }
 
@@ -864,6 +1136,35 @@ spaceship_vi_mode_disable() {
   bindkey -e
 }
 
+# JOBS
+# Show icon if there's a working jobs in the background
+spaceship_jobs() {
+  [[ $SPACESHIP_JOBS_SHOW == false ]] && return
+
+  local jobs_amount=$(jobs -l | wc -l | xargs)
+
+  [[ $jobs_amount -gt 0 ]] || return
+  [[ $jobs_amount -eq 1 ]] && jobs_amount=''
+
+  _prompt_section \
+    "$SPACESHIP_JOBS_COLOR" \
+    "$SPACESHIP_JOBS_PREFIX" \
+    "${SPACESHIP_JOBS_SYMBOL}${jobs_amount}" \
+    "$SPACESHIP_JOBS_SUFFIX"
+}
+
+# EXIT CODE
+# Show exit code of last statement
+spaceship_exit_code() {
+  [[ $SPACESHIP_EXIT_CODE_SHOW == false || $RETVAL == 0 ]] && return
+
+  _prompt_section \
+    "$SPACESHIP_EXIT_CODE_COLOR" \
+    "$SPACESHIP_EXIT_CODE_PREFIX" \
+    "${SPACESHIP_EXIT_CODE_SYMBOl}$RETVAL" \
+    "$SPACESHIP_EXIT_CODE_SUFFIX"
+}
+
 # LINE SEPARATOR
 # Should it write prompt in two lines or not?
 spaceship_line_sep() {
@@ -885,7 +1186,7 @@ spaceship_char() {
 # PROMPT
 _deprecated SPACESHIP_PROMPT_TRUNC SPACESHIP_DIR_TRUNC
 # PREFIXES
-_deprecated SPACEHIP_PREFIX_SHOW SPACESHIP_PROMPT_PREFIXES_SHOW
+_deprecated SPACESHIP_PREFIX_SHOW SPACESHIP_PROMPT_PREFIXES_SHOW
 _deprecated SPACESHIP_PREFIX_TIME SPACESHIP_TIME_PREFIX
 _deprecated SPACESHIP_PREFIX_USER SPACESHIP_USER_PREFIX
 _deprecated SPACESHIP_PREFIX_HOST SPACESHIP_HOST_PREFIX
@@ -920,6 +1221,10 @@ _deprecated SPACESHIP_GIT_UNPUSHED SPACESHIP_GIT_STATUS_AHEAD
 
 # Compose whole prompt from smaller parts
 spaceship_prompt() {
+  # Retirve exit code of last command to use in exit_code
+  # Must be captured before any other command in prompt is executed
+  RETVAL=$?
+
   # Option EXTENDED_GLOB is set locally to force filename generation on
   # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
   # See the description of filename generation in

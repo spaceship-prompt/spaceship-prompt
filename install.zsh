@@ -40,6 +40,7 @@ success() { echo ; paint 'green' "SPACESHIP: $*" ; echo }
 URL='https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh'
 SPACESHIP="$PWD/spaceship.zsh"
 DIST="$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+DOWNLOADED=false
 
 # ------------------------------------------------------------------------------
 # MAIN
@@ -54,15 +55,17 @@ if [ ! -f "$SPACESHIP" ]; then
 
   if exists curl; then
     log "Downloading using curl:"
-    curl "$URL" -o "$SPACESHIP" || error "Filed to load using curl!" ; exit 1
+    curl "$URL" -o "$SPACESHIP" || $(error "Failed to load using curl!" && exit 1)
   elif exists wget; then
     log "Downloading using wget:"
-    wget "$URL" -O "$SPACESHIP" || error "Filed to load using wget!" ; exit 1
+    wget "$URL" -O "$SPACESHIP" || $(error "Failed to load using wget!" && exit 1)
   else
     # Exit with error
     error "curl and wget are unavailable!"
     exit 1
   fi
+
+  DOWNLOADED=true
 else
   log "Spaceship is present in current directory"
 fi
@@ -73,10 +76,17 @@ if [[ -z $ZSH_CUSTOM ]]; then
   exit 1
 fi
 
-# Linking
-log "Linking $SPACESHIP to $DIST..."
 mkdir -p "$(dirname $DIST)"
-ln -sf "$SPACESHIP" "$DIST"
+
+if [[ ! $DOWNLOADED ]]; then
+  log "Linking $SPACESHIP to $DIST..."
+  ln -sf "$SPACESHIP" "$DIST"
+else
+  log "Copying $SPACESHIP to $DIST..."
+  cp -f "$SPACESHIP" "$DIST"
+fi
+
+cp -f "$SPACESHIP" "$DIST"
 
 # Add source command to ~/.zshrc
 log "Sourcing Spacehsip in ~/.zshrc..."
@@ -85,6 +95,6 @@ echo 'source "'"$DIST"'"'           >> "$HOME/.zshrc"
 
 # Replace current theme to Spaceship
 log 'Attempting to change $ZSH_THEME to "spaceship"...'
-sed -i '' 's/ZSH_THEME=.*$/ZSH_THEME="spaceship"/g' "$HOME/.zshrc" \
+sed -i'' 's/ZSH_THEME=.*$/ZSH_THEME="spaceship"/g' "$HOME/.zshrc" \
   && success "Done! Please, reload your terminal." \
   || error "Cannot change theme in ~/.zshrc. Please, do it by yourself." \
