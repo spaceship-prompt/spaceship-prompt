@@ -55,7 +55,7 @@ Currently it shows:
 * Current Python pyenv (`🐍`).
 * Current .NET SDK version, through dotnet-cli (`.NET`).
 * Current Ember.js version, through ember-cli (`🐹`).
-* Current Kubectl context.
+* Current Kubectl context (`☸️`).
 * Current battery level and status:
   * `⇡` - charging;
   * `⇣` - discharging;
@@ -550,7 +550,7 @@ Shows the active kubectl context.
 | `SPACESHIP_KUBECONTEXT_SHOW` | `true` | Current Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubectl context section |
-| `SPACESHIP_KUBECONTEXT_SYMBOL` | `k8s: ` | Character to be shown before Kubectl context |
+| `SPACESHIP_KUBECONTEXT_SYMBOL` | `☸️ ` | Character to be shown before Kubectl context |
 | `SPACESHIP_KUBECONTEXT_COLOR` | `cyan` | Color of Kubectl context section |
 
 ### Execution time (`exec_time`)
@@ -874,11 +874,11 @@ SPACESHIP_EMBER_SYMBOL="🐹 "
 SPACESHIP_EMBER_COLOR="210"
 
 # KUBECONTEXT
-SPACESHIP_KUBECONTEXT_SHOW="${SPACESHIP_KUBECONTEXT_SHOW:=true}"
-SPACESHIP_KUBECONTEXT_PREFIX="${SPACESHIP_KUBECONTEXT_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
-SPACESHIP_KUBECONTEXT_SUFFIX="${SPACESHIP_KUBECONTEXT_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_KUBECONTEXT_SYMBOL="${SPACESHIP_KUBECONTEXT_SYMBOL:="k8s: "}"
-SPACESHIP_KUBECONTEXT_COLOR="${SPACESHIP_KUBECONTEXT_COLOR:="cyan"}"
+SPACESHIP_KUBECONTEXT_SHOW=true
+SPACESHIP_KUBECONTEXT_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_KUBECONTEXT_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_KUBECONTEXT_SYMBOL="☸️ "
+SPACESHIP_KUBECONTEXT_COLOR="cyan"
 
 # BATTERY
 SPACESHIP_BATTERY_SHOW=true
