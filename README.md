@@ -219,6 +219,14 @@ SPACESHIP_PROMPT_ORDER=(
 | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | `via ` | Default prefix for prompt sections |
 | `SPACESHIP_PROMPT_DEFAULT_SUFFIX` | ` ` | Default suffix for prompt section |
 
+### Char
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_CHAR_SUCCESS_COLOR` | `green` | Color of prompt character if last command completes successfully |
+| `SPACESHIP_CHAR_FAILURE_COLOR` | `red` | Color of prompt character if last command returns non-zero exit-code |
+| `SPACESHIP_CHAR_SECONDARY_COLOR` | `yellow` | Color of secondary prompt character |
+
 ### Time (`time`)
 
 Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if you need to show time stamps.
@@ -686,6 +694,11 @@ SPACESHIP_PROMPT_PREFIXES_SHOW=true
 SPACESHIP_PROMPT_SUFFIXES_SHOW=true
 SPACESHIP_PROMPT_DEFAULT_PREFIX="via "
 SPACESHIP_PROMPT_DEFAULT_SUFFIX=" "
+
+# CHAR
+SPACESHIP_CHAR_SUCCESS_COLOR="green"
+SPACESHIP_CHAR_FAILURE_COLOR="red"
+SPACESHIP_CHAR_SECONDARY_COLOR="yellow"
 
 # TIME
 SPACESHIP_TIME_SHOW=false
