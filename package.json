@@ -6,7 +6,6 @@
     "postinstall": "./install.zsh",
     "postuninstall": "./uninstall.zsh",
     "postpublish": "git push --follow-tags",
-    "release": "standard-version",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,8 +24,5 @@
   "bugs": {
     "url": "https://github.com/denysdovhan/spaceship-zsh-theme/issues"
   },
-  "homepage": "https://github.com/denysdovhan/spaceship-zsh-theme#readme",
-  "dependencies": {
-    "standard-version": "^4.2.0"
-  }
+  "homepage": "https://github.com/denysdovhan/spaceship-zsh-theme#readme"
 }
