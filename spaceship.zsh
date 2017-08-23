@@ -492,11 +492,18 @@ spaceship_dir() {
 }
 
 # GIT BRANCH
-# Show current git brunch using git_current_status from Oh-My-Zsh
+# Show current git branch
 spaceship_git_branch() {
   [[ $SPACESHIP_GIT_BRANCH_SHOW == false ]] && return
 
   _is_git || return
+
+  local ref=$(command git symbolic-ref --quiet HEAD 2> /dev/null) ret=$?
+  if [[ $ret != 0 ]]; then
+    ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
+  fi
+
+  local git_current_branch=${ref#refs/heads/}
 
   _prompt_section \
     "$SPACESHIP_GIT_BRANCH_COLOR" \
@@ -504,27 +511,81 @@ spaceship_git_branch() {
 }
 
 # GIT STATUS
-# Check if current dir is a git repo, set up ZSH_THEME_* variables
-# and show git status using git_prompt_status from Oh-My-Zsh
-# Reference:
-#   https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/git.zsh
+# Show git status
+#   We used to depend on OMZ git library,
+#   But it doesn't handle many of the status indicator combinations.
+#   Also, It's hard to maintain external dependency. See PR #147 at https://git.io/vQkkB
+#   See git help status to know more about status formats
 spaceship_git_status() {
   [[ $SPACESHIP_GIT_STATUS_SHOW == false ]] && return
 
   _is_git || return
 
-  ZSH_THEME_GIT_PROMPT_UNTRACKED=$SPACESHIP_GIT_STATUS_UNTRACKED
-  ZSH_THEME_GIT_PROMPT_ADDED=$SPACESHIP_GIT_STATUS_ADDED
-  ZSH_THEME_GIT_PROMPT_MODIFIED=$SPACESHIP_GIT_STATUS_MODIFIED
-  ZSH_THEME_GIT_PROMPT_RENAMED=$SPACESHIP_GIT_STATUS_RENAMED
-  ZSH_THEME_GIT_PROMPT_DELETED=$SPACESHIP_GIT_STATUS_DELETED
-  ZSH_THEME_GIT_PROMPT_STASHED=$SPACESHIP_GIT_STATUS_STASHED
-  ZSH_THEME_GIT_PROMPT_UNMERGED=$SPACESHIP_GIT_STATUS_UNMERGED
-  ZSH_THEME_GIT_PROMPT_AHEAD=$SPACESHIP_GIT_STATUS_AHEAD
-  ZSH_THEME_GIT_PROMPT_BEHIND=$SPACESHIP_GIT_STATUS_BEHIND
-  ZSH_THEME_GIT_PROMPT_DIVERGED=$SPACESHIP_GIT_STATUS_DIVERGED
+  local INDEX git_status=""
 
-  local git_status="$(git_prompt_status)"
+  INDEX=$(command git status --porcelain -b 2> /dev/null)
+
+  # Check for untracked files
+  if $(echo "$INDEX" | command grep -E '^\?\? ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_UNTRACKED$git_status"
+  fi
+
+  # Check for staged files
+  if $(echo "$INDEX" | command grep '^A[ MDAU] ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_ADDED$git_status"
+  elif $(echo "$INDEX" | command grep '^UA' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_ADDED$git_status"
+  fi
+
+  # Check for modified files
+  if $(echo "$INDEX" | command grep '^M[ MD] ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_MODIFIED$git_status"
+  elif $(echo "$INDEX" | command grep '^[ MARC]M ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_MODIFIED$git_status"
+  fi
+
+  # Check for renamed files
+  if $(echo "$INDEX" | command grep '^R[ MD] ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_RENAMED$git_status"
+  fi
+
+  # Check for deleted files
+  if $(echo "$INDEX" | command grep '^[MARCDU] D ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_DELETED$git_status"
+  elif $(echo "$INDEX" | command grep '^D[ UM] ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_DELETED$git_status"
+  fi
+
+  # Check for stashes
+  if $(command git rev-parse --verify refs/stash >/dev/null 2>&1); then
+    git_status="$SPACESHIP_GIT_STATUS_STASHED$git_status"
+  fi
+
+  # Check for unmerged files
+  if $(echo "$INDEX" | command grep '^U[UDA] ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_UNMERGED$git_status"
+  elif $(echo "$INDEX" | command grep '^AA ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_UNMERGED$git_status"
+  elif $(echo "$INDEX" | command grep '^DD ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_UNMERGED$git_status"
+  elif $(echo "$INDEX" | command grep '^[DA]U ' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_UNMERGED$git_status"
+  fi
+
+  # Check whether branch is ahead
+  if $(echo "$INDEX" | command grep '^## [^ ]\+ .*ahead' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_AHEAD$git_status"
+  fi
+
+  # Check whether branch is behind
+  if $(echo "$INDEX" | command grep '^## [^ ]\+ .*behind' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_BEHIND$git_status"
+  fi
+
+  # Check wheather branch has diverged
+  if $(echo "$INDEX" | command grep '^## [^ ]\+ .*diverged' &> /dev/null); then
+    git_status="$SPACESHIP_GIT_STATUS_DIVERGED$git_status"
+  fi
 
   if [[ -n $git_status ]]; then
     # Status prefixes are colorized
@@ -1247,7 +1308,7 @@ spaceship_ps2() {
 
 # Setup required environment variables
 # All preparation before drawing prompt should be done here
-spaceship_setup() {
+prompt_spaceship_setup() {
   autoload -Uz add-zsh-hook
   # Add exec_time hooks
   add-zsh-hook preexec spaceship_exec_time_preexec_hook
@@ -1271,4 +1332,4 @@ spaceship_setup() {
 
 # Entry point
 # Pass all arguments to the spaceship_setup function
-spaceship_setup "$@"
+prompt_spaceship_setup "$@"
