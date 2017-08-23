@@ -8,12 +8,12 @@
 
 [![NPM version][npm-image]][npm-url]
 [![ZSH][zsh-image]][zsh-url]
-[![Oh-My-Zsh][omz-image]][omz-url]
+![Dependency][dependency-image]
 [![Donatation][donate-image]][donate-url]
 
-> An [“Oh My ZSH!”][oh-my-zsh] theme for Astronauts.
+> An [ZSH][zsh-url] prompt for Astronauts.
 
-Spaceship is a minimalistic, powerful and extremely customizable [“Oh My ZSH!”][oh-my-zsh] theme. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
+Spaceship is a minimalistic, powerful and extremely customizable [ZSH][zsh-url] prompt. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
 
 Currently it shows:
 
@@ -29,23 +29,42 @@ Currently it shows:
   * `⇡` — ahead of remote branch;
   * `⇣` — behind of remote branch;
   * `⇕` — diverged chages.
+* Mercurial repo status:
+  * `?` — untracked changes;
+  * `+` — uncommitted changes in the index;
+  * `!` — unstaged changes;
+  * `✘` — deleted files;
 * Prompt character turns red if the last command exits with non-zero code.
 * Hostname only displayed when in an SSH session.
 * Username displayed only when it isn't `$LOGNAME`.
 * Username turns red when root.
-* Current Node.js version, through nvm or n (`⬢`).
+* If repo is a package, shows its version through npm (`📦`).
+* Current Node.js version, through nvm/nodenv/n (`⬢`).
 * Current Ruby version, through rvm/rbenv/chruby (`💎`).
+* Current Elixir version, through kiex/exenv/elixir (`💧`).
 * Current Swift version, through swiftenv (`🐦`).
 * Current Xcode version, through xenv (`🛠`).
 * Current Go version (`🐹`).
 * Current PHP version (`🐘`).
 * Current Rust version (`𝗥`)
+* Current version of Haskell Tool Stack (`λ`)
 * Current Julia version (`ஃ`)
 * Current Docker version and connected machine (`🐳`).
+* Current Amazon Web Services (AWS) profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html))
 * Current Python virtualenv.
+* Current Conda virtualenv (`🅒 `).
 * Current Python pyenv (`🐍`).
-* Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode)).
-* Optional time stamps 12/24hr in format ([how to enable](#time)).
+* Current .NET SDK version, through dotnet-cli (`.NET`).
+* Current Ember.js version, through ember-cli (`🐹`).
+* Current battery level and status:
+  * `⇡` - charging;
+  * `⇣` - discharging;
+  * `•` - fully charged;
+* Current Vi-mode mode ([with handy aliases for temporarily enabling](#vi-mode-vi_mode)).
+* Indicator for jobs in the background (`✦`).
+* Optional exit-code of last command ([how to enable](#exit-code-exit_code)).
+* Optional time stamps 12/24hr in format ([how to enable](#time-time)).
+* Execution time of the last command if it exceeds the set threshold.
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new) or send pull request.
 
@@ -61,8 +80,7 @@ You can find more examples with different color schemes in [Screenshots](https:/
 
 For correct work you will first need:
 
-* A [`zsh`](http://www.zsh.org/) must be installed
-* A zsh–framework like [oh-my-zsh], [antigen] or [zgen]
+* A [`zsh`](http://www.zsh.org/) (v5.0.5 or recent) must be installed
 
 ## Installing
 
@@ -72,27 +90,18 @@ For correct work you will first need:
 npm install -g spaceship-zsh-theme
 ```
 
-Done. This command should link `spaceship.zsh-theme` to your `$ZSH_CUSTOM/themes` and set `$ZSH_CUSTOM` to `"spaceship"`. Just reload your terminal.
+Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath` and set `prompt spaceship` in `.zshrc`. Just reload your terminal.
 
 **Tip:** Update Spaceship to new versions as any other package.
 
 ### [oh-my-zsh]
 
-Installing using **curl**:
-
-```zsh
-curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh
-```
-
-Installing using **wget**:
-
-```zsh
-wget -O - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh
-```
+- Set `ZSH_THEME=""` in your `.zshrc`
+- Follow instructions in [manual](https://github.com/denysdovhan/spaceship-zsh-theme#manual) installation.
 
 ### [antigen]
 
-Add the following snippet `~/.zshrc` after the line `antigen use oh-my-zsh`:
+Add the following snippet in your `~/.zshrc``:
 
 ```
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
@@ -126,10 +135,31 @@ zplug denysdovhan/spaceship-zsh-theme, use:spaceship.zsh, from:github, as:theme
 
 If you have problems with approches above, follow these instructions:
 
-1. Download the theme [here](https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh)
-2. Rename `spaceship.zsh` to `spaceship.zsh-theme`
-3. Put the file `spaceship.zsh-theme` in `$ZSH_CUSTOM/themes/`
-4. Add the line to your `~/.zshrc`: `ZSH_THEME="spaceship"`
+- Download the theme [here](https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh)
+- Symlink `spaceship.zsh` to somewhere in `$fpath` as `prompt_spaceship_setup`.
+
+Run `echo $fpath` to see possible locations. Like,
+```console
+$ ln -sf "$PWD/spaceship.zsh" "/usr/local/share/zsh/site-functions/prompt_spaceship_setup"
+```
+
+For a user-specific installation (which would not require escalated privileges), simply add a directory to `$fpath` for that user:
+```sh
+# .zshrc
+fpath=( "$HOME/.zfunctions" $fpath )
+```
+Then install the theme there:
+```console
+$ ln -sf "$PWD/spaceship.zsh" "$HOME/.zfunctions/prompt_spaceship_setup"
+```
+
+- Initialize prompt system and choose `spaceship`
+
+```sh
+# .zshrc
+autoload -U promptinit; promptinit
+prompt spaceship
+```
 
 ## Options
 
@@ -148,19 +178,31 @@ SPACESHIP_PROMPT_ORDER=(
   host          # Hostname section
   dir           # Current directory section
   git           # Git section (git_branch + git_status)
+  hg            # Mercurial section (hg_branch  + hg_status)
+  package       # Package version
   node          # Node.js section
   ruby          # Ruby section
+  elixir        # Elixir section
   xcode         # Xcode section
   swift         # Swift section
   golang        # Go section
   php           # PHP section
   rust          # Rust section
+  haskell       # Haskell Stack section
   julia         # Julia section
   docker        # Docker section
+  aws           # Amazon Web Services section
   venv          # virtualenv section
+  conda         # conda virtualenv section
   pyenv         # Pyenv section
+  dotnet        # .NET section
+  ember         # Ember.js section
+  exec_time     # Execution time
   line_sep      # Line break
+  battery       # Battery level and status
   vi_mode       # Vi-mode indicator
+  jobs          # Backgound jobs indicator
+  exit_code     # Exit code section
   char          # Prompt character
 )
 ```
@@ -185,7 +227,7 @@ SPACESHIP_PROMPT_ORDER=(
 | `SPACESHIP_CHAR_FAILURE_COLOR` | `red` | Color of prompt character if last command returns non-zero exit-code |
 | `SPACESHIP_CHAR_SECONDARY_COLOR` | `yellow` | Color of secondary prompt character |
 
-### Time
+### Time (`time`)
 
 Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if you need to show time stamps.
 
@@ -274,6 +316,55 @@ Git status indicators is shown only when you have dirty repository.
 | `SPACESHIP_GIT_STATUS_BEHIND` | `⇣` | Indicator for unpulled changes (behind of remote branch) |
 | `SPACESHIP_GIT_STATUS_DIVERGED` | `⇕` | Indicator for diverged chages (diverged with remote branch) |
 
+### Mercurial (`hg`)
+
+Mercurial section is consists with `hg_branch` and `hg_status` subsections. It is shown only in Mercurial repositories.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_HG_SHOW` | `true` | Show Mercurial section |
+| `SPACESHIP_HG_PREFIX` | `on ` | Prefix before Mercurial section |
+| `SPACESHIP_HG_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Mercurial section |
+| `SPACESHIP_HG_SYMBOL` | `☿ ` | Character to be shown before Mercurial section |
+
+#### Mercurial branch (`hg_branch`)
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_HG_BRANCH_SHOW` | `true` | Show Mercurial branch subsection |
+| `SPACESHIP_HG_BRANCH_PREFIX` | `$SPACESHIP_HG_SYMBOL` | Prefix before Mercurial branch subsection |
+| `SPACESHIP_HG_BRANCH_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Mercurial branch subsection |
+| `SPACESHIP_HG_BRANCH_COLOR` | `magenta` | Color of Mercurial branch subsection |
+
+#### Mercurial status (`hg_status`)
+
+Mercurial status indicators is shown only when you have dirty repository.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_HG_STATUS_SHOW` | `true` | Show Mercurial status subsection |
+| `SPACESHIP_HG_STATUS_PREFIX` | `[` | Prefix before Mercurial status subsection |
+| `SPACESHIP_HG_STATUS_SUFFIX` | `]` | Suffix after Mercurial status subsection |
+| `SPACESHIP_HG_STATUS_COLOR` | `red` | Color of Mercurial status subsection |
+| `SPACESHIP_HG_STATUS_UNTRACKED` | `?` | Indicator for untracked changes |
+| `SPACESHIP_HG_STATUS_ADDED` | `+` | Indicator for added changes |
+| `SPACESHIP_HG_STATUS_MODIFIED` | `!` | Indicator for unstaged files |
+| `SPACESHIP_HG_STATUS_DELETED` | `✘` | Indicator for deleted files |
+
+### Package version (`package`)
+
+> Works only for npm at the moment. Please, help us improve this section!
+
+Package version is shown when repository is a package (contains a `package.json` file). This is the version of the package you are working on, not the version of package manager itself.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_PACKAGE_SHOW` | `true` | Show package version |
+| `SPACESHIP_PACKAGE_PREFIX` | `is ` | Prefix before package version section |
+| `SPACESHIP_PACKAGE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after package version section |
+| `SPACESHIP_PACKAGE_SYMBOL` | `📦 ` | Character to be shown before package version |
+| `SPACESHIP_PACKAGE_COLOR` | `red` | Color of package version section |
+
 ### Node.js (`node`)
 
 Node.js section is shown only in directories that contain `package.json` file, or `node_modules` folder, or any other file with `.js` extension.
@@ -300,6 +391,19 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 | `SPACESHIP_RUBY_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Ruby section |
 | `SPACESHIP_RUBY_SYMBOL` | `💎  ` | Character to be shown before Ruby version |
 | `SPACESHIP_RUBY_COLOR` | `red` | Color of Ruby section |
+
+### Elixir (`elixir`)
+
+Elixir section is shown only in directories that contain `mix.exs`, or any other file with `.ex` or `.exs` extension. If the current elixir version is the same as the version set in `SPACESHIP_ELIXIR_DEFAULT_VERSION`, the elixir section will be hidden.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_ELIXIR_SHOW` | `true` | Show Elixir section |
+| `SPACESHIP_ELIXIR_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Elixir section |
+| `SPACESHIP_ELIXIR_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Elixir section |
+| `SPACESHIP_ELIXIR_DEFAULT_VERSION` | `` | Elixir version to be treated as default |
+| `SPACESHIP_ELIXIR_SYMBOL` | `💧  ` | Character to be shown before Elixir version |
+| `SPACESHIP_ELIXIR_COLOR` | `magenta` | Color of Elixir section |
 
 ### Xcode (`xcode`)
 
@@ -329,7 +433,7 @@ Shows current version of Swift. Local version has more priority than global.
 
 ### Go (`golang`)
 
-Go section is shown only in directories that contain `Godeps`, or `glide.yaml`, or any other file with `.go` extension.
+Go section is shown only in directories that contain `Godeps`, `glide.yaml`, any other file with `.go` extension, or when current directory is in the Go workspace defined in `$GOPATH`.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -363,6 +467,18 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 | `SPACESHIP_RUST_SYMBOL` | `𝗥 ` | Character to be shown before Rust version |
 | `SPACESHIP_RUST_COLOR` | `red` | Color of Rust section |
 
+### Haskell (`haskell`)
+
+Haskell section is shown only in directories that contain `stack.yaml` file.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_HASKELL_SHOW` | `true` | Shown current Haskell Tool Stack version or not |
+| `SPACESHIP_HASKELL_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Haskell section |
+| `SPACESHIP_HASKELL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Haskell section |
+| `SPACESHIP_HASKELL_SYMBOL` | `λ ` | Character to be shown before Haskell Tool Stack version |
+| `SPACESHIP_HASKELL_COLOR` | `red` | Color of Haskell section |
+
 ### Julia (`julia`)
 
 Julia section is shown only in directories that contain file with `.jl` extension.
@@ -377,15 +493,27 @@ Julia section is shown only in directories that contain file with `.jl` extensio
 
 ### Docker (`docker`)
 
-Shows Docker version and current connected machine name.
+Docker section is shown only in directories that contain `Dockerfile` or `docker-compose.yml` file.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_DOCKER_SHOW` | `true` | Show current Docker version and connected docker-machine ot not |
+| `SPACESHIP_DOCKER_SHOW` | `true` | Show current Docker version and connected docker-machine or not |
 | `SPACESHIP_DOCKER_PREFIX` | `on ` | Prefix before the Docker section |
 | `SPACESHIP_DOCKER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Docker section |
 | `SPACESHIP_DOCKER_SYMBOL` | `🐳 ` | Character to be shown before Docker version |
 | `SPACESHIP_DOCKER_COLOR` | `cyan` | Color of Docker section |
+
+### Amazon Web Services (AWS) (`aws`)
+
+Shows selected Amazon Web Services profile using '[named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)'.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_AWS_SHOW` | `true` | Show current selected AWS-cli profile or not |
+| `SPACESHIP_AWS_PREFIX` | `using ` | Prefix before the AWS section |
+| `SPACESHIP_AWS_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the AWS section |
+| `SPACESHIP_AWS_SYMBOL` | `☁️ ` | Character to be shown before AWS profile |
+| `SPACESHIP_AWS_COLOR` | `208` | Color of AWS section |
 
 ### Virtualenv (`venv`)
 
@@ -396,9 +524,21 @@ Shows Docker version and current connected machine name.
 | `SPACESHIP_VENV_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the virtualenv section |
 | `SPACESHIP_VENV_COLOR` | `blue` | Color of virtualenv environment section |
 
+### Conda virtualenv (`conda`)
+
+Show activated conda virtual environment. Disable native conda prompt by `conda config --set changeps1 False`.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_CONDA_SHOW` | `true` | Show current Python conda virtualenv or not |
+| `SPACESHIP_CONDA_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the conda virtualenv section |
+| `SPACESHIP_CONDA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the conda virtualenv section |
+| `SPACESHIP_CONDA_SYMBOL` | `🅒 ` | Character to be shown before conda virtualenv section |
+| `SPACESHIP_CONDA_COLOR` | `blue` | Color of conda virtualenv environment section |
+
 ### Pyenv (`pyenv`)
 
-Go section is shown only in directories that contain `requirements.txt` or any other file with `.py` extension.
+pyenv section is shown only in directories that contain `requirements.txt` or any other file with `.py` extension.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -407,6 +547,57 @@ Go section is shown only in directories that contain `requirements.txt` or any o
 | `SPACESHIP_PYENV_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the pyenv section |
 | `SPACESHIP_PYENV_SYMBOL` | `🐍 ` | Character to be shown before Pyenv version |
 | `SPACESHIP_PYENV_COLOR` | `yellow` | Color of Pyenv section |
+
+### .NET (`dotnet`)
+
+.NET section is shown only in directories that contains a `project.json` or `global.json` file, or a file with one of these extensions: `.csproj`, `.xproj` or `.sln`.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_DOTNET_SHOW` | `true` | Current .NET section |
+| `SPACESHIP_DOTNET_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before .NET section |
+| `SPACESHIP_DOTNET_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after .NET section |
+| `SPACESHIP_DOTNET_SYMBOL` | `.NET ` | Character to be shown before .NET version |
+| `SPACESHIP_DOTNET_COLOR` | `128` | [Color code](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg) of .NET section |
+
+### Ember.js (`ember`)
+
+Ember.js section is shown only in directories that contain a `ember-cli-build.js` file.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_EMBER_SHOW` | `true` | Current Ember.js section |
+| `SPACESHIP_EMBER_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Ember.js section |
+| `SPACESHIP_EMBER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Ember.js section |
+| `SPACESHIP_EMBER_SYMBOL` | `🐹 ` | Character to be shown before Ember.js version |
+| `SPACESHIP_EMBER_COLOR` | `210` | Color of Ember.js section |
+
+### Execution time (`exec_time`)
+
+Execution time of the last command. Will be displayed if it exceeds the set threshold of time.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_EXEC_TIME_SHOW` | `true` | Show execution time |
+| `SPACESHIP_EXEC_TIME_PREFIX` | `took ` | Prefix before execution time section |
+| `SPACESHIP_EXEC_TIME_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after execution time section |
+| `SPACESHIP_EXEC_TIME_COLOR` | `yellow` | Color of execution time section |
+| `SPACESHIP_EXEC_TIME_ELAPSED` | `2` | The minimum number of seconds for showing execution time section |
+
+### Battery (`battery`)
+
+By default, Battery section is shown only if battery level is below `SPACESHIP_BATTERY_THRESHOLD` (default: 10%) or it's fully charged.  It can be made always visible by setting `SPACESHIP_BATTERY_ALWAYS_SHOW=true`.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_BATTERY_SHOW` | `true` | Show battery section or not |
+| `SPACESHIP_BATTERY_ALWAYS_SHOW` | `false` | Always show battery section or not |
+| `SPACESHIP_BATTERY_PREFIX` | `` | Prefix before battery section |
+| `SPACESHIP_BATTERY_SUFFIX` | `SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after battery section |
+| `SPACESHIP_BATTERY_CHARGING_SYMBOL` | `⇡` | Character to be shown if battery is charging |
+| `SPACESHIP_BATTERY_DISCHARGING_SYMBOL` | `⇣` | Character to be shown if battery is discharging |
+| `SPACESHIP_w_FULL_SYMBOL` | `•` | Character to be shown if battery is full |
+| `SPACESHIP_BATTERY_THRESHOLD` | 10 | Battery level below which battery section will be shown |
 
 ### Vi-mode (`vi_mode`)
 
@@ -430,6 +621,30 @@ You can temporarily enable or disable vi-mode with handy functions (just execute
 
 **Note:** For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$reset_color%}"` before `source $ZSH/oh-my-zsh.sh` in `.zshrc` to disable default `<<<` NORMAL mode indicator in right prompt.
 
+### Jobs (`jobs`)
+
+This section show only when there are active jobs in the background.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_JOBS_SHOW` | `true` | Show background jobs indicator  |
+| `SPACESHIP_JOBS_PREFIX` | `` | Prefix before the jobs indicator |
+| `SPACESHIP_JOBS_SUFFIX` | ` ` | Suffix after the jobs indicator |
+| `SPACESHIP_JOBS_SYMBOL` | `✦` | Character to be shown when jobs are hiding |
+| `SPACESHIP_JOBS_COLOR` | `blue` | Color of background jobs section |
+
+### Exit code (`exit_code`)
+
+Disabled as default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show exit code of last command.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_EXIT_CODE_SHOW` | `false` | Show exit code of last command |
+| `SPACESHIP_EXIT_CODE_PREFIX` | `` | Prefix before exit code section |
+| `SPACESHIP_EXIT_CODE_SUFFIX` | ` ` | Suffix after exit code section |
+| `SPACESHIP_EXIT_CODE_SYMBOL` | `✘` | Character to be shown before exit code |
+| `SPACESHIP_EXIT_CODE_COLOR` | `red` | Color of exit code section |
+
 ### Example
 
 Here is all options which may be changed. Copy this to your `~/.zshrc` to make it easy to change.
@@ -444,8 +659,11 @@ SPACESHIP_PROMPT_ORDER=(
   host
   dir
   git
+  hg
+  package
   node
   ruby
+  elixir
   xcode
   swift
   golang
@@ -453,10 +671,18 @@ SPACESHIP_PROMPT_ORDER=(
   rust
   julia
   docker
+  aws
   venv
+  conda
   pyenv
+  dotnet
+  ember
+  battery
+  exec_time
   line_sep
   vi_mode
+  jobs
+  exit_code
   char
 )
 
@@ -481,6 +707,14 @@ SPACESHIP_TIME_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_TIME_FORMAT=false
 SPACESHIP_TIME_12HR=false
 SPACESHIP_TIME_COLOR="yellow"
+
+# EXECUTION TIME
+SPACESHIP_EXEC_TIME_SHOW=true
+SPACESHIP_EXEC_TIME_PREFIX="took "
+SPACESHIP_EXEC_TIME_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_EXEC_TIME_COLOR="yellow"
+SPACESHIP_EXEC_TIME_THRESHOLD=5000
+SPACESHIP_EXEC_TIME_MS=false
 
 # USER
 SPACESHIP_USER_SHOW=true
@@ -528,6 +762,33 @@ SPACESHIP_GIT_STATUS_AHEAD="⇡"
 SPACESHIP_GIT_STATUS_BEHIND="⇣"
 SPACESHIP_GIT_STATUS_DIVERGED="⇕"
 
+# HG
+SPACESHIP_HG_SHOW=true
+SPACESHIP_HG_PREFIX="on "
+SPACESHIP_HG_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_HG_SYMBOL="☿ "
+# HG BRANCH
+SPACESHIP_HG_BRANCH_SHOW=true
+SPACESHIP_HG_BRANCH_PREFIX="$SPACESHIP_HG_SYMBOL"
+SPACESHIP_HG_BRANCH_SUFFIX=""
+SPACESHIP_HG_BRANCH_COLOR="magenta"
+# HG STATUS
+SPACESHIP_HG_STATUS_SHOW=true
+SPACESHIP_HG_STATUS_PREFIX="["
+SPACESHIP_HG_STATUS_SUFFIX="]"
+SPACESHIP_HG_STATUS_COLOR="red"
+SPACESHIP_HG_STATUS_UNTRACKED="?"
+SPACESHIP_HG_STATUS_ADDED="+"
+SPACESHIP_HG_STATUS_MODIFIED="!"
+SPACESHIP_HG_STATUS_DELETED="✘"
+
+# PACKAGE
+SPACESHIP_PACKAGE_SHOW=true
+SPACESHIP_PACKAGE_PREFIX="is "
+SPACESHIP_PACKAGE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_PACKAGE_SYMBOL="📦 "
+SPACESHIP_PACKAGE_COLOR="red"
+
 # NODE
 SPACESHIP_NODE_SHOW=true
 SPACESHIP_NODE_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
@@ -542,6 +803,14 @@ SPACESHIP_RUBY_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_RUBY_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_RUBY_SYMBOL="💎 "
 SPACESHIP_RUBY_COLOR="red"
+
+# ELIXIR
+SPACESHIP_ELIXIR_SHOW=true
+SPACESHIP_ELIXIR_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_ELIXIR_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_ELIXIR_SYMBOL="💧 "
+SPACESHIP_ELIXIR_DEFAULT_VERSION=""
+SPACESHIP_ELIXIR_COLOR="magenta"
 
 # XCODE
 SPACESHIP_XCODE_SHOW_LOCAL=true
@@ -571,7 +840,7 @@ SPACESHIP_PHP_SHOW=true
 SPACESHIP_PHP_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_PHP_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_PHP_SYMBOL="🐘 "
-SPACEHIP_PHP_COLOR="blue"
+SPACESHIP_PHP_COLOR="blue"
 
 # RUST
 SPACESHIP_RUST_SHOW=true
@@ -585,7 +854,7 @@ SPACESHIP_JULIA_SHOW=true
 SPACESHIP_JULIA_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_JULIA_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_JULIA_SYMBOL="ஃ "
-SPACESHIP_JULIA_COLOR= "green"
+SPACESHIP_JULIA_COLOR="green"
 
 # DOCKER
 SPACESHIP_DOCKER_SHOW=true
@@ -594,11 +863,25 @@ SPACESHIP_DOCKER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_DOCKER_SYMBOL="🐳 "
 SPACESHIP_DOCKER_COLOR="cyan"
 
+# Amazon Web Services (AWS)
+SPACESHIP_AWS_SHOW=true
+SPACESHIP_AWS_PREFIX="using "
+SPACESHIP_AWS_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_AWS_SYMBOL="☁️ "
+SPACESHIP_AWS_COLOR="208"
+
 # VENV
 SPACESHIP_VENV_SHOW=true
 SPACESHIP_VENV_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_VENV_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_VENV_COLOR="blue"
+
+# CONDA
+SPACESHIP_CONDA_SHOW=true
+SPACESHIP_CONDA_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_CONDA_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_CONDA_SYMBOL="🅒 "
+SPACESHIP_CONDA_COLOR="blue"
 
 # PYENV
 SPACESHIP_PYENV_SHOW=true
@@ -607,6 +890,30 @@ SPACESHIP_PYENV_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_PYENV_SYMBOL="🐍 "
 SPACESHIP_PYENV_COLOR="yellow"
 
+# DOTNET
+SPACESHIP_DOTNET_SHOW=true
+SPACESHIP_DOTNET_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_DOTNET_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_DOTNET_SYMBOL=".NET "
+SPACESHIP_DOTNET_COLOR="128"
+
+# EMBER
+SPACESHIP_EMBER_SHOW=true
+SPACESHIP_EMBER_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_EMBER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_EMBER_SYMBOL="🐹 "
+SPACESHIP_EMBER_COLOR="210"
+
+# BATTERY
+SPACESHIP_BATTERY_SHOW=true
+SPACESHIP_BATTERY_ALWAYS_SHOW=false
+SPACESHIP_BATTERY_PREFIX=""
+SPACESHIP_BATTERY_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_BATTERY_CHARGING_SYMBOL="⇡"
+SPACESHIP_BATTERY_DISCHARGING_SYMBOL="⇣"
+SPACESHIP_BATTERY_FULL_SYMBOL="•"
+SPACESHIP_BATTERY_THRESHOLD=10
+
 # VI_MODE
 SPACESHIP_VI_MODE_SHOW=true
 SPACESHIP_VI_MODE_PREFIX=""
@@ -614,6 +921,20 @@ SPACESHIP_VI_MODE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_VI_MODE_INSERT="[I]"
 SPACESHIP_VI_MODE_NORMAL="[N]"
 SPACESHIP_VI_MODE_COLOR="white"
+
+# JOBS
+SPACESHIP_JOBS_SHOW="true"
+SPACESHIP_JOBS_PREFIX=""
+SPACESHIP_JOBS_SUFFIX=" "
+SPACESHIP_JOBS_SYMBOL="✦"
+SPACESHIP_JOBS_COLOR="blue"
+
+# EXIT CODE
+SPACESHIP_EXIT_CODE_SHOW=false
+SPACESHIP_EXIT_CODE_PREFIX="("
+SPACESHIP_EXIT_CODE_SUFFIX=") "
+SPACESHIP_EXIT_CODE_SYMBOl="✘ "
+SPACESHIP_EXIT_CODE_COLOR="red"
 ```
 
 ## Donate
@@ -634,10 +955,9 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [npm-image]: https://img.shields.io/npm/v/spaceship-zsh-theme.svg?style=flat-square
 
 [zsh-url]: http://zsh.org/
-[zsh-image]: https://img.shields.io/badge/shell-zsh-777777.svg?style=flat-square
+[zsh-image]: https://img.shields.io/badge/zsh->=v5.0.5-777777.svg?style=flat-square
 
-[omz-url]: http://ohmyz.sh/
-[omz-image]: https://img.shields.io/badge/dependency-oh--my--zsh-c5d928.svg?style=flat-square
+[dependency-image]:  https://img.shields.io/badge/dependencies-none-c5d928.svg?style=flat-square
 
 [donate-url]: https://www.liqpay.com/en/checkout/380951100392
 [donate-image]: https://img.shields.io/badge/support-donate-yellow.svg?style=flat-square

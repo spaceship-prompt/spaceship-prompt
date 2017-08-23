@@ -3,7 +3,7 @@
 # Author: Denys Dovhan, denysdovhan.com
 # https://github.com/denysdovhan/spaceship-zsh-theme
 
-# Source ~/.zshrc because we need oh-my-zsh variables
+# Source ~/.zshrc
 source "$HOME/.zshrc"
 
 # ------------------------------------------------------------------------------
@@ -28,8 +28,8 @@ paint() {
 # Logging functions.
 # USAGE:
 #   log|error|success [text...]
-log()     {        paint 'cyan'  "SPACESHIP: $*"        }
-error()   { echo ; paint 'red'   "SPACESHIP: $*" ; echo }
+log()     { echo ; paint 'cyan'  "SPACESHIP: $*" }
+error()   { echo ; paint 'red'   "SPACESHIP: $*" }
 success() { echo ; paint 'green' "SPACESHIP: $*" ; echo }
 
 # ------------------------------------------------------------------------------
@@ -39,7 +39,6 @@ success() { echo ; paint 'green' "SPACESHIP: $*" ; echo }
 
 URL='https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh'
 SPACESHIP="$PWD/spaceship.zsh"
-DIST="$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 # ------------------------------------------------------------------------------
 # MAIN
@@ -54,37 +53,49 @@ if [ ! -f "$SPACESHIP" ]; then
 
   if exists curl; then
     log "Downloading using curl:"
-    curl "$URL" -o "$SPACESHIP" || error "Filed to load using curl!" ; exit 1
+    curl "$URL" -o "$SPACESHIP" || $(error "Failed to load using curl!" && exit 1)
   elif exists wget; then
     log "Downloading using wget:"
-    wget "$URL" -O "$SPACESHIP" || error "Filed to load using wget!" ; exit 1
+    wget "$URL" -O "$SPACESHIP" || $(error "Failed to load using wget!" && exit 1)
   else
     # Exit with error
     error "curl and wget are unavailable!"
     exit 1
   fi
+
+  DOWNLOADED=true
 else
   log "Spaceship is present in current directory"
 fi
 
-# Check if $ZSH_CUSTOM is available
-if [[ -z $ZSH_CUSTOM ]]; then
-  error '$ZSH_CUSTOM is not defined!'
-  exit 1
+# Choose Installation path
+
+DIST="/usr/local/share/zsh/site-functions"
+if [[ ! -w "$DIST" ]]; then
+  log "Failed to symlink $SPACESHIP to $DIST, Using $HOME/.zfunctions"
+  DIST="$HOME/.zfunctions"
+  log  "Adding $DIST to fpath"
+  echo 'fpath=( "'"$DIST"'" $fpath )' >> "$HOME/.zshrc"
 fi
 
-# Linking
-log "Linking $SPACESHIP to $DIST..."
+# Link prompt to fpath
+log "Linking $SPACESHIP to $DIST/prompt_spaceship_setup..."
 mkdir -p "$(dirname $DIST)"
-ln -sf "$SPACESHIP" "$DIST"
+ln -sf "$SPACESHIP" "$DIST/prompt_spaceship_setup"
 
-# Add source command to ~/.zshrc
-log "Sourcing Spacehsip in ~/.zshrc..."
-echo '\n'                           >> "$HOME/.zshrc"
-echo 'source "'"$DIST"'"'           >> "$HOME/.zshrc"
+local msg="
+  autoload -U promptinit; promptinit
+  prompt spaceship
+  "
 
-# Replace current theme to Spaceship
-log 'Attempting to change $ZSH_THEME to "spaceship"...'
-sed -i '' 's/ZSH_THEME=.*$/ZSH_THEME="spaceship"/g' "$HOME/.zshrc" \
-  && success "Done! Please, reload your terminal." \
-  || error "Cannot change theme in ~/.zshrc. Please, do it by yourself." \
+read -q "choice?Do you want to set prompt now (Y/n) ?
+This will append the following to your .zshrc $msg"
+
+if [[ $choice == "y" ]]; then
+  echo 'autoload -U promptinit; promptinit' >> "$HOME/.zshrc"
+  echo 'prompt spaceship'                   >> "$HOME/.zshrc"
+  success "Done! Please, reload your terminal."
+else
+  error "Please manually update your .zshrc with the following"
+  echo "$msg"
+fi

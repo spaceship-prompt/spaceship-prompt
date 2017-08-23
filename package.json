@@ -1,6 +1,6 @@
 {
   "name": "spaceship-zsh-theme",
-  "version": "2.3.0",
+  "version": "2.10.0",
   "description": "An “Oh My ZSH!” theme for Astronauts.",
   "scripts": {
     "postinstall": "./install.zsh",
@@ -17,7 +17,6 @@
     "shell",
     "zsh",
     "zsh-theme",
-    "oh-my-zsh",
     "terminal"
   ],
   "author": "Denys Dovhan <email@denysdovhan.com> (http://denysdovhan.com/)",
