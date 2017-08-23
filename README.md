@@ -8,12 +8,12 @@
 
 [![NPM version][npm-image]][npm-url]
 [![ZSH][zsh-image]][zsh-url]
-[![Oh-My-Zsh][omz-image]][omz-url]
+![Dependency][dependency-image]
 [![Donatation][donate-image]][donate-url]
 
-> An [“Oh My ZSH!”][oh-my-zsh] theme for Astronauts.
+> An [ZSH][zsh-url] prompt for Astronauts.
 
-Spaceship is a minimalistic, powerful and extremely customizable [“Oh My ZSH!”][oh-my-zsh] theme. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
+Spaceship is a minimalistic, powerful and extremely customizable [ZSH][zsh-url] prompt. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
 
 Currently it shows:
 
@@ -81,7 +81,6 @@ You can find more examples with different color schemes in [Screenshots](https:/
 For correct work you will first need:
 
 * A [`zsh`](http://www.zsh.org/) (v5.0.5 or recent) must be installed
-* A zsh–framework like [oh-my-zsh], [antigen] or [zgen]
 
 ## Installing
 
@@ -91,27 +90,18 @@ For correct work you will first need:
 npm install -g spaceship-zsh-theme
 ```
 
-Done. This command should link `spaceship.zsh-theme` to your `$ZSH_CUSTOM/themes` and set `$ZSH_CUSTOM` to `"spaceship"`. Just reload your terminal.
+Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath` and set `prompt spaceship` in `.zshrc`. Just reload your terminal.
 
 **Tip:** Update Spaceship to new versions as any other package.
 
 ### [oh-my-zsh]
 
-Installing using **curl**:
-
-```zsh
-curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh
-```
-
-Installing using **wget**:
-
-```zsh
-wget -O - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh
-```
+- Set `ZSH_THEME=""` in your `.zshrc`
+- Follow instructions in [manual](https://github.com/denysdovhan/spaceship-zsh-theme#manual) installation.
 
 ### [antigen]
 
-Add the following snippet `~/.zshrc` after the line `antigen use oh-my-zsh`:
+Add the following snippet in your `~/.zshrc``:
 
 ```
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
@@ -145,10 +135,31 @@ zplug denysdovhan/spaceship-zsh-theme, use:spaceship.zsh, from:github, as:theme
 
 If you have problems with approches above, follow these instructions:
 
-1. Download the theme [here](https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh)
-2. Rename `spaceship.zsh` to `spaceship.zsh-theme`
-3. Put the file `spaceship.zsh-theme` in `$ZSH_CUSTOM/themes/`
-4. Add the line to your `~/.zshrc`: `ZSH_THEME="spaceship"`
+- Download the theme [here](https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh)
+- Symlink `spaceship.zsh` to somewhere in `$fpath` as `prompt_spaceship_setup`.
+
+Run `echo $fpath` to see possible locations. Like,
+```console
+$ ln -sf "$PWD/spaceship.zsh" "/usr/local/share/zsh/site-functions/prompt_spaceship_setup"
+```
+
+For a user-specific installation (which would not require escalated privileges), simply add a directory to `$fpath` for that user:
+```sh
+# .zshrc
+fpath=( "$HOME/.zfunctions" $fpath )
+```
+Then install the theme there:
+```console
+$ ln -sf "$PWD/spaceship.zsh" "$HOME/.zfunctions/prompt_spaceship_setup"
+```
+
+- Initialize prompt system and choose `spaceship`
+
+```sh
+# .zshrc
+autoload -U promptinit; promptinit
+prompt spaceship
+```
 
 ## Options
 
@@ -933,8 +944,7 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [zsh-url]: http://zsh.org/
 [zsh-image]: https://img.shields.io/badge/zsh->=v5.0.5-777777.svg?style=flat-square
 
-[omz-url]: http://ohmyz.sh/
-[omz-image]: https://img.shields.io/badge/dependency-oh--my--zsh-c5d928.svg?style=flat-square
+[dependency-image]:  https://img.shields.io/badge/dependencies-none-c5d928.svg?style=flat-square
 
 [donate-url]: https://www.liqpay.com/en/checkout/380951100392
 [donate-image]: https://img.shields.io/badge/support-donate-yellow.svg?style=flat-square

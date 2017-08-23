@@ -9,7 +9,7 @@
 # ------------------------------------------------------------------------------
 
 ZSHRC="$HOME/.zshrc"
-DIST="$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+DIST="/usr/local/share/zsh/site-functions/prompt_spaceship_setup"
 
 # ------------------------------------------------------------------------------
 # HELPERS
@@ -36,37 +36,31 @@ success() { echo ; paint 'green'  "SPACESHIP: $*" ; echo }
 # Checkings and uninstalling process
 # ------------------------------------------------------------------------------
 
-# Source ~/.zshrc because we need oh-my-zsh variables
+# Source ~/.zshrc
 source "$ZSHRC"
-
-# Check if $ZSH_CUSTOM is set
-if [[ -z $ZSH_CUSTOM ]]; then
-  error '$ZSH_CUSTOM is not defined!'
-  exit 1
-fi
 
 # Remove symlink
 if [[ -L "$DIST" ]]; then
   log "Removing $DIST..."
   rm -f "$DIST"
 else
-  warning "$DIST is not present!"
+  DIST="$HOME/.zfunctions/prompt_spaceship_setup"
+  if [[ -L "DIST" ]]; then
+    log "Removing $DIST..."
+    rm -f "$DIST"
+  else
+    warning '"$DIST" is not present'
+  fi
 fi
 
 # Remove spaceship from .zshrc
-if grep -q "$DIST" "$ZSHRC"; then
+if grep -q "spaceship" "$ZSHRC"; then
   log "Removing Spaceship from $ZSHRC"
-  sed -i '' "/source .*\/themes\/spaceship.zsh-theme/d" "$ZSHRC"
+  sed -i '' '/prompt/d' $ZSHRC
+  sed -i '' '/SPACESHIP/d' $ZSHRC
+  sed -i '' '/.zfunctions/d' $ZSHRC
 else
-  warning "$DIST is not sourced in $ZSHRC!"
-fi
-
-# Change theme to default one
-if grep -q "ZSH_THEME=.*" "$ZSHRC"; then
-  log 'Attempting to change theme from "spaceship" to "robbyrussell"'
-  sed -i '' 's/ZSH_THEME=.spaceship./ZSH_THEME="robbyrussell"/g' "$ZSHRC"
-else
-  warning '"spaceship" was not set as theme!'
+  warning "Spaceship configuration not found in $ZSHRC!"
 fi
 
 success "Done! Spaceship is successfuly removed! Please, reload your terminal."
