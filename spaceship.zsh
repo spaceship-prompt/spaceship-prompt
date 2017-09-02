@@ -618,7 +618,8 @@ spaceship_package() {
   _exists npm || return
 
   # Grep and cut out package version
-  local package_version=$(grep -E '"version": "v?((\d)+\.){1,}' package.json | cut -d\" -f4 2> /dev/null)
+  # Grep -E does not support \d for digits shortcut, should use [:digit:] or [0-9] instead
+  local package_version=$(grep -E '"version": "v?([0-9]+\.){1,}' package.json | cut -d\" -f4 2> /dev/null)
 
   # Handle version not found
   if [ ! "$package_version" ]; then
