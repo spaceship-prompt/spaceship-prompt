@@ -1004,7 +1004,7 @@ spaceship_kubecontext() {
   [[ $SPACESHIP_KUBECONTEXT_SHOW == false ]] && return
 
   # cat|grep|cut instead of kubectl call for performance
-  local kube_context=$(cat ~/.kube/config | grep current-context | cut -d':' -f2)
+  local kube_context=$(awk -F' *: *' '$1 == "current-context" {print $2}' ~/.kube/config)
 
   _prompt_section \
     "$SPACESHIP_KUBECONTEXT_COLOR" \
