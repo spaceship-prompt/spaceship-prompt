@@ -227,7 +227,7 @@ Username is shown only when it's not the same as `$LOGNAME`, when you're connect
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_USER_SHOW` | `true` | Show user section |
+| `SPACESHIP_USER_SHOW` | `ssh` | Show user section. Options are `always`, `ssh` and `never`. |
 | `SPACESHIP_USER_PREFIX` | `with ` | Prefix before user section |
 | `SPACESHIP_USER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after user section |
 | `SPACESHIP_USER_COLOR` | `yellow` | Color of user section |
@@ -239,10 +239,11 @@ Hostname is shown only when you're connected via SSH.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_HOST_SHOW` | `true` | Show host section |
+| `SPACESHIP_HOST_SHOW` | `ssh` | Show host section. Options are `always`, `ssh` and `never`. |
 | `SPACESHIP_HOST_PREFIX` | `at ` | Prefix before the connected SSH machine name |
 | `SPACESHIP_HOST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the connected SSH machine name |
-| `SPACESHIP_HOST_COLOR` | `green` | Color of host section |
+| `SPACESHIP_HOST_COLOR` | `cyan` | Color of host section |
+| `SPACESHIP_HOST_SSH_COLOR` | `green` | Color of host section during ssh connection |
 
 ### Directory (`dir`)
 
