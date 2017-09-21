@@ -622,8 +622,9 @@ spaceship_package() {
   local package_version=$(grep -E '"version": "v?([0-9]+\.){1,}' package.json | cut -d\" -f4 2> /dev/null)
 
   # Handle version not found
+  # use env npm
   if [ ! "$package_version" ]; then
-    package_version=" ⚠"
+    package_version=" v$(npm --version)"
   else
     package_version=" v${package_version}"
   fi
