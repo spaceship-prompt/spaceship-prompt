@@ -5,6 +5,8 @@
 # License: MIT
 # https://github.com/denysdovhan/spaceship-zsh-theme
 
+SPACESHIP_VERSION='2.10.0'
+
 # ------------------------------------------------------------------------------
 # CONFIGURATION
 # The default configuration that can be overridden in .zshrc

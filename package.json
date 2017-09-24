@@ -5,6 +5,7 @@
   "scripts": {
     "postinstall": "./scripts/install.sh",
     "postuninstall": "./scripts/uninstall.sh",
+    "version": "./scripts/version.sh",
     "postpublish": "git push --follow-tags",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
