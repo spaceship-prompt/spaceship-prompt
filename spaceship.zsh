@@ -184,15 +184,8 @@ spaceship_exec_time_precmd_hook() {
 # ------------------------------------------------------------------------------
 
 for section in $SPACESHIP_PROMPT_ORDER; do
-  [[ $section == 'line_sep' ]] && continue;
   source "$SPACESHIP_ROOT/sections/$section.zsh"
 done
-
-# LINE SEPARATOR
-# Should it write prompt in two lines or not?
-spaceship_line_sep() {
-  [[ $SPACESHIP_PROMPT_SEPARATE_LINE == true ]] && echo -n "$NEWLINE"
-}
 
 # ------------------------------------------------------------------------------
 # BACKWARD COMPATIBILITY WARNINGS
