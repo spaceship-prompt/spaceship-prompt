@@ -3,6 +3,8 @@
 # Author: Denys Dovhan, denysdovhan.com
 # https://github.com/denysdovhan/spaceship-zsh-theme
 
+# @TODO: rewrite with sh
+
 # ------------------------------------------------------------------------------
 # VARIABLES
 # Paths to important resources
