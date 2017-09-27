@@ -1026,6 +1026,8 @@ spaceship_ember() {
 # Show current context in kubectl.
 spaceship_kubecontext() {
   [[ $SPACESHIP_KUBECONTEXT_SHOW == false ]] && return
+  
+  [[ -f ~/.kube/config ]] || return
 
   local kube_context=$(awk -F' *: *' '$1 == "current-context" {print $2}' ~/.kube/config)
 
