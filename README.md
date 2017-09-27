@@ -47,7 +47,7 @@ Currently it shows:
 * Current Go version (`🐹`).
 * Current PHP version (`🐘`).
 * Current Rust version (`𝗥`)
-* Current version of Haskell Tool Stack (`λ`)
+* Current version of Haskell GHC Compiler, defined in stack.yaml file (`λ`)
 * Current Julia version (`ஃ`)
 * Current Docker version and connected machine (`🐳`).
 * Current Amazon Web Services (AWS) profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html))
@@ -454,10 +454,10 @@ Haskell section is shown only in directories that contain `stack.yaml` file.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_HASKELL_SHOW` | `true` | Shown current Haskell Tool Stack version or not |
+| `SPACESHIP_HASKELL_SHOW` | `true` | Shown current Haskell GHC version or not |
 | `SPACESHIP_HASKELL_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Haskell section |
 | `SPACESHIP_HASKELL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Haskell section |
-| `SPACESHIP_HASKELL_SYMBOL` | `λ ` | Character to be shown before Haskell Tool Stack version |
+| `SPACESHIP_HASKELL_SYMBOL` | `λ ` | Character to be shown before Haskell GHC version |
 | `SPACESHIP_HASKELL_COLOR` | `red` | Color of Haskell section |
 
 ### Julia (`julia`)
