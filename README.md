@@ -593,6 +593,7 @@ By default, Battery section is shown only if battery level is below `SPACESHIP_B
 | `SPACESHIP_BATTERY_DISCHARGING_SYMBOL` | `⇣` | Character to be shown if battery is discharging |
 | `SPACESHIP_BATTERY_FULL_SYMBOL` | `•` | Character to be shown if battery is full |
 | `SPACESHIP_BATTERY_THRESHOLD` | 10 | Battery level below which battery section will be shown |
+| `SPACESHIP_BATTERY_CHARGED_SHOW | `true` | Show battery section when battery is fully loaded |
 
 ### Vi-mode (`vi_mode`)
 
