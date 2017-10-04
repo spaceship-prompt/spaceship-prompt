@@ -1,11 +1,11 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 #
 # Author: Denys Dovhan, denysdovhan.com
 # https://github.com/denysdovhan/spaceship-zsh-theme
 
 # ------------------------------------------------------------------------------
-# HELPERS
-# Useful functions for common tasks
+# Colors
+# Set color variables for colorful output
 # ------------------------------------------------------------------------------
 
 # If we have tput, let's set colors
@@ -20,9 +20,36 @@ if [[ ! -z $(which tput 2> /dev/null) ]]; then
   cyan=$(tput setaf 6)
 fi
 
+# ------------------------------------------------------------------------------
+# HELPERS
+# Useful functions for common tasks
+# ------------------------------------------------------------------------------
+
+# Paint text in specific color with reset
+# USAGE:
+#   paint <color> [text...]
 paint() {
   local color=$1 rest=${@:2}
   echo "$color$rest$reset"
+}
+
+# Aliases for common used colors
+# Colon at the end is required: https://askubuntu.com/a/521942
+# USAGE:
+#   info|warn|error|success|code [...text]
+info()    { paint "$cyan"   "$@" ; }
+warn()    { paint "$yellow" "$@" ; }
+error()   { paint "$red"    "$@" ; }
+success() { paint "$green"  "$@" ; }
+code()    { paint "$bold"   "$@" ; }
+
+# Append text in ~/.zshrc
+# USAGE:
+#   append_zshrc [text...]
+append_zshrc() {
+  info "These lines will be added to your ~/.zshrc file:"
+  code "$@"
+  echo "$@" >> "$HOME/.zshrc"
 }
 
 # ------------------------------------------------------------------------------
@@ -39,46 +66,48 @@ DEST='/usr/local/share/zsh/site-functions'
 # Checkings and installing process
 # ------------------------------------------------------------------------------
 
-# Single-line installation
+# How we install spaceship:
+#   1. Install via NPM
+#   2. Install via curl or wget
 if [[ ! -f "$SOURCE" ]]; then
-  paint $yellow"Spaceship is not present in current directory"
-
+  warn "Spaceship is not present in current directory"
+  # Clone repo into the ~/..spaceship-zsh-theme and change SOURCE
   git clone "$REPO" "$HOME/.spaceship-zsh-theme"
-
   SOURCE="$HOME/.spaceship-zsh-theme/spaceship.zsh"
 else
-  paint $cyan "Spaceship is present in current directory"
+  info "Spaceship is present in current directory"
 fi
 
-# Choose Installation path
+# If we can't symlink to the site-functions, then try to use .zfunctions instead
 if [[ ! -w "$DEST" ]]; then
-  paint $red "Failed to symlink $SOURCE to $DEST."
-  paint $cyan "Trying to symlink $SOURCE to $HOME/.zfunctions..."
+  error "Failed to symlink $SOURCE to $DEST."
 
   DEST="$HOME/.zfunctions"
-
-  paint $cyan "Adding $DEST to fpath..."
+  info "Adding $DEST to fpath..."
   echo 'fpath=($fpath "'"$DEST"'" )' >> "$HOME/.zshrc"
+
+  info "Trying to symlink $SOURCE to $DEST"
 fi
 
-# Link prompt to fpath
-paint $cyan "Linking $SOURCE to $DEST/prompt_spaceship_setup..."
+# Link prompt entry point to fpath
+info "Linking $SOURCE to $DEST/prompt_spaceship_setup..."
 mkdir -p "$DEST"
 ln -sf "$SOURCE" "$DEST/prompt_spaceship_setup"
 
+# Enabling statements for ~/.zshrc
 msg="
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
 "
 
-{
-  echo "$msg" >> "$HOME/.zshrc"
-} && {
-  paint $green "Done! Please, reload your terminal."
-} || {
-  # catch
-  paint $red "Cannot automatically insert prompt init commands."
-  paint $red "Please insert these line into your ~/.zshrc:"
-  paint $bold "$msg"
-}
+# Check if appending was successful and perform corresponding actions
+if append_zshrc "$msg"; then
+  success "Done! Please, reload your terminal."
+  echo
+else
+  error "Cannot automatically insert prompt init commands."
+  error "Please insert these line into your ~/.zshrc:"
+  code "$msg"
+  exit 1
+fi
