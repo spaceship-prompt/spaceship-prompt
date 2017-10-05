@@ -1,4 +1,12 @@
-# MERCURIAL STATUS
+#
+# Mercurial (hg) status
+#
+# Show Mercurial status
+
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+
 SPACESHIP_HG_STATUS_SHOW="${SPACESHIP_HG_STATUS_SHOW:=true}"
 SPACESHIP_HG_STATUS_PREFIX="${SPACESHIP_HG_STATUS_PREFIX:=" ["}"
 SPACESHIP_HG_STATUS_SUFFIX="${SPACESHIP_HG_STATUS_SUFFIX:="]"}"
@@ -8,7 +16,10 @@ SPACESHIP_HG_STATUS_ADDED="${SPACESHIP_HG_STATUS_ADDED:="+"}"
 SPACESHIP_HG_STATUS_MODIFIED="${SPACESHIP_HG_STATUD_MODIFIED:="!"}"
 SPACESHIP_HG_STATUS_DELETED="${SPACESHIP_HG_STATUS_DELETED:="✘"}"
 
-# MERCURIAL STATUS
+# ------------------------------------------------------------------------------
+# Section
+# ------------------------------------------------------------------------------
+
 # Check if current dir is a hg repo and show hg status as indicators
 spaceship_hg_status() {
   [[ $SPACESHIP_HG_STATUS_SHOW == false ]] && return

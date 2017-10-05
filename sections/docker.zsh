@@ -1,11 +1,23 @@
-# DOCKER
+#
+# Docker
+#
+# Docker automates the repetitive tasks of setting up development environments
+# Link: https://www.docker.com
+
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+
 SPACESHIP_DOCKER_SHOW="${SPACESHIP_DOCKER_SHOW:=true}"
 SPACESHIP_DOCKER_PREFIX="${SPACESHIP_DOCKER_PREFIX:="on "}"
 SPACESHIP_DOCKER_SUFFIX="${SPACESHIP_DOCKER_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_DOCKER_SYMBOL="${SPACESHIP_DOCKER_SYMBOL:="🐳 "}"
 SPACESHIP_DOCKER_COLOR="${SPACESHIP_DOCKER_COLOR:="cyan"}"
 
-# DOCKER
+# ------------------------------------------------------------------------------
+# Section
+# ------------------------------------------------------------------------------
+
 # Show current Docker version and connected machine
 spaceship_docker() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return

@@ -1,11 +1,21 @@
-# USER
+#
+# Username
+#
+
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+
 SPACESHIP_USER_SHOW="${SPACESHIP_USER_SHOW:=true}"
 SPACESHIP_USER_PREFIX="${SPACESHIP_USER_PREFIX:="with "}"
 SPACESHIP_USER_SUFFIX="${SPACESHIP_USER_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_USER_COLOR="${SPACESHIP_USER_COLOR:="yellow"}"
 SPACESHIP_USER_COLOR_ROOT="${SPACESHIP_USER_COLOR_ROOT:="red"}"
 
-# USER
+# ------------------------------------------------------------------------------
+# Section
+# ------------------------------------------------------------------------------
+
 # If user is root, then paint it in red. Otherwise, just print in yellow.
 spaceship_user() {
   [[ $SPACESHIP_USER_SHOW == false ]] && return

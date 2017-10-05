@@ -1,4 +1,11 @@
-# GIT STATUS
+#
+# Git status
+#
+
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+
 SPACESHIP_GIT_STATUS_SHOW="${SPACESHIP_GIT_STATUS_SHOW:=true}"
 SPACESHIP_GIT_STATUS_PREFIX="${SPACESHIP_GIT_STATUS_PREFIX:=" ["}"
 SPACESHIP_GIT_STATUS_SUFFIX="${SPACESHIP_GIT_STATUS_SUFFIX:="]"}"
@@ -14,12 +21,15 @@ SPACESHIP_GIT_STATUS_AHEAD="${SPACESHIP_GIT_STATUS_AHEAD:="⇡"}"
 SPACESHIP_GIT_STATUS_BEHIND="${SPACESHIP_GIT_STATUS_BEHIND:="⇣"}"
 SPACESHIP_GIT_STATUS_DIVERGED="${SPACESHIP_GIT_STATUS_DIVERGED:="⇕"}"
 
-# GIT STATUS
-# Show git status
-#   We used to depend on OMZ git library,
-#   But it doesn't handle many of the status indicator combinations.
-#   Also, It's hard to maintain external dependency. See PR #147 at https://git.io/vQkkB
-#   See git help status to know more about status formats
+# ------------------------------------------------------------------------------
+# Section
+# ------------------------------------------------------------------------------
+
+# We used to depend on OMZ git library,
+# But it doesn't handle many of the status indicator combinations.
+# Also, It's hard to maintain external dependency.
+# See PR #147 at https://git.io/vQkkB
+# See git help status to know more about status formats
 spaceship_git_status() {
   [[ $SPACESHIP_GIT_STATUS_SHOW == false ]] && return
 

@@ -1,4 +1,13 @@
-# XCODE
+#
+# Xcode
+#
+# Xcode is an integrated development environment for macOS.
+# Link: https://developer.apple.com/xcode/
+
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+
 SPACESHIP_XCODE_SHOW_LOCAL="${SPACESHIP_XCODE_SHOW_LOCAL:=true}"
 SPACESHIP_XCODE_SHOW_GLOBAL="${SPACESHIP_XCODE_SHOW_GLOBAL:=false}"
 SPACESHIP_XCODE_PREFIX="${SPACESHIP_XCODE_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
@@ -6,7 +15,10 @@ SPACESHIP_XCODE_SUFFIX="${SPACESHIP_XCODE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUF
 SPACESHIP_XCODE_SYMBOL="${SPACESHIP_XCODE_SYMBOL:="🛠 "}"
 SPACESHIP_XCODE_COLOR="${SPACESHIP_XCODE_COLOR:="blue"}"
 
-# XCODE
+# ------------------------------------------------------------------------------
+# Section
+# ------------------------------------------------------------------------------
+
 # Show current version of Xcode
 spaceship_xcode() {
   _exists xcenv || return

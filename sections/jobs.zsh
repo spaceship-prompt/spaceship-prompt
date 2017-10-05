@@ -1,11 +1,21 @@
-# JOBS
+#
+# Background jobs
+#
+
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+
 SPACESHIP_JOBS_SHOW="${SPACESHIP_JOBS_SHOW:=true}"
 SPACESHIP_JOBS_PREFIX="${SPACESHIP_JOBS_PREFIX:=""}"
 SPACESHIP_JOBS_SUFFIX="${SPACESHIP_JOBS_SUFFIX:=" "}"
 SPACESHIP_JOBS_SYMBOL="${SPACESHIP_JOBS_SYMBOL:="✦"}"
 SPACESHIP_JOBS_COLOR="${SPACESHIP_JOBS_COLOR:="blue"}"
 
-# JOBS
+# ------------------------------------------------------------------------------
+# Section
+# ------------------------------------------------------------------------------
+
 # Show icon if there's a working jobs in the background
 spaceship_jobs() {
   [[ $SPACESHIP_JOBS_SHOW == false ]] && return

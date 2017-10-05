@@ -1,4 +1,11 @@
-# BATTERY
+#
+# Battery
+#
+
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+
 SPACESHIP_BATTERY_SHOW="${SPACESHIP_BATTERY_SHOW:=true}"
 SPACESHIP_BATTERY_ALWAYS_SHOW="${SPACESHIP_BATTERY_ALWAYS_SHOW:=false}"
 SPACESHIP_BATTERY_PREFIX="${SPACESHIP_BATTERY_PREFFIX:=""}"
@@ -8,7 +15,10 @@ SPACESHIP_BATTERY_DISCHARGING_SYMBOL="${SPACESHIP_BATTERY_DISCHARGING_SYMBOL:="â
 SPACESHIP_BATTERY_FULL_SYMBOL="${SPACESHIP_BATTERY_FULL_SYMBOL:="â€¢"}"
 SPACESHIP_BATTERY_THRESHOLD="${SPACESHIP_BATTERY_THRESHOLD:=10}"
 
-# BATTERY
+# ------------------------------------------------------------------------------
+# Section
+# ------------------------------------------------------------------------------
+
 # Show section only if either of follow is true
 # - Always show is true
 # - battery percentage is below the given limit (default: 10%)

@@ -1,14 +1,24 @@
-# DIR
+#
+# Working directory
+#
+# Current directory. Return only three last items of path
+
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+
 SPACESHIP_DIR_SHOW="${SPACESHIP_DIR_SHOW:=true}"
 SPACESHIP_DIR_PREFIX="${SPACESHIP_DIR_PREFIX:="in "}"
 SPACESHIP_DIR_SUFFIX="${SPACESHIP_DIR_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_DIR_TRUNC="${SPACESHIP_DIR_TRUNC:=3}"
 SPACESHIP_DIR_COLOR="${SPACESHIP_DIR_COLOR:="cyan"}"
-
+# @TODO: resolve with git
 SPACESHIP_DIR_TRUNC_IN_GIT="${SPACESHIP_DIR_TRUNC_IN_GIT:=false}"
 
-# DIR
-# Current directory. Return only three last items of path
+# ------------------------------------------------------------------------------
+# Section
+# ------------------------------------------------------------------------------
+
 spaceship_dir() {
   [[ $SPACESHIP_DIR_SHOW == false ]] && return
 

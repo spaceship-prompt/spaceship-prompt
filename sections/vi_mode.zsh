@@ -1,4 +1,11 @@
-# VI_MODE
+#
+# vi-mode
+#
+
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+
 SPACESHIP_VI_MODE_SHOW="${SPACESHIP_VI_MODE_SHOW:=true}"
 SPACESHIP_VI_MODE_PREFIX="${SPACESHIP_VI_MODE_PREFIX:=""}"
 SPACESHIP_VI_MODE_SUFFIX="${SPACESHIP_VI_MODE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
@@ -6,8 +13,11 @@ SPACESHIP_VI_MODE_INSERT="${SPACESHIP_VI_MODE_INSERT:="[I]"}"
 SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL:="[N]"}"
 SPACESHIP_VI_MODE_COLOR="${SPACESHIP_VI_MODE_COLOR:="white"}"
 
-# VI_MODE
-# Show current vi_mode mode
+# ------------------------------------------------------------------------------
+# Section
+# ------------------------------------------------------------------------------
+
+# Show current vi-mode mode
 spaceship_vi_mode() {
   [[ $SPACESHIP_VI_MODE_SHOW == true ]] || return
 
@@ -30,6 +40,10 @@ spaceship_vi_mode() {
       "$SPACESHIP_VI_MODE_SUFFIX"
   fi
 }
+
+# ------------------------------------------------------------------------------
+# Helpers
+# ------------------------------------------------------------------------------
 
 # Temporarily switch to vi-mode
 spaceship_vi_mode_enable() {

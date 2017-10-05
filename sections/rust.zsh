@@ -1,11 +1,23 @@
-# RUST
+#
+# Rust
+#
+# Rust is a systems programming language sponsored by Mozilla Research.
+# Link: https://www.rust-lang.org
+
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+
 SPACESHIP_RUST_SHOW="${SPACESHIP_RUST_SHOW:=true}"
 SPACESHIP_RUST_PREFIX="${SPACESHIP_RUST_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_RUST_SUFFIX="${SPACESHIP_RUST_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_RUST_SYMBOL="${SPACESHIP_RUST_SYMBOL:="𝗥 "}"
 SPACESHIP_RUST_COLOR="${SPACESHIP_RUST_COLOR:="red"}"
 
-# RUST
+# ------------------------------------------------------------------------------
+# Section
+# ------------------------------------------------------------------------------
+
 # Show current version of Rust
 spaceship_rust() {
   [[ $SPACESHIP_RUST_SHOW == false ]] && return

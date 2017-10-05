@@ -1,12 +1,24 @@
-# GOLANG
+#
+# Go
+#
+# Go is an open source programming language that makes it easy
+# to build efficient software.
+# Link: https://golang.org/
+
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+
 SPACESHIP_GOLANG_SHOW="${SPACESHIP_GOLANG_SHOW:=true}"
 SPACESHIP_GOLANG_PREFIX="${SPACESHIP_GOLANG_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_GOLANG_SUFFIX="${SPACESHIP_GOLANG_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_GOLANG_SYMBOL="${SPACESHIP_GOLANG_SYMBOL:="🐹 "}"
 SPACESHIP_GOLANG_COLOR="${SPACESHIP_GOLANG_COLOR:="cyan"}"
 
-# GOLANG
-# Show current version of Go
+# ------------------------------------------------------------------------------
+# Section
+# ------------------------------------------------------------------------------
+
 spaceship_golang() {
   [[ $SPACESHIP_GOLANG_SHOW == false ]] && return
 

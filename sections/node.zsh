@@ -1,4 +1,13 @@
-# NODE
+#
+# Node.js
+#
+# Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+# Link: https://nodejs.org/
+
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+
 SPACESHIP_NODE_SHOW="${SPACESHIP_NODE_SHOW:=true}"
 SPACESHIP_NODE_PREFIX="${SPACESHIP_NODE_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_NODE_SUFFIX="${SPACESHIP_NODE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
@@ -6,7 +15,10 @@ SPACESHIP_NODE_SYMBOL="${SPACESHIP_NODE_SYMBOL:="⬢ "}"
 SPACESHIP_NODE_DEFAULT_VERSION="${SPACESHIP_NODE_DEFAULT_VERSION:=""}"
 SPACESHIP_NODE_COLOR="${SPACESHIP_NODE_COLOR:="green"}"
 
-# NODE
+# ------------------------------------------------------------------------------
+# Section
+# ------------------------------------------------------------------------------
+
 # Show current version of node, exception system.
 spaceship_node() {
   [[ $SPACESHIP_NODE_SHOW == false ]] && return
