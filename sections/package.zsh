@@ -33,9 +33,9 @@ spaceship_package() {
 
   # Handle version not found
   if [ ! "$package_version" ]; then
-    package_version=" ⚠"
+    package_version="⚠"
   else
-    package_version=" v${package_version}"
+    package_version="v${package_version}"
   fi
 
   _prompt_section \
