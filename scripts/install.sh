@@ -21,6 +21,18 @@ if [[ ! -z $(which tput 2> /dev/null) ]]; then
 fi
 
 # ------------------------------------------------------------------------------
+# VARIABLES
+# Paths to important resources
+# ------------------------------------------------------------------------------
+
+ZSHRC="$HOME/.zshrc"
+REPO='https://github.com/denysdovhan/spaceship-zsh-theme.git'
+SOURCE="$PWD/spaceship.zsh"
+USER_SOURCE="$HOME/.spaceship-zsh-theme"
+DEST='/usr/local/share/zsh/site-functions'
+USER_DEST="$HOME/.zfunctions"
+
+# ------------------------------------------------------------------------------
 # HELPERS
 # Useful functions for common tasks
 # ------------------------------------------------------------------------------
@@ -37,11 +49,11 @@ paint() {
 # Colon at the end is required: https://askubuntu.com/a/521942
 # USAGE:
 #   info|warn|error|success|code [...text]
-info()    { paint "$cyan"   "$@" ; }
-warn()    { paint "$yellow" "$@" ; }
-error()   { paint "$red"    "$@" ; }
-success() { paint "$green"  "$@" ; }
-code()    { paint "$bold"   "$@" ; }
+info()    { paint "$cyan"   "SPACESHIP: $@" ; }
+warn()    { paint "$yellow" "SPACESHIP: $@" ; }
+error()   { paint "$red"    "SPACESHIP: $@" ; }
+success() { paint "$green"  "SPACESHIP: $@" ; }
+code()    { paint "$bold"   "SPACESHIP: $@" ; }
 
 # Append text in ~/.zshrc
 # USAGE:
@@ -51,15 +63,6 @@ append_zshrc() {
   code "$@"
   echo "$@" >> "$HOME/.zshrc"
 }
-
-# ------------------------------------------------------------------------------
-# VARIABLES
-# Paths to important resources
-# ------------------------------------------------------------------------------
-
-REPO='https://github.com/denysdovhan/spaceship-zsh-theme.git'
-SOURCE="$PWD/spaceship.zsh"
-DEST='/usr/local/share/zsh/site-functions'
 
 # ------------------------------------------------------------------------------
 # MAIN
@@ -72,8 +75,8 @@ DEST='/usr/local/share/zsh/site-functions'
 if [[ ! -f "$SOURCE" ]]; then
   warn "Spaceship is not present in current directory"
   # Clone repo into the ~/..spaceship-zsh-theme and change SOURCE
-  git clone "$REPO" "$HOME/.spaceship-zsh-theme"
-  SOURCE="$HOME/.spaceship-zsh-theme/spaceship.zsh"
+  git clone "$REPO" "$USER_SOURCE"
+  SOURCE="$USER_SOURCE/spaceship.zsh"
 else
   info "Spaceship is present in current directory"
 fi
@@ -82,9 +85,11 @@ fi
 if [[ ! -w "$DEST" ]]; then
   error "Failed to symlink $SOURCE to $DEST."
 
-  DEST="$HOME/.zfunctions"
+  # Use $USER_DEST instead
+  DEST="$USER_DEST"
+
   info "Adding $DEST to fpath..."
-  echo 'fpath=($fpath "'"$DEST"'" )' >> "$HOME/.zshrc"
+  echo 'fpath=($fpath "'"$DEST"'")' >> "$ZSHRC"
 
   info "Trying to symlink $SOURCE to $DEST"
 fi
@@ -98,8 +103,7 @@ ln -sf "$SOURCE" "$DEST/prompt_spaceship_setup"
 msg="
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
-prompt spaceship
-"
+prompt spaceship"
 
 # Check if appending was successful and perform corresponding actions
 if append_zshrc "$msg"; then
