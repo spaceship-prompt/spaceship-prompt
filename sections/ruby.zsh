@@ -37,7 +37,7 @@ spaceship_ruby() {
     return
   fi
 
-  [[ "${ruby_version}" == "system" ]] && return
+  [[ -z $ruby_version || "${ruby_version}" == "system" ]] && return
 
   # Add 'v' before ruby version that starts with a number
   [[ "${ruby_version}" =~ ^[0-9].+$ ]] && ruby_version="v${ruby_version}"
