@@ -301,7 +301,7 @@ Git status indicators is shown only when you have dirty repository.
 
 ### Mercurial (`hg`)
 
-Mercurial section is consists with `hg_branch` and `hg_status` subsections. It is shown only in Mercurial repositories.
+Mercurial section is consists of `hg_bookmark`, `hg_branch` and `hg_status` subsections. It is shown only in Mercurial repositories.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -309,6 +309,15 @@ Mercurial section is consists with `hg_branch` and `hg_status` subsections. It i
 | `SPACESHIP_HG_PREFIX` | `on ` | Prefix before Mercurial section |
 | `SPACESHIP_HG_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Mercurial section |
 | `SPACESHIP_HG_SYMBOL` | `☿ ` | Character to be shown before Mercurial section |
+
+#### Mercurial bookmark (`hg_bookmark`)
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_HG_BOOKMARK_SHOW` | `true` | Show Mercurial bookmark subsection |
+| `SPACESHIP_HG_BOOKMARK_PREFIX` | | Prefix before Mercurial bookmark subsection |
+| `SPACESHIP_HG_BOOKMARK_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Mercurial bookmark subsection |
+| `SPACESHIP_HG_BOOKMARK_COLOR` | `green` | Color of Mercurial bookmark subsection |
 
 #### Mercurial branch (`hg_branch`)
 
