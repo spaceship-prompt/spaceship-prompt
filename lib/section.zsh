@@ -29,3 +29,24 @@ _prompt_section() {
   fi
   echo -n "%{%b%}" # unset bold
 }
+
+# Compose whole prompt from sections
+# USAGE:
+#   _compose_prompt [section]…
+_compose_prompt() {
+  # Retrive exit code of last command to use in exit_code
+  # Must be captured before any other command in prompt is executed
+  RETVAL=$?
+
+  # Option EXTENDED_GLOB is set locally to force filename generation on
+  # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
+  # See the description of filename generation in
+  # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
+  setopt EXTENDED_GLOB LOCAL_OPTIONS
+
+  # Threat the first argument as list of prompt sections
+  # Compose whole prompt from diferent parts
+  for section in $@; do
+    spaceship_$section
+  done
+}

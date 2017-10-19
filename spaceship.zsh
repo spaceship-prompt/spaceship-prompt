@@ -36,7 +36,7 @@ fi
 # ------------------------------------------------------------------------------
 
 # ORDER
-if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
+if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
   SPACESHIP_PROMPT_ORDER=(
     time
     user
@@ -72,8 +72,9 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
   )
 fi
 
-if [ ! -n "$SPACESHIP_RPROMPT_ORDER" ]; then
+if [ -z "$SPACESHIP_RPROMPT_ORDER" ]; then
   SPACESHIP_RPROMPT_ORDER=(
+    # empty by default
   )
 fi
 
@@ -100,7 +101,7 @@ source "$SPACESHIP_ROOT/lib/section.zsh"
 # The parts the prompt consists of
 # ------------------------------------------------------------------------------
 
-for section in $SPACESHIP_PROMPT_ORDER; do
+for section in $(_union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
   source "$SPACESHIP_ROOT/sections/$section.zsh"
 done
 
@@ -112,49 +113,26 @@ done
 # broken options goes here
 
 # ------------------------------------------------------------------------------
-# MAIN
+# PROMPTS
 # An entry point of prompt
 # ------------------------------------------------------------------------------
 
-# Compose whole prompt from smaller parts
+# PROMPT
+# Primary (left) prompt
 spaceship_prompt() {
-  # Retirve exit code of last command to use in exit_code
-  # Must be captured before any other command in prompt is executed
-  RETVAL=$?
-
-  # Option EXTENDED_GLOB is set locally to force filename generation on
-  # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
-  # See the description of filename generation in
-  # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
-  setopt EXTENDED_GLOB LOCAL_OPTIONS
-
   # Should it add a new line before the prompt?
   [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
-
-  # Execute all parts
-  for section in $SPACESHIP_PROMPT_ORDER; do
-    spaceship_$section
-  done
+  _compose_prompt $SPACESHIP_PROMPT_ORDER
 }
 
+# $RPROMPT
+# Optional (right) prompt
 spaceship_rprompt() {
-  # Retirve exit code of last command to use in exit_code
-  # Must be captured before any other command in prompt is executed
-  RETVAL=$?
-
-  # Option EXTENDED_GLOB is set locally to force filename generation on
-  # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
-  # See the description of filename generation in
-  # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
-  setopt EXTENDED_GLOB LOCAL_OPTIONS
-
-  # Execute all parts
-  for section in $SPACESHIP_RPROMPT_ORDER; do
-    spaceship_$section
-  done
+  _compose_prompt $SPACESHIP_RPROMPT_ORDER
 }
 
-# PS2 - continuation interactive prompt
+# PS2
+# Continuation interactive prompt
 # @TODO: Probably have to be a separate section. For disussion.
 spaceship_ps2() {
   _prompt_section "$SPACESHIP_CHAR_SECONDARY_COLOR" $SPACESHIP_CHAR_SYMBOL

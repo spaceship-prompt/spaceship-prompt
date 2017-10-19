@@ -57,3 +57,17 @@ _displaytime() {
   [[ $M > 0 ]] && printf '%dm ' $M
   printf '%ds' $S
 }
+
+# Union of two or more arrays
+# USAGE:
+#   _union [arr1]...
+# EXAMPLE:
+#   $ arr1=('a' 'b' 'c')
+#   $ arr2=('b' 'c' 'd')
+#   $ arr2=('c' 'd' 'e')
+#   $ _union $arr1 $arr2 $arr3
+#   > a b c d e
+_union() {
+  typeset -U sections=("$@")
+  echo $sections
+}
