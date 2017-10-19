@@ -357,6 +357,7 @@ If you use [n] as Node.js version manager, please, set `SPACESHIP_NODE_DEFAULT_V
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_NODE_SHOW` | `true` | Current Node.js section |
+| `SPACESHIP_NODE_SHOW_HOME` | `true` | Show Node.js section in `$HOME` |
 | `SPACESHIP_NODE_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Node.js section |
 | `SPACESHIP_NODE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Node.js section |
 | `SPACESHIP_NODE_SYMBOL` | `⬢ ` | Character to be shown before Node.js version |
@@ -370,6 +371,7 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_RUBY_SHOW` | `true` | Show Ruby section |
+| `SPACESHIP_RUBY_SHOW_HOME` | `true` | Show Ruby section in `$HOME` |
 | `SPACESHIP_RUBY_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Ruby section |
 | `SPACESHIP_RUBY_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Ruby section |
 | `SPACESHIP_RUBY_SYMBOL` | `💎  ` | Character to be shown before Ruby version |
