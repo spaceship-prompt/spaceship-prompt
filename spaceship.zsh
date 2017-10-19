@@ -90,6 +90,11 @@ SPACESHIP_PROMPT_SUFFIXES_SHOW="${SPACESHIP_PROMPT_SUFFIXES_SHOW:=true}"
 SPACESHIP_PROMPT_DEFAULT_PREFIX="${SPACESHIP_PROMPT_DEFAULT_PREFIX:="via "}"
 SPACESHIP_PROMPT_DEFAULT_SUFFIX="${SPACESHIP_PROMPT_DEFAULT_SUFFIX:=" "}"
 
+# ------------------------------------------------------------------------------
+# LIBS
+# Spaceship utils/hooks/etc
+# ------------------------------------------------------------------------------
+
 # Load utils
 source "$SPACESHIP_ROOT/lib/utils.zsh"
 
@@ -101,7 +106,7 @@ source "$SPACESHIP_ROOT/lib/section.zsh"
 
 # ------------------------------------------------------------------------------
 # SECTIONS
-# The parts the prompt consists of
+# Sourcing sections the prompt consists of
 # ------------------------------------------------------------------------------
 
 for section in $(_union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
