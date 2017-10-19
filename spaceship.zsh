@@ -1026,8 +1026,10 @@ spaceship_ember() {
 # Show current context in kubectl.
 spaceship_kubecontext() {
   [[ $SPACESHIP_KUBECONTEXT_SHOW == false ]] && return
-
-  local kube_context=$(awk -F' *: *' '$1 == "current-context" {print $2}' ~/.kube/config)
+  
+  _exists kubectl || return
+  local kube_context=$(kubectl config current-context 2>/dev/null)
+  [[ -z $kube_context ]] && return
 
   _prompt_section \
     "$SPACESHIP_KUBECONTEXT_COLOR" \
