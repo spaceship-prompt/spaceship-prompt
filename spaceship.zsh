@@ -65,6 +65,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     pyenv
     dotnet
     ember
+    kubecontext
     exec_time
     line_sep
     battery
