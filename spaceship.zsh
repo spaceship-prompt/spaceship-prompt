@@ -119,7 +119,7 @@ done
 # Show deprecation messages for options that are set, but not supported
 # ------------------------------------------------------------------------------
 
-# broken options goes here
+_deprecated SPACESHIP_PROMPT_SYMBOL SPACESHIP_CHAR_SYMBOL
 
 # ------------------------------------------------------------------------------
 # PROMPTS
