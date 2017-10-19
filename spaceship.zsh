@@ -73,7 +73,6 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
 fi
 
 # PROMPT
-SPACESHIP_PROMPT_SYMBOL="${SPACESHIP_PROMPT_SYMBOL:="➜"}"
 SPACESHIP_PROMPT_ADD_NEWLINE="${SPACESHIP_PROMPT_ADD_NEWLINE:=true}"
 SPACESHIP_PROMPT_SEPARATE_LINE="${SPACESHIP_PROMPT_SEPARATE_LINE:=true}"
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW="${SPACESHIP_PROMPT_FIRST_PREFIX:=false}"
@@ -134,8 +133,9 @@ spaceship_prompt() {
 }
 
 # PS2 - continuation interactive prompt
+# @TODO: Probably have to be a separate section. For disussion.
 spaceship_ps2() {
-  _prompt_section "$SPACESHIP_CHAR_SECONDARY_COLOR" $SPACESHIP_PROMPT_SYMBOL
+  _prompt_section "$SPACESHIP_CHAR_SECONDARY_COLOR" $SPACESHIP_CHAR_SYMBOL
 }
 
 # Setup required environment variables
