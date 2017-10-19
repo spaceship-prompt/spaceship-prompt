@@ -7,17 +7,33 @@
 
 SPACESHIP_VERSION='2.10.0'
 
+NEWLINE='
+'
+
+# Determination of Spaceship working directory
+# https://git.io/vdBH7
+if [[ -z "$SPACESHIP_ROOT" ]]; then
+  if [[ "${(%):-%N}" == '(eval)' ]]; then
+    if [[ "$0" == '-antigen-load' ]] && [[ -r "${PWD}/spaceship.zsh" ]]; then
+      # Antigen uses eval to load things so it can change the plugin (!!)
+      # https://github.com/zsh-users/antigen/issues/581
+      SPACESHIP_ROOT=$PWD
+    else
+      print -P "%F{red}You must set SPACESHIP_ROOT to work from within an (eval).%f"
+      return 1
+    fi
+  else
+    # Get the path to file this code is executing in; then
+    # get the absolute path and strip the filename.
+    # See https://stackoverflow.com/a/28336473/108857
+    SPACESHIP_ROOT=${${(%):-%x}:A:h}
+  fi
+fi
+
 # ------------------------------------------------------------------------------
 # CONFIGURATION
 # The default configuration that can be overridden in .zshrc
 # ------------------------------------------------------------------------------
-
-NEWLINE='
-'
-
-# @todo: Split single large source file by sections into smaller modules
-# @idea: Source only those sections, which are needed (listed in $SPACESHIP_PROMPT_ORDER)
-SPACESHIP_ROOT=${0:A:h}
 
 # ORDER
 if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
