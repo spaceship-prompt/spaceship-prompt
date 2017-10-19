@@ -1,8 +1,10 @@
+
+# Internal variable for checking if prompt is opened
+spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
+
 # Draw prompt section (bold is used as default)
 # USAGE:
 #   _prompt_section <color> [prefix] <content> [suffix]
-# Internal variable for checking if prompt is opened
-spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
 _prompt_section() {
   local color prefix content suffix
   [[ -n $1 ]] && color="%F{$1}"  || color="%f"

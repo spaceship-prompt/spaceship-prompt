@@ -5,8 +5,11 @@
 # License: MIT
 # https://github.com/denysdovhan/spaceship-zsh-theme
 
+# Current version of Spaceship
+# Useful for issue reporting
 SPACESHIP_VERSION='2.10.0'
 
+# Common-used variable for new line separator
 NEWLINE='
 '
 
@@ -138,10 +141,16 @@ spaceship_ps2() {
   _prompt_section "$SPACESHIP_CHAR_SECONDARY_COLOR" $SPACESHIP_CHAR_SYMBOL
 }
 
-# Setup required environment variables
+# ------------------------------------------------------------------------------
+# SETUP
+# Setup requirements for prompt
+# ------------------------------------------------------------------------------
+
+# Runs once when user opens a terminal
 # All preparation before drawing prompt should be done here
 prompt_spaceship_setup() {
   autoload -Uz add-zsh-hook
+
   # Add exec_time hooks
   add-zsh-hook preexec spaceship_exec_time_preexec_hook
   add-zsh-hook precmd spaceship_exec_time_precmd_hook
@@ -163,6 +172,10 @@ prompt_spaceship_setup() {
   zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 }
 
-# Entry point
+# ------------------------------------------------------------------------------
+# ENTRY POINT
+# An entry point of prompt
+# ------------------------------------------------------------------------------
+
 # Pass all arguments to the spaceship_setup function
 prompt_spaceship_setup "$@"
