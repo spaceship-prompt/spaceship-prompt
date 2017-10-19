@@ -69,17 +69,18 @@ SPACESHIP_TIME_12HR="${SPACESHIP_TIME_12HR:=false}"
 SPACESHIP_TIME_COLOR="${SPACESHIP_TIME_COLOR:="yellow"}"
 
 # USER
-SPACESHIP_USER_SHOW="${SPACESHIP_USER_SHOW:=true}"
+SPACESHIP_USER_SHOW="${SPACESHIP_USER_SHOW:="ssh"}" # Options: always|ssh|never
 SPACESHIP_USER_PREFIX="${SPACESHIP_USER_PREFIX:="with "}"
 SPACESHIP_USER_SUFFIX="${SPACESHIP_USER_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_USER_COLOR="${SPACESHIP_USER_COLOR:="yellow"}"
 SPACESHIP_USER_COLOR_ROOT="${SPACESHIP_USER_COLOR_ROOT:="red"}"
 
 # HOST
-SPACESHIP_HOST_SHOW="${SPACESHIP_HOST_SHOW:=true}"
+SPACESHIP_HOST_SHOW="${SPACESHIP_HOST_SHOW:="ssh"}" # Options: always|ssh|never
 SPACESHIP_HOST_PREFIX="${SPACESHIP_HOST_PREFIX:="at "}"
 SPACESHIP_HOST_SUFFIX="${SPACESHIP_HOST_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_HOST_COLOR="${SPACESHIP_HOST_COLOR:="green"}"
+SPACESHIP_HOST_COLOR="${SPACESHIP_HOST_COLOR:="cyan"}"
+SPACESHIP_HOST_SSH_COLOR="${SPACESHIP_HOST_SSH_COLOR:="green"}"
 
 # DIR
 SPACESHIP_DIR_SHOW="${SPACESHIP_DIR_SHOW:=true}"
@@ -450,9 +451,9 @@ spaceship_time() {
 # USER
 # If user is root, then paint it in red. Otherwise, just print in yellow.
 spaceship_user() {
-  [[ $SPACESHIP_USER_SHOW == false ]] && return
+  [[ $SPACESHIP_USER_SHOW == never ]] && return
 
-  if [[ $LOGNAME != $USER ]] || [[ $UID == 0 ]] || [[ -n $SSH_CONNECTION ]]; then
+  if [[ $SPACESHIP_USER_SHOW == "always" ]] || [[ $LOGNAME != $USER ]] || [[ $UID == 0 ]] || [[ -n $SSH_CONNECTION ]]; then
     local user_color
 
     if [[ $USER == 'root' ]]; then
@@ -472,15 +473,23 @@ spaceship_user() {
 # HOST
 # If there is an ssh connections, current machine name.
 spaceship_host() {
-  [[ $SPACESHIP_HOST_SHOW == false ]] && return
+  [[ $SPACESHIP_HOST_SHOW == "never" ]] && return
 
-  [[ -n $SSH_CONNECTION ]] || return
+  if [[ $SPACESHIP_HOST_SHOW == "always" ]] || [[ -n $$SSH_CONNECTION ]]; then
+    local host_color
 
-  _prompt_section \
-    "$SPACESHIP_HOST_COLOR" \
-    "$SPACESHIP_HOST_PREFIX" \
-    '%m' \
-    "$SPACESHIP_HOST_SUFFIX"
+    if [[ -n $SSH_CONNECTION ]]; then
+      host_color=$SPACESHIP_HOST_SSH_COLOR
+    else
+      host_color=$SPACESHIP_HOST_COLOR
+    fi
+
+    _prompt_section \
+      "$host_color" \
+      "$SPACESHIP_HOST_PREFIX" \
+      '%m' \
+      "$SPACESHIP_HOST_SUFFIX"
+  fi
 }
 
 # DIR
