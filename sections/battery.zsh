@@ -7,7 +7,6 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_BATTERY_SHOW="${SPACESHIP_BATTERY_SHOW:=true}"
-SPACESHIP_BATTERY_ALWAYS_SHOW="${SPACESHIP_BATTERY_ALWAYS_SHOW:=false}"
 SPACESHIP_BATTERY_PREFIX="${SPACESHIP_BATTERY_PREFIX:=""}"
 SPACESHIP_BATTERY_SUFFIX="${SPACESHIP_BATTERY_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_BATTERY_CHARGING_SYMBOL="${SPACESHIP_BATTERY_CHARGING_SYMBOL:="⇡"}"
@@ -77,7 +76,7 @@ spaceship_battery() {
   fi
 
   # Escape % for display since it's a special character in zsh prompt expansion
-  if [[ $SPACESHIP_BATTERY_ALWAYS_SHOW == true || $battery_percent -lt $SPACESHIP_BATTERY_THRESHOLD || $battery_status =~ "(charged|full)"  ]]; then
+  if [[ $SPACESHIP_BATTERY_SHOW == 'always' || $battery_percent -lt $SPACESHIP_BATTERY_THRESHOLD || $battery_status =~ "(charged|full)"  ]]; then
     _prompt_section \
       "$battery_color" \
       "$SPACESHIP_BATTERY_PREFIX" \
