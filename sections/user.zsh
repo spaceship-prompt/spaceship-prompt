@@ -20,7 +20,11 @@ SPACESHIP_USER_COLOR_ROOT="${SPACESHIP_USER_COLOR_ROOT:="red"}"
 spaceship_user() {
   [[ $SPACESHIP_USER_SHOW == false ]] && return
 
-  if [[ $LOGNAME != $USER ]] || [[ $UID == 0 ]] || [[ -n $SSH_CONNECTION ]]; then
+  if [[ $SPACESHIP_USER_SHOW == 'always' ]] \
+  || [[ $LOGNAME != $USER ]] \
+  || [[ $UID == 0 ]] \
+  || [[ -n $SSH_CONNECTION ]]
+  then
     local user_color
 
     if [[ $USER == 'root' ]]; then
