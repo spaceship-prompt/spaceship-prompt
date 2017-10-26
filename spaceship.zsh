@@ -452,7 +452,7 @@ spaceship_time() {
 spaceship_user() {
   [[ $SPACESHIP_USER_SHOW == false ]] && return
 
-  if [[ $LOGNAME != $USER ]] || [[ $UID == 0 ]] || [[ -n $SSH_CONNECTION ]]; then
+  if [[ $LOGNAME != $USER ]] || [[ $UID == 0 ]] || [[ -n $SSH_CONNECTION ]] || [[ $SPACESHIP_USER_SHOW == 'force' ]]; then
     local user_color
 
     if [[ $USER == 'root' ]]; then
@@ -474,7 +474,7 @@ spaceship_user() {
 spaceship_host() {
   [[ $SPACESHIP_HOST_SHOW == false ]] && return
 
-  [[ -n $SSH_CONNECTION ]] || return
+  [[ -n $SSH_CONNECTION ]] || [[ $SPACESHIP_HOST_SHOW == 'force' ]] || return
 
   _prompt_section \
     "$SPACESHIP_HOST_COLOR" \
