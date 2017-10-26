@@ -55,6 +55,7 @@ Currently it shows:
 * Current Conda virtualenv (`🅒 `).
 * Current Python pyenv (`🐍`).
 * Current .NET SDK version, through dotnet-cli (`.NET`).
+* Current Vue.js version, through node_modules (`𝗩`).
 * Current Ember.js version, through ember-cli (`🐹`).
 * Current Kubectl context (`☸️`).
 * Current battery level and status:
@@ -186,6 +187,7 @@ SPACESHIP_PROMPT_ORDER=(
   conda         # conda virtualenv section
   pyenv         # Pyenv section
   dotnet        # .NET section
+  vue           # Vue.js section
   ember         # Ember.js section
   kubecontext   # Kubectl context section
   exec_time     # Execution time
@@ -543,6 +545,18 @@ pyenv section is shown only in directories that contain `requirements.txt` or an
 | `SPACESHIP_DOTNET_SYMBOL` | `.NET ` | Character to be shown before .NET version |
 | `SPACESHIP_DOTNET_COLOR` | `128` | [Color code](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg) of .NET section |
 
+### Vue.js (`vue`)
+
+Vue.js section is shown only in directories that has Vue.is installed in `node_modules` directory.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_VUE_SHOW` | `true` | Current Vue.js section |
+| `SPACESHIP_VUE_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Vue.js section |
+| `SPACESHIP_VUE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Vue.js section |
+| `SPACESHIP_VUE_SYMBOL` | `𝗩 ` | Character to be shown before Vue.js version |
+| `SPACESHIP_VUE_COLOR` | `114` | Color of Ember.js section |
+
 ### Ember.js (`ember`)
 
 Ember.js section is shown only in directories that contain a `ember-cli-build.js` file.
@@ -887,6 +901,13 @@ SPACESHIP_DOTNET_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_DOTNET_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_DOTNET_SYMBOL=".NET "
 SPACESHIP_DOTNET_COLOR="128"
+
+# VUE
+SPACESHIP_VUE_SHOW=true
+SPACESHIP_VUE_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_VUE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_VUE_SYMBOL="𝗩 "
+SPACESHIP_VUE_COLOR="114"
 
 # EMBER
 SPACESHIP_EMBER_SHOW=true

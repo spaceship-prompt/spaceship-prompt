@@ -39,6 +39,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     conda
     pyenv
     dotnet
+    vue
     ember
     kubecontext
     exec_time
@@ -248,6 +249,13 @@ SPACESHIP_DOTNET_PREFIX="${SPACESHIP_DOTNET_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_P
 SPACESHIP_DOTNET_SUFFIX="${SPACESHIP_DOTNET_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_DOTNET_SYMBOL="${SPACESHIP_DOTNET_SYMBOL:=".NET "}"
 SPACESHIP_DOTNET_COLOR="${SPACESHIP_DOTNET_COLOR:="128"}"
+
+# VUE
+SPACESHIP_VUE_SHOW="${SPACESHIP_VUE_SHOW:=true}"
+SPACESHIP_VUE_PREFIX="${SPACESHIP_VUE_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_VUE_SUFFIX="${SPACESHIP_VUE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_VUE_SYMBOL="${SPACESHIP_VUE_SYMBOL:="𝗩 "}"
+SPACESHIP_VUE_COLOR="${SPACESHIP_VUE_COLOR:="114"}"
 
 # EMBER
 SPACESHIP_EMBER_SHOW="${SPACESHIP_EMBER_SHOW:=true}"
@@ -1002,6 +1010,23 @@ spaceship_dotnet() {
     "$SPACESHIP_DOTNET_PREFIX" \
     "${SPACESHIP_DOTNET_SYMBOL}${dotnet_version}" \
     "$SPACESHIP_DOTNET_SUFFIX"
+}
+
+# VUE
+# Show current version of Vue.js.
+spaceship_vue() {
+  [[ $SPACESHIP_VUE_SHOW == false ]] && return
+
+  # Show VUE status only for Vue.js projects.
+  [[ -f node_modules/vue/package.json ]] || return
+
+  local vue_version=$(grep '"version":' ./node_modules/vue/package.json | cut -d\" -f4)
+
+  _prompt_section \
+    "$SPACESHIP_VUE_COLOR" \
+    "$SPACESHIP_VUE_PREFIX" \
+    "${SPACESHIP_VUE_SYMBOL}${vue_version}" \
+    "$SPACESHIP_VUE_SUFFIX"
 }
 
 # EMBER
