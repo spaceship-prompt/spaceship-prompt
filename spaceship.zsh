@@ -40,6 +40,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     pyenv
     dotnet
     ember
+    elm
     kubecontext
     exec_time
     line_sep
@@ -255,6 +256,13 @@ SPACESHIP_EMBER_PREFIX="${SPACESHIP_EMBER_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PRE
 SPACESHIP_EMBER_SUFFIX="${SPACESHIP_EMBER_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_EMBER_SYMBOL="${SPACESHIP_EMBER_SYMBOL:="🐹 "}"
 SPACESHIP_EMBER_COLOR="${SPACESHIP_EMBER_COLOR:="210"}"
+
+# ELM
+SPACESHIP_ELM_SHOW="${SPACESHIP_ELM_SHOW:=true}"
+SPACESHIP_ELM_PREFIX="${SPACESHIP_ELM_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_ELM_SUFFIX="${SPACESHIP_ELM_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_ELM_SYMBOL="${SPACESHIP_ELM_SYMBOL:="🌳 "}"
+SPACESHIP_ELM_COLOR="${SPACESHIP_ELM_COLOR:="green"}"
 
 # KUBECONTEXT
 SPACESHIP_KUBECONTEXT_SHOW="${SPACESHIP_KUBECONTEXT_SHOW:=true}"
@@ -1020,6 +1028,24 @@ spaceship_ember() {
     "$SPACESHIP_EMBER_PREFIX" \
     "${SPACESHIP_EMBER_SYMBOL}${ember_version}" \
     "$SPACESHIP_EMBER_SUFFIX"
+}
+
+# ELM
+# Show current version of Elm.
+spaceship_elm() {
+  [[ $SPACESHIP_ELM_SHOW == false ]] && return
+
+  # Show ELM status only for folders w/ elm-package.json file
+  [[ -f elm-package.json ]] || return
+
+  _exists elm || return
+  local elm_version=$(elm -v)
+
+  _prompt_section \
+    "$SPACESHIP_ELM_COLOR" \
+    "$SPACESHIP_ELM_PREFIX" \
+    "${SPACESHIP_ELM_SYMBOL}${elm_version}" \
+    "$SPACESHIP_ELM_SUFFIX"
 }
 
 # KUBECONTEXT
