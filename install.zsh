@@ -89,7 +89,7 @@ fi
 cp -f "$SPACESHIP" "$DIST"
 
 # Add source command to ~/.zshrc
-log "Sourcing Spacehsip in ~/.zshrc..."
+log "Sourcing Spaceship in ~/.zshrc..."
 echo '\n'                           >> "$HOME/.zshrc"
 echo 'source "'"$DIST"'"'           >> "$HOME/.zshrc"
 
