@@ -57,6 +57,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     php           # PHP section
     rust          # Rust section
     haskell       # Haskell Stack section
+    java          # Java section
     julia         # Julia section
     docker        # Docker section
     aws           # Amazon Web Services section
