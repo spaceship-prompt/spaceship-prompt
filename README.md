@@ -278,6 +278,7 @@ SPACESHIP_PROMPT_ORDER=(
   rust          # Rust section
   haskell       # Haskell Stack section
   java          # Java section
+  gradle        # Gradle section
   julia         # Julia section
   docker        # Docker section
   aws           # Amazon Web Services section
@@ -479,6 +480,18 @@ Shows Java version.
 | `SPACESHIP_JAVA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Java section |
 | `SPACESHIP_JAVA_SYMBOL` | `☕` | Character to be shown before Java version |
 | `SPACESHIP_JAVA_COLOR` | `magenta` | Color of Java section |
+
+### Gradle (`gradle` )
+
+Shows Gradle version.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_GRADLE_SHOW` | `true` | Show current Gradle version or not |
+| `SPACESHIP_GRADLE_PREFIX` | `on ` | Prefix before the Gradle section |
+| `SPACESHIP_GRADLE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Gradle section |
+| `SPACESHIP_GRADLE_SYMBOL` | `⬡` | Character to be shown before Gradle version |
+| `SPACESHIP_GRADLE_COLOR` | `green` | Color of Gradle section |
 
 ### Example
 
@@ -692,6 +705,13 @@ SPACESHIP_JAVA_PREFIX="on "
 SPACESHIP_JAVA_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_JAVA_SYMBOL="☕ "
 SPACESHIP_JAVA_COLOR="magenta"
+
+# GRADLE
+SPACESHIP_GRADLE_SHOW=true
+SPACESHIP_GRADLE_PREFIX="on "
+SPACESHIP_GRADLE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_GRADLE_SYMBOL="⬡ "
+SPACESHIP_GRADLE_COLOR="green"
 
 # JULIA
 SPACESHIP_JULIA_SHOW=true

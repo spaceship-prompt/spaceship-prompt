@@ -58,6 +58,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     rust          # Rust section
     haskell       # Haskell Stack section
     java          # Java section
+    gradle        # Gradle section
     julia         # Julia section
     docker        # Docker section
     aws           # Amazon Web Services section
