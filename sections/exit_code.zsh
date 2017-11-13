@@ -7,11 +7,11 @@
 # Configuration
 # ------------------------------------------------------------------------------
 
-SPACESHIP_EXIT_CODE_SHOW="${SPACESHIP_EXIT_CODE_SHOW:=false}"
-SPACESHIP_EXIT_CODE_PREFIX="${SPACESHIP_EXIT_CODE_PREFIX:=""}"
-SPACESHIP_EXIT_CODE_SUFFIX="${SPACESHIP_EXIT_CODE_SUFFIX:=" "}"
-SPACESHIP_EXIT_CODE_SYMBOl="${SPACESHIP_EXIT_CODE_SYMBOl:="✘"}"
-SPACESHIP_EXIT_CODE_COLOR="${SPACESHIP_EXIT_CODE_COLOR:="red"}"
+: "${SPACESHIP_EXIT_CODE_SHOW=false}"
+: "${SPACESHIP_EXIT_CODE_PREFIX=""}"
+: "${SPACESHIP_EXIT_CODE_SUFFIX=" "}"
+: "${SPACESHIP_EXIT_CODE_SYMBOl="✘"}"
+: "${SPACESHIP_EXIT_CODE_COLOR="red"}"
 
 # ------------------------------------------------------------------------------
 # Section
