@@ -111,7 +111,9 @@ source "$SPACESHIP_ROOT/lib/section.zsh"
 # ------------------------------------------------------------------------------
 
 for section in $(_union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
-  source "$SPACESHIP_ROOT/sections/$section.zsh"
+  if [ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]; then
+    source "$SPACESHIP_ROOT/sections/$section.zsh"
+  fi
 done
 
 # ------------------------------------------------------------------------------

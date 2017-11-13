@@ -46,9 +46,18 @@ _compose_prompt() {
   # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
   setopt EXTENDED_GLOB LOCAL_OPTIONS
 
-  # Threat the first argument as list of prompt sections
+  # Treat the first argument as list of prompt sections
   # Compose whole prompt from diferent parts
+  # If section is a function then invoke it
+  # If the composed name spaceship_$section is a function invoke it
   for section in $@; do
-    spaceship_$section
+    if typeset -f + "$section" &> /dev/null; then
+      eval $section
+      continue
+    fi
+    if typeset -f + "spaceship_$section" &> /dev/null; then
+      spaceship_$section
+      continue
+    fi
   done
 }
