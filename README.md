@@ -218,6 +218,7 @@ SPACESHIP_PROMPT_ORDER=(
   haskell       # Haskell Stack section
   java          # Java section
   gradle        # Gradle section
+  maven         # Maven section
   julia         # Julia section
   docker        # Docker section
   aws           # Amazon Web Services section
@@ -427,6 +428,18 @@ Shows Gradle version.
 | `SPACESHIP_GRADLE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Gradle section |
 | `SPACESHIP_GRADLE_SYMBOL` | `⬡` | Character to be shown before Gradle version |
 | `SPACESHIP_GRADLE_COLOR` | `green` | Color of Gradle section |
+
+### Maven (`maven` )
+
+Shows Maven version.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_MAVEN_SHOW` | `true` | Show current Maven version or not |
+| `SPACESHIP_MAVEN_PREFIX` | `on ` | Prefix before the Maven section |
+| `SPACESHIP_MAVEN_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Maven section |
+| `SPACESHIP_MAVEN_SYMBOL` | `𝑚` | Character to be shown before Maven version |
+| `SPACESHIP_MAVEN_COLOR` | `yellow` | Color of Maven section |
 
 ### Example
 
@@ -647,6 +660,13 @@ SPACESHIP_GRADLE_PREFIX="on "
 SPACESHIP_GRADLE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_GRADLE_SYMBOL="⬡ "
 SPACESHIP_GRADLE_COLOR="green"
+
+# MAVEN
+SPACESHIP_MAVEN_SHOW=true
+SPACESHIP_MAVEN_PREFIX="on "
+SPACESHIP_MAVEN_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_MAVEN_SYMBOL="𝑚 "
+SPACESHIP_MAVEN_COLOR="yellow"
 
 # JULIA
 SPACESHIP_JULIA_SHOW=true
