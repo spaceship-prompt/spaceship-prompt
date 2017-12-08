@@ -9,7 +9,9 @@
 [![NPM version][npm-image]][npm-url]
 [![ZSH][zsh-image]][zsh-url]
 [![Oh-My-Zsh][omz-image]][omz-url]
-[![Donatation][donate-image]][donate-url]
+[![Donate with card][donate-card-image]][donate-card-url]
+[![Donate with Bitcoin][donate-btc-image]][donate-btc-url]
+[![Donate with Ethereum][donate-eth-image]][donate-eth-url]
 
 > An [“Oh My ZSH!”][oh-my-zsh] theme for Astronauts.
 
@@ -937,9 +939,12 @@ SPACESHIP_EXIT_CODE_COLOR="red"
 
 ## Donate
 
-Hi! I work on this project in my spare time, beside my primary job. I hope enjoy using Spaceship, and if you do, please, [buy me a cup of chamomile tea ☕️ or cheese cake 🍰][donate-url]
+Hi! I work on this project in my spare time, beside my primary job. I hope enjoy using Spaceship, and if you do, please, [buy me a cup of tea ☕️][donate-card-url].
 
-[![qr](https://cloud.githubusercontent.com/assets/3459374/25771981/6f2ba08c-3268-11e7-9fc8-49e3f7b9e0e5.png)][donate-url]
+| Credit/Debit card | Bitcoin | Ethereum |
+|:-----------------:|:-------:|:--------:|
+| [Donate with LiqPay][donate-card-url] | [`1FrPrQb6ACTkbSBAz9PduJWrDFfq41Ggb4`][donate-btc-url] | `0x6aF39C917359897ae6969Ad682C14110afe1a0a1` |
+| <img src="https://cloud.githubusercontent.com/assets/3459374/25771981/6f2ba08c-3268-11e7-9fc8-49e3f7b9e0e5.png" width="160px"/> | <img src="https://user-images.githubusercontent.com/3459374/33760933-1c9b81b4-dc10-11e7-8e4b-22d81f98c138.png" width="160px"/> | <img src="https://user-images.githubusercontent.com/3459374/33760932-1c7b3fb2-dc10-11e7-9774-411264d533da.png" width="160px"/> |
 
 I would appreciate your support! _Thank you!_
 
@@ -958,8 +963,15 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [omz-url]: http://ohmyz.sh/
 [omz-image]: https://img.shields.io/badge/dependency-oh--my--zsh-c5d928.svg?style=flat-square
 
-[donate-url]: https://www.liqpay.com/en/checkout/380951100392
-[donate-image]: https://img.shields.io/badge/support-donate-yellow.svg?style=flat-square
+[donate-card-url]: https://www.liqpay.com/en/checkout/380951100392
+[donate-card-image]: https://img.shields.io/badge/donate-LiqPay-blue.svg?style=flat-square
+
+[donate-btc-url]: bitcoin:1FrPrQb6ACTkbSBAz9PduJWrDFfq41Ggb4
+[donate-btc-image]: https://img.shields.io/badge/donate-BTC-yellow.svg?style=flat-square
+
+[donate-eth-url]: 0x6aF39C917359897ae6969Ad682C14110afe1a0a1
+[donate-eth-image]: https://img.shields.io/badge/donate-ETH-gray.svg?style=flat-square
+
 <!-- References -->
 
 [oh-my-zsh]: http://ohmyz.sh/
