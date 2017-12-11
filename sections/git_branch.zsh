@@ -30,5 +30,5 @@ spaceship_git_branch() {
 
   _prompt_section \
     "$SPACESHIP_GIT_BRANCH_COLOR" \
-    "$SPACESHIP_GIT_BRANCH_PREFIX$(git_current_branch)$SPACESHIP_GIT_BRANCH_SUFFIX"
+    "$SPACESHIP_GIT_BRANCH_PREFIX$git_current_branch$SPACESHIP_GIT_BRANCH_SUFFIX"
 }
