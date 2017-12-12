@@ -29,9 +29,12 @@ spaceship_rust() {
 
   local rust_version=$(rustc --version | grep --color=never -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]')
 
+  spaceship::exists rustup && local rustup_toolchain=$(rustup show | tail -3 | head -1 | cut -f 1 -d' ')
+
   spaceship::section \
     "$SPACESHIP_RUST_COLOR" \
     "$SPACESHIP_RUST_PREFIX" \
     "${SPACESHIP_RUST_SYMBOL}v${rust_version}" \
+    ${rustup_toolchain:+" ($rustup_toolchain)"} \
     "$SPACESHIP_RUST_SUFFIX"
 }

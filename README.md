@@ -45,7 +45,7 @@ Currently it shows:
 * Current Xcode version, through xenv (`🛠`).
 * Current Go version (`🐹`).
 * Current PHP version (`🐘`).
-* Current Rust version (`𝗥`).
+* Current Rust version and Rustup toolchain (if available) (`𝗥`)
 * Current version of Haskell GHC Compiler, defined in stack.yaml file (`λ`).
 * Current Julia version (`ஃ`).
 * Current Docker version and connected machine (`🐳`).
