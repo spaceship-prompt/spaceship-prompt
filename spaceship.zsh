@@ -119,10 +119,15 @@ SPACESHIP_HG_SHOW="${SPACESHIP_HG_SHOW:=true}"
 SPACESHIP_HG_PREFIX="${SPACESHIP_HG_PREFIX:="on "}"
 SPACESHIP_HG_SUFFIX="${SPACESHIP_HG_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_HG_SYMBOL="${SPACESHIP_HG_SYMBOL:="☿ "}"
+# MERCURIAL BOOKMARK
+SPACESHIP_HG_BOOKMARK_SHOW="${SPACESHIP_HG_BOOKMARK_SHOW:=true}"
+SPACESHIP_HG_BOOKMARK_PREFIX="${SPACESHIP_HG_BOOKMARK_PREFIX:=""}"
+SPACESHIP_HG_BOOKMARK_SUFFIX="${SPACESHIP_HG_BOOKMARK_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_HG_BOOKMARK_COLOR="${SPACESHIP_HG_BOOKMARK_COLOR:="green"}"
 # MERCURIAL BRANCH
 SPACESHIP_HG_BRANCH_SHOW="${SPACESHIP_HG_BRANCH_SHOW:=true}"
 SPACESHIP_HG_BRANCH_PREFIX="${SPACESHIP_HG_BRANCH_PREFIX:="$SPACESHIP_HG_SYMBOL"}"
-SPACESHIP_HG_BRANCH_SUFFIX="${SPACESHIP_HG_BRANCH_SUFFIX:=""}"
+SPACESHIP_HG_BRANCH_SUFFIX="${SPACESHIP_HG_BRANCH_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_HG_BRANCH_COLOR="${SPACESHIP_HG_BRANCH_COLOR:="magenta"}"
 # MERCURIAL STATUS
 SPACESHIP_HG_STATUS_SHOW="${SPACESHIP_HG_STATUS_SHOW:=true}"
@@ -556,6 +561,22 @@ spaceship_git() {
     "$SPACESHIP_GIT_SUFFIX"
 }
 
+# MERCURIAL BOOKMARK
+# Show current hg bookmark
+spaceship_hg_bookmark() {
+  [[ $SPACESHIP_HG_BOOKMARK_SHOW == false ]] && return
+
+  _is_hg || return
+
+  local BOOKMARK=$(hg log -r . -T '{activebookmark}')
+
+  [[ -z "$BOOKMARK" ]] && return
+
+  _prompt_section \
+    "$SPACESHIP_HG_BOOKMARK_COLOR" \
+    "$SPACESHIP_HG_BOOKMARK_PREFIX"$(hg log -r . -T '{activebookmark}')"$SPACESHIP_HG_BOOKMARK_SUFFIX"
+}
+
 # MERCURIAL BRANCH
 # Show current hg branch
 spaceship_hg_branch() {
@@ -597,20 +618,21 @@ spaceship_hg_status() {
 }
 
 # MERCURIAL
-# Show both hg branch and hg status:
+# Show hg branch, active hg bookmark and hg status:
+#   spaceship_hg_bookmark
 #   spaceship_hg_branch
 #   spaceship_hg_status
 spaceship_hg() {
   [[ $SPACESHIP_HG_SHOW == false ]] && return
 
-  local hg_branch="$(spaceship_hg_branch)" hg_status="$(spaceship_hg_status)"
+  local hg_branch="$(spaceship_hg_branch)" hg_status="$(spaceship_hg_status)" hg_bookmark="$(spaceship_hg_bookmark)"
 
-  [[ -z $hg_branch ]] && return
+  [[ -z $hg_branch ]] && [[ -z $hg_bookmark ]] && return
 
   _prompt_section \
     'white' \
     "$SPACESHIP_HG_PREFIX" \
-    "${hg_branch}${hg_status}" \
+    "${hg_branch}${hg_bookmark}${hg_status}" \
     "$SPACESHIP_HG_SUFFIX"
 }
 
