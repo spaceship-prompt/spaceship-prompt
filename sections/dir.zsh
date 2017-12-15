@@ -11,6 +11,7 @@ SPACESHIP_DIR_SHOW="${SPACESHIP_DIR_SHOW=true}"
 SPACESHIP_DIR_PREFIX="${SPACESHIP_DIR_PREFIX="in "}"
 SPACESHIP_DIR_SUFFIX="${SPACESHIP_DIR_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_DIR_TRUNC="${SPACESHIP_DIR_TRUNC=3}"
+SPACESHIP_DIR_TRUNC_PREFIX="${SPACESHIP_DIR_TRUNC_PREFIX=.../}"
 SPACESHIP_DIR_TRUNC_REPO="${SPACESHIP_DIR_TRUNC_REPO=true}"
 SPACESHIP_DIR_COLOR="${SPACESHIP_DIR_COLOR="cyan"}"
 
@@ -21,14 +22,25 @@ SPACESHIP_DIR_COLOR="${SPACESHIP_DIR_COLOR="cyan"}"
 spaceship_dir() {
   [[ $SPACESHIP_DIR_SHOW == false ]] && return
 
-  local dir
+  local dir trunc_prefix
 
   # Threat repo root as a top-level directory or not
   if [[ $SPACESHIP_DIR_TRUNC_REPO == true ]] && spaceship::is_git; then
     local git_root=$(git rev-parse --show-toplevel)
-    dir="$git_root:t${$(expr $(pwd -P) : "$git_root\(.*\)")}"
+
+    if [[ $git_root:h == / ]]; then
+      trunc_prefix=/
+    else
+      trunc_prefix=$SPACESHIP_DIR_TRUNC_PREFIX
+    fi
+
+    dir="$trunc_prefix$git_root:t${PWD#$~~git_root}"
   else
-    dir="%${SPACESHIP_DIR_TRUNC}~"
+    if [[ SPACESHIP_DIR_TRUNC -gt 0 ]]; then
+      trunc_prefix="%($((SPACESHIP_DIR_TRUNC + 1))~|$SPACESHIP_DIR_TRUNC_PREFIX|)"
+    fi
+
+    dir="$trunc_prefix%${SPACESHIP_DIR_TRUNC}~"
   fi
 
   spaceship::section \
