@@ -58,6 +58,7 @@ Currently it shows:
 * Current Python pyenv (`🐍`).
 * Current .NET SDK version, through dotnet-cli (`.NET`).
 * Current Ember.js version, through ember-cli (`🐹`).
+* Current Elm version (`🌳`).
 * Current Kubectl context (`☸️`).
 * Current battery level and status:
   * `⇡` - charging;
@@ -189,6 +190,7 @@ SPACESHIP_PROMPT_ORDER=(
   pyenv         # Pyenv section
   dotnet        # .NET section
   ember         # Ember.js section
+  elm           # Elm section
   kubecontext   # Kubectl context section
   exec_time     # Execution time
   line_sep      # Line break
@@ -557,6 +559,18 @@ Ember.js section is shown only in directories that contain a `ember-cli-build.js
 | `SPACESHIP_EMBER_SYMBOL` | `🐹 ` | Character to be shown before Ember.js version |
 | `SPACESHIP_EMBER_COLOR` | `210` | Color of Ember.js section |
 
+### Elm (`elm`)
+
+Elm section is shown only in directories that contain a `elm-package.json` file.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_ELM_SHOW` | `true` | Current Elm section |
+| `SPACESHIP_ELM_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Elm section |
+| `SPACESHIP_ELM_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Elm section |
+| `SPACESHIP_ELM_SYMBOL` | `🌳 ` | Character to be shown before Elm version |
+| `SPACESHIP_ELM_COLOR` | `green` | Color of Elm section |
+
 ### Kubectl context (`kubecontext`)
 
 Shows the active kubectl context.
@@ -674,6 +688,7 @@ SPACESHIP_PROMPT_ORDER=(
   pyenv
   dotnet
   ember
+  elm
   kubecontext
   battery
   exec_time
@@ -896,6 +911,13 @@ SPACESHIP_EMBER_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
 SPACESHIP_EMBER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 SPACESHIP_EMBER_SYMBOL="🐹 "
 SPACESHIP_EMBER_COLOR="210"
+
+# ELM
+SPACESHIP_ELM_SHOW=true
+SPACESHIP_ELM_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"
+SPACESHIP_ELM_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
+SPACESHIP_ELM_SYMBOL="🌳 "
+SPACESHIP_ELM_COLOR="green"
 
 # KUBECONTEXT
 SPACESHIP_KUBECONTEXT_SHOW=true
