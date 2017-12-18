@@ -131,6 +131,8 @@ _deprecated SPACESHIP_PROMPT_SYMBOL SPACESHIP_CHAR_SYMBOL
 spaceship_prompt() {
   # Retrive exit code of last command to use in exit_code
   # Must be captured before any other command in prompt is executed
+  # Must be the very first line in all entry prompt functions, or the value
+  # will be overridden by a different command execution - do not move this line!
   RETVAL=$?
 
   # Should it add a new line before the prompt?
@@ -143,6 +145,8 @@ spaceship_prompt() {
 spaceship_rprompt() {
   # Retrive exit code of last command to use in exit_code
   # Must be captured before any other command in prompt is executed
+  # Must be the very first line in all entry prompt functions, or the value
+  # will be overridden by a different command execution - do not move this line!
   RETVAL=$?
 
   _compose_prompt $SPACESHIP_RPROMPT_ORDER
@@ -154,6 +158,8 @@ spaceship_rprompt() {
 spaceship_ps2() {
   # Retrive exit code of last command to use in exit_code
   # Must be captured before any other command in prompt is executed
+  # Must be the very first line in all entry prompt functions, or the value
+  # will be overridden by a different command execution - do not move this line!
   RETVAL=$?
 
   _prompt_section "$SPACESHIP_CHAR_SECONDARY_COLOR" $SPACESHIP_CHAR_SYMBOL
