@@ -8,11 +8,11 @@
 # Configuration
 # ------------------------------------------------------------------------------
 
-SPACESHIP_DOCKER_SHOW="${SPACESHIP_DOCKER_SHOW:=true}"
-SPACESHIP_DOCKER_PREFIX="${SPACESHIP_DOCKER_PREFIX:="on "}"
-SPACESHIP_DOCKER_SUFFIX="${SPACESHIP_DOCKER_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_DOCKER_SYMBOL="${SPACESHIP_DOCKER_SYMBOL:="🐳 "}"
-SPACESHIP_DOCKER_COLOR="${SPACESHIP_DOCKER_COLOR:="cyan"}"
+: "${SPACESHIP_DOCKER_SHOW=true}"
+: "${SPACESHIP_DOCKER_PREFIX="on "}"
+: "${SPACESHIP_DOCKER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+: "${SPACESHIP_DOCKER_SYMBOL="🐳 "}"
+: "${SPACESHIP_DOCKER_COLOR="cyan"}"
 
 # ------------------------------------------------------------------------------
 # Section

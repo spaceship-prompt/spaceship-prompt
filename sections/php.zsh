@@ -8,11 +8,11 @@
 # Configuration
 # ------------------------------------------------------------------------------
 
-SPACESHIP_PHP_SHOW="${SPACESHIP_PHP_SHOW:=true}"
-SPACESHIP_PHP_PREFIX="${SPACESHIP_PHP_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
-SPACESHIP_PHP_SUFFIX="${SPACESHIP_PHP_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_PHP_SYMBOL="${SPACESHIP_PHP_SYMBOL:="🐘 "}"
-SPACESHIP_PHP_COLOR="${SPACESHIP_PHP_COLOR:="blue"}"
+: "${SPACESHIP_PHP_SHOW=true}"
+: "${SPACESHIP_PHP_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+: "${SPACESHIP_PHP_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+: "${SPACESHIP_PHP_SYMBOL="🐘 "}"
+: "${SPACESHIP_PHP_COLOR="blue"}"
 
 # ------------------------------------------------------------------------------
 # Section
