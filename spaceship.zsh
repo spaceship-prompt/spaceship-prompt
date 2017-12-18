@@ -1263,7 +1263,7 @@ spaceship_prompt() {
 
 # PS2 - continuation interactive prompt
 spaceship_ps2() {
-  _prompt_section "yellow" $SPACESHIP_PROMPT_SYMBOL
+  _prompt_section "yellow" "$SPACESHIP_PROMPT_SYMBOL "
 }
 
 # Setup required environment variables
