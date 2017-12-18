@@ -36,10 +36,6 @@ _prompt_section() {
 # USAGE:
 #   _compose_prompt [section]…
 _compose_prompt() {
-  # Retrive exit code of last command to use in exit_code
-  # Must be captured before any other command in prompt is executed
-  RETVAL=$?
-
   # Option EXTENDED_GLOB is set locally to force filename generation on
   # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
   # See the description of filename generation in
