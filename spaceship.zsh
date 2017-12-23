@@ -129,7 +129,7 @@ _deprecated SPACESHIP_PROMPT_SYMBOL SPACESHIP_CHAR_SYMBOL
 # PROMPT
 # Primary (left) prompt
 spaceship_prompt() {
-  # Retrive exit code of last command to use in exit_code
+  # Retrieve exit code of last command to use in exit_code
   # Must be captured before any other command in prompt is executed
   # Must be the very first line in all entry prompt functions, or the value
   # will be overridden by a different command execution - do not move this line!
@@ -143,7 +143,7 @@ spaceship_prompt() {
 # $RPROMPT
 # Optional (right) prompt
 spaceship_rprompt() {
-  # Retrive exit code of last command to use in exit_code
+  # Retrieve exit code of last command to use in exit_code
   # Must be captured before any other command in prompt is executed
   # Must be the very first line in all entry prompt functions, or the value
   # will be overridden by a different command execution - do not move this line!
@@ -156,7 +156,7 @@ spaceship_rprompt() {
 # Continuation interactive prompt
 # @TODO: Probably have to be a separate section. For disussion.
 spaceship_ps2() {
-  # Retrive exit code of last command to use in exit_code
+  # Retrieve exit code of last command to use in exit_code
   # Must be captured before any other command in prompt is executed
   # Must be the very first line in all entry prompt functions, or the value
   # will be overridden by a different command execution - do not move this line!
