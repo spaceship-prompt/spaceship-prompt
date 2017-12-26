@@ -495,6 +495,14 @@ spaceship_dir() {
     "$SPACESHIP_DIR_SUFFIX"
 }
 
+_spaceship_git_branch_or_tag() {
+	local tag=$(git tag --points-at=HEAD)
+	if [[ -z "$tag" ]]; then
+		tag=$(git_current_branch)
+	fi
+	echo $tag
+}
+
 # GIT BRANCH
 # Show current git brunch using git_current_status from Oh-My-Zsh
 spaceship_git_branch() {
@@ -504,7 +512,7 @@ spaceship_git_branch() {
 
   _prompt_section \
     "$SPACESHIP_GIT_BRANCH_COLOR" \
-    "$SPACESHIP_GIT_BRANCH_PREFIX$(git_current_branch)$SPACESHIP_GIT_BRANCH_SUFFIX"
+    "$SPACESHIP_GIT_BRANCH_PREFIX$(_spaceship_git_branch_or_tag)$SPACESHIP_GIT_BRANCH_SUFFIX"
 }
 
 # GIT STATUS
