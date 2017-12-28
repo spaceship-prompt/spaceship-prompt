@@ -94,7 +94,7 @@ For correct work you will first need:
 npm install -g spaceship-zsh-theme
 ```
 
-Done. This command should link `spaceship.zsh-theme` to your `$ZSH_CUSTOM/themes` and set `$ZSH_CUSTOM` to `"spaceship"`. Just reload your terminal.
+Done. This command should link `spaceship.zsh-theme` to your `$ZSH_CUSTOM/themes` and set `$ZSH_THEME` to `"spaceship"`. Just reload your terminal.
 
 **Tip:** Update Spaceship to new versions as any other package.
 
