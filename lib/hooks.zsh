@@ -21,3 +21,9 @@ spaceship_exec_time_precmd_hook() {
   SPACESHIP_EXEC_TIME_duration=$(( $SPACESHIP_EXEC_TIME_stop - $SPACESHIP_EXEC_TIME_start ))
   unset SPACESHIP_EXEC_TIME_start
 }
+
+# vcs_info hook
+spaceship_exec_vcs_info_precmd_hook() {
+  [[ $SPACESHIP_GIT_BRANCH_SHOW == false ]] && return
+  vcs_info
+}
