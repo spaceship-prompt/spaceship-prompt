@@ -164,7 +164,7 @@ prompt spaceship
 
 ## Options
 
-Now you have ability to disable elements of Spaceship. All options must be overridden in your `.zshrc` file.
+Now you have ability to disable elements of Spaceship. All options must be overridden in your `.zshrc` file **after** the theme, Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
 
 Take a look at popular option presets or share your own configuration in [Presets](https://github.com/denysdovhan/spaceship-zsh-theme/wiki/Presets) wiki page.
 
@@ -566,7 +566,7 @@ pyenv section is shown only in directories that contain `requirements.txt` or an
 | `SPACESHIP_DOTNET_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before .NET section |
 | `SPACESHIP_DOTNET_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after .NET section |
 | `SPACESHIP_DOTNET_SYMBOL` | `.NET ` | Character to be shown before .NET version |
-| `SPACESHIP_DOTNET_COLOR` | `128` | [Color code](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg) of .NET section |
+| `SPACESHIP_DOTNET_COLOR` | `128` | Color of .NET section |
 
 ### Ember.js (`ember`)
 
@@ -668,7 +668,6 @@ Disabled as default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, 
 
 Here is all options which may be changed. Copy this to your `~/.zshrc` to make it easy to change.
 
-**Warning!:** These overridden variables should be placed _after_ the theme in your `.zshrc` file.
 
 ```zsh
 # ORDER
