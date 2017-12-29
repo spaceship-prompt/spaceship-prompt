@@ -176,8 +176,8 @@ You can specify the order of prompt section using `SPACESHIP_PROMPT_ORDER` optio
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stampts section
   user          # Username section
-  host          # Hostname section
   dir           # Current directory section
+  host          # Hostname section
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
   package       # Package version
@@ -215,7 +215,6 @@ You can also add items to the right side prompt by specifying them in the `SPACE
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_PROMPT_SYMBOL` | `➜` | Character to be shown before any command |
 | `SPACESHIP_PROMPT_ADD_NEWLINE` | `true` | Adds a newline character before each prompt line |
 | `SPACESHIP_PROMPT_SEPARATE_LINE` | `true` | Make the prompt span across two lines |
 | `SPACESHIP_PROMPT_PREFIXES_SHOW` | `true` | Show prefixes before prompt sections or not |
@@ -227,9 +226,12 @@ You can also add items to the right side prompt by specifying them in the `SPACE
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_CHAR_SUCCESS_COLOR` | `green` | Color of prompt character if last command completes successfully |
-| `SPACESHIP_CHAR_FAILURE_COLOR` | `red` | Color of prompt character if last command returns non-zero exit-code |
-| `SPACESHIP_CHAR_SECONDARY_COLOR` | `yellow` | Color of secondary prompt character |
+| `SPACESHIP_CHAR_SYMBOL` | `➜ ` | Prompt character to be shown before any command |
+| `SPACESHIP_CHAR_PREFIX` | ` ` | Prefix before prompt character |
+| `SPACESHIP_CHAR_SUFFIX` | ` ` | Suffix after prompt character |
+| `SPACESHIP_CHAR_COLOR_SUCCESS` | `green` | Color of prompt character if last command completes successfully |
+| `SPACESHIP_CHAR_COLOR_FAILURE` | `red` | Color of prompt character if last command returns non-zero exit-code |
+| `SPACESHIP_CHAR_COLOR_SECONDARY` | `yellow` | Color of secondary prompt character |
 
 ### Time (`time`)
 
@@ -265,7 +267,8 @@ Hostname is shown only when you're connected via SSH.
 | `SPACESHIP_HOST_SHOW` | `true` | Show host section |
 | `SPACESHIP_HOST_PREFIX` | `at ` | Prefix before the connected SSH machine name |
 | `SPACESHIP_HOST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the connected SSH machine name |
-| `SPACESHIP_HOST_COLOR` | `green` | Color of host section |
+| `SPACESHIP_HOST_COLOR` | `blue` | Color of host section |
+| `SPACESHIP_HOST_COLOR_SSH` | `green` | Color of host in SSH connection |
 
 ### Directory (`dir`)
 
@@ -277,6 +280,7 @@ Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`.
 | `SPACESHIP_DIR_PREFIX` | `in ` | Prefix before current directory |
 | `SPACESHIP_DIR_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after current directory |
 | `SPACESHIP_DIR_TRUNC` | `3` | Number of folders of cwd to show in prompt, 0 to show all |
+| `SPACESHIP_DIR_TRUNC_REPO` | `true` | While in `git` repo, Show only root directory and folders inside it |
 | `SPACESHIP_DIR_COLOR` | `cyan` | Color of directory section |
 
 ### Git (`git`)
@@ -607,12 +611,11 @@ By default, Battery section is shown only if battery level is below `SPACESHIP_B
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_BATTERY_SHOW` | `true` | Show battery section or not |
-| `SPACESHIP_BATTERY_ALWAYS_SHOW` | `false` | Always show battery section or not |
 | `SPACESHIP_BATTERY_PREFIX` | `` | Prefix before battery section |
 | `SPACESHIP_BATTERY_SUFFIX` | `SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after battery section |
 | `SPACESHIP_BATTERY_CHARGING_SYMBOL` | `⇡` | Character to be shown if battery is charging |
 | `SPACESHIP_BATTERY_DISCHARGING_SYMBOL` | `⇣` | Character to be shown if battery is discharging |
-| `SPACESHIP_w_FULL_SYMBOL` | `•` | Character to be shown if battery is full |
+| `SPACESHIP_BATTERY_FULL_SYMBOL` | `•` | Character to be shown if battery is full |
 | `SPACESHIP_BATTERY_THRESHOLD` | 10 | Battery level below which battery section will be shown |
 
 ### Vi-mode (`vi_mode`)
