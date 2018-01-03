@@ -64,7 +64,7 @@ spaceship_git_status() {
   fi
 
   # Check for deleted files
-  if $(echo "$INDEX" | command grep '^[MARCDU] D ' &> /dev/null); then
+  if $(echo "$INDEX" | command grep '^[MARCDU ]D ' &> /dev/null); then
     git_status="$SPACESHIP_GIT_STATUS_DELETED$git_status"
   elif $(echo "$INDEX" | command grep '^D[ UM] ' &> /dev/null); then
     git_status="$SPACESHIP_GIT_STATUS_DELETED$git_status"
