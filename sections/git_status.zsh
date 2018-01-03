@@ -87,18 +87,23 @@ spaceship_git_status() {
   fi
 
   # Check whether branch is ahead
+  local is_ahead=false
   if $(echo "$INDEX" | command grep '^## [^ ]\+ .*ahead' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_AHEAD$git_status"
+    is_ahead=true
   fi
 
   # Check whether branch is behind
+  local is_behind=false
   if $(echo "$INDEX" | command grep '^## [^ ]\+ .*behind' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_BEHIND$git_status"
+    is_behind=true
   fi
 
   # Check wheather branch has diverged
-  if $(echo "$INDEX" | command grep '^## [^ ]\+ .*diverged' &> /dev/null); then
+  if [[ "$is_ahead" == true && "$is_behind" == true ]]; then
     git_status="$SPACESHIP_GIT_STATUS_DIVERGED$git_status"
+  else
+    [[ "$is_ahead" == true ]] && git_status="$SPACESHIP_GIT_STATUS_AHEAD$git_status"
+    [[ "$is_behind" == true ]] && git_status="$SPACESHIP_GIT_STATUS_BEHIND$git_status"
   fi
 
   if [[ -n $git_status ]]; then
