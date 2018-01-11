@@ -47,13 +47,10 @@ spaceship::compose_prompt() {
   # If section is a function then invoke it
   # If the composed name spaceship_$section is a function invoke it
   for section in $@; do
-    if typeset -f + "$section" &> /dev/null; then
-      eval $section
-      continue
-    fi
-    if typeset -f + "spaceship_$section" &> /dev/null; then
+    if spaceship::defined "spaceship_$section"; then
       spaceship_$section
-      continue
+    else
+      spaceship::section 'red' "'$section' not found"
     fi
   done
 }
