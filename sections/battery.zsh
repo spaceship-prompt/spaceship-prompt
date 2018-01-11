@@ -50,8 +50,11 @@ spaceship_battery() {
 
     # Return if no battery
     [[ -z $battery_data ]] && return
+
     battery_percent="$( echo $battery_data | awk '{print $4}' )"
     battery_status="$( echo $battery_data | awk '{print tolower($3)}' )"
+  else
+    return
   fi
 
   # Remove trailing % and symbols for comparison
