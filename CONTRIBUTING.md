@@ -1,14 +1,14 @@
 # Contributing
 
-First of all, thank you for contibuting. Any contribution is higly appreciated and welcome.
+First of all, thank you for contributing. Any contribution is highly appreciated and welcome.
 
 ## Philosophy
 
 There's a simple philosophy behind the Spaceship:
 
-* **Show only what's needed.** The prompt should not be overloaded, it show only what user needs at the moment (current directory, git branch, etc).
+* **Show only what's needed.** The prompt should not be overloaded, it shows only what user needs at the moment (current directory, git branch, etc).
 * **Work out of the box.** The prompt should work right after installation without any additional configuration. Install it and use it.
-* **Be configurable.** It works without configuration, but if configuraiton is needed, it provides easy-to-use interface for customization.
+* **Be configurable.** It works without configuration, but if a configuration is needed, it provides an easy-to-use interface for customization.
 
 Please, keep this simple rules in mind while you're contributing to Spaceship.
 
@@ -22,11 +22,11 @@ Please, keep this simple rules in mind while you're contributing to Spaceship.
 
 ## Sections
 
-Spaceship supports most of the popular programming langueges, runtimes, version managers, etc. If it doesn't support something what you need, feel free to open a pull-request, but answer these questions for yourself before:
+Spaceship supports most of the popular programming languages, runtimes, version managers, etc. If it doesn't support something that you need, feel free to open a pull request, but answer these questions for yourself before:
 
 ### Will it clutter the prompt?
 
-Having too much in prompt looks ugly. your  much space or be shown too often.
+Having too much in prompt looks ugly. your much space or be shown too often.
 
 * **Good:** `🚀 v1.2.3`
 * **Bad:** `🚀 spasheship#c3BhY2VzaGlw`
@@ -40,7 +40,7 @@ Is value changes quite often so it needs to be shown in prompt? Would it be usef
 
 ### Will it slow down the prompt?
 
-Every additional section will slow down the prompt a little bit. If your section performs any heavy checkings, find a way to make it faster or consider using an alias instead of creating new section.
+Every additional section will slow down the prompt a little bit. If your section performs any heavy checkings, find a way to make it faster or consider using an alias instead of creating a new section.
 
 * **Good:** check if command exists, check the value of environment variable
 * **Bad:** network requests, reading large files, etc
