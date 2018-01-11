@@ -8,7 +8,6 @@
 
 [![NPM version][npm-image]][npm-url]
 [![ZSH][zsh-image]][zsh-url]
-![Dependency][dependency-image]
 [![Donate with card][donate-card-image]][donate-readme]
 [![Donate with Bitcoin][donate-btc-image]][donate-readme]
 [![Donate with Ethereum][donate-eth-image]][donate-readme]
@@ -727,7 +726,6 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [zsh-url]: http://zsh.org/
 [zsh-image]: https://img.shields.io/badge/zsh->=v5.0.5-777777.svg?style=flat-square
 
-[dependency-image]:  https://img.shields.io/badge/dependencies-none-c5d928.svg?style=flat-square
 [donate-readme]: https://github.com/denysdovhan/spaceship-zsh-theme#donate
 [donate-card-url]: https://www.liqpay.com/en/checkout/380951100392
 [donate-card-image]: https://img.shields.io/badge/donate-LiqPay-blue.svg?style=flat-square
