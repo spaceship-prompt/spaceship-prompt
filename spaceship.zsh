@@ -7,7 +7,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-SPACESHIP_VERSION='2.10.0'
+export SPACESHIP_VERSION='2.10.0'
 
 # Common-used variable for new line separator
 NEWLINE='
@@ -20,7 +20,7 @@ if [[ -z "$SPACESHIP_ROOT" ]]; then
     if [[ "$0" == '-antigen-load' ]] && [[ -r "${PWD}/spaceship.zsh" ]]; then
       # Antigen uses eval to load things so it can change the plugin (!!)
       # https://github.com/zsh-users/antigen/issues/581
-      SPACESHIP_ROOT=$PWD
+      export SPACESHIP_ROOT=$PWD
     else
       print -P "%F{red}You must set SPACESHIP_ROOT to work from within an (eval).%f"
       return 1
@@ -29,7 +29,7 @@ if [[ -z "$SPACESHIP_ROOT" ]]; then
     # Get the path to file this code is executing in; then
     # get the absolute path and strip the filename.
     # See https://stackoverflow.com/a/28336473/108857
-    SPACESHIP_ROOT=${${(%):-%x}:A:h}
+    export SPACESHIP_ROOT=${${(%):-%x}:A:h}
   fi
 fi
 
@@ -120,6 +120,13 @@ done
 # ------------------------------------------------------------------------------
 
 spaceship::deprecated SPACESHIP_PROMPT_SYMBOL SPACESHIP_CHAR_SYMBOL
+# SPACESHIP_HOST_SHOW accepts 'always'
+# SPACESHIP_USER_SHOW accepts 'always'
+# SPACESHIP_HOST_SHOW is disabled by default
+# SPACESHIP_HOST_COLOR is blue now
+# SPACESHIP_HOST_COLOR_SSH new option
+# SPACESHIP_PROMPT_ORDER has been changed
+# SPACESHIP_BATTERY_ALWAYS_SHOW is removed, use 'always'
 
 # ------------------------------------------------------------------------------
 # PROMPTS
