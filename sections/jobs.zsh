@@ -6,11 +6,11 @@
 # Configuration
 # ------------------------------------------------------------------------------
 
-SPACESHIP_JOBS_SHOW="${SPACESHIP_JOBS_SHOW:=true}"
-SPACESHIP_JOBS_PREFIX="${SPACESHIP_JOBS_PREFIX:=""}"
-SPACESHIP_JOBS_SUFFIX="${SPACESHIP_JOBS_SUFFIX:=" "}"
-SPACESHIP_JOBS_SYMBOL="${SPACESHIP_JOBS_SYMBOL:="✦"}"
-SPACESHIP_JOBS_COLOR="${SPACESHIP_JOBS_COLOR:="blue"}"
+SPACESHIP_JOBS_SHOW="${SPACESHIP_JOBS_SHOW=true}"
+SPACESHIP_JOBS_PREFIX="${SPACESHIP_JOBS_PREFIX=""}"
+SPACESHIP_JOBS_SUFFIX="${SPACESHIP_JOBS_SUFFIX=" "}"
+SPACESHIP_JOBS_SYMBOL="${SPACESHIP_JOBS_SYMBOL="✦"}"
+SPACESHIP_JOBS_COLOR="${SPACESHIP_JOBS_COLOR="blue"}"
 
 # ------------------------------------------------------------------------------
 # Section

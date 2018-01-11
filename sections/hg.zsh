@@ -13,10 +13,10 @@ source "$SPACESHIP_ROOT/sections/hg_status.zsh"
 # Configuration
 # ------------------------------------------------------------------------------
 
-SPACESHIP_HG_SHOW="${SPACESHIP_HG_SHOW:=true}"
-SPACESHIP_HG_PREFIX="${SPACESHIP_HG_PREFIX:="on "}"
-SPACESHIP_HG_SUFFIX="${SPACESHIP_HG_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_HG_SYMBOL="${SPACESHIP_HG_SYMBOL:="☿ "}"
+SPACESHIP_HG_SHOW="${SPACESHIP_HG_SHOW=true}"
+SPACESHIP_HG_PREFIX="${SPACESHIP_HG_PREFIX="on "}"
+SPACESHIP_HG_SUFFIX="${SPACESHIP_HG_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_HG_SYMBOL="${SPACESHIP_HG_SYMBOL="☿ "}"
 
 # ------------------------------------------------------------------------------
 # Section
