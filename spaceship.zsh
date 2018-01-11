@@ -82,6 +82,12 @@ if [ -z "$SPACESHIP_RPROMPT_ORDER" ]; then
   )
 fi
 
+if [ -z "$SPACESHIP_EXTERNAL_FUNCTIONS" ]; then
+  SPACESHIP_EXTERNAL_FUNCTIONS=(
+    # empty by default
+  )
+fi
+
 # PROMPT
 SPACESHIP_PROMPT_ADD_NEWLINE="${SPACESHIP_PROMPT_ADD_NEWLINE:=true}"
 SPACESHIP_PROMPT_SEPARATE_LINE="${SPACESHIP_PROMPT_SEPARATE_LINE:=true}"
@@ -111,7 +117,11 @@ source "$SPACESHIP_ROOT/lib/section.zsh"
 # ------------------------------------------------------------------------------
 
 for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
-  source "$SPACESHIP_ROOT/sections/$section.zsh"
+  if [[ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]]; then
+    source "$SPACESHIP_ROOT/sections/$section.zsh"
+  elif [[ -z "${SPACESHIP_EXTERNAL_FUNCTIONS[(r)$section]}" ]]; then
+    echo "Section '$section' not found or not an external function"
+  fi
 done
 
 # ------------------------------------------------------------------------------
