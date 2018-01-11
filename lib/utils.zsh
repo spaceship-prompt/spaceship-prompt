@@ -10,6 +10,13 @@ spaceship::exists() {
   command -v $1 > /dev/null 2>&1
 }
 
+# Check if function is defined
+# USAGE:
+#   spaceship::defined <function>
+spaceship::defined() {
+  typeset -f + "$1" &> /dev/null
+}
+
 # Check if the current directory is in a Git repository.
 # USAGE:
 #   spaceship::is_git
