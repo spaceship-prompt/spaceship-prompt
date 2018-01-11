@@ -27,11 +27,11 @@ spaceship_ruby() {
 
   local ruby_version
 
-  if _exists rvm-prompt; then
+  if spaceship::exists rvm-prompt; then
     ruby_version=$(rvm-prompt i v g)
-  elif _exists chruby; then
+  elif spaceship::exists chruby; then
     ruby_version=$(chruby | sed -n -e 's/ \* //p')
-  elif _exists rbenv; then
+  elif spaceship::exists rbenv; then
     ruby_version=$(rbenv version-name)
   else
     return
@@ -42,7 +42,7 @@ spaceship_ruby() {
   # Add 'v' before ruby version that starts with a number
   [[ "${ruby_version}" =~ ^[0-9].+$ ]] && ruby_version="v${ruby_version}"
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_RUBY_COLOR" \
     "$SPACESHIP_RUBY_PREFIX" \
     "${SPACESHIP_RUBY_SYMBOL}${ruby_version}" \

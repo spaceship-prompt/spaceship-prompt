@@ -23,13 +23,13 @@ SPACESHIP_KUBECONTEXT_COLOR="${SPACESHIP_KUBECONTEXT_COLOR:="cyan"}"
 spaceship_kubecontext() {
   [[ $SPACESHIP_KUBECONTEXT_SHOW == false ]] && return
 
-  _exists kubectl || return
+  spaceship::exists kubectl || return
 
   local kube_context=$(kubectl config current-context 2>/dev/null)
 
   [[ -z $kube_context ]] && return
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_KUBECONTEXT_COLOR" \
     "$SPACESHIP_KUBECONTEXT_PREFIX" \
     "${SPACESHIP_KUBECONTEXT_SYMBOL}${kube_context}" \

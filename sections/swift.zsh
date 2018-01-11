@@ -21,7 +21,7 @@ SPACESHIP_SWIFT_COLOR="${SPACESHIP_SWIFT_COLOR:="yellow"}"
 
 # Show current version of Swift
 spaceship_swift() {
-  _exists swiftenv || return
+  spaceship::exists swiftenv || return
 
   local swift_version
 
@@ -35,7 +35,7 @@ spaceship_swift() {
 
   [ -n "${swift_version}" ] || return
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_SWIFT_COLOR" \
     "$SPACESHIP_SWIFT_PREFIX" \
     "${SPACESHIP_SWIFT_SYMBOL}${swift_version}" \

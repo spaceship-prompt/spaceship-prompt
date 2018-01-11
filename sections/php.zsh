@@ -25,11 +25,11 @@ spaceship_php() {
   # Show only if php files exist in current directory
   [[ -n *.php(#qN^/) ]] || return
 
-  _exists php || return
+  spaceship::exists php || return
 
   local php_version=$(php -v 2>&1 | grep --color=never -oe "^PHP\s*[0-9.]*" | awk '{print $2}')
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_PHP_COLOR" \
     "$SPACESHIP_PHP_PREFIX" \
     "${SPACESHIP_PHP_SYMBOL}v${php_version}" \

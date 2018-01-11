@@ -32,7 +32,7 @@ spaceship_hg() {
 
   [[ -z $hg_branch ]] && return
 
-  _prompt_section \
+  spaceship::section \
     'white' \
     "$SPACESHIP_HG_PREFIX" \
     "${hg_branch}${hg_status}" \

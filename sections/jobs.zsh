@@ -25,7 +25,7 @@ spaceship_jobs() {
   [[ $jobs_amount -gt 0 ]] || return
   [[ $jobs_amount -eq 1 ]] && jobs_amount=''
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_JOBS_COLOR" \
     "$SPACESHIP_JOBS_PREFIX" \
     "${SPACESHIP_JOBS_SYMBOL}${jobs_amount}" \

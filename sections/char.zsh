@@ -28,7 +28,7 @@ spaceship_char() {
     color="$SPACESHIP_CHAR_COLOR_FAILURE"
   fi
 
-  _prompt_section \
+  spaceship::section \
     "$color" \
     "$SPACESHIP_CHAR_PREFIX" \
     "$SPACESHIP_CHAR_SYMBOL" \
