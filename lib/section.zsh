@@ -34,7 +34,7 @@ spaceship::section() {
 
 # Compose whole prompt from sections
 # USAGE:
-#   spaceship::compose_prompt [section]…
+#   spaceship::compose_prompt [section...]
 spaceship::compose_prompt() {
   # Option EXTENDED_GLOB is set locally to force filename generation on
   # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
@@ -44,8 +44,8 @@ spaceship::compose_prompt() {
 
   # Treat the first argument as list of prompt sections
   # Compose whole prompt from diferent parts
-  # If section is a function then invoke it
-  # If the composed name spaceship_$section is a function invoke it
+  # If section is a defined function then invoke it
+  # Otherwise render the 'not found' section
   for section in $@; do
     if spaceship::defined "spaceship_$section"; then
       spaceship_$section

@@ -68,7 +68,7 @@ spaceship::displaytime() {
 
 # Union of two or more arrays
 # USAGE:
-#   spaceship::union [arr1]...
+#   spaceship::union [arr1[ arr2[ ...]]]
 # EXAMPLE:
 #   $ arr1=('a' 'b' 'c')
 #   $ arr2=('b' 'c' 'd')

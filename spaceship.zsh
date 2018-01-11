@@ -38,7 +38,6 @@ fi
 # The default configuration that can be overridden in .zshrc
 # ------------------------------------------------------------------------------
 
-# ORDER
 if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
   SPACESHIP_PROMPT_ORDER=(
     time          # Time stampts section
@@ -158,9 +157,6 @@ spaceship_prompt() {
 # Optional (right) prompt
 spaceship_rprompt() {
   # Retrieve exit code of last command to use in exit_code
-  # Must be captured before any other command in prompt is executed
-  # Must be the very first line in all entry prompt functions, or the value
-  # will be overridden by a different command execution - do not move this line!
   RETVAL=$?
 
   spaceship::compose_prompt $SPACESHIP_RPROMPT_ORDER
@@ -168,12 +164,8 @@ spaceship_rprompt() {
 
 # PS2
 # Continuation interactive prompt
-# @TODO: Probably have to be a separate section. For disussion.
 spaceship_ps2() {
   # Retrieve exit code of last command to use in exit_code
-  # Must be captured before any other command in prompt is executed
-  # Must be the very first line in all entry prompt functions, or the value
-  # will be overridden by a different command execution - do not move this line!
   RETVAL=$?
 
   spaceship::section "$SPACESHIP_CHAR_SECONDARY_COLOR" $SPACESHIP_CHAR_SYMBOL
