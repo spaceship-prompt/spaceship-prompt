@@ -22,9 +22,9 @@ spaceship_venv() {
   [[ $SPACESHIP_VENV_SHOW == false ]] && return
 
   # Check if the current directory running via Virtualenv
-  [ -n "$VIRTUAL_ENV" ] && _exists deactivate || return
+  [ -n "$VIRTUAL_ENV" ] && spaceship::exists deactivate || return
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_VENV_COLOR" \
     "$SPACESHIP_VENV_PREFIX" \
     "$VIRTUAL_ENV:t" \

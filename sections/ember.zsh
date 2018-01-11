@@ -28,7 +28,7 @@ spaceship_ember() {
   local ember_version=$(grep '"version":' ./node_modules/ember-cli/package.json | cut -d\" -f4)
   [[ $ember_version == "system" || $ember_version == "ember" ]] && return
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_EMBER_COLOR" \
     "$SPACESHIP_EMBER_PREFIX" \
     "${SPACESHIP_EMBER_SYMBOL}${ember_version}" \

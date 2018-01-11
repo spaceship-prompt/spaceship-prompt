@@ -7,7 +7,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-SPACESHIP_VERSION='2.10.0'
+export SPACESHIP_VERSION='2.10.0'
 
 # Common-used variable for new line separator
 NEWLINE='
@@ -20,7 +20,7 @@ if [[ -z "$SPACESHIP_ROOT" ]]; then
     if [[ "$0" == '-antigen-load' ]] && [[ -r "${PWD}/spaceship.zsh" ]]; then
       # Antigen uses eval to load things so it can change the plugin (!!)
       # https://github.com/zsh-users/antigen/issues/581
-      SPACESHIP_ROOT=$PWD
+      export SPACESHIP_ROOT=$PWD
     else
       print -P "%F{red}You must set SPACESHIP_ROOT to work from within an (eval).%f"
       return 1
@@ -29,7 +29,7 @@ if [[ -z "$SPACESHIP_ROOT" ]]; then
     # Get the path to file this code is executing in; then
     # get the absolute path and strip the filename.
     # See https://stackoverflow.com/a/28336473/108857
-    SPACESHIP_ROOT=${${(%):-%x}:A:h}
+    export SPACESHIP_ROOT=${${(%):-%x}:A:h}
   fi
 fi
 
@@ -38,7 +38,6 @@ fi
 # The default configuration that can be overridden in .zshrc
 # ------------------------------------------------------------------------------
 
-# ORDER
 if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
   SPACESHIP_PROMPT_ORDER=(
     time          # Time stampts section
@@ -110,8 +109,15 @@ source "$SPACESHIP_ROOT/lib/section.zsh"
 # Sourcing sections the prompt consists of
 # ------------------------------------------------------------------------------
 
-for section in $(_union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
-  source "$SPACESHIP_ROOT/sections/$section.zsh"
+for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
+  if [[ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]]; then
+    source "$SPACESHIP_ROOT/sections/$section.zsh"
+  elif spaceship::defined "spaceship_$section"; then
+    # Custom section is declared, nothing else to do
+    continue
+  else
+    echo "Section '$section' have not been loaded."
+  fi
 done
 
 # ------------------------------------------------------------------------------
@@ -119,7 +125,14 @@ done
 # Show deprecation messages for options that are set, but not supported
 # ------------------------------------------------------------------------------
 
-_deprecated SPACESHIP_PROMPT_SYMBOL SPACESHIP_CHAR_SYMBOL
+spaceship::deprecated SPACESHIP_PROMPT_SYMBOL SPACESHIP_CHAR_SYMBOL
+# SPACESHIP_HOST_SHOW accepts 'always'
+# SPACESHIP_USER_SHOW accepts 'always'
+# SPACESHIP_HOST_SHOW is disabled by default
+# SPACESHIP_HOST_COLOR is blue now
+# SPACESHIP_HOST_COLOR_SSH new option
+# SPACESHIP_PROMPT_ORDER has been changed
+# SPACESHIP_BATTERY_ALWAYS_SHOW is removed, use 'always'
 
 # ------------------------------------------------------------------------------
 # PROMPTS
@@ -129,22 +142,33 @@ _deprecated SPACESHIP_PROMPT_SYMBOL SPACESHIP_CHAR_SYMBOL
 # PROMPT
 # Primary (left) prompt
 spaceship_prompt() {
+  # Retrieve exit code of last command to use in exit_code
+  # Must be captured before any other command in prompt is executed
+  # Must be the very first line in all entry prompt functions, or the value
+  # will be overridden by a different command execution - do not move this line!
+  RETVAL=$?
+
   # Should it add a new line before the prompt?
   [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
-  _compose_prompt $SPACESHIP_PROMPT_ORDER
+  spaceship::compose_prompt $SPACESHIP_PROMPT_ORDER
 }
 
 # $RPROMPT
 # Optional (right) prompt
 spaceship_rprompt() {
-  _compose_prompt $SPACESHIP_RPROMPT_ORDER
+  # Retrieve exit code of last command to use in exit_code
+  RETVAL=$?
+
+  spaceship::compose_prompt $SPACESHIP_RPROMPT_ORDER
 }
 
 # PS2
 # Continuation interactive prompt
-# @TODO: Probably have to be a separate section. For disussion.
 spaceship_ps2() {
-  _prompt_section "$SPACESHIP_CHAR_SECONDARY_COLOR" $SPACESHIP_CHAR_SYMBOL
+  # Retrieve exit code of last command to use in exit_code
+  RETVAL=$?
+
+  spaceship::section "$SPACESHIP_CHAR_SECONDARY_COLOR" $SPACESHIP_CHAR_SYMBOL
 }
 
 # ------------------------------------------------------------------------------
@@ -156,6 +180,14 @@ spaceship_ps2() {
 # All preparation before drawing prompt should be done here
 prompt_spaceship_setup() {
   autoload -Uz add-zsh-hook
+
+  # This variable is a magic variable used when loading themes with zsh's prompt
+  # function. It will ensure the proper prompt options are set.
+  prompt_opts=(cr percent sp subst)
+
+  # Borrowed from promptinit, sets the prompt options in case the prompt was not
+  # initialized via promptinit.
+  setopt noprompt{bang,cr,percent,subst} "prompt${^prompt_opts[@]}"
 
   # Add exec_time hooks
   add-zsh-hook preexec spaceship_exec_time_preexec_hook

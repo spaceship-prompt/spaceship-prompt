@@ -21,7 +21,7 @@ SPACESHIP_XCODE_COLOR="${SPACESHIP_XCODE_COLOR="blue"}"
 
 # Show current version of Xcode
 spaceship_xcode() {
-  _exists xcenv || return
+  spaceship::exists xcenv || return
 
   local xcode_path
 
@@ -36,10 +36,10 @@ spaceship_xcode() {
   if [ -n "${xcode_path}" ]; then
     local xcode_version_path=$xcode_path"/Contents/version.plist"
     if [ -f ${xcode_version_path} ]; then
-      if _exists defaults; then
+      if spaceship::exists defaults; then
         local xcode_version=$(defaults read ${xcode_version_path} CFBundleShortVersionString)
 
-        _prompt_section \
+        spaceship::section \
           "$SPACESHIP_XCODE_COLOR" \
           "$SPACESHIP_XCODE_PREFIX" \
           "${SPACESHIP_XCODE_SYMBOL}${xcode_version}" \

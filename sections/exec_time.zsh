@@ -21,10 +21,10 @@ spaceship_exec_time() {
   [[ $SPACESHIP_EXEC_TIME_SHOW == false ]] && return
 
   if [[ $SPACESHIP_EXEC_TIME_duration -ge $SPACESHIP_EXEC_TIME_ELAPSED ]]; then
-    _prompt_section \
+    spaceship::section \
       "$SPACESHIP_EXEC_TIME_COLOR" \
       "$SPACESHIP_EXEC_TIME_PREFIX" \
-      "$(_displaytime $SPACESHIP_EXEC_TIME_duration)" \
+      "$(spaceship::displaytime $SPACESHIP_EXEC_TIME_duration)" \
       "$SPACESHIP_EXEC_TIME_SUFFIX"
   fi
 }

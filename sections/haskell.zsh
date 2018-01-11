@@ -26,11 +26,11 @@ spaceship_haskell() {
   [[ -f stack.yaml ]] || return
 
   # The command is stack, so do not change this to haskell.
-  _exists stack || return
+  spaceship::exists stack || return
 
   local haskell_version=$(stack --numeric-version)
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_HASKELL_COLOR" \
     "$SPACESHIP_HASKELL_PREFIX" \
     "${SPACESHIP_HASKELL_SYMBOL}v${haskell_version}" \

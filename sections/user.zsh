@@ -33,7 +33,7 @@ spaceship_user() {
       user_color="$SPACESHIP_USER_COLOR"
     fi
 
-    _prompt_section \
+    spaceship::section \
       "$user_color" \
       "$SPACESHIP_USER_PREFIX" \
       '%n' \

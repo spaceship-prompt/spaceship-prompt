@@ -25,11 +25,11 @@ spaceship_julia() {
   # If there are julia files in current directory
   [[ -n *.jl(#qN^/) ]] || return
 
-  _exists julia || return
+  spaceship::exists julia || return
 
   local julia_version=$(julia --version | grep --colour=never -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]')
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_JULIA_COLOR" \
     "$SPACESHIP_JULIA_PREFIX" \
     "${SPACESHIP_JULIA_SYMBOL}v${julia_version}" \

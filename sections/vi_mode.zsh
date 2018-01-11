@@ -33,7 +33,7 @@ spaceship_vi_mode() {
       ;;
     esac
 
-    _prompt_section \
+    spaceship::section \
       "$SPACESHIP_VI_MODE_COLOR" \
       "$SPACESHIP_VI_MODE_PREFIX" \
       "$mode_indicator" \

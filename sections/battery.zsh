@@ -28,7 +28,7 @@ spaceship_battery() {
 
   local battery_data battery_percent battery_status battery_color
 
-  if _exists pmset; then
+  if spaceship::exists pmset; then
     battery_data=$(pmset -g batt)
 
     # Return if no internal battery
@@ -36,7 +36,7 @@ spaceship_battery() {
 
     battery_percent="$( echo $battery_data | grep -oE '[0-9]{1,3}%' )"
     battery_status="$( echo $battery_data | awk -F '; *' 'NR==2 { print $2 }' )"
-  elif _exists upower; then
+  elif spaceship::exists upower; then
     local battery=$(command upower -e | grep battery | head -1)
 
     # Return if no battery
@@ -45,7 +45,7 @@ spaceship_battery() {
     battery_data=$(upower -i $battery)
     battery_percent="$( echo $battery_data | grep percentage | awk '{print $2}' )"
     battery_status="$( echo $battery_data | grep state | awk '{print $2}' )"
-  elif _exists acpi; then
+  elif spaceship::exists acpi; then
     battery_data=$(acpi -b)
 
     # Return if no battery
@@ -77,7 +77,7 @@ spaceship_battery() {
 
   # Escape % for display since it's a special character in zsh prompt expansion
   if [[ $SPACESHIP_BATTERY_SHOW == 'always' || $battery_percent -lt $SPACESHIP_BATTERY_THRESHOLD || $battery_status =~ "(charged|full)"  ]]; then
-    _prompt_section \
+    spaceship::section \
       "$battery_color" \
       "$SPACESHIP_BATTERY_PREFIX" \
       "$battery_symbol$battery_percent%%" \

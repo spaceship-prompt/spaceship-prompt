@@ -31,7 +31,7 @@ spaceship_time() {
     time_str="%D{%T}"
   fi
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_TIME_COLOR" \
     "$SPACESHIP_TIME_PREFIX" \
     "$time_str" \

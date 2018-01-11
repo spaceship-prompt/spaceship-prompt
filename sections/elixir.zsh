@@ -28,14 +28,14 @@ spaceship_elixir() {
 
   local elixir_version
 
-  if _exists kiex; then
+  if spaceship::exists kiex; then
     elixir_version="${ELIXIR_VERSION}"
-  elif _exists exenv; then
+  elif spaceship::exists exenv; then
     elixir_version=$(exenv version-name)
   fi
 
   if [[ $elixir_version == "" ]]; then
-    _exists elixir || return
+    spaceship::exists elixir || return
     elixir_version=$(elixir -v 2>/dev/null | grep "Elixir" --color=never | cut -d ' ' -f 2)
   fi
 
@@ -45,7 +45,7 @@ spaceship_elixir() {
   # Add 'v' before elixir version that starts with a number
   [[ "${elixir_version}" =~ ^[0-9].+$ ]] && elixir_version="v${elixir_version}"
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_ELIXIR_COLOR" \
     "$SPACESHIP_ELIXIR_PREFIX" \
     "${SPACESHIP_ELIXIR_SYMBOL}${elixir_version}" \

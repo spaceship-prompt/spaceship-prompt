@@ -24,7 +24,7 @@ SPACESHIP_HG_STATUS_DELETED="${SPACESHIP_HG_STATUS_DELETED="✘"}"
 spaceship_hg_status() {
   [[ $SPACESHIP_HG_STATUS_SHOW == false ]] && return
 
-  _is_hg || return
+  spaceship::is_hg || return
 
   local INDEX=$(hg status 2>/dev/null) hg_status=""
 
@@ -41,7 +41,7 @@ spaceship_hg_status() {
   fi
 
   if [[ -n $hg_status ]]; then
-    _prompt_section \
+    spaceship::section \
       "$SPACESHIP_HG_STATUS_COLOR" \
       "$SPACESHIP_HG_STATUS_PREFIX"$hg_status"$SPACESHIP_HG_STATUS_SUFFIX"
   fi
