@@ -181,6 +181,14 @@ spaceship_ps2() {
 prompt_spaceship_setup() {
   autoload -Uz add-zsh-hook
 
+  # This variable is a magic variable used when loading themes with zsh's prompt
+  # function. It will ensure the proper prompt options are set.
+  prompt_opts=(cr percent sp subst)
+
+  # Borrowed from promptinit, sets the prompt options in case the prompt was not
+  # initialized via promptinit.
+  setopt noprompt{bang,cr,percent,subst} "prompt${^prompt_opts[@]}"
+
   # Add exec_time hooks
   add-zsh-hook preexec spaceship_exec_time_preexec_hook
   add-zsh-hook precmd spaceship_exec_time_precmd_hook
