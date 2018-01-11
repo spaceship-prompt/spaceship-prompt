@@ -44,7 +44,7 @@ spaceship::is_hg() {
 spaceship::deprecated() {
   # FIXME: Correct colors
   [[ -n $1 && -n $2 ]] || return
-  local deprecated=$1 actual=$2 b=$bold_color r=$reset_color
+  local deprecated=$1 actual=$2 b=$(tput bold) r=$(tput sgr0)
   local deprecated_value=${(P)deprecated} # the value of variable name $deprecated
   [[ -n $deprecated_value ]] || return
   echo "${b}\$$deprecated${r} is deprecated. Use ${b}\$$actual${r} instead."
