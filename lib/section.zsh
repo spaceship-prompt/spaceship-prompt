@@ -4,8 +4,8 @@ spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
 
 # Draw prompt section (bold is used as default)
 # USAGE:
-#   _prompt_section <color> [prefix] <content> [suffix]
-_prompt_section() {
+#   spaceship::section <color> [prefix] <content> [suffix]
+spaceship::section() {
   local color prefix content suffix
   [[ -n $1 ]] && color="%F{$1}"  || color="%f"
   [[ -n $2 ]] && prefix="$2"     || prefix=""
@@ -34,8 +34,8 @@ _prompt_section() {
 
 # Compose whole prompt from sections
 # USAGE:
-#   _compose_prompt [section]…
-_compose_prompt() {
+#   spaceship::compose_prompt [section]…
+spaceship::compose_prompt() {
   # Option EXTENDED_GLOB is set locally to force filename generation on
   # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
   # See the description of filename generation in

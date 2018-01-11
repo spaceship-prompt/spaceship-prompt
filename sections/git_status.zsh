@@ -33,7 +33,7 @@ SPACESHIP_GIT_STATUS_DIVERGED="${SPACESHIP_GIT_STATUS_DIVERGED:="⇕"}"
 spaceship_git_status() {
   [[ $SPACESHIP_GIT_STATUS_SHOW == false ]] && return
 
-  _is_git || return
+  spaceship::is_git || return
 
   local INDEX git_status=""
 
@@ -103,7 +103,7 @@ spaceship_git_status() {
 
   if [[ -n $git_status ]]; then
     # Status prefixes are colorized
-    _prompt_section \
+    spaceship::section \
       "$SPACESHIP_GIT_STATUS_COLOR" \
       "$SPACESHIP_GIT_STATUS_PREFIX$git_status$SPACESHIP_GIT_STATUS_SUFFIX"
   fi

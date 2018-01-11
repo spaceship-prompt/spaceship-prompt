@@ -20,7 +20,7 @@ SPACESHIP_EXIT_CODE_COLOR="${SPACESHIP_EXIT_CODE_COLOR:="red"}"
 spaceship_exit_code() {
   [[ $SPACESHIP_EXIT_CODE_SHOW == false || $RETVAL == 0 ]] && return
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_EXIT_CODE_COLOR" \
     "$SPACESHIP_EXIT_CODE_PREFIX" \
     "${SPACESHIP_EXIT_CODE_SYMBOl}$RETVAL" \

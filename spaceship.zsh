@@ -110,7 +110,7 @@ source "$SPACESHIP_ROOT/lib/section.zsh"
 # Sourcing sections the prompt consists of
 # ------------------------------------------------------------------------------
 
-for section in $(_union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
+for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
   source "$SPACESHIP_ROOT/sections/$section.zsh"
 done
 
@@ -119,7 +119,7 @@ done
 # Show deprecation messages for options that are set, but not supported
 # ------------------------------------------------------------------------------
 
-_deprecated SPACESHIP_PROMPT_SYMBOL SPACESHIP_CHAR_SYMBOL
+spaceship::deprecated SPACESHIP_PROMPT_SYMBOL SPACESHIP_CHAR_SYMBOL
 
 # ------------------------------------------------------------------------------
 # PROMPTS
@@ -137,7 +137,7 @@ spaceship_prompt() {
 
   # Should it add a new line before the prompt?
   [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
-  _compose_prompt $SPACESHIP_PROMPT_ORDER
+  spaceship::compose_prompt $SPACESHIP_PROMPT_ORDER
 }
 
 # $RPROMPT
@@ -149,7 +149,7 @@ spaceship_rprompt() {
   # will be overridden by a different command execution - do not move this line!
   RETVAL=$?
 
-  _compose_prompt $SPACESHIP_RPROMPT_ORDER
+  spaceship::compose_prompt $SPACESHIP_RPROMPT_ORDER
 }
 
 # PS2
@@ -162,7 +162,7 @@ spaceship_ps2() {
   # will be overridden by a different command execution - do not move this line!
   RETVAL=$?
 
-  _prompt_section "$SPACESHIP_CHAR_SECONDARY_COLOR" $SPACESHIP_CHAR_SYMBOL
+  spaceship::section "$SPACESHIP_CHAR_SECONDARY_COLOR" $SPACESHIP_CHAR_SYMBOL
 }
 
 # ------------------------------------------------------------------------------

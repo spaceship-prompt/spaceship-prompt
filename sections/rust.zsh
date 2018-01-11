@@ -25,11 +25,11 @@ spaceship_rust() {
   # If there are Rust-specific files in current directory
   [[ -f Cargo.toml || -n *.rs(#qN^/) ]] || return
 
-  _exists rustc || return
+  spaceship::exists rustc || return
 
   local rust_version=$(rustc --version | grep --colour=never -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]')
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_RUST_COLOR" \
     "$SPACESHIP_RUST_PREFIX" \
     "${SPACESHIP_RUST_SYMBOL}v${rust_version}" \

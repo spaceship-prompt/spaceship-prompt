@@ -30,7 +30,7 @@ spaceship_host() {
       host_color=$SPACESHIP_HOST_COLOR
     fi
 
-    _prompt_section \
+    spaceship::section \
       "$host_color" \
       "$SPACESHIP_HOST_PREFIX" \
       '%m' \

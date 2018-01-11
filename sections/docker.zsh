@@ -22,7 +22,7 @@ SPACESHIP_DOCKER_COLOR="${SPACESHIP_DOCKER_COLOR:="cyan"}"
 spaceship_docker() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
 
-  _exists docker || return
+  spaceship::exists docker || return
 
   # Show Docker status only for Docker-specific folders
   [[ -f Dockerfile || -f docker-compose.yml ]] || return
@@ -36,7 +36,7 @@ spaceship_docker() {
     docker_version+=" via ($DOCKER_MACHINE_NAME)"
   fi
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_DOCKER_COLOR" \
     "$SPACESHIP_DOCKER_PREFIX" \
     "${SPACESHIP_DOCKER_SYMBOL}v${docker_version}" \

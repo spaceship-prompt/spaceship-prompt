@@ -23,9 +23,9 @@ spaceship_conda() {
   [[ $SPACESHIP_CONDA_SHOW == false ]] && return
 
   # Check if running via conda virtualenv
-  _exists conda && [ -n "$CONDA_DEFAULT_ENV" ] || return
+  spaceship::exists conda && [ -n "$CONDA_DEFAULT_ENV" ] || return
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_CONDA_COLOR" \
     "$SPACESHIP_CONDA_PREFIX" \
     "${SPACESHIP_CONDA_SYMBOL}${CONDA_DEFAULT_ENV}" \

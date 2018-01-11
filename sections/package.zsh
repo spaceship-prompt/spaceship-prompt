@@ -26,7 +26,7 @@ spaceship_package() {
   # @todo: add more package managers
   [[ -f package.json ]] || return
 
-  _exists npm || return
+  spaceship::exists npm || return
 
   # Grep and cut out package version
   local package_version=$(grep -E '"version": "v?([0-9]+\.){1,}' package.json | cut -d\" -f4 2> /dev/null)
@@ -38,7 +38,7 @@ spaceship_package() {
     package_version="v${package_version}"
   fi
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_PACKAGE_COLOR" \
     "$SPACESHIP_PACKAGE_PREFIX" \
     "${SPACESHIP_PACKAGE_SYMBOL}${package_version}" \

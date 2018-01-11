@@ -32,7 +32,7 @@ spaceship_git() {
 
   [[ -z $git_branch ]] && return
 
-  _prompt_section \
+  spaceship::section \
     'white' \
     "$SPACESHIP_GIT_PREFIX" \
     "${git_branch}${git_status}" \
