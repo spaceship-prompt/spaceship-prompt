@@ -113,6 +113,13 @@ SPACESHIP_GIT_STATUS_UNMERGED="${SPACESHIP_GIT_STATUS_UNMERGED:="="}"
 SPACESHIP_GIT_STATUS_AHEAD="${SPACESHIP_GIT_STATUS_AHEAD:="⇡"}"
 SPACESHIP_GIT_STATUS_BEHIND="${SPACESHIP_GIT_STATUS_BEHIND:="⇣"}"
 SPACESHIP_GIT_STATUS_DIVERGED="${SPACESHIP_GIT_STATUS_DIVERGED:="⇕"}"
+# GIT INDEX
+SPACESHIP_GIT_INDEX_SHOW="${SPACESHIP_GIT_INDEX_SHOW:=true}"
+SPACESHIP_GIT_INDEX_PREFIX="${SPACESHIP_GIT_INDEX_PREFIX:=" ("}"
+SPACESHIP_GIT_INDEX_SUFFIX="${SPACESHIP_GIT_INDEX_SUFFIX:=")"}"
+SPACESHIP_GIT_INDEX_COLOR="${SPACESHIP_GIT_INDEX_COLOR:="$SPACESHIP_GIT_BRANCH_COLOR"}"
+SPACESHIP_GIT_INDEX_ASSUME_UNCHANGED="${SPACESHIP_GIT_INDEX_ASSUME_UNCHANGED:="⤒"}"
+SPACESHIP_GIT_INDEX_SKIP_WORKTREE="${SPACESHIP_GIT_INDEX_SKIP_WORKTREE:="↧"}"
 
 # MERCURIAL
 SPACESHIP_HG_SHOW="${SPACESHIP_HG_SHOW:=true}"
@@ -538,21 +545,50 @@ spaceship_git_status() {
   fi
 }
 
+# GIT INDEX
+# Check for files flagged with particular git-update-index options
+spaceship_git_index() {
+  [[ $SPACESHIP_GIT_INDEX_SHOW == false ]] && return
+
+  _is_git || return
+
+  spaceship_git_index_assume_unchanged() {
+    if [ -n "$(git ls-files -v `git rev-parse --show-toplevel` | grep '^[[:lower:]]')" ]; then
+      echo -n "${SPACESHIP_GIT_INDEX_ASSUME_UNCHANGED}"
+    fi
+  }
+
+  spaceship_git_index_skip_worktree() {
+    if [ -n "$(git ls-files -v `git rev-parse --show-toplevel` | grep '^[sS]')" ]; then
+      echo -n "${SPACESHIP_GIT_INDEX_SKIP_WORKTREE}"
+    fi
+  }
+
+  local git_index="$(spaceship_git_index_assume_unchanged)$(spaceship_git_index_skip_worktree)"
+
+  if [[ -n $git_index ]]; then
+    _prompt_section \
+      "$SPACESHIP_GIT_INDEX_COLOR" \
+      "$SPACESHIP_GIT_INDEX_PREFIX$git_index$SPACESHIP_GIT_INDEX_SUFFIX"
+  fi
+}
+
 # GIT
-# Show both git branch and git status:
+# Show git branch, git status, and git index:
 #   spaceship_git_branch
 #   spaceship_git_status
+#   spaceship_git_index
 spaceship_git() {
   [[ $SPACESHIP_GIT_SHOW == false ]] && return
 
-  local git_branch="$(spaceship_git_branch)" git_status="$(spaceship_git_status)"
+  local git_branch="$(spaceship_git_branch)" git_status="$(spaceship_git_status)" git_index="$(spaceship_git_index)"
 
   [[ -z $git_branch ]] && return
 
   _prompt_section \
     'white' \
     "$SPACESHIP_GIT_PREFIX" \
-    "${git_branch}${git_status}" \
+    "${git_branch}${git_status}${git_index}" \
     "$SPACESHIP_GIT_SUFFIX"
 }
 

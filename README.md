@@ -31,6 +31,9 @@ Currently it shows:
   * `⇡` — ahead of remote branch;
   * `⇣` — behind of remote branch;
   * `⇕` — diverged chages.
+* Git index reminders:
+  * `⤒` - at least one file is `--assume-unchanged`;
+  * `↧` - at least one file is `--skip-worktree`.
 * Mercurial repo status:
   * `?` — untracked changes;
   * `+` — uncommitted changes in the index;
@@ -262,7 +265,7 @@ Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`.
 
 ### Git (`git`)
 
-Git section is consists with `git_branch` and `git_status` subsections. It is shown only in Git repositories.
+Git section consists of `git_branch`, `git_status`, and `git_index` subsections. It is shown only in Git repositories.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -282,7 +285,7 @@ Git section is consists with `git_branch` and `git_status` subsections. It is sh
 
 #### Git status (`git_status`)
 
-Git status indicators is shown only when you have dirty repository.
+Git status indicators is shown only when you have a dirty repository.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -300,6 +303,19 @@ Git status indicators is shown only when you have dirty repository.
 | `SPACESHIP_GIT_STATUS_AHEAD` | `⇡` | Indicator for unpushed changes (ahead of remote branch) |
 | `SPACESHIP_GIT_STATUS_BEHIND` | `⇣` | Indicator for unpulled changes (behind of remote branch) |
 | `SPACESHIP_GIT_STATUS_DIVERGED` | `⇕` | Indicator for diverged chages (diverged with remote branch) |
+
+#### Git index (`git_index`)
+
+Git index indications is shown only when files in your repository have certain `git-update-index` options set.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_GIT_INDEX_SHOW` | `true` | Show Git index subsection |
+| `SPACESHIP_GIT_INDEX_PREFIX` | ` (` | Prefix before Git index subsection |
+| `SPACESHIP_GIT_INDEX_SUFFIX` | `)` | Suffix after Git index subsection |
+| `SPACESHIP_GIT_INDEX_COLOR` | `SPACESHIP_GIT_BRANCH_COLOR` | Color of Git index subsection |
+`SPACESHIP_GIT_INDEX_ASSUME_UNCHANGED` | `⤒` | Indicator for the presence of an `--assume-unchanged` file |
+`SPACESHIP_GIT_INDEX_SKIP_WORKTREE` | `↧` | Indicator for the presence of a `--skip-worktree` file |
 
 ### Mercurial (`hg`)
 
