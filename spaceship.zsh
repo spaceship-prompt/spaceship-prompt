@@ -17,6 +17,7 @@ NEWLINE='
 if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
   SPACESHIP_PROMPT_ORDER=(
     time
+    chroot
     user
     host
     dir
@@ -67,6 +68,12 @@ SPACESHIP_TIME_SUFFIX="${SPACESHIP_TIME_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFI
 SPACESHIP_TIME_FORMAT="${SPACESHIP_TIME_FORMAT:=false}"
 SPACESHIP_TIME_12HR="${SPACESHIP_TIME_12HR:=false}"
 SPACESHIP_TIME_COLOR="${SPACESHIP_TIME_COLOR:="yellow"}"
+
+# CHROOT
+SPACESHIP_CHROOT_SHOW="${SPACESHIP_CHROOT_SHOW:=true}"
+SPACESHIP_CHROOT_PREFIX="${SPACESHIP_CHROOT_PREFIX:="using "}"
+SPACESHIP_CHROOT_SUFFIX="${SPACESHIP_CHROOT_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_CHROOT_COLOR="${SPACESHIP_CHROOT_COLOR:="magenta"}"
 
 # USER
 SPACESHIP_USER_SHOW="${SPACESHIP_USER_SHOW:=true}"
@@ -445,6 +452,24 @@ spaceship_time() {
     "$SPACESHIP_TIME_PREFIX" \
     "$time_str" \
     "$SPACESHIP_TIME_SUFFIX"
+}
+
+spaceship_chroot() {
+  [[ $SPACESHIP_CHROOT_SHOW == false ]] && return
+
+  local debian_chroot
+
+  if [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+  fi
+
+  [[ -z "$debian_chroot" ]] && return
+
+  _prompt_section \
+    "$SPACESHIP_CHROOT_COLOR" \
+    "$SPACESHIP_CHROOT_PREFIX" \
+    "$debian_chroot" \
+    "$SPACESHIP_CHROOT_SUFFIX"
 }
 
 # USER
