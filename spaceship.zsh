@@ -901,9 +901,8 @@ spaceship_docker() {
   [[ -f Dockerfile || -f docker-compose.yml ]] || return
 
   # if docker daemon isn't running you'll get an error saying it can't connect
-  docker info 2>&1 | grep -q "Cannot connect" && return
-
-  local docker_version=$(docker version -f "{{.Server.Version}}")
+  local docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
+  [[ -z $docker_version ]] && return
 
   if [[ -n $DOCKER_MACHINE_NAME ]]; then
     docker_version+=" via ($DOCKER_MACHINE_NAME)"
@@ -1087,6 +1086,8 @@ spaceship_battery() {
     [[ -z $battery_data ]] && return
     battery_percent="$( echo $battery_data | awk '{print $4}' )"
     battery_status="$( echo $battery_data | awk '{print tolower($3)}' )"
+  else
+    return
   fi
 
   # Remove trailing % and symbols for comparison
