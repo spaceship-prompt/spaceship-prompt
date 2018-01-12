@@ -1096,7 +1096,7 @@ spaceship_battery() {
   # Change color based on battery percentage
   if [[ $battery_percent == 100 || $battery_status =~ "(charged|full)" ]]; then
     battery_color="green"
-  elif [[ $battery_percent -lt $SPACESHIP_BATTERY_THRESHOLD ]]; then
+  elif [[ $battery_percent < $SPACESHIP_BATTERY_THRESHOLD ]]; then
     battery_color="red"
   else
     battery_color="yellow"
@@ -1112,7 +1112,7 @@ spaceship_battery() {
   fi
 
   # Escape % for display since it's a special character in zsh prompt expansion
-  if [[ $SPACESHIP_BATTERY_ALWAYS_SHOW == true || $battery_percent -lt $SPACESHIP_BATTERY_THRESHOLD || $battery_status =~ "(charged|full)"  ]]; then
+  if [[ $SPACESHIP_BATTERY_ALWAYS_SHOW == true || $battery_percent < $SPACESHIP_BATTERY_THRESHOLD || $battery_status =~ "(charged|full)"  ]]; then
     _prompt_section \
       "$battery_color" \
       "$SPACESHIP_BATTERY_PREFIX" \
