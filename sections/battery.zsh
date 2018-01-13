@@ -6,6 +6,15 @@
 # Configuration
 # ------------------------------------------------------------------------------
 
+# ------------------------------------------------------------------------------
+# | SPACESHIP_BATTERY_SHOW | below threshold | above threshold | fully charged |
+# |------------------------+-----------------+-----------------+---------------|
+# | false                  | hidden          | hidden          | hidden        |
+# | always                 | shown           | shown           | shown         |
+# | true                   | shown           | hidden          | shown         |
+# | low                    | shown           | hidden          | hidden        |
+# ------------------------------------------------------------------------------
+
 SPACESHIP_BATTERY_SHOW="${SPACESHIP_BATTERY_SHOW=true}"
 SPACESHIP_BATTERY_PREFIX="${SPACESHIP_BATTERY_PREFIX=""}"
 SPACESHIP_BATTERY_SUFFIX="${SPACESHIP_BATTERY_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
@@ -79,7 +88,9 @@ spaceship_battery() {
   fi
 
   # Escape % for display since it's a special character in zsh prompt expansion
-  if [[ $SPACESHIP_BATTERY_SHOW == 'always' || $battery_percent -lt $SPACESHIP_BATTERY_THRESHOLD || $battery_status =~ "(charged|full)"  ]]; then
+  if [[ $SPACESHIP_BATTERY_SHOW == 'always' ||
+        $battery_percent -lt $SPACESHIP_BATTERY_THRESHOLD ||
+        $SPACESHIP_BATTERY_SHOW == true && $battery_status =~ "(charged|full)" ]]; then
     spaceship::section \
       "$battery_color" \
       "$SPACESHIP_BATTERY_PREFIX" \
