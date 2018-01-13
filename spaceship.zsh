@@ -125,14 +125,11 @@ done
 # Show deprecation messages for options that are set, but not supported
 # ------------------------------------------------------------------------------
 
-spaceship::deprecated SPACESHIP_PROMPT_SYMBOL SPACESHIP_CHAR_SYMBOL
-# SPACESHIP_HOST_SHOW accepts 'always'
-# SPACESHIP_USER_SHOW accepts 'always'
-# SPACESHIP_HOST_SHOW is disabled by default
-# SPACESHIP_HOST_COLOR is blue now
-# SPACESHIP_HOST_COLOR_SSH new option
-# SPACESHIP_PROMPT_ORDER has been changed
-# SPACESHIP_BATTERY_ALWAYS_SHOW is removed, use 'always'
+spaceship::deprecated SPACESHIP_PROMPT_SYMBOL "Use %SPACESHIP_CHAR_SYMBOL%b instead."
+spaceship::deprecated SPACESHIP_BATTERY_ALWAYS_SHOW "Use %BSPACESHIP_BATTERY_SHOW='always'%b instead."
+spaceship::deprecated SPACESHIP_BATTERY_CHARGING_SYMBOL "Use %BSPACESHIP_BATTERY_SYMBOL_CHARGING%b instead."
+spaceship::deprecated SPACESHIP_BATTERY_DISCHARGING_SYMBOL "Use %BSPACESHIP_BATTERY_SYMBOL_DISCHARGING%b instead."
+spaceship::deprecated SPACESHIP_BATTERY_FULL_SYMBOL "Use %BSPACESHIP_BATTERY_SYMBOL_FULL%b instead."
 
 # ------------------------------------------------------------------------------
 # PROMPTS
