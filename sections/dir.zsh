@@ -24,7 +24,7 @@ spaceship_dir() {
   local dir
 
   # Threat repo root as a top-level directory or not
-  if spaceship::is_git && [[ $SPACESHIP_DIR_TRUNC_REPO == true ]]; then
+  if [[ $SPACESHIP_DIR_TRUNC_REPO == true ]] && spaceship::is_git; then
     local git_root=$(git rev-parse --show-toplevel)
     dir="$git_root:t${$(expr $(pwd) : "$git_root\(.*\)")}"
   else
