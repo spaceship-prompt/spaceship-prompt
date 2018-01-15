@@ -79,7 +79,7 @@ You can find more examples with different color schemes in [Screenshots](https:/
 
 For correct work you will first need:
 
-* A [`zsh`](http://www.zsh.org/) (v5.0.5 or recent) must be installed
+* A [`zsh`](http://www.zsh.org/) (v5.0.6 or recent) must be installed
 
 ## Installing
 
@@ -183,7 +183,7 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [npm-image]: https://img.shields.io/npm/v/spaceship-zsh-theme.svg?style=flat-square
 
 [zsh-url]: http://zsh.org/
-[zsh-image]: https://img.shields.io/badge/zsh->=v5.0.5-777777.svg?style=flat-square
+[zsh-image]: https://img.shields.io/badge/zsh-%3E%3Dv5.0.6-777777.svg?style=flat-square
 
 [donate-readme]: https://github.com/denysdovhan/spaceship-zsh-theme#donate
 [donate-card-url]: https://www.liqpay.com/en/checkout/380951100392
