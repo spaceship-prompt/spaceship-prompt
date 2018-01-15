@@ -14,7 +14,9 @@
     "postuninstall": "./scripts/uninstall.sh",
     "version": "./scripts/version.sh",
     "postpublish": "git push --follow-tags",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:prepare": "gitbook install",
+    "docs:serve": "npm run docs:prepare && gitbook serve ."
   },
   "repository": {
     "type": "git",
@@ -32,5 +34,13 @@
   "bugs": {
     "url": "https://github.com/denysdovhan/spaceship-zsh-theme/issues"
   },
-  "homepage": "https://github.com/denysdovhan/spaceship-zsh-theme#readme"
+  "homepage": "https://github.com/denysdovhan/spaceship-zsh-theme#readme",
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-anchorjs": "^1.1.1",
+    "gitbook-plugin-edit-link": "^2.0.2",
+    "gitbook-plugin-github": "^2.0.0",
+    "gitbook-plugin-github-buttons": "^3.0.0",
+    "gitbook-plugin-prism": "^2.3.0"
+  }
 }
