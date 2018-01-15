@@ -71,7 +71,7 @@ You can also add items to the right side prompt by specifying them in the `SPACE
 
 ### Time (`time`)
 
-Disabled as default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if you need to show time stamps.
+Disabled by default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if you need to show time stamps.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -442,7 +442,7 @@ Execution time of the last command. Will be displayed if it exceeds the set thre
 
 ### Battery (`battery`)
 
-By default, Battery section is shown only if battery level is below `SPACESHIP_BATTERY_THRESHOLD` (default: 10%) or it's fully charged.  It can be made always visible by setting `SPACESHIP_BATTERY_ALWAYS_SHOW=true`.
+By default, Battery section is shown only if battery level is below `SPACESHIP_BATTERY_THRESHOLD` (default: 10%) or it's fully charged.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -490,7 +490,7 @@ This section show only when there are active jobs in the background.
 
 ### Exit code (`exit_code`)
 
-Disabled as default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show exit code of last command.
+Disabled by default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show exit code of last command.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
