@@ -1,12 +1,16 @@
 ## Options
 
-Now you have ability to disable elements of Spaceship. All options must be overridden in your `.zshrc` file **after** the theme, Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
+You have ability to customize or disable specific elements of Spaceship. All options must be overridden in your `.zshrc` file **after** the theme.
 
-Take a look at popular option presets or share your own configuration in [Presets](https://github.com/denysdovhan/spaceship-zsh-theme/wiki/Presets) wiki page.
+Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
 
 ### Order
 
-You can specify the order of prompt section using `SPACESHIP_PROMPT_ORDER` option. Use zsh array syntax to define your own prompt order. The default order is:
+You can specify the order of prompt section using `SPACESHIP_PROMPT_ORDER` option. Use zsh array syntax to define your own prompt order.
+
+The order also defines which sections that Spaceship loads. If you're struggling with slow prompt, you can just omit the sections that you don't use, and they won't be loaded.
+
+The default order is:
 
 ```zsh
 SPACESHIP_PROMPT_ORDER=(
@@ -45,14 +49,17 @@ SPACESHIP_PROMPT_ORDER=(
 )
 ```
 
-You can also add items to the right side prompt by specifying them in the `SPACESHIP_RPROMPT_ORDER` option.
+You can also add items to the right prompt by specifying them in the `SPACESHIP_RPROMPT_ORDER` option. By default `SPACESHIP_RPROMPT_ORDER` is empty.
 
 ### Prompt
+
+This group of options defines a behaviour of prompt and standard parameters for sections displaying.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_PROMPT_ADD_NEWLINE` | `true` | Adds a newline character before each prompt line |
 | `SPACESHIP_PROMPT_SEPARATE_LINE` | `true` | Make the prompt span across two lines |
+| `SPACESHIP_PROMPT_FIRST_PREFIX_SHOW` | `false` | Shows a prefix of the first section in prompt  |
 | `SPACESHIP_PROMPT_PREFIXES_SHOW` | `true` | Show prefixes before prompt sections or not |
 | `SPACESHIP_PROMPT_SUFFIXES_SHOW` | `true` | Show suffixes before prompt sections or not |
 | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | `via ` | Default prefix for prompt sections |
@@ -62,9 +69,9 @@ You can also add items to the right side prompt by specifying them in the `SPACE
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_CHAR_SYMBOL` | `➜ ` | Prompt character to be shown before any command |
 | `SPACESHIP_CHAR_PREFIX` | ` ` | Prefix before prompt character |
 | `SPACESHIP_CHAR_SUFFIX` | ` ` | Suffix after prompt character |
+| `SPACESHIP_CHAR_SYMBOL` | `➜ ` | Prompt character to be shown before any command |
 | `SPACESHIP_CHAR_COLOR_SUCCESS` | `green` | Color of prompt character if last command completes successfully |
 | `SPACESHIP_CHAR_COLOR_FAILURE` | `red` | Color of prompt character if last command returns non-zero exit-code |
 | `SPACESHIP_CHAR_COLOR_SECONDARY` | `yellow` | Color of secondary prompt character |
@@ -84,23 +91,32 @@ Disabled by default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 
 ### Username (`user`)
 
-Username is shown only when it's not the same as `$LOGNAME`, when you're connected via SSH or when you're root. Root user is highlighted in `SPACESHIP_USER_COLOR_ROOT` color (red as default).
+By default, a username is shown only when it's not the same as `$LOGNAME`, when you're connected via SSH or when you're root. Root user is highlighted in `SPACESHIP_USER_COLOR_ROOT` color (red as default).
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_USER_SHOW` | `true` | Show user section |
+| `SPACESHIP_USER_SHOW` | `true` | Show user section (`true`, `false`, `always` or `needed`) |
 | `SPACESHIP_USER_PREFIX` | `with ` | Prefix before user section |
 | `SPACESHIP_USER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after user section |
 | `SPACESHIP_USER_COLOR` | `yellow` | Color of user section |
 | `SPACESHIP_USER_COLOR_ROOT` | `red` | Color of user section when it's root |
 
+`SPACESHIP_USER_SHOW` defines when to show username section. Here are possible values:
+
+| `SPACESHIP_USER_SHOW` | Show on local  | Show on remote  |
+| :-------------------: | :------------- | :-------------- |
+| `false`               | Never          | Never           |
+| `always`              | Always         | Always          |
+| `true`                | If needed      | Always          |
+| `needed`              | If needed      | If needed       |
+
 ### Hostname (`host`)
 
-Hostname is shown only when you're connected via SSH.
+Hostname is shown only when you're connected via SSH unless you change this behavior.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_HOST_SHOW` | `true` | Show host section |
+| `SPACESHIP_HOST_SHOW` | `true` | Show host section (`true`, `false` or `always`) |
 | `SPACESHIP_HOST_PREFIX` | `at ` | Prefix before the connected SSH machine name |
 | `SPACESHIP_HOST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the connected SSH machine name |
 | `SPACESHIP_HOST_COLOR` | `blue` | Color of host section |
@@ -108,7 +124,7 @@ Hostname is shown only when you're connected via SSH.
 
 ### Directory (`dir`)
 
-Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`.
+Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`. While you are in repository, it shows only root directory and folders inside it.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -116,7 +132,7 @@ Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`.
 | `SPACESHIP_DIR_PREFIX` | `in ` | Prefix before current directory |
 | `SPACESHIP_DIR_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after current directory |
 | `SPACESHIP_DIR_TRUNC` | `3` | Number of folders of cwd to show in prompt, 0 to show all |
-| `SPACESHIP_DIR_TRUNC_REPO` | `true` | While in `git` repo, Show only root directory and folders inside it |
+| `SPACESHIP_DIR_TRUNC_REPO` | `true` | While in `git` repo, show only root directory and folders inside it |
 | `SPACESHIP_DIR_COLOR` | `cyan` | Color of directory section |
 
 ### Git (`git`)
@@ -128,7 +144,7 @@ Git section is consists with `git_branch` and `git_status` subsections. It is sh
 | `SPACESHIP_GIT_SHOW` | `true` | Show Git section |
 | `SPACESHIP_GIT_PREFIX` | `on ` | Prefix before Git section |
 | `SPACESHIP_GIT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Git section |
-| `SPACESHIP_GIT_SYMBOL` | ` ` | Character to be shown before Git section (requires [powerline patched font][powerline]) |
+| `SPACESHIP_GIT_SYMBOL` | ![ ](https://user-images.githubusercontent.com/3459374/34947621-4f324a92-fa13-11e7-9b99-cdba2cdda6b9.png) | Character to be shown before Git section (requires [powerline patched font][powerline]) |
 
 #### Git branch (`git_branch`)
 
@@ -446,13 +462,22 @@ By default, Battery section is shown only if battery level is below `SPACESHIP_B
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_BATTERY_SHOW` | `true` | Show battery section or not |
+| `SPACESHIP_BATTERY_SHOW` | `true` | Show battery section or not (`true`, `false`, `always` or `low`) |
 | `SPACESHIP_BATTERY_PREFIX` | `` | Prefix before battery section |
 | `SPACESHIP_BATTERY_SUFFIX` | `SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after battery section |
-| `SPACESHIP_BATTERY_CHARGING_SYMBOL` | `⇡` | Character to be shown if battery is charging |
-| `SPACESHIP_BATTERY_DISCHARGING_SYMBOL` | `⇣` | Character to be shown if battery is discharging |
-| `SPACESHIP_BATTERY_FULL_SYMBOL` | `•` | Character to be shown if battery is full |
+| `SPACESHIP_BATTERY_SYMBOL_CHARGING` | `⇡` | Character to be shown if battery is charging |
+| `SPACESHIP_BATTERY_SYMBOL_DISCHARGING` | `⇣` | Character to be shown if battery is discharging |
+| `SPACESHIP_BATTERY_SYMBOL_FULL` | `•` | Character to be shown if battery is full |
 | `SPACESHIP_BATTERY_THRESHOLD` | 10 | Battery level below which battery section will be shown |
+
+`SPACESHIP_BATTERY_SHOW` defines when to show battery section. Here are possible values:
+
+| `SPACESHIP_BATTERY_SHOW` | Below threshold | Above threshold | Fully charged |
+| :----------------------: | :-------------- | :-------------- | :------------ |
+| `false`                  | Hidden          | Hidden          | Hidden        |
+| `always`                 | Shown           | Shown           | Shown         |
+| `true`                   | Shown           | Hidden          | Shown         |
+| `low`                    | Shown           | Hidden          | Hidden        |
 
 ### Vi-mode (`vi_mode`)
 
