@@ -126,7 +126,7 @@ spaceship::is_git || return
 
 ## `spaceship::is_hg`
 
-The same as [`spaceship::is_git`](#spaceshipisgit), but for functions. This utility returns zero exit code if a current working directory is a Git repository and non-zero if it's not.
+The same as [`spaceship::is_git`](#spaceshipisgit), but for Mercurial repositories. This utility returns zero exit code if a current working directory is a Mercurial repository and non-zero if it's not.
 
 ### Example
 
@@ -135,13 +135,13 @@ The same as [`spaceship::is_git`](#spaceshipisgit), but for functions. This util
 spaceship::is_hg || return
 ```
 
-## `spaceship::deprecated <deprecated> [message]`
+## `spaceship::deprecated <option> [message]`
 
-This utility checks if `deprecated` variable is set and if it is, prints the `message`. The `message` supports escapes to set foreground color, background color and other visual effects.
+This utility checks if `option` variable is set and if it is, prints the `message`. The `message` supports escapes to set foreground color, background color and other visual effects. Read more about escapes in [13 Prompt Expansion](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html) section of ZSH documentation.
 
 ### Arguments
 
-1. `deprecated` _Required_ — the name of a deprecated variable. If this variable is set (contains any value), then `"%B$deprecated%b is deprecated.` will be printed.
+1. `option` _Required_ — the name of a deprecated variable. If this variable is set (contains any value), then `"%B$deprecated%b is deprecated.` will be printed. `%B` and `%b` is escapes to set the bold style for text.
 2. `message` _Optional_ — a string for additional deprecation message.
 
 ### Example
