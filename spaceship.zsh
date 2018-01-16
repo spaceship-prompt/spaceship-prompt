@@ -21,6 +21,7 @@ if [ ! -n "$SPACESHIP_PROMPT_ORDER" ]; then
     host
     dir
     git
+    git_committime
     hg
     package
     node
@@ -113,6 +114,10 @@ SPACESHIP_GIT_STATUS_UNMERGED="${SPACESHIP_GIT_STATUS_UNMERGED:="="}"
 SPACESHIP_GIT_STATUS_AHEAD="${SPACESHIP_GIT_STATUS_AHEAD:="⇡"}"
 SPACESHIP_GIT_STATUS_BEHIND="${SPACESHIP_GIT_STATUS_BEHIND:="⇣"}"
 SPACESHIP_GIT_STATUS_DIVERGED="${SPACESHIP_GIT_STATUS_DIVERGED:="⇕"}"
+# GIT_TIME
+SPACESHIP_GIT_COMMITTIME_SHOW="${SPACESHIP_GIT_COMMITTIME_SHOW:=true}"
+SPACESHIP_GIT_COMMITTIME_PREFIX="${SPACESHIP_GIT_COMMITTIME_PREFIX:=since }"
+SPACESHIP_GIT_COMMITTIME_SUFFIX="${SPACESHIP_GIT_COMMITTIME_SUFFIX:=}"
 
 # MERCURIAL
 SPACESHIP_HG_SHOW="${SPACESHIP_HG_SHOW:=true}"
@@ -555,6 +560,59 @@ spaceship_git() {
     "${git_branch}${git_status}" \
     "$SPACESHIP_GIT_SUFFIX"
 }
+
+# GIT COMMIT TIME
+# Show time since last commit with color according duration
+# from long time to short: red, yellow, green
+# inspired from "hyperzsh"
+spaceship_git_committime() {
+    [[ $SPACESHIP_GIT_COMMITTIME_SHOW == false ]] && return
+
+    _is_git || return
+
+    local commit_age
+
+    # Get last commit
+    last_commit=$(git log --pretty=format:'%at' -1 2> /dev/null)
+    now=$(date +%s)
+    seconds_since_last_commit=$((now-last_commit))
+
+    # Totals
+    minutes=$((seconds_since_last_commit / 60))
+    hours=$((seconds_since_last_commit/3600))
+
+    # Sub-hours and sub-minutes
+    days=$((seconds_since_last_commit / 86400))
+    sub_hours=$((hours % 24))
+    sub_minutes=$((minutes % 60))
+
+    if [ $hours -gt 24 ]; then
+	commit_age="${days}d "
+    elif [ $minutes -gt 60 ]; then
+	commit_age="${sub_hours}h${sub_minutes}m "
+    else
+	commit_age="${minutes}m "
+    fi
+
+    if [[ -n $(git status -s 2> /dev/null) ]]; then
+        if [ "$hours" -gt 4 ]; then
+            COLOR="red"
+        elif [ "$minutes" -gt 30 ]; then
+            COLOR="yellow"
+        else
+            COLOR="green"
+        fi
+    else
+        COLOR="white"
+    fi
+
+    _prompt_section \
+	"$COLOR" \
+	"$SPACESHIP_GIT_COMMITTIME_PREFIX" \
+	"$commit_age" \
+	"$SPACESHIP_GIT_COMMITTIME_SUFFIX"
+}
+
 
 # MERCURIAL BRANCH
 # Show current hg branch
