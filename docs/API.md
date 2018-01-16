@@ -1,10 +1,8 @@
 # API
 
-This page describes internal API for creating plugins, contributing, etc.
+This page describes Spaceship API for creating plugins and tweaking Spaceship's behavior.
 
-All methods are under the `spaceship::` namespace. All options starts with `SPACESHIP_`.
-
-TODO: Add an example of custom section.
+Spaceship uses `SPACESHIP_` prefix for variables and `spaceship::` prefix for a function to avoid conflicts with other ones.
 
 ## `SPACESHIP_VERSION`
 
