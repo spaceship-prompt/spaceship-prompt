@@ -4,6 +4,63 @@ This page describes Spaceship API for creating plugins and tweaking Spaceship's 
 
 Spaceship uses `SPACESHIP_` prefix for variables and `spaceship::` prefix for a function to avoid conflicts with other ones. All section, including custom ones, are being required to use `spaceship_` prefix before their name to load properly.
 
+## Typical section
+
+Below is an example of a typical section for Spaceship. Pay attention to a few crucial moments:
+
+* Define options for customization. Their names should start with `SPACESHIP_`.
+* Section's name should start with `spaceship_`.
+* Show section only where it's needed (in directories which contains specific files, when a specific command is available, etc).
+
+Take a look at [Contribution guidelines](../CONTRIBUTING.md) for further information.
+
+```zsh
+#
+# Foobar
+#
+# Foobar is a supa-dupa cool tool for making you development easier.
+# Link: https://www.foobar.xyz
+
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+
+SPACESHIP_FOOBAR_SHOW="${SPACESHIP_FOOBAR_SHOW=true}"
+SPACESHIP_FOOBAR_PREFIX="${SPACESHIP_FOOBAR_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_FOOBAR_SUFFIX="${SPACESHIP_FOOBAR_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_FOOBAR_SYMBOL="${SPACESHIP_FOOBAR_SYMBOL="🍷 "}"
+SPACESHIP_FOOBAR_COLOR="${SPACESHIP_FOOBAR_COLOR="white"}"
+
+# ------------------------------------------------------------------------------
+# Section
+# ------------------------------------------------------------------------------
+
+# Show foobar status
+# spaceship_ prefix before section's name is required!
+# Otherwise this section won't be loaded.
+spaceship_foobar() {
+  # If SPACESHIP_FOOBAR_SHOW is false, don't show foobar section
+  [[ $SPACESHIP_FOOBAR_SHOW == false ]] && return
+
+  # Show foobar section only when there are foobar-specific files
+  # in current working direcotory
+  [[ -f foobar.conf || -n *.foo(#qN^/) || -n *.bar(#qN^/) ]] || return
+
+  # Check if foobar command is available for execution
+  spaceship::exists foobar || return
+
+  # Retrieve foobar status and save it to variable
+  local foobar_status=$(foobar status)
+
+  # Display foobar section
+  spaceship::section \
+    "$SPACESHIP_FOOBAR_COLOR" \
+    "$SPACESHIP_FOOBAR_PREFIX" \
+    "$SPACESHIP_FOOBAR_SYMBOL$foobar_status" \
+    "$SPACESHIP_FOOBAR_SUFFIX"
+}
+```
+
 ## `SPACESHIP_VERSION`
 
 An environment variable that defines the version of currently running Spaceship prompt version. Can be used for issue reporting or debugging purposes.
