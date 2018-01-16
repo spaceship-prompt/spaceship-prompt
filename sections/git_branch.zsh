@@ -44,7 +44,10 @@ spaceship_git_branch() {
 #   async_job spaceship spaceship_async_git_branch "$PWD"
 spaceship_async_git_branch() {
   local workdir="$1"
-  local ref="$(command git -C "$workdir" symbolic-ref --quiet HEAD 2>/dev/null || command git rev-parse --short HEAD 2>/dev/null)"
+  local ref="$(
+    command git -C "$workdir" symbolic-ref --quiet HEAD 2>/dev/null ||
+    command git -C "$workdir" rev-parse --short HEAD 2>/dev/null
+  )"
   echo "${ref#refs/heads/}"
 }
 
