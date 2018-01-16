@@ -71,6 +71,8 @@ SPACESHIP_FOOBAR_COLOR="${SPACESHIP_FOOBAR_COLOR="white"}"
 # ------------------------------------------------------------------------------
 
 # Show foobar status
+# spaceship_ prefix before section's name is required!
+# Otherwise this section won't be loaded.
 spaceship_foobar() {
   # If SPACESHIP_FOOBAR_SHOW is false, don't show foobar section
   [[ $SPACESHIP_FOOBAR_SHOW == false ]] && return

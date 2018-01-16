@@ -2,7 +2,7 @@
 
 This page describes Spaceship API for creating plugins and tweaking Spaceship's behavior.
 
-Spaceship uses `SPACESHIP_` prefix for variables and `spaceship::` prefix for a function to avoid conflicts with other ones.
+Spaceship uses `SPACESHIP_` prefix for variables and `spaceship::` prefix for a function to avoid conflicts with other ones. All section, including custom ones, are being required to use `spaceship_` prefix before their name to load properly.
 
 ## `SPACESHIP_VERSION`
 
