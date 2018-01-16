@@ -16,7 +16,11 @@
     "postpublish": "git push --follow-tags",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:prepare": "gitbook install",
-    "docs:serve": "npm run docs:prepare && gitbook serve ."
+    "docs:icons": "cp logos/apple-touch-icon.png _book/gitbook/images/apple-touch-icon-precomposed-152.png && cp logos/favicon.ico _book/gitbook/images",
+    "docs:serve": "npm run docs:prepare && gitbook serve .",
+    "docs:build": "npm run docs:prepare && gitbook build && npm run docs:icons",
+    "docs:publish": "gh-pages -d _book -m \"Updated at $(date +'%a, %d %b %Y, %T, %Z')\" --add",
+    "docs:deploy": "npm run docs:build && npm run docs:publish"
   },
   "repository": {
     "type": "git",
