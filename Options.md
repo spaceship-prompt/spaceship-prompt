@@ -524,3 +524,7 @@ Disabled by default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, 
 | `SPACESHIP_EXIT_CODE_SUFFIX` | ` ` | Suffix after exit code section |
 | `SPACESHIP_EXIT_CODE_SYMBOL` | `✘` | Character to be shown before exit code |
 | `SPACESHIP_EXIT_CODE_COLOR` | `red` | Color of exit code section |
+
+## Need more?
+
+If these options are not enough to do what you want, read more about Spaceship's API on [API page](./API.md) of the documentation.
