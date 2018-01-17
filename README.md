@@ -96,8 +96,12 @@ Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to yo
 
 ### [oh-my-zsh]
 
-- Set `ZSH_THEME=""` in your `.zshrc`
-- Follow instructions in [manual](https://github.com/denysdovhan/spaceship-zsh-theme#manual) installation.
+* Set `ZSH_THEME=""` in your `.zshrc`
+* Follow instructions in [manual](https://github.com/denysdovhan/spaceship-zsh-theme#manual) installation.
+
+### [prezto]
+
+`prezto` follows vanilla Zsh prompt setup. Just use [npm](#npm) or follow instructions in [manual](https://github.com/denysdovhan/spaceship-zsh-theme#manual) installation.
 
 ### [antigen]
 
@@ -216,6 +220,7 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 <!-- References -->
 
 [oh-my-zsh]: http://ohmyz.sh/
+[prezto]: https://github.com/sorin-ionescu/prezto
 [antigen]: http://antigen.sharats.me/
 [zgen]: https://github.com/tarjoilija/zgen
 [npm]: https://www.npmjs.com/
