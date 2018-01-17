@@ -49,7 +49,7 @@ Every additional section will slow down the prompt a little bit. If your section
 
 When updating documentation for your section, make sure the markdown document is being properly rendered by Github. Specifically, the following common pitfalls have already been discovered:
 
-* Empty inline code block ` ` will only be rendered if you put at least one non-breaking whitespace "&nbsp;" inside, like so: ``` ` ` ``` → ` `
-* Leading and trailing whitespaces in inline code blocks will be stripped, to indicate that a whitespace is present, use the middot symbol `·`, like so: ``` `🚀·` ``` → `🚀·`
+* Empty inline code block ` ` will only be rendered if you put at least one non-breaking whitespace "&nbsp;" inside, like so: `` ` ` `` → ` `
+* Leading and trailing whitespaces in inline code blocks will be stripped, to indicate that a whitespace is present, use the middot symbol `·`, like so: `` `🚀·` `` → `🚀·`
 
 **Thanks for reading this contribution guide! Happy hacking!**
