@@ -87,7 +87,7 @@ spaceship_battery() {
     battery_symbol="${SPACESHIP_BATTERY_SYMBOL_FULL}"
   fi
 
-  # Escape % for display since it's a special character in zsh prompt expansion
+  # Escape % for display since it's a special character in Zsh prompt expansion
   if [[ $SPACESHIP_BATTERY_SHOW == 'always' ||
         $battery_percent -lt $SPACESHIP_BATTERY_THRESHOLD ||
         $SPACESHIP_BATTERY_SHOW == true && $battery_status =~ "(charged|full)" ]]; then

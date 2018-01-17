@@ -1,5 +1,5 @@
 #
-# Spaceship ZSH Theme
+# Spaceship ZSH
 #
 # Author: Denys Dovhan, denysdovhan.com
 # License: MIT

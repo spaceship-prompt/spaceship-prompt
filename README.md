@@ -7,14 +7,14 @@
 # 🚀⭐ Spaceship ZSH
 
 [![NPM version][npm-image]][npm-url]
-[![ZSH][zsh-image]][zsh-url]
+[![Zsh][zsh-image]][zsh-url]
 [![Donate with card][donate-card-image]][donate-readme]
 [![Donate with Bitcoin][donate-btc-image]][donate-readme]
 [![Donate with Ethereum][donate-eth-image]][donate-readme]
 
-> A [ZSH][zsh-url] prompt for Astronauts.
+> A [Zsh][zsh-url] prompt for Astronauts.
 
-Spaceship is a minimalistic, powerful and extremely customizable [ZSH][zsh-url] prompt. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
+Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] prompt. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
 
 Currently it shows:
 
@@ -121,7 +121,7 @@ antibody bundle denysdovhan/spaceship-zsh-theme
 
 ### [zgen]
 
-Add the following line to your `~/.zshrc` where you're adding your other zsh plugins:
+Add the following line to your `~/.zshrc` where you're adding your other Zsh plugins:
 
 ```
 zgen load denysdovhan/spaceship-zsh-theme spaceship

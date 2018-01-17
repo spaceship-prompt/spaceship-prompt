@@ -11,7 +11,7 @@ Provide a screenshot that shows your issue
 # Environment
 
 **Spaceship version:** <version> (use `echo $SPACESHIP_VERSION`)
-**ZSH version:** <version>
+*Zsh version:** <version>
 **Terminal emulator:** <iTerm/Hyper/Terminator/etc>
 **Operating system:** <macOS/Windows/Linux>
 

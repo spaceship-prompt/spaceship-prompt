@@ -6,7 +6,7 @@ Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/z
 
 ### Order
 
-You can specify the order of prompt section using `SPACESHIP_PROMPT_ORDER` option. Use zsh array syntax to define your own prompt order.
+You can specify the order of prompt section using `SPACESHIP_PROMPT_ORDER` option. Use Zsh array syntax to define your own prompt order.
 
 The order also defines which sections that Spaceship loads. If you're struggling with slow prompt, you can just omit the sections that you don't use, and they won't be loaded.
 
