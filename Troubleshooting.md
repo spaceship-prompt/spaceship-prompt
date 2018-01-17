@@ -9,7 +9,7 @@ You need to have a powerline patched font inorder to properly display `git` bran
 * Install any powerline compatible font like [Fira Code](https://github.com/tonsky/FiraCode) or [others](https://github.com/powerline/fonts).
 * Configure your terminal emulator to [use that font](https://powerline.readthedocs.io/en/master/troubleshooting/osx.html).
 
-## What's the weird characters infront of sections?
+## What's the weird character in front of a section?
 
 This is not an issue with Spaceship prompt. Spaceship uses Unicode symbols to represent `SPACESHIP_*_SYMBOL` in sections. To solve this problem:
 
@@ -21,7 +21,7 @@ This is not an issue with Spaceship prompt. Spaceship uses Unicode symbols to re
   ```
 * Configure your terminal emulator to use UTF-8 as character encoding.
 
-## Some of sections icons put on one another?
+## Some section icons overlap each other?
 
 ![](https://user-images.githubusercontent.com/3459374/34945188-1f6398be-fa0b-11e7-9845-a744bc3e148d.png)
 
@@ -37,7 +37,7 @@ In _iTerm_ follow these instructions:
 * Check _Threat ambiguous-width characters as double-width_.
 * Reload terminal's tab.
 
-## Why my prompt doesn't work like on preview?
+## Why doesn't my prompt look like the preview?
 
 ![preview](../preview.gif)
 

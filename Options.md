@@ -213,9 +213,11 @@ Mercurial status indicators is shown only when you have dirty repository.
 
 ### Package version (`package`)
 
-> Works only for npm at the moment. Please, help us improve this section!
+> Works only for [npm](https://www.npmjs.com/) at the moment. Please, help us improve this section!
 
-Package version is shown when repository is a package (contains a `package.json` file). This is the version of the package you are working on, not the version of package manager itself.
+Package version is shown when repository is a package (e.g. contains a `package.json` file).
+
+> **Note:** This is the version of the package you are working on, not the version of package manager itself.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |

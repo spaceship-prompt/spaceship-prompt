@@ -42,8 +42,11 @@ spaceship_foobar() {
   # If SPACESHIP_FOOBAR_SHOW is false, don't show foobar section
   [[ $SPACESHIP_FOOBAR_SHOW == false ]] && return
 
-  # Show foobar section only when there are foobar-specific files
-  # in current working direcotory
+  # Show foobar section only when there are foobar-specific files in current
+  # working direcotory.
+  # Here glob qualifiers are used to check if files with specific extention are
+  # present in directory. Read more about them here:
+  # http://zsh.sourceforge.net/Doc/Release/Expansion.html
   [[ -f foobar.conf || -n *.foo(#qN^/) || -n *.bar(#qN^/) ]] || return
 
   # Check if foobar command is available for execution
@@ -76,7 +79,7 @@ echo $SPACESHIP_VERSION
 
 ## `SPACESHIP_ROOT`
 
-> **Attention!** Do not modify the value of this variable! Changing the value may cause the damage of Spaceship installation!
+> **Attention!** Do not modify the value of this variable! Changing the value may cause the damage to Spaceship installation!
 
 An environment variable that defines the path to Spaceship prompt installation. Spaceship uses this variable for resolving path to sections and utils.
 
