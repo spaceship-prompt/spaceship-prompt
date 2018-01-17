@@ -14,8 +14,8 @@ Please, keep this simple rules in mind while you're contributing to Spaceship.
 
 ## Setup
 
-1. **Fork** this repo (click the *fork* button)
-2. **Clone** your fork to your working machine (via `git clone `)
+1. **Fork** this repo (click the _fork_ button)
+2. **Clone** your fork to your working machine (via `git clone`)
 3. **Add and commit** your contributions
 4. **Push** your changes to your remote fork
 5. **Open a pull-request** to our primary repo
@@ -44,5 +44,12 @@ Every additional section will slow down the prompt a little bit. If your section
 
 * **Good:** check if command exists, check the value of environment variable
 * **Bad:** network requests, reading large files, etc
+
+### Documentation
+
+When updating documentation for your section, make sure the markdown document is being properly rendered by Github. Specifically, the following common pitfalls have already been discovered:
+
+* Empty inline code block ` ` will only be rendered if you put at least one non-breaking whitespace "&nbsp;" inside, like so: `` ` ` `` → ` `
+* Leading and trailing whitespaces in inline code blocks will be stripped, to indicate that a whitespace is present, use the middot symbol `·`, like so: `` `🚀·` `` → `🚀·`
 
 **Thanks for reading this contribution guide! Happy hacking!**

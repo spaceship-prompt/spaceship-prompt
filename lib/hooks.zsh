@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------------------
 # HOOKS
-# ZSH hooks for advanced actions
+# Zsh hooks for advanced actions
 # custom hooks for sections
 # ------------------------------------------------------------------------------
 
