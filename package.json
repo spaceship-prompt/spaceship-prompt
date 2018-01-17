@@ -1,5 +1,5 @@
 {
-  "name": "spaceship-zsh-theme",
+  "name": "spaceship-prompt",
   "version": "2.11.0",
   "description": "An “Oh My ZSH!” theme for Astronauts.",
   "files": [
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/denysdovhan/spaceship-zsh-theme.git"
+    "url": "git+https://github.com/denysdovhan/spaceship-prompt.git"
   },
   "keywords": [
     "prompt",
@@ -36,9 +36,9 @@
   "author": "Denys Dovhan <email@denysdovhan.com> (http://denysdovhan.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/denysdovhan/spaceship-zsh-theme/issues"
+    "url": "https://github.com/denysdovhan/spaceship-prompt/issues"
   },
-  "homepage": "https://github.com/denysdovhan/spaceship-zsh-theme#readme",
+  "homepage": "https://github.com/denysdovhan/spaceship-prompt#readme",
   "devDependencies": {
     "gitbook-cli": "^2.3.2",
     "gitbook-plugin-anchorjs": "^1.1.1",

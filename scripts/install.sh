@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 #
 # Author: Denys Dovhan, denysdovhan.com
-# https://github.com/denysdovhan/spaceship-zsh-theme
+# https://github.com/denysdovhan/spaceship-prompt
 
 # ------------------------------------------------------------------------------
 # Colors
@@ -26,9 +26,9 @@ fi
 # ------------------------------------------------------------------------------
 
 ZSHRC="$HOME/.zshrc"
-REPO='https://github.com/denysdovhan/spaceship-zsh-theme.git'
+REPO='https://github.com/denysdovhan/spaceship-prompt.git'
 SOURCE="$PWD/spaceship.zsh"
-USER_SOURCE="$HOME/.spaceship-zsh-theme"
+USER_SOURCE="$HOME/.spaceship-prompt"
 DEST='/usr/local/share/zsh/site-functions'
 USER_DEST="$HOME/.zfunctions"
 
@@ -74,7 +74,7 @@ append_zshrc() {
 #   2. Install via curl or wget
 if [[ ! -f "$SOURCE" ]]; then
   warn "Spaceship is not present in current directory"
-  # Clone repo into the ~/..spaceship-zsh-theme and change SOURCE
+  # Clone repo into the ~/..spaceship-prompt and change SOURCE
   git clone "$REPO" "$USER_SOURCE"
   SOURCE="$USER_SOURCE/spaceship.zsh"
 else

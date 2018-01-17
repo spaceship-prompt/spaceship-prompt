@@ -49,8 +49,8 @@ Preview shows `spaceship` prompt setup with:
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) to have commands colorized.
 * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) to have browser-like autocompletions.
 
-See [screenshots](https://github.com/denysdovhan/spaceship-zsh-theme/wiki/Screenshots) wiki for more color schemes examples.
+See [screenshots](https://github.com/denysdovhan/spaceship-prompt/wiki/Screenshots) wiki for more color schemes examples.
 
 ## Does not help?
 
-If any of above does not help, please, [file an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new), describe your problem and we will gladly help you.
+If any of above does not help, please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new), describe your problem and we will gladly help you.

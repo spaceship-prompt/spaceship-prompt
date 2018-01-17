@@ -89,7 +89,7 @@ Accessible to any program or script running in a current shell session.
 
 ```zsh
 echo $SPACESHIP_ROOT
-#> /path/to/spaceship-zsh-theme
+#> /path/to/spaceship-prompt
 ```
 
 ## `spaceship::section <color> [prefix] <content> [suffix]`

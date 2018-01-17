@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://github.com/denysdovhan/spaceship-zsh-theme">
+  <a href="https://github.com/denysdovhan/spaceship-prompt">
     <img alt="spaceship →~ prompt" src="https://cloud.githubusercontent.com/assets/3459374/21679181/46e24706-d34b-11e6-82ee-5efb3d2ba70f.png" width="400">
   </a>
 </div>
@@ -65,7 +65,7 @@ Currently it shows:
 * Optional time stamps 12/24hr in format ([how to enable](./docs/Options.md#time-time)).
 * Execution time of the last command if it exceeds the set threshold.
 
-Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new) or send pull request.
+Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new) or send pull request.
 
 ## Preview
 
@@ -73,7 +73,7 @@ Want more features? Please, [open an issue](https://github.com/denysdovhan/space
   <img alt="Spaceship with Hyper and One Dark" src="./preview.gif" width="980px">
 </p>
 
-You can find more examples with different color schemes in [Screenshots](https://github.com/denysdovhan/spaceship-zsh-theme/wiki/Screenshots) wiki-page.
+You can find more examples with different color schemes in [Screenshots](https://github.com/denysdovhan/spaceship-prompt/wiki/Screenshots) wiki-page.
 
 ## Requirements
 
@@ -87,7 +87,7 @@ For correct work you will first need:
 ### [npm]
 
 ```
-npm install -g spaceship-zsh-theme
+npm install -g spaceship-prompt
 ```
 
 Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath` and set `prompt spaceship` in `.zshrc`. Just reload your terminal.
@@ -97,18 +97,18 @@ Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to yo
 ### [oh-my-zsh]
 
 * Set `ZSH_THEME=""` in your `.zshrc`
-* Follow instructions in [manual](https://github.com/denysdovhan/spaceship-zsh-theme#manual) installation.
+* Follow instructions in [manual](https://github.com/denysdovhan/spaceship-prompt#manual) installation.
 
 ### [prezto]
 
-`prezto` follows vanilla Zsh prompt setup. Just use [npm](#npm) or follow instructions in [manual](https://github.com/denysdovhan/spaceship-zsh-theme#manual) installation.
+`prezto` follows vanilla Zsh prompt setup. Just use [npm](#npm) or follow instructions in [manual](https://github.com/denysdovhan/spaceship-prompt#manual) installation.
 
 ### [antigen]
 
 Add the following snippet in your `~/.zshrc``:
 
 ```
-antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
+antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
 ```
 
 ### [antibody]
@@ -116,7 +116,7 @@ antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 Update your `.zshrc` file with the following line:
 
 ```
-antibody bundle denysdovhan/spaceship-zsh-theme
+antibody bundle denysdovhan/spaceship-prompt
 ```
 
 ### [zgen]
@@ -124,7 +124,7 @@ antibody bundle denysdovhan/spaceship-zsh-theme
 Add the following line to your `~/.zshrc` where you're adding your other Zsh plugins:
 
 ```
-zgen load denysdovhan/spaceship-zsh-theme spaceship
+zgen load denysdovhan/spaceship-prompt spaceship
 ```
 
 ### [zplug]
@@ -132,14 +132,14 @@ zgen load denysdovhan/spaceship-zsh-theme spaceship
 Use this command in your `.zshrc` to load Spaceship as prompt theme:
 
 ```
-zplug denysdovhan/spaceship-zsh-theme, use:spaceship.zsh, from:github, as:theme
+zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
 ```
 
 ### Manual
 
 If you have problems with approches above, follow these instructions:
 
-* Clone this repo `git clone https://github.com/denysdovhan/spaceship-zsh-theme.git`
+* Clone this repo `git clone https://github.com/denysdovhan/spaceship-prompt.git`
 * Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
 * Initialize prompt system and choose `spaceship`.
 
@@ -180,13 +180,13 @@ Spaceship works well out of the box, but you can customize almost everything if 
 
 You have ability to customize or disable specific elements of Spaceship. All options must be overridden in your `.zshrc` file **after** the theme.
 
-Also, take a look at popular option presets or share your own configuration on [Presets](https://github.com/denysdovhan/spaceship-zsh-theme/wiki/Presets) wiki page.
+Also, take a look at popular option presets or share your own configuration on [Presets](https://github.com/denysdovhan/spaceship-prompt/wiki/Presets) wiki page.
 
 ## Troubleshooting
 
 Have a trouble? Take a look at out [Troubleshooting](./docs/Troubleshooting.md) page.
 
-Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-zsh-theme/issues/new), describe your problem and we will gladly help you.
+Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new), describe your problem and we will gladly help you.
 
 ## Donate
 
@@ -205,13 +205,13 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 
 <!-- Badges -->
 
-[npm-url]: https://npmjs.org/package/spaceship-zsh-theme
-[npm-image]: https://img.shields.io/npm/v/spaceship-zsh-theme.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/spaceship-prompt
+[npm-image]: https://img.shields.io/npm/v/spaceship-prompt.svg?style=flat-square
 
 [zsh-url]: http://zsh.org/
 [zsh-image]: https://img.shields.io/badge/zsh-%3E%3Dv5.0.6-777777.svg?style=flat-square
 
-[donate-readme]: https://github.com/denysdovhan/spaceship-zsh-theme#donate
+[donate-readme]: https://github.com/denysdovhan/spaceship-prompt#donate
 [donate-card-url]: https://www.liqpay.com/en/checkout/380951100392
 [donate-card-image]: https://img.shields.io/badge/donate-LiqPay-blue.svg?style=flat-square
 [donate-btc-image]: https://img.shields.io/badge/donate-BTC-yellow.svg?style=flat-square
