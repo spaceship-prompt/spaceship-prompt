@@ -279,7 +279,7 @@ Shows current version of Xcode. Local version has more priority than global.
 | `SPACESHIP_XCODE_SHOW_GLOBAL` | `true` | Global Xcode version based on [xcenv] |
 | `SPACESHIP_XCODE_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Xcode section |
 | `SPACESHIP_XCODE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Xcode section |
-| `SPACESHIP_XCODE_SYMBOL` | `🛠 ` | Character to be shown before Xcode version |
+| `SPACESHIP_XCODE_SYMBOL` | `🛠·` | Character to be shown before Xcode version |
 | `SPACESHIP_XCODE_COLOR` | `blue` | Color of Xcode section |
 
 ### Swift (`swift`)
@@ -340,7 +340,7 @@ Haskell section is shown only in directories that contain `stack.yaml` file.
 | `SPACESHIP_HASKELL_SHOW` | `true` | Shown current Haskell Tool Stack version or not |
 | `SPACESHIP_HASKELL_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Haskell section |
 | `SPACESHIP_HASKELL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Haskell section |
-| `SPACESHIP_HASKELL_SYMBOL` | `λ ` | Character to be shown before Haskell Tool Stack version |
+| `SPACESHIP_HASKELL_SYMBOL` | `λ·` | Character to be shown before Haskell Tool Stack version |
 | `SPACESHIP_HASKELL_COLOR` | `red` | Color of Haskell section |
 
 ### Julia (`julia`)
@@ -397,7 +397,7 @@ Show activated conda virtual environment. Disable native conda prompt by `conda 
 | `SPACESHIP_CONDA_SHOW` | `true` | Show current Python conda virtualenv or not |
 | `SPACESHIP_CONDA_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the conda virtualenv section |
 | `SPACESHIP_CONDA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the conda virtualenv section |
-| `SPACESHIP_CONDA_SYMBOL` | `🅒 ` | Character to be shown before conda virtualenv section |
+| `SPACESHIP_CONDA_SYMBOL` | `🅒·` | Character to be shown before conda virtualenv section |
 | `SPACESHIP_CONDA_COLOR` | `blue` | Color of conda virtualenv environment section |
 
 ### Pyenv (`pyenv`)
