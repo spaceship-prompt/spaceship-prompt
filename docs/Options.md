@@ -152,7 +152,7 @@ Git section is consists with `git_branch` and `git_status` subsections. It is sh
 | :------- | :-----: | ------- |
 | `SPACESHIP_GIT_BRANCH_SHOW` | `true` | Show Git branch subsection |
 | `SPACESHIP_GIT_BRANCH_PREFIX` | `$SPACESHIP_GIT_SYMBOL` | Prefix before Git branch subsection |
-| `SPACESHIP_GIT_BRANCH_SUFFIX` | `` | Suffix after Git branch subsection |
+| `SPACESHIP_GIT_BRANCH_SUFFIX` | ` ` | Suffix after Git branch subsection |
 | `SPACESHIP_GIT_BRANCH_COLOR` | `magenta` | Color of Git branch subsection |
 
 #### Git status (`git_status`)
@@ -239,7 +239,7 @@ If you use [n] as Node.js version manager, please, set `SPACESHIP_NODE_DEFAULT_V
 | `SPACESHIP_NODE_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Node.js section |
 | `SPACESHIP_NODE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Node.js section |
 | `SPACESHIP_NODE_SYMBOL` | `⬢ ` | Character to be shown before Node.js version |
-| `SPACESHIP_NODE_DEFAULT_VERSION` | `` | Node.js version to be treated as default (for [n] support) |
+| `SPACESHIP_NODE_DEFAULT_VERSION` | ` ` | Node.js version to be treated as default (for [n] support) |
 | `SPACESHIP_NODE_COLOR` | `green` | Color of Node.js section |
 
 ### Ruby (`ruby`)
@@ -263,7 +263,7 @@ Elixir section is shown only in directories that contain `mix.exs`, or any other
 | `SPACESHIP_ELIXIR_SHOW` | `true` | Show Elixir section |
 | `SPACESHIP_ELIXIR_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Elixir section |
 | `SPACESHIP_ELIXIR_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Elixir section |
-| `SPACESHIP_ELIXIR_DEFAULT_VERSION` | `` | Elixir version to be treated as default |
+| `SPACESHIP_ELIXIR_DEFAULT_VERSION` | ` ` | Elixir version to be treated as default |
 | `SPACESHIP_ELIXIR_SYMBOL` | `💧 ` | Character to be shown before Elixir version |
 | `SPACESHIP_ELIXIR_COLOR` | `magenta` | Color of Elixir section |
 
@@ -465,7 +465,7 @@ By default, Battery section is shown only if battery level is below `SPACESHIP_B
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_BATTERY_SHOW` | `true` | Show battery section or not (`true`, `false`, `always` or `low`) |
-| `SPACESHIP_BATTERY_PREFIX` | `` | Prefix before battery section |
+| `SPACESHIP_BATTERY_PREFIX` | ` ` | Prefix before battery section |
 | `SPACESHIP_BATTERY_SUFFIX` | `SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after battery section |
 | `SPACESHIP_BATTERY_SYMBOL_CHARGING` | `⇡` | Character to be shown if battery is charging |
 | `SPACESHIP_BATTERY_SYMBOL_DISCHARGING` | `⇣` | Character to be shown if battery is discharging |
@@ -488,7 +488,7 @@ This section shows mode indicator only when Vi-mode is enabled.
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_VI_MODE_SHOW` | `true` | Shown current Vi-mode or not |
-| `SPACESHIP_VI_MODE_PREFIX` | `` | Prefix before Vi-mode section |
+| `SPACESHIP_VI_MODE_PREFIX` | ` ` | Prefix before Vi-mode section |
 | `SPACESHIP_VI_MODE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Vi-mode section |
 | `SPACESHIP_VI_MODE_INSERT` | `[I]` | Text to be shown when in insert mode |
 | `SPACESHIP_VI_MODE_NORMAL` | `[N]` | Text to be shown when in normal mode |
@@ -510,7 +510,7 @@ This section show only when there are active jobs in the background.
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_JOBS_SHOW` | `true` | Show background jobs indicator  |
-| `SPACESHIP_JOBS_PREFIX` | `` | Prefix before the jobs indicator |
+| `SPACESHIP_JOBS_PREFIX` | ` ` | Prefix before the jobs indicator |
 | `SPACESHIP_JOBS_SUFFIX` | ` ` | Suffix after the jobs indicator |
 | `SPACESHIP_JOBS_SYMBOL` | `✦` | Character to be shown when jobs are hiding |
 | `SPACESHIP_JOBS_COLOR` | `blue` | Color of background jobs section |
@@ -522,7 +522,7 @@ Disabled by default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_EXIT_CODE_SHOW` | `false` | Show exit code of last command |
-| `SPACESHIP_EXIT_CODE_PREFIX` | `` | Prefix before exit code section |
+| `SPACESHIP_EXIT_CODE_PREFIX` | ` ` | Prefix before exit code section |
 | `SPACESHIP_EXIT_CODE_SUFFIX` | ` ` | Suffix after exit code section |
 | `SPACESHIP_EXIT_CODE_SYMBOL` | `✘` | Character to be shown before exit code |
 | `SPACESHIP_EXIT_CODE_COLOR` | `red` | Color of exit code section |
