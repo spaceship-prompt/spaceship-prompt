@@ -11,7 +11,9 @@ Provide a screenshot that shows your issue
 # Environment
 
 **Spaceship version:** <version> (use `echo $SPACESHIP_VERSION`)
-*Zsh version:** <version>
+**Zsh version:** <version>
+**Zsh framework:** <None/oh-my-zsh/prezto/etc>
+**Zsh plugin manager:** <None/antigen/zplug/etc>
 **Terminal emulator:** <iTerm/Hyper/Terminator/etc>
 **Operating system:** <macOS/Windows/Linux>
 
