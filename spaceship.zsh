@@ -118,6 +118,8 @@ SPACESHIP_GIT_STATUS_DIVERGED="${SPACESHIP_GIT_STATUS_DIVERGED:="⇕"}"
 SPACESHIP_GIT_COMMITTIME_SHOW="${SPACESHIP_GIT_COMMITTIME_SHOW:=true}"
 SPACESHIP_GIT_COMMITTIME_PREFIX="${SPACESHIP_GIT_COMMITTIME_PREFIX:=since }"
 SPACESHIP_GIT_COMMITTIME_SUFFIX="${SPACESHIP_GIT_COMMITTIME_SUFFIX:=}"
+SPACESHIP_GIT_COMMITTIME_THRESHOLD_LOW="${SPACESHIP_GIT_COMMITTIME_THRESHOLD_LOW:=30}" # in minutes
+SPACESHIP_GIT_COMMITTIME_THRESHOLD_HIGH="${SPACESHIP_GIT_COMMITTIME_THRESHOLD_HIGH:=4}" # in hours
 
 # MERCURIAL
 SPACESHIP_HG_SHOW="${SPACESHIP_HG_SHOW:=true}"
@@ -594,16 +596,12 @@ spaceship_git_committime() {
 	commit_age="${minutes}m "
     fi
 
-    if [[ -n $(git status -s 2> /dev/null) ]]; then
-        if [ "$hours" -gt 4 ]; then
-            COLOR="red"
-        elif [ "$minutes" -gt 30 ]; then
-            COLOR="yellow"
-        else
-            COLOR="green"
-        fi
+    if [ "$hours" -gt $SPACESHIP_GIT_COMMITTIME_THRESHOLD_HIGH ]; then
+        COLOR="red"
+    elif [ "$minutes" -gt $SPACESHIP_GIT_COMMITTIME_THRESHOLD_LOW ]; then
+        COLOR="yellow"
     else
-        COLOR="white"
+        COLOR="green"
     fi
 
     _prompt_section \
