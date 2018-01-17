@@ -4,6 +4,8 @@ You have ability to customize or disable specific elements of Spaceship. All opt
 
 Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
 
+**Note:** the symbol `·` in this document represents a regular space character ` `, it is used to clearly indicate when an option default value starts or ends with a space.
+
 ### Order
 
 You can specify the order of prompt section using `SPACESHIP_PROMPT_ORDER` option. Use Zsh array syntax to define your own prompt order.
@@ -83,7 +85,7 @@ Disabled by default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_TIME_SHOW` | `false` | Show time (set to `true` for enabling) |
-| `SPACESHIP_TIME_PREFIX` | `at ` | Prefix before time section |
+| `SPACESHIP_TIME_PREFIX` | `at·` | Prefix before time section |
 | `SPACESHIP_TIME_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after time section |
 | `SPACESHIP_TIME_COLOR` | `yellow` | Color of time section |
 | `SPACESHIP_TIME_FORMAT` | `false` | Custom date formatting [ZSH date formats](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Date-and-time) |
@@ -96,7 +98,7 @@ By default, a username is shown only when it's not the same as `$LOGNAME`, when 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_USER_SHOW` | `true` | Show user section (`true`, `false`, `always` or `needed`) |
-| `SPACESHIP_USER_PREFIX` | `with ` | Prefix before user section |
+| `SPACESHIP_USER_PREFIX` | `with·` | Prefix before user section |
 | `SPACESHIP_USER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after user section |
 | `SPACESHIP_USER_COLOR` | `yellow` | Color of user section |
 | `SPACESHIP_USER_COLOR_ROOT` | `red` | Color of user section when it's root |
@@ -117,7 +119,7 @@ Hostname is shown only when you're connected via SSH unless you change this beha
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_HOST_SHOW` | `true` | Show host section (`true`, `false` or `always`) |
-| `SPACESHIP_HOST_PREFIX` | `at ` | Prefix before the connected SSH machine name |
+| `SPACESHIP_HOST_PREFIX` | `at·` | Prefix before the connected SSH machine name |
 | `SPACESHIP_HOST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the connected SSH machine name |
 | `SPACESHIP_HOST_COLOR` | `blue` | Color of host section |
 | `SPACESHIP_HOST_COLOR_SSH` | `green` | Color of host in SSH connection |
@@ -129,7 +131,7 @@ Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`. W
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_DIR_SHOW` | `true` | Show directory section |
-| `SPACESHIP_DIR_PREFIX` | `in ` | Prefix before current directory |
+| `SPACESHIP_DIR_PREFIX` | `in·` | Prefix before current directory |
 | `SPACESHIP_DIR_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after current directory |
 | `SPACESHIP_DIR_TRUNC` | `3` | Number of folders of cwd to show in prompt, 0 to show all |
 | `SPACESHIP_DIR_TRUNC_REPO` | `true` | While in `git` repo, show only root directory and folders inside it |
@@ -142,9 +144,9 @@ Git section is consists with `git_branch` and `git_status` subsections. It is sh
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_GIT_SHOW` | `true` | Show Git section |
-| `SPACESHIP_GIT_PREFIX` | `on ` | Prefix before Git section |
+| `SPACESHIP_GIT_PREFIX` | `on·` | Prefix before Git section |
 | `SPACESHIP_GIT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Git section |
-| `SPACESHIP_GIT_SYMBOL` | ![ ](https://user-images.githubusercontent.com/3459374/34947621-4f324a92-fa13-11e7-9b99-cdba2cdda6b9.png) | Character to be shown before Git section (requires [powerline patched font][powerline]) |
+| `SPACESHIP_GIT_SYMBOL` | ![·](https://user-images.githubusercontent.com/3459374/34947621-4f324a92-fa13-11e7-9b99-cdba2cdda6b9.png) | Character to be shown before Git section (requires [powerline patched font][powerline]) |
 
 #### Git branch (`git_branch`)
 
@@ -162,7 +164,7 @@ Git status indicators is shown only when you have dirty repository.
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_GIT_STATUS_SHOW` | `true` | Show Git status subsection |
-| `SPACESHIP_GIT_STATUS_PREFIX` | ` [` | Prefix before Git status subsection |
+| `SPACESHIP_GIT_STATUS_PREFIX` | `·[` | Prefix before Git status subsection |
 | `SPACESHIP_GIT_STATUS_SUFFIX` | `]` | Suffix after Git status subsection |
 | `SPACESHIP_GIT_STATUS_COLOR` | `red` | Color of Git status subsection |
 | `SPACESHIP_GIT_STATUS_UNTRACKED` | `?` | Indicator for untracked changes |
@@ -183,9 +185,9 @@ Mercurial section is consists with `hg_branch` and `hg_status` subsections. It i
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_HG_SHOW` | `true` | Show Mercurial section |
-| `SPACESHIP_HG_PREFIX` | `on ` | Prefix before Mercurial section |
+| `SPACESHIP_HG_PREFIX` | `on·` | Prefix before Mercurial section |
 | `SPACESHIP_HG_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Mercurial section |
-| `SPACESHIP_HG_SYMBOL` | `☿ ` | Character to be shown before Mercurial section |
+| `SPACESHIP_HG_SYMBOL` | `☿·` | Character to be shown before Mercurial section |
 
 #### Mercurial branch (`hg_branch`)
 
@@ -222,9 +224,9 @@ Package version is shown when repository is a package (e.g. contains a `package.
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_PACKAGE_SHOW` | `true` | Show package version |
-| `SPACESHIP_PACKAGE_PREFIX` | `is ` | Prefix before package version section |
+| `SPACESHIP_PACKAGE_PREFIX` | `is·` | Prefix before package version section |
 | `SPACESHIP_PACKAGE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after package version section |
-| `SPACESHIP_PACKAGE_SYMBOL` | `📦 ` | Character to be shown before package version |
+| `SPACESHIP_PACKAGE_SYMBOL` | `📦·` | Character to be shown before package version |
 | `SPACESHIP_PACKAGE_COLOR` | `red` | Color of package version section |
 
 ### Node.js (`node`)
@@ -251,7 +253,7 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 | `SPACESHIP_RUBY_SHOW` | `true` | Show Ruby section |
 | `SPACESHIP_RUBY_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Ruby section |
 | `SPACESHIP_RUBY_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Ruby section |
-| `SPACESHIP_RUBY_SYMBOL` | `💎 ` | Character to be shown before Ruby version |
+| `SPACESHIP_RUBY_SYMBOL` | `💎·` | Character to be shown before Ruby version |
 | `SPACESHIP_RUBY_COLOR` | `red` | Color of Ruby section |
 
 ### Elixir (`elixir`)
@@ -264,7 +266,7 @@ Elixir section is shown only in directories that contain `mix.exs`, or any other
 | `SPACESHIP_ELIXIR_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Elixir section |
 | `SPACESHIP_ELIXIR_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Elixir section |
 | `SPACESHIP_ELIXIR_DEFAULT_VERSION` | ` ` | Elixir version to be treated as default |
-| `SPACESHIP_ELIXIR_SYMBOL` | `💧 ` | Character to be shown before Elixir version |
+| `SPACESHIP_ELIXIR_SYMBOL` | `💧·` | Character to be shown before Elixir version |
 | `SPACESHIP_ELIXIR_COLOR` | `magenta` | Color of Elixir section |
 
 ### Xcode (`xcode`)
@@ -290,7 +292,7 @@ Shows current version of Swift. Local version has more priority than global.
 | `SPACESHIP_SWIFT_SHOW_GLOBAL` | `false` | Global Swift version based on [swiftenv] |
 | `SPACESHIP_SWIFT_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Swift section |
 | `SPACESHIP_SWIFT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix to be shown before the Swift section |
-| `SPACESHIP_SWIFT_SYMBOL` | `🐦 ` | Character to be shown before Swift version |
+| `SPACESHIP_SWIFT_SYMBOL` | `🐦·` | Character to be shown before Swift version |
 | `SPACESHIP_SWIFT_COLOR` | `yellow` | Color of Swift section |
 
 ### Go (`golang`)
@@ -302,7 +304,7 @@ Go section is shown only in directories that contain `Godeps`, `glide.yaml`, any
 | `SPACESHIP_GOLANG_SHOW` | `true` | Shown current Go version or not |
 | `SPACESHIP_GOLANG_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Go section |
 | `SPACESHIP_GOLANG_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Go section |
-| `SPACESHIP_GOLANG_SYMBOL` | `🐹 ` | Character to be shown before Go version |
+| `SPACESHIP_GOLANG_SYMBOL` | `🐹·` | Character to be shown before Go version |
 | `SPACESHIP_GOLANG_COLOR` | `cyan` | Color of Go section |
 
 ### PHP (`php`)
@@ -314,7 +316,7 @@ PHP section is shown only in directories that contain any file with `.php` exten
 | `SPACESHIP_PHP_SHOW` | true | Show PHP section |
 | `SPACESHIP_PHP_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the PHP section |
 | `SPACESHIP_PHP_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the PHP section |
-| `SPACESHIP_PHP_SYMBOL` | `🐘 ` | Character to be shown before PHP version |
+| `SPACESHIP_PHP_SYMBOL` | `🐘·` | Character to be shown before PHP version |
 | `SPACESHIP_PHP_COLOR` | `blue` | Color of PHP section |
 
 ### Rust (`rust`)
@@ -326,7 +328,7 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 | `SPACESHIP_RUST_SHOW` | `true` | Shown current Rust version or not |
 | `SPACESHIP_RUST_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Rust section |
 | `SPACESHIP_RUST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Rust section |
-| `SPACESHIP_RUST_SYMBOL` | `𝗥 ` | Character to be shown before Rust version |
+| `SPACESHIP_RUST_SYMBOL` | `𝗥·` | Character to be shown before Rust version |
 | `SPACESHIP_RUST_COLOR` | `red` | Color of Rust section |
 
 ### Haskell (`haskell`)
@@ -350,7 +352,7 @@ Julia section is shown only in directories that contain file with `.jl` extensio
 | `SPACESHIP_JULIA_SHOW` | `true` | Shown current Julia version or not |
 | `SPACESHIP_JULIA_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Julia section |
 | `SPACESHIP_JULIA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Julia section |
-| `SPACESHIP_JULIA_SYMBOL` | `ஃ ` | Character to be shown before Julia version |
+| `SPACESHIP_JULIA_SYMBOL` | `ஃ·` | Character to be shown before Julia version |
 | `SPACESHIP_JULIA_COLOR` | `green` | Color of Julia section |
 
 ### Docker (`docker`)
@@ -362,7 +364,7 @@ Docker section is shown only in directories that contain `Dockerfile` or `docker
 | `SPACESHIP_DOCKER_SHOW` | `true` | Show current Docker version and connected docker-machine or not |
 | `SPACESHIP_DOCKER_PREFIX` | `on ` | Prefix before the Docker section |
 | `SPACESHIP_DOCKER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Docker section |
-| `SPACESHIP_DOCKER_SYMBOL` | `🐳 ` | Character to be shown before Docker version |
+| `SPACESHIP_DOCKER_SYMBOL` | `🐳·` | Character to be shown before Docker version |
 | `SPACESHIP_DOCKER_COLOR` | `cyan` | Color of Docker section |
 
 ### Amazon Web Services (AWS) (`aws`)
@@ -372,9 +374,9 @@ Shows selected Amazon Web Services profile using '[named profiles](http://docs.a
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_AWS_SHOW` | `true` | Show current selected AWS-cli profile or not |
-| `SPACESHIP_AWS_PREFIX` | `using ` | Prefix before the AWS section |
+| `SPACESHIP_AWS_PREFIX` | `using·` | Prefix before the AWS section |
 | `SPACESHIP_AWS_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the AWS section |
-| `SPACESHIP_AWS_SYMBOL` | `☁️ ` | Character to be shown before AWS profile |
+| `SPACESHIP_AWS_SYMBOL` | `☁️·` | Character to be shown before AWS profile |
 | `SPACESHIP_AWS_COLOR` | `208` | Color of AWS section |
 
 ### Virtualenv (`venv`)
@@ -407,7 +409,7 @@ pyenv section is shown only in directories that contain `requirements.txt` or an
 | `SPACESHIP_PYENV_SHOW` | `true` | Show current Pyenv version or not |
 | `SPACESHIP_PYENV_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the pyenv section |
 | `SPACESHIP_PYENV_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the pyenv section |
-| `SPACESHIP_PYENV_SYMBOL` | `🐍 ` | Character to be shown before Pyenv version |
+| `SPACESHIP_PYENV_SYMBOL` | `🐍·` | Character to be shown before Pyenv version |
 | `SPACESHIP_PYENV_COLOR` | `yellow` | Color of Pyenv section |
 
 ### .NET (`dotnet`)
@@ -419,7 +421,7 @@ pyenv section is shown only in directories that contain `requirements.txt` or an
 | `SPACESHIP_DOTNET_SHOW` | `true` | Current .NET section |
 | `SPACESHIP_DOTNET_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before .NET section |
 | `SPACESHIP_DOTNET_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after .NET section |
-| `SPACESHIP_DOTNET_SYMBOL` | `.NET ` | Character to be shown before .NET version |
+| `SPACESHIP_DOTNET_SYMBOL` | `.NET·` | Character to be shown before .NET version |
 | `SPACESHIP_DOTNET_COLOR` | `128` | Color of .NET section |
 
 ### Ember.js (`ember`)
@@ -431,7 +433,7 @@ Ember.js section is shown only in directories that contain a `ember-cli-build.js
 | `SPACESHIP_EMBER_SHOW` | `true` | Current Ember.js section |
 | `SPACESHIP_EMBER_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Ember.js section |
 | `SPACESHIP_EMBER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Ember.js section |
-| `SPACESHIP_EMBER_SYMBOL` | `🐹 ` | Character to be shown before Ember.js version |
+| `SPACESHIP_EMBER_SYMBOL` | `🐹·` | Character to be shown before Ember.js version |
 | `SPACESHIP_EMBER_COLOR` | `210` | Color of Ember.js section |
 
 ### Kubectl context (`kubecontext`)
@@ -441,9 +443,9 @@ Shows the active kubectl context.
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_KUBECONTEXT_SHOW` | `true` | Current Kubectl context section |
-| `SPACESHIP_KUBECONTEXT_PREFIX` | `at ` | Prefix before Kubectl context section |
+| `SPACESHIP_KUBECONTEXT_PREFIX` | `at·` | Prefix before Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubectl context section |
-| `SPACESHIP_KUBECONTEXT_SYMBOL` | `☸️ ` | Character to be shown before Kubectl context |
+| `SPACESHIP_KUBECONTEXT_SYMBOL` | `☸️·` | Character to be shown before Kubectl context |
 | `SPACESHIP_KUBECONTEXT_COLOR` | `cyan` | Color of Kubectl context section |
 
 ### Execution time (`exec_time`)
@@ -453,7 +455,7 @@ Execution time of the last command. Will be displayed if it exceeds the set thre
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_EXEC_TIME_SHOW` | `true` | Show execution time |
-| `SPACESHIP_EXEC_TIME_PREFIX` | `took ` | Prefix before execution time section |
+| `SPACESHIP_EXEC_TIME_PREFIX` | `took·` | Prefix before execution time section |
 | `SPACESHIP_EXEC_TIME_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after execution time section |
 | `SPACESHIP_EXEC_TIME_COLOR` | `yellow` | Color of execution time section |
 | `SPACESHIP_EXEC_TIME_ELAPSED` | `2` | The minimum number of seconds for showing execution time section |
