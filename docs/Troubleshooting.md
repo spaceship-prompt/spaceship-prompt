@@ -23,6 +23,61 @@ This is not an issue with Spaceship prompt. Spaceship uses Unicode symbols to re
 
 In case Unicode symbols aren't supported, you can replace them to those that are compatible with your terminal with `SPACESHIP_*_SYMBOL` options. Check out [Options](./docs/Options.md) page for more information.
 
+## Why is my prompt slow?
+
+Spaceship may work slower in big repositories since status checkings are quite a heavy operation. In this case, try to avoid having many uncommitted files.
+
+Prompt also may slow down because of loading of unused sections. Spaceship loads only sections mentioned in `SPACESHIP_PROMPT_ORDER` or `SPACESHIP_RPROMPT_ORDER`. If you think some sections might be useless for you, try to disable them by omitting their names in order options.
+
+In the example below, `time`, `package`, `xcode`, `julia`, `docker`, `ember` and `vi_mode` sections are disabled so that they won't be loaded at all.
+
+```zsh
+# Just comment a section if you want to disable it
+SPACESHIP_PROMPT_ORDER=(
+  # time        # Time stampts section (Disabled)
+  user          # Username section
+  dir           # Current directory section
+  host          # Hostname section
+  git           # Git section (git_branch + git_status)
+  hg            # Mercurial section (hg_branch  + hg_status)
+  # package     # Package version (Disabled)
+  node          # Node.js section
+  ruby          # Ruby section
+  elixir        # Elixir section
+  # xcode       # Xcode section (Disabled)
+  swift         # Swift section
+  golang        # Go section
+  php           # PHP section
+  rust          # Rust section
+  haskell       # Haskell Stack section
+  # julia       # Julia section (Disabled)
+  # docker      # Docker section (Disabled)
+  aws           # Amazon Web Services section
+  venv          # virtualenv section
+  conda         # conda virtualenv section
+  pyenv         # Pyenv section
+  dotnet        # .NET section
+  # ember       # Ember.js section (Disabled)
+  kubecontext   # Kubectl context section
+  exec_time     # Execution time
+  line_sep      # Line break
+  battery       # Battery level and status
+  # vi_mode     # Vi-mode indicator (Disabled)
+  jobs          # Backgound jobs indicator
+  exit_code     # Exit code section
+  char          # Prompt character
+)
+```
+
+Disabling a lot of unused section may achieve a significant performance boost. Here's a comparison of rendering Spaceship prompt 100 times with all sections enabled and with `SPACESHIP_PROMPT_ORDER` from example above:
+
+|                   | All section | With disabled sections |
+| :---------------- | :---------: | :--------------------: |
+| Inside Git repo*  |   `23.5s`   |         `21.3s`        |
+| Outside Git repo* |    `8.3s`   |          `7.4s`        |
+
+\* — `spaceship-prompt` repo is used in this test.
+
 ## Some section icons overlap each other?
 
 ![](https://user-images.githubusercontent.com/3459374/34945188-1f6398be-fa0b-11e7-9845-a744bc3e148d.png)
