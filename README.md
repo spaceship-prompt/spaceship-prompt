@@ -188,6 +188,12 @@ Have a trouble? Take a look at out [Troubleshooting](./docs/Troubleshooting.md) 
 
 Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new), describe your problem and we will gladly help you.
 
+## Team
+
+| [![Denys Dovhan](https://github.com/denysdovhan.png?size=100)](http://denysdovhan.com) | [![Salmanul Farzy](https://github.com/salmanulfarzy.png?size=100)](https://github.com/salmanulfarzy) |
+| :---: | :---: |
+| [Denys Dovhan](https://github.com/denysdovhan) | [Salmanul Farzy](https://github.com/salmanulfarzy) |
+
 ## Donate
 
 Hi! I work on this project in my spare time, beside my primary job. I hope enjoy using Spaceship, and if you do, please, [buy me a cup of tea ☕️][donate-card-url].
