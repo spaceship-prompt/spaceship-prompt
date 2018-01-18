@@ -101,7 +101,7 @@ Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to yo
 
 ### [prezto]
 
-* Follow https://github.com/belak/prezto-contrib#usage to clone `prezto-contrib` to the proper location.
+* Follow [prezto-contrib#usage](https://github.com/belak/prezto-contrib#usage) to clone `prezto-contrib` to the proper location.
 * Enable the `contrib-prompt` module (before the `prompt` module).
 * Set `zstyle ':prezto:module:prompt' theme 'spaceship'` in your `.zpreztorc`.
 
