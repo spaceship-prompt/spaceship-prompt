@@ -101,7 +101,9 @@ Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to yo
 
 ### [prezto]
 
-`prezto` follows vanilla Zsh prompt setup. Just use [npm](#npm) or follow instructions in [manual](https://github.com/denysdovhan/spaceship-prompt#manual) installation.
+* Follow https://github.com/belak/prezto-contrib#usage to clone `prezto-contrib` to the proper location.
+* Enable the `contrib-prompt` module (before the `prompt` module).
+* Set `zstyle ':prezto:module:prompt' theme 'spaceship'` in your `.zpreztorc`.
 
 ### [antigen]
 
