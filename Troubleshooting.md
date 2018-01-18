@@ -21,6 +21,8 @@ This is not an issue with Spaceship prompt. Spaceship uses Unicode symbols to re
   ```
 * Configure your terminal emulator to use UTF-8 as character encoding.
 
+In case Unicode symbols aren't supported, you can replace them to those that are compatible with your terminal with `SPACESHIP_*_SYMBOL` options. Check out [Options](./docs/Options.md) page for more information.
+
 ## Some section icons overlap each other?
 
 ![](https://user-images.githubusercontent.com/3459374/34945188-1f6398be-fa0b-11e7-9845-a744bc3e148d.png)
