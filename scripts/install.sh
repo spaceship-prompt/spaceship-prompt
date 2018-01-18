@@ -99,6 +99,12 @@ info "Linking $SOURCE to $DEST/prompt_spaceship_setup..."
 mkdir -p "$DEST"
 ln -sf "$SOURCE" "$DEST/prompt_spaceship_setup"
 
+# If 'prompt spaceship' is already present in .zshrc, then skip
+if grep -q "prompt spaceship" "$ZSHRC"; then
+  warn "Spaceship is already present in .zshrc!"
+  exit
+fi
+
 # Enabling statements for ~/.zshrc
 msg="
 # Set Spaceship ZSH as a prompt
