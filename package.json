@@ -1,7 +1,7 @@
 {
   "name": "spaceship-prompt",
   "version": "2.11.0",
-  "description": "An “Oh My ZSH!” theme for Astronauts.",
+  "description": "A Zsh prompt for Astronauts.",
   "files": [
     "lib",
     "scripts",
