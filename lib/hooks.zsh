@@ -1,8 +1,10 @@
 # ------------------------------------------------------------------------------
 # HOOKS
-# ZSH hooks for advanced actions
+# Zsh hooks for advanced actions
 # custom hooks for sections
 # ------------------------------------------------------------------------------
+
+# TODO: Let sections register their own hooks via `spaceship::register_hook`
 
 # Execution time start
 spaceship_exec_time_preexec_hook() {

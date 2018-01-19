@@ -6,13 +6,22 @@
 # Configuration
 # ------------------------------------------------------------------------------
 
-SPACESHIP_BATTERY_SHOW="${SPACESHIP_BATTERY_SHOW:=true}"
-SPACESHIP_BATTERY_PREFIX="${SPACESHIP_BATTERY_PREFIX:=""}"
-SPACESHIP_BATTERY_SUFFIX="${SPACESHIP_BATTERY_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_BATTERY_CHARGING_SYMBOL="${SPACESHIP_BATTERY_CHARGING_SYMBOL:="⇡"}"
-SPACESHIP_BATTERY_DISCHARGING_SYMBOL="${SPACESHIP_BATTERY_DISCHARGING_SYMBOL:="⇣"}"
-SPACESHIP_BATTERY_FULL_SYMBOL="${SPACESHIP_BATTERY_FULL_SYMBOL:="•"}"
-SPACESHIP_BATTERY_THRESHOLD="${SPACESHIP_BATTERY_THRESHOLD:=10}"
+# ------------------------------------------------------------------------------
+# | SPACESHIP_BATTERY_SHOW | below threshold | above threshold | fully charged |
+# |------------------------+-----------------+-----------------+---------------|
+# | false                  | hidden          | hidden          | hidden        |
+# | always                 | shown           | shown           | shown         |
+# | true                   | shown           | hidden          | hidden        |
+# | charged                | shown           | hidden          | shown         |
+# ------------------------------------------------------------------------------
+
+SPACESHIP_BATTERY_SHOW="${SPACESHIP_BATTERY_SHOW=true}"
+SPACESHIP_BATTERY_PREFIX="${SPACESHIP_BATTERY_PREFIX=""}"
+SPACESHIP_BATTERY_SUFFIX="${SPACESHIP_BATTERY_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_BATTERY_SYMBOL_CHARGING="${SPACESHIP_BATTERY_SYMBOL_CHARGING="⇡"}"
+SPACESHIP_BATTERY_SYMBOL_DISCHARGING="${SPACESHIP_BATTERY_SYMBOL_DISCHARGING="⇣"}"
+SPACESHIP_BATTERY_SYMBOL_FULL="${SPACESHIP_BATTERY_SYMBOL_FULL="•"}"
+SPACESHIP_BATTERY_THRESHOLD="${SPACESHIP_BATTERY_THRESHOLD=10}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -28,7 +37,7 @@ spaceship_battery() {
 
   local battery_data battery_percent battery_status battery_color
 
-  if _exists pmset; then
+  if spaceship::exists pmset; then
     battery_data=$(pmset -g batt)
 
     # Return if no internal battery
@@ -36,7 +45,7 @@ spaceship_battery() {
 
     battery_percent="$( echo $battery_data | grep -oE '[0-9]{1,3}%' )"
     battery_status="$( echo $battery_data | awk -F '; *' 'NR==2 { print $2 }' )"
-  elif _exists upower; then
+  elif spaceship::exists upower; then
     local battery=$(command upower -e | grep battery | head -1)
 
     # Return if no battery
@@ -45,13 +54,16 @@ spaceship_battery() {
     battery_data=$(upower -i $battery)
     battery_percent="$( echo $battery_data | grep percentage | awk '{print $2}' )"
     battery_status="$( echo $battery_data | grep state | awk '{print $2}' )"
-  elif _exists acpi; then
+  elif spaceship::exists acpi; then
     battery_data=$(acpi -b)
 
     # Return if no battery
     [[ -z $battery_data ]] && return
+
     battery_percent="$( echo $battery_data | awk '{print $4}' )"
     battery_status="$( echo $battery_data | awk '{print tolower($3)}' )"
+  else
+    return
   fi
 
   # Remove trailing % and symbols for comparison
@@ -68,16 +80,18 @@ spaceship_battery() {
 
   # Battery indicator based on current status of battery
   if [[ $battery_status == "charging" ]];then
-    battery_symbol="${SPACESHIP_BATTERY_CHARGING_SYMBOL}"
+    battery_symbol="${SPACESHIP_BATTERY_SYMBOL_CHARGING}"
   elif [[ $battery_status =~ "^[dD]ischarg.*" ]]; then
-    battery_symbol="${SPACESHIP_BATTERY_DISCHARGING_SYMBOL}"
+    battery_symbol="${SPACESHIP_BATTERY_SYMBOL_DISCHARGING}"
   else
-    battery_symbol="${SPACESHIP_BATTERY_FULL_SYMBOL}"
+    battery_symbol="${SPACESHIP_BATTERY_SYMBOL_FULL}"
   fi
 
-  # Escape % for display since it's a special character in zsh prompt expansion
-  if [[ $SPACESHIP_BATTERY_SHOW == 'always' || $battery_percent -lt $SPACESHIP_BATTERY_THRESHOLD || $battery_status =~ "(charged|full)"  ]]; then
-    _prompt_section \
+  # Escape % for display since it's a special character in Zsh prompt expansion
+  if [[ $SPACESHIP_BATTERY_SHOW == 'always' ||
+        $battery_percent -lt $SPACESHIP_BATTERY_THRESHOLD ||
+        $SPACESHIP_BATTERY_SHOW == 'charged' && $battery_status =~ "(charged|full)" ]]; then
+    spaceship::section \
       "$battery_color" \
       "$SPACESHIP_BATTERY_PREFIX" \
       "$battery_symbol$battery_percent%%" \

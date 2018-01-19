@@ -8,12 +8,12 @@
 # Configuration
 # ------------------------------------------------------------------------------
 
-SPACESHIP_NODE_SHOW="${SPACESHIP_NODE_SHOW:=true}"
-SPACESHIP_NODE_PREFIX="${SPACESHIP_NODE_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
-SPACESHIP_NODE_SUFFIX="${SPACESHIP_NODE_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_NODE_SYMBOL="${SPACESHIP_NODE_SYMBOL:="⬢ "}"
-SPACESHIP_NODE_DEFAULT_VERSION="${SPACESHIP_NODE_DEFAULT_VERSION:=""}"
-SPACESHIP_NODE_COLOR="${SPACESHIP_NODE_COLOR:="green"}"
+SPACESHIP_NODE_SHOW="${SPACESHIP_NODE_SHOW=true}"
+SPACESHIP_NODE_PREFIX="${SPACESHIP_NODE_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_NODE_SUFFIX="${SPACESHIP_NODE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_NODE_SYMBOL="${SPACESHIP_NODE_SYMBOL="⬢ "}"
+SPACESHIP_NODE_DEFAULT_VERSION="${SPACESHIP_NODE_DEFAULT_VERSION=""}"
+SPACESHIP_NODE_COLOR="${SPACESHIP_NODE_COLOR="green"}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -28,20 +28,20 @@ spaceship_node() {
 
   local node_version
 
-  if _exists nvm; then
+  if spaceship::exists nvm; then
     node_version=$(nvm current 2>/dev/null)
     [[ $node_version == "system" || $node_version == "node" ]] && return
-  elif _exists nodenv; then
+  elif spaceship::exists nodenv; then
     node_version=$(nodenv version-name)
     [[ $node_version == "system" || $node_version == "node" ]] && return
-  elif _exists node; then
+  elif spaceship::exists node; then
     node_version=$(node -v 2>/dev/null)
     [[ $node_version == $SPACESHIP_NODE_DEFAULT_VERSION ]] && return
   else
     return
   fi
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_NODE_COLOR" \
     "$SPACESHIP_NODE_PREFIX" \
     "${SPACESHIP_NODE_SYMBOL}${node_version}" \

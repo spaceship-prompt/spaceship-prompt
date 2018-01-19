@@ -8,11 +8,11 @@
 # Configuration
 # ------------------------------------------------------------------------------
 
-SPACESHIP_EMBER_SHOW="${SPACESHIP_EMBER_SHOW:=true}"
-SPACESHIP_EMBER_PREFIX="${SPACESHIP_EMBER_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
-SPACESHIP_EMBER_SUFFIX="${SPACESHIP_EMBER_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_EMBER_SYMBOL="${SPACESHIP_EMBER_SYMBOL:="🐹 "}"
-SPACESHIP_EMBER_COLOR="${SPACESHIP_EMBER_COLOR:="210"}"
+SPACESHIP_EMBER_SHOW="${SPACESHIP_EMBER_SHOW=true}"
+SPACESHIP_EMBER_PREFIX="${SPACESHIP_EMBER_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_EMBER_SUFFIX="${SPACESHIP_EMBER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_EMBER_SYMBOL="${SPACESHIP_EMBER_SYMBOL="🐹 "}"
+SPACESHIP_EMBER_COLOR="${SPACESHIP_EMBER_COLOR="210"}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -28,7 +28,7 @@ spaceship_ember() {
   local ember_version=$(grep '"version":' ./node_modules/ember-cli/package.json | cut -d\" -f4)
   [[ $ember_version == "system" || $ember_version == "ember" ]] && return
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_EMBER_COLOR" \
     "$SPACESHIP_EMBER_PREFIX" \
     "${SPACESHIP_EMBER_SYMBOL}${ember_version}" \

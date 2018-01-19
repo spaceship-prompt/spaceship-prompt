@@ -8,12 +8,12 @@
 # Configuration
 # ------------------------------------------------------------------------------
 
-SPACESHIP_SWIFT_SHOW_LOCAL="${SPACESHIP_SWIFT_SHOW_LOCAL:=true}"
-SPACESHIP_SWIFT_SHOW_GLOBAL="${SPACESHIP_SWIFT_SHOW_GLOBAL:=false}"
-SPACESHIP_SWIFT_PREFIX="${SPACESHIP_SWIFT_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
-SPACESHIP_SWIFT_SUFFIX="${SPACESHIP_SWIFT_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_SWIFT_SYMBOL="${SPACESHIP_SWIFT_SYMBOL:="🐦 "}"
-SPACESHIP_SWIFT_COLOR="${SPACESHIP_SWIFT_COLOR:="yellow"}"
+SPACESHIP_SWIFT_SHOW_LOCAL="${SPACESHIP_SWIFT_SHOW_LOCAL=true}"
+SPACESHIP_SWIFT_SHOW_GLOBAL="${SPACESHIP_SWIFT_SHOW_GLOBAL=false}"
+SPACESHIP_SWIFT_PREFIX="${SPACESHIP_SWIFT_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_SWIFT_SUFFIX="${SPACESHIP_SWIFT_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_SWIFT_SYMBOL="${SPACESHIP_SWIFT_SYMBOL="🐦 "}"
+SPACESHIP_SWIFT_COLOR="${SPACESHIP_SWIFT_COLOR="yellow"}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -21,7 +21,7 @@ SPACESHIP_SWIFT_COLOR="${SPACESHIP_SWIFT_COLOR:="yellow"}"
 
 # Show current version of Swift
 spaceship_swift() {
-  _exists swiftenv || return
+  spaceship::exists swiftenv || return
 
   local swift_version
 
@@ -35,7 +35,7 @@ spaceship_swift() {
 
   [ -n "${swift_version}" ] || return
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_SWIFT_COLOR" \
     "$SPACESHIP_SWIFT_PREFIX" \
     "${SPACESHIP_SWIFT_SYMBOL}${swift_version}" \

@@ -3,20 +3,20 @@
 #
 
 # ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+
+SPACESHIP_GIT_SHOW="${SPACESHIP_GIT_SHOW=true}"
+SPACESHIP_GIT_PREFIX="${SPACESHIP_GIT_PREFIX="on "}"
+SPACESHIP_GIT_SUFFIX="${SPACESHIP_GIT_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_GIT_SYMBOL="${SPACESHIP_GIT_SYMBOL=" "}"
+
+# ------------------------------------------------------------------------------
 # Dependencies
 # ------------------------------------------------------------------------------
 
 source "$SPACESHIP_ROOT/sections/git_branch.zsh"
 source "$SPACESHIP_ROOT/sections/git_status.zsh"
-
-# ------------------------------------------------------------------------------
-# Configuration
-# ------------------------------------------------------------------------------
-
-SPACESHIP_GIT_SHOW="${SPACESHIP_GIT_SHOW:=true}"
-SPACESHIP_GIT_PREFIX="${SPACESHIP_GIT_PREFIX:="on "}"
-SPACESHIP_GIT_SUFFIX="${SPACESHIP_GIT_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_GIT_SYMBOL="${SPACESHIP_GIT_SYMBOL:=" "}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -32,7 +32,7 @@ spaceship_git() {
 
   [[ -z $git_branch ]] && return
 
-  _prompt_section \
+  spaceship::section \
     'white' \
     "$SPACESHIP_GIT_PREFIX" \
     "${git_branch}${git_status}" \

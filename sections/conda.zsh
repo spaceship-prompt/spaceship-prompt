@@ -8,11 +8,11 @@
 # Configuration
 # ------------------------------------------------------------------------------
 
-SPACESHIP_CONDA_SHOW="${SPACESHIP_CONDA_SHOW:=true}"
-SPACESHIP_CONDA_PREFIX="${SPACESHIP_CONDA_PREFIX:="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
-SPACESHIP_CONDA_SUFFIX="${SPACESHIP_CONDA_SUFFIX:="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_CONDA_SYMBOL="${SPACESHIP_CONDA_SYMBOL:="🅒 "}"
-SPACESHIP_CONDA_COLOR="${SPACESHIP_CONDA_COLOR:="blue"}"
+SPACESHIP_CONDA_SHOW="${SPACESHIP_CONDA_SHOW=true}"
+SPACESHIP_CONDA_PREFIX="${SPACESHIP_CONDA_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_CONDA_SUFFIX="${SPACESHIP_CONDA_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_CONDA_SYMBOL="${SPACESHIP_CONDA_SYMBOL="🅒 "}"
+SPACESHIP_CONDA_COLOR="${SPACESHIP_CONDA_COLOR="blue"}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -23,9 +23,9 @@ spaceship_conda() {
   [[ $SPACESHIP_CONDA_SHOW == false ]] && return
 
   # Check if running via conda virtualenv
-  _exists conda && [ -n "$CONDA_DEFAULT_ENV" ] || return
+  spaceship::exists conda && [ -n "$CONDA_DEFAULT_ENV" ] || return
 
-  _prompt_section \
+  spaceship::section \
     "$SPACESHIP_CONDA_COLOR" \
     "$SPACESHIP_CONDA_PREFIX" \
     "${SPACESHIP_CONDA_SYMBOL}${CONDA_DEFAULT_ENV}" \

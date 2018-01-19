@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 #
 # Author: Denys Dovhan, denysdovhan.com
-# https://github.com/denysdovhan/spaceship-zsh-theme
+# https://github.com/denysdovhan/spaceship-prompt
 
 # ------------------------------------------------------------------------------
 # Colors
@@ -26,7 +26,7 @@ fi
 # ------------------------------------------------------------------------------
 
 ZSHRC="$HOME/.zshrc"
-USER_SOURCE="$HOME/.spaceship-zsh-theme"
+USER_SOURCE="$HOME/.spaceship-prompt"
 GLOBAL_DEST="/usr/local/share/zsh/site-functions/prompt_spaceship_setup"
 USER_DEST="$HOME/.zfunctions/prompt_spaceship_setup"
 
