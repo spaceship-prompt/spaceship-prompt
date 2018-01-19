@@ -1,4 +1,4 @@
 user=denysdovhan
 project=spaceship-prompt
-enhancement-labels=new-feature
+enhancement-labels=new-feature,enhancement,Enhancement
 enhancement-prefix=**New features:**
