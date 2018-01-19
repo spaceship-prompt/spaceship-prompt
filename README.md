@@ -96,8 +96,17 @@ Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to yo
 
 ### [oh-my-zsh]
 
-* Set `ZSH_THEME=""` in your `.zshrc`
-* Follow instructions in [manual](https://github.com/denysdovhan/spaceship-prompt#manual) installation.
+* Clone this repo:
+  ```zsh
+  git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+  ```
+
+* Symlink `spaceship.zsh-theme` to your oh-my-zsh custom themes directory:
+  ```zsh
+  ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+  ```
+
+* Set `ZSH_THEME="spaceship"` in your `.zshrc`.
 
 ### [prezto]
 
