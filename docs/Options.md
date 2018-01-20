@@ -51,7 +51,6 @@ SPACESHIP_PROMPT_ORDER=(
   char           # Prompt character
 )
 ```
-```
 
 You can also add items to the right prompt by specifying them in the `SPACESHIP_RPROMPT_ORDER` option. By default `SPACESHIP_RPROMPT_ORDER` is empty.
 
