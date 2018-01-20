@@ -16,21 +16,21 @@ NEWLINE='
 # Determination of Spaceship working directory
 # https://git.io/vdBH7
 if [[ -z "$SPACESHIP_ROOT" ]]; then
- if [[ "${(%):-%N}" == '(eval)' ]]; then
-   if [[ "$0" == '-antigen-load' ]] && [[ -r "${PWD}/spaceship.zsh" ]]; then
-     # Antigen uses eval to load things so it can change the plugin (!!)
-     # https://github.com/zsh-users/antigen/issues/581
-     export SPACESHIP_ROOT=$PWD
-   else
-     print -P "%F{red}You must set SPACESHIP_ROOT to work from within an (eval).%f"
-     return 1
-   fi
- else
-   # Get the path to file this code is executing in; then
-   # get the absolute path and strip the filename.
-   # See https://stackoverflow.com/a/28336473/108857
-   export SPACESHIP_ROOT=${${(%):-%x}:A:h}
- fi
+  if [[ "${(%):-%N}" == '(eval)' ]]; then
+    if [[ "$0" == '-antigen-load' ]] && [[ -r "${PWD}/spaceship.zsh" ]]; then
+      # Antigen uses eval to load things so it can change the plugin (!!)
+      # https://github.com/zsh-users/antigen/issues/581
+      export SPACESHIP_ROOT=$PWD
+    else
+      print -P "%F{red}You must set SPACESHIP_ROOT to work from within an (eval).%f"
+      return 1
+    fi
+  else
+    # Get the path to file this code is executing in; then
+    # get the absolute path and strip the filename.
+    # See https://stackoverflow.com/a/28336473/108857
+    export SPACESHIP_ROOT=${${(%):-%x}:A:h}
+  fi
 fi
 
 # ------------------------------------------------------------------------------
@@ -77,9 +77,9 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
 fi
 
 if [ -z "$SPACESHIP_RPROMPT_ORDER" ]; then
- SPACESHIP_RPROMPT_ORDER=(
-   # empty by default
- )
+  SPACESHIP_RPROMPT_ORDER=(
+    # empty by default
+  )
 fi
 
 # PROMPT
@@ -111,14 +111,14 @@ source "$SPACESHIP_ROOT/lib/section.zsh"
 # ------------------------------------------------------------------------------
 
 for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
- if [[ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]]; then
-   source "$SPACESHIP_ROOT/sections/$section.zsh"
- elif spaceship::defined "spaceship_$section"; then
-   # Custom section is declared, nothing else to do
-   continue
- else
-   echo "Section '$section' have not been loaded."
- fi
+  if [[ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]]; then
+    source "$SPACESHIP_ROOT/sections/$section.zsh"
+  elif spaceship::defined "spaceship_$section"; then
+    # Custom section is declared, nothing else to do
+    continue
+  else
+    echo "Section '$section' have not been loaded."
+  fi
 done
 
 # ------------------------------------------------------------------------------
@@ -140,33 +140,33 @@ spaceship::deprecated SPACESHIP_BATTERY_FULL_SYMBOL "Use %BSPACESHIP_BATTERY_SYM
 # PROMPT
 # Primary (left) prompt
 spaceship_prompt() {
- # Retrieve exit code of last command to use in exit_code
- # Must be captured before any other command in prompt is executed
- # Must be the very first line in all entry prompt functions, or the value
- # will be overridden by a different command execution - do not move this line!
- RETVAL=$?
+  # Retrieve exit code of last command to use in exit_code
+  # Must be captured before any other command in prompt is executed
+  # Must be the very first line in all entry prompt functions, or the value
+  # will be overridden by a different command execution - do not move this line!
+  RETVAL=$?
 
- # Should it add a new line before the prompt?
- [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
- spaceship::compose_prompt $SPACESHIP_PROMPT_ORDER
+  # Should it add a new line before the prompt?
+  [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
+  spaceship::compose_prompt $SPACESHIP_PROMPT_ORDER
 }
 
 # $RPROMPT
 # Optional (right) prompt
 spaceship_rprompt() {
- # Retrieve exit code of last command to use in exit_code
- RETVAL=$?
+  # Retrieve exit code of last command to use in exit_code
+  RETVAL=$?
 
- spaceship::compose_prompt $SPACESHIP_RPROMPT_ORDER
+  spaceship::compose_prompt $SPACESHIP_RPROMPT_ORDER
 }
 
 # PS2
 # Continuation interactive prompt
 spaceship_ps2() {
- # Retrieve exit code of last command to use in exit_code
- RETVAL=$?
+  # Retrieve exit code of last command to use in exit_code
+  RETVAL=$?
 
- spaceship::section "$SPACESHIP_CHAR_COLOR_SECONDARY" $SPACESHIP_CHAR_SYMBOL
+  spaceship::section "$SPACESHIP_CHAR_COLOR_SECONDARY" $SPACESHIP_CHAR_SYMBOL
 }
 
 # ------------------------------------------------------------------------------
@@ -177,27 +177,27 @@ spaceship_ps2() {
 # Runs once when user opens a terminal
 # All preparation before drawing prompt should be done here
 prompt_spaceship_setup() {
- autoload -Uz add-zsh-hook
+  autoload -Uz add-zsh-hook
 
- # This variable is a magic variable used when loading themes with zsh's prompt
- # function. It will ensure the proper prompt options are set.
- prompt_opts=(cr percent sp subst)
+  # This variable is a magic variable used when loading themes with zsh's prompt
+  # function. It will ensure the proper prompt options are set.
+  prompt_opts=(cr percent sp subst)
 
- # Borrowed from promptinit, sets the prompt options in case the prompt was not
- # initialized via promptinit.
- setopt noprompt{bang,cr,percent,subst} "prompt${^prompt_opts[@]}"
+  # Borrowed from promptinit, sets the prompt options in case the prompt was not
+  # initialized via promptinit.
+  setopt noprompt{bang,cr,percent,subst} "prompt${^prompt_opts[@]}"
 
- # Add exec_time hooks
- add-zsh-hook preexec spaceship_exec_time_preexec_hook
- add-zsh-hook precmd spaceship_exec_time_precmd_hook
+  # Add exec_time hooks
+  add-zsh-hook preexec spaceship_exec_time_preexec_hook
+  add-zsh-hook precmd spaceship_exec_time_precmd_hook
 
- # Disable python virtualenv environment prompt prefix
- VIRTUAL_ENV_DISABLE_PROMPT=true
+  # Disable python virtualenv environment prompt prefix
+  VIRTUAL_ENV_DISABLE_PROMPT=true
 
- # Expose Spaceship to environment variables
- PROMPT='$(spaceship_prompt)'
- PS2='$(spaceship_ps2)'
- RPS1='$(spaceship_rprompt)'
+  # Expose Spaceship to environment variables
+  PROMPT='$(spaceship_prompt)'
+  PS2='$(spaceship_ps2)'
+  RPS1='$(spaceship_rprompt)'
 }
 
 # ------------------------------------------------------------------------------
