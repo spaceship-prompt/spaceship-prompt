@@ -305,9 +305,9 @@ Git status indicators is shown only when you have dirty repository.
 #### Git commit time (`git_committime`)
 
 The value is displayed in three possible colors :
--   <span style="color: green">green</span> (for short time)
--   <span style="color: yellow">yellow</span> (for medium time)
--   <span style="color: red">red</span> (for long time)
+-   green (for short time)
+-   yellow (for medium time)
+-   red (for long time)
 
 Value is considered as "short" if she is smaller than `SPACESHIP_GIT_COMMITTIME_THRESHOLD_LOW`, "long"
 if she is greater than `SPACESHIP_GIT_COMMITTIME_THRESHOLD_HIGH` or "medium" if she is between them.
@@ -318,7 +318,7 @@ if she is greater than `SPACESHIP_GIT_COMMITTIME_THRESHOLD_HIGH` or "medium" if 
 | `SPACESHIP_GIT_COMMITTIME_PREFIX` | `since` | Prefix before Git commit time subsection |
 | `SPACESHIP_GIT_COMMITTIME_SUFFIX` | `` | Suffix after Git commit time subsection |
 | `SPACESHIP_GIT_COMMITTIME_THRESHOLD_LOW` | `30` | Threshold for "short commit time", in minutes |
-| `SPACESHIP_GIT_COMMITTIME_THRESHOLD_HIGH` | `4` | Threshold for "long commit time", in hours |
+| `SPACESHIP_GIT_COMMITTIME_THRESHOLD_HIGH` | `240` (4h) | Threshold for "long commit time", in minutes |
 
 
 ### Mercurial (`hg`)
