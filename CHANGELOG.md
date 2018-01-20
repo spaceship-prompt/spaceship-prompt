@@ -17,10 +17,6 @@
 
 [Full Changelog](https://github.com/denysdovhan/spaceship-prompt/compare/v3.0.0...v3.0.1)
 
-**Breaking changes:**
-
-- 3.0: Roadmap [\#200](https://github.com/denysdovhan/spaceship-prompt/issues/200)
-
 **Merged pull requests:**
 
 - Promote @maximbaz to collaborators [\#320](https://github.com/denysdovhan/spaceship-prompt/pull/320) ([denysdovhan](https://github.com/denysdovhan))
@@ -31,22 +27,48 @@
 
 **Breaking changes:**
 
+- 3.0: Roadmap [\#200](https://github.com/denysdovhan/spaceship-prompt/issues/200)
+- Added SPACESHIP\_RPROMPT\_ORDER option for RPS1 prompt [\#168](https://github.com/denysdovhan/spaceship-prompt/pull/168) ([ddrexl](https://github.com/ddrexl))
 - 3.0 [\#148](https://github.com/denysdovhan/spaceship-prompt/pull/148) ([denysdovhan](https://github.com/denysdovhan))
+- Drop Oh-My-Zsh dependency [\#147](https://github.com/denysdovhan/spaceship-prompt/pull/147) ([salmanulfarzy](https://github.com/salmanulfarzy))
+- Expose prompt character color variables [\#115](https://github.com/denysdovhan/spaceship-prompt/pull/115) ([salmanulfarzy](https://github.com/salmanulfarzy))
 
 **New features:**
 
 - Make showing battery on 100% configurable [\#306](https://github.com/denysdovhan/spaceship-prompt/pull/306) ([maximbaz](https://github.com/maximbaz))
+- Allow not showing username on SSH connection [\#286](https://github.com/denysdovhan/spaceship-prompt/pull/286) ([maximbaz](https://github.com/maximbaz))
+
+**Fixed bugs:**
+
+- Variables don't accept an empty string [\#250](https://github.com/denysdovhan/spaceship-prompt/issues/250)
+- SPACESHIP\_EXIT\_CODE\_SYMBOl \<- the L is lowercase [\#247](https://github.com/denysdovhan/spaceship-prompt/issues/247)
+- SPACESHIP\_BATTERY\_PREFIX never shows up [\#244](https://github.com/denysdovhan/spaceship-prompt/issues/244)
+- install.zsh failing due alias substitution sourced from .zshrc [\#205](https://github.com/denysdovhan/spaceship-prompt/issues/205)
+- 2.10.0 npm installation issue [\#196](https://github.com/denysdovhan/spaceship-prompt/issues/196)
+- Cannot replace ZSH\_THEME from npm install [\#128](https://github.com/denysdovhan/spaceship-prompt/issues/128)
+- No git indicator if file is modified and renamed [\#101](https://github.com/denysdovhan/spaceship-prompt/issues/101)
+- Fix RETVAL not being set [\#283](https://github.com/denysdovhan/spaceship-prompt/pull/283) ([maximbaz](https://github.com/maximbaz))
+- Fix jobs count bug when cwd changes [\#272](https://github.com/denysdovhan/spaceship-prompt/pull/272) ([maximbaz](https://github.com/maximbaz))
+- Fix command not found: git\_current\_branch [\#270](https://github.com/denysdovhan/spaceship-prompt/pull/270) ([n2o](https://github.com/n2o))
+- Capitalize the l in SPACESHIP\_EXIT\_CODE\_SYMBOl [\#248](https://github.com/denysdovhan/spaceship-prompt/pull/248) ([halilim](https://github.com/halilim))
+
+**Closed issues:**
+
+- Organize project tree [\#127](https://github.com/denysdovhan/spaceship-prompt/issues/127)
+- Ability to change the colour of the prompt segment symbol [\#98](https://github.com/denysdovhan/spaceship-prompt/issues/98)
 
 **Merged pull requests:**
 
+- Revert "Show 100% charge by default" [\#308](https://github.com/denysdovhan/spaceship-prompt/pull/308) ([maximbaz](https://github.com/maximbaz))
 - Use no-break whitespace in markdown docs [\#317](https://github.com/denysdovhan/spaceship-prompt/pull/317) ([maximbaz](https://github.com/maximbaz))
 - Add Troubleshooting to docs [\#314](https://github.com/denysdovhan/spaceship-prompt/pull/314) ([salmanulfarzy](https://github.com/salmanulfarzy))
 - Docs for 3.0 \(\#148\) [\#313](https://github.com/denysdovhan/spaceship-prompt/pull/313) ([denysdovhan](https://github.com/denysdovhan))
 - Make dir section a little faster when SPACESHIP\_DIR\_TRUNC\_REPO == false [\#312](https://github.com/denysdovhan/spaceship-prompt/pull/312) ([maximbaz](https://github.com/maximbaz))
 - Add zsh framework to issue template [\#310](https://github.com/denysdovhan/spaceship-prompt/pull/310) ([salmanulfarzy](https://github.com/salmanulfarzy))
-- Revert "Show 100% charge by default" [\#308](https://github.com/denysdovhan/spaceship-prompt/pull/308) ([maximbaz](https://github.com/maximbaz))
 -  Update options documentation for 3.0  [\#294](https://github.com/denysdovhan/spaceship-prompt/pull/294) ([salmanulfarzy](https://github.com/salmanulfarzy))
+- Fix prompt setup when loaded using zsh prompt function [\#275](https://github.com/denysdovhan/spaceship-prompt/pull/275) ([belak](https://github.com/belak))
 - Drop LS\_COLORS variable [\#273](https://github.com/denysdovhan/spaceship-prompt/pull/273) ([maximbaz](https://github.com/maximbaz))
+- Allow empty string in variables [\#261](https://github.com/denysdovhan/spaceship-prompt/pull/261) ([bric3](https://github.com/bric3))
 
 ## [v2.11.0](https://github.com/denysdovhan/spaceship-prompt/tree/v2.11.0) (2018-01-12)
 
@@ -56,24 +78,15 @@
 
 - Allow to invoke custom functions [\#262](https://github.com/denysdovhan/spaceship-prompt/pull/262) ([bric3](https://github.com/bric3))
 
-**New features:**
-
-- Allow not showing username on SSH connection [\#286](https://github.com/denysdovhan/spaceship-prompt/pull/286) ([maximbaz](https://github.com/maximbaz))
-
 **Fixed bugs:**
 
-- Variables don't accept an empty string [\#250](https://github.com/denysdovhan/spaceship-prompt/issues/250)
-- SPACESHIP\_BATTERY\_PREFIX never shows up [\#244](https://github.com/denysdovhan/spaceship-prompt/issues/244)
 - Antibody Hangs or Closes [\#227](https://github.com/denysdovhan/spaceship-prompt/issues/227)
 - Package: scripts.version is shown as package version [\#221](https://github.com/denysdovhan/spaceship-prompt/issues/221)
 - Grep expression to extract package version not working as expected [\#209](https://github.com/denysdovhan/spaceship-prompt/issues/209)
 - What does the '.%' in the prompt mean? [\#203](https://github.com/denysdovhan/spaceship-prompt/issues/203)
 - Installer clobbers symlinked .zshrc files [\#131](https://github.com/denysdovhan/spaceship-prompt/issues/131)
 - Return the space to the git symbol [\#304](https://github.com/denysdovhan/spaceship-prompt/pull/304) ([maximbaz](https://github.com/maximbaz))
-- Fix RETVAL not being set [\#283](https://github.com/denysdovhan/spaceship-prompt/pull/283) ([maximbaz](https://github.com/maximbaz))
 - Fix missing git branch prefix [\#278](https://github.com/denysdovhan/spaceship-prompt/pull/278) ([maximbaz](https://github.com/maximbaz))
-- Fix jobs count bug when cwd changes [\#272](https://github.com/denysdovhan/spaceship-prompt/pull/272) ([maximbaz](https://github.com/maximbaz))
-- Fix command not found: git\_current\_branch [\#270](https://github.com/denysdovhan/spaceship-prompt/pull/270) ([n2o](https://github.com/n2o))
 
 **Closed issues:**
 
@@ -88,19 +101,12 @@
 - Fix missing icon in git status for deleted unstaged file [\#298](https://github.com/denysdovhan/spaceship-prompt/pull/298) ([maximbaz](https://github.com/maximbaz))
 - docs: typo in README [\#290](https://github.com/denysdovhan/spaceship-prompt/pull/290) ([ggarek](https://github.com/ggarek))
 - Fix minor code comment typo [\#287](https://github.com/denysdovhan/spaceship-prompt/pull/287) ([scriptdaemon](https://github.com/scriptdaemon))
-- Fix prompt setup when loaded using zsh prompt function [\#275](https://github.com/denysdovhan/spaceship-prompt/pull/275) ([belak](https://github.com/belak))
 - fix bug and improve spaceship\_docker [\#263](https://github.com/denysdovhan/spaceship-prompt/pull/263) ([Runrioter](https://github.com/Runrioter))
-- Allow empty string in variables [\#261](https://github.com/denysdovhan/spaceship-prompt/pull/261) ([bric3](https://github.com/bric3))
 - Don't display battery info if not available [\#212](https://github.com/denysdovhan/spaceship-prompt/pull/212) ([FredDeschenes](https://github.com/FredDeschenes))
 
 ## [v2.10.4](https://github.com/denysdovhan/spaceship-prompt/tree/v2.10.4) (2017-12-18)
 
 [Full Changelog](https://github.com/denysdovhan/spaceship-prompt/compare/v2.10.3...v2.10.4)
-
-**Fixed bugs:**
-
-- SPACESHIP\_EXIT\_CODE\_SYMBOl \<- the L is lowercase [\#247](https://github.com/denysdovhan/spaceship-prompt/issues/247)
-- Capitalize the l in SPACESHIP\_EXIT\_CODE\_SYMBOl [\#248](https://github.com/denysdovhan/spaceship-prompt/pull/248) ([halilim](https://github.com/halilim))
 
 ## [v2.10.3](https://github.com/denysdovhan/spaceship-prompt/tree/v2.10.3) (2017-12-18)
 
@@ -110,10 +116,6 @@
 
 - Typo in battery indicator prefix [\#237](https://github.com/denysdovhan/spaceship-prompt/issues/237)
 - Error in spaceship\_kubecontext [\#228](https://github.com/denysdovhan/spaceship-prompt/issues/228)
-- install.zsh failing due alias substitution sourced from .zshrc [\#205](https://github.com/denysdovhan/spaceship-prompt/issues/205)
-- 2.10.0 npm installation issue [\#196](https://github.com/denysdovhan/spaceship-prompt/issues/196)
-- Cannot replace ZSH\_THEME from npm install [\#128](https://github.com/denysdovhan/spaceship-prompt/issues/128)
-- No git indicator if file is modified and renamed [\#101](https://github.com/denysdovhan/spaceship-prompt/issues/101)
 - Add a space after the prompt symbol in the ps2 prompt [\#282](https://github.com/denysdovhan/spaceship-prompt/pull/282) ([segevfiner](https://github.com/segevfiner))
 
 **Closed issues:**
@@ -121,16 +123,10 @@
 - Problem with completions \(using cd\) [\#255](https://github.com/denysdovhan/spaceship-prompt/issues/255)
 - Installing via yarn has strange side-effects [\#252](https://github.com/denysdovhan/spaceship-prompt/issues/252)
 - Bad math expression [\#245](https://github.com/denysdovhan/spaceship-prompt/issues/245)
-- Organize project tree [\#127](https://github.com/denysdovhan/spaceship-prompt/issues/127)
-- Ability to change the colour of the prompt segment symbol [\#98](https://github.com/denysdovhan/spaceship-prompt/issues/98)
 
 ## [v2.10.2](https://github.com/denysdovhan/spaceship-prompt/tree/v2.10.2) (2017-10-19)
 
 [Full Changelog](https://github.com/denysdovhan/spaceship-prompt/compare/v2.10.1...v2.10.2)
-
-**Breaking changes:**
-
-- Added SPACESHIP\_RPROMPT\_ORDER option for RPS1 prompt [\#168](https://github.com/denysdovhan/spaceship-prompt/pull/168) ([ddrexl](https://github.com/ddrexl))
 
 **New features:**
 
@@ -153,8 +149,6 @@
 **Breaking changes:**
 
 - Show git repository folder when inside a git repo [\#169](https://github.com/denysdovhan/spaceship-prompt/pull/169) ([RolfKoenders](https://github.com/RolfKoenders))
-- Drop Oh-My-Zsh dependency [\#147](https://github.com/denysdovhan/spaceship-prompt/pull/147) ([salmanulfarzy](https://github.com/salmanulfarzy))
-- Expose prompt character color variables [\#115](https://github.com/denysdovhan/spaceship-prompt/pull/115) ([salmanulfarzy](https://github.com/salmanulfarzy))
 
 **Fixed bugs:**
 
