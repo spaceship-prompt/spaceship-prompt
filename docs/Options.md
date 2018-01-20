@@ -179,19 +179,19 @@ Git status indicators is shown only when you have dirty repository.
 | `SPACESHIP_GIT_STATUS_BEHIND` | `⇣` | Indicator for unpulled changes (behind of remote branch) |
 | `SPACESHIP_GIT_STATUS_DIVERGED` | `⇕` | Indicator for diverged chages (diverged with remote branch) |
 
-#### Git commit time (`git_commit_time`)
+### Git commit time (`git_commit_time`)
 
 The value is displayed in three possible colors :
 -   green (for short time)
 -   yellow (for medium time)
 -   red (for long time)
 
-Value is considered as "short" if she is smaller than `SPACESHIP_GIT_COMMIT_TIME_THRESHOLD_LOW`, "long"
-if she is greater than `SPACESHIP_GIT_COMMIT_TIME_THRESHOLD_HIGH` or "medium" if she is between them.
+Value is considered as "short" if it is smaller than `SPACESHIP_GIT_COMMIT_TIME_THRESHOLD_LOW`, "long"
+if it is greater than `SPACESHIP_GIT_COMMIT_TIME_THRESHOLD_HIGH` or "medium" if it is between them.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_GIT_COMMIT_TIME_SHOW` | `true` | Show Git commit time subsection |
+| `SPACESHIP_GIT_COMMIT_TIME_SHOW` | `false` | Show Git commit time subsection |
 | `SPACESHIP_GIT_COMMIT_TIME_PREFIX` | `since` | Prefix before Git commit time subsection |
 | `SPACESHIP_GIT_COMMIT_TIME_SUFFIX` | `` | Suffix after Git commit time subsection |
 | `SPACESHIP_GIT_COMMIT_TIME_THRESHOLD_LOW` | `30` | Threshold for "short commit time", in minutes |

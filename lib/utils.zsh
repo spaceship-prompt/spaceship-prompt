@@ -65,25 +65,31 @@ spaceship::displaytime() {
   printf '%ds' $S
 }
 
-# Display seconds in human readable fromat, rounded to greater unit
+# Display seconds in human readable fromat, rounded to a greater unit
 # USAGE:
 #   spaceship::displaytime_short <seconds>
 spaceship::displaytime_short() {
-    local T=$1
-    local D=$((T/60/60/24))
-    local H=$((T/60/60%24))
-    local M=$((T/60%60))
-    local S=$((T%60))
+  local T=$1
+  local D=$((T/60/60/24))
+  local H=$((T/60/60%24))
+  local M=$((T/60%60))
+  local S=$((T%60))
 
-    if [ $D -gt 0 ]; then
-        printf '%dd ' $D
-    elif [ $H -gt 0 ]; then
-        printf '%dh ' $H
-    elif [ $M -gt 0 ]; then
-        printf '%dm ' $M
-    else
-        printf '%ds ' $S
+  if [ $D -gt 0 ]; then
+    printf '%dd ' $D
+  elif [ $H -gt 0 ]; then
+    if [ $M -gt 30 ]; then
+      H=$((H + 1))
     fi
+    printf '%dh ' $H
+  elif [ $M -gt 0 ]; then
+    if [ $S -gt 30 ]; then
+      M=$((M + 1))
+    fi
+    printf '%dm ' $M
+  else
+    printf '%ds ' $S
+  fi
 }
 
 # Union of two or more arrays
