@@ -26,27 +26,13 @@ spaceship_git_committime() {
 
     # Get last commit
     last_commit=$(git log --pretty=format:'%at' -1 2> /dev/null)
+
+    # Compute times
     now=$(date +%s)
-    seconds_since_last_commit=$((now-last_commit))
+    commit_age=$((now-last_commit))
+    minutes=$((commit_age / 60))
 
-    # Totals
-    minutes=$((seconds_since_last_commit / 60))
-    hours=$((seconds_since_last_commit/3600))
-
-    # Sub-hours and sub-minutes
-    days=$((seconds_since_last_commit / 86400))
-    sub_hours=$((hours % 24))
-    sub_minutes=$((minutes % 60))
-
-    if [ $hours -gt 24 ]; then
-	commit_age="${days}d "
-    elif [ $minutes -gt 60 ]; then
-	commit_age="${sub_hours}h${sub_minutes}m "
-    else
-	commit_age="${minutes}m "
-    fi
-
-    if [ "$minutess" -gt $SPACESHIP_GIT_COMMITTIME_THRESHOLD_HIGH ]; then
+    if [ "$minutes" -gt $SPACESHIP_GIT_COMMITTIME_THRESHOLD_HIGH ]; then
         COLOR="red"
     elif [ "$minutes" -gt $SPACESHIP_GIT_COMMITTIME_THRESHOLD_LOW ]; then
         COLOR="yellow"
@@ -55,8 +41,8 @@ spaceship_git_committime() {
     fi
 
     spaceship::section \
-    	"$COLOR" \
-    	"$SPACESHIP_GIT_COMMITTIME_PREFIX" \
-    	"$commit_age" \
+        "$COLOR" \
+        "$SPACESHIP_GIT_COMMITTIME_PREFIX" \
+        "$(spaceship::displaytime_short $commit_age)" \
         "$SPACESHIP_GIT_COMMITTIME_SUFFIX"
 }
