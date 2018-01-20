@@ -20,7 +20,7 @@ SPACESHIP_GIT_COMMITTIME_THRESHOLD_HIGH="${SPACESHIP_GIT_COMMITTIME_THRESHOLD_HI
 spaceship_git_committime() {
     [[ $SPACESHIP_GIT_COMMITTIME_SHOW == false ]] && return
 
-    _is_git || return
+    spaceship::is_git || return
 
     local commit_age
 
