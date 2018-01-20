@@ -4,9 +4,10 @@
 
 [Full Changelog](https://github.com/denysdovhan/spaceship-prompt/compare/v3.0.2...HEAD)
 
-**Fixed bugs:**
+**Merged pull requests:**
 
-- \(\#q\) glob qualifier doesn't work for zsh 5.0.5 [\#190](https://github.com/denysdovhan/spaceship-prompt/issues/190)
+- Add link to powerine fonts [\#333](https://github.com/denysdovhan/spaceship-prompt/pull/333) ([salmanulfarzy](https://github.com/salmanulfarzy))
+- Update licence year as range [\#327](https://github.com/denysdovhan/spaceship-prompt/pull/327) ([salmanulfarzy](https://github.com/salmanulfarzy))
 
 ## [v3.0.2](https://github.com/denysdovhan/spaceship-prompt/tree/v3.0.2) (2018-01-18)
 
@@ -38,6 +39,9 @@
 
 **Merged pull requests:**
 
+- Use no-break whitespace in markdown docs [\#317](https://github.com/denysdovhan/spaceship-prompt/pull/317) ([maximbaz](https://github.com/maximbaz))
+- Add Troubleshooting to docs [\#314](https://github.com/denysdovhan/spaceship-prompt/pull/314) ([salmanulfarzy](https://github.com/salmanulfarzy))
+- Docs for 3.0 \(\#148\) [\#313](https://github.com/denysdovhan/spaceship-prompt/pull/313) ([denysdovhan](https://github.com/denysdovhan))
 - Make dir section a little faster when SPACESHIP\_DIR\_TRUNC\_REPO == false [\#312](https://github.com/denysdovhan/spaceship-prompt/pull/312) ([maximbaz](https://github.com/maximbaz))
 - Add zsh framework to issue template [\#310](https://github.com/denysdovhan/spaceship-prompt/pull/310) ([salmanulfarzy](https://github.com/salmanulfarzy))
 - Revert "Show 100% charge by default" [\#308](https://github.com/denysdovhan/spaceship-prompt/pull/308) ([maximbaz](https://github.com/maximbaz))

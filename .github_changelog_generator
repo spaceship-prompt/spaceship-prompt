@@ -2,4 +2,3 @@ user=denysdovhan
 project=spaceship-prompt
 enhancement-labels=new-feature,enhancement,Enhancement
 enhancement-prefix=**New features:**
-exclude-labels=docs,duplicate,question,invalid,wontfix
