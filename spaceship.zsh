@@ -42,8 +42,8 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
   SPACESHIP_PROMPT_ORDER=(
     time          # Time stampts section
     user          # Username section
-    write_perm    # Write permission in current directory
     dir           # Current directory section
+    write_perm    # Write permission in current directory
     host          # Hostname section
     git           # Git section (git_branch + git_status)
     hg            # Mercurial section (hg_branch  + hg_status)
