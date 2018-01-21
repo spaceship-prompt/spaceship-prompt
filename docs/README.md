@@ -7,6 +7,7 @@
   * [Char (char)](/docs/Options.md#char)
   * [Time (time)](/docs/Options.md#time-time)
   * [Username (user)](/docs/Options.md#username-user)
+  * [Write permission (write_perm)](/docs/Options.md#write-permission)
   * [Hostname (host)](/docs/Options.md#hostname-host)
   * [Directory (dir)](/docs/Options.md#directory-dir)
   * [Git (git)](/docs/Options.md#git-git)
@@ -56,4 +57,3 @@
   * [spaceship::displaytime](/docs/API.md#spaceshipdisplaytime-seconds)
   * [spaceship::union](/docs/API.md#spaceshipunion-arr1-arr2-)
 * [Troubleshooting](/docs/Troubleshooting.md)
-

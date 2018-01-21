@@ -18,6 +18,7 @@ The default order is:
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stampts section
   user          # Username section
+  write_perm    # Write permission in current directory
   dir           # Current directory section
   host          # Hostname section
   git           # Git section (git_branch + git_status)
@@ -123,6 +124,18 @@ Hostname is shown only when you're connected via SSH unless you change this beha
 | `SPACESHIP_HOST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the connected SSH machine name |
 | `SPACESHIP_HOST_COLOR` | `blue` | Color of host section |
 | `SPACESHIP_HOST_COLOR_SSH` | `green` | Color of host in SSH connection |
+
+### Write permission (`write_perm`)
+
+Display a padlock if current directory is write-protected or if current user has not rights to write into current folder.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_WRITE_PERM_SHOW` | `true` | Show section (`false` to hide) |
+| `SPACESHIP_WRITE_PERM_PREFIX` | `` | Prefix before section |
+| `SPACESHIP_WRITE_PERM_SUFFIX` | `·` | Suffix after section |
+| `SPACESHIP_WRITE_PERM_COLOR` | `red` | Color of the icon |
+| `SPACESHIP_WRITE_PERM_ICON` | `` | Icon displayed |
 
 ### Directory (`dir`)
 
