@@ -127,7 +127,7 @@ Hostname is shown only when you're connected via SSH unless you change this beha
 ### Directory (`dir`)
 
 Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`. While you are in repository, it shows only root directory and folders inside it.
-If current directory is write-protected or if current user has not enought rights to write in, a padlock (by default) s displayed as suffix.
+If current directory is write-protected or if current user has not enough rights to write in it, a padlock (by default) is displayed as a suffix.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -138,7 +138,7 @@ If current directory is write-protected or if current user has not enought right
 | `SPACESHIP_DIR_TRUNC_REPO` | `true` | While in `git` repo, show only root directory and folders inside it |
 | `SPACESHIP_DIR_COLOR` | `cyan` | Color of directory section |''
 | `SPACESHIP_DIR_LOCK_SYMBOL` | `🔒` | The symbol displayed if directory is write-protected |
-| `SPACESHIP_DIR_LOCK_COLOR` | `red` | Color for the symbol |
+| `SPACESHIP_DIR_LOCK_COLOR` | `red` | Color for the lock symbol |
 
 ### Git (`git`)
 

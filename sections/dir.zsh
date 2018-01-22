@@ -13,7 +13,7 @@ SPACESHIP_DIR_SUFFIX="${SPACESHIP_DIR_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}
 SPACESHIP_DIR_TRUNC="${SPACESHIP_DIR_TRUNC=3}"
 SPACESHIP_DIR_TRUNC_REPO="${SPACESHIP_DIR_TRUNC_REPO=true}"
 SPACESHIP_DIR_COLOR="${SPACESHIP_DIR_COLOR="cyan"}"
-SPACESHIP_DIR_LOCK_SYMBOL="${SPACESHIP_DIR_LOCK_SYMBOL="🔒"}"
+SPACESHIP_DIR_LOCK_SYMBOL="${SPACESHIP_DIR_LOCK_SYMBOL=" 🔒"}"
 SPACESHIP_DIR_LOCK_COLOR="${SPACESHIP_DIR_LOCK_COLOR=red}"
 
 # ------------------------------------------------------------------------------
@@ -25,8 +25,6 @@ spaceship_dir() {
 
   local dir
 
-  [[ -w . ]] && SPACESHIP_WRITE_PERM_SYMBOL=''
-
   # Threat repo root as a top-level directory or not
   if [[ $SPACESHIP_DIR_TRUNC_REPO == true ]] && spaceship::is_git; then
     local git_root=$(git rev-parse --show-toplevel)
@@ -36,7 +34,7 @@ spaceship_dir() {
   fi
 
   if [[ ! -w . ]]; then
-    SPACESHIP_DIR_SUFFIX="%F{$SPACESHIP_DIR_LOCK_COLOR} $SPACESHIP_DIR_LOCK_SYMBOL %f"
+    SPACESHIP_DIR_SUFFIX="%F{$SPACESHIP_DIR_LOCK_COLOR}${SPACESHIP_DIR_LOCK_SYMBOL}%f${SPACESHIP_DIR_SUFFIX}"
   fi
 
   spaceship::section \
