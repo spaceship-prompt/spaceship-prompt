@@ -137,7 +137,7 @@ If current directory is write-protected or if current user has not enough rights
 | `SPACESHIP_DIR_TRUNC` | `3` | Number of folders of cwd to show in prompt, 0 to show all |
 | `SPACESHIP_DIR_TRUNC_REPO` | `true` | While in `git` repo, show only root directory and folders inside it |
 | `SPACESHIP_DIR_COLOR` | `cyan` | Color of directory section |''
-| `SPACESHIP_DIR_LOCK_SYMBOL` | `🔒` | The symbol displayed if directory is write-protected |
+| `SPACESHIP_DIR_LOCK_SYMBOL` | `·🔒` | The symbol displayed if directory is write-protected |
 | `SPACESHIP_DIR_LOCK_COLOR` | `red` | Color for the lock symbol |
 
 ### Git (`git`)
