@@ -7,6 +7,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_HOST_SHOW="${SPACESHIP_HOST_SHOW=true}"
+SPACESHIP_HOST_SHOW_FULL="${SPACESHIP_HOST_SHOW_FULL=false}"
 SPACESHIP_HOST_PREFIX="${SPACESHIP_HOST_PREFIX="at "}"
 SPACESHIP_HOST_SUFFIX="${SPACESHIP_HOST_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_HOST_COLOR="${SPACESHIP_HOST_COLOR="blue"}"
@@ -22,6 +23,7 @@ spaceship_host() {
 
   if [[ $SPACESHIP_HOST_SHOW == 'always' ]] || [[ -n $SSH_CONNECTION ]]; then
     local host_color
+    local zsh_expansion
 
     # Determination of what color should be used
     if [[ -n $SSH_CONNECTION ]]; then
@@ -30,10 +32,16 @@ spaceship_host() {
       host_color=$SPACESHIP_HOST_COLOR
     fi
 
+    if [[ $SPACESHIP_HOST_SHOW_FULL == true ]]; then
+      zsh_expansion="%M"
+    else
+      zsh_expansion="%m"
+    fi
+
     spaceship::section \
       "$host_color" \
       "$SPACESHIP_HOST_PREFIX" \
-      '%m' \
+      "$zsh_expansion" \
       "$SPACESHIP_HOST_SUFFIX"
   fi
 }
