@@ -9,7 +9,6 @@
   * [Username (user)](/docs/Options.md#username-user)
   * [Hostname (host)](/docs/Options.md#hostname-host)
   * [Directory (dir)](/docs/Options.md#directory-dir)
-  * [Write permission (write_perm)](/docs/Options.md#write-permission)
   * [Git (git)](/docs/Options.md#git-git)
     * [Git branch (git_branch)](/docs/Options.md#git-branch-gitbranch)
     * [Git status (git_status)](/docs/Options.md#git-status-gitstatus)
