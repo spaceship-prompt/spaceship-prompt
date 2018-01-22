@@ -7,7 +7,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_HOST_SHOW="${SPACESHIP_HOST_SHOW=true}"
-SPACESHIP_HOST_SHOW_FULL="${SPACESHIP_HOST_SHOW_FULL=false}"
+SPACESHIP_HOST_FULL="${SPACESHIP_HOST_FULL=false}"
 SPACESHIP_HOST_PREFIX="${SPACESHIP_HOST_PREFIX="at "}"
 SPACESHIP_HOST_SUFFIX="${SPACESHIP_HOST_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_HOST_COLOR="${SPACESHIP_HOST_COLOR="blue"}"
@@ -32,7 +32,7 @@ spaceship_host() {
       host_color=$SPACESHIP_HOST_COLOR
     fi
 
-    if [[ $SPACESHIP_HOST_SHOW_FULL == true ]]; then
+    if [[ $SPACESHIP_HOST_FULL == true ]]; then
       zsh_expansion="%M"
     else
       zsh_expansion="%m"
