@@ -481,11 +481,11 @@ Execution time of the last command. Will be displayed if it exceeds the set thre
 
 ### Battery (`battery`)
 
-By default, Battery section is shown only if battery level is below `SPACESHIP_BATTERY_THRESHOLD` (default: 10%) or it's fully charged.
+By default, Battery section is shown only if battery level is below `SPACESHIP_BATTERY_THRESHOLD` (default: 10%).
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_BATTERY_SHOW` | `true` | Show battery section or not (`true`, `false`, `always` or `low`) |
+| `SPACESHIP_BATTERY_SHOW` | `true` | Show battery section or not (`true`, `false`, `always` or `charged`) |
 | `SPACESHIP_BATTERY_PREFIX` | ` ` | Prefix before battery section |
 | `SPACESHIP_BATTERY_SUFFIX` | `SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after battery section |
 | `SPACESHIP_BATTERY_SYMBOL_CHARGING` | `⇡` | Character to be shown if battery is charging |
@@ -499,8 +499,8 @@ By default, Battery section is shown only if battery level is below `SPACESHIP_B
 | :----------------------: | :-------------- | :-------------- | :------------ |
 | `false`                  | Hidden          | Hidden          | Hidden        |
 | `always`                 | Shown           | Shown           | Shown         |
-| `true`                   | Shown           | Hidden          | Shown         |
-| `low`                    | Shown           | Hidden          | Hidden        |
+| `true`                   | Shown           | Hidden          | Hidden        |
+| `charged`                | Shown           | Hidden          | Shown         |
 
 ### Vi-mode (`vi_mode`)
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 #
 # Author: Denys Dovhan, denysdovhan.com
 # https://github.com/denysdovhan/spaceship-prompt
