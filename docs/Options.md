@@ -181,22 +181,22 @@ Git status indicators is shown only when you have dirty repository.
 
 ### Git commit time (`git_commit_time`)
 
-The value is displayed in three possible colors :
--   green (for short time)
--   yellow (for medium time)
--   red (for long time)
+Display the time since last commit. It is shown only in Git repositories.
 
-Value is considered as "short" if it is smaller than `SPACESHIP_GIT_COMMIT_TIME_THRESHOLD_LOW`, "long"
-if it is greater than `SPACESHIP_GIT_COMMIT_TIME_THRESHOLD_HIGH` or "medium" if it is between them.
+| Time | Color |
+| :--: | :---: |
+| greater than `SPACESHIP_GIT_COMMIT_TIME_THRESHOLD_HIGH` | `red` *(long)* |
+| between them | `yellow` *(medium)* |
+| lower than `SPACESHIP_GIT_COMMIT_TIME_THRESHOLD_LOW` | `green` *(short)* |
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_GIT_COMMIT_TIME_SHOW` | `false` | Show Git commit time subsection |
 | `SPACESHIP_GIT_COMMIT_TIME_PREFIX` | `since` | Prefix before Git commit time subsection |
-| `SPACESHIP_GIT_COMMIT_TIME_SUFFIX` | `` | Suffix after Git commit time subsection |
+| `SPACESHIP_GIT_COMMIT_TIME_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Git commit time subsection |
 | `SPACESHIP_GIT_COMMIT_TIME_THRESHOLD_LOW` | `30` | Threshold for "short commit time", in minutes |
 | `SPACESHIP_GIT_COMMIT_TIME_THRESHOLD_HIGH` | `240` (4h) | Threshold for "long commit time", in minutes |
-_
+
 ### Mercurial (`hg`)
 
 Mercurial section is consists with `hg_branch` and `hg_status` subsections. It is shown only in Mercurial repositories.
