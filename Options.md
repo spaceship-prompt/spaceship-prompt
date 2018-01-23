@@ -45,7 +45,7 @@ SPACESHIP_PROMPT_ORDER=(
   line_sep      # Line break
   battery       # Battery level and status
   vi_mode       # Vi-mode indicator
-  jobs          # Backgound jobs indicator
+  jobs          # Background jobs indicator
   exit_code     # Exit code section
   char          # Prompt character
 )
