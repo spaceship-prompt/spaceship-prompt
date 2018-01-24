@@ -22,7 +22,8 @@ spaceship_host() {
   [[ $SPACESHIP_HOST_SHOW == false ]] && return
 
   if [[ $SPACESHIP_HOST_SHOW == 'always' ]] || [[ -n $SSH_CONNECTION ]]; then
-    local host_color, host
+    local host_color
+    local host
 
     # Determination of what color should be used
     if [[ -n $SSH_CONNECTION ]]; then
