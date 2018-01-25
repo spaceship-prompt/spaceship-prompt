@@ -21,7 +21,13 @@ spaceship_hg_branch() {
 
   spaceship::is_hg || return
 
+  local hg_info=$(hg log -r . -T '{activebookmark}')
+
+  if [[ -z $hg_info ]]; then
+    hg_info=$(hg branch)
+  fi
+
   spaceship::section \
     "$SPACESHIP_HG_BRANCH_COLOR" \
-    "$SPACESHIP_HG_BRANCH_PREFIX"$(hg branch)"$SPACESHIP_HG_BRANCH_SUFFIX"
+    "$SPACESHIP_HG_SYMBOL"$hg_info"$SPACESHIP_HG_BRANCH_SUFFIX"
 }
