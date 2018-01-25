@@ -1,29 +1,51 @@
 {
-  "name": "spaceship-zsh-theme",
-  "version": "2.10.0",
-  "description": "An “Oh My ZSH!” theme for Astronauts.",
+  "name": "spaceship-prompt",
+  "version": "3.0.3",
+  "description": "A Zsh prompt for Astronauts.",
+  "files": [
+    "lib",
+    "scripts",
+    "sections",
+    "spaceship.zsh",
+    "spaceship.zsh-theme"
+  ],
   "scripts": {
-    "postinstall": "./install.zsh",
-    "postuninstall": "./uninstall.zsh",
+    "postinstall": "./scripts/install.sh",
+    "postuninstall": "./scripts/uninstall.sh",
+    "version": "./scripts/version.sh",
     "postpublish": "git push --follow-tags",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:prepare": "gitbook install",
+    "docs:icons": "cp logos/apple-touch-icon.png _book/gitbook/images/apple-touch-icon-precomposed-152.png && cp logos/favicon.ico _book/gitbook/images",
+    "docs:serve": "npm run docs:prepare && gitbook serve .",
+    "docs:build": "npm run docs:prepare && gitbook build && npm run docs:icons",
+    "docs:publish": "gh-pages -d _book -m \"Updated at $(date +'%a, %d %b %Y, %T, %Z')\" --add",
+    "docs:deploy": "npm run docs:build && npm run docs:publish"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/denysdovhan/spaceship-zsh-theme.git"
+    "url": "git+https://github.com/denysdovhan/spaceship-prompt.git"
   },
   "keywords": [
     "prompt",
     "shell",
     "zsh",
     "zsh-theme",
-    "oh-my-zsh",
     "terminal"
   ],
   "author": "Denys Dovhan <email@denysdovhan.com> (http://denysdovhan.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/denysdovhan/spaceship-zsh-theme/issues"
+    "url": "https://github.com/denysdovhan/spaceship-prompt/issues"
   },
-  "homepage": "https://github.com/denysdovhan/spaceship-zsh-theme#readme"
+  "homepage": "https://github.com/denysdovhan/spaceship-prompt#readme",
+  "devDependencies": {
+    "gh-pages": "^1.1.0",
+    "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-anchorjs": "^1.1.1",
+    "gitbook-plugin-edit-link": "^2.0.2",
+    "gitbook-plugin-github": "^2.0.0",
+    "gitbook-plugin-github-buttons": "^3.0.0",
+    "gitbook-plugin-prism": "^2.3.0"
+  }
 }
