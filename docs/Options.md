@@ -40,7 +40,7 @@ SPACESHIP_PROMPT_ORDER=(
   pyenv         # Pyenv section
   dotnet        # .NET section
   ember         # Ember.js section
-  kubecontext   # Kubectl context section
+  k8s           # Kubctl section (kubecontext + k8s_namespace)
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status
@@ -436,6 +436,16 @@ Ember.js section is shown only in directories that contain a `ember-cli-build.js
 | `SPACESHIP_EMBER_SYMBOL` | `🐹·` | Character to be shown before Ember.js version |
 | `SPACESHIP_EMBER_COLOR` | `210` | Color of Ember.js section |
 
+### K8s (`k8s`)
+
+Shows both the active kubectl context (`kubecontext`) and namespace (`k8s_namespace`)
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_K8S_SHOW` | `true` | Show Both Kubectl context and namespace |
+| `SPACESHIP_K8S_PREFIX` | `at·` | Prefix before k8s section |
+| `SPACESHIP_K8S_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after k8s section |
+
 ### Kubectl context (`kubecontext`)
 
 Shows the active kubectl context.
@@ -443,10 +453,22 @@ Shows the active kubectl context.
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_KUBECONTEXT_SHOW` | `true` | Current Kubectl context section |
-| `SPACESHIP_KUBECONTEXT_PREFIX` | `at·` | Prefix before Kubectl context section |
-| `SPACESHIP_KUBECONTEXT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubectl context section |
+| `SPACESHIP_KUBECONTEXT_PREFIX` | ` ` | Prefix before Kubectl context section |
+| `SPACESHIP_KUBECONTEXT_SUFFIX` | ` ` | Suffix after Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_SYMBOL` | `☸️·` | Character to be shown before Kubectl context |
 | `SPACESHIP_KUBECONTEXT_COLOR` | `cyan` | Color of Kubectl context section |
+
+### Kubectl namespace (`k8s_namespace`)
+
+Shows currnet kubectl namespace. This requires [jq](https://stedolan.github.io/jq/) to parse output from `kubectl`.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+`SPACESHIP_K8S_NAMESPACE_SHOW` | `true` | Show namespace section |
+`SPACESHIP_K8S_NAMESPACE_PREFIX` | ` ` | Prefix before Kubectl namespace section |
+`SPACESHIP_K8S_NAMESPACE_SEPARATOR` | `/` | Separator between context and namespace |
+`SPACESHIP_K8S_NAMESPACE_SUFFIX` | ` ` | Suffix after Kubectl namespace section |
+`SPACESHIP_K8S_NAMESPACE_COLOR` | `cyan` | Color of Kubectl namespace section |
 
 ### Execution time (`exec_time`)
 

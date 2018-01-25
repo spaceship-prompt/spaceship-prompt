@@ -64,7 +64,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     pyenv         # Pyenv section
     dotnet        # .NET section
     ember         # Ember.js section
-    kubecontext   # Kubectl context section
+    k8s           # Kubectl section (kubecontext + k8s_namespace)
     exec_time     # Execution time
     line_sep      # Line break
     battery       # Battery level and status
