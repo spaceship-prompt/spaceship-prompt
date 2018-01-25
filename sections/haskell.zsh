@@ -28,7 +28,7 @@ spaceship_haskell() {
   # The command is stack, so do not change this to haskell.
   spaceship::exists stack || return
 
-  local haskell_version=$(stack --numeric-version)
+  local haskell_version=$(stack ghc -- --numeric-version --no-install-ghc)
 
   spaceship::section \
     "$SPACESHIP_HASKELL_COLOR" \
