@@ -119,6 +119,7 @@ Hostname is shown only when you're connected via SSH unless you change this beha
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_HOST_SHOW` | `true` | Show host section (`true`, `false` or `always`) |
+| `SPACESHIP_HOST_SHOW_FULL` | `false` | Show full hostname section (`true`, `false`) |
 | `SPACESHIP_HOST_PREFIX` | `at·` | Prefix before the connected SSH machine name |
 | `SPACESHIP_HOST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the connected SSH machine name |
 | `SPACESHIP_HOST_COLOR` | `blue` | Color of host section |
