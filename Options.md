@@ -233,7 +233,7 @@ Package version is shown when repository is a package (e.g. contains a `package.
 
 Node.js section is shown only in directories that contain `package.json` file, or `node_modules` folder, or any other file with `.js` extension.
 
-If you use [n] as Node.js version manager, please, set `SPACESHIP_NODE_DEFAULT_VERSION` to the default Node.js version. If current version is the same as `SPACESHIP_NODE_DEFAULT_VERSION`, then Node.js section will be hidden.
+If you set `SPACESHIP_NODE_DEFAULT_VERSION` to the default Node.js version and your current version is the same as `SPACESHIP_NODE_DEFAULT_VERSION`, then Node.js section will be hidden.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -241,7 +241,7 @@ If you use [n] as Node.js version manager, please, set `SPACESHIP_NODE_DEFAULT_V
 | `SPACESHIP_NODE_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Node.js section |
 | `SPACESHIP_NODE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Node.js section |
 | `SPACESHIP_NODE_SYMBOL` | `⬢·` | Character to be shown before Node.js version |
-| `SPACESHIP_NODE_DEFAULT_VERSION` | ` ` | Node.js version to be treated as default (for [n] support) |
+| `SPACESHIP_NODE_DEFAULT_VERSION` | ` ` | Node.js version to be treated as default |
 | `SPACESHIP_NODE_COLOR` | `green` | Color of Node.js section |
 
 ### Ruby (`ruby`)
