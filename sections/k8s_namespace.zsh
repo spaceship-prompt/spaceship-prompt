@@ -5,7 +5,6 @@
 # and management of containerized applications.
 # Link: https://kubernetes.io/
 #
-# This section requires jq https://stedolan.github.io/jq/ to be installed.
 
 # ------------------------------------------------------------------------------
 # Configuration
@@ -26,15 +25,16 @@ spaceship_k8s_namespace() {
   [[ $SPACESHIP_KUBE_NAMESPACE_SHOW == false ]] && return
 
   spaceship::exists kubectl || return
-  spaceship::exists jq || return
 
   local kube_context=$(kubectl config current-context 2>/dev/null)
 
   [[ -z $kube_context ]] && return
 
-  local kube_namespace=$(kubectl config view -o json 2>/dev/null | jq -e -r ".contexts[] | select(.name==\"${kube_context}\") | .context.namespace | select (.!=null)" || echo "default")
+  local kube_namespace=$(kubectl config view -o jsonpath="{.contexts[?(@.name == \"${kube_context}\")].context.namespace}")
 
-  [[ -z $kube_namespace ]] && return
+  if [[ -z $kube_namespace ]]; then
+    kube_namespace="default"
+  fi
 
   spaceship::section \
     "${SPACESHIP_K8S_NAMESPACE_COLOR}" \

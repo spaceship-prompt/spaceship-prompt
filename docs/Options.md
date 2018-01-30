@@ -460,7 +460,7 @@ Shows the active kubectl context.
 
 ### Kubectl namespace (`k8s_namespace`)
 
-Shows currnet kubectl namespace. This requires [jq](https://stedolan.github.io/jq/) to parse output from `kubectl`.
+Shows currnet kubectl namespace.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
