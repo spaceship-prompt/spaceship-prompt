@@ -191,7 +191,7 @@ Mercurial section is consists with `hg_branch` and `hg_status` subsections. It i
 
 #### Mercurial branch (`hg_branch`)
 
-Shows Mercurial bookmarks when available, Else shows Mercurial branch information.
+Shows Mercurial bookmarks when available, otherwise shows Mercurial branch information.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
