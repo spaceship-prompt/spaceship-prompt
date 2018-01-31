@@ -192,6 +192,8 @@ Mercurial section is consists with `hg_branch` and `hg_status` subsections. It i
 
 #### Mercurial branch (`hg_branch`)
 
+Shows Mercurial bookmarks when available, otherwise shows Mercurial branch information.
+
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_HG_BRANCH_SHOW` | `true` | Show Mercurial branch subsection |
