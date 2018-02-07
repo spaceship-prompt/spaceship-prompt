@@ -52,8 +52,8 @@ spaceship_battery() {
     [[ -z $battery ]] && return
 
     battery_data=$(upower -i $battery)
-    battery_percent="$( echo $battery_data | grep percentage | awk '{print $2}' )"
-    battery_status="$( echo $battery_data | grep state | awk '{print $2}' )"
+    battery_percent="$( echo '$battery_data' | grep percentage | awk '{print $2}' )"
+    battery_status="$( echo '$battery_data' | grep state | awk '{print $2}' )"
   elif spaceship::exists acpi; then
     battery_data=$(acpi -b)
 
