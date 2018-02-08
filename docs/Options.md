@@ -389,6 +389,7 @@ Shows selected Amazon Web Services profile using '[named profiles](http://docs.a
 | `SPACESHIP_VENV_SHOW` | `true` | Show current Python virtualenv or not |
 | `SPACESHIP_VENV_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the virtualenv section |
 | `SPACESHIP_VENV_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the virtualenv section |
+| `SPACESHIP_VENV_GENERIC_NAMES` | `(virtualenv venv .venv)` | If the virtualenv folder is in this *array*, than use its parent directory as its name instead |
 | `SPACESHIP_VENV_COLOR` | `blue` | Color of virtualenv environment section |
 
 ### Conda virtualenv (`conda`)
