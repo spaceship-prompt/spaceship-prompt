@@ -118,7 +118,7 @@ Set `ZSH_THEME="spaceship"` in your `.zshrc`.
 
 ### [antigen]
 
-Add the following snippet in your `~/.zshrc``:
+Add the following snippet in your `~/.zshrc`:
 
 ```
 antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
