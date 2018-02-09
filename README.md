@@ -44,9 +44,9 @@ Currently it shows:
 * Current Xcode version, through xenv (`🛠`).
 * Current Go version (`🐹`).
 * Current PHP version (`🐘`).
-* Current Rust version (`𝗥`)
-* Current version of Haskell GHC Compiler, defined in stack.yaml file (`λ`)
-* Current Julia version (`ஃ`)
+* Current Rust version (`𝗥`).
+* Current version of Haskell GHC Compiler, defined in stack.yaml file (`λ`).
+* Current Julia version (`ஃ`).
 * Current Docker version and connected machine (`🐳`).
 * Current Amazon Web Services (AWS) profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)).
 * Current Python virtualenv.
