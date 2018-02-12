@@ -152,19 +152,13 @@ zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
 
 #### Arch linux
 
-Install the latest master from the
-[AUR](https://aur.archlinux.org/packages/spaceship-prompt-git/):
+Install the latest master from the [AUR package
+`spaceship-prompt-git`](https://aur.archlinux.org/packages/spaceship-prompt-git/):
 
 ```
 git clone https://aur.archlinux.org/spaceship-prompt-git.git
 cd spaceship-prompt-git
 makepkg -si
-```
-
-Or using [pacaur]():
-
-```
-pacaur -S spaceship-prompt-git
 ```
 
 ### Manual
