@@ -150,7 +150,7 @@ zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
 
 ### Linux package manager
 
-#### Arch linux
+#### Arch Linux
 
 Install the latest master from the [AUR package
 `spaceship-prompt-git`](https://aur.archlinux.org/packages/spaceship-prompt-git/):
