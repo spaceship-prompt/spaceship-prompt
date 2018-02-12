@@ -30,3 +30,17 @@ before_script:
   - zsh --version
 script:
   - scripts/tests.sh
+jobs:
+  include:
+    - stage: deploy gitbook
+      if: branch = master AND type = push
+      script:
+        - npm install --only=dev --ignore-scripts
+        - npm run docs:build
+      deploy:
+       provider: pages
+       skip-cleanup: true
+       github-token: $GITHUB_TOKEN
+       committer-from-gh: true
+       keep-history: true
+       local-dir: _book
