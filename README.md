@@ -148,6 +148,25 @@ Use this command in your `.zshrc` to load Spaceship as prompt theme:
 zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
 ```
 
+### Linux package manager
+
+#### Arch linux
+
+Install the latest master from the
+[AUR](https://aur.archlinux.org/packages/spaceship-prompt-git/):
+
+```
+git clone https://aur.archlinux.org/spaceship-prompt-git.git
+cd spaceship-prompt-git
+makepkg -si
+```
+
+Or using [pacaur]():
+
+```
+pacaur -S spaceship-prompt-git
+```
+
 ### Manual
 
 If you have problems with approches above, follow these instructions:
