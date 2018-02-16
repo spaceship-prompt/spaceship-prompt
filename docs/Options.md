@@ -165,6 +165,8 @@ SPACESHIP_GIT_ORDER=(
 )
 ```
 
+The other Git subsection shipped with Spaceship is `status_oh_my_zsh`. Ported from [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), this is the Git status Spaceship used prior to v3.0.
+
 #### Git branch (`git_branch`)
 
 | Variable | Default | Meaning |
