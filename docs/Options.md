@@ -140,7 +140,7 @@ Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`. W
 
 ### Git (`git`)
 
-Git section is consists with `git_branch` and `git_status` subsections. It is shown only in Git repositories.
+Git section is shown only in Git repositories.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -148,6 +148,22 @@ Git section is consists with `git_branch` and `git_status` subsections. It is sh
 | `SPACESHIP_GIT_PREFIX` | `on·` | Prefix before Git section |
 | `SPACESHIP_GIT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Git section |
 | `SPACESHIP_GIT_SYMBOL` | ![·](https://user-images.githubusercontent.com/3459374/34947621-4f324a92-fa13-11e7-9b99-cdba2cdda6b9.png) | Character to be shown before Git section (requires [powerline patched font](https://github.com/powerline/fonts) |
+
+
+#### Git subsections
+
+The Git section consists of several subsections. You can specify the order of the subsections using `SPACESHIP_PROMPT_ORDER` option. Use Zsh array syntax to define your own prompt order.
+
+The order also defines which sections that Spaceship loads. If you're struggling with slow prompt, you can just omit the sections that you don't use, and they won't be loaded.
+
+The default order is:
+
+```zsh
+SPACESHIP_GIT_ORDER=(
+  branch
+  status
+)
+```
 
 #### Git branch (`git_branch`)
 
