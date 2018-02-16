@@ -7,7 +7,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='3.0.3'
+export SPACESHIP_VERSION='3.2.0'
 
 # Common-used variable for new line separator
 NEWLINE='
@@ -85,7 +85,7 @@ fi
 # PROMPT
 SPACESHIP_PROMPT_ADD_NEWLINE="${SPACESHIP_PROMPT_ADD_NEWLINE=true}"
 SPACESHIP_PROMPT_SEPARATE_LINE="${SPACESHIP_PROMPT_SEPARATE_LINE=true}"
-SPACESHIP_PROMPT_FIRST_PREFIX_SHOW="${SPACESHIP_PROMPT_FIRST_PREFIX=false}"
+SPACESHIP_PROMPT_FIRST_PREFIX_SHOW="${SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=false}"
 SPACESHIP_PROMPT_PREFIXES_SHOW="${SPACESHIP_PROMPT_PREFIXES_SHOW=true}"
 SPACESHIP_PROMPT_SUFFIXES_SHOW="${SPACESHIP_PROMPT_SUFFIXES_SHOW=true}"
 SPACESHIP_PROMPT_DEFAULT_PREFIX="${SPACESHIP_PROMPT_DEFAULT_PREFIX="via "}"
@@ -177,6 +177,7 @@ spaceship_ps2() {
 # Runs once when user opens a terminal
 # All preparation before drawing prompt should be done here
 prompt_spaceship_setup() {
+  autoload -Uz vcs_info
   autoload -Uz add-zsh-hook
 
   # This variable is a magic variable used when loading themes with zsh's prompt
@@ -193,6 +194,11 @@ prompt_spaceship_setup() {
 
   # Disable python virtualenv environment prompt prefix
   VIRTUAL_ENV_DISABLE_PROMPT=true
+
+  # Configure vcs_info helper for potential use in the future
+  add-zsh-hook precmd spaceship_exec_vcs_info_precmd_hook
+  zstyle ':vcs_info:*' enable git
+  zstyle ':vcs_info:git*' formats '%b'
 
   # Expose Spaceship to environment variables
   PROMPT='$(spaceship_prompt)'

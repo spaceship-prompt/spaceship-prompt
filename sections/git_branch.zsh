@@ -19,14 +19,11 @@ SPACESHIP_GIT_BRANCH_COLOR="${SPACESHIP_GIT_BRANCH_COLOR="magenta"}"
 spaceship_git_branch() {
   [[ $SPACESHIP_GIT_BRANCH_SHOW == false ]] && return
 
-  spaceship::is_git || return
+  local git_current_branch="$vcs_info_msg_0_"
+  [[ -z "$git_current_branch" ]] && return
 
-  local ref=$(command git symbolic-ref --quiet HEAD 2> /dev/null) ret=$?
-  if [[ $ret != 0 ]]; then
-    ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
-  fi
-
-  local git_current_branch=${ref#refs/heads/}
+  git_current_branch="${git_current_branch#heads/}"
+  git_current_branch="${git_current_branch/.../}"
 
   spaceship::section \
     "$SPACESHIP_GIT_BRANCH_COLOR" \

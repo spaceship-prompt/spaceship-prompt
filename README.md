@@ -31,14 +31,14 @@ Currently it shows:
   * `⇡` — ahead of remote branch;
   * `⇣` — behind of remote branch;
   * `⇕` — diverged chages.
-* Current Mercurial branch and rich repo status:
+* Current Mercurial bookmark/branch and rich repo status:
   * `?` — untracked changes;
   * `+` — uncommitted changes in the index;
   * `!` — unstaged changes;
   * `✘` — deleted files;
 * Indicator for jobs in the background (`✦`).
 * Current Node.js version, through nvm/nodenv/n (`⬢`).
-* Current Ruby version, through rvm/rbenv/chruby (`💎`).
+* Current Ruby version, through rvm/rbenv/chruby/asdf (`💎`).
 * Current Elixir version, through kiex/exenv/elixir (`💧`).
 * Current Swift version, through swiftenv (`🐦`).
 * Current Xcode version, through xenv (`🛠`).
@@ -70,7 +70,7 @@ Want more features? Please, [open an issue](https://github.com/denysdovhan/space
 ## Preview
 
 <p align="center">
-  <img alt="Spaceship with Hyper and One Dark" src="./preview.gif" width="980px">
+  <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
 </p>
 
 You can find more examples with different color schemes in [Screenshots](https://github.com/denysdovhan/spaceship-prompt/wiki/Screenshots) wiki-page.
@@ -118,7 +118,7 @@ Set `ZSH_THEME="spaceship"` in your `.zshrc`.
 
 ### [antigen]
 
-Add the following snippet in your `~/.zshrc``:
+Add the following snippet in your `~/.zshrc`:
 
 ```
 antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
@@ -146,6 +146,18 @@ Use this command in your `.zshrc` to load Spaceship as prompt theme:
 
 ```
 zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
+```
+
+### Linux package manager
+
+#### Arch Linux
+
+Install the latest master from the AUR package [`spaceship-prompt-git`](https://aur.archlinux.org/packages/spaceship-prompt-git/):
+
+```
+git clone https://aur.archlinux.org/spaceship-prompt-git.git
+cd spaceship-prompt-git
+makepkg -si
 ```
 
 ### Manual

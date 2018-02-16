@@ -55,6 +55,7 @@ spaceship_git_status() {
   if $(echo "$INDEX" | command grep '^M[ MD] ' &> /dev/null); then
     git_status="$SPACESHIP_GIT_STATUS_MODIFIED$git_status"
   elif $(echo "$INDEX" | command grep '^[ MARC]M ' &> /dev/null); then
+    # Copied status 'C' is never available with `git status`, See #364
     git_status="$SPACESHIP_GIT_STATUS_MODIFIED$git_status"
   fi
 
