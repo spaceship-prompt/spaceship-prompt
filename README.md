@@ -48,6 +48,7 @@ Currently it shows:
 * Current version of Haskell Tool Stack (`λ`).
 * Current Julia version (`ஃ`).
 * Current Docker version and connected machine (`🐳`).
+* Current Vagrant version (`Ｖ`).
 * Current Amazon Web Services (AWS) profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)).
 * Current Python virtualenv.
 * Current Conda virtualenv (`🅒`).

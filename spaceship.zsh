@@ -58,6 +58,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     haskell       # Haskell Stack section
     julia         # Julia section
     docker        # Docker section
+    vagrant       # Vagrant section
     aws           # Amazon Web Services section
     venv          # virtualenv section
     conda         # conda virtualenv section

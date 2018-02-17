@@ -34,6 +34,7 @@ SPACESHIP_PROMPT_ORDER=(
   haskell       # Haskell Stack section
   julia         # Julia section
   docker        # Docker section
+  vagrant       # Vagrant section
   aws           # Amazon Web Services section
   venv          # virtualenv section
   conda         # conda virtualenv section
@@ -369,6 +370,18 @@ Docker section is shown only in directories that contain `Dockerfile` or `docker
 | `SPACESHIP_DOCKER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Docker section |
 | `SPACESHIP_DOCKER_SYMBOL` | `🐳·` | Character to be shown before Docker version |
 | `SPACESHIP_DOCKER_COLOR` | `cyan` | Color of Docker section |
+
+### Vagrant (`vagrant`)
+
+Vagrant section is shown only in directories that contain `Vagrantfile` or the `$VAGRANT_VAGRANTFILE` file.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_VAGRANT_SHOW` | `true` | Show current Vagrant version |
+| `SPACESHIP_VAGRANT_PREFIX` | `on ` | Prefix before the Vagrant section |
+| `SPACESHIP_VAGRANT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Vagrant section |
+| `SPACESHIP_VAGRANT_SYMBOL` | `Ｖ` | Character to be shown before Vagrant version |
+| `SPACESHIP_VAGRANT_COLOR` | `yellow` | Color of Vagrant section |
 
 ### Amazon Web Services (AWS) (`aws`)
 
