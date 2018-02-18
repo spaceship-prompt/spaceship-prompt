@@ -18,7 +18,7 @@ SPACESHIP_VAGRANT_COLOR="${SPACESHIP_VAGRANT_COLOR="yellow"}"
 # Section
 # ------------------------------------------------------------------------------
 
-# Show current Vagrant version and connected machine
+# Show current Vagrant status
 spaceship_vagrant() {
   [[ $SPACESHIP_VAGRANT_SHOW == false ]] && return
 

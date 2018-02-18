@@ -377,10 +377,10 @@ Vagrant section is shown only in directories that contain `Vagrantfile` or the `
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_VAGRANT_SHOW` | `true` | Show current Vagrant version |
+| `SPACESHIP_VAGRANT_SHOW` | `true` | Show current Vagrant status |
 | `SPACESHIP_VAGRANT_PREFIX` | `on ` | Prefix before the Vagrant section |
 | `SPACESHIP_VAGRANT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Vagrant section |
-| `SPACESHIP_VAGRANT_SYMBOL` | `Ｖ` | Character to be shown before Vagrant version |
+| `SPACESHIP_VAGRANT_SYMBOL` | `Ｖ` | Character to be shown before Vagrant status |
 | `SPACESHIP_VAGRANT_COLOR` | `yellow` | Color of Vagrant section |
 
 ### Amazon Web Services (AWS) (`aws`)
