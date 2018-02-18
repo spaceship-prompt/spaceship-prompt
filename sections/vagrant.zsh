@@ -27,11 +27,11 @@ spaceship_vagrant() {
   # Show Vagrant status only for Vagrant-specific folders
   [[ -f Vagrantfile || (-n $VAGRANT_VAGRANTFILE && -f ${VAGRANT_VAGRANTFILE}) ]] || return
 
-	local vagrant_version=$(vagrant --version | grep --colour=never -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]')
+  local vagrant_status=$(vagrant status | sed -n 3p | awk {'print $2'})
 
   spaceship::section \
     "$SPACESHIP_VAGRANT_COLOR" \
     "$SPACESHIP_VAGRANT_PREFIX" \
-    "${SPACESHIP_VAGRANT_SYMBOL}${vagrant_version}" \
+    "${SPACESHIP_VAGRANT_SYMBOL}${vagrant_status}" \
     "$SPACESHIP_VAGRANT_SUFFIX"
 }
