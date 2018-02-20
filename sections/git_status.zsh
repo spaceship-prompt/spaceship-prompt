@@ -13,8 +13,8 @@ source "$SPACESHIP_ROOT/sections/git_status_options.zsh"
 # ------------------------------------------------------------------------------
 
 # We used to depend on OMZ git library,
-# But it doesn't handle many of the status indicator combinations.
-# Also, It's hard to maintain external dependency.
+# but it doesn't handle many of the status indicator combinations.
+# Also, it's hard to maintain external dependency.
 # See PR #147 at https://git.io/vQkkB
 # See git help status to know more about status formats
 spaceship_git_status() {
