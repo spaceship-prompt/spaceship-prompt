@@ -1,3 +1,11 @@
+<!--
+BEFORE SUBMITTING NEW ISSUE, PLEASE, READ THE TROUBLESHOOTING PAGE!
+
+https://github.com/denysdovhan/spaceship-prompt/blob/master/docs/Troubleshooting.md
+
+If your issue is not addressed by the troubleshooting page and there are no duplicates, please, fill in the following details so that we can help you!
+-->
+
 #### Issue
 
 Describe your issue, steps to reproduce, additional information…
