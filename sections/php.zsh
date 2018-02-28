@@ -22,8 +22,8 @@ SPACESHIP_PHP_COLOR="${SPACESHIP_PHP_COLOR="blue"}"
 spaceship_php() {
   [[ $SPACESHIP_PHP_SHOW == false ]] && return
 
-  # Show only if php files exist in current directory
-  [[ -n *.php(#qN^/) ]] || return
+  # Show only if php files or composer.json exist in current directory
+  [[ -n *.php(#qN^/) || -f composer.json ]] || return
 
   spaceship::exists php || return
 

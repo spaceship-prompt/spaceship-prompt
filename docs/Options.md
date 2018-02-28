@@ -312,7 +312,7 @@ Go section is shown only in directories that contain `Godeps`, `glide.yaml`, any
 
 ### PHP (`php`)
 
-PHP section is shown only in directories that contain any file with `.php` extension.
+PHP section is shown only in directories that contain `composer.json` file, or any other file with `.php` extension.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
