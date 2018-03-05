@@ -38,8 +38,10 @@ spaceship_dir() {
     # `${NAME#PATTERN}` removes a leading prefix PATTERN from NAME.
     # `$~~` avoids `GLOB_SUBST` so that `$git_root` won't actually be
     # considered a pattern and matched literally, even if someone turns that on.
+    # `$git_root` has symlinks resolved, so we use `${PWD:A}` which resolves
+    # symlinks in the working directory.
     # See "Parameter Expansion" under the Zsh manual.
-    dir="$trunc_prefix$git_root:t${PWD#$~~git_root}"
+    dir="$trunc_prefix$git_root:t${${PWD:A}#$~~git_root}"
   else
     if [[ SPACESHIP_DIR_TRUNC -gt 0 ]]; then
       # `%(N~|TRUE-TEXT|FALSE-TEXT)` replaces `TRUE-TEXT` if the current path,
