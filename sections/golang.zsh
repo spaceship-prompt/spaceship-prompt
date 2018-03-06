@@ -27,7 +27,7 @@ spaceship_golang() {
 
   spaceship::exists go || return
 
-  local go_version=$(go version | grep --colour=never -oE '[[:digit:]].[[:digit:]]')
+  local go_version=$(go version | awk '{print $3}' | sed 's/go//' )
 
   spaceship::section \
     "$SPACESHIP_GOLANG_COLOR" \
