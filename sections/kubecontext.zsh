@@ -29,9 +29,12 @@ spaceship_kubecontext() {
 
   [[ -z $kube_context ]] && return
 
+  local kube_namespace=$(kubectl config view -o jsonpath="{.contexts[?(@.name==\"${kube_context}\")].context.namespace}" 2>/dev/null)
+
   spaceship::section \
     "$SPACESHIP_KUBECONTEXT_COLOR" \
     "$SPACESHIP_KUBECONTEXT_PREFIX" \
     "${SPACESHIP_KUBECONTEXT_SYMBOL}${kube_context}" \
+    " (${kube_namespace})" \
     "$SPACESHIP_KUBECONTEXT_SUFFIX"
 }
