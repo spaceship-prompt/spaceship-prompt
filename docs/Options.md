@@ -390,6 +390,7 @@ Shows selected Amazon Web Services profile using '[named profiles](http://docs.a
 | `SPACESHIP_VENV_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the virtualenv section |
 | `SPACESHIP_VENV_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the virtualenv section |
 | `SPACESHIP_VENV_GENERIC_NAMES` | `(virtualenv venv .venv)` | If the virtualenv folder is in this *array*, than use its parent directory as its name instead |
+| `SPACESHIP_VENV_SYMBOL` | `🐍·` | Character to be shown before virtualenv section |
 | `SPACESHIP_VENV_COLOR` | `blue` | Color of virtualenv environment section |
 
 ### Conda virtualenv (`conda`)
@@ -413,7 +414,7 @@ pyenv section is shown only in directories that contain `requirements.txt` or an
 | `SPACESHIP_PYENV_SHOW` | `true` | Show current Pyenv version or not |
 | `SPACESHIP_PYENV_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the pyenv section |
 | `SPACESHIP_PYENV_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the pyenv section |
-| `SPACESHIP_PYENV_SYMBOL` | `🐍·` | Character to be shown before Pyenv version |
+| `SPACESHIP_PYENV_SYMBOL` | `🅿·` | Character to be shown before Pyenv version |
 | `SPACESHIP_PYENV_COLOR` | `yellow` | Color of Pyenv section |
 
 ### .NET (`dotnet`)
