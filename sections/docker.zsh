@@ -24,8 +24,11 @@ spaceship_docker() {
 
   spaceship::exists docker || return
 
+  # COMPOSE_FILE may have several filenames separated by colon, test at least the first one
+  COMPOSE_FILE_SPLIT=("${(@s/:/)COMPOSE_FILE}")
+
   # Show Docker status only for Docker-specific folders
-  [[ -f $COMPOSE_FILE || -f Dockerfile || -f docker-compose.yml ]] || return
+  [[ -f $COMPOSE_FILE_SPLIT[1] || -f Dockerfile || -f docker-compose.yml ]] || return
 
   # if docker daemon isn't running you'll get an error saying it can't connect
   local docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
