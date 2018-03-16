@@ -34,44 +34,55 @@ spaceship_git_status() {
 
   spaceship::is_git || return
 
+  # Load colors here, because default color could have changed
+  SPACESHIP_GIT_STATUS_STASHED_COLOR="${SPACESHIP_GIT_STATUS_STASHED_COLOR="$SPACESHIP_GIT_STATUS_COLOR"}"
+  SPACESHIP_GIT_STATUS_UNMERGED_COLOR="${SPACESHIP_GIT_STATUS_UNMERGED_COLOR="$SPACESHIP_GIT_STATUS_COLOR"}"
+  SPACESHIP_GIT_STATUS_DELETED_COLOR="${SPACESHIP_GIT_STATUS_DELETED_COLOR="$SPACESHIP_GIT_STATUS_COLOR"}"
+  SPACESHIP_GIT_STATUS_MODIFIED_COLOR="${SPACESHIP_GIT_STATUS_MODIFIED_COLOR="$SPACESHIP_GIT_STATUS_COLOR"}"
+  SPACESHIP_GIT_STATUS_UNTRACKED_COLOR="${SPACESHIP_GIT_STATUS_UNTRACKED_COLOR="$SPACESHIP_GIT_STATUS_COLOR"}"
+  SPACESHIP_GIT_STATUS_ADDED_COLOR="${SPACESHIP_GIT_STATUS_ADDED_COLOR="$SPACESHIP_GIT_STATUS_COLOR"}"
+  SPACESHIP_GIT_STATUS_AHEAD_COLOR="${SPACESHIP_GIT_STATUS_AHEAD_COLOR="$SPACESHIP_GIT_STATUS_COLOR"}"
+  SPACESHIP_GIT_STATUS_BEHIND_COLOR="${SPACESHIP_GIT_STATUS_BEHIND_COLOR="$SPACESHIP_GIT_STATUS_COLOR"}"
+  SPACESHIP_GIT_STATUS_DIVERGED_COLOR="${SPACESHIP_GIT_STATUS_DIVERGED_COLOR="$SPACESHIP_GIT_STATUS_COLOR"}"
+
   local INDEX git_status=""
 
   INDEX=$(command git status --porcelain -b 2> /dev/null)
 
   # Check for stashes
   if $(command git rev-parse --verify refs/stash >/dev/null 2>&1); then
-    git_status+="$SPACESHIP_GIT_STATUS_STASHED"
+    git_status+="%F{$SPACESHIP_GIT_STATUS_STASHED_COLOR}$SPACESHIP_GIT_STATUS_STASHED%F{$SPACESHIP_GIT_STATUS_COLOR}"
   fi
 
   # Check for unmerged files
   if $(echo "$INDEX" | command grep '^U[DAU] ' &> /dev/null); then
-    git_status+="$SPACESHIP_GIT_STATUS_UNMERGED"
+    git_status+="%F{$SPACESHIP_GIT_STATUS_UNMERGED_COLOR}$SPACESHIP_GIT_STATUS_UNMERGED%F{$SPACESHIP_GIT_STATUS_COLOR}"
   elif $(echo "$INDEX" | command grep '^A[UA] ' &> /dev/null); then
-    git_status+="$SPACESHIP_GIT_STATUS_UNMERGED"
+    git_status+="%F{$SPACESHIP_GIT_STATUS_UNMERGED_COLOR}$SPACESHIP_GIT_STATUS_UNMERGED%F{$SPACESHIP_GIT_STATUS_COLOR}"
   elif $(echo "$INDEX" | command grep '^D[DU] ' &> /dev/null); then
-    git_status+="$SPACESHIP_GIT_STATUS_UNMERGED"
+    git_status+="%F{$SPACESHIP_GIT_STATUS_UNMERGED_COLOR}$SPACESHIP_GIT_STATUS_UNMERGED%F{$SPACESHIP_GIT_STATUS_COLOR}"
   fi
 
   # Check for deleted files
   if $(echo "$INDEX" | command grep '^[ MARC]D ' &> /dev/null); then
-    git_status+="$SPACESHIP_GIT_STATUS_DELETED"
+    git_status+="%F{$SPACESHIP_GIT_STATUS_DELETED_COLOR}$SPACESHIP_GIT_STATUS_DELETED%F{$SPACESHIP_GIT_STATUS_COLOR}"
   fi
 
   # Check for modified files
   if $(echo "$INDEX" | command grep '^[ MARC]M ' &> /dev/null); then
-    git_status+="$SPACESHIP_GIT_STATUS_MODIFIED"
+    git_status+="%F{$SPACESHIP_GIT_STATUS_MODIFIED_COLOR}$SPACESHIP_GIT_STATUS_MODIFIED%F{$SPACESHIP_GIT_STATUS_COLOR}"
   fi
 
   # Check for untracked files
   if $(echo "$INDEX" | command grep -E '^\?\? ' &> /dev/null); then
-    git_status+="$SPACESHIP_GIT_STATUS_UNTRACKED"
+    git_status+="%F{$SPACESHIP_GIT_STATUS_UNTRACKED_COLOR}$SPACESHIP_GIT_STATUS_UNTRACKED%F{$SPACESHIP_GIT_STATUS_COLOR}"
   fi
 
   # Check for staged files
   if $(echo "$INDEX" | command grep '^[MARC][ MD] ' &> /dev/null); then
-    git_status+="$SPACESHIP_GIT_STATUS_ADDED"
+    git_status+="%F{$SPACESHIP_GIT_STATUS_ADDED_COLOR}$SPACESHIP_GIT_STATUS_ADDED%F{$SPACESHIP_GIT_STATUS_COLOR}"
   elif $(echo "$INDEX" | command grep '^D[ M] ' &> /dev/null); then
-    git_status+="$SPACESHIP_GIT_STATUS_ADDED"
+    git_status+="%F{$SPACESHIP_GIT_STATUS_ADDED_COLOR}$SPACESHIP_GIT_STATUS_ADDED%F{$SPACESHIP_GIT_STATUS_COLOR}"
   fi
 
   # Check whether branch is ahead
@@ -88,10 +99,10 @@ spaceship_git_status() {
 
   # Check wheather branch has diverged
   if [[ "$is_ahead" == true && "$is_behind" == true ]]; then
-    git_status+="$SPACESHIP_GIT_STATUS_DIVERGED"
+    git_status+="%F{$SPACESHIP_GIT_STATUS_DIVERGED_COLOR}$SPACESHIP_GIT_STATUS_DIVERGED%F{$SPACESHIP_GIT_STATUS_COLOR}"
   else
-    [[ "$is_ahead" == true ]] && git_status+="$SPACESHIP_GIT_STATUS_AHEAD"
-    [[ "$is_behind" == true ]] && git_status+="$SPACESHIP_GIT_STATUS_BEHIND"
+    [[ "$is_ahead" == true ]] && git_status+="%F{$SPACESHIP_GIT_STATUS_AHEAD_COLOR}$SPACESHIP_GIT_STATUS_AHEAD%F{$SPACESHIP_GIT_STATUS_COLOR}"
+    [[ "$is_behind" == true ]] && git_status+="%F{$SPACESHIP_GIT_STATUS_BEHIND_COLOR}$SPACESHIP_GIT_STATUS_BEHIND%F{$SPACESHIP_GIT_STATUS_COLOR}"
   fi
 
   if [[ -n $git_status ]]; then
