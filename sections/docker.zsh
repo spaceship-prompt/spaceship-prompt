@@ -48,6 +48,9 @@ spaceship_docker() {
   local docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
   [[ -z $docker_version ]] && return
 
+  # Support for $COMPOSE_PROJECT_NAME (docker env vars)
+  [[ ! -z "$COMPOSE_PROJECT_NAME" ]] && docker_version+=" ($COMPOSE_PROJECT_NAME)"
+
   if [[ -n $DOCKER_MACHINE_NAME ]]; then
     docker_version+=" via ($DOCKER_MACHINE_NAME)"
   fi
