@@ -24,6 +24,7 @@ spaceship_docker() {
 
   spaceship::exists docker || return
 
+  # Better support for docker environment vars: https://docs.docker.com/compose/reference/envvars/
   # Use COMPOSE_PATH_SEPARATOR or colon as default
   local separator=":"
   [[ ! -z $COMPOSE_PATH_SEPARATOR ]] && separator=$COMPOSE_PATH_SEPARATOR
