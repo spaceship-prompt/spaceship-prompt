@@ -29,7 +29,7 @@ spaceship_docker() {
   local separator=":"
   [[ ! -z $COMPOSE_PATH_SEPARATOR ]] && separator=$COMPOSE_PATH_SEPARATOR
 
-  # COMPOSE_FILE may have several filenames separated by colon, test at least the first one
+  # COMPOSE_FILE may have several filenames separated by colon, test all of them
   local filenames=("${(@ps/$separator/)COMPOSE_FILE}")
 
   local compose_exists
