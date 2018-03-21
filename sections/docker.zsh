@@ -28,7 +28,7 @@ spaceship_docker() {
   local compose_exists=false
   if [[ -n "$COMPOSE_FILE" ]]; then
     # Use COMPOSE_PATH_SEPARATOR or colon as default
-    local separator="${COMPOSE_PATH_SEPARATOR=":"}"
+    local separator=${COMPOSE_PATH_SEPARATOR:-":"}
 
     # COMPOSE_FILE may have several filenames separated by colon, test all of them
     local filenames=("${(@ps/$separator/)COMPOSE_FILE}")
