@@ -40,6 +40,9 @@ spaceship_docker() {
       fi
       compose_exists=true
     done
+
+    # Must return if COMPOSE_FILE is present but invalid
+    [[ "$compose_exists" == false ]] && return
   fi
 
   # Show Docker status only for Docker-specific folders
