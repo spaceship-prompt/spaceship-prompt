@@ -360,7 +360,11 @@ Julia section is shown only in directories that contain file with `.jl` extensio
 
 ### Docker (`docker`)
 
-Docker section is shown only in directories that contain `Dockerfile` or `docker-compose.yml` file.
+Docker section is shown only in directories that contain `Dockerfile` or it's possible to run `docker-compose`.
+
+To run `docker-compose` is necessary the presence of `docker-compose.yml` file, or the file(s) indicated by `COMPOSE_FILE` environment variable are acessible.
+
+The environment variables `COMPOSE_PATH_SEPARATOR` and `COMPOSE_PROJECT_NAME` are supported too. For more information see '[Compose CLI environment variables](https://docs.docker.com/compose/reference/envvars/)'.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
