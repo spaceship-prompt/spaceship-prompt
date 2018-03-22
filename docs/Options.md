@@ -364,7 +364,7 @@ Docker section is shown only in directories that contain `Dockerfile` or it's po
 
 To run `docker-compose` is necessary the presence of `docker-compose.yml` file, or the file(s) indicated by `COMPOSE_FILE` environment variable are acessible.
 
-The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more information see '[Compose CLI environment variables](https://docs.docker.com/compose/reference/envvars/)'.
+The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more information see [Compose CLI environment variables](https://docs.docker.com/compose/reference/envvars/).
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
