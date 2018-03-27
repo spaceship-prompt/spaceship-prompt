@@ -55,6 +55,7 @@ Currently it shows:
 * Current .NET SDK version, through dotnet-cli (`.NET`).
 * Current Ember.js version, through ember-cli (`🐹`).
 * Current Kubectl context (`☸️`).
+* Current Terraform workspace (`️🏗`).
 * Package version, if there's is a package in current directory (`📦`).
 * Current battery level and status:
   * `⇡` - charging;
