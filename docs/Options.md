@@ -152,9 +152,7 @@ Git section is shown only in Git repositories.
 
 #### Git subsections
 
-The Git section consists of several subsections. You can specify the order of the subsections using `SPACESHIP_PROMPT_ORDER` option. Use Zsh array syntax to define your own prompt order.
-
-The order also defines which sections that Spaceship loads. If you're struggling with slow prompt, you can just omit the sections that you don't use, and they won't be loaded.
+The Git section consists of several subsections. You can specify the order of the Git subsections using `SPACESHIP_PROMPT_ORDER` option. Use Zsh array syntax to define your own prompt order.
 
 The default order is:
 
