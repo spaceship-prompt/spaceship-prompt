@@ -21,6 +21,14 @@ if [ -z "$SPACESHIP_GIT_ORDER" ]; then
 fi
 
 # ------------------------------------------------------------------------------
+# Dependencies
+# ------------------------------------------------------------------------------
+
+for subsection in "$SPACESHIP_ROOT"/sections/git_*.zsh; do
+  source $subsection
+done
+
+# ------------------------------------------------------------------------------
 # Section
 # ------------------------------------------------------------------------------
 
@@ -32,7 +40,6 @@ spaceship_git() {
   local git_prompt
 
   for el in ${(Oa)SPACESHIP_GIT_ORDER}; do
-    source "$SPACESHIP_ROOT/sections/git_${el}.zsh" # load dependency
     git_prompt="$(spaceship_git_${el})$git_prompt"
   done
 
