@@ -37,11 +37,8 @@ spaceship_git() {
 
   spaceship::is_git || return
 
-  local git_prompt
-
-  for el in ${(Oa)SPACESHIP_GIT_ORDER}; do
-    git_prompt="$(spaceship_git_${el})$git_prompt"
-  done
+  # prefix${^array} prefixes each element in $array with prefix
+  local git_prompt=$(spaceship::compose_prompt git_${^SPACESHIP_GIT_ORDER})
 
   [[ -z $git_prompt ]] && return
 
