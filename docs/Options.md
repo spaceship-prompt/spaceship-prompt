@@ -165,7 +165,7 @@ SPACESHIP_GIT_ORDER=(
 )
 ```
 
-The other Git subsection shipped with Spaceship is `status_oh_my_zsh`. Ported from [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), this is the Git status Spaceship used prior to v3.0.
+The other Git subsection shipped with Spaceship is `status_oh_my_zsh`. See below for details.
 
 #### Git branch (`git_branch`)
 
@@ -196,6 +196,27 @@ Git status indicators is shown only when you have dirty repository.
 | `SPACESHIP_GIT_STATUS_AHEAD` | `⇡` | Indicator for unpushed changes (ahead of remote branch) |
 | `SPACESHIP_GIT_STATUS_BEHIND` | `⇣` | Indicator for unpulled changes (behind of remote branch) |
 | `SPACESHIP_GIT_STATUS_DIVERGED` | `⇕` | Indicator for diverged chages (diverged with remote branch) |
+
+#### Git status, oh-my-zsh flavor (`git_status_oh_my_zsh`)
+
+Ported from [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)'s [`git_prompt_status`](https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/git.zsh), this is the Git status Spaceship used prior to v3.0.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_GIT_STATUS_OMZ_SHOW` | `$SPACESHIP_GIT_STATUS_SHOW` | Show Git status subsection |
+| `SPACESHIP_GIT_STATUS_OMZ_PREFIX` | `$SPACESHIP_GIT_STATUS_PREFIX` | Prefix before Git status subsection |
+| `SPACESHIP_GIT_STATUS_OMZ_SUFFIX` | `$SPACESHIP_GIT_STATUS_SUFFIX` | Suffix after Git status subsection |
+| `SPACESHIP_GIT_STATUS_OMZ_COLOR` | `$SPACESHIP_GIT_STATUS_COLOR` | Color of Git status subsection |
+| `SPACESHIP_GIT_STATUS_OMZ_UNTRACKED` | `$SPACESHIP_GIT_STATUS_UNTRACKED` | Indicator for untracked changes |
+| `SPACESHIP_GIT_STATUS_OMZ_ADDED` | `$SPACESHIP_GIT_STATUS_ADDED` | Indicator for added changes |
+| `SPACESHIP_GIT_STATUS_OMZ_MODIFIED` | `$SPACESHIP_GIT_STATUS_MODIFIED` | Indicator for unstaged files |
+| `SPACESHIP_GIT_STATUS_OMZ_RENAMED` | `$SPACESHIP_GIT_STATUS_RENAMED` | Indicator for renamed files |
+| `SPACESHIP_GIT_STATUS_OMZ_DELETED` | `$SPACESHIP_GIT_STATUS_DELETED` | Indicator for deleted files |
+| `SPACESHIP_GIT_STATUS_OMZ_STASHED` | `$SPACESHIP_GIT_STATUS_STASHED` | Indicator for stashed changes |
+| `SPACESHIP_GIT_STATUS_OMZ_UNMERGED` | `$SPACESHIP_GIT_STATUS_UNMERGED` | Indicator for unmerged changes |
+| `SPACESHIP_GIT_STATUS_OMZ_AHEAD` | `$SPACESHIP_GIT_STATUS_AHEAD` | Indicator for unpushed changes (ahead of remote branch) |
+| `SPACESHIP_GIT_STATUS_OMZ_BEHIND` | `$SPACESHIP_GIT_STATUS_BEHIND` | Indicator for unpulled changes (behind of remote branch) |
+| `SPACESHIP_GIT_STATUS_OMZ_DIVERGED` | `$SPACESHIP_GIT_STATUS_DIVERGED` | Indicator for diverged chages (diverged with remote branch) |
 
 ### Mercurial (`hg`)
 
