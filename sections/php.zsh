@@ -32,6 +32,6 @@ spaceship_php() {
   spaceship::section \
     "$SPACESHIP_PHP_COLOR" \
     "$SPACESHIP_PHP_PREFIX" \
-    "${SPACESHIP_PHP_SYMBOL} v${php_version}" \
+    "${SPACESHIP_PHP_SYMBOL}v${php_version}" \
     "${SPACESHIP_PHP_SUFFIX}"
 }
