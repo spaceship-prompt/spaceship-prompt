@@ -27,7 +27,7 @@ spaceship_php() {
 
   spaceship::exists php || return
 
-  local php_version=$(php -r "echo PHP_VERSION;" 2>/dev/null)
+  local php_version=$(php -r "echo explode('-', PHP_VERSION)[0];" 2>/dev/null)
 
   spaceship::section \
     "$SPACESHIP_PHP_COLOR" \
