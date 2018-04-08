@@ -30,7 +30,7 @@ Currently it shows:
   * `=` — unmerged changes;
   * `⇡` — ahead of remote branch;
   * `⇣` — behind of remote branch;
-  * `⇕` — diverged chages.
+  * `⇕` — diverged changes.
 * Current Mercurial bookmark/branch and rich repo status:
   * `?` — untracked changes;
   * `+` — uncommitted changes in the index;
