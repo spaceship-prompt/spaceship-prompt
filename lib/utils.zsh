@@ -21,7 +21,7 @@ spaceship::defined() {
 # USAGE:
 #   spaceship::is_git
 spaceship::is_git() {
-  command git rev-parse --is-inside-work-tree &>/dev/null
+  [[ $(command git rev-parse --is-inside-work-tree 2>/dev/null) == true ]]
 }
 
 # Check if the current directory is in a Mercurial repository.
