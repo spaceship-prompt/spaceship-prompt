@@ -7,10 +7,15 @@ SHUNIT_PARENT=$0
 function setUp() {
   export TERM="xterm-256color"
 
-  source spaceship.zsh
+  autoload -U promptinit; promptinit
+  prompt spaceship
 }
 
-function testSingleSection() {
+function tearDown() {
+  unset SPACESHIP_PROMPT_ORDER
+}
+
+function testChar() {
   SPACESHIP_PROMPT_ADD_NEWLINE=false
   SPACESHIP_PROMPT_ORDER=(char)
 
