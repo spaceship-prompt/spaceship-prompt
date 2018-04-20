@@ -17,29 +17,26 @@ SPACESHIP_GIT_INDEX_SKIP_WORKTREE="${SPACESHIP_GIT_INDEX_SKIP_WORKTREE="↧"}"
 # ------------------------------------------------------------------------------
 
 # See git help update-index to know more about index formats
-git_index() {
+
+spaceship_git_index() {
+  [[ $SPACESHIP_GIT_INDEX_SHOW == false ]] && return
+
+  spaceship::is_git || return
 
   local FILES git_index=""
 
   FILES=$(command git ls-files -v $(git rev-parse --show-toplevel))
 
-  # Check whether any file has the --assume-unchanged bit set
-  if $(echo "$FILES" | grep '^[[:lower:]]' &> /dev/null); then
-    git_index="$SPACESHIP_GIT_INDEX_ASSUME_UNCHANGED$git_index"
-  fi
-
   # Check whether any file has the --skip-worktree bit set
   if $(echo "$FILES" | grep '^[sS]' &> /dev/null); then
-    git_index="$SPACESHIP_GIT_INDEX_SKIP_WORKTREE$git_index"
+    git_index+="$SPACESHIP_GIT_INDEX_SKIP_WORKTREE"
   fi
 
-  echo "$git_index"
-}
+  # Check whether any file has the --assume-unchanged bit set
+  if $(echo "$FILES" | grep '^[[:lower:]]' &> /dev/null); then
+    git_index+="$SPACESHIP_GIT_INDEX_ASSUME_UNCHANGED"
+  fi
 
-spaceship_git_index() {
-  [[ $SPACESHIP_GIT_INDEX_SHOW == false ]] && return
-
-  git_index=$(git_index)
   if [[ -n $git_index ]]; then
     # Status prefixes are colorized
     spaceship::section \
