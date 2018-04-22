@@ -16,6 +16,8 @@ function setUp() {
 }
 
 function tearDown() {
+  unset SPACESHIP_PROMPT_ADD_NEWLINE
+  unset SPACESHIP_USER_SHOW
   unset SPACESHIP_PROMPT_ORDER
 }
 
