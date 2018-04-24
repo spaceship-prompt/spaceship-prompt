@@ -42,15 +42,15 @@ spaceship_foobar() {
   # If SPACESHIP_FOOBAR_SHOW is false, don't show foobar section
   [[ $SPACESHIP_FOOBAR_SHOW == false ]] && return
 
+  # Check if foobar command is available for execution
+  spaceship::exists foobar || return
+
   # Show foobar section only when there are foobar-specific files in current
   # working direcotory.
   # Here glob qualifiers are used to check if files with specific extention are
   # present in directory. Read more about them here:
   # http://zsh.sourceforge.net/Doc/Release/Expansion.html
   [[ -f foobar.conf || -n *.foo(#qN^/) || -n *.bar(#qN^/) ]] || return
-
-  # Check if foobar command is available for execution
-  spaceship::exists foobar || return
 
   # Retrieve foobar status and save it to variable
   local foobar_status=$(foobar status)
