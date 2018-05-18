@@ -1,5 +1,6 @@
 Thanks for you pull-request!
-Please, make sure you've read CONTRIBUTING.md before submitting this PR.
+
+Please, make sure you've read `CONTRIBUTING.md` before submitting this PR.
 
 #### Description
 
