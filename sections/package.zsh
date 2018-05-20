@@ -28,15 +28,15 @@ spaceship_package() {
 
   spaceship::exists npm || return
 
-  # Grep and cut out package version
-  local package_version=$(grep -E '"version": "v?([0-9]+\.){1,}' package.json | cut -d\" -f4 2> /dev/null)
+  local 'package_version'
 
-  # Handle version not found
-  if [ ! "$package_version" ]; then
-    package_version="⚠"
+  if spaceship::exists jq; then
+    package_version=$(jq -r '.version' package.json 2>/dev/null)
   else
-    package_version="v${package_version}"
+    package_version=$(grep -E '^  "version": "v?([0-9]+\.){1,}' package.json | cut -d\" -f4  2>/dev/null)
   fi
+
+  [[ -z $package_version ]] && return
 
   spaceship::section \
     "$SPACESHIP_PACKAGE_COLOR" \
