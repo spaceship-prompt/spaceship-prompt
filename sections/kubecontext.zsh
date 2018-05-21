@@ -31,6 +31,22 @@ spaceship_kubecontext() {
 
   [[ -z $kube_context ]] && return
 
+  if [[ $kube_context == 'minikube' ]] && spaceship::exists minikube ; then
+
+    local mk_status_text=$(minikube status --format '{{.MinikubeStatus}}' 2>/dev/null)
+    local mk_status_return=$?
+    [[ -z $mk_status_text || $mk_status_text == 'Stopped' ]] && return
+
+    if [[ $mk_status_return -ne 0 ]]; then
+      $kube_context+='[!]'
+    fi
+
+    local mk_profile=${$(minikube config get profile 2>/dev/null):-minikube}
+    if [[ ${mk_profile} != 'minikube' ]]; then
+      kube_context+="(${mk_profile})"
+    fi
+  fi
+
   spaceship::section \
     "$SPACESHIP_KUBECONTEXT_COLOR" \
     "$SPACESHIP_KUBECONTEXT_PREFIX" \
