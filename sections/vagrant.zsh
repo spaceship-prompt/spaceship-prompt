@@ -31,7 +31,7 @@ spaceship_vagrant() {
 
   local vagrant_status=$(cat ${HOME}/.vagrant.d/data/machine-index/index | python -c 'import sys, os, json;
 json_file = json.load(sys.stdin)["machines"]
-for box in f:
+for box in json_file:
   if (json_file[box["vagrantfile_path"] == os.getcwd()):
     print (json_file[box]["state"])
     break;
