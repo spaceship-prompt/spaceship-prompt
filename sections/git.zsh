@@ -16,7 +16,6 @@ SPACESHIP_GIT_SYMBOL="${SPACESHIP_GIT_SYMBOL=" "}"
 # ------------------------------------------------------------------------------
 
 source "$SPACESHIP_ROOT/sections/git_branch.zsh"
-source "$SPACESHIP_ROOT/sections/git_commit.zsh"
 source "$SPACESHIP_ROOT/sections/git_status.zsh"
 
 # ------------------------------------------------------------------------------
@@ -29,13 +28,13 @@ source "$SPACESHIP_ROOT/sections/git_status.zsh"
 spaceship_git() {
   [[ $SPACESHIP_GIT_SHOW == false ]] && return
 
-  local git_branch="$(spaceship_git_branch)" git_commit="$(spaceship_git_commit)" git_status="$(spaceship_git_status)"
+  local git_branch="$(spaceship_git_branch)" git_status="$(spaceship_git_status)"
 
   [[ -z $git_branch ]] && return
 
   spaceship::section \
     'white' \
     "$SPACESHIP_GIT_PREFIX" \
-    "${git_branch}${git_commit}${git_status}" \
+    "${git_branch}${git_status}" \
     "$SPACESHIP_GIT_SUFFIX"
 }
