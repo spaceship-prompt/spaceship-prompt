@@ -35,6 +35,8 @@ for box in json_file:
     break;
 ')
 
+  [[ -n ${vagrant_status} ]] || return
+
   spaceship::section \
     "$SPACESHIP_VAGRANT_COLOR" \
     "$SPACESHIP_VAGRANT_PREFIX" \
