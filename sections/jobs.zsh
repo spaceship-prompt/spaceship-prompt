@@ -20,10 +20,14 @@ SPACESHIP_JOBS_COLOR="${SPACESHIP_JOBS_COLOR="blue"}"
 spaceship_jobs() {
   [[ $SPACESHIP_JOBS_SHOW == false ]] && return
 
-  local jobs_amount=$( (jobs) | wc -l )
+  local jobs_amount=$( (jobs) | wc -l | xargs)
 
   [[ $jobs_amount -gt 0 ]] || return
   [[ $jobs_amount -eq 1 ]] && jobs_amount=''
+
+  if [[ $jobs_amount -gt 1 ]]; then
+    jobs_amount=" ${jobs_amount}"
+  fi
 
   spaceship::section \
     "$SPACESHIP_JOBS_COLOR" \
