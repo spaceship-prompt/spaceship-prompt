@@ -65,7 +65,7 @@ Currently it shows:
 * Optional time stamps 12/24hr in format ([how to enable](./docs/Options.md#time-time)).
 * Execution time of the last command if it exceeds the set threshold.
 
-Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new) or send pull request.
+Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose) or send pull request.
 
 ## Preview
 
@@ -211,7 +211,7 @@ Also, take a look at popular option presets or share your own configuration on [
 
 Have a trouble? Take a look at out [Troubleshooting](./docs/Troubleshooting.md) page.
 
-Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new), describe your problem and we will gladly help you.
+Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.
 
 ## Team
 
