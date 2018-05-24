@@ -31,32 +31,36 @@ SPACESHIP_GIT_BRANCH_SUFFIX_TAG="${SPACESHIP_GIT_BRANCH_SUFFIX_TAG=""}"
 spaceship_git_branch() {
   [[ $SPACESHIP_GIT_BRANCH_SHOW == false ]] && return
 
-  # Show commit/tag info on detached HEAD
-  if [[ $SPACESHIP_GIT_BRANCH_SHOW_COMMIT == true ]] || [[ $SPACESHIP_GIT_BRANCH_SHOW_TAG == true ]]; then
-    local git_current_branch=$(git symbolic-ref HEAD --short 2> /dev/null)
-  else
-    local git_current_branch="$vcs_info_msg_0_"
-    [[ -z "$git_current_branch" ]] && return
-  fi
+  local git_current_branch="$vcs_info_msg_0_"
+  [[ -z "$git_current_branch" ]] && return
 
   git_current_branch="${git_current_branch#heads/}"
   git_current_branch="${git_current_branch/.../}"
 
-  # Add commit SHA info
+  # Build commit SHA info if enabled
   if [[ $SPACESHIP_GIT_BRANCH_SHOW_COMMIT == true ]]; then
-    local git_commit_info="$SPACESHIP_GIT_BRANCH_PREFIX_COMMIT$SPACESHIP_GIT_BRANCH_COMMIT_SYMBOL"
-    git_commit_info="$git_commit_info$(git_prompt_short_sha)$SPACESHIP_GIT_BRANCH_SUFFIX_COMMIT"
-    git_current_branch="$git_current_branch$git_commit_info"
+    local git_commit_info_pre="$SPACESHIP_GIT_BRANCH_PREFIX_COMMIT$SPACESHIP_GIT_BRANCH_COMMIT_SYMBOL"
+    local git_commit_info_suf="$SPACESHIP_GIT_BRANCH_SUFFIX_COMMIT"
+    local commit_sha=$(git rev-parse --short HEAD 2> /dev/null)
+    local git_commit_info="$git_commit_info_pre$commit_sha$git_commit_info_suf"
   fi
 
-  # Add tag info
+  # Build tag info if enabled
   if [[ $SPACESHIP_GIT_BRANCH_SHOW_TAG == true ]]; then
+    local git_tag_info_pre="$SPACESHIP_GIT_BRANCH_PREFIX_TAG$SPACESHIP_GIT_BRANCH_TAG_SYMBOL"
+    local git_tag_info_suf="$SPACESHIP_GIT_BRANCH_SUFFIX_TAG"
     local tag=$(git describe --tags --exact-match HEAD 2>/dev/null)
-    if [[ ! -z $tag ]]; then
-      local git_tag_info="$SPACESHIP_GIT_BRANCH_PREFIX_TAG$SPACESHIP_GIT_BRANCH_TAG_SYMBOL"
-      git_tag_info="$git_tag_info$tag$SPACESHIP_GIT_BRANCH_SUFFIX_TAG"
+    local git_tag_info="$git_tag_info_pre$tag$git_tag_info_suf"
+  fi
+
+  # Build prompt depending on current git status
+  git_current_branch="$git_current_branch$git_commit_info" && $SPACESHIP_GIT_BRANCH_SHOW_COMMIT
+  if [[ $SPACESHIP_GIT_BRANCH_SHOW_TAG ]]; then
+    if [[ $vcs_info_msg_0_ == *"tags"* ]] || [[ $vcs_info_msg_0_ == $tag ]]; then
+      git_current_branch="$git_tag_info_pre$git_tag_info_suf$git_current_branch"
+    elif [[ ! -z $tag ]]; then
+      git_current_branch="$git_current_branch$git_tag_info"
     fi
-    git_current_branch="$git_current_branch$git_tag_info"
   fi
 
   spaceship::section \
