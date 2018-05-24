@@ -39,26 +39,25 @@ spaceship_git_branch() {
 
   # Build commit SHA info if enabled
   if [[ $SPACESHIP_GIT_BRANCH_SHOW_COMMIT == true ]]; then
-    local git_commit_info_pre="$SPACESHIP_GIT_BRANCH_COMMIT_PREFIX$SPACESHIP_GIT_BRANCH_COMMIT_SYMBOL"
-    local git_commit_info_suf="$SPACESHIP_GIT_BRANCH_COMMIT_SUFFIX"
-    local commit_sha=$(git rev-parse --short HEAD 2> /dev/null)
-    local git_commit_info="$git_commit_info_pre$commit_sha$git_commit_info_suf"
+    local git_commit_preffix="$SPACESHIP_GIT_BRANCH_COMMIT_PREFIX$SPACESHIP_GIT_BRANCH_COMMIT_SYMBOL"
+    local git_commit_sha=$(git rev-parse --short HEAD 2> /dev/null)
+    local git_commit_info="$git_commit_preffix$git_commit_sha$SPACESHIP_GIT_BRANCH_COMMIT_SUFFIX"
   fi
 
   # Build tag info if enabled
   if [[ $SPACESHIP_GIT_BRANCH_SHOW_TAG == true ]]; then
-    local git_tag_info_pre="$SPACESHIP_GIT_BRANCH_TAG_PREFIX$SPACESHIP_GIT_BRANCH_TAG_SYMBOL"
-    local git_tag_info_suf="$SPACESHIP_GIT_BRANCH_TAG_SUFFIX"
-    local tag=$(git describe --tags --exact-match HEAD 2>/dev/null)
-    local git_tag_info="$git_tag_info_pre$tag$git_tag_info_suf"
+    local git_tag_preffix="$SPACESHIP_GIT_BRANCH_TAG_PREFIX$SPACESHIP_GIT_BRANCH_TAG_SYMBOL"
+    local git_tag_suffix="$SPACESHIP_GIT_BRANCH_TAG_SUFFIX"
+    local git_tag_name=$(git describe --tags --exact-match HEAD 2>/dev/null)
+    local git_tag_info="$git_tag_preffix$git_tag_name$git_tag_suffix"
   fi
 
   # Build prompt depending on current git status
   git_current_branch="$git_current_branch$git_commit_info" && $SPACESHIP_GIT_BRANCH_SHOW_COMMIT
   if [[ $SPACESHIP_GIT_BRANCH_SHOW_TAG ]]; then
-    if [[ $vcs_info_msg_0_ == *"tags"* ]] || [[ $vcs_info_msg_0_ == $tag ]]; then
-      git_current_branch="$git_tag_info_pre$git_tag_info_suf$git_current_branch"
-    elif [[ ! -z $tag ]]; then
+    if [[ $vcs_info_msg_0_ == *"tags"* ]] || [[ $vcs_info_msg_0_ == $git_tag_name ]]; then
+      git_current_branch="$git_tag_preffix$git_tag_suffix$git_current_branch"
+    elif [[ ! -z $git_tag_name ]]; then
       git_current_branch="$git_current_branch$git_tag_info"
     fi
   fi
