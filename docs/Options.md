@@ -157,6 +157,14 @@ Git section is consists with `git_branch` and `git_status` subsections. It is sh
 | `SPACESHIP_GIT_BRANCH_PREFIX` | `$SPACESHIP_GIT_SYMBOL` | Prefix before Git branch subsection |
 | `SPACESHIP_GIT_BRANCH_SUFFIX` | ` ` | Suffix after Git branch subsection |
 | `SPACESHIP_GIT_BRANCH_COLOR` | `magenta` | Color of Git branch subsection |
+| `SPACESHIP_GIT_BRANCH_SHOW_COMMIT` | `false` | Show commit short SHA code in Git branch subsection |
+| `SPACESHIP_GIT_BRANCH_COMMIT_SYMBOL` | ` ¢ ` | Character to be shown before commit short SHA code in Git branch subsection |
+| `SPACESHIP_GIT_BRANCH_COMMIT_PREFIX` | ` ` | Prefix before commit short SHA code in Git branch subsection |
+| `SPACESHIP_GIT_BRANCH_COMMIT_SUFFIX` | ` ` | Suffix after commit short SHA code in Git branch subsection |
+| `SPACESHIP_GIT_BRANCH_SHOW_TAG` | `false` | Show tag information in Git branch subsection |
+| `SPACESHIP_GIT_BRANCH_TAG_SYMBOL` | ` ŧ ` | Character to be shown before tag information in Git branch subsection |
+| `SPACESHIP_GIT_BRANCH_TAG_PREFIX` | ` ` | Prefix before tag information in Git branch subsection |
+| `SPACESHIP_GIT_BRANCH_TAG_SUFFIX` | ` ` | Suffix after tag information in Git branch subsection |
 
 #### Git status (`git_status`)
 
