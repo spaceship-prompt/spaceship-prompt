@@ -330,7 +330,7 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 | :------- | :-----: | ------- |
 | `SPACESHIP_RUST_SHOW` | `true` | Shown Rust section or not |
 | `SPACESHIP_RUST_SHOW_VERSION` | `true` | Shown current Rust version number or not |
-| `SPACESHIP_RUST_SHOW_TOOLCHAIN` | `false` | Shown current Rust toolchain or not |
+| `SPACESHIP_RUST_SHOW_TOOLCHAIN` | `true` | Shown current Rust toolchain or not |
 | `SPACESHIP_RUST_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Rust section |
 | `SPACESHIP_RUST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Rust section |
 | `SPACESHIP_RUST_SYMBOL` | `𝗥·` | Character to be shown before Rust version |
