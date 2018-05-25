@@ -1,21 +1,10 @@
-#### Issue
+<!--
+Thanks for filing an issue 😄
 
-Describe your issue, steps to reproduce, additional information…
+BEFORE SUBMITTING NEW ISSUE, PLEASE, READ THE TROUBLESHOOTING PAGE!
 
-#### Screenshot
+https://github.com/denysdovhan/spaceship-prompt/blob/master/docs/Troubleshooting.md
 
-Provide a screenshot that show your issue
-
-![screenshot](url)
-
-# Environment
-
-**Operating system:** <macOS/Windows/Linux>
-**Terminal emulator:** <iTerm/Hyper/Terminator/etc>
-**ZSH version:** <version>
-
-#### Relevant `.zshrc`
-
-```zsh
-# your configuration here
-```
+Check the other issue templates if you are trying to submit a bug report, feature request, or question.
+Search open/closed issues before submitting since someone might have asked the same thing before!
+-->
