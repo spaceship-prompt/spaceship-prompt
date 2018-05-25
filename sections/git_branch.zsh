@@ -31,7 +31,7 @@ SPACESHIP_GIT_BRANCH_TAG_SUFFIX="${SPACESHIP_GIT_BRANCH_TAG_SUFFIX=""}"
 spaceship_git_branch() {
   [[ $SPACESHIP_GIT_BRANCH_SHOW == false ]] && return
 
-  local git_current_branch="$vcs_info_msg_0_"
+  local git_commit_info git_tag_info git_current_branch="$vcs_info_msg_0_"
   [[ -z "$git_current_branch" ]] && return
 
   git_current_branch="${git_current_branch#heads/}"
@@ -41,7 +41,7 @@ spaceship_git_branch() {
   if [[ $SPACESHIP_GIT_BRANCH_SHOW_COMMIT == true ]]; then
     local git_commit_prefix="$SPACESHIP_GIT_BRANCH_COMMIT_PREFIX$SPACESHIP_GIT_BRANCH_COMMIT_SYMBOL"
     local git_commit_sha=$(git rev-parse --short HEAD 2> /dev/null)
-    local git_commit_info="$git_commit_prefix$git_commit_sha$SPACESHIP_GIT_BRANCH_COMMIT_SUFFIX"
+    git_commit_info="$git_commit_prefix$git_commit_sha$SPACESHIP_GIT_BRANCH_COMMIT_SUFFIX"
   fi
 
   git_current_branch+="$git_commit_info"
@@ -50,7 +50,7 @@ spaceship_git_branch() {
   if [[ $SPACESHIP_GIT_BRANCH_SHOW_TAG == true ]]; then
     local git_tag_prefix="$SPACESHIP_GIT_BRANCH_TAG_PREFIX$SPACESHIP_GIT_BRANCH_TAG_SYMBOL"
     local git_tag_name=$(git describe --tags --exact-match $git_commit_sha 2>/dev/null)
-    local git_tag_info="$git_tag_prefix$git_tag_name$SPACESHIP_GIT_BRANCH_TAG_SUFFIX"
+    git_tag_info="$git_tag_prefix$git_tag_name$SPACESHIP_GIT_BRANCH_TAG_SUFFIX"
     if [[ -n $git_tag_name ]]; then
       git_current_branch+="$git_tag_info"
     fi
