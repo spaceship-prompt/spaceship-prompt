@@ -38,36 +38,36 @@ spaceship_battery() {
   local battery_data battery_percent battery_status battery_color
 
   if spaceship::exists pmset; then
-    battery_data=$(pmset -g batt)
+    battery_data=$( command pmset -g batt )
 
     # Return if no internal battery
-    [[ -z $(echo $battery_data | grep "InternalBattery") ]] && return
+    [[ -z $( command echo $battery_data | command grep "InternalBattery" ) ]] && return
 
-    battery_percent="$( echo $battery_data | grep -oE '[0-9]{1,3}%' )"
-    battery_status="$( echo $battery_data | awk -F '; *' 'NR==2 { print $2 }' )"
+    battery_percent="$( command echo $battery_data | command grep -oE '[0-9]{1,3}%' )"
+    battery_status="$( command echo $battery_data | command awk -F '; *' 'NR==2 { print $2 }' )"
   elif spaceship::exists upower; then
-    local battery=$(command upower -e | grep battery | head -1)
+    local battery=$( command upower -e | command grep battery | command head -1 )
 
     # Return if no battery
     [[ -z $battery ]] && return
 
-    battery_data=$(upower -i $battery)
-    battery_percent="$( echo "$battery_data" | grep percentage | awk '{print $2}' )"
-    battery_status="$( echo "$battery_data" | grep state | awk '{print $2}' )"
+    battery_data=$( command upower -i $battery )
+    battery_percent="$( command echo "$battery_data" | command grep percentage | command awk '{print $2}' )"
+    battery_status="$( command echo "$battery_data" | command grep state | command awk '{print $2}' )"
   elif spaceship::exists acpi; then
-    battery_data=$(acpi -b)
+    battery_data=$( command acpi -b )
 
     # Return if no battery
     [[ -z $battery_data ]] && return
 
-    battery_percent="$( echo $battery_data | awk '{print $4}' )"
-    battery_status="$( echo $battery_data | awk '{print tolower($3)}' )"
+    battery_percent="$( command echo $battery_data | command awk '{print $4}' )"
+    battery_status="$( command echo $battery_data | command awk '{print tolower($3)}' )"
   else
     return
   fi
 
   # Remove trailing % and symbols for comparison
-  battery_percent="$(echo $battery_percent | tr -d '%[,;]')"
+  battery_percent="$( command echo $battery_percent | command tr -d '%[,;]' )"
 
   # Change color based on battery percentage
   if [[ $battery_percent == 100 || $battery_status =~ "(charged|full)" ]]; then

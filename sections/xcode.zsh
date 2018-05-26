@@ -26,10 +26,10 @@ spaceship_xcode() {
   local xcode_path
 
   if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
-    xcode_path=$(xcenv version | sed 's/ .*//')
+    xcode_path=$( command xcenv version | command sed 's/ .*//' )
   elif [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
     if xcenv version | grep ".xcode-version" > /dev/null; then
-      xcode_path=$(xcenv version | sed 's/ .*//')
+      xcode_path=$( command xcenv version | command sed 's/ .*//' )
     fi
   fi
 
@@ -37,7 +37,7 @@ spaceship_xcode() {
     local xcode_version_path=$xcode_path"/Contents/version.plist"
     if [ -f ${xcode_version_path} ]; then
       if spaceship::exists defaults; then
-        local xcode_version=$(defaults read ${xcode_version_path} CFBundleShortVersionString)
+        local xcode_version=$( command defaults read ${xcode_version_path} CFBundleShortVersionString )
 
         spaceship::section \
           "$SPACESHIP_XCODE_COLOR" \

@@ -26,17 +26,17 @@ spaceship_hg_status() {
 
   spaceship::is_hg || return
 
-  local INDEX=$(hg status 2>/dev/null) hg_status=""
+  local INDEX=$( command hg status 2>/dev/null ) hg_status=""
 
   # Indicators are suffixed instead of prefixed to each other to
   # provide uniform view across git and mercurial indicators
-  if $(echo "$INDEX" | grep -E '^\? ' &> /dev/null); then
+  if $( command echo "$INDEX" | command grep -E '^\? ' &> /dev/null ); then
     hg_status="$SPACESHIP_HG_STATUS_UNTRACKED$hg_status"
-  elif $(echo "$INDEX" | grep -E '^A ' &> /dev/null); then
+  elif $( command echo "$INDEX" | command grep -E '^A ' &> /dev/null ); then
     hg_status="$SPACESHIP_HG_STATUS_ADDED$hg_status"
-  elif $(echo "$INDEX" | grep -E '^M ' &> /dev/null); then
+  elif $( command echo "$INDEX" | command grep -E '^M ' &> /dev/null ); then
     hg_status="$SPACESHIP_HG_STATUS_MODIFIED$hg_status"
-  elif $(echo "$INDEX" | grep -E '^(R|!)' &> /dev/null); then
+  elif $( command echo "$INDEX" | command grep -E '^(R|!)' &> /dev/null ); then
     hg_status="$SPACESHIP_HG_STATUS_DELETED$hg_status"
   fi
 

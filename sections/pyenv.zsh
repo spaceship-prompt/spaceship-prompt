@@ -27,7 +27,7 @@ spaceship_pyenv() {
 
   spaceship::exists pyenv || return # Do nothing if pyenv is not installed
 
-  local pyenv_status=${$(pyenv version-name 2>/dev/null)//:/ }
+  local pyenv_status=${$( command pyenv version-name 2> /dev/null )//:/ }
 
   spaceship::section \
     "$SPACESHIP_PYENV_COLOR" \
