@@ -137,6 +137,7 @@ Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`. W
 | `SPACESHIP_DIR_TRUNC` | `3` | Number of folders of cwd to show in prompt, 0 to show all |
 | `SPACESHIP_DIR_TRUNC_REPO` | `true` | While in `git` repo, show only root directory and folders inside it |
 | `SPACESHIP_DIR_COLOR` | `cyan` | Color of directory section |
+| `SPACESHIP_DIR_EXPAND_USER_PATH` | `false` | If `true`, the path will start from `/Users/foobar/` instead of `~` |
 
 ### Git (`git`)
 
