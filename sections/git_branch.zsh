@@ -40,7 +40,7 @@ spaceship_git_branch() {
   # Build commit SHA info if enabled
   if [[ $SPACESHIP_GIT_BRANCH_SHOW_COMMIT == true ]]; then
     local git_commit_prefix="$SPACESHIP_GIT_BRANCH_COMMIT_PREFIX$SPACESHIP_GIT_BRANCH_COMMIT_SYMBOL"
-    local git_commit_sha=$(git rev-parse --short HEAD 2> /dev/null)
+    local git_commit_sha=$(command git rev-parse --short HEAD 2> /dev/null)
     git_commit_info="$git_commit_prefix$git_commit_sha$SPACESHIP_GIT_BRANCH_COMMIT_SUFFIX"
   fi
 
@@ -48,7 +48,7 @@ spaceship_git_branch() {
 
   # Build tag info if enabled
   if [[ $SPACESHIP_GIT_BRANCH_SHOW_TAG == true ]]; then
-    local git_tag_name=$(git describe --tags --exact-match $git_commit_sha 2>/dev/null)
+    local git_tag_name=$(command git describe --tags --exact-match $git_commit_sha 2>/dev/null)
     if [[ -n $git_tag_name ]]; then
       local git_tag_prefix="$SPACESHIP_GIT_BRANCH_TAG_PREFIX$SPACESHIP_GIT_BRANCH_TAG_SYMBOL"
       git_tag_info="$git_tag_prefix$git_tag_name$SPACESHIP_GIT_BRANCH_TAG_SUFFIX"
