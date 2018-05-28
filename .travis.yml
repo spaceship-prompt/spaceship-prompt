@@ -1,11 +1,27 @@
 sudo: true
 language: generic
+os:
+  - linux
+  - osx
+addons:
+  apt:
+    packages:
+      - build-essential
 before_install:
-  - sudo apt-get -qq update
+  # Donwload, install and compile ZSH 5.2
+  - if [ "$TRAVIS_OS_NAME" == "osx" ];   then LOCAL=/usr/local; fi;
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then LOCAL=/tmp;       fi;
+  - curl -L https://sourceforge.net/projects/zsh/files/zsh/5.2/zsh-5.2.tar.gz/download | tar zx
+  - cd zsh-5.2
+  - ./configure --prefix=$LOCAL > /dev/null
+  - make
+  - make install
+  - cd -
+  - export PATH="$LOCAL/bin:$PATH"
 install:
-  - sudo apt-get install -y zsh
+  - echo "$(which zsh)"
   - sudo chsh -s $(which zsh)
 before_script:
   - zsh --version
 script:
-  - scripts/tests.zsh
+  - scripts/tests.sh

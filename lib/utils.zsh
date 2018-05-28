@@ -45,7 +45,7 @@ spaceship::deprecated() {
   local deprecated=$1 message=$2
   local deprecated_value=${(P)deprecated} # the value of variable name $deprecated
   [[ -n $deprecated_value ]] || return
-  print -P "%B$deprecated%b is deprecated. $message"
+  print -P "%{%B%}$deprecated%{%b%} is deprecated. $message"
 }
 
 # Display seconds in human readable fromat

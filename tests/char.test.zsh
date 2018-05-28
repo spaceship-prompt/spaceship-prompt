@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env zsh +x
 
 # Required for shunit2 to run correctly
 setopt shwordsplit
@@ -10,6 +10,7 @@ SHUNIT_PARENT=$0
 
 oneTimeSetUp() {
   export TERM="xterm-256color"
+
   SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
   SPACESHIP_PROMPT_ORDER=(char)
 }
