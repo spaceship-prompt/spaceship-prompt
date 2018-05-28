@@ -30,8 +30,7 @@ spaceship::is_git() {
 spaceship::is_hg() {
   local root="$(pwd -P)"
 
-  while [[ $root && ! -d $root/.hg ]]
-  do
+  while [ $root ] && [ ! -d $root/.hg ]; do
     root="${root%/*}"
   done
 
