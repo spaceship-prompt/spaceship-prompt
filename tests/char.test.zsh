@@ -13,11 +13,11 @@ oneTimeSetUp() {
 
   SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
   SPACESHIP_PROMPT_ORDER=(char)
+
+  source spaceship.zsh
 }
 
 setUp() {
-  source spaceship.zsh
-
   SPACESHIP_CHAR_PREFIX=""
   SPACESHIP_CHAR_SUFFIX=""
   SPACESHIP_CHAR_SYMBOL="➜ "
@@ -27,6 +27,7 @@ setUp() {
 }
 
 oneTimeTearDown() {
+  unset SPACESHIP_PROMPT_FIRST_PREFIX_SHOW
   unset SPACESHIP_PROMPT_ORDER
 }
 
@@ -44,6 +45,7 @@ tearDown() {
 # ------------------------------------------------------------------------------
 
 test_char() {
+  SPACESHIP_CHAR_COLOR_SUCCESS=blue
   local expected="$NEWLINE%{%B%}%{%b%}%{%B%F{$SPACESHIP_CHAR_COLOR_SUCCESS}%}➜ %{%b%f%}%{%B%}%{%b%}"
   local actual="$(spaceship_prompt)"
 
@@ -51,6 +53,7 @@ test_char() {
 }
 
 test_char_failure() {
+  SPACESHIP_CHAR_COLOR_SUCCESS=yellow
   local expected="$NEWLINE%{%B%}%{%b%}%{%B%F{$SPACESHIP_CHAR_COLOR_FAILURE}%}➜ %{%b%f%}%{%B%}%{%b%}"
   command false # this command should exit with non-zero code
   local actual="$(spaceship_prompt)"
