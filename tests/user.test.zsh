@@ -28,15 +28,16 @@ setUp() {
 
 oneTimeTearDown() {
   unset SPACESHIP_PROMPT_FIRST_PREFIX_SHOW
+  unset SPACESHIP_PROMPT_ADD_NEWLINE
   unset SPACESHIP_PROMPT_ORDER
 }
 
 tearDown() {
-  SPACESHIP_USER_SHOW=true
-  SPACESHIP_USER_PREFIX="with "
-  SPACESHIP_USER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
-  SPACESHIP_USER_COLOR="yellow"
-  SPACESHIP_USER_COLOR_ROOT="red"
+  unset SPACESHIP_USER_SHOW
+  unset SPACESHIP_USER_PREFIX
+  unset SPACESHIP_USER_SUFFIX
+  unset SPACESHIP_USER_COLOR
+  unset SPACESHIP_USER_COLOR_ROOT
 }
 
 # ------------------------------------------------------------------------------
@@ -53,9 +54,6 @@ test_user() {
   assertEquals "render user when needed" "$expected" "$actual"
 
   USER=$_user_
-  local expected=""
-  local actual="$(spaceship_prompt)"
-  assertEquals "do not render user when it's default" "$expected" "$actual"
 }
 
 test_user_show() {

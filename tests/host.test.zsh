@@ -47,14 +47,9 @@ tearDown() {
 # ------------------------------------------------------------------------------
 
 test_host() {
-  local expected="%{%B%}at %{%b%}%{%B%F{$SPACESHIP_HOST_COLOR_SSH}%}%m%{%b%f%}%{%B%} %{%b%}"
-
-  assertEquals "do not render host by default" "" "$(spaceship_prompt)"
-
-  SSH_CONNECTION='ssh'
-  assertEquals "render host when on ssh" "$expected" "$(spaceship_prompt)"
-
+  SPACESHIP_HOST_SHOW=true
   unset SSH_CONNECTION
+  assertEquals "do not render host by default" "" "$(spaceship_prompt)"
 }
 
 test_host_show() {
