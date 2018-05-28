@@ -10,6 +10,8 @@ SHUNIT_PARENT=$0
 
 oneTimeSetUp() {
   export TERM="xterm-256color"
+
+  SPACESHIP_PROMPT_ADD_NEWLINE=false
   SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
   SPACESHIP_PROMPT_ORDER=(user)
 
@@ -45,7 +47,7 @@ test_user() {
   local _user_="$USER"
   USER='tests'
 
-  local expected="$NEWLINE%{%B%}with %{%b%}%{%B%F{yellow}%}%n%{%b%f%}%{%B%} %{%b%}"
+  local expected="%{%B%}with %{%b%}%{%B%F{yellow}%}%n%{%b%f%}%{%B%} %{%b%}"
   local actual="$(spaceship_prompt)"
 
   assertEquals "render user when needed" "$expected" "$actual"
@@ -57,7 +59,7 @@ test_user() {
 }
 
 test_user_show() {
-  local expected="$NEWLINE%{%B%}with %{%b%}%{%B%F{yellow}%}%n%{%b%f%}%{%B%} %{%b%}"
+  local expected="%{%B%}with %{%b%}%{%B%F{yellow}%}%n%{%b%f%}%{%B%} %{%b%}"
 
   SPACESHIP_USER_SHOW=true
   SSH_CONNECTION=''
@@ -90,10 +92,10 @@ test_user_color() {
   SPACESHIP_USER_SHOW=always # force user display
   SPACESHIP_USER_COLOR=green
 
-  local expected="$NEWLINE%{%B%}with %{%b%}%{%B%F{$SPACESHIP_USER_COLOR}%}%n%{%b%f%}%{%B%} %{%b%}"
+  local expected="%{%B%}with %{%b%}%{%B%F{$SPACESHIP_USER_COLOR}%}%n%{%b%f%}%{%B%} %{%b%}"
   local actual="$(spaceship_prompt)"
 
-  assertEquals "render with custom color" "$expected" "$actual"
+  assertEquals "render user with custom color" "$expected" "$actual"
 }
 
 test_user_prefix() {
@@ -101,7 +103,7 @@ test_user_prefix() {
   SPACESHIP_USER_PREFIX='prefix'
   SPACESHIP_USER_SUFFIX=''
 
-  local expected="$NEWLINE%{%B%}$SPACESHIP_USER_PREFIX%{%b%}%{%B%F{yellow}%}%n%{%b%f%}%{%B%}$SPACESHIP_USER_SUFFIX%{%b%}"
+  local expected="%{%B%}$SPACESHIP_USER_PREFIX%{%b%}%{%B%F{yellow}%}%n%{%b%f%}%{%B%}$SPACESHIP_USER_SUFFIX%{%b%}"
   local actual="$(spaceship_prompt)"
 
   assertEquals "render user with prefix" "$expected" "$actual"
@@ -112,7 +114,7 @@ test_user_suffix() {
   SPACESHIP_USER_PREFIX=''
   SPACESHIP_USER_SUFFIX='suffix'
 
-  local expected="$NEWLINE%{%B%}$SPACESHIP_USER_PREFIX%{%b%}%{%B%F{yellow}%}%n%{%b%f%}%{%B%}$SPACESHIP_USER_SUFFIX%{%b%}"
+  local expected="%{%B%}$SPACESHIP_USER_PREFIX%{%b%}%{%B%F{yellow}%}%n%{%b%f%}%{%B%}$SPACESHIP_USER_SUFFIX%{%b%}"
   local actual="$(spaceship_prompt)"
 
   assertEquals "render user with suffix" "$expected" "$actual"
