@@ -63,16 +63,6 @@ test_char_failure() {
   assertEquals "render char with failure" "$expected" "$actual"
 }
 
-test_char_inline() {
-  SPACESHIP_PROMPT_ADD_NEWLINE=false
-  local expected="%{%B%}%{%b%}%{%B%F{green}%}➜ %{%b%f%}%{%B%}%{%b%}"
-  local actual="$(spaceship_prompt)"
-
-  assertEquals "render char without newline" "$expected" "$actual"
-
-  SPACESHIP_PROMPT_ADD_NEWLINE=true
-}
-
 test_char_symbol() {
   SPACESHIP_CHAR_SYMBOL='-> '
 
