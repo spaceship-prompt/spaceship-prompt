@@ -43,14 +43,14 @@ tearDown() {
 # TEST CASES
 # ------------------------------------------------------------------------------
 
-testChar() {
+test_char() {
   local expected="$NEWLINE%{%B%}%{%b%}%{%B%F{$SPACESHIP_CHAR_COLOR_SUCCESS}%}➜ %{%b%f%}%{%B%}%{%b%}"
   local actual="$(spaceship_prompt)"
 
   assertEquals "render char" "$expected" "$actual"
 }
 
-testCharFailure() {
+test_char_failure() {
   local expected="$NEWLINE%{%B%}%{%b%}%{%B%F{$SPACESHIP_CHAR_COLOR_FAILURE}%}➜ %{%b%f%}%{%B%}%{%b%}"
   command false # this command should exit with non-zero code
   local actual="$(spaceship_prompt)"
@@ -58,7 +58,7 @@ testCharFailure() {
   assertEquals "render char with failure" "$expected" "$actual"
 }
 
-testCharInline() {
+test_char_inline() {
   SPACESHIP_PROMPT_ADD_NEWLINE=false
   local expected="%{%B%}%{%b%}%{%B%F{green}%}➜ %{%b%f%}%{%B%}%{%b%}"
   local actual="$(spaceship_prompt)"
@@ -68,7 +68,7 @@ testCharInline() {
   SPACESHIP_PROMPT_ADD_NEWLINE=true
 }
 
-testCharSymbol() {
+test_char_symbol() {
   SPACESHIP_CHAR_SYMBOL='-> '
 
   local expected="$NEWLINE%{%B%}%{%b%}%{%B%F{green}%}$SPACESHIP_CHAR_SYMBOL%{%b%f%}%{%B%}%{%b%}"
@@ -77,7 +77,7 @@ testCharSymbol() {
   assertEquals "render char with custom symbol" "$expected" "$actual"
 }
 
-testCharPrefix() {
+test_char_prefix() {
   SPACESHIP_CHAR_PREFIX='prefix'
   SPACESHIP_CHAR_SUFFIX=''
 
@@ -87,7 +87,7 @@ testCharPrefix() {
   assertEquals "render char with prefix" "$expected" "$actual"
 }
 
-testCharSuffix() {
+test_char_suffix() {
   SPACESHIP_CHAR_PREFIX=''
   SPACESHIP_CHAR_SUFFIX='suffix'
 
