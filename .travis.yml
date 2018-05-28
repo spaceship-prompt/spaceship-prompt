@@ -8,9 +8,15 @@ addons:
     packages:
       - build-essential
 before_install:
+  # Install OSX dependencies
+  # - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install mercurial; fi;
+  # Install Linux dependencies
+  # - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get -qq update; fi;
+  # - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install -y mercurial; fi;
+  # Set LOCAL for correct ZSH compilaction
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then LOCAL=/usr/local; fi;
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then LOCAL=/tmp; fi;
   # Donwload, install and compile ZSH 5.2
-  - if [ "$TRAVIS_OS_NAME" == "osx" ];   then LOCAL=/usr/local; fi;
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then LOCAL=/tmp;       fi;
   - curl -L https://sourceforge.net/projects/zsh/files/zsh/5.2/zsh-5.2.tar.gz/download | tar zx
   - cd zsh-5.2
   - ./configure --prefix=$LOCAL > /dev/null
