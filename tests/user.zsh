@@ -25,4 +25,4 @@ function testUser() {
   assertEquals "%{%B%}%{%b%}%{%B%F{yellow}%}%n%{%b%f%}%{%B%} %{%b%}" "$(spaceship_prompt)"
 }
 
-source shunit2/shunit2
+source modules/shunit2/shunit2

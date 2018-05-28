@@ -4,28 +4,46 @@
 setopt shwordsplit
 SHUNIT_PARENT=$0
 
-function setUp() {
+# ------------------------------------------------------------------------------
+# SHUNIT2 HOOKS
+# ------------------------------------------------------------------------------
+
+oneTimeSetUp() {
   export TERM="xterm-256color"
-
-  SPACESHIP_PROMPT_ADD_NEWLINE=false
+  SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
   SPACESHIP_PROMPT_ORDER=(dir)
-
-  autoload -U promptinit; promptinit
-  prompt spaceship
 }
 
-function tearDown() {
+setUp() {
+  autoload -U promptinit; promptinit
+  prompt spaceship
+
+  # load default config
+}
+
+oneTimeTearDown() {
+  # reset config
+}
+
+tearDown() {
   unset SPACESHIP_PROMPT_ADD_NEWLINE
   unset SPACESHIP_PROMPT_ORDER
 }
 
-function testHomeDirectory () {
+# ------------------------------------------------------------------------------
+# TEST CASES
+# ------------------------------------------------------------------------------
+
+testHomeDirectory () {
   cd ~
 
-  assertEquals "%{%B%}%{%b%}%{%B%F{cyan}%}%3~%{%b%f%}%{%B%} %{%b%}" "$(spaceship_prompt)"
+  local expected="%{%B%}%{%b%}%{%B%F{cyan}%}%3~%{%b%f%}%{%B%} %{%b%}"
+  local actual="$(spaceship_prompt)"
+
+  assertEquals "$expected" "$actual"
 }
 
-function testGitRepoTruncatedSubdirectoty() {
+testGitRepoTruncatedSubdirectoty() {
   FOLDER=/tmp/spaceship-test/dir1/dir2/dir3
   mkdir -p $FOLDER/dir4/dir5
 
@@ -39,7 +57,7 @@ function testGitRepoTruncatedSubdirectoty() {
   rm -rf /tmp/spaceship-test
 }
 
-function testGitSubmoduleTruncatedDirectory() {
+testGitSubmoduleTruncatedDirectory() {
   FOLDER=/tmp/spaceship-test/dir1/dir2/dir3
   MODULE_FOLDER=/tmp/spaceship-test/dir1/dir2/dir4
 
@@ -65,4 +83,4 @@ function testGitSubmoduleTruncatedDirectory() {
   rm -rf /tmp/spaceship-test
 }
 
-source shunit2/shunit2
+source modules/shunit2/shunit2
