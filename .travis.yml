@@ -1,0 +1,11 @@
+sudo: true
+language: generic
+before_install:
+  - sudo apt-get -qq update
+install:
+  - sudo apt-get install -y zsh
+  - sudo chsh -s $(which zsh)
+before_script:
+  - zsh --version
+script:
+  - scripts/tests.zsh
