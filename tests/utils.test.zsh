@@ -49,16 +49,28 @@ test_is_git() {
 }
 
 test_is_hg() {
+  # Skip this test case if Mercurial is not istalled
+  if ! spaceship::exists hg; then
+    startSkipping
+  fi
+
   local REPO="$SHUNIT_TMPDIR/utils/is_hg"
   mkdir -p $REPO/foo
   cd $REPO
-  command hg init
+
+  if spaceship::exists hg; then
+    command hg init
+  fi
 
   assertTrue "should be a hg repo" '$(spaceship::is_hg)'
   cd foo
   assertTrue "foo should be in hg repo" '$(spaceship::is_hg)'
   cd ../..
   assertFalse "should not be a hg repo" '$(spaceship::is_hg)'
+
+  if isSkipping; then
+    endSkipping
+  fi
 }
 
 test_deprecated() {
