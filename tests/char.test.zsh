@@ -15,8 +15,7 @@ oneTimeSetUp() {
 }
 
 setUp() {
-  autoload -U promptinit; promptinit
-  prompt spaceship
+  source spaceship.zsh
 
   SPACESHIP_CHAR_PREFIX=""
   SPACESHIP_CHAR_SUFFIX=""
