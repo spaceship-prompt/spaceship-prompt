@@ -49,17 +49,22 @@ header() {
 # Checkings and installing process
 # ------------------------------------------------------------------------------
 
-for test in $TESTS; do
-  header "Run $test..."
-  ( eval zsh $test 2>&1 )
-  local exitcode="$?"
-  [ "$exitcode" != "0" ] && EXIT_CODE=$exitcode
-done
+main() {
+  for test in $TESTS; do
+    header "Run $test..."
+    ( eval zsh $test 2>&1 )
+    local exitcode="$?"
+    [ "$exitcode" != "0" ] && EXIT_CODE=$exitcode
+  done
 
-if [ "$EXIT_CODE" != "0" ]; then
-  header $red "Tests are failing!"
-  exit $EXIT_CODE
-else
-  header $green "Tests are passing!"
-  exit 0
-fi
+  if [ "$EXIT_CODE" != "0" ]; then
+    header $red "Tests are failing!"
+    exit $EXIT_CODE
+  else
+    header $green "Tests are passing!"
+    exit 0
+  fi
+}
+
+main "$@"
+
