@@ -27,7 +27,7 @@ spaceship_rust() {
 
   spaceship::exists rustc || return
 
-  local rust_version=$(rustc --version | grep --color=never -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]')
+  local rust_version=$( command rustc --version | command grep --color=never -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]' )
 
   spaceship::section \
     "$SPACESHIP_RUST_COLOR" \

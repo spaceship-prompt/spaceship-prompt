@@ -23,18 +23,18 @@ spaceship_ruby() {
   [[ $SPACESHIP_RUBY_SHOW == false ]] && return
 
   # Show versions only for Ruby-specific folders
-  [[ -f Gemfile || -f Rakefile || -n *.rb(#qN^/) ]] || return
+  [[ -f Gemfile || -f Rakefile || -n *.rb(\#qN^/) ]] || return
 
   local ruby_version
 
   if spaceship::exists rvm-prompt; then
-    ruby_version=$(rvm-prompt i v g)
+    ruby_version=$( command rvm-prompt i v g )
   elif spaceship::exists chruby; then
-    ruby_version=$(chruby | sed -n -e 's/ \* //p')
+    ruby_version=$( command chruby | command sed -n -e 's/ \* //p' )
   elif spaceship::exists rbenv; then
-    ruby_version=$(rbenv version-name)
+    ruby_version=$( command rbenv version-name )
   elif spaceship::exists asdf; then
-    ruby_version=$(asdf current ruby | awk '{print $1}')
+    ruby_version=$( command asdf current ruby | command awk '{print $1}' )
   else
     return
   fi

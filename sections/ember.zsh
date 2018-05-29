@@ -25,7 +25,7 @@ spaceship_ember() {
   # Show EMBER status only for folders w/ ember-cli-build.js files
   [[ -f ember-cli-build.js && -f node_modules/ember-cli/package.json ]] || return
 
-  local ember_version=$(grep '"version":' ./node_modules/ember-cli/package.json | cut -d\" -f4)
+  local ember_version=$( command grep '"version":' ./node_modules/ember-cli/package.json | command cut -d\" -f4 )
   [[ $ember_version == "system" || $ember_version == "ember" ]] && return
 
   spaceship::section \

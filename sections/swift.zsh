@@ -26,10 +26,10 @@ spaceship_swift() {
   local swift_version
 
   if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
-    swift_version=$(swiftenv version | sed 's/ .*//')
+    swift_version=$( command swiftenv version | command sed 's/ .*//' )
   elif [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
     if swiftenv version | grep ".swift-version" > /dev/null; then
-      swift_version=$(swiftenv version | sed 's/ .*//')
+      swift_version=$( command swiftenv version | command sed 's/ .*//' )
     fi
   fi
 

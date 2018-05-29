@@ -27,7 +27,7 @@ spaceship_kubecontext() {
 
   spaceship::exists kubectl || return
 
-  local kube_context=$(kubectl config current-context 2>/dev/null)
+  local kube_context=$( command kubectl config current-context 2>/dev/null )
 
   [[ -z $kube_context ]] && return
 

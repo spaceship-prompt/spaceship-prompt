@@ -31,7 +31,7 @@ spaceship_dotnet() {
 
   # dotnet-cli automatically handles SDK pinning (specified in a global.json file)
   # therefore, this already returns the expected version for the current directory
-  local dotnet_version=$(dotnet --version 2>/dev/null)
+  local dotnet_version=$( command dotnet --version 2>/dev/null )
 
   spaceship::section \
     "$SPACESHIP_DOTNET_COLOR" \
