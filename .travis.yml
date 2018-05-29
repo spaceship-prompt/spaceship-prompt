@@ -25,7 +25,6 @@ before_install:
   - cd -
   - export PATH="$LOCAL/bin:$PATH"
 install:
-  - echo "$(which zsh)"
   - sudo chsh -s $(which zsh)
 before_script:
   - zsh --version
