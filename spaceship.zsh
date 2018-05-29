@@ -44,7 +44,8 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     user          # Username section
     dir           # Current directory section
     host          # Hostname section
-    git           # Git section (git_branch + git_status)
+    git_branch    # Git branch
+    git_status    # Git status
     hg            # Mercurial section (hg_branch  + hg_status)
     package       # Package version
     node          # Node.js section
@@ -136,20 +137,6 @@ spaceship::deprecated SPACESHIP_BATTERY_FULL_SYMBOL "Use %BSPACESHIP_BATTERY_SYM
 # An entry point of prompt
 # ------------------------------------------------------------------------------
 
-# PROMPT
-# Primary (left) prompt
-spaceship_prompt() {
-  # Retrieve exit code of last command to use in exit_code
-  # Must be captured before any other command in prompt is executed
-  # Must be the very first line in all entry prompt functions, or the value
-  # will be overridden by a different command execution - do not move this line!
-  RETVAL=$?
-
-  # Should it add a new line before the prompt?
-  [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
-  spaceship::compose_prompt $SPACESHIP_PROMPT_ORDER
-}
-
 # $RPROMPT
 # Optional (right) prompt
 spaceship_rprompt() {
@@ -169,6 +156,23 @@ spaceship_ps2() {
 }
 
 # ------------------------------------------------------------------------------
+# ASYNC
+# Async callback used to redraw prompt
+# ------------------------------------------------------------------------------
+
+spaceship_async_callback() {
+  local job="$1" ret="$2" output="$3" has_next="$6"
+
+  SPACESHIP_ASYNC_RESULTS[$job]="$output"
+
+  (( has_next )) && return
+
+  PROMPT=$(spaceship::compose_prompt $SPACESHIP_PROMPT_ORDER)
+  zle .reset-prompt
+  zle -R
+}
+
+# ------------------------------------------------------------------------------
 # SETUP
 # Setup requirements for prompt
 # ------------------------------------------------------------------------------
@@ -178,6 +182,7 @@ spaceship_ps2() {
 prompt_spaceship_setup() {
   autoload -Uz vcs_info
   autoload -Uz add-zsh-hook
+  autoload -Uz async && async_init
 
   # This variable is a magic variable used when loading themes with zsh's prompt
   # function. It will ensure the proper prompt options are set.
@@ -188,19 +193,17 @@ prompt_spaceship_setup() {
   setopt noprompt{bang,cr,percent,subst} "prompt${^prompt_opts[@]}"
 
   # Add exec_time hooks
-  add-zsh-hook preexec spaceship_exec_time_preexec_hook
-  add-zsh-hook precmd spaceship_exec_time_precmd_hook
+  add-zsh-hook preexec spaceship_preexec_hook
+  add-zsh-hook precmd spaceship_precmd_hook
 
   # Disable python virtualenv environment prompt prefix
   VIRTUAL_ENV_DISABLE_PROMPT=true
 
-  # Configure vcs_info helper for potential use in the future
-  add-zsh-hook precmd spaceship_exec_vcs_info_precmd_hook
-  zstyle ':vcs_info:*' enable git
-  zstyle ':vcs_info:git*' formats '%b'
+  # Register async worker
+  async_start_worker spaceship -u -n
+  async_register_callback spaceship spaceship_async_callback
 
   # Expose Spaceship to environment variables
-  PROMPT='$(spaceship_prompt)'
   PS2='$(spaceship_ps2)'
   RPS1='$(spaceship_rprompt)'
 }
