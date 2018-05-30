@@ -20,7 +20,7 @@ SPACESHIP_JOBS_COLOR="${SPACESHIP_JOBS_COLOR="blue"}"
 spaceship_jobs() {
   [[ $SPACESHIP_JOBS_SHOW == false ]] && return
 
-  local jobs_amount=$( (jobs) | wc -l | xargs)
+  local jobs_amount=$( ( jobs ) | wc -l | tr -d " ")
 
   [[ $jobs_amount -gt 0 ]] || return
   [[ $jobs_amount -eq 1 ]] && jobs_amount=''
