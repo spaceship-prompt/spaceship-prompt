@@ -11,6 +11,7 @@ SPACESHIP_JOBS_PREFIX="${SPACESHIP_JOBS_PREFIX=""}"
 SPACESHIP_JOBS_SUFFIX="${SPACESHIP_JOBS_SUFFIX=" "}"
 SPACESHIP_JOBS_SYMBOL="${SPACESHIP_JOBS_SYMBOL="✦"}"
 SPACESHIP_JOBS_COLOR="${SPACESHIP_JOBS_COLOR="blue"}"
+SPACESHIP_JOBS_SHOW_AMOUNT="${SPACESHIP_JOBS_SHOW_AMOUNT=true}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -23,7 +24,8 @@ spaceship_jobs() {
   local jobs_amount=$( (jobs) | wc -l )
 
   [[ $jobs_amount -gt 0 ]] || return
-  [[ $jobs_amount -eq 1 ]] && jobs_amount=''
+  [[ $jobs_amount -eq 1 ]] && [[ $SPACESHIP_JOBS_SHOW_AMOUNT == true ]] && jobs_amount=''
+  [[ $SPACESHIP_JOBS_SHOW_AMOUNT == false ]] && jobs_amount=''
 
   spaceship::section \
     "$SPACESHIP_JOBS_COLOR" \
