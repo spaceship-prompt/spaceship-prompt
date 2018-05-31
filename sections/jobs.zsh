@@ -11,7 +11,7 @@ SPACESHIP_JOBS_PREFIX="${SPACESHIP_JOBS_PREFIX=""}"
 SPACESHIP_JOBS_SUFFIX="${SPACESHIP_JOBS_SUFFIX=" "}"
 SPACESHIP_JOBS_SYMBOL="${SPACESHIP_JOBS_SYMBOL="✦"}"
 SPACESHIP_JOBS_COLOR="${SPACESHIP_JOBS_COLOR="blue"}"
-SPACESHIP_JOBS_AMOUNT_PREFIX="${SPACESHIP_JOBS_AMOUNT_PREFIX=" "}"
+SPACESHIP_JOBS_AMOUNT_PREFIX="${SPACESHIP_JOBS_AMOUNT_PREFIX=""}"
 SPACESHIP_JOBS_AMOUNT_SUFFIX="${SPACESHIP_JOBS_AMOUNT_SUFFIX=""}"
 
 # ------------------------------------------------------------------------------
@@ -27,9 +27,9 @@ spaceship_jobs() {
   [[ $jobs_amount -gt 0 ]] || return
 
   if [[ $jobs_amount -eq 1 ]]; then
-    jobs_amount='' ;
-    SPACESHIP_JOBS_AMOUNT_PREFIX='' ;
-    SPACESHIP_JOBS_AMOUNT_SUFFIX='' ;
+    jobs_amount=''
+    SPACESHIP_JOBS_AMOUNT_PREFIX=''
+    SPACESHIP_JOBS_AMOUNT_SUFFIX=''
   fi
 
   spaceship::section \
