@@ -165,7 +165,8 @@ spaceship_ps2() {
   # Retrieve exit code of last command to use in exit_code
   RETVAL=$?
 
-  spaceship::section "$SPACESHIP_CHAR_COLOR_SECONDARY" $SPACESHIP_CHAR_SYMBOL
+  local char="${SPACESHIP_CHAR_SYMBOL_SECONDARY="$SPACESHIP_CHAR_SYMBOL"}"
+  spaceship::section "$SPACESHIP_CHAR_COLOR_SECONDARY" "$char"
 }
 
 # ------------------------------------------------------------------------------
