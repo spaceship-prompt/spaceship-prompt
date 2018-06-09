@@ -81,7 +81,7 @@ You can find more examples with different color schemes in [Screenshots](https:/
 For correct work you will first need:
 
 * [`zsh`](http://www.zsh.org/) (v5.2 or recent) must be installed.
-* [Powerline Font](https://github.com/powerline/fonts) must be installed and used in your terminal.
+* [Powerline Font](https://github.com/powerline/fonts) must be installed and used in your terminal (for example, switch font to "Fira Mono for Powerline")
 
 ## Installing
 
