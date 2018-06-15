@@ -40,6 +40,13 @@ spaceship_precmd_hook() {
   # Stop measuring exec_time, must be the first precmd action
   spaceship_exec_time_precmd_hook
 
+  # Register async worker
+  if [[ -z "$SPACESHIP_ASYNC_INITIALIZED" ]]; then
+    async_start_worker spaceship -u -n
+    async_register_callback spaceship spaceship_async_callback
+    typeset -g SPACESHIP_ASYNC_INITIALIZED=1
+  fi
+
   # Abort all unfinished async jobs from the previous prompt
   async_flush_jobs spaceship
 

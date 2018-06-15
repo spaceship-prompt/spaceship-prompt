@@ -198,10 +198,6 @@ prompt_spaceship_setup() {
   # Disable python virtualenv environment prompt prefix
   VIRTUAL_ENV_DISABLE_PROMPT=true
 
-  # Register async worker
-  async_start_worker spaceship -u -n
-  async_register_callback spaceship spaceship_async_callback
-
   # Expose Spaceship to environment variables
   PS2='$(spaceship_ps2)'
   RPS1='$(spaceship_rprompt)'
