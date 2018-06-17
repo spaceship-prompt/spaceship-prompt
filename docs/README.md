@@ -29,6 +29,7 @@
   * [Julia (julia)](/docs/Options.md#julia-julia)
   * [Docker (docker)](/docs/Options.md#docker-docker)
   * [Amazon Web Services (aws)](/docs/Options.md#amazon-web-services-aws-aws)
+  * [Google Cloud Platform (gcloud)](/docs/Options.md#google-cloud-platform-gcloud)
   * [Virtualenv (venv)](/docs/Options.md#virtualenv-venv)
   * [Conda Virtualenv (conda)](/docs/Options.md#conda-virtualenv-conda)
   * [Pyenv (pyenv)](/docs/Options.md#pyenv-pyenv)
