@@ -162,10 +162,16 @@ spaceship_ps2() {
 spaceship_async_callback() {
   local job="$1" ret="$2" output="$3" has_next="$6"
 
-  SPACESHIP_ASYNC_RESULTS[$job]="$output"
+  if [[ -n "$output" ]]; then
+    SPACESHIP_ASYNC_RESULTS[$job]="$output"
+    SPACESHIP_ASYNC_NEED_REDRAW_PROMPT=1
+  else
+    [[ $SPACESHIP_ASYNC_NEED_REDRAW_PROMPT == 0 ]] && return
+  fi
 
   (( has_next )) && return
 
+  SPACESHIP_ASYNC_NEED_REDRAW_PROMPT=0
   PROMPT=$(spaceship::compose_prompt $SPACESHIP_PROMPT_ORDER)
   zle .reset-prompt
   zle -R
