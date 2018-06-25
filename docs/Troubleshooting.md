@@ -23,6 +23,14 @@ This is not an issue with Spaceship prompt. Spaceship uses Unicode symbols to re
 
 In case Unicode symbols aren't supported, you can replace them to those that are compatible with your terminal with `SPACESHIP_*_SYMBOL` options. Check out [Options](./docs/Options.md) page for more information.
 
+## What is the `[I]` before prompt character ?
+
+That's [`vi_mode`](https://github.com/denysdovhan/spaceship-prompt/blob/master/docs/Options.md#vi-mode-vi_mode) section indicating `insert` mode. You can disable that with following line in your configuration,
+
+```
+SPACESHIP_VI_MODE_SHOW=false
+```
+
 ## Why is my prompt slow?
 
 Spaceship may work slower in big repositories since status checkings are quite a heavy operation. In this case, try to avoid having many uncommitted files.
