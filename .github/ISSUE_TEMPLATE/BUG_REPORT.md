@@ -3,6 +3,12 @@ name: 🐛 Bug Report
 about: If something isn't working as expected 🤔.
 ---
 
+<!--
+Please read our TROUBLESHOOTING page for commonly encountered problems:
+
+https://github.com/denysdovhan/spaceship-prompt/blob/master/docs/Troubleshooting.md
+-->
+
 **Current behavior**
 
 A clear and concise description of the behavior.
