@@ -21,6 +21,8 @@ SPACESHIP_DIR_COLOR="${SPACESHIP_DIR_COLOR="cyan"}"
 spaceship_dir() {
   [[ $SPACESHIP_DIR_SHOW == false ]] && return
 
+  # Use quotes around unassigned local variables to prevent
+  # getting replaced by global aliases
   local 'dir'
 
   # Threat repo root as a top-level directory or not
