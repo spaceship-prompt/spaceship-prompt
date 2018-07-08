@@ -20,7 +20,7 @@ SPACESHIP_CHAR_COLOR_SECONDARY="${SPACESHIP_CHAR_COLOR_SECONDARY="yellow"}"
 # Paint $PROMPT_SYMBOL in red if previous command was fail and
 # paint in green if everything was OK.
 spaceship_char() {
-  local color
+  local 'color'
 
   if [[ $RETVAL -eq 0 ]]; then
     color="$SPACESHIP_CHAR_COLOR_SUCCESS"
