@@ -52,8 +52,16 @@ spaceship_foobar() {
   # http://zsh.sourceforge.net/Doc/Release/Expansion.html
   [[ -f foobar.conf || -n *.foo(#qN^/) || -n *.bar(#qN^/) ]] || return
 
-  # Retrieve foobar status and save it to variable
-  local foobar_status=$(foobar status)
+  # Use quotes around unassigned local variables to prevent
+  # getting replaced by global aliases
+  # http://zsh.sourceforge.net/Doc/Release/Shell-Grammar.html#Aliasing
+  local 'foobar_status'
+
+  if [[ $SOME_CONDITION ]]; then
+    foobar_status=$foobar baz)
+  else
+    foobar_status=$(foobar foo)
+  fi
 
   # Display foobar section
   spaceship::section \
