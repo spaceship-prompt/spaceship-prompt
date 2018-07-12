@@ -49,7 +49,7 @@ tearDown() {
 test_dir_home() {
   cd ~
 
-  local expected="%{%B%}in %{%b%}%{%B%F{$SPACESHIP_DIR_COLOR}%}%3~%{%b%f%}%{%B%} %{%b%}"
+  local expected="%{%B%}in %{%b%}%{%B%F{$SPACESHIP_DIR_COLOR}%}%(4~||)%3~%{%b%f%}%{%B%} %{%b%}"
   local actual="$(spaceship_prompt)"
 
   assertEquals "render dir" "$expected" "$actual"
@@ -58,7 +58,7 @@ test_dir_home() {
 test_dir_color() {
   SPACESHIP_DIR_COLOR=blue
 
-  local expected="%{%B%}in %{%b%}%{%B%F{$SPACESHIP_DIR_COLOR}%}%3~%{%b%f%}%{%B%} %{%b%}"
+  local expected="%{%B%}in %{%b%}%{%B%F{$SPACESHIP_DIR_COLOR}%}%(4~||)%3~%{%b%f%}%{%B%} %{%b%}"
   local actual="$(spaceship_prompt)"
 
   assertEquals "render dir with custom color" "$expected" "$actual"
@@ -68,7 +68,7 @@ test_dir_prefix() {
   SPACESHIP_DIR_PREFIX='prefix'
   SPACESHIP_DIR_SUFFIX=''
 
-  local expected="%{%B%}$SPACESHIP_DIR_PREFIX%{%b%}%{%B%F{cyan}%}%3~%{%b%f%}%{%B%}$SPACESHIP_DIR_SUFFIX%{%b%}"
+  local expected="%{%B%}$SPACESHIP_DIR_PREFIX%{%b%}%{%B%F{cyan}%}%(4~||)%3~%{%b%f%}%{%B%}$SPACESHIP_DIR_SUFFIX%{%b%}"
   local actual="$(spaceship_prompt)"
 
   assertEquals "render dir with prefix" "$expected" "$actual"
@@ -78,7 +78,7 @@ test_dir_suffix() {
   SPACESHIP_DIR_PREFIX=''
   SPACESHIP_DIR_SUFFIX='suffix'
 
-  local expected="%{%B%}$SPACESHIP_DIR_PREFIX%{%b%}%{%B%F{cyan}%}%3~%{%b%f%}%{%B%}$SPACESHIP_DIR_SUFFIX%{%b%}"
+  local expected="%{%B%}$SPACESHIP_DIR_PREFIX%{%b%}%{%B%F{cyan}%}%(4~||)%3~%{%b%f%}%{%B%}$SPACESHIP_DIR_SUFFIX%{%b%}"
   local actual="$(spaceship_prompt)"
 
   assertEquals "render dir with suffix" "$expected" "$actual"
@@ -87,7 +87,7 @@ test_dir_suffix() {
 test_dir_trunc() {
   SPACESHIP_DIR_TRUNC=2
 
-  local expected="%{%B%}in %{%b%}%{%B%F{cyan}%}%$SPACESHIP_DIR_TRUNC~%{%b%f%}%{%B%} %{%b%}"
+  local expected="%{%B%}in %{%b%}%{%B%F{cyan}%}%($((SPACESHIP_DIR_TRUNC+1))~||)%$SPACESHIP_DIR_TRUNC~%{%b%f%}%{%B%} %{%b%}"
   local actual="$(spaceship_prompt)"
 
   assertEquals "render truncated dir" "$expected" "$actual"
