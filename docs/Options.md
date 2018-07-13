@@ -136,6 +136,7 @@ Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`. W
 | `SPACESHIP_DIR_PREFIX` | `in·` | Prefix before current directory |
 | `SPACESHIP_DIR_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after current directory |
 | `SPACESHIP_DIR_TRUNC` | `3` | Number of folders of cwd to show in prompt, 0 to show all |
+| `SPACESHIP_DIR_TRUNC_PREFIX` | ` ` | Prefix before cwd when it's truncated. For example `…/` or `.../`, empty to disable |
 | `SPACESHIP_DIR_TRUNC_REPO` | `true` | While in `git` repo, show only root directory and folders inside it |
 | `SPACESHIP_DIR_COLOR` | `cyan` | Color of directory section |
 
@@ -221,7 +222,7 @@ Mercurial status indicators is shown only when you have dirty repository.
 
 > Works only for [npm](https://www.npmjs.com/) at the moment. Please, help us improve this section!
 
-Package version is shown when repository is a package (e.g. contains a `package.json` file).
+Package version is shown when repository is a package (e.g. contains a `package.json` file). If no version information is found in `package.json`, the `⚠` symbol will be displayed.
 
 > **Note:** This is the version of the package you are working on, not the version of package manager itself.
 
@@ -313,7 +314,7 @@ Go section is shown only in directories that contain `Godeps`, `glide.yaml`, any
 
 ### PHP (`php`)
 
-PHP section is shown only in directories that contain any file with `.php` extension.
+PHP section is shown only in directories that contain `composer.json` file, or any other file with `.php` extension.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -402,6 +403,7 @@ Shows selected Amazon Web Services profile using '[named profiles](http://docs.a
 | `SPACESHIP_VENV_SHOW` | `true` | Show current Python virtualenv or not |
 | `SPACESHIP_VENV_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the virtualenv section |
 | `SPACESHIP_VENV_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the virtualenv section |
+| `SPACESHIP_VENV_SYMBOL` | `·` | Character to be shown before virtualenv |
 | `SPACESHIP_VENV_GENERIC_NAMES` | `(virtualenv venv .venv)` | If the virtualenv folder is in this *array*, than use its parent directory as its name instead |
 | `SPACESHIP_VENV_COLOR` | `blue` | Color of virtualenv environment section |
 

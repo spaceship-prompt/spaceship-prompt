@@ -22,12 +22,12 @@ SPACESHIP_PHP_COLOR="${SPACESHIP_PHP_COLOR="blue"}"
 spaceship_php() {
   [[ $SPACESHIP_PHP_SHOW == false ]] && return
 
-  # Show only if php files exist in current directory
-  [[ -n *.php(#qN^/) ]] || return
+  # Show only if php files or composer.json exist in current directory
+  [[ -n *.php(#qN^/) || -f composer.json ]] || return
 
   spaceship::exists php || return
 
-  local php_version=$(php -v 2>&1 | grep --color=never -oe "^PHP\s*[0-9.]*" | awk '{print $2}')
+  local php_version=$(php -v 2>&1 | grep --color=never -oe "^PHP\s*[0-9.]\+" | awk '{print $2}')
 
   spaceship::section \
     "$SPACESHIP_PHP_COLOR" \

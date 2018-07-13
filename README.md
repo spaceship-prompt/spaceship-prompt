@@ -7,6 +7,7 @@
 # 🚀⭐ Spaceship ZSH
 
 [![NPM version][npm-image]][npm-url]
+[![Build status][ci-image]][ci-url]
 [![Zsh][zsh-image]][zsh-url]
 [![Donate with card][donate-card-image]][donate-readme]
 [![Donate with Bitcoin][donate-btc-image]][donate-readme]
@@ -30,7 +31,7 @@ Currently it shows:
   * `=` — unmerged changes;
   * `⇡` — ahead of remote branch;
   * `⇣` — behind of remote branch;
-  * `⇕` — diverged chages.
+  * `⇕` — diverged changes.
 * Current Mercurial bookmark/branch and rich repo status:
   * `?` — untracked changes;
   * `+` — uncommitted changes in the index;
@@ -45,7 +46,7 @@ Currently it shows:
 * Current Go version (`🐹`).
 * Current PHP version (`🐘`).
 * Current Rust version (`𝗥`).
-* Current version of Haskell Tool Stack (`λ`).
+* Current version of Haskell GHC Compiler, defined in stack.yaml file (`λ`).
 * Current Julia version (`ஃ`).
 * Current Docker version and connected machine (`🐳`).
 * Current Vagrant version (`Ｖ`).
@@ -66,7 +67,7 @@ Currently it shows:
 * Optional time stamps 12/24hr in format ([how to enable](./docs/Options.md#time-time)).
 * Execution time of the last command if it exceeds the set threshold.
 
-Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new) or send pull request.
+Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose) or send pull request.
 
 ## Preview
 
@@ -80,7 +81,7 @@ You can find more examples with different color schemes in [Screenshots](https:/
 
 For correct work you will first need:
 
-* [`zsh`](http://www.zsh.org/) (v5.0.6 or recent) must be installed.
+* [`zsh`](http://www.zsh.org/) (v5.2 or recent) must be installed.
 * [Powerline Font](https://github.com/powerline/fonts) must be installed and used in your terminal.
 
 ## Installing
@@ -212,7 +213,7 @@ Also, take a look at popular option presets or share your own configuration on [
 
 Have a trouble? Take a look at out [Troubleshooting](./docs/Troubleshooting.md) page.
 
-Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new), describe your problem and we will gladly help you.
+Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.
 
 ## Team
 
@@ -240,8 +241,11 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [npm-url]: https://npmjs.org/package/spaceship-prompt
 [npm-image]: https://img.shields.io/npm/v/spaceship-prompt.svg?style=flat-square
 
+[ci-url]: https://travis-ci.org/denysdovhan/spaceship-prompt
+[ci-image]: https://img.shields.io/travis/denysdovhan/spaceship-prompt.svg?style=flat-square
+
 [zsh-url]: http://zsh.org/
-[zsh-image]: https://img.shields.io/badge/zsh-%3E%3Dv5.0.6-777777.svg?style=flat-square
+[zsh-image]: https://img.shields.io/badge/zsh-%3E%3Dv5.2-777777.svg?style=flat-square
 
 [donate-readme]: https://github.com/denysdovhan/spaceship-prompt#donate
 [donate-card-url]: https://www.liqpay.com/en/checkout/380951100392
