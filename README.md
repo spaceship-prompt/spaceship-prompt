@@ -222,7 +222,7 @@ Still struggling? Please, [file an issue](https://github.com/denysdovhan/spacesh
 
 ## Donate
 
-Hi! I work on this project in my spare time, beside my primary job. I hope enjoy using Spaceship, and if you do, please, [buy me a cup of tea ☕️][donate-card-url].
+Hi! I work on this project in my spare time, beside my primary job. I hope you enjoy using Spaceship, and if you do, please, [buy me a cup of tea ☕️][donate-card-url].
 
 | Credit/Debit card | Bitcoin | Ethereum |
 |:-----------------:|:-------:|:--------:|
