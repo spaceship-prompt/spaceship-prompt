@@ -28,7 +28,7 @@ spaceship_docker() {
   [[ -f $COMPOSE_FILE || -f Dockerfile || -f docker-compose.yml ]] || return
 
   # if docker daemon isn't running you'll get an error saying it can't connect
-  local docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null | awk -F\- '{ print $1 }')
+  local docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
   [[ -z $docker_version ]] && return
 
   if [[ -n $DOCKER_MACHINE_NAME ]]; then
