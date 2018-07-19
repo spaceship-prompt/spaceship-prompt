@@ -22,10 +22,11 @@ SPACESHIP_DOCKER_COLOR="${SPACESHIP_DOCKER_COLOR="cyan"}"
 spaceship_docker() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
 
+  spaceship::exists docker || return
+
   # Show Docker status only for Docker-specific folders
   [[ -f $COMPOSE_FILE || -f Dockerfile || -f docker-compose.yml ]] || return
 
-  spaceship::exists docker || return
   # if docker daemon isn't running you'll get an error saying it can't connect
   local docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null | awk -F\- '{ print $1 }')
   [[ -z $docker_version ]] && return
