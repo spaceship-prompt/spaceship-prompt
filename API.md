@@ -58,7 +58,7 @@ spaceship_foobar() {
   local 'foobar_status'
 
   if [[ $SOME_CONDITION ]]; then
-    foobar_status=$foobar baz)
+    foobar_status=$(foobar baz)
   else
     foobar_status=$(foobar foo)
   fi
