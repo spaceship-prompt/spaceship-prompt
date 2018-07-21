@@ -370,6 +370,7 @@ Docker section is shown only in directories that contain `Dockerfile` or `docker
 | `SPACESHIP_DOCKER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Docker section |
 | `SPACESHIP_DOCKER_SYMBOL` | `🐳·` | Character to be shown before Docker version |
 | `SPACESHIP_DOCKER_COLOR` | `cyan` | Color of Docker section |
+| `SPACESHIP_DOCKER_VERBOSE` | `false` | Show complete Docker version |
 
 ### Amazon Web Services (AWS) (`aws`)
 
