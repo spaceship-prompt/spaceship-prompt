@@ -523,6 +523,8 @@ This section show only when there are active jobs in the background.
 | `SPACESHIP_JOBS_SUFFIX` | ` ` | Suffix after the jobs indicator |
 | `SPACESHIP_JOBS_SYMBOL` | `✦` | Character to be shown when jobs are hiding |
 | `SPACESHIP_JOBS_COLOR` | `blue` | Color of background jobs section |
+| `SPACESHIP_JOBS_AMOUNT_PREFIX` | ` ` | Prefix before the number of jobs (between jobs indicator and jobs amount) |
+| `SPACESHIP_JOBS_AMOUNT_SUFFIX` | ` ` | Suffix after the number of jobs |
 | `SPACESHIP_JOBS_AMOUNT_THRESHOLD` | `1` | Number of jobs after which job count will be shown |
 
 ### Exit code (`exit_code`)
