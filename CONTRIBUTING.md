@@ -16,9 +16,11 @@ Please, keep this simple rules in mind while you're contributing to Spaceship.
 
 1. **Fork** this repo (click the _fork_ button)
 2. **Clone** your fork to your working machine (via `git clone`)
-3. **Add and commit** your contributions (we suggest you to check out a new branch for changes)
-4. **Push** your changes to your remote fork
-5. **Open a pull-request** to our primary repo
+3. **Make your changes**. Check our [API](./docs/API.md) for more information (we suggest you to check out a new branch for changes).
+3. **Test** your code (via `npm test`)
+3. **Add and commit** your contributions
+5. **Push** your changes to your remote fork
+6. **Open a pull-request** to our primary repo
 
 ## Sections
 
