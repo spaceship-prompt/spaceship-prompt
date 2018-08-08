@@ -59,7 +59,9 @@ spaceship_precmd_hook() {
 
   # Draw initial prompt (no async jobs started yet)
   PROMPT=$(spaceship::compose_prompt $SPACESHIP_PROMPT_ORDER)
+  RPROMPT=$(spaceship::compose_prompt $SPACESHIP_RPROMPT_ORDER)
 
   # Load all async sections
   spaceship::async_load_prompt $SPACESHIP_PROMPT_ORDER
+  spaceship::async_load_prompt $SPACESHIP_RPROMPT_ORDER
 }
