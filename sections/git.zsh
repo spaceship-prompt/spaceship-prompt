@@ -28,14 +28,16 @@ source "$SPACESHIP_ROOT/sections/git_status.zsh"
 
 spaceship_async_job_load_git() {
   [[ $SPACESHIP_GIT_SHOW == false ]] && return
-  async_job spaceship spaceship_async_job_git "$PWD"
-}
 
-spaceship_async_job_git() {
-  local git_branch="$(spaceship_git_branch)" git_status="$(spaceship_git_status)"
+  async_job spaceship spaceship_async_job_git_branch "$PWD"
+  async_job spaceship spaceship_async_job_git_status "$PWD"
 }
 
 spaceship_git() {
+
+  local git_branch=${SPACESHIP_ASYNC_RESULTS[spaceship_async_job_git_branch]}
+  local git_status=${SPACESHIP_ASYNC_RESULTS[spaceship_async_job_git_status]}
+
   [[ -z $git_branch ]] && return
 
   spaceship::section \
