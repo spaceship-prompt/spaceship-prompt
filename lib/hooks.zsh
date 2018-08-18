@@ -57,6 +57,9 @@ spaceship_precmd_hook() {
   # Should it add a new line before the prompt?
   [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
 
+	# Switch async worker to the current directory
+  async_worker_eval spaceship "cd '$PWD'"
+
   # Draw initial prompt (no async jobs started yet)
   PROMPT=$(spaceship::compose_prompt $SPACESHIP_PROMPT_ORDER)
   RPROMPT=$(spaceship::compose_prompt $SPACESHIP_RPROMPT_ORDER)

@@ -17,8 +17,6 @@ SPACESHIP_GIT_BRANCH_COLOR="${SPACESHIP_GIT_BRANCH_COLOR="magenta"}"
 # ------------------------------------------------------------------------------
 
 spaceship_async_job_git_branch() {
-	builtin cd -q "$1" 2>/dev/null
-
   zstyle ':vcs_info:*' enable git
   zstyle ':vcs_info:git*' formats '%b'
   zstyle ':vcs_info:git*' actionformats '%b|%a'

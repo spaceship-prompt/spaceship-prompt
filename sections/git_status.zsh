@@ -26,8 +26,6 @@ SPACESHIP_GIT_STATUS_DIVERGED="${SPACESHIP_GIT_STATUS_DIVERGED="⇕"}"
 # ------------------------------------------------------------------------------
 
 spaceship_async_job_git_status() {
-	builtin cd -q "$1" 2>/dev/null
-
   spaceship::is_git || return
 
   local INDEX git_status=""

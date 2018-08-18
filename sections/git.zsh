@@ -29,8 +29,8 @@ source "$SPACESHIP_ROOT/sections/git_status.zsh"
 spaceship_async_job_load_git() {
   [[ $SPACESHIP_GIT_SHOW == false ]] && return
 
-  async_job spaceship spaceship_async_job_git_branch "$PWD"
-  async_job spaceship spaceship_async_job_git_status "$PWD"
+  async_job spaceship spaceship_async_job_git_branch
+  async_job spaceship spaceship_async_job_git_status
 }
 
 spaceship_git() {
