@@ -179,7 +179,11 @@ spaceship_async_callback() {
 prompt_spaceship_setup() {
   autoload -Uz vcs_info
   autoload -Uz add-zsh-hook
-  autoload -Uz async && async
+  if spaceship::exists async; then
+    autoload -Uz async && async
+  else
+    source $SPACESHIP_ROOT/async.zsh && async_init
+  fi
 
   # This variable is a magic variable used when loading themes with zsh's prompt
   # function. It will ensure the proper prompt options are set.
