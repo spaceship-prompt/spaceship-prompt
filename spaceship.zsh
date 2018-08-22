@@ -182,7 +182,7 @@ prompt_spaceship_setup() {
   if spaceship::exists async; then
     autoload -Uz async && async
   else
-    source $SPACESHIP_ROOT/async.zsh && async_init
+    source $SPACESHIP_ROOT/async.zsh && async
   fi
 
   # This variable is a magic variable used when loading themes with zsh's prompt
