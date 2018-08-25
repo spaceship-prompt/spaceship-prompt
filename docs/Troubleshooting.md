@@ -104,7 +104,7 @@ In _iTerm_ follow these instructions:
 
 ## Why doesn't my prompt look like the preview?
 
-![preview](../preview.gif)
+![preview](https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif)
 
 Preview shows `spaceship` prompt setup with:
 
