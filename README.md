@@ -34,10 +34,10 @@
 
 <div align="center">
   <h4>
-    <a href="https://denysdovhan.com/spaceship-prompt/">Website |</a>
-    <a href="#installing">Install |</a>
-    <a href="#features">Features |</a>
-    <a href="./docs/Options.md">Options |</a>
+    <a href="https://denysdovhan.com/spaceship-prompt/">Website</a> |
+    <a href="#installing">Install</a> |
+    <a href="#features">Features</a> |
+    <a href="./docs/Options.md">Options</a> |
     <a href="./docs/API.md">API</a>
   </h4>
 </div>
