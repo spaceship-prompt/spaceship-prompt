@@ -16,6 +16,7 @@ Please, keep this simple rules in mind while you're contributing to Spaceship.
 
 1. **Fork** this repo (click the _fork_ button)
 2. **Clone** your fork to your working machine (via `git clone`)
+2. **Update submodules** in your fork (via `git submodule update --init --recursive`)
 3. **Make your changes**. Check our [API](./docs/API.md) for more information (we suggest you to check out a new branch for changes).
 3. **Test** your code (via `npm test`)
 3. **Add and commit** your contributions
