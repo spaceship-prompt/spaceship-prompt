@@ -1,6 +1,6 @@
 {
   "name": "spaceship-prompt",
-  "version": "3.4.1",
+  "version": "3.5.0",
   "description": "A Zsh prompt for Astronauts.",
   "files": [
     "lib",
@@ -14,7 +14,7 @@
     "postuninstall": "./scripts/uninstall.sh",
     "version": "./scripts/version.sh",
     "postpublish": "git push --follow-tags",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./scripts/tests.sh",
     "docs:prepare": "gitbook install",
     "docs:icons": "cp logos/apple-touch-icon.png _book/gitbook/images/apple-touch-icon-precomposed-152.png && cp logos/favicon.ico _book/gitbook/images",
     "docs:serve": "npm run docs:prepare && gitbook serve .",
