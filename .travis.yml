@@ -1,0 +1,46 @@
+sudo: true
+language: generic
+os:
+  - linux
+  - osx
+addons:
+  apt:
+    packages:
+      - build-essential
+before_install:
+  # Install OSX dependencies
+  # - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install mercurial; fi;
+  # Install Linux dependencies
+  # - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get -qq update; fi;
+  # - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install -y mercurial; fi;
+  # Set LOCAL for correct ZSH compilaction
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then LOCAL=/usr/local; fi;
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then LOCAL=/tmp; fi;
+  # Donwload, install and compile ZSH 5.2
+  - curl -L https://sourceforge.net/projects/zsh/files/zsh/5.2/zsh-5.2.tar.gz/download | tar zx
+  - cd zsh-5.2
+  - ./configure --prefix=$LOCAL > /dev/null
+  - make
+  - make install
+  - cd -
+  - export PATH="$LOCAL/bin:$PATH"
+install:
+  - sudo chsh -s $(which zsh)
+before_script:
+  - zsh --version
+script:
+  - scripts/tests.sh
+jobs:
+  include:
+    - stage: deploy gitbook
+      if: branch = master AND type = push
+      script:
+        - npm install --only=dev --ignore-scripts
+        - npm run docs:build
+      deploy:
+       provider: pages
+       skip-cleanup: true
+       github-token: $GITHUB_TOKEN
+       committer-from-gh: true
+       keep-history: true
+       local-dir: _book

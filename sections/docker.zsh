@@ -13,6 +13,7 @@ SPACESHIP_DOCKER_PREFIX="${SPACESHIP_DOCKER_PREFIX="on "}"
 SPACESHIP_DOCKER_SUFFIX="${SPACESHIP_DOCKER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_DOCKER_SYMBOL="${SPACESHIP_DOCKER_SYMBOL="🐳 "}"
 SPACESHIP_DOCKER_COLOR="${SPACESHIP_DOCKER_COLOR="cyan"}"
+SPACESHIP_DOCKER_VERBOSE="${SPACESHIP_DOCKER_VERBOSE=false}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -30,6 +31,8 @@ spaceship_docker() {
   # if docker daemon isn't running you'll get an error saying it can't connect
   local docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
   [[ -z $docker_version ]] && return
+
+  [[ $SPACESHIP_DOCKER_VERBOSE == false ]] && docker_version=$(echo ${docker_version} | awk -F\- '{ print $1 }')
 
   if [[ -n $DOCKER_MACHINE_NAME ]]; then
     docker_version+=" via ($DOCKER_MACHINE_NAME)"

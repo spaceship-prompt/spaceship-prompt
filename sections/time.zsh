@@ -21,7 +21,7 @@ SPACESHIP_TIME_COLOR="${SPACESHIP_TIME_COLOR="yellow"}"
 spaceship_time() {
   [[ $SPACESHIP_TIME_SHOW == false ]] && return
 
-  local time_str
+  local 'time_str'
 
   if [[ $SPACESHIP_TIME_FORMAT != false ]]; then
     time_str="${SPACESHIP_TIME_FORMAT}"

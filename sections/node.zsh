@@ -26,7 +26,7 @@ spaceship_node() {
   # Show NODE status only for JS-specific folders
   [[ -f package.json || -d node_modules || -n *.js(#qN^/) ]] || return
 
-  local node_version
+  local 'node_version'
 
   if spaceship::exists nvm; then
     node_version=$(nvm current 2>/dev/null)

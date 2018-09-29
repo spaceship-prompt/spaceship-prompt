@@ -26,7 +26,7 @@ spaceship_elixir() {
   # Show versions only for Elixir-specific folders
   [[ -f mix.exs || -n *.ex(#qN^/) || -n *.exs(#qN^/) ]] || return
 
-  local elixir_version
+  local 'elixir_version'
 
   if spaceship::exists kiex; then
     elixir_version="${ELIXIR_VERSION}"
