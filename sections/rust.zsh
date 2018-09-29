@@ -29,9 +29,11 @@ spaceship_rust() {
 
   spaceship::exists rustc || return
 
-  local -a rust_version
+  local -a 'rust_version'
   [[ $SPACESHIP_RUST_SHOW_VERSION == false ]] || rust_version+="v$(rustc --version | grep --color=never -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]')"
   [[ $SPACESHIP_RUST_SHOW_TOOLCHAIN == false ]] || rust_version+=$(rustc --version | grep --colour=never -oE '(stable|beta|nightly)' || echo stable)
+
+  [[ -z ${rust_version[0]} && -z ${rust_version[1]} ]] && return
 
   spaceship::section \
     "$SPACESHIP_RUST_COLOR" \
