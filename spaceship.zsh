@@ -48,6 +48,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     hg            # Mercurial section (hg_branch  + hg_status)
     package       # Package version
     node          # Node.js section
+    moodle        # Moodle version
     ruby          # Ruby section
     elm           # Elm section
     elixir        # Elixir section
