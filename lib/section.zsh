@@ -13,22 +13,39 @@ spaceship::section() {
 
   [[ -z $3 && -z $4 ]] && content=$2 prefix=''
 
-  echo -n "%{%B%}" # set bold
-  if [[ $spaceship_prompt_opened == true ]] && [[ $SPACESHIP_PROMPT_PREFIXES_SHOW == true ]]; then
-    echo -n "$prefix"
-  fi
-  spaceship_prompt_opened=true
-  echo -n "%{%b%}" # unset bold
+  if [[ $SPACESHIP_PROMPT_BOLD == true ]]; then
+    if [[ $spaceship_prompt_opened == true ]] && [[ $SPACESHIP_PROMPT_PREFIXES_SHOW == true ]]; then
+        echo -n "%{%B%}"    # Set bold
+        echo -n "$prefix"
+        echo -n "%{%b%}"    # Unset bold
+    fi
 
-  echo -n "%{%B$color%}" # set color
-  echo -n "$content"     # section content
-  echo -n "%{%b%f%}"     # unset color
+    spaceship_prompt_opened=true
 
-  echo -n "%{%B%}" # reset bold, if it was diabled before
-  if [[ $SPACESHIP_PROMPT_SUFFIXES_SHOW == true ]]; then
-    echo -n "$suffix"
+    echo -n "%{%B$color%}"  # Set bold and color
+    echo -n "$content"
+    echo -n "%{%b%f%}"      # Unset and color
+
+    if [[ $SPACESHIP_PROMPT_SUFFIXES_SHOW == true ]]; then
+      echo -n "%{%B%}"
+      echo -n "$suffix"
+      echo -n "%{%b%}"
+    fi
+  else
+    if [[ $spaceship_prompt_opened == true ]] && [[ $SPACESHIP_PROMPT_PREFIXES_SHOW == true ]]; then
+        echo -n "$prefix"
+    fi
+
+    spaceship_prompt_opened=true
+
+    echo -n "%{$color%}"
+    echo -n "$content"
+    echo -n "%{%f%}"
+
+    if [[ $SPACESHIP_PROMPT_SUFFIXES_SHOW == true ]]; then
+      echo -n "$suffix"
+    fi
   fi
-  echo -n "%{%b%}" # unset bold
 }
 
 # Compose whole prompt from sections
