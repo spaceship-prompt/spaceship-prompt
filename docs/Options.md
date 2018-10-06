@@ -59,6 +59,7 @@ This group of options defines a behaviour of prompt and standard parameters for 
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
+| `SPACESHIP_PROMPT_BOLD` | `true` | Toggle font weight of prompt components |
 | `SPACESHIP_PROMPT_ADD_NEWLINE` | `true` | Adds a newline character before each prompt line |
 | `SPACESHIP_PROMPT_SEPARATE_LINE` | `true` | Make the prompt span across two lines |
 | `SPACESHIP_PROMPT_FIRST_PREFIX_SHOW` | `false` | Shows a prefix of the first section in prompt  |
