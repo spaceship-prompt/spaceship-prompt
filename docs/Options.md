@@ -265,6 +265,22 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 | `SPACESHIP_RUBY_SYMBOL` | `💎·` | Character to be shown before Ruby version |
 | `SPACESHIP_RUBY_COLOR` | `red` | Color of Ruby section |
 
+### Elm project (`elm_project`)
+
+TODO
+
+Package version is shown when repository is an Elm project (e.g. contains `elm.json` or `elm-package.json`).
+
+By default, Elm package section is shown only if `elm --version` is outside of `elm-version` range in `elm.json` to warn that the installed version of elm does not match the version used in this project.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_ELM_PACKAGE_SHOW` | `true` | Show package version |
+| `SPACESHIP_ELM_PACKAGE_PREFIX` | `is·` | Prefix before package version section |
+| `SPACESHIP_ELM_PACKAGE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after package version section |
+| `SPACESHIP_ELM_PACKAGE_SYMBOL` | `📦·` | Character to be shown before package version |
+| `SPACESHIP_ELM_PACKAGE_COLOR` | `blue` | Color of package version section |
+
 ### Elm (`elm`)
 
 Elm section is shown only in directories that contain `elm.json` file, `elm-package.json` file, `elm-stuff` directory, or any other file with `.elm` extension.

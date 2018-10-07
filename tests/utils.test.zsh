@@ -106,6 +106,53 @@ test_union() {
   assertEquals "union of arrays" "$expected" "$actual"
 }
 
+test_parse_semver() {
+  spaceship::parse_semver asdf
+
+  assertFalse "return false when parsing invalid semver" "$?"
+
+  local expected=('3' '2' '1' 'alpha.2' 'build1')
+  local actual=$(spaceship::parse_semver 3.2.1-alpha.2+build1)
+
+  assertEquals "parse full semver" "$expected" "$actual"
+
+  local expected=('3' '2' '1')
+  local actual=$(spaceship::parse_semver 3.2.1)
+
+  assertEquals "parse base semver" "$expected" "$actual"
+
+  local expected=('3' '2' '1' 'build1')
+  local actual=$(spaceship::parse_semver 3.2.1+build1)
+
+  assertEquals "parse semver without prerelease" "$expected" "$actual"
+
+  local expected=('3' '2' '1' 'alpha.2')
+  local actual=$(spaceship::parse_semver 3.2.1-alpha.2)
+
+  assertEquals "parse semver without build" "$expected" "$actual"
+}
+
+test_compare_semver() {
+  local expected=0
+  local actual="$(spaceship::compare_semver 1.2.3 1.2.3)"
+
+  assertEquals "identical versions" "$expected" "$actual"
+
+  local expected=1
+  local actual="$(spaceship::compare_semver 0.19.0 0.18.1)"
+
+  assertEquals "semver1 greater than semver2" "$expected" "$actual"
+
+  local expected=-1
+  local actual="$(spaceship::compare_semver 1.2.3 1.2.4)"
+
+  assertEquals "semver1 less than semver2" "$expected" "$actual"
+
+  local actual=$(spaceship::compare_semver 1.2.3 1.23)
+
+  assertFalse "return false on parse error" $actual
+}
+
 # ------------------------------------------------------------------------------
 # SHUNIT2
 # Run tests with shunit2

@@ -254,3 +254,44 @@ arr3=('c' 'd' 'e')
 spaceship::union $arr1 $arr2 $arr3
 #> a b c d e
 ```
+
+## spaceship::parse_semver <semver>
+
+This utility parses a [semver](https://semver.org) into an array.
+
+### Arguments
+
+1. `semver` _Required_ — semantic version to parse.
+
+### Example
+
+```zsh
+spaceship::parse_semver 3.2.1-alpha.2+20160130175002
+#> 3 2 1 alpha.2 20160130175002
+```
+
+## spaceship::compare_semver <semver1> <semver2>
+
+Compare two semvers (https://semver.org)
+
+Outputs
+
+* -1 if semver1 < semver2
+* 0 if semver1 = semver2
+* 1 if semver1 > semver2
+
+### Arguments
+
+1. `semver1` _Required_ — first semantic version to compare.
+2. `semver2` _Required_ — second semantic version to compare.
+
+### Example
+
+```zsh
+spaceship::compare_semver 3.2.1 3.2.1
+#> 0
+spaceship::compare_semver 0.18.0 0.19.0
+#> -1
+spaceship::compare_semver 3.2.1 3.1.4
+#> 1
+```
