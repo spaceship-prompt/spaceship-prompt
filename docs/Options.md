@@ -263,6 +263,18 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 | `SPACESHIP_RUBY_SYMBOL` | `💎·` | Character to be shown before Ruby version |
 | `SPACESHIP_RUBY_COLOR` | `red` | Color of Ruby section |
 
+### Elm (`elm`)
+
+Elm section is shown only in directories that contain `elm.json` file, `elm-package.json` file, `elm-stuff` directory, or any other file with `.elm` extension.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_ELM_SHOW` | `true` | Show installed Elm version |
+| `SPACESHIP_ELM_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Elm section |
+| `SPACESHIP_ELM_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Elm section |
+| `SPACESHIP_ELM_SYMBOL` | `🌳·` | Character to be shown before Elm version |
+| `SPACESHIP_ELM_COLOR` | `cyan` | Color of Elm section |
+
 ### Elixir (`elixir`)
 
 Elixir section is shown only in directories that contain `mix.exs`, or any other file with `.ex` or `.exs` extension. If the current elixir version is the same as the version set in `SPACESHIP_ELIXIR_DEFAULT_VERSION`, the elixir section will be hidden.
