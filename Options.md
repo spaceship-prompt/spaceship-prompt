@@ -377,7 +377,7 @@ Docker section is shown only in directories that contain `Dockerfile` or `docker
 
 ### Amazon Web Services (AWS) (`aws`)
 
-Shows selected Amazon Web Services profile using '[named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)'.
+Shows selected Amazon Web Services profile configured using  [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) variable.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
