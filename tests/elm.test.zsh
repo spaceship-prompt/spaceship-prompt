@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh +x
+#!/usr/bin/env zsh
 
 # Required for shunit2 to run correctly
 setopt shwordsplit
