@@ -267,19 +267,38 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 
 ### Elm project (`elm_project`)
 
-TODO
+Project information is shown when repository is an Elm project (e.g. contains `elm.json` or `elm-package.json`).
 
-Package version is shown when repository is an Elm project (e.g. contains `elm.json` or `elm-package.json`).
+Starting in Elm 0.19.0 projects can be one of two types: package or application. If the project is pre-0.19.0 or is a package type, the package icon and version number listed in `elm.json` or `elm-package.json` is shown. If the project is an application, the application icon and the configured application text is shown.
 
-By default, Elm package section is shown only if `elm --version` is outside of `elm-version` range in `elm.json` to warn that the installed version of elm does not match the version used in this project.
+For both types of projects, by default, if the globally installed `elm` binary is outside of the `elm-version` range specified in `elm.json` or `elm-package.json`, the `elm-version` will be shown to indicate that the project will not be able to be run with the current `elm` binary.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_ELM_PACKAGE_SHOW` | `true` | Show package version |
-| `SPACESHIP_ELM_PACKAGE_PREFIX` | `is·` | Prefix before package version section |
-| `SPACESHIP_ELM_PACKAGE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after package version section |
-| `SPACESHIP_ELM_PACKAGE_SYMBOL` | `📦·` | Character to be shown before package version |
-| `SPACESHIP_ELM_PACKAGE_COLOR` | `blue` | Color of package version section |
+| `SPACESHIP_ELM_PROJECT_SHOW` | `true` | Show Elm Project section |
+| `SPACESHIP_ELM_PROJECT_PACKAGE_SHOW` | `true` | Show package section (`true`, `false`, `mismatch`) |
+| `SPACESHIP_ELM_PROJECT_PACKAGE_PREFIX` | `is·` | Prefix before package section |
+| `SPACESHIP_ELM_PROJECT_PACKAGE_SYMBOL` | `📦·` | Character to be shown before package section |
+| `SPACESHIP_ELM_PROJECT_PACKAGE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after package section  |
+| `SPACESHIP_ELM_PROJECT_PACKAGE_COLOR` | `blue` | Color of package section |
+| `SPACESHIP_ELM_PROJECT_APPLICATION_SHOW` | `true` | Show application section (`true`, `false`, `mismatch`) |
+| `SPACESHIP_ELM_PROJECT_APPLICATION_PREFIX` | `is·` | Prefix before application section |
+| `SPACESHIP_ELM_PROJECT_APPLICATION_SYMBOL` | `🖥️·` | Character to be shown before application section |
+| `SPACESHIP_ELM_PROJECT_APPLICATION_TEXT` | `App` | String to use for application-type projects |
+| `SPACESHIP_ELM_PROJECT_APPLICATION_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after application section |
+| `SPACESHIP_ELM_PROJECT_APPLICATION_COLOR` | `cyan` | Color of application section |
+| `SPACESHIP_ELM_PROJECT_ELM_VERSION_SHOW` | `mismatch` | Show project elm-version section (`true`, `false`, `mismatch`) |
+| `SPACESHIP_ELM_PROJECT_ELM_VERSION_PREFIX` | `·(` | Prefix before project elm-version section |
+| `SPACESHIP_ELM_PROJECT_ELM_VERSION_SUFFIX` | `)` | Suffix after project elm-version section |
+| `SPACESHIP_ELM_PROJECT_ELM_VERSION_COLOR` | `yellow` | Color of application section |
+
+Each subsection can be configured independently to show always, never, or when there is an Elm version mismatch.
+
+| `*_SHOW` | Meaning |
+| :------: | :------ |
+| `false` | Never show the section |
+| `true` | Always show the section |
+| `mismatch` | Only show the section when there is a mismatch between the project's `elm-version` and the globally installed `elm` binary |
 
 ### Elm (`elm`)
 
