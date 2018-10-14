@@ -11,6 +11,7 @@ SHUNIT_PARENT=$0
 oneTimeSetUp() {
   export TERM="xterm-256color"
   export PATH=$PWD/tests/stubs:$PATH
+  export SPACESHIP_MOCK_ELM_VERSION="0.20.0"
 
   SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
   SPACESHIP_PROMPT_ADD_NEWLINE=false
