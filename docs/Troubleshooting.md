@@ -4,7 +4,7 @@ This page aimed to help you fix the common problems encountered while using Spac
 
 ## What's the weird symbol for `git` branch?
 
-You need to have a powerline patched font inorder to properly display `git` branch symbol.
+You need to have a powerline patched font in order to properly display `git` branch symbol.
 
 * Install any powerline compatible font like [Fira Code](https://github.com/tonsky/FiraCode) or [others](https://github.com/powerline/fonts).
 * Configure your terminal emulator to [use that font](https://powerline.readthedocs.io/en/master/troubleshooting/osx.html).
@@ -42,7 +42,7 @@ In the example below, `time`, `package`, `xcode`, `julia`, `docker`, `ember` and
 ```zsh
 # Just comment a section if you want to disable it
 SPACESHIP_PROMPT_ORDER=(
-  # time        # Time stampts section (Disabled)
+  # time        # Time stamps section (Disabled)
   user          # Username section
   dir           # Current directory section
   host          # Hostname section
