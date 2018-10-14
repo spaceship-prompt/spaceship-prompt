@@ -110,11 +110,14 @@ spaceship_elm_project() {
       if ((diff_lower < 0)) || ((diff_upper >= 0)); then
         version_mismatch=true
       fi
-    else
+    elif [[ "${project_elm_version}" =~ "([-.0-9a-zA-Z]+)" ]]; then
       local diff=$(spaceship::compare_semver "${elm_version}" "${project_elm_version}")
       if ((diff != 0)); then
         version_mismatch=true
       fi
+    else
+      # Error: elm-version is incorrectly formatted
+      show_version=false
     fi
   fi
 
