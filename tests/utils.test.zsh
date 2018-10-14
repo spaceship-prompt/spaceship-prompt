@@ -148,6 +148,27 @@ test_compare_semver() {
 
   assertEquals "semver1 less than semver2" "$expected" "$actual"
 
+  # For testing the pre-releases, this list is strictly increasing in value
+  local versions=(
+    '1.0.0-alpha'
+    '1.0.0-alpha.1'
+    '1.0.0-alpha.beta'
+    '1.0.0-beta'
+    '1.0.0-beta.2'
+    '1.0.0-beta.11'
+    '1.0.0-rc.1'
+    '1.0.0'
+  )
+  for (( i = 1; i <= ${#versions} - 1; i++ )); do
+    local v1="${versions[$i]}"
+    local v2="${versions[(( i + 1 ))]}"
+
+    local expected=-1
+    local actual="$(spaceship::compare_semver ${v1} ${v2})"
+
+    assertEquals "pre-release ${v1} less than ${v2}" "$expected" "$actual"
+  done
+
   local actual=$(spaceship::compare_semver 1.2.3 1.23)
 
   assertFalse "return false on parse error" $actual

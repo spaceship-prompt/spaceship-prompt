@@ -116,39 +116,92 @@ spaceship::parse_semver() {
 #   $ spaceship::compare_semver 8.2.1 3.3.1
 #   > 1
 spaceship::compare_semver() {
-  local v1=($(spaceship::parse_semver $1))
-  local v2=($(spaceship::parse_semver $2))
+  local version1=($(spaceship::parse_semver $1))
+  local version2=($(spaceship::parse_semver $2))
 
-  # stop if there were parse errors
-  [[ ! "$v1" || ! "$v2" ]] && return 1
+  # Stop if there were parse errors
+  [[ ! "$version1" || ! "$version2" ]] && return 1
 
-  # major, minor and patch are compared numericaly in order
+  # Major, minor and patch MUST be compared numericaly in order
   for i in 1 2 3; do
-    local diff=$(($v1[$i] - $v2[$i]))
-    if [[ $diff -lt 0 ]]; then
+    local v1=${version1[$i]}
+    local v2=${version2[$i]}
+    if (( v1 < v2 )); then
       echo -1
       return 0
-    elif [[ $diff -gt 0 ]]; then
+    elif (( v1 > v2 )); then
       echo 1
       return 0
     fi
   done
 
-  # TODO handle pre-release as described by https://semver.org
-  #   1. MUST have lower precedence than a normal version
-  #   2. MUST compare each dot separated identifier from left to right until a
-  #      difference is found
-  #   3. Identifiers consisting of only digits MUST be compared numerically
-  #   4. Identifiers with letters or hyphens MUST be compared lexically in ASCII
-  #      sort order
-  #   5. Numeric identifiers MUST always have lower precedence than non-numeric
-  #      identifiers
-  #   6. A larger set of pre-release fields MUST have a higher precedence than a
-  #      smaller set, if all of the preceding identifiers are equal
-  #
-  # EXAMPLE:
-  #   1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta < 1.0.0-beta
-  #     < 1.0.0-beta.2 < 1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0
+  # Parse pre-release sections
+  IFS='.' read -r -A pre1 <<< "${version1[4]}"
+  IFS='.' read -r -A pre2 <<< "${version2[4]}"
+
+  # Pre-release MUST have lower precedence than a normal version
+  if [[ "${pre1}" != "" && "${pre2}" == "" ]]; then
+    echo -1
+    return 0
+  elif [[ "${pre1}" == "" && "${pre2}" != "" ]]; then
+    echo 1
+    return 0
+  fi
+
+  # Pre-release MUST compare each dot separated identifier from left to right
+  # until a difference is found
+  local max_len=$(( ${#pre1} > ${#pre2} ? ${#pre1} : ${#pre2} ))
+  for (( i = 1; i <= $max_len; i++ )); do
+    local p1="${pre1[$i]}"
+    local p2="${pre2[$i]}"
+
+    # A smaller set of pre-release fields MUST have a lower precedence than a
+    # larger set, if all of the preceding identifiers are equal
+    if [[ "$p1" == "" && "$p2" != "" ]]; then
+      echo -1
+      return 0
+    elif [[ "$p1" != "" && "$p2" == "" ]]; then
+      echo 1
+      return 0
+    fi
+
+    local num_regex='^[0-9]+$'
+    local p1_is_num=$([[ "$p1" =~ "$num_regex" ]] && echo true || echo false)
+    local p2_is_num=$([[ "$p2" =~ "$num_regex" ]] && echo true || echo false)
+
+    # Identifiers consisting of only digits MUST be compared numerically
+    if [[ $p1_is_num == true && $p2_is_num == true ]]; then
+      if (( p1 < p2 )); then
+        echo -1
+        return 0
+      elif (( p1 > p2 )); then
+        echo 1
+        return 0
+      fi
+    fi
+
+    # Identifiers with letters or hyphens MUST be compared lexically in ASCII
+    # sort order
+    if [[ $p1_is_num == false && $p2_is_num == false ]]; then
+      if [[ $p1 < $p2 ]]; then
+        echo -1
+        return 0
+      elif [[ $p1 > $p2 ]]; then
+        echo 1
+        return 0
+      fi
+    fi
+
+    # Numeric identifiers MUST always have lower precedence than
+    # non-numeric identifiers
+    if [[ $p1_is_num == true && $p2_is_num == false ]]; then
+      echo -1
+      return 0
+    elif [[ $p1_is_num == false && $p2_is_num == true ]]; then
+      echo 1
+      return 0
+    fi
+  done
 
   # Build metadata SHOULD be ignored
 
