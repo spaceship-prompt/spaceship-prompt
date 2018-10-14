@@ -234,8 +234,8 @@ test_elm_project_package_mismatch_show() {
   rm elm.json
   cat << 'EOF' > elm-package.json
 {
-  "elm-version": "0.18.0 <= v < 0.19.0"
-  "version": "1.2.3",
+  "elm-version": "0.18.0 <= v < 0.19.0",
+  "version": "1.2.3"
 }
 EOF
   
