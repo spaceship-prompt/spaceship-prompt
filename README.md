@@ -196,7 +196,7 @@ makepkg -si
 
 ### Manual
 
-If you have problems with approches above, follow these instructions:
+If you have problems with approaches above, follow these instructions:
 
 * Clone this repo `git clone https://github.com/denysdovhan/spaceship-prompt.git`
 * Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
