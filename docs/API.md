@@ -272,7 +272,9 @@ spaceship::parse_semver 3.2.1-alpha.2+20160130175002
 
 ## spaceship::compare_semver <semver1> <semver2>
 
-Compare two semvers (https://semver.org)
+Compare two [semvers](https://semver.org).
+
+NOTE: Right now, `compare_semver` only handles major, minor, and patch versions. Pre-release versions are NOT compared.
 
 Outputs
 
