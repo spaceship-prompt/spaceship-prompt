@@ -82,7 +82,7 @@ tearDown() {
 # TEST CASES
 # ------------------------------------------------------------------------------
 
-test_elm_project_show_application() {
+test_elm_project_application_show() {
   rm elm.json
   cat << 'EOF' > elm.json
 {
@@ -131,7 +131,7 @@ EOF
   done | sort -r # force output order to match above
 }
   
-test_elm_project_show_application_mismatch() {
+test_elm_project_application_mismatch_show() {
   rm elm.json
   cat << 'EOF' > elm.json
 {
@@ -180,7 +180,7 @@ EOF
   done | sort -r # force output order to match above
 }
   
-test_elm_project_show_package() {
+test_elm_project_package_show() {
   rm elm.json
   cat << 'EOF' > elm.json
 {
@@ -230,7 +230,7 @@ EOF
   done | sort -r # force output order to match above
 }
   
-test_elm_project_show_package_mismatch() {
+test_elm_project_package_mismatch_show() {
   rm elm.json
   cat << 'EOF' > elm-package.json
 {
