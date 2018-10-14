@@ -56,7 +56,6 @@ spaceship_elm_project() {
   [[ "${project_type}" == 'package' && "${show_package}" == false ]] && return
   [[ "${project_type}" == 'application' && "${show_application}" == false ]] && return
 
-
   local project_info=''
   local project_color=''
   local project_prefix=''
@@ -81,7 +80,7 @@ spaceship_elm_project() {
     return
   fi
 
-  local show_version="${SPACESHIP_ELM_PROJECT_VERSION_SHOW}"
+  local show_version="${SPACESHIP_ELM_PROJECT_ELM_VERSION_SHOW}"
 
   local elm_version=$(elm --version 2> /dev/null)
   if [[ -z "${elm_version}" ]]; then

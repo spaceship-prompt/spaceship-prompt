@@ -76,6 +76,8 @@ tearDown() {
   unset SPACESHIP_ELM_PROJECT_ELM_VERSION_PREFIX
   unset SPACESHIP_ELM_PROJECT_ELM_VERSION_SUFFIX
   unset SPACESHIP_ELM_PROJECT_ELM_VERSION_COLOR
+
+  rm -f elm.json elm-package.json
 }
 
 # ------------------------------------------------------------------------------
@@ -83,7 +85,6 @@ tearDown() {
 # ------------------------------------------------------------------------------
 
 test_elm_project_application_show() {
-  rm elm.json
   cat << 'EOF' > elm.json
 {
   "type": "application",
@@ -124,7 +125,7 @@ EOF
     IFS=',' read -r -A show <<< "$k"
     SPACESHIP_ELM_PROJECT_APPLICATION_SHOW=${show[1]}
     SPACESHIP_ELM_PROJECT_PACKAGE_SHOW=${show[2]}
-    SPACESHIP_ELM_PROJECT_VERSION_SHOW=${show[3]}
+    SPACESHIP_ELM_PROJECT_ELM_VERSION_SHOW=${show[3]}
     local expected="$v"
     local actual="$(spaceship_prompt)"
     assertEquals "render elm_project app [$k]" "$expected" "$actual"
@@ -132,7 +133,6 @@ EOF
 }
   
 test_elm_project_application_mismatch_show() {
-  rm elm.json
   cat << 'EOF' > elm.json
 {
   "type": "application",
@@ -173,7 +173,7 @@ EOF
     IFS=',' read -r -A show <<< "$k"
     SPACESHIP_ELM_PROJECT_APPLICATION_SHOW="${show[1]}"
     SPACESHIP_ELM_PROJECT_PACKAGE_SHOW="${show[2]}"
-    SPACESHIP_ELM_PROJECT_VERSION_SHOW="${show[3]}"
+    SPACESHIP_ELM_PROJECT_ELM_VERSION_SHOW="${show[3]}"
     local expected="$v"
     local actual="$(spaceship_prompt)"
     assertEquals "render elm_project app mismatch [$k]" "$expected" "$actual"
@@ -181,7 +181,6 @@ EOF
 }
   
 test_elm_project_package_show() {
-  rm elm.json
   cat << 'EOF' > elm.json
 {
   "type": "package",
@@ -223,7 +222,7 @@ EOF
     IFS=',' read -r -A show <<< "$k"
     SPACESHIP_ELM_PROJECT_APPLICATION_SHOW="${show[1]}"
     SPACESHIP_ELM_PROJECT_PACKAGE_SHOW="${show[2]}"
-    SPACESHIP_ELM_PROJECT_VERSION_SHOW="${show[3]}"
+    SPACESHIP_ELM_PROJECT_ELM_VERSION_SHOW="${show[3]}"
     local expected="$v"
     local actual="$(spaceship_prompt)"
     assertEquals "render elm_project package [$k]" "$expected" "$actual"
@@ -272,12 +271,154 @@ EOF
     IFS=',' read -r -A show <<< "$k"
     SPACESHIP_ELM_PROJECT_APPLICATION_SHOW="${show[1]}"
     SPACESHIP_ELM_PROJECT_PACKAGE_SHOW="${show[2]}"
-    SPACESHIP_ELM_PROJECT_VERSION_SHOW="${show[3]}"
+    SPACESHIP_ELM_PROJECT_ELM_VERSION_SHOW="${show[3]}"
     local expected="$v"
     local actual="$(spaceship_prompt)"
     assertEquals "render elm_project package mismatch [$k]" "$expected" "$actual"
   done | sort -r # force output order to match above
 
+}
+
+test_elm_project_application_color() {
+  SPACESHIP_ELM_PROJECT_APPLICATION_COLOR="red"
+
+  local expected="%{%B%}is %{%b%}%{%B%F{red}%}🖥️ App%{%b%f%}%{%B%} %{%b%}"
+  local actual="$(spaceship_prompt)"
+
+  assertEquals "render elm project application with custom color" "$expected" "$actual"
+
+  cat << 'EOF' > elm.json
+{
+  "type": "application",
+  "elm-version": "1.0.0",
+}
+EOF
+
+  local expected="%{%B%}is %{%b%}%{%B%F{red}%}🖥️ App%{%B%F{yellow%} (1.0.0)%{%B%F{red%}%{%b%f%}%{%B%} %{%b%}"
+  local actual="$(spaceship_prompt)"
+
+  assertEquals "render elm project application with custom color (mismatch)" "$expected" "$actual"
+}
+
+test_elm_project_application_symbol() {
+  SPACESHIP_ELM_PROJECT_APPLICATION_SYMBOL="🌵 "
+
+  local expected="%{%B%}is %{%b%}%{%B%F{cyan}%}🌵 App%{%b%f%}%{%B%} %{%b%}"
+  local actual="$(spaceship_prompt)"
+
+  assertEquals "render elm project application with custom symbol" "$expected" "$actual"
+}
+
+test_elm_project_application_text() {
+  SPACESHIP_ELM_PROJECT_APPLICATION_TEXT="😍"
+
+  local expected="%{%B%}is %{%b%}%{%B%F{cyan}%}🖥️ 😍%{%b%f%}%{%B%} %{%b%}"
+  local actual="$(spaceship_prompt)"
+
+  assertEquals "render elm project application with custom symbol" "$expected" "$actual"
+}
+
+test_elm_project_application_prefix() {
+  SPACESHIP_ELM_PROJECT_APPLICATION_PREFIX='prefix'
+  SPACESHIP_ELM_PROJECT_APPLICATION_SUFFIX=''
+
+  local expected="%{%B%}prefix%{%b%}%{%B%F{cyan}%}🖥️ App%{%b%f%}%{%B%}%{%b%}"
+  local actual="$(spaceship_prompt)"
+
+  assertEquals "render elm project application with prefix" "$expected" "$actual"
+}
+
+test_elm_project_application_suffix() {
+  SPACESHIP_ELM_PROJECT_APPLICATION_PREFIX=''
+  SPACESHIP_ELM_PROJECT_APPLICATION_SUFFIX='suffix'
+
+  local expected="%{%B%}%{%b%}%{%B%F{cyan}%}🖥️ App%{%b%f%}%{%B%}suffix%{%b%}"
+  local actual="$(spaceship_prompt)"
+
+  assertEquals "render elm project application with suffix" "$expected" "$actual"
+}
+
+test_elm_project_package_color() {
+  SPACESHIP_ELM_PROJECT_PACKAGE_COLOR="red"
+
+  cat << 'EOF' > elm.json
+{
+  "type": "package",
+  "elm-version": "0.19.0 <= v < 0.20.0",
+  "version": "1.2.3"
+}
+EOF
+
+  local expected="%{%B%}is %{%b%}%{%B%F{red}%}📦 v1.2.3%{%b%f%}%{%B%} %{%b%}"
+  local actual="$(spaceship_prompt)"
+
+  assertEquals "render elm project package with custom color" "$expected" "$actual"
+
+  cat << 'EOF' > elm.json
+{
+  "type": "package",
+  "elm-version": "1.0.0 <= v < 1.1.0",
+  "version": "8.5.3"
+}
+EOF
+
+  local expected="%{%B%}is %{%b%}%{%B%F{red}%}📦 v8.5.3%{%B%F{yellow%} (1.0.0 <= v < 1.1.0)%{%B%F{red%}%{%b%f%}%{%B%} %{%b%}"
+  local actual="$(spaceship_prompt)"
+
+  assertEquals "render elm project package with custom color (mismatch)" "$expected" "$actual"
+}
+
+test_elm_project_package_symbol() {
+  SPACESHIP_ELM_PROJECT_PACKAGE_SYMBOL="🌵 "
+
+  cat << 'EOF' > elm.json
+{
+  "type": "package",
+  "elm-version": "0.19.0 <= v < 0.20.0",
+  "version": "1.2.3"
+}
+EOF
+
+  local expected="%{%B%}is %{%b%}%{%B%F{blue}%}🌵 v1.2.3%{%b%f%}%{%B%} %{%b%}"
+  local actual="$(spaceship_prompt)"
+
+  assertEquals "render elm project package with custom symbol" "$expected" "$actual"
+}
+
+test_elm_project_package_prefix() {
+  SPACESHIP_ELM_PROJECT_PACKAGE_PREFIX='prefix'
+  SPACESHIP_ELM_PROJECT_PACKAGE_SUFFIX=''
+
+  cat << 'EOF' > elm.json
+{
+  "type": "package",
+  "elm-version": "0.19.0 <= v < 0.20.0",
+  "version": "1.2.3"
+}
+EOF
+
+  local expected="%{%B%}prefix%{%b%}%{%B%F{blue}%}📦 v1.2.3%{%b%f%}%{%B%}%{%b%}"
+  local actual="$(spaceship_prompt)"
+
+  assertEquals "render elm project package with prefix" "$expected" "$actual"
+}
+
+test_elm_project_package_suffix() {
+  SPACESHIP_ELM_PROJECT_PACKAGE_PREFIX=''
+  SPACESHIP_ELM_PROJECT_PACKAGE_SUFFIX='suffix'
+
+  cat << 'EOF' > elm.json
+{
+  "type": "package",
+  "elm-version": "0.19.0 <= v < 0.20.0",
+  "version": "1.2.3"
+}
+EOF
+
+  local expected="%{%B%}%{%b%}%{%B%F{blue}%}📦 v1.2.3%{%b%f%}%{%B%}suffix%{%b%}"
+  local actual="$(spaceship_prompt)"
+
+  assertEquals "render elm project package with suffix" "$expected" "$actual"
 }
 
 # ------------------------------------------------------------------------------
