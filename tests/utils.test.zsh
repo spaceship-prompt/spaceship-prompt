@@ -111,25 +111,27 @@ test_parse_semver() {
 
   assertFalse "return false when parsing invalid semver" "$?"
 
-  local expected=('3' '2' '1' 'alpha.2' 'build1')
-  local actual=$(spaceship::parse_semver 3.2.1-alpha.2+build1)
+  typeset -A expected actual
 
-  assertEquals "parse full semver" "$expected" "$actual"
+  expected=(major 3 minor 2 patch 1 prere alpha.2 build 20160130175002)
+  actual=($(spaceship::parse_semver 3.2.1-alpha.2+20160130175002))
 
-  local expected=('3' '2' '1')
-  local actual=$(spaceship::parse_semver 3.2.1)
+  assertEquals "parse full semver" "${(kv)expected}" "${(kv)actual}"
 
-  assertEquals "parse base semver" "$expected" "$actual"
+  expected=(major 3 minor 2 patch 1 prere '*' build '*')
+  actual=($(spaceship::parse_semver 3.2.1))
 
-  local expected=('3' '2' '1' 'build1')
-  local actual=$(spaceship::parse_semver 3.2.1+build1)
+  assertEquals "parse base semver" "${(kv)expected}" "${(kv)actual}"
 
-  assertEquals "parse semver without prerelease" "$expected" "$actual"
+  expected=(major 3 minor 2 patch 1 prere '*' build 1.2)
+  actual=($(spaceship::parse_semver 3.2.1+1.2))
 
-  local expected=('3' '2' '1' 'alpha.2')
-  local actual=$(spaceship::parse_semver 3.2.1-alpha.2)
+  assertEquals "parse semver without prerelease" "${(kv)expected}" "${(kv)actual}"
 
-  assertEquals "parse semver without build" "$expected" "$actual"
+  expected=(major 3 minor 2 patch 1 prere alpha.2.3.4 build '*')
+  actual=($(spaceship::parse_semver 3.2.1-alpha.2.3.4))
+
+  assertEquals "parse semver without build" "${(kv)expected}" "${(kv)actual}"
 }
 
 test_compare_semver() {
@@ -168,6 +170,11 @@ test_compare_semver() {
 
     assertEquals "pre-release ${v1} less than ${v2}" "$expected" "$actual"
   done
+
+  local expected=0
+  local actual="$(spaceship::compare_semver 1.2.3+1 1.2.3+2)"
+
+  assertEquals "ignore build number" "$expected" "$actual"
 
   local actual=$(spaceship::compare_semver 1.2.3 1.23)
 

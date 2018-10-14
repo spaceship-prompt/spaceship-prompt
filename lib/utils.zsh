@@ -78,23 +78,32 @@ spaceship::union() {
   echo $sections
 }
 
-# Parse a semver (https://semver.org)
+# Parse a semver (https://semver.org) into an associative array.
+# Empty values are marked with a '*'.
 # USAGE:
 #   spaceship::parse_semver <semver>
 # EXAMPLE:
 #   $ spaceship::parse_semver 3.2.1-alpha.2+20160130175002
-#   > 3 2 1 alpha.2 20160130175002
+#   > patch 1 prere alpha.2 major 3 build 20160130175002 minor 2
+#   $ spaceship::parse_semver 3.2.1
+#   > patch 1 prere * major 3 build * minor 2
 spaceship::parse_semver() {
   local version=$1
-  local semver_regex="^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\-[0-9A-Za-z-]+(\\.[0-9A-Za-z-]+)*)?(\\+[0-9A-Za-z-]+(\\.[0-9A-Za-z-]+)*)?$"
+  local semver_regex="^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\-([0-9A-Za-z-]+(\\.[0-9A-Za-z-]+)*))?(\\+([0-9A-Za-z-]+(\\.[0-9A-Za-z-]+)*))?$"
   if [[ "$version" =~ $semver_regex ]]; then
-    local major=$match[1]
-    local minor=$match[2]
-    local patch=$match[3]
-    local prere=$(echo "${match[4]}" | cut -c 2-)
-    local build=$(echo "${match[6]}" | cut -c 2-)
-    local parsed=("$major" "$minor" "$patch" "$prere" "$build")
-    echo $parsed
+    typeset -A parsed
+    parsed[major]="${match[1]}"
+    parsed[minor]="${match[2]}"
+    parsed[patch]="${match[3]}"
+    parsed[prere]="${match[5]}"
+    parsed[build]="${match[8]}"
+    if [[ -z "${parsed[prere]}" ]]; then
+      parsed[prere]='*'
+    fi
+    if [[ -z "${parsed[build]}" ]]; then
+      parsed[build]="*"
+    fi
+    echo "${(kv)parsed}"
     return 0
   else
     return 1
@@ -115,15 +124,20 @@ spaceship::parse_semver() {
 #   > -1
 #   $ spaceship::compare_semver 8.2.1 3.3.1
 #   > 1
+#   spaceship::compare_semver 3.2.1 3.2.1-alpha
+#   > 1
+#   spaceship::compare_semver 3.2.1-alpha+1 3.2.1-alpha+2
+#   > 0
 spaceship::compare_semver() {
-  local version1=($(spaceship::parse_semver $1))
-  local version2=($(spaceship::parse_semver $2))
+  typeset -A version1 version2
+  version1=($(spaceship::parse_semver $1))
+  version2=($(spaceship::parse_semver $2))
 
   # Stop if there were parse errors
   [[ ! "$version1" || ! "$version2" ]] && return 1
 
   # Major, minor and patch MUST be compared numericaly in order
-  for i in 1 2 3; do
+  for i in major minor patch; do
     local v1=${version1[$i]}
     local v2=${version2[$i]}
     if (( v1 < v2 )); then
@@ -136,14 +150,14 @@ spaceship::compare_semver() {
   done
 
   # Parse pre-release sections
-  IFS='.' read -r -A pre1 <<< "${version1[4]}"
-  IFS='.' read -r -A pre2 <<< "${version2[4]}"
+  IFS='.' read -r -A pre1 <<< "${version1[prere]}"
+  IFS='.' read -r -A pre2 <<< "${version2[prere]}"
 
   # Pre-release MUST have lower precedence than a normal version
-  if [[ "${pre1}" != "" && "${pre2}" == "" ]]; then
+  if [[ "${pre1}" != "*" && "${pre2}" == "*" ]]; then
     echo -1
     return 0
-  elif [[ "${pre1}" == "" && "${pre2}" != "" ]]; then
+  elif [[ "${pre1}" == "*" && "${pre2}" != "*" ]]; then
     echo 1
     return 0
   fi

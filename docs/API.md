@@ -257,7 +257,7 @@ spaceship::union $arr1 $arr2 $arr3
 
 ## spaceship::parse_semver <semver>
 
-This utility parses a [semver](https://semver.org) into an array.
+This utility parses a [semver](https://semver.org) into an associative array. Empty values are marked with a `*`.
 
 ### Arguments
 
@@ -267,7 +267,23 @@ This utility parses a [semver](https://semver.org) into an array.
 
 ```zsh
 spaceship::parse_semver 3.2.1-alpha.2+20160130175002
-#> 3 2 1 alpha.2 20160130175002
+#> patch 1 prere alpha.2 major 3 build 20160130175002 minor 2
+$ spaceship::parse_semver 3.2.1
+#> patch 1 prere * major 3 build * minor 2
+```
+
+As this outputs an associative array, to use the output in another function, you'll need to declare an associative array.
+
+```zsh
+spaceship::print_semver() {
+  typeset -A semver
+  semver=($(spaceship::parse_semver $1))
+  echo "major:       ${semver[major]}"
+  echo "minor:       ${semver[minor]}"
+  echo "patch:       ${semver[patch]}"
+  echo "pre-release: ${semver[prere]}"
+  echo "build:       ${semver[build]}"
+}
 ```
 
 ## spaceship::compare_semver <semver1> <semver2>
@@ -294,4 +310,8 @@ spaceship::compare_semver 0.18.0 0.19.0
 #> -1
 spaceship::compare_semver 3.2.1 3.1.4
 #> 1
+spaceship::compare_semver 3.2.1 3.2.1-alpha
+#> 1
+spaceship::compare_semver 3.2.1-alpha+1 3.2.1-alpha+2
+#> 0
 ```
