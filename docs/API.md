@@ -250,7 +250,7 @@ Spaceship uses this utility internally for resolution of sections that need to b
 ```zsh
 arr1=('a' 'b' 'c')
 arr2=('b' 'c' 'd')
-arr2=('c' 'd' 'e')
+arr3=('c' 'd' 'e')
 spaceship::union $arr1 $arr2 $arr3
 #> a b c d e
 ```
