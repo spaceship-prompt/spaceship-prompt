@@ -300,6 +300,43 @@ Each subsection can be configured independently to show always, never, or when t
 | `true` | Always show the section |
 | `mismatch` | Only show the section when there is a mismatch between the project's `elm-version` and the globally installed `elm` binary |
 
+<br />
+<details><summary>Full Table</summary><p>
+
+This lists every combination of `*_SHOW` settings and what the section is expected to look like with Elm 0.19.0 and the other settings as default.
+
+| `APPLICATION` | `PACKAGE`  | `VERSION`  | App               | App Mismatch      | Package                            | Package Mismatch                   |
+|:-------------:|:----------:|:----------:|:------------------|:------------------|:-----------------------------------|:-----------------------------------|
+| `true`        | `true`     | `true`     | `️🖥️ App (0.19.0)` | `️🖥️ App (0.20.0)` | `📦 v1.2.3 (0.19.0 <= v < 0.20.0)` | `📦 v1.2.3 (0.18.0 <= v < 0.19.0)` |
+| `true`        | `true`     | `mismatch` | `️🖥️ App`          | `️🖥️ App (0.20.0)` | `📦 v1.2.3`                        | `📦 v1.2.3 (0.18.0 <= v < 0.19.0)` |
+| `true`        | `true`     | `false`    | `️🖥️ App`          | `️🖥️ App`          | `📦 v1.2.3`                        | `📦 v1.2.3`                        |
+| `true`        | `mismatch` | `true`     | `️🖥️ App (0.19.0)` | `️🖥️ App (0.20.0)` |                                    | `📦 v1.2.3 (0.18.0 <= v < 0.19.0)` |
+| `true`        | `mismatch` | `mismatch` | `️🖥️ App`          | `️🖥️ App (0.20.0)` |                                    | `📦 v1.2.3 (0.18.0 <= v < 0.19.0)` |
+| `true`        | `mismatch` | `false`    | `️🖥️ App`          | `️🖥️ App`          |                                    | `📦 v1.2.3`                        |
+| `true`        | `false`    | `true`     | `️🖥️ App (0.19.0)` | `️🖥️ App (0.20.0)` |                                    |                                    |
+| `true`        | `false`    | `mismatch` | `️🖥️ App`          | `️🖥️ App (0.20.0)` |                                    |                                    |
+| `true`        | `false`    | `false`    | `️🖥️ App`          | `️🖥️ App`          |                                    |                                    |
+| `mismatch`    | `true`     | `true`     |                   | ️`🖥️ App (0.20.0)` | `📦 v1.2.3 (0.19.0 <= v < 0.20.0)` | `📦 v1.2.3 (0.18.0 <= v < 0.19.0)` |
+| `mismatch`    | `true`     | `mismatch` |                   | `️🖥️ App (0.20.0)` | `📦 v1.2.3`                        | `📦 v1.2.3 (0.18.0 <= v < 0.19.0)` |
+| `mismatch`    | `true`     | `false`    |                   | `️🖥️ App`          | `📦 v1.2.3`                        | `📦 v1.2.3`                        |
+| `mismatch`    | `mismatch` | `true`     |                   | ️`🖥️ App (0.20.0)` |                                    | `📦 v1.2.3 (0.18.0 <= v < 0.19.0)` |
+| `mismatch`    | `mismatch` | `mismatch` |                   | `️🖥️ App (0.20.0)` |                                    | `📦 v1.2.3 (0.18.0 <= v < 0.19.0)` |
+| `mismatch`    | `mismatch` | `false`    |                   | `️🖥️ App`          |                                    | `📦 v1.2.3`                        |
+| `mismatch`    | `false`    | `true`     |                   | ️`🖥️ App (0.20.0)` |                                    |                                    |
+| `mismatch`    | `false`    | `mismatch` |                   | `️🖥️ App (0.20.0)` |                                    |                                    |
+| `mismatch`    | `false`    | `false`    |                   | `️🖥️ App`          |                                    |                                    |
+| `false`       | `true`     | `true`     |                   |                   | `📦 v1.2.3 (0.19.0 <= v < 0.20.0)` | `📦 v1.2.3 (0.18.0 <= v < 0.19.0)` |
+| `false`       | `true`     | `mismatch` |                   |                   | `📦 v1.2.3`                        | `📦 v1.2.3 (0.18.0 <= v < 0.19.0)` |
+| `false`       | `true`     | `false`    |                   |                   | `📦 v1.2.3`                        | `📦 v1.2.3`                        |
+| `false`       | `mismatch` | `true`     |                   |                   |                                    | `📦 v1.2.3 (0.18.0 <= v < 0.19.0)` |
+| `false`       | `mismatch` | `mismatch` |                   |                   |                                    | `📦 v1.2.3 (0.18.0 <= v < 0.19.0)` |
+| `false`       | `mismatch` | `false`    |                   |                   |                                    | `📦 v1.2.3`                        |
+| `false`       | `false`    | `true`     |                   |                   |                                    |                                    |
+| `false`       | `false`    | `mismatch` |                   |                   |                                    |                                    |
+| `false`       | `false`    | `false`    |                   |                   |                                    |                                    |
+
+</p></details>
+
 ### Elm (`elm`)
 
 Elm section is shown only in directories that contain `elm.json` file, `elm-package.json` file, `elm-stuff` directory, or any other file with `.elm` extension.
