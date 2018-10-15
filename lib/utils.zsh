@@ -149,25 +149,23 @@ spaceship::compare_semver() {
     fi
   done
 
-  # Parse pre-release sections
-  IFS='.' read -r -A pre1 <<< "${version1[prere]}"
-  IFS='.' read -r -A pre2 <<< "${version2[prere]}"
-
   # Pre-release MUST have lower precedence than a normal version
-  if [[ "${pre1}" != "*" && "${pre2}" == "*" ]]; then
+  if [[ "${version1[prere]}" != "*" && "${version2[prere]}" == "*" ]]; then
     echo -1
     return 0
-  elif [[ "${pre1}" == "*" && "${pre2}" != "*" ]]; then
+  elif [[ "${version1[prere]}" == "*" && "${version2[prere]}" != "*" ]]; then
     echo 1
     return 0
   fi
 
   # Pre-release MUST compare each dot separated identifier from left to right
   # until a difference is found
-  local max_len=$(( ${#pre1} > ${#pre2} ? ${#pre1} : ${#pre2} ))
+  IFS='.' read -r -A prere1 <<< "${version1[prere]}"
+  IFS='.' read -r -A prere2 <<< "${version2[prere]}"
+  local max_len=$(( ${#prere1} > ${#prere2} ? ${#prere1} : ${#prere2} ))
   for (( i = 1; i <= $max_len; i++ )); do
-    local p1="${pre1[$i]}"
-    local p2="${pre2[$i]}"
+    local p1="${prere1[$i]}"
+    local p2="${prere2[$i]}"
 
     # A smaller set of pre-release fields MUST have a lower precedence than a
     # larger set, if all of the preceding identifiers are equal
