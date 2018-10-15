@@ -134,7 +134,7 @@ spaceship::compare_semver() {
   version2=($(spaceship::parse_semver $2))
 
   # Stop if there were parse errors
-  [[ ! "$version1" || ! "$version2" ]] && return 1
+  [[ -z "$version1" || -z "$version2" ]] && return 1
 
   # Major, minor and patch MUST be compared numericaly in order
   for i in major minor patch; do
