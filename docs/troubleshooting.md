@@ -80,6 +80,7 @@ SPACESHIP_PROMPT_ORDER=(
   kubectl       # Kubectl context section
   terraform     # Terraform workspace section
   ibmcloud      # IBM Cloud section
+  ocaml         # OCaml section
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status

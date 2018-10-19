@@ -51,6 +51,7 @@ SPACESHIP_PROMPT_ORDER=(
   kubectl       # Kubectl context section
   terraform     # Terraform workspace section
   ibmcloud      # IBM Cloud section
+  ocaml         # OCaml section
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status
@@ -621,6 +622,18 @@ Shows the selected IBM Cloud account by looking up with `ibmcloud target`.
 | `SPACESHIP_IBMCLOUD_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after IBM Cloud section |
 | `SPACESHIP_IBMCLOUD_SYMBOL` | `👔·` | Character to be shown before IBM Cloud section |
 | `SPACESHIP_IBMCLOUD_COLOR` | `039` | Color of IBM Cloud section |
+
+### OCaml (`ocaml`)
+
+OCaml section is only shown in directories that contain `dune`, `dune-project`, `.merlin`, or any file with `.opam`, `.ml` or `.mli` extension.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_OCAML_SHOW` | `true` | Show OCaml section |
+| `SPACESHIP_OCAML_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before OCaml section |
+| `SPACESHIP_OCAML_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after OCaml section |
+| `SPACESHIP_OCAML_SYMBOL` | `🐫·` | Character to be shown before OCaml version |
+| `SPACESHIP_OCAML_COLOR` | `yellow` | Color of OCaml section |
 
 ### Execution time (`exec_time`)
 
