@@ -21,11 +21,12 @@ SPACESHIP_PYENV_USE_VENV="${SPACESHIP_PYENV_USE_VENV=false}"
 
 # Show current version of pyenv Python, including system.
 spaceship_pyenv() {
-  # Do nothing if SHOW is false or pyenv is not installed
-  [[ $SPACESHIP_PYENV_SHOW == false ]] && spaceship::exists pyenv && return
+  [[ $SPACESHIP_PYENV_SHOW == false ]] && return
 
   # Show pyenv python version only for Python-specific folders
   [[ -f requirements.txt ]] || [[ -n *.py(#qN^/) ]] || return
+
+  spaceship::exists pyenv || return # Do nothing if pyenv is not installed
 
   # Check if the current directory is running via Virtualenv
   if  [[ $SPACESHIP_PYENV_USE_VENV && -n "$VIRTUAL_ENV" ]]
