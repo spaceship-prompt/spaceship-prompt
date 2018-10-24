@@ -13,6 +13,7 @@ SPACESHIP_PYENV_PREFIX="${SPACESHIP_PYENV_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREF
 SPACESHIP_PYENV_SUFFIX="${SPACESHIP_PYENV_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_PYENV_SYMBOL="${SPACESHIP_PYENV_SYMBOL="🐍 "}"
 SPACESHIP_PYENV_COLOR="${SPACESHIP_PYENV_COLOR="yellow"}"
+SPACESHIP_PYENV_USE_VENV="${SPACESHIP_PYENV_USE_VENV=false}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -20,14 +21,19 @@ SPACESHIP_PYENV_COLOR="${SPACESHIP_PYENV_COLOR="yellow"}"
 
 # Show current version of pyenv Python, including system.
 spaceship_pyenv() {
-  [[ $SPACESHIP_PYENV_SHOW == false ]] && return
+  # Do nothing if SHOW is false or pyenv is not installed
+  [[ $SPACESHIP_PYENV_SHOW == false ]] && spaceship::exists pyenv && return
 
   # Show pyenv python version only for Python-specific folders
   [[ -f requirements.txt ]] || [[ -n *.py(#qN^/) ]] || return
 
-  spaceship::exists pyenv || return # Do nothing if pyenv is not installed
-
-  local pyenv_status=${$(pyenv version-name 2>/dev/null)//:/ }
+  # Check if the current directory is running via Virtualenv
+  if  [[ $SPACESHIP_PYENV_USE_VENV && -n "$VIRTUAL_ENV" ]]
+  then
+    local pyenv_status=$(python -V | awk '{print $2}')
+  else
+    local pyenv_status=${$(pyenv version-name 2>/dev/null)//:/ }
+  fi
 
   spaceship::section \
     "$SPACESHIP_PYENV_COLOR" \

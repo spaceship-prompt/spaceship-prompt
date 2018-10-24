@@ -435,6 +435,7 @@ pyenv section is shown only in directories that contain `requirements.txt` or an
 | `SPACESHIP_PYENV_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the pyenv section |
 | `SPACESHIP_PYENV_SYMBOL` | `🐍·` | Character to be shown before Pyenv version |
 | `SPACESHIP_PYENV_COLOR` | `yellow` | Color of Pyenv section |
+| `SPACESHIP_PYENV_USE_VENV` | `false` | If the virtualenv python version should be used instead Pyenv |
 
 ### .NET (`dotnet`)
 
