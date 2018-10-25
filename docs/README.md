@@ -31,6 +31,7 @@
   * [Amazon Web Services (aws)](/docs/Options.md#amazon-web-services-aws-aws)
   * [Virtualenv (venv)](/docs/Options.md#virtualenv-venv)
   * [Conda Virtualenv (conda)](/docs/Options.md#conda-virtualenv-conda)
+  * [Python (python)](/docs/Options.md#python-python)
   * [Pyenv (pyenv)](/docs/Options.md#pyenv-pyenv)
   * [.NET (dotnet)](/docs/Options.md#net-dotnet)
   * [Ember (ember)](/docs/Options.md#emberjs-ember)
