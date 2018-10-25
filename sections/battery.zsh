@@ -37,20 +37,7 @@ spaceship_battery() {
 
   local battery_data battery_percent battery_status battery_color
 
-  if spaceship::exists acpi; then
-    battery_data=$(acpi -b)
-
-    # Return if no battery
-    [[ -z $battery_data ]] && return
-
-	# If battery is 0% charge, battery likely doesn't exist.
-    if [[ $battery_data == 0 ]]; then
-        return
-	fi
-	
-    battery_percent="$( echo $battery_data | awk '{print $4}' )"
-    battery_status="$( echo $battery_data | awk '{print tolower($3)}' )"
-  elif spaceship::exists pmset; then
+  if spaceship::exists pmset; then
     battery_data=$(pmset -g batt)
 
     # Return if no internal battery
@@ -58,6 +45,20 @@ spaceship_battery() {
 
     battery_percent="$( echo $battery_data | grep -oE '[0-9]{1,3}%' )"
     battery_status="$( echo $battery_data | awk -F '; *' 'NR==2 { print $2 }' )"
+  elif spaceship::exists acpi; then
+    battery_data=$(acpi -b)
+
+    # Return if no battery
+    [[ -z $battery_data ]] && return
+
+    battery_percent="$( echo $battery_data | awk '{print $4}' )"
+
+	# If battery is 0% charge, battery likely doesn't exist.
+    if [[ $battery_percent == "0%," ]]; then
+        return
+	fi
+	
+    battery_status="$( echo $battery_data | awk '{print tolower($3)}' )"
   elif spaceship::exists upower; then
     local battery=$(command upower -e | grep battery | head -1)
 
