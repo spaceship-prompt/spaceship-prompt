@@ -41,6 +41,7 @@ SPACESHIP_PROMPT_ORDER=(
   dotnet        # .NET section
   ember         # Ember.js section
   kubecontext   # Kubectl context section
+  tfworkspace   # Terraform workspace section
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status
@@ -471,6 +472,18 @@ Shows the active kubectl context.
 | `SPACESHIP_KUBECONTEXT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_SYMBOL` | `☸️·` | Character to be shown before Kubectl context |
 | `SPACESHIP_KUBECONTEXT_COLOR` | `cyan` | Color of Kubectl context section |
+
+### Terraform workspace (`tfworkspace`)
+
+Shows the active Terraform wokspace.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_TFWORKSPACE_SHOW` | `false` | Current Terraform workspace section |
+| `SPACESHIP_TFWORKSPACE_PREFIX` |  | Prefix before Terraform workspace section |
+| `SPACESHIP_TFWORKSPACE_SUFFIX` |  | Suffix after Terraform workspace section |
+| `SPACESHIP_TFWORKSPACE_SYMBOL` | `⬢ ` | Character to be shown before Terraform workspace |
+| `SPACESHIP_TFWORKSPACE_COLOR` | `#5c4ee5` | [Color](https://www.hashicorp.com/brand) of Terraform workspace section |
 
 ### Execution time (`exec_time`)
 
