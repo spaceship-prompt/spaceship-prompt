@@ -11,18 +11,18 @@
 # Configuration
 # ------------------------------------------------------------------------------
 
-SPACESHIP_TFWORKSPACE_SHOW="${SPACESHIP_TFWORKSPACE_SHOW=false}"
-SPACESHIP_TFWORKSPACE_PREFIX="${SPACESHIP_TFWORKSPACE_PREFIX=""}"
-SPACESHIP_TFWORKSPACE_SUFFIX="${SPACESHIP_TFWORKSPACE_SUFFIX=" "}"
-SPACESHIP_TFWORKSPACE_SYMBOL="${SPACESHIP_TFWORKSPACE_SYMBOL="⬢ "}"
-SPACESHIP_TFWORKSPACE_COLOR="${SPACESHIP_TFWORKSPACE_COLOR="#5c4ee5"}"
+SPACESHIP_TERRAFORM_SHOW="${SPACESHIP_TERRAFORM_SHOW=false}"
+SPACESHIP_TERRAFORM_PREFIX="${SPACESHIP_TERRAFORM_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_TERRAFORM_SUFFIX="${SPACESHIP_TERRAFORM_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_TERRAFORM_SYMBOL="${SPACESHIP_TERRAFORM_SYMBOL="⬢ "}"
+SPACESHIP_TERRAFORM_COLOR="${SPACESHIP_TERRAFORM_COLOR="105"}"
 
 # ------------------------------------------------------------------------------
 # Section
 # ------------------------------------------------------------------------------
 
-spaceship_tfworkspace() {
-  [[ $SPACESHIP_TFWORKSPACE_SHOW == false ]] && return
+spaceship_terraform() {
+  [[ $SPACESHIP_TERRAFORM_SHOW == false ]] && return
 
   spaceship::exists terraform || return
 
@@ -33,8 +33,8 @@ spaceship_tfworkspace() {
   [[ -z $terraform_workspace ]] && return
 
   spaceship::section \
-    "$SPACESHIP_TFWORKSPACE_COLOR" \
-    "$SPACESHIP_TFWORKSPACE_PREFIX" \
-    "$SPACESHIP_TFWORKSPACE_SYMBOL $terraform_workspace" \
-    "$SPACESHIP_TFWORKSPACE_SUFFIX"
+    "$SPACESHIP_TERRAFORM_COLOR" \
+    "$SPACESHIP_TERRAFORM_PREFIX" \
+    "$SPACESHIP_TERRAFORM_SYMBOL $terraform_workspace" \
+    "$SPACESHIP_TERRAFORM_SUFFIX"
 }
