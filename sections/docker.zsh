@@ -32,7 +32,7 @@ spaceship_docker() {
   local docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
   [[ -z $docker_version ]] && return
 
-  [[ $SPACESHIP_DOCKER_VERBOSE == false ]] && docker_version=$(echo ${docker_version} | awk -F\- '{ print $1 }')
+  [[ $SPACESHIP_DOCKER_VERBOSE == false ]] && docker_version=${${(@s|-|)$(docker version -f "{{.Server.Version}}")}[1]}
 
   if [[ -n $DOCKER_MACHINE_NAME ]]; then
     docker_version+=" via ($DOCKER_MACHINE_NAME)"
