@@ -27,6 +27,8 @@ spaceship_php() {
 
   spaceship::exists php || return
 
+  # 1. Split output to array on space and return first element
+  # 2. Split output from step 1 on (-) and return second element
   local php_version=${${(@s|-|)$(php -v 2>&1)[2]}[1]}
 
   spaceship::section \
