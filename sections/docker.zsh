@@ -33,7 +33,7 @@ spaceship_docker() {
   [[ -z $docker_version ]] && return
 
   # Split output on separator (-) and return the first element from resulting array
-  [[ $SPACESHIP_DOCKER_VERBOSE == false ]] && docker_version=${${(@s|-|)$(docker version -f "{{.Server.Version}}")}[1]}
+  [[ $SPACESHIP_DOCKER_VERBOSE == false ]] && docker_version=${${(@s|-|)docker_version}[1]}
 
   if [[ -n $DOCKER_MACHINE_NAME ]]; then
     docker_version+=" via ($DOCKER_MACHINE_NAME)"
