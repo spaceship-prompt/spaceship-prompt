@@ -470,7 +470,7 @@ Shows the active kubectl context.
 | `SPACESHIP_KUBECONTEXT_SHOW` | `true` | Current Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_PREFIX` | `at·` | Prefix before Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubectl context section |
-| `SPACESHIP_KUBECONTEXT_SYMBOL` | `🛠️·` | Character to be shown before Kubectl context |
+| `SPACESHIP_KUBECONTEXT_SYMBOL` | `☸️·` | Character to be shown before Kubectl context |
 | `SPACESHIP_KUBECONTEXT_COLOR` | `cyan` | Color of Kubectl context section |
 
 ### Terraform workspace (`terraform`)
@@ -482,7 +482,7 @@ Shows the active Terraform wokspace.
 | `SPACESHIP_TERRAFORM_SHOW` | `true` | Current Terraform workspace section |
 | `SPACESHIP_TERRAFORM_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Terraform workspace section |
 | `SPACESHIP_TERRAFORM_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Terraform workspace section |
-| `SPACESHIP_TERRAFORM_SYMBOL` | `⬢·` | Character to be shown before Terraform workspace |
+| `SPACESHIP_TERRAFORM_SYMBOL` | `🛠️·` | Character to be shown before Terraform workspace |
 | `SPACESHIP_TERRAFORM_COLOR` | `105` | Color of Terraform workspace section |
 
 ### Execution time (`exec_time`)
