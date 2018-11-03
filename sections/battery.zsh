@@ -54,9 +54,7 @@ spaceship_battery() {
     battery_percent="$( echo $battery_data | awk '{print $4}' )"
 
 	# If battery is 0% charge, battery likely doesn't exist.
-    if [[ $battery_percent == "0%," ]]; then
-        return
-	fi
+    [[ $battery_percent == "0%," ]] && return
 	
     battery_status="$( echo $battery_data | awk '{print tolower($3)}' )"
   elif spaceship::exists upower; then
