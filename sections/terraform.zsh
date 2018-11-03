@@ -11,15 +11,15 @@
 # Configuration
 # ------------------------------------------------------------------------------
 
-SPACESHIP_TERRAFORM_SHOW="${SPACESHIP_TERRAFORM_SHOW=false}"
+SPACESHIP_TERRAFORM_SHOW="${SPACESHIP_TERRAFORM_SHOW=true}"
 SPACESHIP_TERRAFORM_PREFIX="${SPACESHIP_TERRAFORM_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_TERRAFORM_SUFFIX="${SPACESHIP_TERRAFORM_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_TERRAFORM_SYMBOL="${SPACESHIP_TERRAFORM_SYMBOL="⬢ "}"
+SPACESHIP_TERRAFORM_SYMBOL="${SPACESHIP_TERRAFORM_SYMBOL="🛠 "}"
 SPACESHIP_TERRAFORM_COLOR="${SPACESHIP_TERRAFORM_COLOR="105"}"
 
 # ------------------------------------------------------------------------------
 # Section
-# ------------------------------------------------------------------------------
+# ----------------------------------------------- -------------------------------
 
 spaceship_terraform() {
   [[ $SPACESHIP_TERRAFORM_SHOW == false ]] && return
@@ -35,6 +35,6 @@ spaceship_terraform() {
   spaceship::section \
     "$SPACESHIP_TERRAFORM_COLOR" \
     "$SPACESHIP_TERRAFORM_PREFIX" \
-    "$SPACESHIP_TERRAFORM_SYMBOL $terraform_workspace" \
+    "$SPACESHIP_TERRAFORM_SYMBOL$terraform_workspace" \
     "$SPACESHIP_TERRAFORM_SUFFIX"
 }
