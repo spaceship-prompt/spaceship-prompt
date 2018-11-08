@@ -426,7 +426,7 @@ Show activated conda virtual environment. Disable native conda prompt by `conda 
 
 ### Pyenv (`pyenv`)
 
-pyenv section is shown only in directories that contain `requirements.txt` or any other file with `.py` extension.
+pyenv section is shown only in directories that contain `requirements.txt`, `pyproject.toml` or any other file with `.py` extension.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
