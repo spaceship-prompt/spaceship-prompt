@@ -27,6 +27,8 @@ In case Unicode symbols aren't supported, you can replace them to those that are
 
 Spaceship may work slower in big repositories since status checkings are quite a heavy operation. In this case, try to avoid having many uncommitted files.
 
+`package` section fallbacks to `python` and `node` if `jq` is unavailable. Install [jq](https://stedolan.github.io/jq/) to improve version fetching from `package.json`. See #439, #441.
+
 Prompt also may slow down because of loading of unused sections. Spaceship loads only sections mentioned in `SPACESHIP_PROMPT_ORDER` or `SPACESHIP_RPROMPT_ORDER`. If you think some sections might be useless for you, try to disable them by omitting their names in order options.
 
 In the example below, `time`, `package`, `xcode`, `julia`, `docker`, `ember` and `vi_mode` sections are disabled so that they won't be loaded at all.
