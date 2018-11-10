@@ -43,6 +43,6 @@ spaceship_package() {
   spaceship::section \
     "$SPACESHIP_PACKAGE_COLOR" \
     "$SPACESHIP_PACKAGE_PREFIX" \
-    "${SPACESHIP_PACKAGE_SYMBOL}${package_version}" \
+    "${SPACESHIP_PACKAGE_SYMBOL}v${package_version}" \
     "$SPACESHIP_PACKAGE_SUFFIX"
 }
