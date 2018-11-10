@@ -35,7 +35,7 @@ spaceship_package() {
   elif spaceship::exists python; then
     package_version=$(python -c "import json; print(json.load(open('package.json'))['version'])" 2>/dev/null)
   elif spaceship::exists node; then
-    package_version=$(node -e "console.log(require('./package.json').version)")
+    package_version=$(node -p "require('./package.json').version" 2> /dev/null)
   fi
 
   [[ -z $package_version || "$package_version" == "undefined" ]] && return
