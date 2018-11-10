@@ -38,7 +38,7 @@ spaceship_package() {
     package_version=$(node -e "console.log(require('./package.json').version)")
   fi
 
-  [[ -z $package_version ]] && return
+  [[ -z $package_version || "$package_version" == "undefined" ]] && return
 
   spaceship::section \
     "$SPACESHIP_PACKAGE_COLOR" \
