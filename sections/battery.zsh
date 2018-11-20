@@ -38,10 +38,10 @@ spaceship_battery() {
   local battery_data battery_percent battery_status battery_color
 
   if spaceship::exists pmset; then
-    battery_data=$(pmset -g batt)
+    battery_data=$(pmset -g batt | grep "InternalBattery")
 
     # Return if no internal battery
-    [[ -z $(echo $battery_data | grep "InternalBattery") ]] && return
+    [[ -z "$battery_data" ]] && return
 
     battery_percent="$( echo $battery_data | grep -oE '[0-9]{1,3}%' )"
     battery_status="$( echo $battery_data | awk -F '; *' 'NR==2 { print $2 }' )"
