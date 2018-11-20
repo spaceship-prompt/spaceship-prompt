@@ -114,7 +114,7 @@ Want more features? Please, [open an issue](https://github.com/denysdovhan/space
 To work correctly, you will first need:
 
 * [`zsh`](http://www.zsh.org/) (v5.2 or recent) must be installed.
-* [Powerline Font](https://github.com/powerline/fonts) must be installed and used in your terminal.
+* [Powerline Font](https://github.com/powerline/fonts) must be installed and used in your terminal (for example, switch font to [Fira Code](https://github.com/tonsky/FiraCode)).
 
 ## Installing
 
