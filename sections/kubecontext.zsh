@@ -27,7 +27,10 @@ spaceship_kubecontext() {
 
   spaceship::exists kubectl || return
 
-  local kube_context=$(kubectl config current-context 2>/dev/null)
+  local kube_cluster=$(kubectl config current-context 2>/dev/null)
+  local kube_ns=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
+  local kube_ns="${kube_ns:-default}"
+  local kube_context="${kube_cluster}:${kube_ns}"
 
   [[ -z $kube_context ]] && return
 
