@@ -21,6 +21,7 @@ spaceship::defined() {
 # USAGE:
 #   spaceship::is_git
 spaceship::is_git() {
+  # See https://git.io/fp8Pa for related discussion
   [[ $(command git rev-parse --is-inside-work-tree 2>/dev/null) == true ]]
 }
 
