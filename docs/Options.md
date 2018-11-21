@@ -226,7 +226,7 @@ Mercurial status indicators is shown only when you have dirty repository.
 
 > Works only for [npm](https://www.npmjs.com/) at the moment. Please, help us improve this section!
 
-Package version is shown when repository is a package (e.g. contains a `package.json` file). If no version information is found in `package.json`, the `⚠` symbol will be displayed.
+Package version is shown when repository is a package (e.g. contains a `package.json` file). Install [jq](https://stedolan.github.io/jq/) for **improved performace** of this section ([Why?](./Troubleshooting.md#why-is-my-prompt-slow))
 
 > **Note:** This is the version of the package you are working on, not the version of package manager itself.
 

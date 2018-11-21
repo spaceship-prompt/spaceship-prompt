@@ -35,6 +35,11 @@ SPACESHIP_VI_MODE_SHOW=false
 
 Spaceship may work slower in big repositories since status checkings are quite a heavy operation. In this case, try to avoid having many uncommitted files.
 
+Using `grep` to fetch package version wasn't returning accurate information. So now we use `jq` with fallbacks to `python` and `node`, Which might slightly affect performance. In that case install [jq](https://stedolan.github.io/jq/) (see [#439], [#441] for more information).
+
+[#439]: https://github.com/denysdovhan/spaceship-prompt/issues/439
+[#441]: https://github.com/denysdovhan/spaceship-prompt/pull/441
+
 Prompt also may slow down because of loading of unused sections. Spaceship loads only sections mentioned in `SPACESHIP_PROMPT_ORDER` or `SPACESHIP_RPROMPT_ORDER`. If you think some sections might be useless for you, try to disable them by omitting their names in order options.
 
 In the example below, `time`, `package`, `xcode`, `julia`, `docker`, `ember` and `vi_mode` sections are disabled so that they won't be loaded at all.
