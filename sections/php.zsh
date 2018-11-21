@@ -27,9 +27,7 @@ spaceship_php() {
 
   spaceship::exists php || return
 
-  # 1. Split output to array on space and return first element
-  # 2. Split output from step 1 on (-) and return second element
-  local php_version=${${(@s|-|)$(php -v 2>&1)[2]}[1]}
+  local php_version=$(php -v 2>&1 | grep --color=never -oe "^PHP\s*[0-9.]\+" | awk '{print $2}')
 
   spaceship::section \
     "$SPACESHIP_PHP_COLOR" \
