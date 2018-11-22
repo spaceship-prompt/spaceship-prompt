@@ -475,7 +475,7 @@ Shows the active kubectl context.
 
 ### Terraform workspace (`terraform`)
 
-Shows the active Terraform wokspace.
+Shows the active Terraform wokspace in directories that contain `.terraform/environment` file.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
