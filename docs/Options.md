@@ -465,7 +465,7 @@ Ember.js section is shown only in directories that contain a `ember-cli-build.js
 
 Shows the active kubectl context, which consists of a cluster name and, when working in a non-default namespace, also a namespace name.
 
-TIP: If your cluster name (and thus context name) is too long, you can give it a shorter name using `kubectl config rename-context very_long_context_name name`.
+**💡 Tip:**  If your cluster name (and thus context name) is too long, you can give it a shorter name using `kubectl config rename-context very_long_context_name name`.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
