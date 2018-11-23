@@ -23,7 +23,7 @@ spaceship_python() {
   [[ $SPACESHIP_PYTHON_SHOW == false ]] && return
 
   # Show python python version only for Python-specific folders
-  [[ -f requirements.txt || -f Pipfile || -n *.py(#qN^/) ]] || return
+  [[ -f requirements.txt || -f Pipfile || -f pyproject.toml || -n *.py(#qN^/) ]] || return
 
   local 'py_version'
 
