@@ -25,6 +25,7 @@ SPACESHIP_PROMPT_ORDER=(
   package       # Package version
   node          # Node.js section
   ruby          # Ruby section
+  python        # Python section
   elixir        # Elixir section
   xcode         # Xcode section
   swift         # Swift section
@@ -37,7 +38,6 @@ SPACESHIP_PROMPT_ORDER=(
   aws           # Amazon Web Services section
   venv          # virtualenv section
   conda         # conda virtualenv section
-  pyenv         # Pyenv section
   dotnet        # .NET section
   ember         # Ember.js section
   kubecontext   # Kubectl context section
@@ -260,6 +260,18 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 | `SPACESHIP_RUBY_SYMBOL` | `💎·` | Character to be shown before Ruby version |
 | `SPACESHIP_RUBY_COLOR` | `red` | Color of Ruby section |
 
+### Python (`python`)
+
+Python version is shown only inside directories that contain relevant files like `requirements.txt`, `Pipfile` or any other file with `.py` extension with virtual environment activated or if section is configured to be displayed `always` with relevant files.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_PYTHON_SHOW` | `true` | Show current Python version or not (`true`, `false` or `always`)  |
+| `SPACESHIP_PYTHON_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the python section |
+| `SPACESHIP_PYTHON_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the python section |
+| `SPACESHIP_PYTHON_SYMBOL` | `🐍·` | Character to be shown before python version |
+| `SPACESHIP_PYTHON_COLOR` | `yellow` | Color of python section |
+
 ### Elixir (`elixir`)
 
 Elixir section is shown only in directories that contain `mix.exs`, or any other file with `.ex` or `.exs` extension. If the current elixir version is the same as the version set in `SPACESHIP_ELIXIR_DEFAULT_VERSION`, the elixir section will be hidden.
@@ -407,18 +419,6 @@ Show activated conda virtual environment. Disable native conda prompt by `conda 
 | `SPACESHIP_CONDA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the conda virtualenv section |
 | `SPACESHIP_CONDA_SYMBOL` | `🅒·` | Character to be shown before conda virtualenv section |
 | `SPACESHIP_CONDA_COLOR` | `blue` | Color of conda virtualenv environment section |
-
-### Pyenv (`pyenv`)
-
-pyenv section is shown only in directories that contain `requirements.txt` or any other file with `.py` extension.
-
-| Variable | Default | Meaning |
-| :------- | :-----: | ------- |
-| `SPACESHIP_PYENV_SHOW` | `true` | Show current Pyenv version or not |
-| `SPACESHIP_PYENV_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the pyenv section |
-| `SPACESHIP_PYENV_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the pyenv section |
-| `SPACESHIP_PYENV_SYMBOL` | `🐍·` | Character to be shown before Pyenv version |
-| `SPACESHIP_PYENV_COLOR` | `yellow` | Color of Pyenv section |
 
 ### .NET (`dotnet`)
 

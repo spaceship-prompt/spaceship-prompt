@@ -28,7 +28,7 @@ spaceship_venv() {
   # Check if the current directory running via Virtualenv
   [ -n "$VIRTUAL_ENV" ] || return
 
-  local 'venv' 'py_version'
+  local 'venv'
 
   if [[ "${SPACESHIP_VENV_GENERIC_NAMES[(i)$VIRTUAL_ENV:t]}" -le \
         "${#SPACESHIP_VENV_GENERIC_NAMES}" ]]
@@ -38,13 +38,9 @@ spaceship_venv() {
     venv="$VIRTUAL_ENV:t"
   fi
 
-  if [[ $SPACESHIP_VENV_SHOW_PYTHON_VERSION == true ]]; then
-      py_version=":$(python -V | awk '{print $2}')"
-  fi
-
 spaceship::section \
     "$SPACESHIP_VENV_COLOR" \
     "$SPACESHIP_VENV_PREFIX" \
-    "${SPACESHIP_VENV_SYMBOL}${venv}${py_version}" \
+    "${SPACESHIP_VENV_SYMBOL}${venv}" \
     "$SPACESHIP_VENV_SUFFIX"
 }
