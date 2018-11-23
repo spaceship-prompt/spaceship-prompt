@@ -4,7 +4,7 @@ This page aimed to help you fix the common problems encountered while using Spac
 
 ## What's the weird symbol for `git` branch?
 
-You need to have a powerline patched font inorder to properly display `git` branch symbol.
+You need to have a powerline patched font in order to properly display `git` branch symbol.
 
 * Install any powerline compatible font like [Fira Code](https://github.com/tonsky/FiraCode) or [others](https://github.com/powerline/fonts).
 * Configure your terminal emulator to [use that font](https://powerline.readthedocs.io/en/master/troubleshooting/osx.html).
@@ -35,6 +35,11 @@ SPACESHIP_VI_MODE_SHOW=false
 
 Spaceship may work slower in big repositories since status checkings are quite a heavy operation. In this case, try to avoid having many uncommitted files.
 
+Using `grep` to fetch package version wasn't returning accurate information. So now we use `jq` with fallbacks to `python` and `node`, Which might slightly affect performance. In that case install [jq](https://stedolan.github.io/jq/) (see [#439], [#441] for more information).
+
+[#439]: https://github.com/denysdovhan/spaceship-prompt/issues/439
+[#441]: https://github.com/denysdovhan/spaceship-prompt/pull/441
+
 Prompt also may slow down because of loading of unused sections. Spaceship loads only sections mentioned in `SPACESHIP_PROMPT_ORDER` or `SPACESHIP_RPROMPT_ORDER`. If you think some sections might be useless for you, try to disable them by omitting their names in order options.
 
 In the example below, `time`, `package`, `xcode`, `julia`, `docker`, `ember` and `vi_mode` sections are disabled so that they won't be loaded at all.
@@ -42,7 +47,7 @@ In the example below, `time`, `package`, `xcode`, `julia`, `docker`, `ember` and
 ```zsh
 # Just comment a section if you want to disable it
 SPACESHIP_PROMPT_ORDER=(
-  # time        # Time stampts section (Disabled)
+  # time        # Time stamps section (Disabled)
   user          # Username section
   dir           # Current directory section
   host          # Hostname section
@@ -67,6 +72,7 @@ SPACESHIP_PROMPT_ORDER=(
   dotnet        # .NET section
   # ember       # Ember.js section (Disabled)
   kubecontext   # Kubectl context section
+  terraform     # Terraform workspace section
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status
@@ -104,7 +110,7 @@ In _iTerm_ follow these instructions:
 
 ## Why doesn't my prompt look like the preview?
 
-![preview](../preview.gif)
+![preview](https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif)
 
 Preview shows `spaceship` prompt setup with:
 

@@ -14,6 +14,8 @@ SPACESHIP_DIR_TRUNC="${SPACESHIP_DIR_TRUNC=3}"
 SPACESHIP_DIR_TRUNC_PREFIX="${SPACESHIP_DIR_TRUNC_PREFIX=}"
 SPACESHIP_DIR_TRUNC_REPO="${SPACESHIP_DIR_TRUNC_REPO=true}"
 SPACESHIP_DIR_COLOR="${SPACESHIP_DIR_COLOR="cyan"}"
+SPACESHIP_DIR_LOCK_SYMBOL="${SPACESHIP_DIR_LOCK_SYMBOL=" "}"
+SPACESHIP_DIR_LOCK_COLOR="${SPACESHIP_DIR_LOCK_COLOR="red"}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -52,6 +54,10 @@ spaceship_dir() {
     fi
 
     dir="$trunc_prefix%${SPACESHIP_DIR_TRUNC}~"
+  fi
+
+  if [[ ! -w . ]]; then
+    SPACESHIP_DIR_SUFFIX="%F{$SPACESHIP_DIR_LOCK_COLOR}${SPACESHIP_DIR_LOCK_SYMBOL}%f${SPACESHIP_DIR_SUFFIX}"
   fi
 
   spaceship::section \

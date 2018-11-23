@@ -16,7 +16,7 @@ The default order is:
 
 ```zsh
 SPACESHIP_PROMPT_ORDER=(
-  time          # Time stampts section
+  time          # Time stamps section
   user          # Username section
   dir           # Current directory section
   host          # Hostname section
@@ -41,6 +41,7 @@ SPACESHIP_PROMPT_ORDER=(
   dotnet        # .NET section
   ember         # Ember.js section
   kubecontext   # Kubectl context section
+  terraform     # Terraform workspace section
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status
@@ -74,6 +75,8 @@ This group of options defines a behaviour of prompt and standard parameters for 
 | `SPACESHIP_CHAR_PREFIX` | ` ` | Prefix before prompt character |
 | `SPACESHIP_CHAR_SUFFIX` | ` ` | Suffix after prompt character |
 | `SPACESHIP_CHAR_SYMBOL` | `➜ ` | Prompt character to be shown before any command |
+| `SPACESHIP_CHAR_SYMBOL_ROOT` | `$SPACESHIP_CHAR_SYMBOL` | Prompt character to be shown before any command for the root user |
+| `SPACESHIP_CHAR_SYMBOL_SECONDARY` | `$SPACESHIP_CHAR_SYMBOL` | Secondary prompt character to be shown for incomplete commands |
 | `SPACESHIP_CHAR_COLOR_SUCCESS` | `green` | Color of prompt character if last command completes successfully |
 | `SPACESHIP_CHAR_COLOR_FAILURE` | `red` | Color of prompt character if last command returns non-zero exit-code |
 | `SPACESHIP_CHAR_COLOR_SECONDARY` | `yellow` | Color of secondary prompt character |
@@ -128,6 +131,7 @@ Hostname is shown only when you're connected via SSH unless you change this beha
 ### Directory (`dir`)
 
 Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`. While you are in repository, it shows only root directory and folders inside it.
+If current directory is write-protected or if current user has not enough rights to write in it, a padlock (by default) is displayed as a suffix.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -138,6 +142,8 @@ Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`. W
 | `SPACESHIP_DIR_TRUNC_PREFIX` | ` ` | Prefix before cwd when it's truncated. For example `…/` or `.../`, empty to disable |
 | `SPACESHIP_DIR_TRUNC_REPO` | `true` | While in `git` repo, show only root directory and folders inside it |
 | `SPACESHIP_DIR_COLOR` | `cyan` | Color of directory section |
+| `SPACESHIP_DIR_LOCK_SYMBOL` | ![·](https://user-images.githubusercontent.com/10276208/46248218-4af95d80-c434-11e8-8e25-595d792503f1.png) | The symbol displayed if directory is write-protected (requires powerline patched font) |
+| `SPACESHIP_DIR_LOCK_COLOR` | `red` | Color for the lock symbol |
 
 ### Git (`git`)
 
@@ -178,7 +184,7 @@ Git status indicators is shown only when you have dirty repository.
 | `SPACESHIP_GIT_STATUS_UNMERGED` | `=` | Indicator for unmerged changes |
 | `SPACESHIP_GIT_STATUS_AHEAD` | `⇡` | Indicator for unpushed changes (ahead of remote branch) |
 | `SPACESHIP_GIT_STATUS_BEHIND` | `⇣` | Indicator for unpulled changes (behind of remote branch) |
-| `SPACESHIP_GIT_STATUS_DIVERGED` | `⇕` | Indicator for diverged chages (diverged with remote branch) |
+| `SPACESHIP_GIT_STATUS_DIVERGED` | `⇕` | Indicator for diverged changes (diverged with remote branch) |
 
 ### Mercurial (`hg`)
 
@@ -221,7 +227,7 @@ Mercurial status indicators is shown only when you have dirty repository.
 
 > Works only for [npm](https://www.npmjs.com/) at the moment. Please, help us improve this section!
 
-Package version is shown when repository is a package (e.g. contains a `package.json` file). If no version information is found in `package.json`, the `⚠` symbol will be displayed.
+Package version is shown when repository is a package (e.g. contains a `package.json` file). Install [jq](https://stedolan.github.io/jq/) for **improved performace** of this section ([Why?](./Troubleshooting.md#why-is-my-prompt-slow))
 
 > **Note:** This is the version of the package you are working on, not the version of package manager itself.
 
@@ -272,6 +278,19 @@ Python version is shown only inside directories that contain relevant files like
 | `SPACESHIP_PYTHON_SYMBOL` | `🐍·` | Character to be shown before python version |
 | `SPACESHIP_PYTHON_COLOR` | `yellow` | Color of python section |
 
+### Elm (`elm`)
+
+Elm section is shown only in directories that contain `elm.json` file, `elm-package.json` file, `elm-stuff` directory, or any other file with `.elm` extension.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_ELM_SHOW` | `true` | Show installed Elm version |
+| `SPACESHIP_ELM_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Elm section |
+| `SPACESHIP_ELM_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Elm section |
+| `SPACESHIP_ELM_SYMBOL` | `🌳·` | Character to be shown before Elm version |
+| `SPACESHIP_ELM_COLOR` | `cyan` | Color of Elm section |
+>>>>>>> origin/4.0
+
 ### Elixir (`elixir`)
 
 Elixir section is shown only in directories that contain `mix.exs`, or any other file with `.ex` or `.exs` extension. If the current elixir version is the same as the version set in `SPACESHIP_ELIXIR_DEFAULT_VERSION`, the elixir section will be hidden.
@@ -313,7 +332,7 @@ Shows current version of Swift. Local version has more priority than global.
 
 ### Go (`golang`)
 
-Go section is shown only in directories that contain `Godeps`, `glide.yaml`, any other file with `.go` extension, or when current directory is in the Go workspace defined in `$GOPATH`.
+Go section is shown only in directories that contain `go.mod`, `Godeps`, `glide.yaml`, any other file with `.go` extension, or when current directory is in the Go workspace defined in `$GOPATH`.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -346,6 +365,7 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 | `SPACESHIP_RUST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Rust section |
 | `SPACESHIP_RUST_SYMBOL` | `𝗥·` | Character to be shown before Rust version |
 | `SPACESHIP_RUST_COLOR` | `red` | Color of Rust section |
+| `SPACESHIP_RUST_VERBOSE_VERSION` | `false` | Show what branch is being used, if any. (Beta, Nightly) |
 
 ### Haskell (`haskell`)
 
@@ -373,7 +393,11 @@ Julia section is shown only in directories that contain file with `.jl` extensio
 
 ### Docker (`docker`)
 
-Docker section is shown only in directories that contain `Dockerfile` or `docker-compose.yml` file.
+Docker section is shown only in directories that contain `Dockerfile` or it's possible to run `docker-compose`.
+
+`docker-compose` will run only if there is docker-compose.yml, or other file(s) specified with `COMPOSE_FILE` are accessible.
+
+The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more information see [Compose CLI environment variables](https://docs.docker.com/compose/reference/envvars/).
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -386,7 +410,7 @@ Docker section is shown only in directories that contain `Dockerfile` or `docker
 
 ### Amazon Web Services (AWS) (`aws`)
 
-Shows selected Amazon Web Services profile using '[named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)'.
+Shows selected Amazon Web Services profile configured using  [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) variable.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -446,7 +470,9 @@ Ember.js section is shown only in directories that contain a `ember-cli-build.js
 
 ### Kubectl context (`kubecontext`)
 
-Shows the active kubectl context.
+Shows the active kubectl context, which consists of a cluster name and, when working in a non-default namespace, also a namespace name.
+
+**💡 Tip:**  If your cluster name (and thus context name) is too long, you can give it a shorter name using `kubectl config rename-context very_long_context_name name`.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -455,6 +481,18 @@ Shows the active kubectl context.
 | `SPACESHIP_KUBECONTEXT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_SYMBOL` | `☸️·` | Character to be shown before Kubectl context |
 | `SPACESHIP_KUBECONTEXT_COLOR` | `cyan` | Color of Kubectl context section |
+
+### Terraform workspace (`terraform`)
+
+Shows the active Terraform wokspace in directories that contain `.terraform/environment` file.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_TERRAFORM_SHOW` | `true` | Current Terraform workspace section |
+| `SPACESHIP_TERRAFORM_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Terraform workspace section |
+| `SPACESHIP_TERRAFORM_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Terraform workspace section |
+| `SPACESHIP_TERRAFORM_SYMBOL` | `🛠️·` | Character to be shown before Terraform workspace |
+| `SPACESHIP_TERRAFORM_COLOR` | `105` | Color of Terraform workspace section |
 
 ### Execution time (`exec_time`)
 

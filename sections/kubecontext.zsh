@@ -28,8 +28,10 @@ spaceship_kubecontext() {
   spaceship::exists kubectl || return
 
   local kube_context=$(kubectl config current-context 2>/dev/null)
-
   [[ -z $kube_context ]] && return
+
+  local kube_namespace=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
+  [[ -n $kube_namespace && "$kube_namespace" != "default" ]] && kube_context="$kube_context ($kube_namespace)"
 
   spaceship::section \
     "$SPACESHIP_KUBECONTEXT_COLOR" \
