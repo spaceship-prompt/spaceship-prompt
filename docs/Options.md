@@ -289,7 +289,6 @@ Elm section is shown only in directories that contain `elm.json` file, `elm-pack
 | `SPACESHIP_ELM_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Elm section |
 | `SPACESHIP_ELM_SYMBOL` | `🌳·` | Character to be shown before Elm version |
 | `SPACESHIP_ELM_COLOR` | `cyan` | Color of Elm section |
->>>>>>> origin/4.0
 
 ### Elixir (`elixir`)
 
