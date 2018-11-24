@@ -424,7 +424,6 @@ Shows selected Amazon Web Services profile configured using  [`AWS_PROFILE`](htt
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_VENV_SHOW` | `true` | Show current Python virtualenv or not |
-| `SPACESHIP_VENV_SHOW_PYTHON_VERSION` | `false` | Show version of Python available in current virtualenv |
 | `SPACESHIP_VENV_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the virtualenv section |
 | `SPACESHIP_VENV_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the virtualenv section |
 | `SPACESHIP_VENV_SYMBOL` | `·` | Character to be shown before virtualenv |
