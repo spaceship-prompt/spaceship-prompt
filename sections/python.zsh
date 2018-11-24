@@ -1,7 +1,7 @@
 #
-# python
+# Python
 #
-# python is an interpreted high-level programming language
+# Python is an interpreted high-level programming language
 # Link: https://python.org/
 
 # ------------------------------------------------------------------------------
@@ -18,11 +18,11 @@ SPACESHIP_PYTHON_COLOR="${SPACESHIP_PYTHON_COLOR="yellow"}"
 # Section
 # ------------------------------------------------------------------------------
 
-# Show current version of python
+# Show current version of Python
 spaceship_python() {
   [[ $SPACESHIP_PYTHON_SHOW == false ]] && return
 
-  # Show python python version only for Python-specific folders
+  # Show python version only in directories with relevant files
   [[ -f requirements.txt || -f Pipfile || -f pyproject.toml || -n *.py(#qN^/) ]] || return
 
   local 'py_version'
