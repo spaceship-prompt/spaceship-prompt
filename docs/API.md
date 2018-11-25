@@ -156,8 +156,8 @@ else
   return
 fi
 
-# Do nothing if pyenv is not installed
-spaceship::exists pyenv || return
+# Do nothing if docker is not installed
+spaceship::exists docker || return
 ```
 
 ## `spaceship::defined <function>`
