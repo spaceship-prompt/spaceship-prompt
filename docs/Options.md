@@ -6,6 +6,12 @@ Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/z
 
 **Note:** the symbol `·` in this document represents a regular space character ` `, it is used to clearly indicate when an option default value starts or ends with a space.
 
+These options can be defined
+* either in a custom style file stored in `$SPACESHIP_CUSTOM/styles`
+* in `.zshrc`.
+* on the terminal to make temporary but live changes.
+* in the file `$SPACESHIP_CUSTOM/styles/custom_default.zsh`. This is loaded before loading the default base theme.
+
 ### Order
 
 You can specify the order of prompt section using `SPACESHIP_PROMPT_ORDER` option. Use Zsh array syntax to define your own prompt order.

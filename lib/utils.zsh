@@ -116,7 +116,7 @@ spaceship::load_section() {
 
 # Load all sections in $SPACESHIP_PROMPT_ORDER and $SPACESHIP_RPROMPT_ORDER
 # USAGE:
-#   spaceship::load_required_sections [reload]
+#   spaceship::load_required_sections [RELOAD]
 #
 # ARGUMENTS:
 #   RELOAD: passed as is to 'spaceship::load_section'.
