@@ -248,6 +248,12 @@ Having trouble? Take a look at out [Troubleshooting](./docs/Troubleshooting.md) 
 
 Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.
 
+## Related Projects
+
+Here's a list of related projects that have been inspired by Spaceship.
+
+- [**matchai/spacefish**](https://github.com/matchai/spacefish) - A port of spaceship for fish shell intending to achieve complete feature pairity.
+
 ## Team
 
 | [![Denys Dovhan](https://github.com/denysdovhan.png?size=100)](http://denysdovhan.com) | [![Salmanul Farzy](https://github.com/salmanulfarzy.png?size=100)](https://github.com/salmanulfarzy) | [![Maxim Baz](https://github.com/maximbaz.png?size=100)](https://github.com/maximbaz) |
