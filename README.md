@@ -252,7 +252,7 @@ Still struggling? Please, [file an issue](https://github.com/denysdovhan/spacesh
 
 Here's a list of related projects that have been inspired by Spaceship.
 
-- [**matchai/spacefish**](https://github.com/matchai/spacefish) - A port of spaceship for fish shell intending to achieve complete feature pairity.
+- [**matchai/spacefish**](https://github.com/matchai/spacefish) - A port of spaceship for fish shell intending to achieve complete feature parity.
 
 ## Team
 
