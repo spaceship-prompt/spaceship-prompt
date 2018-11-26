@@ -6,7 +6,7 @@
 # Might be a good idea for a base style.
 # spaceship::load_style reset false
 
-# You can also load another style as your base if this is just a minor modification.
+# You can also load another style as your base if this is modification.
 # Just make sure you don't fall into an infinite recursion.
 # Also pass the second argument as false to avoid redundancy in loading sections.
 spaceship::load_style robbyrussel false
@@ -26,6 +26,5 @@ SPACESHIP_TIME_FORMAT="%D{%H:%M}"
 
 # You can also reset the value of any option to its default value by unsetting it and running
 # 'spaceship::load_section sectionname true' or 'spaceship::load_required_section true'
-# I don't have any idea why you would want to do that, but hey the option is there but is also a bit computationally expensive.
 # unset SPACESHIP_HOST_SHOW
 # spaceship:load_section host true
