@@ -3,7 +3,7 @@
 # Keep such files in $SPACESHIP_CUSTOM/styles
 
 # Uncomment the following line if you want to remove effects of any previously loaded styles.
-# Might be a good idea for a base style.
+# Useful for starting from a clean slate for a base style.
 # spaceship::load_style reset false
 
 # You can also load another style as your base if this is modification.

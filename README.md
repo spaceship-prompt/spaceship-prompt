@@ -245,7 +245,11 @@ You have ability to customize or disable specific elements of Spaceship. These c
 SPACESHIP_CUSTOM=/path/to/your/custom/directory
 ```
 
-Custom [options](./docs/Options.md) can also be set in the `$SPACESHIP_CUSTOM/styles/custom_default.zsh`.
+Custom [options](./docs/Options.md) can also be set in the `$SPACESHIP_CUSTOM/styles/custom.zsh`. If you want to load a style by default add the following to `$SPACESHIP_CUSTOM/styles/custom.zsh`:
+
+```zsh
+spaceship::load_style example
+```
 
 Also, take a look at popular option presets or share your own configuration on [Presets](https://github.com/denysdovhan/spaceship-prompt/wiki/Presets) wiki page.
 

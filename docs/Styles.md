@@ -14,7 +14,7 @@ A typical style file is a .zsh file which defines the values of various [options
 # Keep such files in $SPACESHIP_CUSTOM/styles
 
 # Uncomment the following line if you want to remove effects of any previously loaded styles.
-# Might be a good idea for a base style.
+# Useful for starting from a clean slate for a base style.
 # spaceship::load_style reset false
 
 # You can also load another style as your base if this is modification.
@@ -43,15 +43,16 @@ SPACESHIP_TIME_FORMAT="%D{%H:%M}"
 
 Also have a look at [robbyrussel.zsh](../styles/robbyrussel.zsh) for a more extensively defined style.
 
-## Activating a style
+## Loading a style
 
-To activate a style simply write:
+To load a style simply run:
 
 ```zsh
 spaceship::load_style example
 ```
 
-To activate at shell startup append the preceding line to your `.zshrc` **after** the line where the theme is set,
+To load at shell startup add the preceding line to `$SPACESHIP_CUSTOM/styles/custom.zsh`
+
 
 The following utilities can help you in writing styles which depend on other styles..
 
@@ -69,6 +70,7 @@ Look for and load a section of the given name.
 Load all sections in $SPACESHIP_PROMPT_ORDER and $SPACESHIP_RPROMPT_ORDER
 
 ### Arguments
+
 1. `reload` _Optional_ — Same as `reload` option in `spaceship::load_section`.
 
 ## `spaceship::load_style <style> [load_sections=true]`
@@ -76,5 +78,12 @@ Load all sections in $SPACESHIP_PROMPT_ORDER and $SPACESHIP_RPROMPT_ORDER
 Look for and load a style of the given name.
 
 ### Arguments
+
 1. `style`: Name of the style to load. Looks in `$SPACESHIP_CUSTOM/styles/` and `$SPACESHIP_ROOT/styles/` for file `style.zsh` and loads it. See [Styles](./Styles.md) for more information on how to write styles.
 2. `load_sections`: If `false` then doesn't try to load required sections at the end. Useful if running inside another style to avoid redundancy. Note that sections wouldn't be loaded at all, hence avoid setting false at highest level such as in ~/.zshrc.
+
+### Utility Styles
+
+Currently a utility style has been provided for regular housekeeping jobs.
+
+* `spaceship::load_style reset` - Reset all customisations and loads `custom_default` and `default`. Can be used to provide a clean slate for styles.

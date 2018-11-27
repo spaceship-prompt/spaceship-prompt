@@ -1,13 +1,16 @@
 # ------------------------------------------------------------------------------
 # CONFIGURATION
 # The default configuration that can be overridden in 
-# $SPACESHIP_CUSTOM/styles/custom_default.zsh or .zshrc
+# $SPACESHIP_CUSTOM/styles/custom.zsh or .zshrc
 # ------------------------------------------------------------------------------
 
 if [ -f "$SPACESHIP_CUSTOM/styles/custom_default.zsh" ]; then
   spaceship::load_style custom_default
 fi
 
+if [ -z "$SPACESHIP_CUSTOM_STYLE" ]; then
+  SPACESHIP_CUSTOM_STYLE=custom
+fi
 
 if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
   SPACESHIP_PROMPT_ORDER=(

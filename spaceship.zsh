@@ -74,6 +74,10 @@ else
   spaceship::load_style $SPACESHIP_STYLE
 fi
 
+if [ ! -z $SPACESHIP_CUSTOM_STYLE ] && [ -f $SPACESHIP_CUSTOM/styles/$SPACESHIP_CUSTOM_STYLE.zsh ]; then
+  spaceship::load_style $SPACESHIP_CUSTOM_STYLE
+fi
+
 # ------------------------------------------------------------------------------
 # BACKWARD COMPATIBILITY WARNINGS
 # Show deprecation messages for options that are set, but not supported
