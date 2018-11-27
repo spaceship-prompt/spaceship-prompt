@@ -78,3 +78,95 @@ spaceship::union() {
   typeset -U sections=("$@")
   echo $sections
 }
+
+# Load a section.
+# USAGE:
+#   spaceship::load_section SECTION [RELOAD=false]
+#
+# ARGUMENTS:
+#   SECTION: Name of the section to load.
+#     Looks in "$SPACESHIP_CUSTOM/sections/" and 
+#     "$SPACESHIP_ROOT/sections/" for file "$SECTION.zsh" and loads it. 
+#   RELOAD: If $RELOAD is false, wouldn't reload if section already loaded.
+#     Setting true is useful for reloading default values of options.
+#
+# EXAMPLE:
+#   $ spaceship::load_section time
+#
+spaceship::load_section() {
+  if [ -z $1 ]; then
+    echo "spaceship::load_section: section not specified.
+    Usage: spaceship::load_section <section> [reload?=false]"
+    return
+  fi
+  if [ -z $2 ]; then
+    $2=false
+  fi
+
+  [[ $2 == false ]] && spaceship::defined spaceship_$1 && return
+
+  if [[ -f "$SPACESHIP_CUSTOM/sections/$1.zsh" ]]; then
+    source "$SPACESHIP_CUSTOM/sections/$1.zsh"
+  elif [[ -f "$SPACESHIP_ROOT/sections/$1.zsh" ]]; then
+    source "$SPACESHIP_ROOT/sections/$1.zsh"
+  else
+    echo "Section '$1' has not been loaded."
+  fi
+}
+
+# Load all sections in $SPACESHIP_PROMPT_ORDER and $SPACESHIP_RPROMPT_ORDER
+# USAGE:
+#   spaceship::load_required_sections [reload]
+#
+# ARGUMENTS:
+#   RELOAD: passed as is to 'spaceship::load_section'.
+#
+spaceship::load_required_sections() {
+  for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
+    spaceship::load_section $section $1
+  done
+}
+
+# Load a style.
+# USAGE:
+#   spaceship::load_style STYLE [LOAD_SECTIONS=true]
+#
+# ARGUMENTS:
+#   STYLE: Name of the style to load.
+#     Looks in "$SPACESHIP_CUSTOM/styles/" and "$SPACESHIP_ROOT/styles/"
+#     for file "$STYLE.zsh" and loads it.
+#     See ./docs/Styles.md for more information on how to write styles.
+#   LOAD_SECTIONS: If false then doesn't try to load required sections at the
+#     end. Useful if running inside another style to avoid redundancy.
+#     Note that sections wouldn't be reloaded even if
+#     "$SPACESHIP_RELOAD_SECTIONS" is set as true. Avoid setting false
+#     at highest level such as in ~/.zshrc.
+#
+# EXAMPLE:
+#   $ spaceship::load_style default
+# 
+spaceship::load_style() {
+  if [ -z $1 ]; then
+    echo "spaceship::load_style: style not specified.
+    Usage: spaceship::load_style <style>"
+    return
+  fi
+  
+  local STYLE_PATH
+  if [[ -f "$SPACESHIP_CUSTOM/styles/$1.zsh" ]]; then
+    STYLE_PATH="$SPACESHIP_CUSTOM/styles/$1.zsh"
+  elif [[ -f "$SPACESHIP_ROOT/styles/$1.zsh" ]]; then
+    STYLE_PATH="$SPACESHIP_ROOT/styles/$1.zsh"
+  else
+    echo "Style '$1' has not been loaded."
+    return
+  fi
+
+  
+  source $STYLE_PATH
+  SPACESHIP_STYLE=$1
+
+  [[ $2 == false ]] && return
+
+  spaceship::load_required_sections
+}
