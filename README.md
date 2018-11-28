@@ -25,6 +25,11 @@
     <img src="https://img.shields.io/badge/zsh-%3E%3Dv5.2-777777.svg?style=flat-square"
       alt="Zsh Version" />
   </a>
+  
+  <a href="http://zsh.org/">
+    <img src="https://img.shields.io/badge/twitter-%40SpaceshipZSH-00ACEE.svg?style=flat-square"
+      alt="Spaceship ZSH Twitter" />
+  </a>
 
   <a href="#donate">
     <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?style=flat-square"
@@ -109,6 +114,8 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 * Execution time of the last command if it exceeds the set threshold.
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose) or send pull request.
+
+**💡 Tip:** Follow our Twitter to keep yourself updated about new features, improvements, and bugfixes.  
 
 ## Requirements
 
