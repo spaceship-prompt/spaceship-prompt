@@ -26,7 +26,7 @@
       alt="Zsh Version" />
   </a>
   
-  <a href="http://zsh.org/">
+  <a href="https://twitter.com/SpaceshipZSH">
     <img src="https://img.shields.io/badge/twitter-%40SpaceshipZSH-00ACEE.svg?style=flat-square"
       alt="Spaceship ZSH Twitter" />
   </a>
