@@ -479,6 +479,7 @@ Shows the active kubectl context, which consists of a cluster name and, when wor
 | `SPACESHIP_KUBECONTEXT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_SYMBOL` | `☸️·` | Character to be shown before Kubectl context |
 | `SPACESHIP_KUBECONTEXT_COLOR` | `cyan` | Color of Kubectl context section |
+| `SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW` | `true` | Should namespace be also displayed |
 
 ### Terraform workspace (`terraform`)
 
