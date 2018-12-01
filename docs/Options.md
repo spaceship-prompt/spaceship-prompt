@@ -480,16 +480,16 @@ Shows the active kubectl context, which consists of a cluster name and, when wor
 | `SPACESHIP_KUBECONTEXT_SYMBOL` | `☸️·` | Character to be shown before Kubectl context |
 | `SPACESHIP_KUBECONTEXT_COLOR` | `cyan` | Color of Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW` | `true` | Should namespace be also displayed |
-| `SPACESHIP_KUBECONTEXT_COLORGROUPS` |  | _Key-Value array_ of context name patterns to color names |
+| `SPACESHIP_KUBECONTEXT_COLORGROUPS` |  | _Array_ of pairs of colors and match patterns |
 
-**Color Groups:** To set the section in different colors based on context or namespace, you can define a key-value type of array in which keys are given a regular expression pattern to match against the section text (context name and/or namespace), and the value is given a color name.
+**Color Groups:** To set the section to a different color based on context or namespace, you can define an array of pair values in which the first value of a pair is a color name to use and the second value is a regular expression pattern to match against the section text (context name and/or namespace). The first matched pattern will determine the color, so list order can be used to prioritize patterns.
 For example, add the following to your `.zshrc` file:
 ```zsh
-typeset -A SPACESHIP_KUBECONTEXT_COLORGROUPS=(
-  [dev-01]=green # Green if context or namespace have "dev-01" in them
-  ['\(kube-system)$']=red # Red if namespace is "kube-system"
-  ['\.k8s\.local \(system)$']=red # Red if context name ends with ".k8s.local" _and_ namespace is "system"
-  ['^test-[0-9]+$']=yellow # Yellow if the entire content is "test-" followed by digits, and no namespace is displayed
+SPACESHIP_KUBECONTEXT_COLORGROUPS=(
+  red    '\(kube-system)$' # red if namespace is "kube-system"
+  green  dev-01 # else, green if "dev-01" is anywhere in the context or namespace
+  red    '\.k8s\.local \(system)$' # else, red if context name ends with ".k8s.local" _and_ namespace is "system"
+  yellow '^test-[0-9]+$' # else, yellow if the entire content is "test-" followed by digits, and no namespace is displayed
 )
 ```
 

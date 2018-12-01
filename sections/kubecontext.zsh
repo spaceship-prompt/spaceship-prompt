@@ -38,17 +38,21 @@ spaceship_kubecontext() {
 
   local section_color
 
-  # Apply custom color to section if context name is defined in of SPACESHIP_KUBECONTEXT_COLORGROUPS KV map.
+  # Apply custom color to section if $kube_context matches a pattern defined in SPACESHIP_KUBECONTEXT_COLORGROUPS array.
   # See Options.md for usage example.
-  if [[ ${#SPACESHIP_KUBECONTEXT_COLORGROUPS[@]} -gt 0 ]]; then
-    local pattern color
-    for pattern color in ${(kv)SPACESHIP_KUBECONTEXT_COLORGROUPS}; do
+  local len=${#SPACESHIP_KUBECONTEXT_COLORGROUPS[@]}
+  if [[ $len -gt 0 ]]; then
+    local i color pattern
+    for ((i = 1; i <= $len; i+=2)); do
+      color="${SPACESHIP_KUBECONTEXT_COLORGROUPS[$i]}"
+      pattern="${SPACESHIP_KUBECONTEXT_COLORGROUPS[$i+1]}"
       if [[ "$kube_context" =~ "$pattern" ]]; then
         section_color=$color
         break
       fi
     done
   fi
+
   [[ -z "$section_color" ]] && section_color=$SPACESHIP_KUBECONTEXT_COLOR
 
   spaceship::section \
