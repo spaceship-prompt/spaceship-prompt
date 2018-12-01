@@ -480,6 +480,17 @@ Shows the active kubectl context, which consists of a cluster name and, when wor
 | `SPACESHIP_KUBECONTEXT_SYMBOL` | `☸️·` | Character to be shown before Kubectl context |
 | `SPACESHIP_KUBECONTEXT_COLOR` | `cyan` | Color of Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW` | `true` | Should namespace be also displayed |
+| `SPACESHIP_KUBECONTEXT_COLORGROUPS` |  | _Key-Value array_ of context name patterns to color names |
+
+**Color Groups:** To set context names in different colors, you need to use a key-value type of array in which keys are given the exact context name or a regular expression pattern to match a context name, and the value is given a color name.
+For example, add the following to your `.zshrc` file:
+```zsh
+typeset -A SPACESHIP_KUBECONTEXT_COLORGROUPS=(
+  ['dev-01']=green # context "dev-01" or any context that has "dev-01" in it will be green
+  ['^test-[0-9]+$']=yellow # all context names starting with "test-" followed by numbers will be yellow
+  ['\.k8s\.local$']=red # all context names ending with ".k8s.local" will be red
+)
+```
 
 ### Terraform workspace (`terraform`)
 

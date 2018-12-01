@@ -31,13 +31,28 @@ spaceship_kubecontext() {
   local kube_context=$(kubectl config current-context 2>/dev/null)
   [[ -z $kube_context ]] && return
 
+  local section_color
+
+  # Apply custom color to section if context name is defined in of SPACESHIP_KUBECONTEXT_COLORGROUPS KV map.
+  # See Options.md for usage example.
+  if [[ ${#SPACESHIP_KUBECONTEXT_COLORGROUPS[@]} -gt 0 ]]; then
+    local pattern color
+    for pattern color in ${(kv)SPACESHIP_KUBECONTEXT_COLORGROUPS}; do
+      if [[ "$kube_context" =~ "$pattern" ]]; then
+        section_color=$color
+        break
+      fi
+    done
+  fi
+  [[ -z "$section_color" ]] && section_color=$SPACESHIP_KUBECONTEXT_COLOR
+
   if [[ $SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW == true ]]; then
     local kube_namespace=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
     [[ -n $kube_namespace && "$kube_namespace" != "default" ]] && kube_context="$kube_context ($kube_namespace)"
   fi
 
   spaceship::section \
-    "$SPACESHIP_KUBECONTEXT_COLOR" \
+    "$section_color" \
     "$SPACESHIP_KUBECONTEXT_PREFIX" \
     "${SPACESHIP_KUBECONTEXT_SYMBOL}${kube_context}" \
     "$SPACESHIP_KUBECONTEXT_SUFFIX"
