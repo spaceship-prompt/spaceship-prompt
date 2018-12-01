@@ -482,13 +482,14 @@ Shows the active kubectl context, which consists of a cluster name and, when wor
 | `SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW` | `true` | Should namespace be also displayed |
 | `SPACESHIP_KUBECONTEXT_COLORGROUPS` |  | _Key-Value array_ of context name patterns to color names |
 
-**Color Groups:** To set context names in different colors, you need to use a key-value type of array in which keys are given the exact context name or a regular expression pattern to match a context name, and the value is given a color name.
+**Color Groups:** To set the section in different colors based on context or namespace, you can define a key-value type of array in which keys are given a regular expression pattern to match against the section text (context name and/or namespace), and the value is given a color name.
 For example, add the following to your `.zshrc` file:
 ```zsh
 typeset -A SPACESHIP_KUBECONTEXT_COLORGROUPS=(
-  ['dev-01']=green # context "dev-01" or any context that has "dev-01" in it will be green
-  ['^test-[0-9]+$']=yellow # all context names starting with "test-" followed by numbers will be yellow
-  ['\.k8s\.local$']=red # all context names ending with ".k8s.local" will be red
+  [dev-01]=green # Green if context or namespace have "dev-01" in them
+  ['\(kube-system)$']=red # Red if namespace is "kube-system"
+  ['\.k8s\.local \(system)$']=red # Red if context name ends with ".k8s.local" _and_ namespace is "system"
+  ['^test-[0-9]+$']=yellow # Yellow if the entire content is "test-" followed by digits, and no namespace is displayed
 )
 ```
 
