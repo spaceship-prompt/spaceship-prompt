@@ -486,10 +486,10 @@ Shows the active kubectl context, which consists of a cluster name and, when wor
 For example, add the following to your `.zshrc` file:
 ```zsh
 SPACESHIP_KUBECONTEXT_COLORGROUPS=(
-  red    '\(kube-system)$' # red if namespace is "kube-system"
-  green  dev-01 # else, green if "dev-01" is anywhere in the context or namespace
+  red    '\(kube-system)$'         # red if namespace is "kube-system"
+  green  dev-01                    # else, green if "dev-01" is anywhere in the context or namespace
   red    '\.k8s\.local \(system)$' # else, red if context name ends with ".k8s.local" _and_ namespace is "system"
-  yellow '^test-[0-9]+$' # else, yellow if the entire content is "test-" followed by digits, and no namespace is displayed
+  yellow '^test-[0-9]+$'           # else, yellow if the entire content is "test-" followed by digits, and no namespace is displayed
 )
 ```
 
