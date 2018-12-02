@@ -1,16 +1,33 @@
 #!/usr/bin/env zsh
 
 # ------------------------------------------------------------------------------
+# Colors
+# Set color variables for colorful output
+# ------------------------------------------------------------------------------
+
+# If we have tput, let's set colors
+if [[ ! -z $(which tput 2> /dev/null) ]]; then
+  reset=$(tput sgr0)
+  bold=$(tput bold)
+  red=$(tput setaf 1)
+  green=$(tput setaf 2)
+  yellow=$(tput setaf 3)
+  blue=$(tput setaf 4)
+  magenta=$(tput setaf 5)
+  cyan=$(tput setaf 6)
+fi
+
+# ------------------------------------------------------------------------------
 # HELPERS
 # Useful functions for common tasks
 # ------------------------------------------------------------------------------
 
 # Paint text in specific color with reset
 # USAGE:
-#   paint <color> [text...]
+#   paint <title> [text...]
 paint() {
   local title=$1 content=${@:2}
-  echo "$title: $content"
+  echo "$bold$title:$reset $content"
 }
 
 trim() {
@@ -243,7 +260,7 @@ get_distro() {
         ;;
     esac
 
-    paint "Distro" $distro
+    [[ -n $distro ]] && paint "Operating System" $distro || return
 }
 
 get_shell() {
@@ -276,10 +293,17 @@ get_shell() {
     shell="${shell/options*}"
     shell="${shell/\(*\)}"
 
-   paint "Shell" $shell
+   [[ -n $shell ]] && paint "Shell" $shell || return
+}
+
+get_spaceship() {
+  [[ -n $SPACESHIP_VERSION ]] && paint "Spaceship" $SPACESHIP_VERSION || return
 }
 
 get_term() {
+    # If function was run, stop here.
+    ((term_run == 1)) && return
+
     # Workaround for macOS systems that
     # don't support the block below.
     case "$TERM_PROGRAM" in
@@ -321,7 +345,12 @@ get_term() {
         esac
     done
 
-    paint "Terminal" $term
+    # Log that the function was run.
+    term_run=1
+
+    [[ -n $term ]] && paint "Terminal" $term || return
+}
+
 }
 
 main() {
