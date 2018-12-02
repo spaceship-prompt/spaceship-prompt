@@ -62,13 +62,13 @@ cache_uname() {
   kernal_version="$(uname -r 2>/dev/null)"
   kernel_machine="$(uname -m 2>/dev/null)"
 
-    if [[ "$kernel_name" == "Darwin" ]]; then
-        IFS=$'\n' read -d "" -r sw_vers < <(awk -F'<|>' '/string/ {print $3}' \
-                            "/System/Library/CoreServices/SystemVersion.plist")
-        darwin_name="${sw_vers[2]}"
-        osx_version="${sw_vers[3]}"
-        osx_build="${sw_vers[0]}"
-    fi
+  if [[ "$kernel_name" == "Darwin" ]]; then
+      IFS=$'\n' read -d "" -r sw_vers < <(awk -F'<|>' '/string/ {print $3}' \
+                          "/System/Library/CoreServices/SystemVersion.plist")
+      darwin_name="${sw_vers[2]}"
+      osx_version="${sw_vers[3]}"
+      osx_build="${sw_vers[0]}"
+  fi
 }
 
 get_ppid() {
