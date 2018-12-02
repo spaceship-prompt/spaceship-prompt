@@ -29,17 +29,26 @@ get_os() {
     # $kernel_name is set in a function called cache_uname and is
     # just the output of "uname -s".
     case "$kernel_name" in
-        "Darwin"):   "$darwin_name" ;;
-        "SunOS"):    "Solaris" ;;
-        "Haiku"):    "Haiku" ;;
-        "MINIX"):    "MINIX" ;;
-        "AIX"):      "AIX" ;;
-        "IRIX"*):    "IRIX" ;;
-        "FreeMiNT"): "FreeMiNT" ;;
-        "Linux" | "GNU"*):  "Linux" ;;
-        *"BSD" | "DragonFly" | "Bitrig"):"BSD" ;;
-        "CYGWIN"* | "MSYS"* | "MINGW"*):"Windows" ;;
-        *):"$kernel_name" ;;
+        "Darwin")
+            os="$darwin_name" ;;
+        "Linux" | "GNU"*)
+            os="Linux" ;;
+        "CYGWIN"* | "MSYS"* | "MINGW"*)
+            os="Windows" ;;
+        "SunOS")
+            os="Solaris" ;;
+        "Haiku")
+            os="Haiku" ;;
+        "MINIX")
+            os="MINIX" ;;
+        "AIX")
+            os="AIX" ;;
+        "IRIX"*)
+            os="IRIX" ;;
+        "FreeMiNT")
+            os="FreeMiNT" ;;
+        *"BSD" | "DragonFly" | "Bitrig")
+            os="BSD" ;;
     esac
     paint "Operating System" $os
 }
