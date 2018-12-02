@@ -27,7 +27,7 @@ spaceship_venv() {
   # Check if the current directory running via Virtualenv
   [ -n "$VIRTUAL_ENV" ] || return
 
-  local venv
+  local 'venv'
 
   if [[ "${SPACESHIP_VENV_GENERIC_NAMES[(i)$VIRTUAL_ENV:t]}" -le \
         "${#SPACESHIP_VENV_GENERIC_NAMES}" ]]

@@ -1,22 +1,68 @@
-<div align="center">
+<h1 align="center">
   <a href="https://github.com/denysdovhan/spaceship-prompt">
     <img alt="spaceship →~ prompt" src="https://cloud.githubusercontent.com/assets/3459374/21679181/46e24706-d34b-11e6-82ee-5efb3d2ba70f.png" width="400">
   </a>
+  <br>🚀⭐ Spaceship ZSH <br>
+</h1>
+
+<h4 align="center">
+  <a href="http://zsh.org" target="_blank"><code>Zsh</code></a> prompt for Astronauts.
+</h4>
+
+<p align="center">
+  <!-- NPM Version -->
+    <a href="https://npmjs.org/package/spaceship-prompt">
+    <img src="https://img.shields.io/npm/v/spaceship-prompt.svg?style=flat-square"
+      alt="NPM Version" />
+  </a>
+
+  <a href="https://travis-ci.org/denysdovhan/spaceship-prompt">
+    <img src="https://img.shields.io/travis/denysdovhan/spaceship-prompt.svg?style=flat-square"
+      alt="CI Status" />
+  </a>
+
+  <a href="http://zsh.org/">
+    <img src="https://img.shields.io/badge/zsh-%3E%3Dv5.2-777777.svg?style=flat-square"
+      alt="Zsh Version" />
+  </a>
+  
+  <a href="https://twitter.com/SpaceshipZSH">
+    <img src="https://img.shields.io/badge/twitter-%40SpaceshipZSH-00ACEE.svg?style=flat-square"
+      alt="Spaceship ZSH Twitter" />
+  </a>
+
+  <a href="#donate">
+    <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?style=flat-square"
+      alt="Donate" />
+  </a>
+</p>
+
+<div align="center">
+  <h4>
+    <a href="https://denysdovhan.com/spaceship-prompt/">Website</a> |
+    <a href="#installing">Install</a> |
+    <a href="#features">Features</a> |
+    <a href="./docs/Options.md">Options</a> |
+    <a href="./docs/API.md">API</a>
+  </h4>
 </div>
 
-# 🚀⭐ Spaceship ZSH
-
-[![NPM version][npm-image]][npm-url]
-[![Zsh][zsh-image]][zsh-url]
-[![Donate with card][donate-card-image]][donate-readme]
-[![Donate with Bitcoin][donate-btc-image]][donate-readme]
-[![Donate with Ethereum][donate-eth-image]][donate-readme]
-
-> A [Zsh][zsh-url] prompt for Astronauts.
+<div align="center">
+  <sub>Built with ❤︎ by
+  <a href="https://denysdovhan.com">Denys Dovhan</a> and
+  <a href="https://github.com/denysdovhan/spaceship-prompt/graphs/contributors">contributors </a>
+</div>
+<br>
 
 Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] prompt. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
 
-Currently it shows:
+<p align="center">
+  <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
+</p>
+
+<sub>Vist <a href="./docs/Troubleshooting.md#why-doesnt-my-prompt-look-like-the-preview">Troubleshooting</a> for similar setup and find more examples with different color schemes in <a href="https://github.com/denysdovhan/spaceship-prompt/wiki/Screenshots">Screenshots </a>wiki-page.</sub>
+
+## Features
 
 * Clever hostname and username displaying.
 * Prompt character turns red if the last command exits with non-zero code.
@@ -39,6 +85,7 @@ Currently it shows:
 * Indicator for jobs in the background (`✦`).
 * Current Node.js version, through nvm/nodenv/n (`⬢`).
 * Current Ruby version, through rvm/rbenv/chruby/asdf (`💎`).
+* Current Elm version (`🌳`)
 * Current Elixir version, through kiex/exenv/elixir (`💧`).
 * Current Swift version, through swiftenv (`🐦`).
 * Current Xcode version, through xenv (`🛠`).
@@ -55,6 +102,7 @@ Currently it shows:
 * Current .NET SDK version, through dotnet-cli (`.NET`).
 * Current Ember.js version, through ember-cli (`🐹`).
 * Current Kubectl context (`☸️`).
+* Current Terraform workspace (`🛠`).
 * Package version, if there's is a package in current directory (`📦`).
 * Current battery level and status:
   * `⇡` - charging;
@@ -65,22 +113,16 @@ Currently it shows:
 * Optional time stamps 12/24hr in format ([how to enable](./docs/Options.md#time-time)).
 * Execution time of the last command if it exceeds the set threshold.
 
-Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new) or send pull request.
+Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose) or send pull request.
 
-## Preview
-
-<p align="center">
-  <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
-</p>
-
-You can find more examples with different color schemes in [Screenshots](https://github.com/denysdovhan/spaceship-prompt/wiki/Screenshots) wiki-page.
+**💡 Tip:** Follow our Twitter to keep yourself updated about new features, improvements, and bugfixes.  
 
 ## Requirements
 
-For correct work you will first need:
+To work correctly, you will first need:
 
-* [`zsh`](http://www.zsh.org/) (v5.0.6 or recent) must be installed.
-* [Powerline Font](https://github.com/powerline/fonts) must be installed and used in your terminal.
+* [`zsh`](http://www.zsh.org/) (v5.2 or recent) must be installed.
+* [Powerline Font](https://github.com/powerline/fonts) must be installed and used in your terminal (for example, switch font to [Fira Code](https://github.com/tonsky/FiraCode)).
 
 ## Installing
 
@@ -92,7 +134,7 @@ npm install -g spaceship-prompt
 
 Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath` and set `prompt spaceship` in `.zshrc`. Just reload your terminal.
 
-**💡 Tip:** Update Spaceship to new versions as any other package.
+**💡 Tip:** Update Spaceship to new versions as you would any other package.
 
 ### [oh-my-zsh]
 
@@ -162,7 +204,7 @@ makepkg -si
 
 ### Manual
 
-If you have problems with approches above, follow these instructions:
+If you have problems with approaches above, follow these instructions:
 
 * Clone this repo `git clone https://github.com/denysdovhan/spaceship-prompt.git`
 * Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
@@ -209,9 +251,15 @@ Also, take a look at popular option presets or share your own configuration on [
 
 ## Troubleshooting
 
-Have a trouble? Take a look at out [Troubleshooting](./docs/Troubleshooting.md) page.
+Having trouble? Take a look at out [Troubleshooting](./docs/Troubleshooting.md) page.
 
-Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new), describe your problem and we will gladly help you.
+Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.
+
+## Related Projects
+
+Here's a list of related projects that have been inspired by Spaceship ZSH.
+
+- [**matchai/spacefish**](https://github.com/matchai/spacefish) - A port of Spaceship ZSH for fish shell intending to achieve complete feature parity.
 
 ## Team
 
@@ -221,7 +269,7 @@ Still struggling? Please, [file an issue](https://github.com/denysdovhan/spacesh
 
 ## Donate
 
-Hi! I work on this project in my spare time, beside my primary job. I hope enjoy using Spaceship, and if you do, please, [buy me a cup of tea ☕️][donate-card-url].
+Hi! I work on this project in my spare time, in addition to my primary job. I hope you enjoy using Spaceship. If you do, please, [buy me a cup of tea ☕️][donate-card-url].
 
 | Credit/Debit card | Bitcoin | Ethereum |
 |:-----------------:|:-------:|:--------:|
@@ -239,14 +287,13 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [npm-url]: https://npmjs.org/package/spaceship-prompt
 [npm-image]: https://img.shields.io/npm/v/spaceship-prompt.svg?style=flat-square
 
-[zsh-url]: http://zsh.org/
-[zsh-image]: https://img.shields.io/badge/zsh-%3E%3Dv5.0.6-777777.svg?style=flat-square
+[ci-url]: https://travis-ci.org/denysdovhan/spaceship-prompt
+[ci-image]: https://img.shields.io/travis/denysdovhan/spaceship-prompt.svg?style=flat-square
 
-[donate-readme]: https://github.com/denysdovhan/spaceship-prompt#donate
+[zsh-url]: http://zsh.org/
+[zsh-image]: https://img.shields.io/badge/zsh-%3E%3Dv5.2-777777.svg?style=flat-square
+
 [donate-card-url]: https://www.liqpay.com/en/checkout/380951100392
-[donate-card-image]: https://img.shields.io/badge/donate-LiqPay-blue.svg?style=flat-square
-[donate-btc-image]: https://img.shields.io/badge/donate-BTC-yellow.svg?style=flat-square
-[donate-eth-image]: https://img.shields.io/badge/donate-ETH-gray.svg?style=flat-square
 
 <!-- References -->
 

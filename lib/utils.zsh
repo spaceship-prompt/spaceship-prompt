@@ -21,7 +21,8 @@ spaceship::defined() {
 # USAGE:
 #   spaceship::is_git
 spaceship::is_git() {
-  command git rev-parse --is-inside-work-tree &>/dev/null
+  # See https://git.io/fp8Pa for related discussion
+  [[ $(command git rev-parse --is-inside-work-tree 2>/dev/null) == true ]]
 }
 
 # Check if the current directory is in a Mercurial repository.
@@ -30,8 +31,7 @@ spaceship::is_git() {
 spaceship::is_hg() {
   local root="$(pwd -P)"
 
-  while [[ $root && ! -d $root/.hg ]]
-  do
+  while [ $root ] && [ ! -d $root/.hg ]; do
     root="${root%/*}"
   done
 
@@ -46,7 +46,7 @@ spaceship::deprecated() {
   local deprecated=$1 message=$2
   local deprecated_value=${(P)deprecated} # the value of variable name $deprecated
   [[ -n $deprecated_value ]] || return
-  print -P "%B$deprecated%b is deprecated. $message"
+  print -P "%{%B%}$deprecated%{%b%} is deprecated. $message"
 }
 
 # Display seconds in human readable fromat
@@ -71,7 +71,7 @@ spaceship::displaytime() {
 # EXAMPLE:
 #   $ arr1=('a' 'b' 'c')
 #   $ arr2=('b' 'c' 'd')
-#   $ arr2=('c' 'd' 'e')
+#   $ arr3=('c' 'd' 'e')
 #   $ spaceship::union $arr1 $arr2 $arr3
 #   > a b c d e
 spaceship::union() {
