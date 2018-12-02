@@ -1,5 +1,18 @@
 #!/usr/bin/env zsh
 
+# Script to report spaceship user environment for issue report.
+#
+# https://github.com/denysdovhan/spaceship-prompt
+#
+# Most of the code is from
+#   Neofetch: A command-line system information tool
+#   https://github.com/dylanaraps/neofetch
+#
+#   The MIT License (MIT)
+#   Copyright (c) 2016-2018 Dylan Araps
+#
+# Tweaks made to focus on Zsh setup
+
 # ------------------------------------------------------------------------------
 # Colors
 # Set color variables for colorful output
