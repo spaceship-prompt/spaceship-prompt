@@ -309,6 +309,46 @@ get_shell() {
    [[ -n $shell ]] && paint "Shell" $shell || return
 }
 
+get_zsh_framework() {
+  ### List of most popular Zsh frameworks
+
+  # Oh My Zsh 80K https://github.com/robbyrussell/oh-my-zsh
+  # Prezto 10K https://github.com/sorin-ionescu/prezto
+  # Antigen 4.6K https://github.com/zsh-users/antigen
+  # zplug 2.8K https://github.com/zplug/zplug
+  # zimfw 1.2K https://github.com/zimfw/zimfw
+  # zgen 1K https://github.com/tarjoilija/zgen
+  # Antibody 800 https://github.com/getantibody/antibody
+  # None
+
+  case "$shell" in
+    "zsh"*)
+      if [[ -n $ZSH ]]; then
+        framework="Oh My Zsh"
+      elif [[ -n $ZPREZTODIR ]]; then
+        framework="Prezto"
+        # todo: Get prezto commit head
+      elif [[ -n $ADOTDIR ]]; then
+        framework="Antigen"
+      elif [[ -n $ZPLUG_ROOT ]]; then
+        framework="zplug"
+      elif [[ -n $ZIM_HOME ]]; then
+        framework="Zim"
+      elif [[ -n $ZGEN_DIR ]]; then
+        framework="zgen"
+      elif [[ -n $ANTIBODY_HOME ]]; then
+        framework="Antibody"
+      else
+        framework="None/Others"
+      fi
+
+      paint "Zsh Framework" $framework
+    ;;
+    *)
+      echo "$red Incompatible Shell$reset"
+    esac
+}
+
 get_spaceship() {
   [[ -n $SPACESHIP_VERSION ]] && paint "Spaceship" $SPACESHIP_VERSION || return
 }
@@ -664,6 +704,7 @@ main() {
   cache_uname
   get_spaceship
   get_shell
+  get_zsh_framework
   get_os
   get_distro
   get_term
