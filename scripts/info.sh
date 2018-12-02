@@ -649,9 +649,10 @@ END
 
 main() {
   cache_uname
+  get_spaceship
+  get_shell
   get_os
   get_distro
-  get_shell
   get_term
   get_term_font
 }
