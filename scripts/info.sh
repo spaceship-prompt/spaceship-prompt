@@ -164,30 +164,8 @@ get_distro() {
             elif [[ -f /etc/lsb-release && "$(< /etc/lsb-release)" == *CHROMEOS* ]]; then
               distro="$(awk -F '=' '/NAME|VERSION/ {printf $2 " "}' /etc/lsb-release)"
 
-            elif [[ -f "/etc/redstar-release" ]]; then
-              distro="Red Star OS $(awk -F'[^0-9*]' '$0=$2' /etc/redstar-release)"
-
-            elif [[ -f "/etc/siduction-version" ]]; then
-              distro="Siduction ($(lsb_release -sic))"
-
             elif type -p lsb_release >/dev/null; then
               distro="$(lsb_release -sd)"
-
-            elif [[ -f "/etc/GoboLinuxVersion" ]]; then
-              distro="GoboLinux $(< /etc/GoboLinuxVersion)"
-
-            elif type -p guix >/dev/null; then
-              distro="GuixSD $(guix system -V | awk 'NR==1{printf $5}')"
-
-            elif type -p crux >/dev/null; then
-              distro="$(crux)"
-
-            elif type -p tazpkg >/dev/null; then
-              distro="SliTaz $(< /etc/slitaz-release)"
-
-            elif type -p kpt >/dev/null && \
-              type -p kpm >/dev/null; then
-              distro="KSLinux"
 
             elif [[ -d "/system/app/" && -d "/system/priv-app" ]]; then
               distro="Android $(getprop ro.build.version.release)"
