@@ -43,14 +43,6 @@ paint() {
   echo "$bold$title:$reset $content"
 }
 
-trim() {
-    set -f
-    # shellcheck disable=2048,2086
-    set -- $*
-    printf '%s\n' "${*//[[:space:]]/}"
-    set +f
-}
-
 trim_quotes() {
     trim_output="${1//\'}"
     trim_output="${trim_output//\"}"
@@ -69,48 +61,6 @@ cache_uname() {
       osx_version="${sw_vers[3]}"
       osx_build="${sw_vers[0]}"
   fi
-}
-
-get_ppid() {
-    # Get parent process ID of PID.
-    case "$os" in
-        "Windows")
-            ppid="$(ps -p "${1:-$PPID}" | awk '{printf $2}')"
-            ppid="${ppid/PPID}"
-        ;;
-
-        "Linux")
-            ppid="$(grep -i -F "PPid:" "/proc/${1:-$PPID}/status")"
-            ppid="$(trim "${ppid/PPid:}")"
-        ;;
-
-        *)
-            ppid="$(ps -p "${1:-$PPID}" -o ppid=)"
-        ;;
-    esac
-
-    printf "%s" "$ppid"
-}
-
-get_process_name() {
-    # Get PID name.
-    case "$os" in
-        "Windows")
-            name="$(ps -p "${1:-$PPID}" | awk '{printf $8}')"
-            name="${name/COMMAND}"
-            name="${name/*\/}"
-        ;;
-
-        "Linux")
-            name="$(< "/proc/${1:-$PPID}/comm")"
-        ;;
-
-        *)
-            name="$(ps -p "${1:-$PPID}" -o comm=)"
-        ;;
-    esac
-
-    printf "%s" "$name"
 }
 
 # ------------------------------------------------------------------------------
@@ -257,57 +207,6 @@ get_spaceship() {
   [[ -n $SPACESHIP_VERSION ]] && paint "Spaceship" $SPACESHIP_VERSION || return
 }
 
-get_term() {
-    # If function was run, stop here.
-    ((term_run == 1)) && return
-
-    # Workaround for macOS systems that
-    # don't support the block below.
-    case "$TERM_PROGRAM" in
-        "iTerm.app")    term="iTerm2" ;;
-        "Terminal.app") term="Apple Terminal" ;;
-        "Hyper")        term="HyperTerm" ;;
-        *)              term="${TERM_PROGRAM/\.app}" ;;
-    esac
-
-    # Most likely TosWin2 on FreeMiNT - quick check
-    [[ "$TERM" == "tw52" || "$TERM" == "tw100" ]] && \
-        term="TosWin2"
-
-    [[ "$SSH_CONNECTION" ]] && \
-        term="$SSH_TTY"
-
-    # Check $PPID for terminal emulator.
-    while [[ -z "$term" ]]; do
-        parent="$(get_ppid "$parent")"
-        [[ -z "$parent" ]] && break
-        name="$(get_process_name "$parent")"
-
-        case "${name// }" in
-            "${SHELL/*\/}"|*"sh"|"screen"|"su"*) ;;
-
-            "login"*|*"Login"*|"init"|"(init)")
-                term="$(tty)"
-            ;;
-
-            "ruby"|"1"|"tmux"*|"systemd"|"sshd"*|"python"*|"USER"*"PID"*|"kdeinit"*|"launchd"*)
-                break
-            ;;
-
-            "gnome-terminal-") term="gnome-terminal" ;;
-            "urxvtd")          term="urxvt" ;;
-            *"nvim")           term="Neovim Terminal" ;;
-            *"NeoVimServer"*)  term="VimR Terminal" ;;
-            *)                 term="${name##*/}" ;;
-        esac
-    done
-
-    # Log that the function was run.
-    term_run=1
-
-    [[ -n $term ]] && paint "Terminal" $term || return
-}
-
 main() {
   cache_uname
   get_spaceship
@@ -315,7 +214,6 @@ main() {
   get_zsh_framework
   get_os
   get_distro
-  get_term
 }
 
 main "$@"
