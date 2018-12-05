@@ -127,18 +127,6 @@ get_os() {
             os="Linux" ;;
         "CYGWIN"* | "MSYS"* | "MINGW"*)
             os="Windows" ;;
-        "SunOS")
-            os="Solaris" ;;
-        "Haiku")
-            os="Haiku" ;;
-        "MINIX")
-            os="MINIX" ;;
-        "AIX")
-            os="AIX" ;;
-        "IRIX"*)
-            os="IRIX" ;;
-        "FreeMiNT")
-            os="FreeMiNT" ;;
         *"BSD" | "DragonFly" | "Bitrig")
             os="BSD" ;;
     esac
@@ -146,7 +134,7 @@ get_os() {
 
 get_distro() {
       case "$os" in
-        "Linux" | "BSD" | "MINIX")
+        "Linux" | "BSD")
             if [[ -f "/etc/os-release" || -f "/usr/lib/os-release" || -f "/etc/openwrt_release" ]]; then
               files=("/etc/os-release" "/usr/lib/os-release" "/etc/openwrt_release")
               # Source the os-release file
@@ -178,13 +166,6 @@ get_distro() {
                 if [[ -z "$distro" ]]; then
                   distro="$kernel_name $kernel_version"
                   distro="${distro/DragonFly/DragonFlyBSD}"
-
-                  # Workarounds for FreeBSD based distros.
-                  [[ -f "/etc/pcbsd-lang" ]] && distro="PCBSD"
-                  [[ -f "/etc/trueos-lang" ]] && distro="TrueOS"
-
-                  # /etc/pacbsd-release is an empty file
-                  [[ -f "/etc/pacbsd-release" ]] && distro="PacBSD"
                 fi
             fi
 
@@ -222,32 +203,6 @@ get_distro() {
             distro="$(wmic os get Caption)"
             distro="${distro/Caption}"
             distro="${distro/Microsoft }"
-        ;;
-
-        "Solaris")
-            distro="$(awk 'NR==1{print $1 " " $2 " " $3;}' /etc/release)"
-            distro="${distro/\(*}"
-        ;;
-
-        "Haiku")
-            read -r name version _ < <(uname -sv)
-            distro="$name $version"
-        ;;
-
-        "AIX")
-            distro="AIX $(oslevel)"
-        ;;
-
-        "IRIX")
-            distro="IRIX ${kernel_version}"
-        ;;
-
-        "FreeMiNT")
-            distro="FreeMiNT"
-        ;;
-
-        "iPhone OS")
-            distro="iOS $osx_version"
         ;;
     esac
 
