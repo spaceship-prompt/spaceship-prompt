@@ -141,18 +141,10 @@ get_os() {
     paint "Operating System" $distro
 }
 
-get_shell() {
-   paint "Shell" $ZSH_VERSION
-}
-
-get_spaceship() {
-  paint "Spaceship" $SPACESHIP_VERSION
-}
-
 main() {
   cache_uname
-  get_spaceship
-  get_shell
+  paint "Spaceship" $SPACESHIP_VERSION
+  paint "Shell" $ZSH_VERSION
   get_os
 }
 
