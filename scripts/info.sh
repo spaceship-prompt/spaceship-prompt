@@ -40,6 +40,9 @@ fi
 #   paint <title> [text...]
 paint() {
   local title=$1 content=${@:2}
+
+  [[ -n $content ]] || return
+
   echo "$bold$title:$reset $content"
 }
 
@@ -135,15 +138,15 @@ get_os() {
         ;;
     esac
 
-    [[ -n $distro ]] && paint "Operating System" $distro || return
+    paint "Operating System" $distro
 }
 
 get_shell() {
-   [[ -n $ZSH_VERSION ]] && paint "Shell" $ZSH_VERSION || return
+   paint "Shell" $ZSH_VERSION
 }
 
 get_spaceship() {
-  [[ -n $SPACESHIP_VERSION ]] && paint "Spaceship" $SPACESHIP_VERSION || return
+  paint "Spaceship" $SPACESHIP_VERSION
 }
 
 main() {
