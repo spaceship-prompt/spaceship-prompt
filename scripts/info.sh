@@ -43,12 +43,6 @@ paint() {
   echo "$bold$title:$reset $content"
 }
 
-trim_quotes() {
-    trim_output="${1//\'}"
-    trim_output="${trim_output//\"}"
-    printf "%s" "$trim_output"
-}
-
 cache_uname() {
   kernel_name="$(uname -s 2>/dev/null)"
   kernal_version="$(uname -r 2>/dev/null)"
@@ -68,23 +62,8 @@ cache_uname() {
 # ------------------------------------------------------------------------------
 
 get_os() {
-    # $kernel_name is set in a function called cache_uname and is
-    # just the output of "uname -s".
-    case "$kernel_name" in
-        "Darwin")
-            os="$darwin_name" ;;
-        "Linux" | "GNU"*)
-            os="Linux" ;;
-        "CYGWIN"* | "MSYS"* | "MINGW"*)
-            os="Windows" ;;
-        *"BSD" | "DragonFly" | "Bitrig")
-            os="BSD" ;;
-    esac
-}
-
-get_distro() {
-      case "$os" in
-        "Linux" | "BSD")
+      case "$kernel_name" in
+        "Linux" | "GNU"* | *"BSD")
             if [[ -f "/etc/os-release" || -f "/usr/lib/os-release" || -f "/etc/openwrt_release" ]]; then
               files=("/etc/os-release" "/usr/lib/os-release" "/etc/openwrt_release")
               # Source the os-release file
@@ -127,11 +106,11 @@ get_distro() {
               distro="Chrome OS"
             fi
 
-            distro="$(trim_quotes "$distro")"
+            distro="$distro"
             distro="${distro/NAME=}"
         ;;
 
-        "Mac OS X")
+        "Darwin")
             case "$osx_version" in
                 "10.4"*)  codename="Mac OS X Tiger" ;;
                 "10.5"*)  codename="Mac OS X Leopard" ;;
@@ -149,7 +128,7 @@ get_distro() {
             distro="$codename $osx_version $osx_build"
         ;;
 
-        "Windows")
+        "CYGWIN"* | "MSYS"* | "MINGW"*)
             distro="$(wmic os get Caption)"
             distro="${distro/Caption}"
             distro="${distro/Microsoft }"
@@ -172,7 +151,6 @@ main() {
   get_spaceship
   get_shell
   get_os
-  get_distro
 }
 
 main "$@"
