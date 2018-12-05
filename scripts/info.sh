@@ -255,36 +255,7 @@ get_distro() {
 }
 
 get_shell() {
-    shell="${SHELL##*/} "
-
-    case "${shell_name:=${SHELL##*/}}" in
-        "zsh") shell+="${ZSH_VERSION}" ;;
-        "bash") shell+="${BASH_VERSION/-*}" ;;
-        "sh" | "ash" | "dash") ;;
-
-        "mksh" | "ksh")
-            shell+="$("$SHELL" -c "printf %s \"\$KSH_VERSION\"")"
-            shell="${shell/ * KSH}"
-            shell="${shell/version}"
-        ;;
-
-        "tcsh")
-            shell+="$("$SHELL" -c "printf %s \$tcsh")"
-        ;;
-
-        *)
-            shell+="$("$SHELL" --version 2>&1)"
-            shell="${shell/ "${shell_name}"}"
-        ;;
-    esac
-
-    # Remove unwanted info.
-    shell="${shell/, version}"
-    shell="${shell/xonsh\//xonsh }"
-    shell="${shell/options*}"
-    shell="${shell/\(*\)}"
-
-   [[ -n $shell ]] && paint "Shell" $shell || return
+   [[ -n $ZSH_VERSION ]] && paint "Shell" $ZSH_VERSION || return
 }
 
 get_zsh_framework() {
