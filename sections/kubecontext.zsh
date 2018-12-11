@@ -37,11 +37,11 @@ spaceship_kubecontext() {
     [[ -n $kube_namespace && "$kube_namespace" != "default" ]] && kube_context="$kube_context ($kube_namespace)"
   fi
 
-  local 'section_color'
-
   # Apply custom color to section if $kube_context matches a pattern defined in SPACESHIP_KUBECONTEXT_COLOR_GROUPS array.
   # See Options.md for usage example.
-  local 'i' 'color' 'pattern' len=${#SPACESHIP_KUBECONTEXT_COLOR_GROUPS[@]}
+  local 'section_color' 'i' 'color' 'pattern'
+  local len=${#SPACESHIP_KUBECONTEXT_COLOR_GROUPS[@]}
+
   for ((i = 1; i <= $len; i+=2)); do
     color="${SPACESHIP_KUBECONTEXT_COLOR_GROUPS[$i]}"
     pattern="${SPACESHIP_KUBECONTEXT_COLOR_GROUPS[$i+1]}"
