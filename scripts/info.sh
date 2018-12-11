@@ -143,7 +143,7 @@ get_os() {
 
 main() {
   cache_uname
-  paint "Spaceship" $SPACESHIP_VERSION
+  paint "Spaceship" $(command git -C $SPACESHIP_ROOT describe --tags)
   paint "Shell" $ZSH_VERSION
   get_os
 }
