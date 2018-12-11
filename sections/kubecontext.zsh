@@ -17,7 +17,7 @@ SPACESHIP_KUBECONTEXT_SUFFIX="${SPACESHIP_KUBECONTEXT_SUFFIX="$SPACESHIP_PROMPT_
 SPACESHIP_KUBECONTEXT_SYMBOL="${SPACESHIP_KUBECONTEXT_SYMBOL="☸️  "}"
 SPACESHIP_KUBECONTEXT_COLOR="${SPACESHIP_KUBECONTEXT_COLOR="cyan"}"
 SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW="${SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW=true}"
-SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(${SPACESHIP_KUBECONTEXT_COLOR_GROUPS=()})
+SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(${SPACESHIP_KUBECONTEXT_COLOR_GROUPS=})
 
 # ------------------------------------------------------------------------------
 # Section
@@ -42,14 +42,16 @@ spaceship_kubecontext() {
   local 'section_color' 'i' 'color' 'pattern'
   local len=${#SPACESHIP_KUBECONTEXT_COLOR_GROUPS[@]}
 
-  for ((i = 1; i <= $len; i+=2)); do
-    color="${SPACESHIP_KUBECONTEXT_COLOR_GROUPS[$i]}"
-    pattern="${SPACESHIP_KUBECONTEXT_COLOR_GROUPS[$i+1]}"
-    if [[ "$kube_context" =~ "$pattern" ]]; then
-      section_color=$color
-      break
-    fi
-  done
+  if [[ $len -gt 1 ]]; then
+    for ((i = 1; i <= $len; i+=2)); do
+      color="${SPACESHIP_KUBECONTEXT_COLOR_GROUPS[$i]}"
+      pattern="${SPACESHIP_KUBECONTEXT_COLOR_GROUPS[$i+1]}"
+      if [[ "$kube_context" =~ "$pattern" ]]; then
+        section_color=$color
+        break
+      fi
+    done
+  fi
 
   [[ -z "$section_color" ]] && section_color=$SPACESHIP_KUBECONTEXT_COLOR
 
