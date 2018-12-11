@@ -17,7 +17,7 @@ SPACESHIP_KUBECONTEXT_SUFFIX="${SPACESHIP_KUBECONTEXT_SUFFIX="$SPACESHIP_PROMPT_
 SPACESHIP_KUBECONTEXT_SYMBOL="${SPACESHIP_KUBECONTEXT_SYMBOL="☸️  "}"
 SPACESHIP_KUBECONTEXT_COLOR="${SPACESHIP_KUBECONTEXT_COLOR="cyan"}"
 SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW="${SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW=true}"
-SPACESHIP_KUBECONTEXT_COLORGROUPS=(${SPACESHIP_KUBECONTEXT_COLORGROUPS=()})
+SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(${SPACESHIP_KUBECONTEXT_COLOR_GROUPS=()})
 
 # ------------------------------------------------------------------------------
 # Section
@@ -37,14 +37,14 @@ spaceship_kubecontext() {
     [[ -n $kube_namespace && "$kube_namespace" != "default" ]] && kube_context="$kube_context ($kube_namespace)"
   fi
 
-  local section_color
+  local 'section_color'
 
-  # Apply custom color to section if $kube_context matches a pattern defined in SPACESHIP_KUBECONTEXT_COLORGROUPS array.
+  # Apply custom color to section if $kube_context matches a pattern defined in SPACESHIP_KUBECONTEXT_COLOR_GROUPS array.
   # See Options.md for usage example.
-  local 'i' 'color' 'pattern' len=${#SPACESHIP_KUBECONTEXT_COLORGROUPS[@]}
+  local 'i' 'color' 'pattern' len=${#SPACESHIP_KUBECONTEXT_COLOR_GROUPS[@]}
   for ((i = 1; i <= $len; i+=2)); do
-    color="${SPACESHIP_KUBECONTEXT_COLORGROUPS[$i]}"
-    pattern="${SPACESHIP_KUBECONTEXT_COLORGROUPS[$i+1]}"
+    color="${SPACESHIP_KUBECONTEXT_COLOR_GROUPS[$i]}"
+    pattern="${SPACESHIP_KUBECONTEXT_COLOR_GROUPS[$i+1]}"
     if [[ "$kube_context" =~ "$pattern" ]]; then
       section_color=$color
       break
