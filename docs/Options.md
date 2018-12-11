@@ -483,7 +483,9 @@ Shows the active kubectl context, which consists of a cluster name and, when wor
 | `SPACESHIP_KUBECONTEXT_COLOR_GROUPS` | () | _Array_ of pairs of colors and match patterns, empty by default |
 
 **Color Groups:** To set the section to a different color based on context or namespace, you can define an array of pair values in which the first value of a pair is a color name to use and the second value is a regular expression pattern to match against the section text (context name and/or namespace). The first matched pattern will determine the color, so list order can be used to prioritize patterns.
+
 For example, add the following to your `.zshrc` file:
+
 ```zsh
 SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
   # red if namespace is "kube-system"
