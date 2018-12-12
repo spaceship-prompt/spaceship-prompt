@@ -39,19 +39,18 @@ spaceship_kubecontext() {
 
   # Apply custom color to section if $kube_context matches a pattern defined in SPACESHIP_KUBECONTEXT_COLOR_GROUPS array.
   # See Options.md for usage example.
-  local 'section_color' 'i' 'color' 'pattern'
   local len=${#SPACESHIP_KUBECONTEXT_COLOR_GROUPS[@]}
-
-  if [[ $len -gt 1 ]]; then
-    for ((i = 1; i <= $len; i+=2)); do
-      color="${SPACESHIP_KUBECONTEXT_COLOR_GROUPS[$i]}"
-      pattern="${SPACESHIP_KUBECONTEXT_COLOR_GROUPS[$i+1]}"
-      if [[ "$kube_context" =~ "$pattern" ]]; then
-        section_color=$color
-        break
-      fi
-    done
-  fi
+  local it_to=$((len / 2))
+  local 'section_color' 'i'
+  for ((i = 1; i <= $it_to; i++)); do
+    local idx=$(((i - 1) * 2))
+    local color="${SPACESHIP_KUBECONTEXT_COLOR_GROUPS[$idx + 1]}"
+    local pattern="${SPACESHIP_KUBECONTEXT_COLOR_GROUPS[$idx + 2]}"
+    if [[ "$kube_context" =~ "$pattern" ]]; then
+      section_color=$color
+      break
+    fi
+  done
 
   [[ -z "$section_color" ]] && section_color=$SPACESHIP_KUBECONTEXT_COLOR
 
