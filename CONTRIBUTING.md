@@ -48,6 +48,13 @@ Every additional section will slow down the prompt a little bit. If your section
 * **Good:** check if command exists, check the value of environment variable
 * **Bad:** network requests, reading large files, etc
 
+### What is the naming convention for options?
+
+All options of prompt follow a specific pattern so that it is easy to remember -> `SPACESHIP_${OPTION}_${PROPERTY}`.
+
+* **Good:** `SPACESHIP_KUBECONTEXT_COLOR`
+* **Bad:** `KUBECONTEXT_COLOR`
+
 ### Documentation
 
 When updating documentation for your section, make sure the markdown document is being properly rendered by Github. Specifically, the following common pitfalls have already been discovered:
