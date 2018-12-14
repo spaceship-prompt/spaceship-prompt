@@ -21,18 +21,33 @@ SPACESHIP_SWIFT_COLOR="${SPACESHIP_SWIFT_COLOR="yellow"}"
 
 # Show current version of Swift
 spaceship_swift() {
-  spaceship::exists swiftenv || return
 
-  local 'swift_version'
+  if spaceship::exists swiftenv; then
+    # swiftenv installed
 
-  if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
-    swift_version=$(swiftenv version | sed 's/ .*//')
-  elif [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
-    if swiftenv version | grep ".swift-version" > /dev/null; then
+    local 'swift_version'
+
+    if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
       swift_version=$(swiftenv version | sed 's/ .*//')
-    elif [ -f Package.swift ]; then
-      swift_version=$(swiftenv version | sed 's/ .*//')
+    elif [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
+      if swiftenv version | grep ".swift-version" > /dev/null; then
+        swift_version=$(swiftenv version | sed 's/ .*//')
+      elif [ -f Package.swift ]; then
+        swift_version=$(swiftenv version | sed 's/ .*//')
+      fi
     fi
+
+  elif spaceship::exists swift-package; then
+    # Swift Package Manager available, swiftenv not installed
+
+    local 'swift_version'
+
+    if [ -f Package.swift ]; then
+      swift_version=$(swift package tools-version | sed 's/ .*//')
+    fi
+
+  else # Neither swiftenv nor SPM installed
+    return
   fi
 
   [ -n "${swift_version}" ] || return
