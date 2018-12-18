@@ -50,10 +50,20 @@ Every additional section will slow down the prompt a little bit. If your section
 
 ### What is the naming convention for options?
 
-All options of prompt follow a specific pattern so that it is easy to remember -> `SPACESHIP_${OPTION}_${PROPERTY}`.
+All options of prompt follow a specific pattern so that it is easy to remember -> `SPACESHIP_SECTION_[OPTION][_PROPERTY]`. When naming new properties, keep unique parts of the name to the end.
 
-* **Good:** `SPACESHIP_KUBECONTEXT_COLOR`
-* **Bad:** `KUBECONTEXT_COLOR`
+* **Good:** 
+  ```
+    SPACESHIP_GIT_STATUS_COLOR_BEHIND
+    SPACESHIP_GIT_STATUS_COLOR_DIVERGED
+  ```
+* **Bad:** 
+  ```
+    SPACESHIP_GIT_STATUS_BEHIND_COLOR
+    SPACESHIP_GIT_STATUS_DIVERGED_COLOR
+  ```
+
+  Here, `GIT_STATUS` is *section*, `COLOR` is *option* and `BEHIND` or `DIVERGED` is *property*.
 
 ### Documentation
 
