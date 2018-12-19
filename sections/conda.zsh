@@ -28,6 +28,6 @@ spaceship_conda() {
   spaceship::section \
     "$SPACESHIP_CONDA_COLOR" \
     "$SPACESHIP_CONDA_PREFIX" \
-    "${SPACESHIP_CONDA_SYMBOL}${CONDA_DEFAULT_ENV}" \
+    "${SPACESHIP_CONDA_SYMBOL}${CONDA_DEFAULT_ENV:t}" \
     "$SPACESHIP_CONDA_SUFFIX"
 }
