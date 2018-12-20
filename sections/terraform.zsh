@@ -21,7 +21,6 @@ SPACESHIP_TERRAFORM_COLOR="${SPACESHIP_TERRAFORM_COLOR="105"}"
 # Section
 # ----------------------------------------------- -------------------------------
 
-
 spaceship_terraform() {
   [[ $SPACESHIP_TERRAFORM_SHOW == false ]] && return
 
