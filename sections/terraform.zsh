@@ -29,14 +29,15 @@ spaceship_terraform() {
 
   # Show Terraform Workspaces when exists
 
-  if [[ $TF_WORKSPACE ]] then
-    # get workspace from TF_WORKSPACE
-    local terraform_workspace=$TF_WORKSPACE
-  else
-    # get workspace from .terraform/environment file
+
     [[ -f .terraform/environment ]] || return
-    local terraform_workspace=$(<.terraform/environment)
-  fi
+    if [[ $TF_WORKSPACE ]] then
+        # get workspace from TF_WORKSPACE
+        local terraform_workspace=$TF_WORKSPACE
+    else
+        # get workspace from .terraform/environment file
+        local terraform_workspace=$(<.terraform/environment)
+    fi
 
   [[ -z $terraform_workspace ]] && return
 
