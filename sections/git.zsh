@@ -10,6 +10,7 @@ SPACESHIP_GIT_SHOW="${SPACESHIP_GIT_SHOW=true}"
 SPACESHIP_GIT_PREFIX="${SPACESHIP_GIT_PREFIX="on "}"
 SPACESHIP_GIT_SUFFIX="${SPACESHIP_GIT_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_GIT_SYMBOL="${SPACESHIP_GIT_SYMBOL=" "}"
+SPACESHIP_GIT_NO_REPO_STRING="${SPACESHIP_GIT_NO_REPO_STRING="--"}"
 
 # ------------------------------------------------------------------------------
 # Dependencies
@@ -30,11 +31,21 @@ spaceship_git() {
 
   local git_branch="$(spaceship_git_branch)" git_status="$(spaceship_git_status)"
 
-  [[ -z $git_branch ]] && return
+  if [[ -z $git_branch ]] ; then
 
-  spaceship::section \
-    'white' \
-    "$SPACESHIP_GIT_PREFIX" \
-    "${git_branch}${git_status}" \
-    "$SPACESHIP_GIT_SUFFIX"
+    [[ $SPACESHIP_GIT_SHOW != "always" ]] && return
+
+    spaceship::section \
+      'white' \
+      "$SPACESHIP_GIT_NO_REPO_STRING"
+
+  else
+
+    spaceship::section \
+      'white' \
+      "$SPACESHIP_GIT_PREFIX" \
+      "${git_branch}${git_status}" \
+      "$SPACESHIP_GIT_SUFFIX"
+
+  fi
 }
