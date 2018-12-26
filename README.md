@@ -190,6 +190,22 @@ Use this command in your `.zshrc` to load Spaceship as prompt theme:
 zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
 ```
 
+### [zim]
+
+Clone this repo:
+
+```zsh
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZIM_HOME/modules/prompt/external-themes/spaceship"
+```
+
+Symlink `spaceship.zsh` to Zim's prompt functions folder so that it can load the theme:
+
+```zsh
+ln -s "$ZIM_HOME/modules/prompt/external-themes/spaceship/spaceship.zsh" "$ZIM_HOME/modules/prompt/functions/prompt_spaceship_setup"
+```
+
+Set `zprompt_theme='spaceship'` in your `.zimrc` or try it with `prompt spaceship`.
+
 ### Linux package manager
 
 #### Arch Linux
@@ -304,6 +320,7 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [npm]: https://www.npmjs.com/
 [antibody]: https://github.com/getantibody/antibody
 [zplug]: https://github.com/zplug/zplug
+[zim]: https://github.com/zimfw/zimfw
 [n]: https://github.com/tj/n
 [xcenv]: http://xcenv.org/
 [swiftenv]: https://github.com/kylef/swiftenv
