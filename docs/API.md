@@ -46,8 +46,8 @@ spaceship_foobar() {
   spaceship::exists foobar || return
 
   # Show foobar section only when there are foobar-specific files in current
-  # working direcotory.
-  # Here glob qualifiers are used to check if files with specific extention are
+  # working directory.
+  # Here glob qualifiers are used to check if files with specific extension are
   # present in directory. Read more about them here:
   # http://zsh.sourceforge.net/Doc/Release/Expansion.html
   [[ -f foobar.conf || -n *.foo(#qN^/) || -n *.bar(#qN^/) ]] || return
@@ -62,6 +62,9 @@ spaceship_foobar() {
   else
     foobar_status=$(foobar foo)
   fi
+
+  # Exit section if variable is empty
+  [[ -z $foobar_status ]] && return
 
   # Display foobar section
   spaceship::section \
@@ -104,7 +107,7 @@ echo $SPACESHIP_ROOT
 
 This command displays prompt section prefixed with `prefix`, suffixed with `suffix` and `content` painted in `color`. **Bold** style is applied by default.
 
-`prefix`, `suffix` and `content` can contain escapes to set additinal foreground color, background color and other visual effects. Read more about escapes in [13 Prompt Expansion](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html) section of Zsh documentation.
+`prefix`, `suffix` and `content` can contain escapes to set additional foreground color, background color and other visual effects. Read more about escapes in [13 Prompt Expansion](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html) section of Zsh documentation.
 
 If `SPACESHIP_PROMPT_PREFIXES_SHOW` is `false` or if the section is not the first in the prompt, then `prefix` will be omitted.
 
@@ -147,7 +150,7 @@ You can use this utility to check if some program is installed and perform actio
 ### Example
 
 ```zsh
-# Check multiple commands for existin
+# Check multiple commands for existing
 if spaceship::exists nvm; then
   # extract nvm version
 elif spaceship::exists node; then
@@ -250,7 +253,7 @@ Spaceship uses this utility internally for resolution of sections that need to b
 ```zsh
 arr1=('a' 'b' 'c')
 arr2=('b' 'c' 'd')
-arr2=('c' 'd' 'e')
+arr3=('c' 'd' 'e')
 spaceship::union $arr1 $arr2 $arr3
 #> a b c d e
 ```

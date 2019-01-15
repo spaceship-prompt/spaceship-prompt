@@ -25,6 +25,11 @@
     <img src="https://img.shields.io/badge/zsh-%3E%3Dv5.2-777777.svg?style=flat-square"
       alt="Zsh Version" />
   </a>
+  
+  <a href="https://twitter.com/SpaceshipZSH">
+    <img src="https://img.shields.io/badge/twitter-%40SpaceshipZSH-00ACEE.svg?style=flat-square"
+      alt="Spaceship ZSH Twitter" />
+  </a>
 
   <a href="#donate">
     <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?style=flat-square"
@@ -80,6 +85,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 * Indicator for jobs in the background (`✦`).
 * Current Node.js version, through nvm/nodenv/n (`⬢`).
 * Current Ruby version, through rvm/rbenv/chruby/asdf (`💎`).
+* Current Elm version (`🌳`)
 * Current Elixir version, through kiex/exenv/elixir (`💧`).
 * Current Swift version, through swiftenv (`🐦`).
 * Current Xcode version, through xenv (`🛠`).
@@ -96,6 +102,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 * Current .NET SDK version, through dotnet-cli (`.NET`).
 * Current Ember.js version, through ember-cli (`🐹`).
 * Current Kubectl context (`☸️`).
+* Current Terraform workspace (`🛠`).
 * Package version, if there's is a package in current directory (`📦`).
 * Current battery level and status:
   * `⇡` - charging;
@@ -108,14 +115,18 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose) or send pull request.
 
+**💡 Tip:** Follow our Twitter to keep yourself updated about new features, improvements, and bugfixes.  
+
 ## Requirements
 
-For correct work you will first need:
+To work correctly, you will first need:
 
 * [`zsh`](http://www.zsh.org/) (v5.2 or recent) must be installed.
-* [Powerline Font](https://github.com/powerline/fonts) must be installed and used in your terminal.
+* [Powerline Font](https://github.com/powerline/fonts) must be installed and used in your terminal (for example, switch font to [Fira Code](https://github.com/tonsky/FiraCode)).
 
 ## Installing
+
+Now that the requirements are satisfied, you can install Spaceship ZSH via any of the following tools.
 
 ### [npm]
 
@@ -125,7 +136,7 @@ npm install -g spaceship-prompt
 
 Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath` and set `prompt spaceship` in `.zshrc`. Just reload your terminal.
 
-**💡 Tip:** Update Spaceship to new versions as any other package.
+**💡 Tip:** Update Spaceship to new versions as you would any other package.
 
 ### [oh-my-zsh]
 
@@ -154,7 +165,7 @@ Set `ZSH_THEME="spaceship"` in your `.zshrc`.
 Add the following snippet in your `~/.zshrc`:
 
 ```
-antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
+antigen theme denysdovhan/spaceship-prompt
 ```
 
 ### [antibody]
@@ -195,7 +206,7 @@ makepkg -si
 
 ### Manual
 
-If you have problems with approches above, follow these instructions:
+If you have problems with approaches above, follow these instructions:
 
 * Clone this repo `git clone https://github.com/denysdovhan/spaceship-prompt.git`
 * Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
@@ -242,9 +253,15 @@ Also, take a look at popular option presets or share your own configuration on [
 
 ## Troubleshooting
 
-Have a trouble? Take a look at out [Troubleshooting](./docs/Troubleshooting.md) page.
+Having trouble? Take a look at out [Troubleshooting](./docs/Troubleshooting.md) page.
 
 Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.
+
+## Related Projects
+
+Here's a list of related projects that have been inspired by Spaceship ZSH.
+
+- [**matchai/spacefish**](https://github.com/matchai/spacefish) - A port of Spaceship ZSH for fish shell intending to achieve complete feature parity.
 
 ## Team
 
@@ -254,7 +271,7 @@ Still struggling? Please, [file an issue](https://github.com/denysdovhan/spacesh
 
 ## Donate
 
-Hi! I work on this project in my spare time, beside my primary job. I hope you enjoy using Spaceship, and if you do, please, [buy me a cup of tea ☕️][donate-card-url].
+Hi! I work on this project in my spare time, in addition to my primary job. I hope you enjoy using Spaceship. If you do, please, [buy me a cup of tea ☕️][donate-card-url].
 
 | Credit/Debit card | Bitcoin | Ethereum |
 |:-----------------:|:-------:|:--------:|
