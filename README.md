@@ -126,6 +126,8 @@ To work correctly, you will first need:
 
 ## Installing
 
+Now that the requirements are satisfied, you can install Spaceship ZSH via any of the following tools.
+
 **💡 Tip:** If you like this project ~~and want to get some stickers and postcards~~, consider becoming a patron:
 
 <a href="https://patreon.com/denysdovhan">
