@@ -119,7 +119,7 @@ To work correctly, you will first need:
 
 ## Installing
 
-Now that the requirements are satisfied, you can install Spaceship via any of the following tools.
+Now that the requirements are satisfied, you can install Spaceship ZSH via any of the following tools.
 
 ### [npm]
 
