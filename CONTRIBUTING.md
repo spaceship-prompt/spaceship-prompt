@@ -48,6 +48,23 @@ Every additional section will slow down the prompt a little bit. If your section
 * **Good:** check if command exists, check the value of environment variable
 * **Bad:** network requests, reading large files, etc
 
+### What is the naming convention for options?
+
+All options of prompt follow a specific pattern so that it is easy to remember: `SPACESHIP_SECTION_<OPTION>[_PROPERTY]`. The rule is simple: when naming new properties, keep unique parts of the name to the end.
+
+* **Good:** 
+  ```
+    SPACESHIP_GIT_STATUS_COLOR_BEHIND
+    SPACESHIP_GIT_STATUS_COLOR_DIVERGED
+  ```
+* **Bad:** 
+  ```
+    SPACESHIP_GIT_STATUS_BEHIND_COLOR
+    SPACESHIP_GIT_STATUS_DIVERGED_COLOR
+  ```
+
+  Here, `GIT_STATUS` is *section*, `COLOR` is *option* and `BEHIND` or `DIVERGED` is *property*.
+
 ### Documentation
 
 When updating documentation for your section, make sure the markdown document is being properly rendered by Github. Specifically, the following common pitfalls have already been discovered:
