@@ -50,7 +50,7 @@ Every additional section will slow down the prompt a little bit. If your section
 
 ### What is the naming convention for options?
 
-All options of prompt follow a specific pattern so that it is easy to remember -> `SPACESHIP_SECTION_[OPTION][_PROPERTY]`. When naming new properties, keep unique parts of the name to the end.
+All options of prompt follow a specific pattern so that it is easy to remember: `SPACESHIP_SECTION_<OPTION>[_PROPERTY]`. The rule is simple: when naming new properties, keep unique parts of the name to the end.
 
 * **Good:** 
   ```
