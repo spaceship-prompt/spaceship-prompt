@@ -325,7 +325,7 @@ If you are using a development version of `Go`, the version uses git commit hash
 
 For example:
 
-* `v+5efe9a8f11` for development version
+* `devel:5efe9a8f11` for development version
 * `v1.11.4` for release version
 
 | Variable | Default | Meaning |
