@@ -235,7 +235,7 @@ Package version is shown when repository is a package.
 
 * cargo
 
-  `cargo` package contains a `Cargo.toml` file.
+  `cargo` package contains a `Cargo.toml` file. Currently, we use `cargo pkgid`, it depends on `Cargo.lock`. So if package version isn't shown, you may need to run some command like `cargo build` which can generate `Cargo.lock` file.
 
 > **Note:** This is the version of the package you are working on, not the version of package manager itself.
 
