@@ -37,7 +37,7 @@ spaceship_package() {
   }
 
   [[ -f Cargo.toml ]] && spaceship::exists cargo && {
-    local pkgid=$(cargo pkgid)
+    local pkgid=$(cargo pkgid 2> /dev/null)
     package_version=${pkgid##*\#}
   }
 
