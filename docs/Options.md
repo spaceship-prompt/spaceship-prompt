@@ -225,9 +225,17 @@ Mercurial status indicators is shown only when you have dirty repository.
 
 ### Package version (`package`)
 
-> Works only for [npm](https://www.npmjs.com/) at the moment. Please, help us improve this section!
+> Works for [npm](https://www.npmjs.com/) and [cargo](https://crates.io/) at the moment. Please, help us improve this section!
 
-Package version is shown when repository is a package (e.g. contains a `package.json` file). Install [jq](https://stedolan.github.io/jq/) for **improved performace** of this section ([Why?](./Troubleshooting.md#why-is-my-prompt-slow))
+Package version is shown when repository is a package.
+
+* npm
+
+  `npm` package contains a `package.json` file. Install [jq](https://stedolan.github.io/jq/) for **improved performace** of this section ([Why?](./Troubleshooting.md#why-is-my-prompt-slow))
+
+* cargo
+
+  `cargo` package contains a `Cargo.toml` file.
 
 > **Note:** This is the version of the package you are working on, not the version of package manager itself.
 
