@@ -231,7 +231,7 @@ Package version is shown when repository is a package.
 
 * npm
 
-  `npm` package contains a `package.json` file. Install [jq](https://stedolan.github.io/jq/) for **improved performace** of this section ([Why?](./Troubleshooting.md#why-is-my-prompt-slow))
+  `npm` package contains a `package.json` file. We use `jq`, `python` to parse package version for improving performance and `node` as a fallback. Install [jq](https://stedolan.github.io/jq/) for **improved performance** of this section ([Why?](./Troubleshooting.md#why-is-my-prompt-slow))
 
 * cargo
 
