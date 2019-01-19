@@ -230,17 +230,28 @@ Mercurial status indicators is shown only when you have dirty repository.
 Package version is shown when repository is a package.
 
 * **npm** — `npm` package contains a `package.json` file. We use `jq`, `python` to parse package version for improving performance and `node` as a fallback. Install [jq](https://stedolan.github.io/jq/) for **improved performance** of this section ([Why?](./Troubleshooting.md#why-is-my-prompt-slow))
+
 * **cargo** — `cargo` package contains a `Cargo.toml` file. Currently, we use `cargo pkgid`, it depends on `Cargo.lock`. So if package version isn't shown, you may need to run some command like `cargo build` which can generate `Cargo.lock` file.
 
-> **Note:** This is the version of the package you are working on, not the version of package manager itself.
+> **Note:** This is the version of the package you are working on, not the version of package manager itself. Special package version variable has higher preference then global package version variable.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_PACKAGE_SHOW` | `true` | Show package version |
-| `SPACESHIP_PACKAGE_PREFIX` | `is·` | Prefix before package version section |
-| `SPACESHIP_PACKAGE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after package version section |
-| `SPACESHIP_PACKAGE_SYMBOL` | `📦·` | Character to be shown before package version |
-| `SPACESHIP_PACKAGE_COLOR` | `red` | Color of package version section |
+| `SPACESHIP_PACKAGE_SHOW` | `true` | Show global package version |
+| `SPACESHIP_PACKAGE_PREFIX` | `is·` | Prefix before global package version section |
+| `SPACESHIP_PACKAGE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after global package version section |
+| `SPACESHIP_PACKAGE_SYMBOL` | `📦·` | Character to be shown before global package version |
+| `SPACESHIP_PACKAGE_COLOR` | `red` | Color of global package version section |
+| `SPACESHIP_PACKAGE_NPM_SHOW` | `true` | Show npm package version |
+| `SPACESHIP_PACKAGE_NPM_PREFIX` | `is·` | Prefix before npm package version section |
+| `SPACESHIP_PACKAGE_NPM_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after npm package version section |
+| `SPACESHIP_PACKAGE_NPM_SYMBOL` | `📦·` | Character to be shown before npm package version |
+| `SPACESHIP_PACKAGE_NPM_COLOR` | `red` | Color of npm package version section |
+| `SPACESHIP_PACKAGE_CARGO_SHOW` | `true` | Show cargo package version |
+| `SPACESHIP_PACKAGE_CARGO_PREFIX` | `is·` | Prefix before cargo package version section |
+| `SPACESHIP_PACKAGE_CARGO_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after cargo package version section |
+| `SPACESHIP_PACKAGE_CARGO_SYMBOL` | `📦·` | Character to be shown before cargo package version |
+| `SPACESHIP_PACKAGE_CARGO_COLOR` | `red` | Color of cargo package version section |
 
 ### Node.js (`node`)
 
