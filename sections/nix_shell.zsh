@@ -21,28 +21,35 @@ SPACESHIP_NIX_SHELL_SUFFIX="${SPACESHIP_NIX_SHELL_SUFFIX="$SPACESHIP_PROMPT_DEFA
 
 ## nix-shell: currently running nix-shell
 spaceship_nix_shell() {
-    [[ $SPACESHIP_NIX_SHELL_SHOW == false ]] && return
+  [[ $SPACESHIP_NIX_SHELL_SHOW == false ]] && return
 
-    if [[ -n "$IN_NIX_SHELL" ]]; then
-	if [[ -n $NIX_SHELL_PACKAGES ]]; then
-	    local package_names=""
-	    local packages=($NIX_SHELL_PACKAGES)
-	    for package in $packages; do
-		package_names+="${package##*.}"
-	    done
-	    spaceship::section \
-		'yellow' \
-		"with " \
-		"$package_names" \
-		"$SPACESHIP_NIX_SHELL_SUFFIX"
-	else
-	    local cleanName=${name#interactive-}
-	    cleanName=${cleanName%-environment}
-	    spaceship::section \
-		'yellow' \
-		"in " \
-		"$cleanName" \
-		"$SPACESHIP_NIX_SHELL_SUFFIX"
-	fi
+  # Checks if shell is nix
+  if [[ -n "$IN_NIX_SHELL" ]]; then
+
+    # If initialized with `nix-shell -p [packages]`
+    if [[ -n $NIX_SHELL_PACKAGES ]]; then
+      local package_names=""
+      local packages=($NIX_SHELL_PACKAGES)
+
+      # Get all active packages
+      for package in $packages; do
+	package_names+="${package##*.}"
+      done
+      spaceship::section \
+	'yellow' \
+	"with " \
+	"$package_names" \
+	"$SPACESHIP_NIX_SHELL_SUFFIX"
+
+    # Else, get name property from default.nix
+    else
+      local cleanName=${name#interactive-}
+      cleanName=${cleanName%-environment}
+      spaceship::section \
+	'yellow' \
+	"in " \
+	"$cleanName" \
+	"$SPACESHIP_NIX_SHELL_SUFFIX"
     fi
+  fi
 }
