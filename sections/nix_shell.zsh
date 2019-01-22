@@ -7,7 +7,10 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_NIX_SHELL_SHOW="${SPACESHIP_NIX_SHELL_SHOW=true}"
+SPACESHIP_NIX_SHELL_PREFIX="${SPACESHIP_NIX_SHELL_PREFIX="with "}"
 SPACESHIP_NIX_SHELL_SUFFIX="${SPACESHIP_NIX_SHELL_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_NIX_SHELL_SYMBOL=""
+SPACESHIP_NIX_SHELL_COLOR="${SPACESHIP_NIX_SHELL_COLOR=green}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -19,37 +22,41 @@ SPACESHIP_NIX_SHELL_SUFFIX="${SPACESHIP_NIX_SHELL_SUFFIX="$SPACESHIP_PROMPT_DEFA
 # Heavily inspired by:
 # https://gist.github.com/chisui/0d12bd51a5fd8e6bb52e6e6a43d31d5e#file-agnoster-nix-zsh-theme-L201
 
-## nix-shell: currently running nix-shell
+# nix-shell: currently running nix-shell
 spaceship_nix_shell() {
   [[ $SPACESHIP_NIX_SHELL_SHOW == false ]] && return
 
-  # Checks if shell is nix
-  if [[ -n "$IN_NIX_SHELL" ]]; then
+  # Checks if shell is nix,
+  [[ -z $IN_NIX_SHELL ]] && return
 
-    # If initialized with `nix-shell -p [packages]`
-    if [[ -n $NIX_SHELL_PACKAGES ]]; then
-      local package_names=""
-      local packages=($NIX_SHELL_PACKAGES)
+  # If initialized with `nix-shell -p [packages]`
+  if [[ -n $NIX_SHELL_PACKAGES ]]; then
+    local package_names=""
+    local packages=($NIX_SHELL_PACKAGES)
 
-      # Get all active packages
-      for package in $packages; do
-	package_names+="${package##*.}"
-      done
-      spaceship::section \
-	'yellow' \
-	"with " \
-	"$package_names" \
-	"$SPACESHIP_NIX_SHELL_SUFFIX"
+    # Get all active packages
+    for package in $packages; do
+      package_names+="${package##*.}"
+    done
 
-    # Else, get name property from default.nix
-    else
-      local cleanName=${name#interactive-}
-      cleanName=${cleanName%-environment}
-      spaceship::section \
-	'yellow' \
-	"in " \
-	"$cleanName" \
-	"$SPACESHIP_NIX_SHELL_SUFFIX"
-    fi
+    spaceship::section \
+      '$SPACESHIP_NIX_SHELL_COLOR' \
+      "$SPACESHIP_NIX_SHELL_PREFIX" \
+      "${SPACESHIP_NIX_SHELL_SYMBOL}$package_names" \
+      "$SPACESHIP_NIX_SHELL_SUFFIX"
+
+  # Else, get name property from default.nix stdenvironment
+  else
+    local cleanName=${name#interactive-}
+    cleanName=${cleanName%-environment}
+
+    #change SPACESHIP_NIX_SHELL_PREFIX to in if default
+    [[ $SPACESHIP_NIX_SHELL_PREFIX == "with " ]] && SPACESHIP_NIX_SHELL_PREFIX="in "
+
+    spaceship::section \
+      '$SPACESHIP_NIX_SHELL_COLOR' \
+      "$SPACESHIP_NIX_SHELL_PREFIX" \
+      "${SPACESHIP_NIX_SHELL_SYMBOL}$cleanName" \
+      "$SPACESHIP_NIX_SHELL_SUFFIX"
   fi
 }
