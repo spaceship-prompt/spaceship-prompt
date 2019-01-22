@@ -153,7 +153,8 @@ Shows the name of the current nix environment for easy distinction. If you initi
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_NIX_SHELL_SHOW` | true | Show nix_shell section |
-| `SPACESHIP_NIX_SHELL_PREFIX` | "in " | Prefix before nix-shell. Defualt will change to with if nix-shell is initialized with `-p` |
+| `SPACESHIP_NIX_SHELL_PACKAGE_PREFIX` | "with " | Prefix before packages in nix-shell if initialized with `-p` |
+| `SPACESHIP_NIX_SHELL_NAMED_PREFIX` | "in " | Prefix before name of nix-shell if initialized with stdenv |
 | `SPACESHIP_NIX_SHELL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after nix_shell section |
 | `SPACESHIP_NIX_SHELL_SYMBOL` | "" | Character to be shown before name/packages |
 | `SPACESHIP_NIX_SHELL_COLOR` | green | Font color of section |

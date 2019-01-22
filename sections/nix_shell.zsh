@@ -7,7 +7,8 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_NIX_SHELL_SHOW="${SPACESHIP_NIX_SHELL_SHOW=true}"
-SPACESHIP_NIX_SHELL_PREFIX="${SPACESHIP_NIX_SHELL_PREFIX="with "}"
+SPACESHIP_NIX_SHELL_NAMED_PREFIX="${SPACESHIP_NIX_SHELL_NAMED_PREFIX="in "}"
+SPACESHIP_NIX_SHELL_PACKAGE_PREFIX="${SPACESHIP_NIX_SHELL_PACKAGE_PREFIX="with "}"
 SPACESHIP_NIX_SHELL_SUFFIX="${SPACESHIP_NIX_SHELL_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_NIX_SHELL_SYMBOL=""
 SPACESHIP_NIX_SHELL_COLOR="${SPACESHIP_NIX_SHELL_COLOR=green}"
@@ -41,7 +42,7 @@ spaceship_nix_shell() {
 
     spaceship::section \
       '$SPACESHIP_NIX_SHELL_COLOR' \
-      "$SPACESHIP_NIX_SHELL_PREFIX" \
+      "$SPACESHIP_NIX_SHELL_PACKAGE_PREFIX" \
       "${SPACESHIP_NIX_SHELL_SYMBOL}$package_names" \
       "$SPACESHIP_NIX_SHELL_SUFFIX"
 
@@ -50,12 +51,9 @@ spaceship_nix_shell() {
     local cleanName=${name#interactive-}
     cleanName=${cleanName%-environment}
 
-    #change SPACESHIP_NIX_SHELL_PREFIX to in if default
-    [[ $SPACESHIP_NIX_SHELL_PREFIX == "with " ]] && SPACESHIP_NIX_SHELL_PREFIX="in "
-
     spaceship::section \
       '$SPACESHIP_NIX_SHELL_COLOR' \
-      "$SPACESHIP_NIX_SHELL_PREFIX" \
+      "$SPACESHIP_NIX_SHELL_NAMED_PREFIX" \
       "${SPACESHIP_NIX_SHELL_SYMBOL}$cleanName" \
       "$SPACESHIP_NIX_SHELL_SUFFIX"
   fi
