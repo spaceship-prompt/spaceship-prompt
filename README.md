@@ -85,6 +85,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 - Indicator for jobs in the background (`✦`).
 - Current Node.js version, through nvm/nodenv/n (`⬢`).
 - Current Ruby version, through rvm/rbenv/chruby/asdf (`💎`).
+- Current Ruby on Rails version (`🚂`).
 - Current Elm version (`🌳`)
 - Current Elixir version, through kiex/exenv/elixir (`💧`).
 - Current Swift version, through swiftenv (`🐦`).

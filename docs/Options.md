@@ -25,6 +25,7 @@ SPACESHIP_PROMPT_ORDER=(
   package       # Package version
   node          # Node.js section
   ruby          # Ruby section
+  rails         # Ruby on Rails section
   elixir        # Elixir section
   xcode         # Xcode section
   swift         # Swift section
@@ -268,6 +269,24 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 | `SPACESHIP_RUBY_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Ruby section |
 | `SPACESHIP_RUBY_SYMBOL` | `💎·` | Character to be shown before Ruby version |
 | `SPACESHIP_RUBY_COLOR` | `red` | Color of Ruby section |
+
+
+### Ruby on Rails (`rails`)
+
+Ruby on Rails section is shown only in directories that contain `bin/rails` file.
+
+If you set `SPACESHIP_RAILS_DEFAULT_VERSION` to the default Rails version and your current version is the same as `SPACESHIP_RAILS_DEFAULT_VERSION`, then Rails section will be hidden.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_RAILS_SHOW` | `false` | Current Rails section |
+| `SPACESHIP_RAILS_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Rails section |
+| `SPACESHIP_RAILS_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Rails section |
+| `SPACESHIP_RAILS_SYMBOL` | `🚂·` | Character to be shown before Rails version |
+| `SPACESHIP_RAILS_DEFAULT_VERSION` | ` ` | Rails version to be treated as default |
+| `SPACESHIP_RAILS_COLOR` | `red` | Color of Rails section |
+
+**Note:** In order to show the rails version properly you need to satisfy all Gemfile's dependencies (`bundle check`).
 
 ### Elm (`elm`)
 
