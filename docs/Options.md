@@ -309,11 +309,16 @@ Shows current version of Xcode. Local version has more priority than global.
 
 ### Swift (`swift`)
 
-Shows current version of Swift. Local version has more priority than global.
+Shows current version of Swift using [swiftenv] or [swift-package].
+
+* **swiftenv** — Local version has more priority than global and is shown only in directories that contain `.swift-version` or `Package.swift`.
+* **swift-package** — Does not support global swift version. Read local swift versions using `swift package tools-version` in directories that contain `Package.swift`.
+
+[swift-package] is not used, unless [swiftenv] is unavailable.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_SWIFT_SHOW_LOCAL` | `true` | Current local Swift version based on [swiftenv] |
+| `SPACESHIP_SWIFT_SHOW_LOCAL` | `true` | Current local Swift version based on [swiftenv] or [swift-package] |
 | `SPACESHIP_SWIFT_SHOW_GLOBAL` | `false` | Global Swift version based on [swiftenv] |
 | `SPACESHIP_SWIFT_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Swift section |
 | `SPACESHIP_SWIFT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix to be shown before the Swift section |
