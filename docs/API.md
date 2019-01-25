@@ -63,6 +63,9 @@ spaceship_foobar() {
     foobar_status=$(foobar foo)
   fi
 
+  # Exit section if variable is empty
+  [[ -z $foobar_status ]] && return
+
   # Display foobar section
   spaceship::section \
     "$SPACESHIP_FOOBAR_COLOR" \
