@@ -42,8 +42,10 @@ spaceship_swift() {
 
     local 'swift_version'
 
-    if [ -f Package.swift ]; then
-      swift_version=$(swift package tools-version | sed 's/ .*//')
+    if [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
+      if [ -f Package.swift ]; then
+        swift_version=$(swift package tools-version | sed 's/ .*//')
+      fi
     fi
 
   else # Neither swiftenv nor SPM installed
