@@ -86,6 +86,9 @@ main() {
     sed -i '' '/^autoload -U promptinit; promptinit$/d' $ZSHRC
     sed -i '' '/^prompt spaceship$/d' $ZSHRC
     # Remove Spaceship configuration
+    # SPACESHIP_RPROMPT_ORDER and SPACESHIP_PROMPT_ORDER configuration may have multiple lines
+    # which are grouped by `(`, `)`
+    sed -i '' -E '/^SPACESHIP_R?PROMPT_ORDER=\([^)]*$/,/^[^(]*)/d' $ZSHRC
     sed -i '' '/^SPACESHIP_.*$/d' $ZSHRC
   else
     warn "Spaceship configuration not found in ~/.zshrc!"
