@@ -28,7 +28,7 @@ spaceship_rails() {
 
   local 'rails_version'
   if spaceship::exists rails; then
-    rails_version=$(rails version)
+    rails_version=$(cat Gemfile.lock | grep -E " +rails \([0-9]+" | sed 's/ *rails (\(.*\))/\1/')
   else
     return
   fi
