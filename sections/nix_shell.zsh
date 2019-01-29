@@ -11,7 +11,7 @@ SPACESHIP_NIX_SHELL_NAMED_PREFIX="${SPACESHIP_NIX_SHELL_NAMED_PREFIX="in "}"
 SPACESHIP_NIX_SHELL_PACKAGE_PREFIX="${SPACESHIP_NIX_SHELL_PACKAGE_PREFIX="with "}"
 SPACESHIP_NIX_SHELL_SUFFIX="${SPACESHIP_NIX_SHELL_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_NIX_SHELL_SYMBOL=""
-SPACESHIP_NIX_SHELL_COLOR="${SPACESHIP_NIX_SHELL_COLOR=green}"
+SPACESHIP_NIX_SHELL_COLOR="${SPACESHIP_NIX_SHELL_COLOR="green"}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -32,29 +32,31 @@ spaceship_nix_shell() {
 
   # If initialized with `nix-shell -p [packages]`
   if [[ -n $NIX_SHELL_PACKAGES ]]; then
-    local package_names=""
+    local packageNames=""
     local packages=($NIX_SHELL_PACKAGES)
 
     # Get all active packages
     for package in $packages; do
-      package_names+="${package##*.}"
+      packageNames+="${package}"
     done
 
-    spaceship::section \
-      '$SPACESHIP_NIX_SHELL_COLOR' \
-      "$SPACESHIP_NIX_SHELL_PACKAGE_PREFIX" \
-      "${SPACESHIP_NIX_SHELL_SYMBOL}$package_names" \
-      "$SPACESHIP_NIX_SHELL_SUFFIX"
+    # format output and set prefix
+    output="$packageNames"
+    prefix="$SPACESHIP_NIX_SHELL_PACKAGE_PREFIX"
 
   # Else, get name property from default.nix stdenvironment
   else
     local cleanName=${name#interactive-}
     cleanName=${cleanName%-environment}
 
-    spaceship::section \
-      '$SPACESHIP_NIX_SHELL_COLOR' \
-      "$SPACESHIP_NIX_SHELL_NAMED_PREFIX" \
-      "${SPACESHIP_NIX_SHELL_SYMBOL}$cleanName" \
-      "$SPACESHIP_NIX_SHELL_SUFFIX"
+    # format output and set prefix
+    output="$cleanName"
+    prefix="$SPACESHIP_NIX_SHELL_NAMED_PREFIX"
   fi
+
+  spaceship::section \
+    "$SPACESHIP_NIX_SHELL_COLOR" \
+    "$prefix" \
+    "$output" \
+    "$SPACESHIP_NIX_SHELL_SUFFIX"
 }
