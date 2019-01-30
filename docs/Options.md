@@ -270,7 +270,6 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 | `SPACESHIP_RUBY_SYMBOL` | `💎·` | Character to be shown before Ruby version |
 | `SPACESHIP_RUBY_COLOR` | `red` | Color of Ruby section |
 
-
 ### Ruby on Rails (`rails`)
 
 Ruby on Rails section is shown only in directories that contain `bin/rails` file.
@@ -285,8 +284,6 @@ If you set `SPACESHIP_RAILS_DEFAULT_VERSION` to the default Rails version and yo
 | `SPACESHIP_RAILS_SYMBOL` | `🚂·` | Character to be shown before Rails version |
 | `SPACESHIP_RAILS_DEFAULT_VERSION` | ` ` | Rails version to be treated as default |
 | `SPACESHIP_RAILS_COLOR` | `red` | Color of Rails section |
-
-**Note:** In order to show the rails version properly you need to satisfy all Gemfile's dependencies (`bundle check`).
 
 ### Elm (`elm`)
 
