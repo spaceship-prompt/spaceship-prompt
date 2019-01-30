@@ -82,14 +82,16 @@ main() {
   if grep -q "spaceship" "$ZSHRC"; then
     info "Removing Spaceship from ~/.zshrc"
     # Remove enabling statements from ~/.zshrc
-    sed -i '' '/^# Set Spaceship ZSH as a prompt$/d' $ZSHRC
-    sed -i '' '/^autoload -U promptinit; promptinit$/d' $ZSHRC
-    sed -i '' '/^prompt spaceship$/d' $ZSHRC
-    # Remove Spaceship configuration
-    # SPACESHIP_RPROMPT_ORDER and SPACESHIP_PROMPT_ORDER configuration may have multiple lines
+    # and remove Spaceship configuration
+    # Note: SPACESHIP_RPROMPT_ORDER and SPACESHIP_PROMPT_ORDER configuration may have multiple lines
     # which are grouped by `(`, `)`
-    sed -i '' -E '/^SPACESHIP_R?PROMPT_ORDER=\([^)]*$/,/^[^(]*)/d' $ZSHRC
-    sed -i '' '/^SPACESHIP_.*$/d' $ZSHRC
+    sed '/^# Set Spaceship ZSH as a prompt$/d' "$ZSHRC" | \
+    sed '/^autoload -U promptinit; promptinit$/d' | \
+    sed '/^prompt spaceship$/d' | \
+    sed  -E '/^SPACESHIP_R?PROMPT_ORDER=\([^)]*$/,/^[^(]*)/d' | \
+    sed '/^SPACESHIP_.*$/d' > "$ZSHRC.bak"
+
+    mv -- "$ZSHRC.bak" "$ZSHRC"
   else
     warn "Spaceship configuration not found in ~/.zshrc!"
   fi
