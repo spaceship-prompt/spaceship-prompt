@@ -25,7 +25,7 @@ spaceship_dotnet() {
   [[ $SPACESHIP_DOTNET_SHOW == false ]] && return
 
   # Show DOTNET status only for folders containing project.json, global.json, .csproj, .xproj or .sln files
-  [[ -f project.json || -f global.json || -n *.csproj(#qN^/) || -n *.xproj(#qN^/) || -n *.sln(#qN^/) ]] || return
+  [[ -f project.json || -f global.json || -f paket.dependencies || -n *.csproj(#qN^/) || -n *.fsproj(#qN^/) || -n *.xproj(#qN^/) || -n *.sln(#qN^/) ]] || return
 
   spaceship::exists dotnet || return
 
