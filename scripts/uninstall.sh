@@ -80,7 +80,7 @@ main() {
 
   # Remove Spaceship from .zshrc
   if grep -q "spaceship" "$ZSHRC"; then
-    read answer '?Would you like to remove you Spaceship ZSH configuration from .zshrc? (y/N)'
+    read "answer?Would you like to remove you Spaceship ZSH configuration from .zshrc? (y/N)"
     if [[ 'y' == ${answer:l} ]]; then
       info "Removing Spaceship from ~/.zshrc"
       # Remove enabling statements from ~/.zshrc
