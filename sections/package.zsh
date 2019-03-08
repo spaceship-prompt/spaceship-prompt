@@ -41,7 +41,7 @@ spaceship_package() {
     # `cargo pkgid` need Cargo.lock exists too. If it does't, do not show package version
     # https://github.com/denysdovhan/spaceship-prompt/pull/617
     local pkgid=$(cargo pkgid 2>&1)
-    echo $pkgid | grep -q "error:" || package_version=${pkgid##*\#}
+    <<< $pkgid grep -q "error:" || package_version=${pkgid##*\#}
   fi
 
   [[ -z $package_version || "$package_version" == "null" || "$package_version" == "undefined" ]] && return
