@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/zsh +f
 
 # Script to report spaceship user environment for issue report.
 #
@@ -141,10 +141,22 @@ get_os() {
     paint "Operating System" $distro
 }
 
+get_framework() {
+  setopt xtrace
+  if [[ -v $ZPREZTODIR ]]; then
+    framework="Prezto"
+  else
+    framework="None/Others"
+  fi
+  paint "Zsh Framework" $framework
+  unsetopt xtrace
+}
+
 main() {
   cache_uname
   paint "Spaceship" $(command git -C $SPACESHIP_ROOT describe --tags)
   paint "Shell" $ZSH_VERSION
+  get_framework
   get_os
 }
 
