@@ -18,6 +18,7 @@
   * [Package version (package)](/docs/Options.md#package-version-package)
   * [Node (node)](/docs/Options.md#nodejs-node)
   * [Ruby (ruby)](/docs/Options.md#ruby-ruby)
+  * [Crystal (crystal)](/docs/Options.md#crystal-crystal)
   * [Elm (elm)](/docs/Options.md#elm-elm)
   * [Elixir (elixir)](/docs/Options.md#elixir-elixir)
   * [Xcode (xcode)](/docs/Options.md#xcode-xcode)

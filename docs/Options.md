@@ -25,6 +25,7 @@ SPACESHIP_PROMPT_ORDER=(
   package       # Package version
   node          # Node.js section
   ruby          # Ruby section
+  crystal       # Crystal section
   elixir        # Elixir section
   xcode         # Xcode section
   swift         # Swift section
@@ -268,6 +269,19 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 | `SPACESHIP_RUBY_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Ruby section |
 | `SPACESHIP_RUBY_SYMBOL` | `💎·` | Character to be shown before Ruby version |
 | `SPACESHIP_RUBY_COLOR` | `red` | Color of Ruby section |
+
+### Crystal (`crystal`)
+
+Crystal section is shown only in directories that contain `shatds.yml` or any ther file with `.cr` extension.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_CRYSTAL_SHOW` | `true` | Show Crystal section |
+| `SPACESHIP_CRYSTAL_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Crystal section |
+| `SPACESHIP_CRYSTAL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Crystal section |
+| `SPACESHIP_CRYSTAL_SYMBOL` | `💎·` | Character to be shown before Crystal version |
+| `SPACESHIP_CRYSTAL_COLOR` | `black` | Color of Crystal section |
+
 
 ### Elm (`elm`)
 

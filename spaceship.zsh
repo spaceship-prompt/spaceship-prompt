@@ -49,6 +49,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     package       # Package version
     node          # Node.js section
     ruby          # Ruby section
+    crystal       # Crystal section
     elm           # Elm section
     elixir        # Elixir section
     xcode         # Xcode section
