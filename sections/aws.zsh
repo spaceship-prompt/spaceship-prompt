@@ -27,7 +27,7 @@ spaceship_aws() {
   spaceship::exists aws || return
 
   # Is the current profile not the default profile
-  [[ -z $AWS_PROFILE ]] || [[ "$AWS_PROFILE" == "default" ]] && return
+  [[ -z $SPACESHIP_AWS_PROFILE ]] || [[ "$SPACESHIP_AWS_PROFILE" == "default" ]] && return
 
   # Show prompt section
   spaceship::section \
