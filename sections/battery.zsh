@@ -72,6 +72,7 @@ spaceship_battery() {
 
   # Remove trailing % and symbols for comparison
   battery_percent="$(echo $battery_percent | tr -d '%[,;]')"
+  battery_status="$(echo $battery_status | tr -d '[,;]')"
 
   # Change color based on battery percentage
   if [[ $battery_percent == 100 || $battery_status =~ "(charged|full)" ]]; then
