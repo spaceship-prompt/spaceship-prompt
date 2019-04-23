@@ -171,7 +171,7 @@ Set `ZSH_THEME="spaceship"` in your `.zshrc`.
 Add the following snippet in your `~/.zshrc`:
 
 ```
-antigen theme denysdovhan/spaceship-prompt
+antigen bundle denysdovhan/spaceship-prompt
 ```
 
 ### [antibody]
