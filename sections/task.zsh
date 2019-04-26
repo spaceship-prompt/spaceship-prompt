@@ -35,8 +35,8 @@ spaceship_task() {
   # Exit section if variable is empty
   [[ -z $task_count ]] && return
 
-  # Display foobar section
+  # Display task section
   spaceship::section \
     "$SPACESHIP_TASK_COLOR" \
-    "$SPACESHIP_TASK_SYMBOL$foobar_status" \
+    "$SPACESHIP_TASK_SYMBOL$task_count" \
   }
