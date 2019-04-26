@@ -28,7 +28,7 @@ spaceship_task() {
 
   local 'task_count'
 
-  if [[ $(task ready) -neq "No matches." ]]; then
+  if [[ $(task ready) != "No matches." ]]; then
     task_count=$(task ready | tail -n1 | awk '{print $1}')
   fi
 
@@ -38,5 +38,5 @@ spaceship_task() {
   # Display task section
   spaceship::section \
     "$SPACESHIP_TASK_COLOR" \
-    "$SPACESHIP_TASK_SYMBOL$task_count" \
+    "$SPACESHIP_TASK_SYMBOL $task_count" \
   }
