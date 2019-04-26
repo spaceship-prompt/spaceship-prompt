@@ -3,6 +3,9 @@
 #
 # TaskWarrior manages your TODO list from the command line
 # Link: https://taskwarrior.org/
+#
+# ready count inspired from: https://blog.djy.io/taskwarrior-where-have-you-been-all-my-life/
+#
 
 # ------------------------------------------------------------------------------
 # Configuration

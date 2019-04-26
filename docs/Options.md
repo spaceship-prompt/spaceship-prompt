@@ -17,6 +17,7 @@ The default order is:
 ```zsh
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stamps section
+  task          # TaskWarrior section
   user          # Username section
   dir           # Current directory section
   host          # Hostname section
@@ -49,7 +50,6 @@ SPACESHIP_PROMPT_ORDER=(
   jobs          # Background jobs indicator
   exit_code     # Exit code section
   char          # Prompt character
-  task          # TaskWarrior section
 )
 ```
 
