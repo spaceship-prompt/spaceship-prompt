@@ -49,6 +49,7 @@ SPACESHIP_PROMPT_ORDER=(
   jobs          # Background jobs indicator
   exit_code     # Exit code section
   char          # Prompt character
+  task_ready    # TaskWarrior section
 )
 ```
 
@@ -605,6 +606,15 @@ Disabled by default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, 
 | `SPACESHIP_EXIT_CODE_SUFFIX` | ` ` | Suffix after exit code section |
 | `SPACESHIP_EXIT_CODE_SYMBOL` | `✘` | Character to be shown before exit code |
 | `SPACESHIP_EXIT_CODE_COLOR` | `red` | Color of exit code section |
+
+### TaskWarrior (`task_ready`)
+
+If the task command exists, the latest line of the `task ready` output will be
+added to the prompt.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_TASK_READY` | `true` | Show number of tasks ready |
 
 ## Need more?
 
