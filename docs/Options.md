@@ -616,7 +616,7 @@ added to the prompt.
 | :------- | :-----: | ------- |
 | `SPACESHIP_TASK_SHOW` | `true` | Show number of tasks ready |
 | `SPACESHIP_TASK_SYMBOL` | `☑` | Character to be shown before task ready count |
-| `SPACESHIP_TASK_COLOR` | `white` | Color of TaskWarrior section |
+| `SPACESHIP_TASK_COLOR` | `magenta` | Color of TaskWarrior section |
 
 
 ## Need more?

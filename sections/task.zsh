@@ -13,7 +13,7 @@
 
 SPACESHIP_TASK_SHOW="${SPACESHIP_TASK_SHOW=true}"
 SPACESHIP_TASK_SYMBOL="${SPACESHIP_TASK_SYMBOL="☑"}"
-SPACESHIP_TASK_COLOR="${SPACESHIP_TASK_COLOR="white"}"
+SPACESHIP_TASK_COLOR="${SPACESHIP_TASK_COLOR="magenta"}"
 
 # ------------------------------------------------------------------------------
 # Section
