@@ -31,7 +31,7 @@ spaceship_sudo() {
 
   local 'sudo_status'
 
-  if sudo -nl 2>&1 >/dev/null; then
+  if sudo -Sln >/dev/null 2>&1; then
       sudo_status='sudo'
   fi
 
