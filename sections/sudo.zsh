@@ -9,19 +9,20 @@
 # Configuration
 # ------------------------------------------------------------------------------
 
-SPACESHIP_SUDO_SHOW="${SPACESHIP_SUDO_SHOW=true}"
+# This should not be enabled by default as anyone with passwordless sudo
+# configured would find it horribly annoying.
+SPACESHIP_SUDO_SHOW="${SPACESHIP_SUDO_SHOW=false}"
 SPACESHIP_SUDO_PREFIX="${SPACESHIP_SUDO_PREFIX="with "}"
 SPACESHIP_SUDO_SUFFIX="${SPACESHIP_SUDO_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_SUDO_SYMBOL="${SPACESHIP_SUDO_SYMBOL="⚡ "}"
 SPACESHIP_SUDO_COLOR="${SPACESHIP_SUDO_COLOR="yellow"}"
+SPACESHIP_SUDO_STATUS="${SPACESHIP_SUDO_STATUS="sudo"}"
 
 # ------------------------------------------------------------------------------
 # Section
 # ------------------------------------------------------------------------------
 
-# Show sudo status
-# spaceship_ prefix before section's name is required!
-# Otherwise this section won't be loaded.
+# Show an indicator if the current shell has passwordless sudo available.
 spaceship_sudo() {
   # If SPACESHIP_SUDO_SHOW is false, don't show sudo section
   [[ $SPACESHIP_SUDO_SHOW == false ]] && return
@@ -29,19 +30,14 @@ spaceship_sudo() {
   # Check if sudo command is available for execution
   spaceship::exists sudo || return
 
-  local 'sudo_status'
-
-  if sudo -Sln >/dev/null 2>&1; then
-      sudo_status='sudo'
+  if ! sudo -Sln >/dev/null 2>&1; then
+    return
   fi
-
-  # Exit section if variable is empty
-  [[ -z $sudo_status ]] && return
 
   # Display sudo section
   spaceship::section \
     "$SPACESHIP_SUDO_COLOR" \
     "$SPACESHIP_SUDO_PREFIX" \
-    "$SPACESHIP_SUDO_SYMBOL$sudo_status" \
+    "$SPACESHIP_SUDO_SYMBOL$SPACESHIP_SUDO_STATUS" \
     "$SPACESHIP_SUDO_SUFFIX"
 }
