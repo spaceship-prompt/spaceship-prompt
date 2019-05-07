@@ -528,7 +528,7 @@ Shows if the current shell has passwordless sudo available.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_SUDO_SHOW`   | `false` | If the shell has passwordless sudo available |
+| `SPACESHIP_SUDO_SHOW`   | `auto` | Show if passwordless sudo is available. 'auto' means show if 'NOPASSWD' is not used. |
 | `SPACESHIP_SUDO_PREFIX` | `with·` | Prefix before Sudo status indicator |
 | `SPACESHIP_SUDO_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Sudo status indicator |
 | `SPACESHIP_SUDO_COLOR`  | `yellow` | Color of Sudo status indicator |
