@@ -26,15 +26,15 @@ spaceship_aws() {
   spaceship::exists aws || return
 
   # Interpolate Native or aws-vualt profile
-  SPACESHIP_AWS_PROFILE="${AWS_PROFILE:-"$AWS_VAULT"}"
+  local profile="${AWS_PROFILE:-"$AWS_VAULT"}"
 
   # Is the current profile not the default profile
-  [[ -z $SPACESHIP_AWS_PROFILE ]] || [[ "$SPACESHIP_AWS_PROFILE" == "default" ]] && return
+  [[ -z $profile ]] || [[ "$profile" == "default" ]] && return
 
   # Show prompt section
   spaceship::section \
     "$SPACESHIP_AWS_COLOR" \
     "$SPACESHIP_AWS_PREFIX" \
-    "${SPACESHIP_AWS_SYMBOL}$SPACESHIP_AWS_PROFILE" \
+    "${SPACESHIP_AWS_SYMBOL}$profile" \
     "$SPACESHIP_AWS_SUFFIX"
 }
