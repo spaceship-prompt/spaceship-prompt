@@ -23,7 +23,7 @@ spaceship_julia() {
   [[ $SPACESHIP_JULIA_SHOW == false ]] && return
 
   # If there are julia files in current directory
-  [[ -n *.jl(#qN^/) ]] || return
+  [[ -f Project.toml || -n *.jl(#qN^/) ]] || return
 
   spaceship::exists julia || return
 
