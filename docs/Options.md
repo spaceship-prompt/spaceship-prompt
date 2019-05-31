@@ -378,7 +378,7 @@ Haskell section is shown only in directories that contain `stack.yaml` file.
 
 ### Julia (`julia`)
 
-Julia section is shown only in directories that contain file with `.jl` extension.
+Julia section is shown only in directories that contain `Project.toml` or any other file with `.jl` extension.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
