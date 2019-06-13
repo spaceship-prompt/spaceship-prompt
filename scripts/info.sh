@@ -92,9 +92,23 @@ get_term() {
   paint "Terminal" $term
 }
 
+get_framework () {
+  typeset -la frameworks
+
+  (( $+ANTIBODY_HOME )) && frameworks+=("Antibody")
+  (( $+ADOTDIR )) && frameworks+=("Antigen")
+  (( $+functions[upgrade_oh_my_zsh] )) && frameworks+=("Oh My Zsh")
+  (( $+ZPREZTODIR )) && frameworks+=("Prezto")
+  (( $+ZPLUG_ROOT )) && frameworks+=("Zplug")
+  (( $#frameworks == 0 )) && frameworks+=("None")
+
+  paint "Frameworks" "${(j:, :)frameworks}"
+}
+
   cache_uname
   paint "Spaceship" $(command git -C $SPACESHIP_ROOT describe --tags)
   paint "Zsh" $ZSH_VERSION
+  get_framework
   get_os
   get_term
 }
