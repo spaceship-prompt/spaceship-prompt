@@ -1,10 +1,3 @@
-#!/bin/zsh +f
-
-# Script to report spaceship user environment for issue report.
-#
-# https://github.com/denysdovhan/spaceship-prompt
-#
-
 if [[ ! -z $(which tput 2> /dev/null) ]]; then
   reset=$(tput sgr0)
   bold=$(tput bold)
@@ -80,7 +73,6 @@ get_os() {
     paint "Operating System" $distro
 }
 
-main() {
 get_term() {
   local term="${TERM_PROGRAM:-"$TERM"}"
   paint "Terminal" $term
@@ -99,6 +91,7 @@ get_framework () {
   paint "Frameworks" "${(j:, :)frameworks}"
 }
 
+spaceship::env() {
   cache_uname
   paint "Spaceship" $(command git -C $SPACESHIP_ROOT describe --tags)
   paint "Zsh" $ZSH_VERSION
@@ -107,4 +100,3 @@ get_framework () {
   get_term
 }
 
-main "$@"
