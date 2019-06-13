@@ -1,16 +1,9 @@
-if [[ ! -z $(which tput 2> /dev/null) ]]; then
-  reset=$(tput sgr0)
-  bold=$(tput bold)
-fi
-
-# USAGE:
-#   paint <title> [text...]
 paint() {
   local title=$1 content=${@:2}
 
   [[ -n $content ]] || return
 
-  echo "$bold$title:$reset $content"
+  print -P "%B$title:%b $content"
 }
 
 cache_uname() {
