@@ -63,12 +63,12 @@ get_os() {
         ;;
     esac
 
-    paint "Operating System" $distro
+    paint "Operating System" "$distro"
 }
 
 get_term() {
   local term="${TERM_PROGRAM:-"$TERM"}"
-  paint "Terminal" $term
+  paint "Terminal" "$term"
 }
 
 get_framework () {
@@ -86,8 +86,8 @@ get_framework () {
 
 spaceship::env() {
   cache_uname
-  paint "Spaceship" $(command git -C $SPACESHIP_ROOT describe --tags)
-  paint "Zsh" $ZSH_VERSION
+  paint "Spaceship" "$(command git -C $SPACESHIP_ROOT describe --tags)"
+  paint "Zsh" "$ZSH_VERSION"
   get_framework
   get_os
   get_term
