@@ -8,7 +8,7 @@ paint() {
 
 cache_uname() {
   kernel_name="$(uname -s 2>/dev/null)"
-  kernal_version="$(uname -r 2>/dev/null)"
+  kernel_version="$(uname -r 2>/dev/null)"
 
   if [[ "$kernel_name" == "Darwin" ]]; then
       IFS=$'\n' read -d "" -r sw_vers < <(awk -F'<|>' '/string/ {print $3}' \
@@ -92,4 +92,3 @@ spaceship::env() {
   get_os
   get_term
 }
-
