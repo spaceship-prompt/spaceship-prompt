@@ -6,7 +6,7 @@ paint() {
   print -P "%B$title:%b $content"
 }
 
-cache_uname() {
+get_os() {
   kernel_name="$(uname -s 2>/dev/null)"
   kernel_version="$(uname -r 2>/dev/null)"
 
@@ -15,55 +15,53 @@ cache_uname() {
                           "/System/Library/CoreServices/SystemVersion.plist")
       osx_version="${sw_vers[3]}"
   fi
-}
 
-get_os() {
-      case "$kernel_name" in
-        "Linux" | "GNU"* | *"BSD")
-            if [[ -f "/etc/os-release" || -f "/usr/lib/os-release" || -f "/etc/openwrt_release" ]]; then
-              files=("/etc/os-release" "/usr/lib/os-release" "/etc/openwrt_release")
-              for file in "${files[@]}"; do
-                  source "$file" && break
-              done
-              distro="${PRETTY_NAME:-${DISTRIB_DESCRIPTION}} ${UBUNTU_CODENAME}"
-              [[ -z "${distro// }" ]] && distro="$(awk '/BLAG/ {print $1; exit}')" "${files[@]}"
-              [[ -z "${distro// }" ]] && distro="$(awk -F'=' '{print $2; exit}')"  "${files[@]}"
+  case "$kernel_name" in
+    "Linux" | "GNU"* | *"BSD")
+        if [[ -f "/etc/os-release" || -f "/usr/lib/os-release" || -f "/etc/openwrt_release" ]]; then
+          files=("/etc/os-release" "/usr/lib/os-release" "/etc/openwrt_release")
+          for file in "${files[@]}"; do
+              source "$file" && break
+          done
+          distro="${PRETTY_NAME:-${DISTRIB_DESCRIPTION}} ${UBUNTU_CODENAME}"
+          [[ -z "${distro// }" ]] && distro="$(awk '/BLAG/ {print $1; exit}')" "${files[@]}"
+          [[ -z "${distro// }" ]] && distro="$(awk -F'=' '{print $2; exit}')"  "${files[@]}"
 
-            elif type -p lsb_release >/dev/null; then
-              distro="$(lsb_release -sd)"
+        elif type -p lsb_release >/dev/null; then
+          distro="$(lsb_release -sd)"
 
-            else
-                for release_file in /etc/*-release; do
-                    distro+="$(< "$release_file")"
-                done
+        else
+            for release_file in /etc/*-release; do
+                distro+="$(< "$release_file")"
+            done
 
-                if [[ -z "$distro" ]]; then
-                  distro="$kernel_name $kernel_version"
-                  distro="${distro/DragonFly/DragonFlyBSD}"
-                fi
+            if [[ -z "$distro" ]]; then
+              distro="$kernel_name $kernel_version"
+              distro="${distro/DragonFly/DragonFlyBSD}"
             fi
+        fi
 
-            if [[ "$(< /proc/version)" == *"Microsoft"* ||
-              "$kernel_version" == *"Microsoft"* ]]; then
-              distro="Windows 10"
-            fi
+        if [[ "$(< /proc/version)" == *"Microsoft"* ||
+          "$kernel_version" == *"Microsoft"* ]]; then
+          distro="Windows 10"
+        fi
 
-            distro="$distro"
-            distro="${distro/NAME=}"
-        ;;
+        distro="$distro"
+        distro="${distro/NAME=}"
+    ;;
 
-        "Darwin")
-            distro="$codename $osx_version"
-        ;;
+    "Darwin")
+        distro="$codename $osx_version"
+    ;;
 
-        "CYGWIN"* | "MSYS"* | "MINGW"*)
-            distro="$(wmic os get Caption)"
-            distro="${distro/Caption}"
-            distro="${distro/Microsoft }"
-        ;;
-    esac
+    "CYGWIN"* | "MSYS"* | "MINGW"*)
+        distro="$(wmic os get Caption)"
+        distro="${distro/Caption}"
+        distro="${distro/Microsoft }"
+    ;;
+  esac
 
-    paint "Operating System" "$distro"
+  paint "Operating System" "$distro"
 }
 
 get_term() {
@@ -85,7 +83,6 @@ get_framework () {
 }
 
 spaceship::env() {
-  cache_uname
   paint "Spaceship" "$(command git -C $SPACESHIP_ROOT describe --tags)"
   paint "Zsh" "$ZSH_VERSION"
   get_framework
