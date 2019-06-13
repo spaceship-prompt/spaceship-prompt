@@ -87,10 +87,16 @@ get_os() {
 }
 
 main() {
+get_term() {
+  local term="${TERM_PROGRAM:-"$TERM"}"
+  paint "Terminal" $term
+}
+
   cache_uname
   paint "Spaceship" $(command git -C $SPACESHIP_ROOT describe --tags)
   paint "Zsh" $ZSH_VERSION
   get_os
+  get_term
 }
 
 main "$@"
