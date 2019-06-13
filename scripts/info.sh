@@ -67,12 +67,6 @@ get_os() {
         ;;
 
         "Darwin")
-            case "$osx_version" in
-                "10.12"*) codename="macOS Sierra" ;;
-                "10.13"*) codename="macOS High Sierra" ;;
-                "10.14"*) codename="macOS Mojave" ;;
-                *)        codename="macOS" ;;
-            esac
             distro="$codename $osx_version"
         ;;
 
