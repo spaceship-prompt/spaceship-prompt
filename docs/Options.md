@@ -1,6 +1,6 @@
 ## Options
 
-You have ability to customize or disable specific elements of Spaceship. All options must be overridden in your `.zshrc` file **after** the theme.
+You have ability to customize or disable specific elements of Spaceship. All options must be overridden in your `.zshrc` file **after** the theme, except `SPACESHIP_PROMPT_FIRST_PREFIX_SHOW`.
 
 Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
 
