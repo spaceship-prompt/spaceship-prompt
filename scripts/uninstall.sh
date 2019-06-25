@@ -98,7 +98,7 @@ main() {
     warn "Spaceship configuration not found in ~/.zshrc!"
   fi
 
-  success "Done! Spaceship installation have to be removed!"
+  success "Done! Spaceship installation has been removed!"
   success "Please, reload your terminal."
 }
 
