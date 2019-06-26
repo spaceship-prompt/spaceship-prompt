@@ -25,6 +25,8 @@ A clear and concise description of what you expected to happen.
 
 #### Environment
 
+<!-- Run `spaceship::env` to get the following information -->
+
 **Spaceship version:** <version> (use `echo $SPACESHIP_VERSION`)
 **Zsh version:** <version>
 **Zsh framework:** <None/oh-my-zsh/prezto/etc>
