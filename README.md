@@ -195,7 +195,7 @@ zgen load denysdovhan/spaceship-prompt spaceship
 Use this command in your `.zshrc` to load Spaceship as prompt theme:
 
 ```
-zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 ```
 
 ### Linux package manager
