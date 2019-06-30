@@ -28,9 +28,11 @@ spaceship_guix() {
   # Show Guix when within a guix environment
   [[ ! -z $GUIX_ENVIRONMENT ]] || return
 
+  local guix_environment="${$(basename $GUIX_ENVIRONMENT):0:8}"
+
   spaceship::section \
     "$SPACESHIP_GUIX_COLOR" \
     "$SPACESHIP_GUIX_PREFIX" \
-    "$SPACESHIP_GUIX_SYMBOL$(basename $GUIX_ENVIRONMENT)" \
+    "$SPACESHIP_GUIX_SYMBOL$guix_environment" \
     "$SPACESHIP_GUIX_SUFFIX"
 }
