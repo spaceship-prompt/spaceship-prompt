@@ -67,6 +67,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     ember         # Ember.js section
     kubecontext   # Kubectl context section
     terraform     # Terraform workspace section
+    guix          # Guix environment section
     exec_time     # Execution time
     line_sep      # Line break
     battery       # Battery level and status
