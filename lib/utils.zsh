@@ -3,6 +3,7 @@
 # Utils for common used actions
 # ------------------------------------------------------------------------------
 
+# TODO: autoload rarely used functions
 # # Source all autoload functions.
 # spaceship::source_autoloads() {
 #   local autoload_path="${SPACESHIP_ROOT}/lib/autoload"

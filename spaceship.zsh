@@ -112,16 +112,18 @@ source "$SPACESHIP_ROOT/scripts/info.sh"
 # Sourcing sections the prompt consists of
 # ------------------------------------------------------------------------------
 
-# Force removing the section placeholder
+# TODO: use placeholder for async section
 SPACESHIP_SECTION_PLACEHOLDER=""
+
+# TODO: complete custom section file support with tag "::custom"
 SPACESHIP_CUSTOM_SECTION_LOCATION="${SPACESHIP_CUSTOM_SECTION_LOCATION=$HOME/.config/spaceship/sections}"
 
 spaceship::load_sections() {
   local section raw_section
   local load_async=false
   for alignment in "prompt" "rprompt"; do
-    local sectionsVariable="SPACESHIP_${(U)alignment}_ORDER"
-    for raw_section in ${(P)sectionsVariable}; do
+    local sections_var="SPACESHIP_${(U)alignment}_ORDER"
+    for raw_section in ${(P)sections_var}; do
       local -a section_meta
       # Split by double-colon
       section_meta=(${(s.::.)raw_section})

@@ -28,6 +28,7 @@ spaceship_exec_vcs_info_precmd_hook() {
   vcs_info
 }
 
+# Hook to save exit code and prepare prompts
 spaceship::prepare_prompts() {
   # Retrieve exit code of last command to use in exit_code
   # Must be captured before any other command in prompt is executed

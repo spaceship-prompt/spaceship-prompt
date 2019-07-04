@@ -119,15 +119,43 @@ spaceship::compose_prompt() {
   fi
 }
 
-# Refresh a single item in the cache
+# Refresh a single item in the cache, and redraw the prompt
 #
 # @args
-#   $1 string The serialized section data
+#   $1 - section name
+#   $2 - boolean true if render the prompt after cache update
 function spaceship::refresh_cache_item() {
-  # TODO: split according to ...
-  local -a section_meta=("${(@s:·|·:)1}")
+  [[ -z $1 ]] && return 1
 
-  __p9k_section_cache["${section_meta[2]}::${section_meta[3]}"]="${1}"
+  local section="$1"
+  local alignment
+  local -a prompt_sections=(${=__SS_DATA[prompt_sections]:-})
+  local -a rprompt_sections=(${=__SS_DATA[rprompt_sections]:-})
+
+  if (( ${prompt_sections[(Ie)${section}]} )); then
+    alignment="prompt"
+  elif (( ${rprompt_sections[(Ie)${section}]} )); then
+    alignment="rprompt"
+  else
+    # Unavailable section name
+    return 1
+  fi
+
+  spaceship::section_is_tagged_as "async" "${section}" && async=true || async=false
+
+  local cache_key="${alignment}::${section}"
+
+  if ${async}; then
+    async_job "spaceship_async_worker" "spaceship::async_wrapper" "spaceship_${section}" "${section}·|·${alignment}·|·${index}"
+    # Placeholder
+    __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${index}·|·"
+  else
+    # keep newline from line_sep section, https://unix.stackexchange.com/a/383411/246718
+    IFS= read -rd '' section_content < <(spaceship_${section})
+    __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${index}·|·${section_content}"
+  fi
+
+  [[ $2 == "true" ]] && spaceship::render "$alignment"
 }
 
 # Exchange result of prompt_<section> function in the cache and
