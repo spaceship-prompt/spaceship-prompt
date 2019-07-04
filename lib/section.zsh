@@ -144,6 +144,7 @@ function spaceship::refresh_cache_item() {
   spaceship::section_is_tagged_as "async" "${section}" && async=true || async=false
 
   local cache_key="${alignment}::${section}"
+  local section_content
 
   if ${async}; then
     async_job "spaceship_async_worker" "spaceship::async_wrapper" "spaceship_${section}" "${section}·|·${alignment}·|·${index}"
@@ -153,9 +154,9 @@ function spaceship::refresh_cache_item() {
     # keep newline from line_sep section, https://unix.stackexchange.com/a/383411/246718
     IFS= read -rd '' section_content < <(spaceship_${section})
     __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${index}·|·${section_content}"
-  fi
 
-  [[ $2 == "true" ]] && spaceship::render "$alignment"
+    [[ $2 == "true" ]] && spaceship::render "$alignment"
+  fi
 }
 
 # Exchange result of prompt_<section> function in the cache and
