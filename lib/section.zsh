@@ -70,7 +70,7 @@ spaceship::compose_prompt() {
   # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
   setopt EXTENDED_GLOB LOCAL_OPTIONS
 
-  local -a alignments=("left" "right")
+  local -a alignments=("prompt" "rprompt")
   local sections_var
   local -a sections
   local section_content
@@ -78,48 +78,45 @@ spaceship::compose_prompt() {
   [[ -n $1 ]] && alignments=("$1")
 
   for alignment in "${alignments[@]}"; do
-    if [[ $alignment == "left" ]]; then
-      sections_var="SPACESHIP_PROMPT_ORDER"
-    else
-      sections_var="SPACESHIP_RPROMPT_ORDER"
-    fi
+    sections_var="SPACESHIP_${(U)alignment}_ORDER"
     sections=(${(P)sections_var})
     [[ ${#sections} == "0" ]] && continue
 
     local index=1
-    local raw_section async
+    local raw_section custom async
     for raw_section in "${(@)sections}"; do
       # Cut off after double colon
       local section="${raw_section%%::*}"
 
-      # spaceship::section_is_tagged_as "joined" "${section}" && joined=true || joined=false
+      # TODO: custom tag support
+      # spaceship::section_is_tagged_as "custom" "${section}" && joined=custom || joined=custom
 
-      local async=false
-      spaceship::section_is_tagged_as "async" "${section}" && async=true
+      spaceship::section_is_tagged_as "async" "${section}" && async=true || async=false
 
-      local cache_key="${alignment}::${index}"
+      local cache_key="${alignment}::${section}"
 
       if ${async}; then
         async_job "spaceship_async_worker" "spaceship::async_wrapper" "spaceship_${section}" "${section}·|·${alignment}·|·${index}"
 
         # Placeholder
-        __ss_section_cache["${cache_key}"]="${section}·|·${alignment}·|·${index}·|·"
+        __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${index}·|·"
       else
         # TODO: Skip computation if cache is fresh for some sections?
         # keep newline from line_sep section, https://unix.stackexchange.com/a/383411/246718
         IFS= read -rd '' section_content < <(spaceship_${section})
-        __ss_section_cache["${cache_key}"]="${section}·|·${alignment}·|·${index}·|·${section_content}"
+        __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${index}·|·${section_content}"
       fi
 
     index=$((index + 1))
     done
   done
 
-  # set -x
-  # for data in "${(Oa@v)__ss_section_cache}"; do echo "$data"; done
-  # set +x
-
-  spaceship::render
+  if [[ ${#alignments} == "2" ]]; then
+    spaceship::render
+  else
+    # only render the corresponding side of the prompt
+    spaceship::render "${alignment[1]}"
+  fi
 }
 
 # Refresh a single item in the cache
@@ -154,74 +151,84 @@ spaceship::async_callback() {
   fi
 
   # exit early, if $output is empty
-  if [[ -z "$output" ]]; then
-    return
-  fi
+  [[ -z "$output" ]] && return
 
-  # split ${output} into an array - see https://unix.stackexchange.com/a/28873
+  # split input $output into an array - see https://unix.stackexchange.com/a/28873
   local section_meta=("${(@s:·|·:)output}") # split on delimiter "·|·" (@s:<delim>:)
-  local cache_key="${section_meta[2]}::${section_meta[3]}"
-  __ss_section_cache["${cache_key}"]="${output}"
+  local cache_key="${section_meta[2]}::${section_meta[1]}"
+  __ss_section_cache[${cache_key}]="${output}"
 
   # Trigger re-rendering if we do not wait for other jobs
-  [[ "$has_next" == "0" ]] && spaceship::render "true"
+  # TODO: render left/right prompt separately
+  if [[ "$has_next" == "0" ]]; then
+    spaceship::async_render
+  fi
 }
 
 # Spaceship Render function.
 # Goes through cache and renders each entry.
 #
 # @args
-#   $1 - boolean True if rendered through ZLE widget (in async mode)
+#   $1 - prompt/rprompt
 spaceship::render() {
-  # Resets
-  PROMPT=''
-  RPROMPT=''
   # __ss_unsafe must be a global variable, because we set
   # PROMPT='$__ss_unsafe[left]', so without letting ZSH
   # expand this value (single quotes). This is a workaround
   # to avoid double expansion of the contents of the PROMPT.
   typeset -gAh __ss_unsafe=()
 
-  # Process Cache
-  # TODO: choose a more stable method to iterate array based on index
-  for data in "${(Oa@v)__ss_section_cache}"; do
-    [[ -z "${data}" ]] && continue
+  local -a alignments=("prompt" "rprompt")
+  [[ -n $1 ]] && alignments=("$1")
 
-    local -a section_meta=("${(@s:·|·:)data}")
-    [[ -z "${section_meta[4]}" ]] && continue # Sections should not be printed
+  for alignment in "${alignments[@]}"; do
+    # Process Cache
+    sections_var="SPACESHIP_${(U)alignment}_ORDER"
+    sections=(${(P)sections_var})
+    [[ ${#sections} == "0" ]] && continue
 
-    local alignment="${section_meta[2]}"
-    if [[ "$alignment" == "left" ]]; then
-      __ss_unsafe[left]+="${section_meta[4]}"
-    elif [[ "$alignment" == "right" ]]; then
-      __ss_unsafe[right]+="${section_meta[4]}"
-    fi
-  done
+    local raw_section
+    for raw_section in "${(@)sections}"; do
+      # Cut off after double colon
+      local section="${raw_section%%::*}"
 
-  [[ "${#SPACESHIP_RPROMPT_ORDER}" != "0" ]] \
-    && RPROMPT='${__ss_unsafe[right]}'
+      local cache_key="${alignment}::${section}"
+      local -a section_meta=("${(@s:·|·:)${__ss_section_cache[$cache_key]}}")
+      # [[ -z "${section_meta[4]}" ]] && continue # Skip if section is empty
 
-  # Allow iTerm integration to work
-  [[ "${ITERM_SHELL_INTEGRATION_INSTALLED:-}" == "Yes" ]] \
-    && __ss_unsafe[left]="%{$(iterm2_prompt_mark)%}${__ss_unsafe[left]}"
+      __ss_unsafe[$alignment]+="${section_meta[4]}"
+    done
 
-local NEWLINE='
+    # left/right specific
+    if [[ $alignment == "prompt" ]]; then
+      # Allow iTerm integration to work
+      [[ "${ITERM_SHELL_INTEGRATION_INSTALLED:-}" == "Yes" ]] \
+        && __ss_unsafe[prompt]="%{$(iterm2_prompt_mark)%}${__ss_unsafe[prompt]}"
+
+      local NEWLINE='
 '
 
-  [[ "$SPACESHIP_PROMPT_ADD_NEWLINE" == true ]] \
-    && __ss_unsafe[left]="$NEWLINE${__ss_unsafe[left]}"
+      [[ "$SPACESHIP_PROMPT_ADD_NEWLINE" == true ]] \
+        && __ss_unsafe[prompt]="$NEWLINE${__ss_unsafe[prompt]}"
 
-  # By evaluating $__ss_unsafe[left] here in __ss_render we avoid
-  # the evaluation of $PROMPT being interrupted.
-  # For security $PROMPT is never set directly. This way the prompt render is
-  # forced to evaluate the variable and the contents of $__ss_unsafe[left]
-  # are never executed. The same applies to $RPROMPT.
-  PROMPT='${__ss_unsafe[left]}'
+      # By evaluating $__ss_unsafe[prompt] here in __ss_render we avoid
+      # the evaluation of $PROMPT being interrupted.
+      # For security $PROMPT is never set directly. This way the prompt render is
+      # forced to evaluate the variable and the contents of $__ss_unsafe[prompt]
+      # are never executed. The same applies to $RPROMPT.
+      PROMPT='${__ss_unsafe[prompt]}'
+    else
+      RPROMPT='${__ss_unsafe[rprompt]}'
+    fi
+  done
+}
+
+spaceship::async_render() {
+  spaceship::render "$@"
 
   # About .reset-promt see:
   # https://github.com/sorin-ionescu/prezto/issues/1026
   # https://github.com/zsh-users/zsh-autosuggestions/issues/107#issuecomment-183824034
-  [[ "${1}" == "true" ]] && zle .reset-prompt && zle -R
+  zle .reset-prompt && zle -R
 }
 
 # PS2
