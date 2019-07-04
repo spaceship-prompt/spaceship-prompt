@@ -168,7 +168,8 @@ spaceship::load_sections() {
   if ${load_async}; then
     __SS_DATA[async]=true
     # TODO: ZSH-ASYNC Path configurable!
-    (( ASYNC_INIT_DONE )) || source "${SPACESHIP_ROOT}/zsh-async/async.zsh"
+    # Avoid duplicate laoding of zsh-async by checking flag ASYNC_INIT_DONE
+    (( ASYNC_INIT_DONE )) || source "${SPACESHIP_ROOT}/modules/zsh-async/async.zsh"
   fi
 }
 spaceship::load_sections
