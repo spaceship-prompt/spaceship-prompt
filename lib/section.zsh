@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 # vim:ft=zsh ts=2 sw=2 sts=2 et fenc=utf-8
+
 # Internal variable for checking if prompt is opened
 spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
 
@@ -40,13 +41,12 @@ spaceship::section() {
   echo -n "$result"
 }
 
-#   Takes the result of the sections computation and echos it,
-#   so that ZSH-Async can grab it.
-##
+# Takes the result of the sections computation and echos it,
+# so that ZSH-Async can grab it.
+#
 # @args
 #   $1 string The command to execute
 #   $* Parameters for the command
-##
 spaceship::async_wrapper() {
   local command="$1"
 
@@ -269,7 +269,8 @@ prompt_spaceship_setup() {
   # Add exec_time hooks
   add-zsh-hook preexec spaceship_exec_time_preexec_hook
 
-  # run vcs_info hook ahead of the spaceship::prepare_prompt hook
+  # TODO: merge vcs hook into hook spaceshp::prepare_prompt?
+  # Run vcs_info hook AHEAD of the spaceship::prepare_prompt hook
   autoload -Uz vcs_info
   # Configure vcs_info helper for potential use in the future
   add-zsh-hook precmd spaceship_exec_vcs_info_precmd_hook
@@ -279,7 +280,7 @@ prompt_spaceship_setup() {
   add-zsh-hook precmd spaceship::prepare_prompts
 
   # hook into chpwd for bindkey support
-  chpwd_functions=("${chpwd_functions[@]}" "spaceship::chpwd_hook")
+  add-zsh-hook chpwd spaceship::chpwd_hook
 
   # Disable python virtualenv environment prompt prefix
   VIRTUAL_ENV_DISABLE_PROMPT=true

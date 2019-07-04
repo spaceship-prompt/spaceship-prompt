@@ -90,6 +90,13 @@ spaceship::union() {
   echo $sections
 }
 
+# Tests if a section is tagged as given tag
+# @args
+#   $1 string The tag to test
+#   $2 array The sections tags
+#
+# @returns
+#   0 if the section contains the tag
 spaceship::section_is_tagged_as() {
   local tag="${1}"
   local section="${2}"
