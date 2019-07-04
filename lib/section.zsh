@@ -252,7 +252,7 @@ spaceship::render() {
 spaceship::async_render() {
   spaceship::render "$@"
 
-  # About .reset-promt see:
+  # .reset-prompt: bypass the zsh-syntax-highlighting wrapper
   # https://github.com/sorin-ionescu/prezto/issues/1026
   # https://github.com/zsh-users/zsh-autosuggestions/issues/107#issuecomment-183824034
   zle .reset-prompt && zle -R
