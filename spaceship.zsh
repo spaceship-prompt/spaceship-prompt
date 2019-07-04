@@ -11,10 +11,6 @@ readonly SPACESHIP_VERSION='3.8.0'
 
 typeset -gAH __SS_DATA
 
-# Common-used variable for new line separator
-NEWLINE='
-'
-
 # Determination of Spaceship working directory
 # https://git.io/vdBH7
 if [[ -z "$SPACESHIP_ROOT" ]]; then

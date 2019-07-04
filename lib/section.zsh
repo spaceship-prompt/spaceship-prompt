@@ -204,8 +204,7 @@ spaceship::render() {
       [[ "${ITERM_SHELL_INTEGRATION_INSTALLED:-}" == "Yes" ]] \
         && __ss_unsafe[prompt]="%{$(iterm2_prompt_mark)%}${__ss_unsafe[prompt]}"
 
-      local NEWLINE='
-'
+      local NEWLINE=$'\n'
 
       [[ "$SPACESHIP_PROMPT_ADD_NEWLINE" == true ]] \
         && __ss_unsafe[prompt]="$NEWLINE${__ss_unsafe[prompt]}"
