@@ -3,6 +3,17 @@
 # Utils for common used actions
 # ------------------------------------------------------------------------------
 
+# # Source all autoload functions.
+# spaceship::source_autoloads() {
+#   local autoload_path="${SPACESHIP_ROOT}/lib/autoload"
+#   # test if we already autoloaded the functions
+#   if [[ ${fpath[(ie)$autoload_path]} -gt ${#fpath} ]]; then
+#     fpath=( ${autoload_path} "${fpath[@]}" )
+#     # autoload -Uz spaceship::segment_should_be_printed
+#   fi
+# }
+# spaceship::source_autoloads
+
 # Check if command exists in $PATH
 # USAGE:
 #   spaceship::exists <command>
@@ -77,4 +88,11 @@ spaceship::displaytime() {
 spaceship::union() {
   typeset -U sections=("$@")
   echo $sections
+}
+
+spaceship::section_is_tagged_as() {
+  local tag="${1}"
+  local section="${2}"
+  local -a sections=(${=__SS_DATA[${tag}_sections]:-})
+  [[ "${sections[(re)${section}]:-}" == "${section}" ]]
 }

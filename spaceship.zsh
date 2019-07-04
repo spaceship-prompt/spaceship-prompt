@@ -7,7 +7,9 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='3.8.0'
+readonly SPACESHIP_VERSION='3.8.0'
+
+typeset -gAH __SS_DATA
 
 # Common-used variable for new line separator
 NEWLINE='
@@ -114,16 +116,62 @@ source "$SPACESHIP_ROOT/scripts/info.sh"
 # Sourcing sections the prompt consists of
 # ------------------------------------------------------------------------------
 
-for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
-  if [[ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]]; then
-    source "$SPACESHIP_ROOT/sections/$section.zsh"
-  elif spaceship::defined "spaceship_$section"; then
-    # Custom section is declared, nothing else to do
-    continue
-  else
-    echo "Section '$section' have not been loaded."
+# Force removing the section placeholder
+SPACESHIP_SECTION_PLACEHOLDER=""
+SPACESHIP_CUSTOM_SECTION_LOCATION="${SPACESHIP_CUSTOM_SECTION_LOCATION=$HOME/.config/spaceship/sections}"
+
+spaceship::load_sections() {
+  local section raw_section
+  local load_async=false
+  for alignment in "prompt" "rprompt"; do
+    local sectionsVariable="SPACESHIP_${(U)alignment}_ORDER"
+    for raw_section in ${(P)sectionsVariable}; do
+      local -a section_meta
+      # Split by double-colon
+      section_meta=(${(s.::.)raw_section})
+      # First value is always section name
+      section=${section_meta[1]}
+
+      # Cache configured sections! As nested arrays are not really possible,
+      # store as single string, separated by whitespace.
+      __SS_DATA[${alignment}_sections]+="${section} "
+
+      # Cache sections
+      for tag in ${section_meta[2,-1]}; do
+        __SS_DATA[${tag}_sections]+="${section} "
+
+        # Special Case: Remember that async lib should be loaded
+        [[ "$tag" == "async" ]] && load_async=true
+      done
+
+      if [[ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]]; then
+        source "$SPACESHIP_ROOT/sections/$section.zsh"
+      elif spaceship::defined "spaceship_$section"; then
+        # Custom section is declared, nothing else to do
+        continue
+      elif [[ -f "${SPACESHIP_CUSTOM_SECTION_LOCATION}/${section}.zsh" ]]; then
+        # Load custom section from a file
+        source "${SPACESHIP_CUSTOM_SECTION_LOCATION}/${section}.zsh"
+      else
+        # file not found!
+        # If this happens, we remove the section from the configured elements,
+        # so that we avoid printing errors over and over.
+        print -P "%F{yellow}Warning!%f The '%F{cyan}${section}%f' section was not found. Removing it from the prompt."
+        SPACESHIP_PROMPT_ORDER=("${(@)SPACESHIP_PROMPT_ORDER:#${section}}")
+        SPACESHIP_RPROMPT_ORDER=("${(@)SPACESHIP_RPROMPT_ORDER:#${section}}")
+      fi
+    done
+  done
+
+  # Load Async libs at last, because before initializing
+  # ZSH-Async, all functions must be defined.
+  if ${load_async}; then
+    __SS_DATA[async]=true
+    # TODO: ZSH-ASYNC Path configurable!
+    (( ASYNC_INIT_DONE )) || source "${SPACESHIP_ROOT}/zsh-async/async.zsh"
   fi
-done
+}
+spaceship::load_sections
 
 # ------------------------------------------------------------------------------
 # BACKWARD COMPATIBILITY WARNINGS
@@ -142,81 +190,6 @@ spaceship::deprecated SPACESHIP_PYENV_PREFIX "Use %BSPACESHIP_PYTHON_PREFIX%b in
 spaceship::deprecated SPACESHIP_PYENV_SUFFIX "Use %BSPACESHIP_PYTHON_SUFFIX%b instead"
 spaceship::deprecated SPACESHIP_PYENV_SYMBOL "Use %BSPACESHIP_PYTHON_SYMBOL%b instead"
 spaceship::deprecated SPACESHIP_PYENV_COLOR "Use %bSPACESHIP_PYTHON_COLOR%b instead"
-
-# ------------------------------------------------------------------------------
-# PROMPTS
-# An entry point of prompt
-# ------------------------------------------------------------------------------
-
-# PROMPT
-# Primary (left) prompt
-spaceship_prompt() {
-  # Retrieve exit code of last command to use in exit_code
-  # Must be captured before any other command in prompt is executed
-  # Must be the very first line in all entry prompt functions, or the value
-  # will be overridden by a different command execution - do not move this line!
-  RETVAL=$?
-
-  # Should it add a new line before the prompt?
-  [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
-  spaceship::compose_prompt $SPACESHIP_PROMPT_ORDER
-}
-
-# $RPROMPT
-# Optional (right) prompt
-spaceship_rprompt() {
-  # Retrieve exit code of last command to use in exit_code
-  RETVAL=$?
-
-  spaceship::compose_prompt $SPACESHIP_RPROMPT_ORDER
-}
-
-# PS2
-# Continuation interactive prompt
-spaceship_ps2() {
-  # Retrieve exit code of last command to use in exit_code
-  RETVAL=$?
-
-  local char="${SPACESHIP_CHAR_SYMBOL_SECONDARY="$SPACESHIP_CHAR_SYMBOL"}"
-  spaceship::section "$SPACESHIP_CHAR_COLOR_SECONDARY" "$char"
-}
-
-# ------------------------------------------------------------------------------
-# SETUP
-# Setup requirements for prompt
-# ------------------------------------------------------------------------------
-
-# Runs once when user opens a terminal
-# All preparation before drawing prompt should be done here
-prompt_spaceship_setup() {
-  autoload -Uz vcs_info
-  autoload -Uz add-zsh-hook
-
-  # This variable is a magic variable used when loading themes with zsh's prompt
-  # function. It will ensure the proper prompt options are set.
-  prompt_opts=(cr percent sp subst)
-
-  # Borrowed from promptinit, sets the prompt options in case the prompt was not
-  # initialized via promptinit.
-  setopt noprompt{bang,cr,percent,subst} "prompt${^prompt_opts[@]}"
-
-  # Add exec_time hooks
-  add-zsh-hook preexec spaceship_exec_time_preexec_hook
-  add-zsh-hook precmd spaceship_exec_time_precmd_hook
-
-  # Disable python virtualenv environment prompt prefix
-  VIRTUAL_ENV_DISABLE_PROMPT=true
-
-  # Configure vcs_info helper for potential use in the future
-  add-zsh-hook precmd spaceship_exec_vcs_info_precmd_hook
-  zstyle ':vcs_info:*' enable git
-  zstyle ':vcs_info:git*' formats '%b'
-
-  # Expose Spaceship to environment variables
-  PROMPT='$(spaceship_prompt)'
-  PS2='$(spaceship_ps2)'
-  RPS1='$(spaceship_rprompt)'
-}
 
 # ------------------------------------------------------------------------------
 # ENTRY POINT
