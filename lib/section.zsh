@@ -224,35 +224,9 @@ local NEWLINE='
   [[ "${1}" == "true" ]] && zle .reset-prompt && zle -R
 }
 
-# PROMPT
-# Primary (left) prompt
-spaceship_prompt() {
-  # Retrieve exit code of last command to use in exit_code
-  # Must be captured before any other command in prompt is executed
-  # Must be the very first line in all entry prompt functions, or the value
-  # will be overridden by a different command execution - do not move this line!
-  RETVAL=$?
-
-  # Should it add a new line before the prompt?
-  [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
-  spaceship::compose_prompt "left"
-}
-
-# $RPROMPT
-# Optional (right) prompt
-spaceship_rprompt() {
-  # Retrieve exit code of last command to use in exit_code
-  RETVAL=$?
-
-  spaceship::compose_prompt "right"
-}
-
 # PS2
 # Continuation interactive prompt
 spaceship_ps2() {
-  # Retrieve exit code of last command to use in exit_code
-  RETVAL=$?
-
   local char="${SPACESHIP_CHAR_SYMBOL_SECONDARY="$SPACESHIP_CHAR_SYMBOL"}"
   spaceship::section "$SPACESHIP_CHAR_COLOR_SECONDARY" "$char"
 }
@@ -303,11 +277,8 @@ prompt_spaceship_setup() {
   # Disable python virtualenv environment prompt prefix
   VIRTUAL_ENV_DISABLE_PROMPT=true
 
-  # TODO: fix, or remove PS2
-  # # Expose Spaceship to environment variables
-  # PROMPT='$(spaceship_prompt)'
-  # PS2='$(spaceship_ps2)'
-  # RPS1='$(spaceship_rprompt)'
+  # Expose Spaceship to environment variables
+  PS2='$(spaceship_ps2)'
 }
 
 # This function removes spaceship hooks and resets the prompts.
