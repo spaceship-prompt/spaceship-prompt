@@ -9,17 +9,23 @@
 # Execution time start
 spaceship_exec_time_preexec_hook() {
   [[ $SPACESHIP_EXEC_TIME_SHOW == false ]] && return
-  SPACESHIP_EXEC_TIME_start=$(date +%s)
+
+  # The Timer is started here, but the end
+  # is taken in spaceship::prepare_prompts, as this
+  # method is a precmd hook and runs right
+  # before the prompt gets rendered. So we
+  # can calculate the duration there.
+  SPACESHIP_EXEC_TIME_start=${EPOCHREALTIME}
 }
 
 # Execution time end
 spaceship_exec_time_precmd_hook() {
   [[ $SPACESHIP_EXEC_TIME_SHOW == false ]] && return
-  [[ -n $SPACESHIP_EXEC_TIME_duration ]] && unset SPACESHIP_EXEC_TIME_duration
-  [[ -z $SPACESHIP_EXEC_TIME_start ]] && return
-  local SPACESHIP_EXEC_TIME_stop=$(date +%s)
-  SPACESHIP_EXEC_TIME_duration=$(( $SPACESHIP_EXEC_TIME_stop - $SPACESHIP_EXEC_TIME_start ))
-  unset SPACESHIP_EXEC_TIME_start
+
+  SPACESHIP_EXEC_TIME_duration=$((EPOCHREALTIME - SPACESHIP_EXEC_TIME_start))
+
+  # Reset start time
+  SPACESHIP_EXEC_TIME_start=0x7FFFFFFF
 }
 
 # vcs_info hook

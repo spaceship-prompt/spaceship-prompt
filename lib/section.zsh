@@ -202,6 +202,7 @@ spaceship::async_callback() {
 # @args
 #   $1 - prompt/rprompt
 spaceship::render() {
+  local RPROMPT_PREFIX RPROMPT_SUFFIX
   local -a alignments=("prompt" "rprompt")
   local alignment raw_section section cache_key
   local -a section_meta
@@ -286,6 +287,13 @@ spaceship_ps2() {
 # Runs once when user opens a terminal
 # All preparation before drawing prompt should be done here
 prompt_spaceship_setup() {
+  # The value below was set to better support 32-bit CPUs.
+  # It's the maximum _signed_ integer value on 32-bit CPUs.
+  # Please don't change it until 19 January of 2038. ;)
+
+  # Disable false display of command execution time
+  SPACESHIP_EXEC_TIME_start=0x7FFFFFFF
+
   # This variable is a magic variable used when loading themes with zsh's prompt
   # function. It will ensure the proper prompt options are set.
   prompt_opts=(cr percent sp subst)
@@ -293,10 +301,6 @@ prompt_spaceship_setup() {
   # Borrowed from promptinit, sets the prompt options in case the prompt was not
   # initialized via promptinit.
   setopt noprompt{bang,cr,percent,subst} "prompt${^prompt_opts[@]}"
-
-  # TODO: not sure if we need these modules borrowed from powerlevel9k
-  # initialize colors
-  autoload -U colors && colors
 
   # initialize timing functions
   zmodload zsh/datetime
@@ -307,9 +311,6 @@ prompt_spaceship_setup() {
   # initialize hooks
   autoload -Uz add-zsh-hook
 
-  # Add exec_time hooks
-  add-zsh-hook preexec spaceship_exec_time_preexec_hook
-
   # TODO: merge vcs hook into hook spaceshp::prepare_prompt?
   # Run vcs_info hook AHEAD of the spaceship::prepare_prompt hook
   autoload -Uz vcs_info
@@ -319,6 +320,9 @@ prompt_spaceship_setup() {
   zstyle ':vcs_info:git*' formats '%b'
 
   add-zsh-hook precmd spaceship::prepare_prompts
+
+  # Add exec_time hooks
+  add-zsh-hook preexec spaceship_exec_time_preexec_hook
 
   # hook into chpwd for bindkey support
   add-zsh-hook chpwd spaceship::chpwd_hook
