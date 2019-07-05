@@ -94,9 +94,6 @@ spaceship::compose_prompt() {
       # Cut off after double colon
       section="${raw_section%%::*}"
 
-      # TODO: custom tag support
-      # spaceship::section_is_tagged_as "custom" "${section}" && joined=custom || joined=custom
-
       spaceship::section_is_tagged_as "async" "${section}" && async=true || async=false
 
       cache_key="${alignment}::${section}"

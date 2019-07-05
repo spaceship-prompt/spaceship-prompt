@@ -118,7 +118,7 @@ source "$SPACESHIP_ROOT/scripts/info.sh"
 # Placeholder string
 SPACESHIP_SECTION_PLACEHOLDER="${SPACESHIP_SECTION_PLACEHOLDER="…"}"
 
-# TODO: complete custom section file support with tag "::custom"
+# Load custom section functions tagged with "::custom" from files
 SPACESHIP_CUSTOM_SECTION_LOCATION="${SPACESHIP_CUSTOM_SECTION_LOCATION=$HOME/.config/spaceship/sections}"
 
 spaceship::load_sections() {
@@ -145,14 +145,15 @@ spaceship::load_sections() {
         [[ "$tag" == "async" ]] && load_async=true
       done
 
-      if [[ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]]; then
-        source "$SPACESHIP_ROOT/sections/$section.zsh"
-      elif spaceship::defined "spaceship_$section"; then
+      # Prefer custom section over same name builtin section
+      if spaceship::defined "spaceship_$section"; then
         # Custom section is declared, nothing else to do
         continue
-      elif [[ -f "${SPACESHIP_CUSTOM_SECTION_LOCATION}/${section}.zsh" ]]; then
-        # Load custom section from a file
+      elif [[ "$tag" == "custom" ]] \
+        && [[ -f "${SPACESHIP_CUSTOM_SECTION_LOCATION}/${section}.zsh" ]]; then
         source "${SPACESHIP_CUSTOM_SECTION_LOCATION}/${section}.zsh"
+      elif [[ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]]; then
+        source "$SPACESHIP_ROOT/sections/$section.zsh"
       else
         # file not found!
         # If this happens, we remove the section from the configured elements,
