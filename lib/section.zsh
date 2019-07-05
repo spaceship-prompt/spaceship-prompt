@@ -73,7 +73,8 @@ spaceship::compose_prompt() {
   local -a alignments=("prompt" "rprompt")
   local sections_var
   local -a sections
-  local section_content
+  local custom async raw_section section section_content cache_key
+  local index
 
   [[ -n $1 ]] && alignments=("$1")
 
@@ -82,18 +83,17 @@ spaceship::compose_prompt() {
     sections=(${(P)sections_var})
     [[ ${#sections} == "0" ]] && continue
 
-    local index=1
-    local raw_section custom async
+    index=1
     for raw_section in "${(@)sections}"; do
       # Cut off after double colon
-      local section="${raw_section%%::*}"
+      section="${raw_section%%::*}"
 
       # TODO: custom tag support
       # spaceship::section_is_tagged_as "custom" "${section}" && joined=custom || joined=custom
 
       spaceship::section_is_tagged_as "async" "${section}" && async=true || async=false
 
-      local cache_key="${alignment}::${section}"
+      cache_key="${alignment}::${section}"
 
       if ${async}; then
         async_job "spaceship_async_worker" "spaceship::async_wrapper" "spaceship_${section}" "${section}·|·${alignment}·|·${index}"
@@ -131,6 +131,7 @@ function spaceship::refresh_cache_item() {
   local alignment
   local -a prompt_sections=(${=__SS_DATA[prompt_sections]:-})
   local -a rprompt_sections=(${=__SS_DATA[rprompt_sections]:-})
+  local cache section_content
 
   if (( ${prompt_sections[(Ie)${section}]} )); then
     alignment="prompt"
@@ -143,8 +144,7 @@ function spaceship::refresh_cache_item() {
 
   spaceship::section_is_tagged_as "async" "${section}" && async=true || async=false
 
-  local cache_key="${alignment}::${section}"
-  local section_content
+  cache_key="${alignment}::${section}"
 
   if ${async}; then
     async_job "spaceship_async_worker" "spaceship::async_wrapper" "spaceship_${section}" "${section}·|·${alignment}·|·${index}"
@@ -171,6 +171,7 @@ function spaceship::refresh_cache_item() {
 #   $6 has next result in buffer (0 = buffer empty, 1 = yes)
 spaceship::async_callback() {
   local job="$1" ret="$2" output="$3" exec_time="$4" err="$5" has_next="$6"
+  local section_meta cache_key
 
   # ignore the async evals used to alter worker environment
   if [[ "${job}" == "[async/eval]" ]] || \
@@ -184,8 +185,8 @@ spaceship::async_callback() {
   # [[ -z "$output" ]] && return
 
   # split input $output into an array - see https://unix.stackexchange.com/a/28873
-  local section_meta=("${(@s:·|·:)output}") # split on delimiter "·|·" (@s:<delim>:)
-  local cache_key="${section_meta[2]}::${section_meta[1]}"
+  section_meta=("${(@s:·|·:)output}") # split on delimiter "·|·" (@s:<delim>:)
+  cache_key="${section_meta[2]}::${section_meta[1]}"
   __ss_section_cache[${cache_key}]="${output}"
 
   # Trigger re-rendering if we do not wait for other jobs
@@ -205,6 +206,9 @@ spaceship::render() {
   typeset -gAh __ss_unsafe=()
 
   local -a alignments=("prompt" "rprompt")
+  local alignment raw_section section cache_key
+  local -a section_meta
+
   [[ -n $1 ]] && alignments=("$1")
 
   for alignment in "${alignments[@]}"; do
@@ -213,13 +217,12 @@ spaceship::render() {
     sections=(${(P)sections_var})
     [[ ${#sections} == "0" ]] && continue
 
-    local raw_section
     for raw_section in "${(@)sections}"; do
       # Cut off after double colon
-      local section="${raw_section%%::*}"
+      section="${raw_section%%::*}"
 
-      local cache_key="${alignment}::${section}"
-      local -a section_meta=("${(@s:·|·:)${__ss_section_cache[$cache_key]}}")
+      cache_key="${alignment}::${section}"
+      section_meta=("${(@s:·|·:)${__ss_section_cache[$cache_key]}}")
 
       # [[ -z "${section_meta[4]}" ]] && continue # Skip if section is empty
 
