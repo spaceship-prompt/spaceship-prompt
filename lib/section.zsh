@@ -99,7 +99,7 @@ spaceship::compose_prompt() {
         async_job "spaceship_async_worker" "spaceship::async_wrapper" "spaceship_${section}" "${section}·|·${alignment}·|·${index}"
 
         # Placeholder
-        __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${index}·|·"
+        __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${index}·|·${SPACESHIP_SECTION_PLACEHOLDER}"
       else
         # TODO: Skip computation if cache is fresh for some sections?
         # keep newline from line_sep section, https://unix.stackexchange.com/a/383411/246718
@@ -179,8 +179,9 @@ spaceship::async_callback() {
     return
   fi
 
-  # exit early, if $output is empty
-  [[ -z "$output" ]] && return
+  # If async_job exits early, we still rerender the prompt.
+  # Cause we need to replace the placeholder with an empty string.
+  # [[ -z "$output" ]] && return
 
   # split input $output into an array - see https://unix.stackexchange.com/a/28873
   local section_meta=("${(@s:·|·:)output}") # split on delimiter "·|·" (@s:<delim>:)
@@ -188,10 +189,7 @@ spaceship::async_callback() {
   __ss_section_cache[${cache_key}]="${output}"
 
   # Trigger re-rendering if we do not wait for other jobs
-  # TODO: render left/right prompt separately
-  if [[ "$has_next" == "0" ]]; then
-    spaceship::async_render
-  fi
+  [[ "$has_next" == "0" ]] && spaceship::async_render
 }
 
 # Spaceship Render function.
@@ -222,6 +220,7 @@ spaceship::render() {
 
       local cache_key="${alignment}::${section}"
       local -a section_meta=("${(@s:·|·:)${__ss_section_cache[$cache_key]}}")
+
       # [[ -z "${section_meta[4]}" ]] && continue # Skip if section is empty
 
       __ss_unsafe[$alignment]+="${section_meta[4]}"
@@ -282,6 +281,7 @@ prompt_spaceship_setup() {
   # initialized via promptinit.
   setopt noprompt{bang,cr,percent,subst} "prompt${^prompt_opts[@]}"
 
+  # TODO: not sure if we need these modules borrowed from powerlevel9k
   # initialize colors
   autoload -U colors && colors
 

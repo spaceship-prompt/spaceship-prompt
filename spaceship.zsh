@@ -112,8 +112,8 @@ source "$SPACESHIP_ROOT/scripts/info.sh"
 # Sourcing sections the prompt consists of
 # ------------------------------------------------------------------------------
 
-# TODO: use placeholder for async section
-SPACESHIP_SECTION_PLACEHOLDER=""
+# Placeholder string
+SPACESHIP_SECTION_PLACEHOLDER="${SPACESHIP_SECTION_PLACEHOLDER="…"}"
 
 # TODO: complete custom section file support with tag "::custom"
 SPACESHIP_CUSTOM_SECTION_LOCATION="${SPACESHIP_CUSTOM_SECTION_LOCATION=$HOME/.config/spaceship/sections}"
@@ -166,7 +166,7 @@ spaceship::load_sections() {
   if ${load_async}; then
     __SS_DATA[async]=true
     # TODO: ZSH-ASYNC Path configurable!
-    # Avoid duplicate laoding of zsh-async by checking flag ASYNC_INIT_DONE
+    # Avoid duplicate sourcing and loading of zsh-async by checking flag ASYNC_INIT_DONE
     (( ASYNC_INIT_DONE )) || source "${SPACESHIP_ROOT}/modules/zsh-async/async.zsh"
   fi
 }
