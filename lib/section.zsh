@@ -250,6 +250,16 @@ spaceship::render() {
       # are never executed. The same applies to $RPROMPT.
       PROMPT='${__ss_unsafe[prompt]}'
     else
+      if [[ "$SPACESHIP_RPROMPT_ON_NEWLINE" != true ]]; then
+        # The right prompt should be on the same line as the first line of the left
+        # prompt. To do so, there is just a quite ugly workaround: Before zsh draws
+        # the RPROMPT, we advise it, to go one line up. At the end of RPROMPT, we
+        # advise it to go one line down. See:
+        # http://superuser.com/questions/357107/zsh-right-justify-in-ps1
+        RPROMPT_PREFIX='%{'$'\e[1A''%}' # one line up
+        RPROMPT_SUFFIX='%{'$'\e[1B''%}' # one line down
+        __ss_unsafe[rprompt]="${RPROMPT_PREFIX}${__ss_unsafe[rprompt]}${RPROMPT_SUFFIX}"
+      fi
       RPROMPT='${__ss_unsafe[rprompt]}'
     fi
   done
