@@ -7,6 +7,12 @@ spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
 # Global section cache
 typeset -gAh __ss_section_cache
 
+# __ss_unsafe must be a global variable, because we set
+# PROMPT='$__ss_unsafe[left]', so without letting ZSH
+# expand this value (single quotes). This is a workaround
+# to avoid double expansion of the contents of the PROMPT.
+typeset -gAh __ss_unsafe=()
+
 # Draw prompt section (bold is used as default)
 # USAGE:
 #   spaceship::section <color> [prefix] <content> [suffix]
@@ -199,12 +205,6 @@ spaceship::async_callback() {
 # @args
 #   $1 - prompt/rprompt
 spaceship::render() {
-  # __ss_unsafe must be a global variable, because we set
-  # PROMPT='$__ss_unsafe[left]', so without letting ZSH
-  # expand this value (single quotes). This is a workaround
-  # to avoid double expansion of the contents of the PROMPT.
-  typeset -gAh __ss_unsafe=()
-
   local -a alignments=("prompt" "rprompt")
   local alignment raw_section section cache_key
   local -a section_meta
@@ -216,6 +216,9 @@ spaceship::render() {
     sections_var="SPACESHIP_${(U)alignment}_ORDER"
     sections=(${(P)sections_var})
     [[ ${#sections} == "0" ]] && continue
+
+    # Reset prompt storage
+    __ss_unsafe[$alignment]=""
 
     for raw_section in "${(@)sections}"; do
       # Cut off after double colon
