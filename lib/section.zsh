@@ -105,8 +105,10 @@ spaceship::compose_prompt() {
         __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${index}·|·${SPACESHIP_SECTION_PLACEHOLDER}"
       else
         # TODO: Skip computation if cache is fresh for some sections?
-        # keep newline from line_sep section, https://unix.stackexchange.com/a/383411/246718
-        IFS= read -rd '' section_content < <(spaceship_${section})
+        # keep single newline from line_sep section
+        # https://unix.stackexchange.com/a/248229/246718
+        section_content="$(spaceship_${section}; echo 'x')"
+        section_content="${section_content%?}"
         __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${index}·|·${section_content}"
       fi
 
@@ -154,8 +156,10 @@ function spaceship::refresh_cache_item() {
     # Placeholder
     __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${index}·|·"
   else
-    # keep newline from line_sep section, https://unix.stackexchange.com/a/383411/246718
-    IFS= read -rd '' section_content < <(spaceship_${section})
+    # keep single newline from line_sep section
+    # https://unix.stackexchange.com/a/248229/246718
+    section_content="$(spaceship_${section}; echo 'x')"
+    section_content="${section_content%?}"
     __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${index}·|·${section_content}"
 
     [[ $2 == "true" ]] && spaceship::render "$alignment"
