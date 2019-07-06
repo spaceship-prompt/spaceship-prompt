@@ -229,7 +229,7 @@ spaceship::render() {
       cache_key="${alignment}::${section}"
       section_meta=("${(@s:·|·:)${__ss_section_cache[$cache_key]}}")
 
-      # [[ -z "${section_meta[4]}" ]] && continue # Skip if section is empty
+      [[ -z "${section_meta[4]}" ]] && continue # Skip if section is empty
 
       __ss_unsafe[$alignment]+="${section_meta[4]}"
     done
