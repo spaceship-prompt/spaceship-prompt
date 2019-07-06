@@ -107,9 +107,6 @@ source "$SPACESHIP_ROOT/lib/hooks.zsh"
 # load section utils
 source "$SPACESHIP_ROOT/lib/section.zsh"
 
-# load environment detection
-source "$SPACESHIP_ROOT/scripts/info.sh"
-
 # ------------------------------------------------------------------------------
 # SECTIONS
 # Sourcing sections the prompt consists of
