@@ -26,12 +26,6 @@ spaceship_exec_time_precmd_hook() {
   SPACESHIP_EXEC_TIME_start=0x7FFFFFFF
 }
 
-# vcs_info hook
-spaceship_exec_vcs_info_precmd_hook() {
-  [[ $SPACESHIP_GIT_BRANCH_SHOW == false ]] && return
-  vcs_info
-}
-
 # Hook to save exit code and prepare prompts
 spaceship::precmd() {
   # Retrieve exit code of last command to use in exit_code

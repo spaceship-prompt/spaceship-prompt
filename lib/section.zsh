@@ -329,14 +329,6 @@ prompt_spaceship_setup() {
   # initialize hooks
   autoload -Uz add-zsh-hook
 
-  # TODO: merge vcs hook into hook spaceshp::precmd?
-  # Run vcs_info hook AHEAD of the spaceship::precmd hook
-  autoload -Uz vcs_info
-  # Configure vcs_info helper for potential use in the future
-  add-zsh-hook precmd spaceship_exec_vcs_info_precmd_hook
-  zstyle ':vcs_info:*' enable git
-  zstyle ':vcs_info:git*' formats '%b'
-
   add-zsh-hook precmd spaceship::precmd
 
   # Add exec_time hooks
