@@ -4,15 +4,6 @@
 # Internal variable for checking if prompt is opened
 spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
 
-# Global section cache
-typeset -gAh __ss_section_cache
-
-# __ss_unsafe must be a global variable, because we set
-# PROMPT='$__ss_unsafe[left]', so without letting ZSH
-# expand this value (single quotes). This is a workaround
-# to avoid double expansion of the contents of the PROMPT.
-typeset -gAh __ss_unsafe=()
-
 # Draw prompt section (bold is used as default)
 # USAGE:
 #   spaceship::section <color> [prefix] <content> [suffix]
@@ -90,7 +81,9 @@ spaceship::compose_prompt() {
 
     # reload the sections once prompt order arrary is changed
     if [[ "${__SS_DATA[${alignment}_raw_sections]}" != "${raw_sections[*]}" ]]; then
+      prompt_spaceship_teardown
       spaceship::load_sections "$alignment"
+      prompt_spaceship_setup
       # always recompose the prompt. Cause the sections may be invalid and removed,
       # in that case we need to redo the iteration on current prompt order array
       spaceship::compose_prompt "$1"
@@ -291,6 +284,15 @@ spaceship_ps2() {
 # Runs once when user opens a terminal
 # All preparation before drawing prompt should be done here
 prompt_spaceship_setup() {
+  # Global section cache
+  typeset -gAh __ss_section_cache=()
+
+  # __ss_unsafe must be a global variable, because we set
+  # PROMPT='$__ss_unsafe[left]', so without letting ZSH
+  # expand this value (single quotes). This is a workaround
+  # to avoid double expansion of the contents of the PROMPT.
+  typeset -gAh __ss_unsafe=()
+
   # The value below was set to better support 32-bit CPUs.
   # It's the maximum _signed_ integer value on 32-bit CPUs.
   # Please don't change it until 19 January of 2038. ;)
@@ -337,4 +339,7 @@ prompt_spaceship_teardown() {
   add-zsh-hook -D chpwd spaceship\*
   PROMPT='%m%# '
   RPROMPT=
+  PS2='%_> '
+  unset __ss_section_cache
+  unset __ss_unsafe
 }
