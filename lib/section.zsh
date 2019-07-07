@@ -196,16 +196,21 @@ spaceship::async_callback() {
     return
   fi
 
-  # If async_job exits early, we still rerender the prompt.
-  # Cause we need to replace the placeholder with an empty string.
-  # [[ -z "$output" ]] && return
-
   # split input $output into an array - see https://unix.stackexchange.com/a/28873
   section_meta=("${(@s:·|·:)output}") # split on delimiter "·|·" (@s:<delim>:)
   cache_key="${section_meta[2]}::${section_meta[1]}"
-  __ss_section_cache[${cache_key}]="${output}"
 
-  # Trigger re-rendering if we do not wait for other jobs
+  # Skip prompt re-rendering if both placeholder and section content are empty,
+  # or section cache is unchanged
+  if [[ "$SPACESHIP_SECTION_PLACEHOLDER" == "${section_meta[4]}" ]] \
+    || [[ "${__ss_section_cache[${cache_key}]}" == "$output" ]]; then
+    return
+  else
+    __ss_section_cache[${cache_key}]="${output}"
+  fi
+
+  # Delay prompt updates if there's another result in the buffer, which
+  # prevents strange states in ZLE
   [[ "$has_next" == "0" ]] && spaceship::async_render
 }
 
