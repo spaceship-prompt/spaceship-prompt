@@ -94,7 +94,7 @@ spaceship::union() {
 # Tests if a section is tagged as given tag
 # @args
 #   $1 string The tag to test
-#   $2 array The sections tags
+#   $2 string The section name
 #
 # @returns
 #   0 if the section contains the tag
@@ -105,5 +105,24 @@ spaceship::section_is_tagged_as() {
     ${=__SS_DATA[${tag}_prompt_sections]:-}
     ${=__SS_DATA[${tag}_rprompt_sections]:-}
   )
-  [[ "${sections[(re)${section}]:-}" == "${section}" ]]
+  (( ${sections[(Ie)${section}]} ))
+}
+
+# Determine if the passed section is used in either the LEFT or
+# RIGHT prompt arrays.
+#
+# @args
+#   $1 string The section to be tested.
+#   $2 prompt/rprompt/"" The alignment info
+spaceship::section_in_use() {
+  local section="$1"
+  local -a sections
+  local -a alignments=("prompt" "rprompt")
+
+  [[ -n "$2" ]] && alignments=("$2")
+
+  for alignment in "${(@)alignments}"; do
+    sections=(${(@)sections} ${=__SS_DATA[${alignment}_sections]:-})
+  done
+  (( ${sections[(Ie)${section}]} ))
 }

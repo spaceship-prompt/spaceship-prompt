@@ -143,13 +143,11 @@ function spaceship::refresh_cache_item() {
 
   local section="$1"
   local alignment
-  local -a prompt_sections=(${=__SS_DATA[prompt_sections]:-})
-  local -a rprompt_sections=(${=__SS_DATA[rprompt_sections]:-})
   local cache section_content
 
-  if (( ${prompt_sections[(Ie)${section}]} )); then
+  if spaceship::section_in_use "${section}" "prompt"; then
     alignment="prompt"
-  elif (( ${rprompt_sections[(Ie)${section}]} )); then
+  elif spaceship::section_in_use "${section}" "rprompt"; then
     alignment="rprompt"
   else
     # Unavailable section name
