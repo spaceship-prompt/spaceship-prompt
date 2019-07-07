@@ -79,7 +79,7 @@ spaceship::compose_prompt() {
   local -a alignments=("prompt" "rprompt")
   local sections_var
   local -a raw_sections
-  local custom async raw_section section section_content cache_key
+  local custom async section section_content cache_key
   local index
 
   [[ -n $1 ]] && alignments=("$1")
@@ -87,7 +87,6 @@ spaceship::compose_prompt() {
   for alignment in "${alignments[@]}"; do
     sections_var="SPACESHIP_${(U)alignment}_ORDER"
     raw_sections=(${(P)sections_var})
-    [[ ${#raw_sections} == "0" ]] && continue
 
     # reload the sections once prompt order arrary is changed
     if [[ "${__SS_DATA[${alignment}_raw_sections]}" != "${raw_sections[*]}" ]]; then
@@ -99,10 +98,7 @@ spaceship::compose_prompt() {
     fi
 
     index=1
-    for raw_section in "${(@)raw_sections}"; do
-      # Cut off after double colon
-      section="${raw_section%%::*}"
-
+    for section in ${=__SS_DATA[${alignment}_sections]}; do
       spaceship::section_is_tagged_as "async" "${section}" && async=true || async=false
 
       cache_key="${alignment}::${section}"
@@ -220,24 +216,16 @@ spaceship::async_callback() {
 spaceship::render() {
   local RPROMPT_PREFIX RPROMPT_SUFFIX
   local -a alignments=("prompt" "rprompt")
-  local -a raw_sections section_meta
-  local alignment sections_var raw_section section cache_key
+  local -a section_meta
+  local alignment section cache_key
 
   [[ -n $1 ]] && alignments=("$1")
 
   for alignment in "${alignments[@]}"; do
-    # Process Cache
-    sections_var="SPACESHIP_${(U)alignment}_ORDER"
-    raw_sections=(${(P)sections_var})
-    [[ ${#raw_sections} == "0" ]] && continue
-
     # Reset prompt storage
     __ss_unsafe[$alignment]=""
 
-    for raw_section in "${(@)raw_sections}"; do
-      # Cut off after double colon
-      section="${raw_section%%::*}"
-
+    for section in ${=__SS_DATA[${alignment}_sections]}; do
       cache_key="${alignment}::${section}"
       section_meta=("${(@s:·|·:)${__ss_section_cache[$cache_key]}}")
 
