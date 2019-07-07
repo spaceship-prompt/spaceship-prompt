@@ -324,21 +324,21 @@ prompt_spaceship_setup() {
   # initialize hooks
   autoload -Uz add-zsh-hook
 
-  # TODO: merge vcs hook into hook spaceshp::prepare_prompt?
-  # Run vcs_info hook AHEAD of the spaceship::prepare_prompt hook
+  # TODO: merge vcs hook into hook spaceshp::precmd?
+  # Run vcs_info hook AHEAD of the spaceship::precmd hook
   autoload -Uz vcs_info
   # Configure vcs_info helper for potential use in the future
   add-zsh-hook precmd spaceship_exec_vcs_info_precmd_hook
   zstyle ':vcs_info:*' enable git
   zstyle ':vcs_info:git*' formats '%b'
 
-  add-zsh-hook precmd spaceship::prepare_prompts
+  add-zsh-hook precmd spaceship::precmd
 
   # Add exec_time hooks
-  add-zsh-hook preexec spaceship_exec_time_preexec_hook
+  add-zsh-hook preexec spaceship::preexec
 
   # hook into chpwd for bindkey support
-  add-zsh-hook chpwd spaceship::chpwd_hook
+  add-zsh-hook chpwd spaceship::chpwd
 
   # Disable python virtualenv environment prompt prefix
   VIRTUAL_ENV_DISABLE_PROMPT=true
@@ -351,8 +351,7 @@ prompt_spaceship_setup() {
 prompt_spaceship_teardown() {
   add-zsh-hook -D precmd spaceship\*
   add-zsh-hook -D preexec spaceship\*
-  # unhook from chpwd
-  chpwd_functions=( "${chpwd_functions[@]//spaceship::chpwd_hook/}" )
+  add-zsh-hook -D chpwd spaceship\*
   PROMPT='%m%# '
   RPROMPT=
 }

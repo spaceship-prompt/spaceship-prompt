@@ -10,10 +10,8 @@
 spaceship_exec_time_preexec_hook() {
   [[ $SPACESHIP_EXEC_TIME_SHOW == false ]] && return
 
-  # The Timer is started here, but the end
-  # is taken in spaceship::prepare_prompts, as this
-  # method is a precmd hook and runs right
-  # before the prompt gets rendered. So we
+  # The Timer is started here, but the end is taken in spaceship::precmd, as this
+  # method is a precmd hook and runs right before the prompt gets rendered. So we
   # can calculate the duration there.
   SPACESHIP_EXEC_TIME_start=${EPOCHREALTIME}
 }
@@ -35,7 +33,7 @@ spaceship_exec_vcs_info_precmd_hook() {
 }
 
 # Hook to save exit code and prepare prompts
-spaceship::prepare_prompts() {
+spaceship::precmd() {
   # Retrieve exit code of last command to use in exit_code
   # Must be captured before any other command in prompt is executed
   # Must be the very first line in all entry prompt functions, or the value
@@ -46,11 +44,10 @@ spaceship::prepare_prompts() {
   # Stop measuring exec_time, must be the first precmd action
   spaceship_exec_time_precmd_hook
 
-  # Restarts just the worker - in order to update worker with current shell values
+  # Restarts the async worker, in order to get an update-to-date shell environment
   if [[ "${__SS_DATA[async]}" == "true" ]]; then
-    # restart async worker, all unfetched and incomplete work will be lost
     async_stop_worker "spaceship_async_worker"
-    async_start_worker "spaceship_async_worker" -n
+    async_start_worker "spaceship_async_worker" #-n
     # setopt before call register to avoid callback by async_worker_eval
     async_worker_eval "spaceship_async_worker" 'setopt extendedglob'
     async_register_callback "spaceship_async_worker" "spaceship::async_callback"
@@ -59,6 +56,16 @@ spaceship::prepare_prompts() {
   spaceship::compose_prompt
 }
 
-spaceship::chpwd_hook() {
+spaceship::preexec() {
+  # Stop running prompt async jobs
+  if [[ "${__SS_DATA[async]}" == "true" ]]; then
+    async_flush_jobs "spaceship_async_worker"
+  fi
+
+  spaceship_exec_time_preexec_hook
+}
+
+spaceship::chpwd() {
+  # Restart execution time recording once dir is changed
   spaceship_exec_time_preexec_hook
 }
