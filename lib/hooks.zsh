@@ -66,6 +66,10 @@ spaceship::preexec() {
 }
 
 spaceship::chpwd() {
+  if [[ "${__SS_DATA[async]}" == "true" ]]; then
+    async_worker_eval "spaceship_async_worker" 'cd' "$PWD"
+  fi
+
   # Restart execution time recording once dir is changed
   spaceship_exec_time_preexec_hook
 }
