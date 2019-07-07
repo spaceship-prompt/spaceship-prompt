@@ -78,7 +78,7 @@ spaceship::compose_prompt() {
 
   local -a alignments=("prompt" "rprompt")
   local sections_var
-  local -a sections
+  local -a raw_sections
   local custom async raw_section section section_content cache_key
   local index
 
@@ -86,11 +86,20 @@ spaceship::compose_prompt() {
 
   for alignment in "${alignments[@]}"; do
     sections_var="SPACESHIP_${(U)alignment}_ORDER"
-    sections=(${(P)sections_var})
-    [[ ${#sections} == "0" ]] && continue
+    raw_sections=(${(P)sections_var})
+    [[ ${#raw_sections} == "0" ]] && continue
+
+    # reload the sections once prompt order arrary is changed
+    if [[ "${__SS_DATA[${alignment}_raw_sections]}" != "${raw_sections[*]}" ]]; then
+      spaceship::load_sections "$alignment"
+      # always recompose the prompt. Cause the sections may be invalid and removed,
+      # in that case we need to redo the iteration on current prompt order array
+      spaceship::compose_prompt "$1"
+      return
+    fi
 
     index=1
-    for raw_section in "${(@)sections}"; do
+    for raw_section in "${(@)raw_sections}"; do
       # Cut off after double colon
       section="${raw_section%%::*}"
 
@@ -208,21 +217,21 @@ spaceship::async_callback() {
 spaceship::render() {
   local RPROMPT_PREFIX RPROMPT_SUFFIX
   local -a alignments=("prompt" "rprompt")
-  local alignment raw_section section cache_key
-  local -a section_meta
+  local -a raw_sections section_meta
+  local alignment sections_var raw_section section cache_key
 
   [[ -n $1 ]] && alignments=("$1")
 
   for alignment in "${alignments[@]}"; do
     # Process Cache
     sections_var="SPACESHIP_${(U)alignment}_ORDER"
-    sections=(${(P)sections_var})
-    [[ ${#sections} == "0" ]] && continue
+    raw_sections=(${(P)sections_var})
+    [[ ${#raw_sections} == "0" ]] && continue
 
     # Reset prompt storage
     __ss_unsafe[$alignment]=""
 
-    for raw_section in "${(@)sections}"; do
+    for raw_section in "${(@)raw_sections}"; do
       # Cut off after double colon
       section="${raw_section%%::*}"
 
