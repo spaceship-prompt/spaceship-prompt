@@ -101,6 +101,9 @@ spaceship::union() {
 spaceship::section_is_tagged_as() {
   local tag="${1}"
   local section="${2}"
-  local -a sections=(${=__SS_DATA[${tag}_sections]:-})
+  local -a sections=(
+    ${=__SS_DATA[${tag}_prompt_sections]:-}
+    ${=__SS_DATA[${tag}_rprompt_sections]:-}
+  )
   [[ "${sections[(re)${section}]:-}" == "${section}" ]]
 }

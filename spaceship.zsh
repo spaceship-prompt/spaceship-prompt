@@ -118,25 +118,36 @@ SPACESHIP_SECTION_PLACEHOLDER="${SPACESHIP_SECTION_PLACEHOLDER="…"}"
 # Load custom section functions tagged with "::custom" from files
 SPACESHIP_CUSTOM_SECTION_LOCATION="${SPACESHIP_CUSTOM_SECTION_LOCATION=$HOME/.config/spaceship/sections}"
 
+# Load functions for sections defined in prompt order arrays
+#
+# @args
+#   $1 - prompt/rpromp/""
 spaceship::load_sections() {
-  local section raw_section
+  local -a alignments=("prompt" "rprompt")
+  local -a raw_sections section_meta
+  local sections_var section raw_section
   local load_async=false
-  for alignment in "prompt" "rprompt"; do
-    local sections_var="SPACESHIP_${(U)alignment}_ORDER"
-    for raw_section in ${(P)sections_var}; do
-      local -a section_meta
+
+  [[ -n $1 ]] && alignments=("$1")
+
+  for alignment in "${alignments[@]}"; do
+    # Reset related cache
+    __SS_DATA[${alignment}_raw_sections]=""
+    __SS_DATA[${alignment}_sections]=""
+    __SS_DATA[async_${alignment}_sections]=""
+    __SS_DATA[custom_${alignment}_sections]=""
+
+    sections_var="SPACESHIP_${(U)alignment}_ORDER"
+    raw_sections=(${(P)sections_var})
+    for raw_section in "${(@)raw_sections}"; do
       # Split by double-colon
       section_meta=(${(s.::.)raw_section})
       # First value is always section name
       section=${section_meta[1]}
 
-      # Cache configured sections! As nested arrays are not really possible,
-      # store as single string, separated by whitespace.
-      __SS_DATA[${alignment}_sections]+="${section} "
-
       # Cache sections
       for tag in ${section_meta[2,-1]}; do
-        __SS_DATA[${tag}_sections]+="${section} "
+        __SS_DATA[${tag}_${alignment}_sections]+="${section} "
 
         # Special Case: Remember that async lib should be loaded
         [[ "$tag" == "async" ]] && load_async=true
@@ -146,7 +157,7 @@ spaceship::load_sections() {
       if spaceship::defined "spaceship_$section"; then
         # Custom section is declared, nothing else to do
         continue
-      elif [[ "$tag" == "custom" ]] \
+      elif spaceship::section_is_tagged_as "custom" "${section}" \
         && [[ -f "${SPACESHIP_CUSTOM_SECTION_LOCATION}/${section}.zsh" ]]; then
         source "${SPACESHIP_CUSTOM_SECTION_LOCATION}/${section}.zsh"
       elif [[ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]]; then
@@ -156,10 +167,20 @@ spaceship::load_sections() {
         # If this happens, we remove the section from the configured elements,
         # so that we avoid printing errors over and over.
         print -P "%F{yellow}Warning!%f The '%F{cyan}${section}%f' section was not found. Removing it from the prompt."
-        SPACESHIP_PROMPT_ORDER=("${(@)SPACESHIP_PROMPT_ORDER:#${section}}")
-        SPACESHIP_RPROMPT_ORDER=("${(@)SPACESHIP_RPROMPT_ORDER:#${section}}")
+        SPACESHIP_PROMPT_ORDER=("${(@)SPACESHIP_PROMPT_ORDER:#${raw_section}}")
+        SPACESHIP_RPROMPT_ORDER=("${(@)SPACESHIP_RPROMPT_ORDER:#${raw_section}}")
+        for tag in ${section_meta[2,-1]}; do
+          __SS_DATA[${tag}_${alignment}_sections]="${__SS_DATA[${tag}_${alignment}_sections]%${section} } "
+        done
       fi
     done
+
+    # Cache configured sections! As nested arrays are not really possible,
+    # store as single string, separated by whitespace.
+    # Cache the raw_sections after invalid ones are removed
+    raw_sections=(${(P)sections_var})
+    __SS_DATA[${alignment}_raw_sections]="${raw_sections[*]}"
+    __SS_DATA[${alignment}_sections]="${raw_sections[@]%::*}"
   done
 
   # Load Async libs at last, because before initializing
