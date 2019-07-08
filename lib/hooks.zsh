@@ -47,7 +47,7 @@ spaceship::precmd() {
     async_register_callback "spaceship_async_worker" "spaceship::async_callback"
   fi
 
-  spaceship::compose_prompt
+  spaceship::build_section_cache
 }
 
 spaceship::preexec() {

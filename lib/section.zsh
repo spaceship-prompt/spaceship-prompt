@@ -47,20 +47,20 @@ spaceship::section() {
 spaceship::async_wrapper() {
   local command="$1"
 
-  echo -n "${2}·|·"
+  echo -n "${2}"
 
   shift 1
-  ${command} "$@"
+  ${command}
 }
 
-# Compose whole prompt from sections
+# Build prompt cache from section functions
 # @description
 #   This function loops through the prompt elements and calls
 #   the related section functions.
 #
 # @args
-#   $1 string left|right
-spaceship::compose_prompt() {
+#   $1 string, prompt/rprompt, alignment info
+spaceship::build_section_cache() {
   # Option EXTENDED_GLOB is set locally to force filename generation on
   # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
   # See the description of filename generation in
@@ -68,12 +68,12 @@ spaceship::compose_prompt() {
   setopt EXTENDED_GLOB LOCAL_OPTIONS
 
   local -a alignments=("prompt" "rprompt")
-  local sections_var
+  local alignment sections_var
   local -a raw_sections
-  local custom async section section_content cache_key
+  local custom async section cache_key result
   local index
 
-  [[ -n $1 ]] && alignments=("$1")
+  [[ -n "$1" ]] && alignments=("$1")
 
   for alignment in "${alignments[@]}"; do
     sections_var="SPACESHIP_${(U)alignment}_ORDER"
@@ -86,7 +86,7 @@ spaceship::compose_prompt() {
       prompt_spaceship_setup
       # always recompose the prompt. Cause the sections may be invalid and removed,
       # in that case we need to redo the iteration on current prompt order array
-      spaceship::compose_prompt "$1"
+      spaceship::build_section_cache "$1"
       return
     fi
 
@@ -97,17 +97,19 @@ spaceship::compose_prompt() {
       cache_key="${alignment}::${section}"
 
       if ${async}; then
-        async_job "spaceship_async_worker" "spaceship::async_wrapper" "spaceship_${section}" "${section}·|·${alignment}·|·${index}"
+        async_job "spaceship_async_worker" "spaceship::async_wrapper" "spaceship_${section}" "${section}·|·${alignment}·|·"
 
         # Placeholder
-        __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${index}·|·${SPACESHIP_SECTION_PLACEHOLDER}"
+        __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${SPACESHIP_SECTION_PLACEHOLDER}"
       else
-        # TODO: Skip computation if cache is fresh for some sections?
-        # keep single newline from line_sep section
-        # https://unix.stackexchange.com/a/248229/246718
-        section_content="$(spaceship_${section}; echo 'x')"
-        section_content="${section_content%?}"
-        __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${index}·|·${section_content}"
+        # Pass the alignment and index to the real section func in case that
+        # the section func needs to know its position in the left/right prompt.
+        # E.g. trigger re-rendering from vi_mode
+
+        # Trick needed: keep single newline from section line_sep
+        result="$(spaceship_${section}; echo 'x')"
+        result="${result%?}"
+        __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${result}"
       fi
 
     index=$((index + 1))
@@ -132,7 +134,7 @@ function spaceship::refresh_cache_item() {
 
   local section="$1"
   local alignment
-  local cache section_content
+  local cache result
 
   if spaceship::section_in_use "${section}" "prompt"; then
     alignment="prompt"
@@ -148,15 +150,15 @@ function spaceship::refresh_cache_item() {
   cache_key="${alignment}::${section}"
 
   if ${async}; then
-    async_job "spaceship_async_worker" "spaceship::async_wrapper" "spaceship_${section}" "${section}·|·${alignment}·|·${index}"
+    async_job "spaceship_async_worker" "spaceship::async_wrapper" "spaceship_${section}" "${section}·|·${alignment}·|·"
+
     # Placeholder
-    __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${index}·|·"
+    __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${SPACESHIP_SECTION_PLACEHOLDER}"
   else
-    # keep single newline from line_sep section
-    # https://unix.stackexchange.com/a/248229/246718
-    section_content="$(spaceship_${section}; echo 'x')"
-    section_content="${section_content%?}"
-    __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${index}·|·${section_content}"
+    # Trick needed: keep single newline from section line_sep
+    result="$(spaceship_${section}; echo 'x')"
+    result="${result%?}"
+    __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${result}"
 
     [[ $2 == "true" ]] && spaceship::render "$alignment"
   fi
@@ -166,7 +168,7 @@ function spaceship::refresh_cache_item() {
 # trigger re-rendering of prompt.
 #
 # @args
-#   # $1 job name, e.g. the function passed to async_job
+#   $1 job name, e.g. the function passed to async_job
 #   $2 return code
 #   $3 resulting (stdout) output from job execution
 #   $4 execution time, floating point e.g. 0.0076138973 seconds
@@ -189,7 +191,7 @@ spaceship::async_callback() {
 
   # Skip prompt re-rendering if both placeholder and section content are empty,
   # or section cache is unchanged
-  if [[ "$SPACESHIP_SECTION_PLACEHOLDER" == "${section_meta[4]}" ]] \
+  if [[ "$SPACESHIP_SECTION_PLACEHOLDER" == "${section_meta[3]}" ]] \
     || [[ "${__ss_section_cache[${cache_key}]}" == "$output" ]]; then
     return
   else
@@ -222,9 +224,9 @@ spaceship::render() {
       cache_key="${alignment}::${section}"
       section_meta=("${(@s:·|·:)${__ss_section_cache[$cache_key]}}")
 
-      [[ -z "${section_meta[4]}" ]] && continue # Skip if section is empty
+      [[ -z "${section_meta[3]}" ]] && continue # Skip if section is empty
 
-      __ss_unsafe[$alignment]+="${section_meta[4]}"
+      __ss_unsafe[$alignment]+="${section_meta[3]}"
     done
 
     # left/right specific

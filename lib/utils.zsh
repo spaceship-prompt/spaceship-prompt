@@ -95,16 +95,22 @@ spaceship::union() {
 # @args
 #   $1 string The tag to test
 #   $2 string The section name
+#   $3 string Alignment info
 #
 # @returns
 #   0 if the section contains the tag
 spaceship::section_is_tagged_as() {
   local tag="${1}"
   local section="${2}"
-  local -a sections=(
-    ${=__SS_DATA[${tag}_prompt_sections]:-}
-    ${=__SS_DATA[${tag}_rprompt_sections]:-}
-  )
+  local -a sections
+  local alignment
+  local -a alignments=("prompt" "rprompt")
+
+  [[ -n "$3" ]] && alignments=("$3")
+
+  for alignment in "${(@)alignments}"; do
+    sections=(${(@)sections} ${=__SS_DATA[${tag}_${alignment}_sections]:-})
+  done
   (( ${sections[(Ie)${section}]} ))
 }
 
@@ -117,6 +123,7 @@ spaceship::section_is_tagged_as() {
 spaceship::section_in_use() {
   local section="$1"
   local -a sections
+  local alignment
   local -a alignments=("prompt" "rprompt")
 
   [[ -n "$2" ]] && alignments=("$2")

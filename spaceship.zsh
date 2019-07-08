@@ -187,7 +187,6 @@ spaceship::load_sections() {
   # ZSH-Async, all functions must be defined.
   if ${load_async}; then
     __SS_DATA[async]=true
-    # TODO: ZSH-ASYNC Path configurable!
     # Avoid duplicate sourcing and loading of zsh-async by checking flag ASYNC_INIT_DONE
     (( ASYNC_INIT_DONE )) || source "${SPACESHIP_ROOT}/modules/zsh-async/async.zsh"
   fi
