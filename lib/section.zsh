@@ -68,27 +68,14 @@ spaceship::build_section_cache() {
   setopt EXTENDED_GLOB LOCAL_OPTIONS
 
   local -a alignments=("prompt" "rprompt")
-  local alignment sections_var
-  local -a raw_sections
+  local alignment
   local custom async section cache_key result
   local index
 
   [[ -n "$1" ]] && alignments=("$1")
 
   for alignment in "${alignments[@]}"; do
-    sections_var="SPACESHIP_${(U)alignment}_ORDER"
-    raw_sections=(${(P)sections_var})
-
-    # reload the sections once prompt order arrary is changed
-    if [[ "${__SS_DATA[${alignment}_raw_sections]}" != "${raw_sections[*]}" ]]; then
-      prompt_spaceship_teardown
-      spaceship::load_sections "$alignment"
-      prompt_spaceship_setup
-      # always recompose the prompt. Cause the sections may be invalid and removed,
-      # in that case we need to redo the iteration on current prompt order array
-      spaceship::build_section_cache "$1"
-      return
-    fi
+    [[ ${#__SS_DATA[${alignment}_sections]} == "0" ]] && continue
 
     index=1
     for section in ${=__SS_DATA[${alignment}_sections]}; do
@@ -217,6 +204,8 @@ spaceship::render() {
   [[ -n $1 ]] && alignments=("$1")
 
   for alignment in "${alignments[@]}"; do
+    [[ ${#__SS_DATA[${alignment}_sections]} == "0" ]] && continue
+
     # Reset prompt storage
     __ss_unsafe[$alignment]=""
 
