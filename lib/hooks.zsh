@@ -10,9 +10,9 @@
 spaceship_exec_time_preexec_hook() {
   [[ $SPACESHIP_EXEC_TIME_SHOW == false ]] && return
 
-  # The Timer is started here, but the end is taken in spaceship::precmd, as this
-  # method is a precmd hook and runs right before the prompt gets rendered. So we
-  # can calculate the duration there.
+  # The Timer is started here, but the end is taken in prompt_spaceship_precmd,
+  # as this method is a precmd hook and runs right before the prompt gets rendered.
+  # So we can calculate the duration there.
   SPACESHIP_EXEC_TIME_start=${EPOCHREALTIME}
 }
 
@@ -27,7 +27,7 @@ spaceship_exec_time_precmd_hook() {
 }
 
 # Hook to save exit code and prepare prompts
-spaceship::precmd() {
+prompt_spaceship_precmd() {
   # Retrieve exit code of last command to use in exit_code
   # Must be captured before any other command in prompt is executed
   # Must be the very first line in all entry prompt functions, or the value
@@ -50,7 +50,7 @@ spaceship::precmd() {
   spaceship::build_section_cache
 }
 
-spaceship::preexec() {
+prompt_spaceship_preexec() {
   # Stop running prompt async jobs
   if [[ "${__SS_DATA[async]}" == "true" ]]; then
     async_flush_jobs "spaceship_async_worker"
@@ -59,7 +59,7 @@ spaceship::preexec() {
   spaceship_exec_time_preexec_hook
 }
 
-spaceship::chpwd() {
+prompt_spaceship_chpwd() {
   if [[ "${__SS_DATA[async]}" == "true" ]]; then
     async_worker_eval "spaceship_async_worker" 'cd' "$PWD"
   fi

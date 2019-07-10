@@ -308,13 +308,13 @@ prompt_spaceship_setup() {
   # initialize hooks
   autoload -Uz add-zsh-hook
 
-  add-zsh-hook precmd spaceship::precmd
+  add-zsh-hook precmd prompt_spaceship_precmd
 
   # Add exec_time hooks
-  add-zsh-hook preexec spaceship::preexec
+  add-zsh-hook preexec prompt_spaceship_preexec
 
   # hook into chpwd for bindkey support
-  add-zsh-hook chpwd spaceship::chpwd
+  add-zsh-hook chpwd prompt_spaceship_chpwd
 
   # Disable python virtualenv environment prompt prefix
   VIRTUAL_ENV_DISABLE_PROMPT=true
@@ -325,12 +325,20 @@ prompt_spaceship_setup() {
 
 # This function removes spaceship hooks and resets the prompts.
 prompt_spaceship_teardown() {
-  add-zsh-hook -D precmd spaceship\*
-  add-zsh-hook -D preexec spaceship\*
-  add-zsh-hook -D chpwd spaceship\*
-  PROMPT='%m%# '
-  RPROMPT=
-  PS2='%_> '
+  # prompt hooks
+  add-zsh-hook -D precmd  prompt_spaceship\*
+  add-zsh-hook -D preexec prompt_spaceship\*
+  add-zsh-hook -D chpwd   prompt_spaceship\*
+
+  # reset prompt according to prompt_default_setup
+  # +h, override the -h attr given to global special params
+  local +h PS1='%m%# '
+  local +h PS2='%_> '
+  local +h PS3='?# '
+  local +h PS4='+%N:%i> '
+  unset RPS1 RPS2 RPROMPT RPROMPT2
+  prompt_opts=( cr percent sp )
+
   unset __ss_section_cache
   unset __ss_unsafe
 }
