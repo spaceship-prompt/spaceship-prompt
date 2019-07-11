@@ -60,7 +60,7 @@ Spaceship doesn't render the whole prompt asynchronously. It supports rendering 
 
 Async renderer could be enabled for a specific section with `async` tag, like `node::async`.
 
-**Recommendation**: lightweight sections (e.g. `time`, `user` and `char`, etc) should never be tagged as `async`. It just makes no sense to render them asynchronously.
+**Recommendation**: Lightweight sections (e.g. `time`, `user` and `char`, etc) should never be tagged as `async`. These actions are done in a flash. Making them async only introduce overhead from async job initializations and callbacks.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -79,7 +79,7 @@ This group of options defines a behaviour of prompt and standard parameters for 
 | `SPACESHIP_PROMPT_SUFFIXES_SHOW` | `true` | Show suffixes before prompt sections or not |
 | `SPACESHIP_PROMPT_DEFAULT_PREFIX` | `via ` | Default prefix for prompt sections |
 | `SPACESHIP_PROMPT_DEFAULT_SUFFIX` | ` ` | Default suffix for prompt section |
-| `SPACESHIP_RPROMPT_ON_NEWLINE` | `false` | Make right prompt begins at the same line with the left one with a hack |
+| `SPACESHIP_RPROMPT_ADD_NEWLINE` | `false` | Make right prompt begins at the same line with the left one |
 
 ### Char
 

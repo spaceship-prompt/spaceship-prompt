@@ -1,6 +1,3 @@
-#!/usr/bin/env zsh
-# vim:ft=zsh ts=2 sw=2 sts=2 et fenc=utf-8
-
 # Internal variable for checking if prompt is opened
 spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
 
@@ -236,7 +233,7 @@ spaceship::render() {
       # are never executed. The same applies to $RPROMPT.
       PROMPT='${__ss_unsafe[prompt]}'
     else
-      if [[ "$SPACESHIP_RPROMPT_ON_NEWLINE" != true ]]; then
+      if [[ "$SPACESHIP_RPROMPT_ADD_NEWLINE" != true ]]; then
         # The right prompt should be on the same line as the first line of the left
         # prompt. To do so, there is just a quite ugly workaround: Before zsh draws
         # the RPROMPT, we advise it, to go one line up. At the end of RPROMPT, we
