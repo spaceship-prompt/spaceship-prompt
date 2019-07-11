@@ -72,14 +72,12 @@ spaceship::build_section_cache() {
   local -a alignments=("prompt" "rprompt")
   local alignment
   local custom async section cache_key result
-  local index
 
   [[ -n "$1" ]] && alignments=("$1")
 
   for alignment in "${alignments[@]}"; do
     [[ ${#__SS_DATA[${alignment}_sections]} == "0" ]] && continue
 
-    index=1
     for section in ${=__SS_DATA[${alignment}_sections]}; do
       spaceship::section_is_tagged_as "async" "${section}" && async=true || async=false
 
@@ -96,8 +94,6 @@ spaceship::build_section_cache() {
         spaceship_${section}
         __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${__SS_DATA[section_result]}"
       fi
-
-    index=$((index + 1))
     done
   done
 
