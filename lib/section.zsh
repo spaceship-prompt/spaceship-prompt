@@ -1,15 +1,18 @@
 # Internal variable for checking if prompt is opened
 spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
 
+# store result from spaceship::section
+__SS_DATA[section_result]=""
+
 # Draw prompt section (bold is used as default)
 # USAGE:
 #   spaceship::section <color> [prefix] <content> [suffix]
 spaceship::section() {
   local color prefix content suffix
   [[ -n $1 ]] && color="%F{$1}"  || color="%f"
-  [[ -n $2 ]] && prefix="$2"     || prefix=""
-  [[ -n $3 ]] && content="$3"    || content=""
-  [[ -n $4 ]] && suffix="$4"     || suffix=""
+  prefix="$2"
+  content="$3"
+  suffix="$4"
 
   [[ -z $3 && -z $4 ]] && content=$2 prefix=''
 
@@ -32,7 +35,8 @@ spaceship::section() {
   fi
   result+="%{%b%}" # unset bold
 
-  echo -n "$result"
+  # pass the result out with the global variable
+  __SS_DATA[section_result]="$result"
 }
 
 # Takes the result of the sections computation and echos it,
@@ -42,12 +46,13 @@ spaceship::section() {
 #   $1 string The command to execute
 #   $* Parameters for the command
 spaceship::async_wrapper() {
-  local command="$1"
+  local command="${1}"
+  local result="${2}"
 
-  echo -n "${2}"
-
+  __SS_DATA[section_result]=""
   shift 1
-  ${command}
+  ${command} "$@"
+  echo -n "${result}${__SS_DATA[section_result]}"
 }
 
 # Build prompt cache from section functions
@@ -86,14 +91,10 @@ spaceship::build_section_cache() {
         # Placeholder
         __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${SPACESHIP_SECTION_PLACEHOLDER}"
       else
-        # Pass the alignment and index to the real section func in case that
-        # the section func needs to know its position in the left/right prompt.
-        # E.g. trigger re-rendering from vi_mode
-
-        # Trick needed: keep single newline from section line_sep
-        result="$(spaceship_${section}; echo 'x')"
-        result="${result%?}"
-        __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${result}"
+        # pre-empty result storage, assuming the section won't be display
+        __SS_DATA[section_result]=""
+        spaceship_${section}
+        __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${__SS_DATA[section_result]}"
       fi
 
     index=$((index + 1))
@@ -139,10 +140,9 @@ function spaceship::refresh_cache_item() {
     # Placeholder
     __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${SPACESHIP_SECTION_PLACEHOLDER}"
   else
-    # Trick needed: keep single newline from section line_sep
-    result="$(spaceship_${section}; echo 'x')"
-    result="${result%?}"
-    __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${result}"
+    __SS_DATA[section_result]=""
+    spaceship_${section}
+    __ss_section_cache[${cache_key}]="${section}·|·${alignment}·|·${__SS_DATA[section_result]}"
 
     [[ $2 == "true" ]] && spaceship::render "$alignment"
   fi
@@ -262,6 +262,7 @@ spaceship::async_render() {
 spaceship_ps2() {
   local char="${SPACESHIP_CHAR_SYMBOL_SECONDARY="$SPACESHIP_CHAR_SYMBOL"}"
   spaceship::section "$SPACESHIP_CHAR_COLOR_SECONDARY" "$char"
+  echo -n "${__SS_DATA[section_result]}"
 }
 
 # ------------------------------------------------------------------------------
