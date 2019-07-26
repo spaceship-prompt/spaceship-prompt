@@ -46,6 +46,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     host          # Hostname section
     git           # Git section (git_branch + git_status)
     hg            # Mercurial section (hg_branch  + hg_status)
+    gradle        # Gradle section
     package       # Package version
     node          # Node.js section
     ruby          # Ruby section
