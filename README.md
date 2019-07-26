@@ -90,6 +90,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 - Current Swift version, through swiftenv (`🐦`).
 - Current Xcode version, through xenv (`🛠`).
 - Current Go version (`🐹`).
+- Current Java version (`☕️`).
 - Current PHP version (`🐘`).
 - Current Rust version (`𝗥`).
 - Current version of Haskell GHC Compiler, defined in stack.yaml file (`λ`).

@@ -23,6 +23,8 @@
   * [Xcode (xcode)](/docs/Options.md#xcode-xcode)
   * [Swift (swift)](/docs/Options.md#swift-swift)
   * [Go (go)](/docs/Options.md#go-golang)
+  * [Gradle (gradle)](/docs/Options.md#gradle-gradle)
+  * [Maven (maven)](/docs/Options.md#maven-maven)
   * [PHP (php)](/docs/Options.md#php-php)
   * [Rust (rust)](/docs/Options.md#rust-rust)
   * [Haskell (haskell)](/docs/Options.md#haskell-haskell)
