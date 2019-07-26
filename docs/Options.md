@@ -351,6 +351,18 @@ Shows Gradle version.
 | `SPACESHIP_GRADLE_SYMBOL` | `⬡` | Character to be shown before Gradle version |
 | `SPACESHIP_GRADLE_COLOR` | `green` | Color of Gradle section |
 
+### Java (`java`)
+
+Shows Java version.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_JAVA_SHOW` | `true` | Show current Java version or not |
+| `SPACESHIP_JAVA_PREFIX` | `on ` | Prefix before the Java section |
+| `SPACESHIP_JAVA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Java section |
+| `SPACESHIP_JAVA_SYMBOL` | `☕️` | Character to be shown before Java version |
+| `SPACESHIP_JAVA_COLOR` | `magenta` | Color of Java section |
+
 ### Maven (`maven` )
 
 Shows Maven version.

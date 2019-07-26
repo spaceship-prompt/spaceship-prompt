@@ -24,6 +24,7 @@
   * [Swift (swift)](/docs/Options.md#swift-swift)
   * [Go (go)](/docs/Options.md#go-golang)
   * [Gradle (gradle)](/docs/Options.md#gradle-gradle)
+  * [Java (java)](/docs/Options.md#java-java)
   * [Maven (maven)](/docs/Options.md#maven-maven)
   * [PHP (php)](/docs/Options.md#php-php)
   * [Rust (rust)](/docs/Options.md#rust-rust)
