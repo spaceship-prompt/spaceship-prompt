@@ -23,6 +23,7 @@ SPACESHIP_PROMPT_ORDER=(
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
   package       # Package version
+  gradle        # Gradle section
   node          # Node.js section
   ruby          # Ruby section
   elixir        # Elixir section
@@ -550,6 +551,20 @@ SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
   yellow '^test-[0-9]+$'
 )
 ```
+
+### Gradle (`gradle`)
+
+Shows current gradle version.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_GRADLE_SHOW` | `true` | Current Gradle section |
+| `SPACESHIP_GRADLE_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Gradle section |
+| `SPACESHIP_GRADLE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Gradle section |
+| `SPACESHIP_GRADLE_SYMBOL` | `🐘️·` | Character to be shown before Gradle section |
+| `SPACESHIP_GRADLE_DEFAULT_VERSION` | ` ` | Gradle version to be treated as default |
+| `SPACESHIP_GRADLE_COLOR` | `green` | Color of Gradle section |
+
 
 ### Terraform workspace (`terraform`)
 
