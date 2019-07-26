@@ -276,10 +276,6 @@ Here's a list of related projects that have been inspired by Spaceship ZSH.
 | :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
 |                     [Denys Dovhan](https://github.com/denysdovhan)                     |                          [Salmanul Farzy](https://github.com/salmanulfarzy)                          |                       [Maxim Baz](https://github.com/maximbaz)                        |
 
-### Conda virtualenv (`conda`)
-
-Show activated conda virtual environment. Disable native conda prompt by `conda config --set changeps1 False`.
-
 ## Donate
 
 Hi! I work on this project in my spare time, in addition to my primary job. I hope you enjoy using Spaceship ZSH. If you do, please, [become my patron 🤝][patreon-url].
