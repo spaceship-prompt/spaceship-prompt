@@ -272,17 +272,9 @@ Here's a list of related projects that have been inspired by Spaceship ZSH.
 
 ## Team
 
-
 | [![Denys Dovhan](https://github.com/denysdovhan.png?size=100)](http://denysdovhan.com) | [![Salmanul Farzy](https://github.com/salmanulfarzy.png?size=100)](https://github.com/salmanulfarzy) | [![Maxim Baz](https://github.com/maximbaz.png?size=100)](https://github.com/maximbaz) |
 | :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
 |                     [Denys Dovhan](https://github.com/denysdovhan)                     |                          [Salmanul Farzy](https://github.com/salmanulfarzy)                          |                       [Maxim Baz](https://github.com/maximbaz)                        |
-
-| Variable | Default | Meaning |
-| :------- | :-----: | ------- |
-| `SPACESHIP_VENV_SHOW` | `true` | Show current Python virtualenv or not |
-| `SPACESHIP_VENV_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the virtualenv section |
-| `SPACESHIP_VENV_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the virtualenv section |
-| `SPACESHIP_VENV_COLOR` | `blue` | Color of virtualenv environment section |
 
 ### Conda virtualenv (`conda`)
 
