@@ -31,8 +31,7 @@ spaceship::gradle::find_root_project() {
 
   while [ "$root" ] && \
         [ ! -f "$root/settings.gradle" ] && \
-        [ ! -f "$root/settings.gradle.kts" ] && \
-        [ ! -d "$root/.gradle" ]; do
+        [ ! -f "$root/settings.gradle.kts" ]; do
     root="${root%/*}"
   done
 
@@ -68,7 +67,7 @@ spaceship_gradle() {
 
   if [[ -f "$gradle_root_dir/gradlew" ]]; then
     gradle_versions=($(spaceship::gradle::versions "$gradle_root_dir/gradlew"))
-  elif spaceship::exists gralde; then
+  elif spaceship::exists gradle; then
     gradle_versions=($(spaceship::gradle::versions gradle))
   else
     return
@@ -84,7 +83,7 @@ spaceship_gradle() {
 
   [[ $SPACESHIP_GRADLE_JVM_SHOW == false ]] && return
 
-  [[ "${gradle_versions[jvm]}" == "SPACESHIP_GRADLE_JVM_DEFAULT_VERSION" ]] && return
+  [[ "${gradle_versions[jvm]}" == "$SPACESHIP_GRADLE_JVM_DEFAULT_VERSION" ]] && return
 
   spaceship::section \
     "$SPACESHIP_GRADLE_JVM_COLOR" \
