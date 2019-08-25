@@ -408,8 +408,7 @@ The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more inf
 
 ### Ansible (`ansible`)
 
-Ansible section is shown only in directories that contain valid ansible playbooks or `[.]ansible.cfg` files. Please be aware
-that switching on the option to display the ansible version causes some delay.
+Ansible section is shown only in directories that contain valid ansible playbooks or `[.]ansible.cfg` files. Please be aware that switching on the option to display the ansible version causes some delay.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
