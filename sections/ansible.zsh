@@ -36,7 +36,7 @@ spaceship_ansible() {
   [[ -f ansible.cfg || -f .ansible.cfg || -f $YAML && $(grep -m 1 -E "tasks|hosts|roles" $YAML &> /dev/null) -eq 0 ]] || return
 
   # Retrieve ansible status and save it to variable
-  [[ ${SPACESHIP_ANSIBLE_SHOW_VERSION} = true ]] && ansible_status=`ansible --version 2>&1 | head -n 1 | tr -d ansible`
+  [[ ${SPACESHIP_ANSIBLE_SHOW_VERSION} = true ]] && ansible_status=${$(ansible --version)[2]}
 
   # Display ansible section
   spaceship::section \
