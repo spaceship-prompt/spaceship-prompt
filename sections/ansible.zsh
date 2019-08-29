@@ -32,8 +32,7 @@ spaceship_ansible() {
   # Here glob qualifiers are used to check if files with specific extension are
   # present in directory. Read more about them here:
   # https://zsh.sourceforge.net/Doc/Release/Expansion.html
-  YAML=$(echo ?(*.yml|*.yaml)([1]N^/))
-  [[ -f ansible.cfg || -f .ansible.cfg || -f $YAML && $(grep -m 1 -E "tasks|hosts|roles" $YAML &> /dev/null) -eq 0 ]] || return
+  [[ -f ansible.cfg || -f .ansible.cfg || -f $(echo ?(*.yml|*.yaml)([1]N^/)) && $(grep -m 1 -E "tasks|hosts|roles" $(echo ?(*.yml|*.yaml)) &> /dev/null) -eq 0 ]] || return
 
   # Retrieve ansible status and save it to variable
   [[ ${SPACESHIP_ANSIBLE_SHOW_VERSION} = true ]] && ansible_status=${$(ansible --version)[2]}
