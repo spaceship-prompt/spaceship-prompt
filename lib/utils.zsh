@@ -21,7 +21,8 @@ spaceship::defined() {
 # USAGE:
 #   spaceship::is_git
 spaceship::is_git() {
-  command git rev-parse --is-inside-work-tree &>/dev/null
+  # See https://git.io/fp8Pa for related discussion
+  [[ $(command git rev-parse --is-inside-work-tree 2>/dev/null) == true ]]
 }
 
 # Check if the current directory is in a Mercurial repository.
@@ -30,7 +31,7 @@ spaceship::is_git() {
 spaceship::is_hg() {
   local root="$(pwd -P)"
 
-  while [ $root ] && [ ! -d $root/.hg ]; do
+  while [ "$root" ] && [ ! -d "$root/.hg" ]; do
     root="${root%/*}"
   done
 

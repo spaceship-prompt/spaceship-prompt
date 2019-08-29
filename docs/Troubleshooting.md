@@ -15,9 +15,9 @@ This is not an issue with Spaceship prompt. Spaceship uses Unicode symbols to re
 
 * Verify your terminal emulator support Unicode characters with this command:
   ```zsh
-  curl http://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
+  curl -L https://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
   # or
-  wget -O - http://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
+  wget -O - https://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
   ```
 * Configure your terminal emulator to use UTF-8 as character encoding.
 
@@ -34,6 +34,11 @@ SPACESHIP_VI_MODE_SHOW=false
 ## Why is my prompt slow?
 
 Spaceship may work slower in big repositories since status checkings are quite a heavy operation. In this case, try to avoid having many uncommitted files.
+
+Using `grep` to fetch package version wasn't returning accurate information. So now we use `jq` with fallbacks to `python` and `node`, Which might slightly affect performance. In that case install [jq](https://stedolan.github.io/jq/) (see [#439], [#441] for more information).
+
+[#439]: https://github.com/denysdovhan/spaceship-prompt/issues/439
+[#441]: https://github.com/denysdovhan/spaceship-prompt/pull/441
 
 Prompt also may slow down because of loading of unused sections. Spaceship loads only sections mentioned in `SPACESHIP_PROMPT_ORDER` or `SPACESHIP_RPROMPT_ORDER`. If you think some sections might be useless for you, try to disable them by omitting their names in order options.
 
@@ -67,6 +72,7 @@ SPACESHIP_PROMPT_ORDER=(
   dotnet        # .NET section
   # ember       # Ember.js section (Disabled)
   kubecontext   # Kubectl context section
+  terraform     # Terraform workspace section
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status

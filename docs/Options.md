@@ -41,6 +41,7 @@ SPACESHIP_PROMPT_ORDER=(
   dotnet        # .NET section
   ember         # Ember.js section
   kubecontext   # Kubectl context section
+  terraform     # Terraform workspace section
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status
@@ -141,7 +142,7 @@ If current directory is write-protected or if current user has not enough rights
 | `SPACESHIP_DIR_TRUNC_PREFIX` | ` ` | Prefix before cwd when it's truncated. For example `…/` or `.../`, empty to disable |
 | `SPACESHIP_DIR_TRUNC_REPO` | `true` | While in `git` repo, show only root directory and folders inside it |
 | `SPACESHIP_DIR_COLOR` | `cyan` | Color of directory section |
-| `SPACESHIP_DIR_LOCK_SYMBOL` | `·` | The symbol displayed if directory is write-protected |
+| `SPACESHIP_DIR_LOCK_SYMBOL` | ![·](https://user-images.githubusercontent.com/10276208/46248218-4af95d80-c434-11e8-8e25-595d792503f1.png) | The symbol displayed if directory is write-protected (requires powerline patched font) |
 | `SPACESHIP_DIR_LOCK_COLOR` | `red` | Color for the lock symbol |
 
 ### Git (`git`)
@@ -224,9 +225,12 @@ Mercurial status indicators is shown only when you have dirty repository.
 
 ### Package version (`package`)
 
-> Works only for [npm](https://www.npmjs.com/) at the moment. Please, help us improve this section!
+> Works for [npm](https://www.npmjs.com/) and [cargo](https://crates.io/) at the moment. Please, help us improve this section!
 
-Package version is shown when repository is a package (e.g. contains a `package.json` file). If no version information is found in `package.json`, the `⚠` symbol will be displayed.
+Package version is shown when repository is a package.
+
+* **npm** — `npm` package contains a `package.json` file. We use `jq`, `python` to parse package version for improving performance and `node` as a fallback. Install [jq](https://stedolan.github.io/jq/) for **improved performance** of this section ([Why?](./Troubleshooting.md#why-is-my-prompt-slow))
+* **cargo** — `cargo` package contains a `Cargo.toml` file. Currently, we use `cargo pkgid`, it depends on `Cargo.lock`. So if package version isn't shown, you may need to run some command like `cargo build` which can generate `Cargo.lock` file.
 
 > **Note:** This is the version of the package you are working on, not the version of package manager itself.
 
@@ -318,7 +322,14 @@ Shows current version of Swift. Local version has more priority than global.
 
 ### Go (`golang`)
 
-Go section is shown only in directories that contain `Godeps`, `glide.yaml`, any other file with `.go` extension, or when current directory is in the Go workspace defined in `$GOPATH`.
+Go section is shown only in directories that contain `go.mod`, `Godeps`, `glide.yaml`, any other file with `.go` extension, or when current directory is in the Go workspace defined in `$GOPATH`.
+
+If you are using a development version of `Go`, the version uses git commit hash instead.
+
+For example:
+
+* `devel:5efe9a8f11` for development version
+* `v1.11.4` for release version
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -351,6 +362,7 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 | `SPACESHIP_RUST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Rust section |
 | `SPACESHIP_RUST_SYMBOL` | `𝗥·` | Character to be shown before Rust version |
 | `SPACESHIP_RUST_COLOR` | `red` | Color of Rust section |
+| `SPACESHIP_RUST_VERBOSE_VERSION` | `false` | Show what branch is being used, if any. (Beta, Nightly) |
 
 ### Haskell (`haskell`)
 
@@ -378,7 +390,11 @@ Julia section is shown only in directories that contain file with `.jl` extensio
 
 ### Docker (`docker`)
 
-Docker section is shown only in directories that contain `Dockerfile` or `docker-compose.yml` file.
+Docker section is shown only in directories that contain `Dockerfile` or it's possible to run `docker-compose`.
+
+`docker-compose` will run only if there is docker-compose.yml, or other file(s) specified with `COMPOSE_FILE` are accessible.
+
+The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more information see [Compose CLI environment variables](https://docs.docker.com/compose/reference/envvars/).
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -423,6 +439,7 @@ Show activated conda virtual environment. Disable native conda prompt by `conda 
 | `SPACESHIP_CONDA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the conda virtualenv section |
 | `SPACESHIP_CONDA_SYMBOL` | `🅒·` | Character to be shown before conda virtualenv section |
 | `SPACESHIP_CONDA_COLOR` | `blue` | Color of conda virtualenv environment section |
+| `SPACESHIP_CONDA_VERBOSE` | `true` | Toggle to truncate environment names under custom prefix |
 
 ### Python (`python`)
 
@@ -438,7 +455,7 @@ python section is shown only in directories that contain `requirements.txt`, `Pi
 
 ### Pyenv (`pyenv`)
 
-pyenv section is shown only in directories that contain `requirements.txt` or any other file with `.py` extension.
+pyenv section is shown only in directories that contain `requirements.txt`, `pyproject.toml` or any other file with `.py` extension.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -474,7 +491,9 @@ Ember.js section is shown only in directories that contain a `ember-cli-build.js
 
 ### Kubectl context (`kubecontext`)
 
-Shows the active kubectl context.
+Shows the active kubectl context, which consists of a cluster name and, when working in a non-default namespace, also a namespace name.
+
+**💡 Tip:**  If your cluster name (and thus context name) is too long, you can give it a shorter name using `kubectl config rename-context very_long_context_name name`.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -483,6 +502,37 @@ Shows the active kubectl context.
 | `SPACESHIP_KUBECONTEXT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_SYMBOL` | `☸️·` | Character to be shown before Kubectl context |
 | `SPACESHIP_KUBECONTEXT_COLOR` | `cyan` | Color of Kubectl context section |
+| `SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW` | `true` | Should namespace be also displayed |
+| `SPACESHIP_KUBECONTEXT_COLOR_GROUPS` | ` ` | _Array_ of pairs of colors and match patterns, empty by default |
+
+**Color Groups:** To set the section to a different color based on context or namespace, you can define an array of pair values in which the first value of a pair is a color name to use and the second value is a regular expression pattern to match against the section text (context name and/or namespace). The first matched pattern will determine the color, so list order can be used to prioritize patterns.
+
+For example, add the following to your `.zshrc` file:
+
+```zsh
+SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
+  # red if namespace is "kube-system"
+  red    '\(kube-system)$'
+  # else, green if "dev-01" is anywhere in the context or namespace
+  green  dev-01
+  # else, red if context name ends with ".k8s.local" _and_ namespace is "system"
+  red    '\.k8s\.local \(system)$'
+  # else, yellow if the entire content is "test-" followed by digits, and no namespace is displayed
+  yellow '^test-[0-9]+$'
+)
+```
+
+### Terraform workspace (`terraform`)
+
+Shows the active Terraform wokspace in directories that contain `.terraform/environment` file.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_TERRAFORM_SHOW` | `true` | Current Terraform workspace section |
+| `SPACESHIP_TERRAFORM_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Terraform workspace section |
+| `SPACESHIP_TERRAFORM_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Terraform workspace section |
+| `SPACESHIP_TERRAFORM_SYMBOL` | `🛠️·` | Character to be shown before Terraform workspace |
+| `SPACESHIP_TERRAFORM_COLOR` | `105` | Color of Terraform workspace section |
 
 ### Execution time (`exec_time`)
 
@@ -504,7 +554,7 @@ By default, Battery section is shown only if battery level is below `SPACESHIP_B
 | :------- | :-----: | ------- |
 | `SPACESHIP_BATTERY_SHOW` | `true` | Show battery section or not (`true`, `false`, `always` or `charged`) |
 | `SPACESHIP_BATTERY_PREFIX` | ` ` | Prefix before battery section |
-| `SPACESHIP_BATTERY_SUFFIX` | `SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after battery section |
+| `SPACESHIP_BATTERY_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after battery section |
 | `SPACESHIP_BATTERY_SYMBOL_CHARGING` | `⇡` | Character to be shown if battery is charging |
 | `SPACESHIP_BATTERY_SYMBOL_DISCHARGING` | `⇣` | Character to be shown if battery is discharging |
 | `SPACESHIP_BATTERY_SYMBOL_FULL` | `•` | Character to be shown if battery is full |
