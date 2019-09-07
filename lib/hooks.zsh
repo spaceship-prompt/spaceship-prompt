@@ -13,7 +13,7 @@ spaceship_exec_time_preexec_hook() {
   # The Timer is started here, but the end is taken in prompt_spaceship_precmd,
   # as this method is a precmd hook and runs right before the prompt gets rendered.
   # So we can calculate the duration there.
-  SPACESHIP_EXEC_TIME_start=${EPOCHREALTIME}
+  SPACESHIP_EXEC_TIME_start=$EPOCHREALTIME
 }
 
 # Execution time end

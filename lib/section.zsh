@@ -2,6 +2,7 @@
 spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
 
 # store result from spaceship::section
+typeset -gAH __SS_DATA
 __SS_DATA[section_result]=""
 
 # Draw prompt section (bold is used as default)
@@ -20,7 +21,7 @@ spaceship::section() {
 
   result+="%{%B%}" # set bold
   if [[ $spaceship_prompt_opened == true ]] && [[ $SPACESHIP_PROMPT_PREFIXES_SHOW == true ]]; then
-    restult+="$prefix"
+    result+="${prefix}"
   fi
   spaceship_prompt_opened=true
   result+="%{%b%}" # unset bold
