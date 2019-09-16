@@ -23,6 +23,11 @@ SPACESHIP_DOCKER_VERBOSE="${SPACESHIP_DOCKER_VERBOSE=false}"
 spaceship_docker() {
   [[ $SPACESHIP_DOCKER_SHOW == false ]] && return
 
+  # Check if podman is used instead of docker
+  spaceship::exists podman || return 
+  if [ $? -eq 0 ]; then
+    PODMAN=true
+  fi
   spaceship::exists docker || return
 
   # Better support for docker environment vars: https://docs.docker.com/compose/reference/envvars/
@@ -49,8 +54,12 @@ spaceship_docker() {
   # Show Docker status only for Docker-specific folders
   [[ "$compose_exists" == true || -f Dockerfile || -f docker-compose.yml || -f /.dockerenv ]] || return
 
-  # if docker daemon isn't running you'll get an error saying it can't connect
-  local docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
+  if [ $PODMAN ]; then
+    local docker_version=$(podman version --format "{{.Version}}" 2>/dev/null)
+  else
+    # if docker daemon isn't running you'll get an error saying it can't connect
+    local docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
+  fi
   [[ -z $docker_version ]] && return
 
   [[ $SPACESHIP_DOCKER_VERBOSE == false ]] && docker_version=${docker_version%-*}
