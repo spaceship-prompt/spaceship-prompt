@@ -21,7 +21,7 @@ spaceship_hg_branch() {
 
   spaceship::is_hg || return
 
-  local hg_info=$(hg log -r . -T '{activebookmark}')
+  local hg_info=$(hg log -r . --template '{activebookmark}')
 
   if [[ -z $hg_info ]]; then
     hg_info=$(hg branch)

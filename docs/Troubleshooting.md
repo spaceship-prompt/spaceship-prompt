@@ -15,9 +15,9 @@ This is not an issue with Spaceship prompt. Spaceship uses Unicode symbols to re
 
 * Verify your terminal emulator support Unicode characters with this command:
   ```zsh
-  curl http://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
+  curl -L https://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
   # or
-  wget -O - http://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
+  wget -O - https://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
   ```
 * Configure your terminal emulator to use UTF-8 as character encoding.
 

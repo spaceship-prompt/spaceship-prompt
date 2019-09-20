@@ -56,6 +56,7 @@ test_is_hg() {
 
   local REPO="$SHUNIT_TMPDIR/utils/is_hg"
   mkdir -p $REPO/foo
+  mkdir -p "$REPO/../foo with space"
   cd $REPO
 
   if spaceship::exists hg; then
@@ -65,6 +66,8 @@ test_is_hg() {
   assertTrue "should be a hg repo" '$(spaceship::is_hg)'
   cd foo
   assertTrue "foo should be in hg repo" '$(spaceship::is_hg)'
+  cd "../../foo with space"
+  assertFalse "'foo with space' directory should not be in hg repo" '$(spaceship::is_hg)'
   cd ../..
   assertFalse "should not be a hg repo" '$(spaceship::is_hg)'
 

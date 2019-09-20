@@ -26,8 +26,13 @@
       alt="Zsh Version" />
   </a>
 
-  <a href="#donate">
-    <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?style=flat-square"
+  <a href="https://twitter.com/SpaceshipZSH">
+    <img src="https://img.shields.io/badge/twitter-%40SpaceshipZSH-00ACEE.svg?style=flat-square"
+      alt="Spaceship ZSH Twitter" />
+  </a>
+
+  <a href="https://patreon.com/denysdovhan">
+    <img src="https://img.shields.io/badge/support-patreon-F96854.svg?style=flat-square"
       alt="Donate" />
   </a>
 </p>
@@ -59,65 +64,75 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 
 ## Features
 
-* Clever hostname and username displaying.
-* Prompt character turns red if the last command exits with non-zero code.
-* Current Git branch and rich repo status:
-  * `?` — untracked changes;
-  * `+` — uncommitted changes in the index;
-  * `!` — unstaged changes;
-  * `»` — renamed files;
-  * `✘` — deleted files;
-  * `$` — stashed changes;
-  * `=` — unmerged changes;
-  * `⇡` — ahead of remote branch;
-  * `⇣` — behind of remote branch;
-  * `⇕` — diverged changes.
-* Current Mercurial bookmark/branch and rich repo status:
-  * `?` — untracked changes;
-  * `+` — uncommitted changes in the index;
-  * `!` — unstaged changes;
-  * `✘` — deleted files;
-* Indicator for jobs in the background (`✦`).
-* Current Node.js version, through nvm/nodenv/n (`⬢`).
-* Current Ruby version, through rvm/rbenv/chruby/asdf (`💎`).
-* Current Python version (`🐍`).
-* Current Elm version (`🌳`)
-* Current Elixir version, through kiex/exenv/elixir (`💧`).
-* Current Swift version, through swiftenv (`🐦`).
-* Current Xcode version, through xenv (`🛠`).
-* Current Go version (`🐹`).
-* Current PHP version (`🐘`).
-* Current Rust version (`𝗥`).
-* Current version of Haskell GHC Compiler, defined in stack.yaml file (`λ`).
-* Current Julia version (`ஃ`).
-* Current Docker version and connected machine (`🐳`).
-* Current Amazon Web Services (AWS) profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)).
-* Current Python virtualenv.
-* Current Conda virtualenv (`🅒`).
-* Current .NET SDK version, through dotnet-cli (`.NET`).
-* Current Ember.js version, through ember-cli (`🐹`).
-* Current Kubectl context (`☸️`).
-* Current Terraform workspace (`🛠`).
-* Package version, if there's is a package in current directory (`📦`).
-* Current battery level and status:
-  * `⇡` - charging;
-  * `⇣` - discharging;
-  * `•` - fully charged.
-* Current Vi-mode mode ([with handy aliases for temporarily enabling](./docs/Options.md#vi-mode-vi_mode)).
-* Optional exit-code of last command ([how to enable](./docs/Options.md#exit-code-exit_code)).
-* Optional time stamps 12/24hr in format ([how to enable](./docs/Options.md#time-time)).
-* Execution time of the last command if it exceeds the set threshold.
+- Clever hostname and username displaying.
+- Prompt character turns red if the last command exits with non-zero code.
+- Current Git branch and rich repo status:
+  - `?` — untracked changes;
+  - `+` — uncommitted changes in the index;
+  - `!` — unstaged changes;
+  - `»` — renamed files;
+  - `✘` — deleted files;
+  - `$` — stashed changes;
+  - `=` — unmerged changes;
+  - `⇡` — ahead of remote branch;
+  - `⇣` — behind of remote branch;
+  - `⇕` — diverged changes.
+- Current Mercurial bookmark/branch and rich repo status:
+  - `?` — untracked changes;
+  - `+` — uncommitted changes in the index;
+  - `!` — unstaged changes;
+  - `✘` — deleted files;
+- Indicator for jobs in the background (`✦`).
+- Current Node.js version, through nvm/nodenv/n (`⬢`).
+- Current Ruby version, through rvm/rbenv/chruby/asdf (`💎`).
+- Current Elm version (`🌳`)
+- Current Elixir version, through kiex/exenv/elixir (`💧`).
+- Current Swift version, through swiftenv (`🐦`).
+- Current Xcode version, through xenv (`🛠`).
+- Current Go version (`🐹`).
+- Current PHP version (`🐘`).
+- Current Rust version (`𝗥`).
+- Current version of Haskell GHC Compiler, defined in stack.yaml file (`λ`).
+- Current Julia version (`ஃ`).
+- Current Docker version and connected machine (`🐳`).
+- Current Amazon Web Services (AWS) profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)).
+- Current Python virtualenv.
+- Current Conda virtualenv (`🅒`).
+- Current Python pyenv (`🐍`).
+- Current .NET SDK version, through dotnet-cli (`.NET`).
+- Current Ember.js version, through ember-cli (`🐹`).
+- Current Kubectl context (`☸️`).
+- Current Terraform workspace (`🛠`).
+- Package version, if there's is a package in current directory (`📦`).
+- Current battery level and status:
+  - `⇡` - charging;
+  - `⇣` - discharging;
+  - `•` - fully charged.
+- Current Vi-mode mode ([with handy aliases for temporarily enabling](./docs/Options.md#vi-mode-vi_mode)).
+- Optional exit-code of last command ([how to enable](./docs/Options.md#exit-code-exit_code)).
+- Optional time stamps 12/24hr in format ([how to enable](./docs/Options.md#time-time)).
+- Execution time of the last command if it exceeds the set threshold.
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose) or send pull request.
+
+**💡 Tip:** Follow our Twitter to keep yourself updated about new features, improvements, and bugfixes.
 
 ## Requirements
 
 To work correctly, you will first need:
 
-* [`zsh`](http://www.zsh.org/) (v5.2 or recent) must be installed.
-* [Powerline Font](https://github.com/powerline/fonts) must be installed and used in your terminal (for example, switch font to [Fira Code](https://github.com/tonsky/FiraCode)).
+- [`zsh`](http://www.zsh.org/) (v5.2 or recent) must be installed.
+- [Powerline Font](https://github.com/powerline/fonts) must be installed and used in your terminal (for example, switch font to [Fira Code](https://github.com/tonsky/FiraCode)).
 
 ## Installing
+
+Now that the requirements are satisfied, you can install Spaceship ZSH via any of the following tools.
+
+**💡 Tip:** If you like this project ~~and want to get some stickers and postcards~~, consider becoming a patron:
+
+<a href="https://patreon.com/denysdovhan">
+  <img alt="Become a patron" src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px">
+</a>
 
 ### [npm]
 
@@ -147,16 +162,16 @@ Set `ZSH_THEME="spaceship"` in your `.zshrc`.
 
 ### [prezto]
 
-* Follow [prezto-contrib#usage](https://github.com/belak/prezto-contrib#usage) to clone `prezto-contrib` to the proper location.
-* Enable the `contrib-prompt` module (before the `prompt` module).
-* Set `zstyle ':prezto:module:prompt' theme 'spaceship'` in your `.zpreztorc`.
+- Follow [prezto-contrib#usage](https://github.com/belak/prezto-contrib#usage) to clone `prezto-contrib` to the proper location.
+- Enable the `contrib-prompt` module (before the `prompt` module).
+- Set `zstyle ':prezto:module:prompt' theme 'spaceship'` in your `.zpreztorc`.
 
 ### [antigen]
 
 Add the following snippet in your `~/.zshrc`:
 
 ```
-antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
+antigen theme denysdovhan/spaceship-prompt
 ```
 
 ### [antibody]
@@ -180,7 +195,7 @@ zgen load denysdovhan/spaceship-prompt spaceship
 Use this command in your `.zshrc` to load Spaceship as prompt theme:
 
 ```
-zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 ```
 
 ### Linux package manager
@@ -199,9 +214,9 @@ makepkg -si
 
 If you have problems with approaches above, follow these instructions:
 
-* Clone this repo `git clone https://github.com/denysdovhan/spaceship-prompt.git`
-* Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
-* Initialize prompt system and choose `spaceship`.
+- Clone this repo `git clone https://github.com/denysdovhan/spaceship-prompt.git`
+- Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
+- Initialize prompt system and choose `spaceship`.
 
 #### Example
 
@@ -235,12 +250,12 @@ prompt spaceship
 
 Spaceship works well out of the box, but you can customize almost everything if you want.
 
-* [**Options**](./docs/Options.md) — Tweak section's behavior with tons of options.
-* [**API**](./docs/API.md) — Define a custom section that will do exactly what you want.
+- [**Options**](./docs/Options.md) — Tweak section's behavior with tons of options.
+- [**API**](./docs/API.md) — Define a custom section that will do exactly what you want.
 
 You have ability to customize or disable specific elements of Spaceship. All options must be overridden in your `.zshrc` file **after** the theme.
 
-Also, take a look at popular option presets or share your own configuration on [Presets](https://github.com/denysdovhan/spaceship-prompt/wiki/Presets) wiki page.
+**💡 Tip:** Take a look at popular option presets or share your own configuration on [Presets](https://github.com/denysdovhan/spaceship-prompt/wiki/Presets) wiki page.
 
 ## Troubleshooting
 
@@ -248,20 +263,29 @@ Having trouble? Take a look at out [Troubleshooting](./docs/Troubleshooting.md) 
 
 Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.
 
+## Related Projects
+
+Here's a list of related projects that have been inspired by Spaceship ZSH.
+
+- [**matchai/spacefish**](https://github.com/matchai/spacefish) - A port of Spaceship ZSH for fish shell intending to achieve complete feature parity.
+- [**starship/starship**](https://github.com/starship/starship) - A blazing-fast, cross-shell prompt written in Rust, heavily inspired by Spaceship ZSH.
+
 ## Team
 
 | [![Denys Dovhan](https://github.com/denysdovhan.png?size=100)](http://denysdovhan.com) | [![Salmanul Farzy](https://github.com/salmanulfarzy.png?size=100)](https://github.com/salmanulfarzy) | [![Maxim Baz](https://github.com/maximbaz.png?size=100)](https://github.com/maximbaz) |
-| :---: | :---: | :---: |
-| [Denys Dovhan](https://github.com/denysdovhan) | [Salmanul Farzy](https://github.com/salmanulfarzy) | [Maxim Baz](https://github.com/maximbaz) |
+| :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
+|                     [Denys Dovhan](https://github.com/denysdovhan)                     |                          [Salmanul Farzy](https://github.com/salmanulfarzy)                          |                       [Maxim Baz](https://github.com/maximbaz)                        |
 
 ## Donate
 
-Hi! I work on this project in my spare time, in addition to my primary job. I hope you enjoy using Spaceship. If you do, please, [buy me a cup of tea ☕️][donate-card-url].
+Hi! I work on this project in my spare time, in addition to my primary job. I hope you enjoy using Spaceship ZSH. If you do, please, [become my patron 🤝][patreon-url].
 
-| Credit/Debit card | Bitcoin | Ethereum |
-|:-----------------:|:-------:|:--------:|
-| [Donate with LiqPay][donate-card-url] | `1FrPrQb6ACTkbSBAz9PduJWrDFfq41Ggb4` | `0x6aF39C917359897ae6969Ad682C14110afe1a0a1` |
-| <img src="https://cloud.githubusercontent.com/assets/3459374/25771981/6f2ba08c-3268-11e7-9fc8-49e3f7b9e0e5.png" width="100px"/> | <img src="https://user-images.githubusercontent.com/3459374/33760933-1c9b81b4-dc10-11e7-8e4b-22d81f98c138.png" width="100px"/> | <img src="https://user-images.githubusercontent.com/3459374/33760932-1c7b3fb2-dc10-11e7-9774-411264d533da.png" width="100px"/> |
+|                                                                    Patreon                                                                     |                                                            Bitcoin                                                             |                                                            Ethereum                                                            |
+| :--------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
+|                                                         [Become a patron][patreon-url]                                                         |                                              `1FrPrQb6ACTkbSBAz9PduJWrDFfq41Ggb4`                                              |                                          `0x6aF39C917359897ae6969Ad682C14110afe1a0a1`                                          |
+| <a href="https://www.patreon.com/denysdovhan"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px"></a> | <img src="https://user-images.githubusercontent.com/3459374/33760933-1c9b81b4-dc10-11e7-8e4b-22d81f98c138.png" width="100px"/> | <img src="https://user-images.githubusercontent.com/3459374/33760932-1c7b3fb2-dc10-11e7-9774-411264d533da.png" width="100px"/> |
+
+This is your way make a clear statement: **My work is valued.**
 
 I would appreciate your support! _Thank you!_
 
@@ -273,14 +297,12 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 
 [npm-url]: https://npmjs.org/package/spaceship-prompt
 [npm-image]: https://img.shields.io/npm/v/spaceship-prompt.svg?style=flat-square
-
 [ci-url]: https://travis-ci.org/denysdovhan/spaceship-prompt
 [ci-image]: https://img.shields.io/travis/denysdovhan/spaceship-prompt.svg?style=flat-square
-
 [zsh-url]: http://zsh.org/
 [zsh-image]: https://img.shields.io/badge/zsh-%3E%3Dv5.2-777777.svg?style=flat-square
-
-[donate-card-url]: https://www.liqpay.com/en/checkout/380951100392
+[patreon-url]: https://www.patreon.com/denysdovhan
+[patreon-image]: https://img.shields.io/badge/zsh-%3E%3Dv5.2-777777.svg?style=flat-square
 
 <!-- References -->
 
