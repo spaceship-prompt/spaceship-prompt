@@ -486,7 +486,7 @@ React.js section is shown only in directories that contain a `node_modules/react
 | `SPACESHIP_REACT_SHOW` | `true` | Current React.js section |
 | `SPACESHIP_REACT_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before React.js section |
 | `SPACESHIP_REACT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after React.js section |
-| `SPACESHIP_REACT_SYMBOL` | `🐹·` | Character to be shown before React.js version |
+| `SPACESHIP_REACT_SYMBOL` | `⚛️·` | Character to be shown before React.js version |
 | `SPACESHIP_REACT_COLOR` | `blue` | Color of React.js section |
 
 ### Kubectl context (`kubecontext`)
