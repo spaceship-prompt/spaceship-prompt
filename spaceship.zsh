@@ -65,6 +65,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     pyenv         # Pyenv section
     dotnet        # .NET section
     ember         # Ember.js section
+    react         # React.js section
     kubecontext   # Kubectl context section
     terraform     # Terraform workspace section
     exec_time     # Execution time
