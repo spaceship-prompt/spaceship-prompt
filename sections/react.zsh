@@ -22,7 +22,6 @@ SPACESHIP_REACT_COLOR="${SPACESHIP_REACT_COLOR="blue"}"
 spaceship_react() {
   [[ $SPACESHIP_REACT_SHOW == false ]] && return
 
-  # Show current version of React
   if [[ -f ./node_modules/react/package.json ]] && spaceship::exists npm; then
     if spaceship::exists jq; then
       react_version=$(jq -r '.version' ./node_modules/react/package.json 2>/dev/null)
