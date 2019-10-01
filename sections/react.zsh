@@ -23,8 +23,14 @@ spaceship_react() {
   [[ $SPACESHIP_REACT_SHOW == false ]] && return
 
   # Show current version of React
-  if [[ -f ./node_modules/react/package.json ]] && spaceship::exists npm && spaceship::exists node; then
-    local react_version=$(node -p "require('./node_modules/react/package.json').version" 2> /dev/null)
+  if [[ -f ./node_modules/react/package.json ]] && spaceship::exists npm; then
+    if spaceship::exists jq; then
+      react_version=$(jq -r '.version' ./node_modules/react/package.json 2>/dev/null)
+    elif spaceship::exists python; then
+      react_version=$(python -c "import json; print(json.load(open('node_modules/react/package.json'))['version'])" 2>/dev/null)
+    elif spaceship::exists node; then
+      react_version=$(node -p "require('./node_modules/react/package.json').version" 2> /dev/null)
+    fi
   fi
 
   [[ -z $react_version || "$react_version" == "null" || "$react_version" == "undefined" ]] && return
