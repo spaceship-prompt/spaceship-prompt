@@ -9,7 +9,7 @@
 # Useful for issue reporting
 export SPACESHIP_VERSION='3.11.2'
 
-# Common-used variable for ne line separator
+# Common-used variable for new line separator
 NEWLINE='
 '
 
@@ -124,7 +124,7 @@ for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORD
 done
 
 # ------------------------------------------------------------------------------
-# RD COMPATIBILITY WARNINGS
+# BACKWARD COMPATIBILITY WARNINGS
 # Show deprecation messages for options that are set, but not supported
 # ------------------------------------------------------------------------------
 
@@ -178,7 +178,7 @@ spaceship_ps2() {
 # ------------------------------------------------------------------------------
 
 # Runs once when user opens a terminal
-# All preparation before ing prompt should be done here
+# All preparation before drawing prompt should be done here
 prompt_spaceship_setup() {
   autoload -Uz vcs_info
   autoload -Uz add-zsh-hook
