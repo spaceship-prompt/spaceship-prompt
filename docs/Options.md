@@ -6,6 +6,18 @@ Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/z
 
 **Note:** the symbol `·` in this document represents a regular space character ` `, it is used to clearly indicate when an option default value starts or ends with a space.
 
+### Configuration directory
+
+In addition to defining custom sections in your `.zshrc` file or in files you explicitly source into your `.zshrc` file, you can define custom sections in the  `SPACESHIP_CONFIG_DIR`'s `sections` directory.
+
+The default path is:
+
+```zsh
+SPACESHIP_CONFIG_DIR="${HOME}/.config/spaceship"
+```
+
+Each section must be in its own file, named after the section (e.g. `$SPACESHIP_CONFIG_DIR/sections/newsection.zsh`). See the [API docs](./API.md) for more information on how to define custom sections.
+
 ### Order
 
 You can specify the order of prompt section using `SPACESHIP_PROMPT_ORDER` option. Use Zsh array syntax to define your own prompt order.
