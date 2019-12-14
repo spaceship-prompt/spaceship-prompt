@@ -253,7 +253,34 @@ Spaceship works well out of the box, but you can customize almost everything if 
 - [**Options**](./docs/Options.md) — Tweak section's behavior with tons of options.
 - [**API**](./docs/API.md) — Define a custom section that will do exactly what you want.
 
-You have ability to customize or disable specific elements of Spaceship. All options must be overridden in your `.zshrc` file **after** the theme.
+You have ability to customize or disable specific elements of Spaceship. Set options and define new sections in in your `.zshrc` file, **after** the theme. To include a custom section you have defined in your prompt, add it to the `SPACESHIP_PROMPT_ORDER`.
+
+For example:
+
+```shell
+# .zshrc
+
+# add Spaceship (differs by setup, see Installating above)
+
+section_mysection() {
+  # ...
+}
+
+SPACESHIP_PROMPT_ORDER=(<any preceding sections> mysection <any following sections>)
+```
+
+To append custom sections to the default Spaceship prompt, follow the form
+
+```shell
+SPACESHIP_PROMPT_ORDER=($SPACESHIP_PROMPT_ORDER mysection)
+```
+
+To prepend custom sections to the default Spaceship prompt, follow the form
+
+```shell
+SPACESHIP_PROMPT_ORDER=(mysection $SPACESHIP_PROMPT_ORDER)
+```
+
 
 **💡 Tip:** Take a look at popular option presets or share your own configuration on [Presets](https://github.com/denysdovhan/spaceship-prompt/wiki/Presets) wiki page.
 
