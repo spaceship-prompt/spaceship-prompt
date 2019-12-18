@@ -6,18 +6,6 @@ Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/z
 
 **Note:** the symbol `·` in this document represents a regular space character ` `, it is used to clearly indicate when an option default value starts or ends with a space.
 
-### Configuration directory
-
-In addition to defining custom sections in your `.zshrc` file or in files you explicitly source into your `.zshrc` file, you can define custom sections in the  `SPACESHIP_CONFIG_DIR`'s `sections` directory.
-
-The default path is:
-
-```zsh
-SPACESHIP_CONFIG_DIR="${HOME}/.config/spaceship"
-```
-
-Each section must be in its own file, named after the section (e.g. `$SPACESHIP_CONFIG_DIR/sections/newsection.zsh`). See the [API docs](./API.md) for more information on how to define custom sections.
-
 ### Order
 
 You can specify the order of prompt section using `SPACESHIP_PROMPT_ORDER` option. Use Zsh array syntax to define your own prompt order.
@@ -65,6 +53,28 @@ SPACESHIP_PROMPT_ORDER=(
 ```
 
 You can also add items to the right prompt by specifying them in the `SPACESHIP_RPROMPT_ORDER` option. By default `SPACESHIP_RPROMPT_ORDER` is empty.
+
+## Sections
+
+### Custom
+
+Spaceship comes with the many prompt sections detailed below. If these options are not enough to do what you want, you can add custom sections. Define them directly in your `.zshrc` file, or in the `sections` directory in the  `SPACESHIP_CONFIG_DIR` directory.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_CONFIG_DIR` | `${HOME}/.config/spaceship` | The path to the Spaceship configuration directory |
+
+Sections in the configuration directory must be one per file, and the file's name must be the same as the section's. For example,
+
+```zsh
+# $SPACESHIP_CONFIG_DIR/sections/newsection.zsh
+# --- snip ---
+spaceship_newsection() {
+# --- snip ---
+}
+```
+
+See the [API documentation](./API.md) for information on how to write custom sections.
 
 ### Prompt
 
@@ -617,7 +627,3 @@ Disabled by default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, 
 | `SPACESHIP_EXIT_CODE_SUFFIX` | ` ` | Suffix after exit code section |
 | `SPACESHIP_EXIT_CODE_SYMBOL` | `✘` | Character to be shown before exit code |
 | `SPACESHIP_EXIT_CODE_COLOR` | `red` | Color of exit code section |
-
-## Need more?
-
-If these options are not enough to do what you want, read more about Spaceship's API on [API page](./API.md) of the documentation.

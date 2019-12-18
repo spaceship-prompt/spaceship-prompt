@@ -263,22 +263,7 @@ spaceship_newsection() {
 }
 ```
 
-or in the `SPACESHIP_CONFIG_DIR`'s `sections` directory in files named after the section, for example
-
-```
-$SPACESHIP_CONFIG_DIR
-└── sections
-    └── newsection.zsh
-```
-
-```zsh
-cat $SPACESHIP_CONFIG_DIR/sections/newsection.zsh
-
-# --- snip ---
-spaceship_newsection() {
-# --- snip ---
-}
-```
+or in the Spaceship config directory's `sections` subdirectory (by default, `~/.config/spaceship/sections`). See the Options and API documentation for more information.
 
 **💡 Tip:** Take a look at popular option presets or share your own configuration on [Presets](https://github.com/denysdovhan/spaceship-prompt/wiki/Presets) wiki page.
 
