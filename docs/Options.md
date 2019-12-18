@@ -1,4 +1,4 @@
-## Options
+# Options
 
 You have ability to customize or disable specific elements of Spaceship. All options must be overridden in your `.zshrc` file **after** the theme.
 
@@ -6,7 +6,7 @@ Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/z
 
 **Note:** the symbol `·` in this document represents a regular space character ` `, it is used to clearly indicate when an option default value starts or ends with a space.
 
-### Order
+## Order
 
 You can specify the order of prompt section using `SPACESHIP_PROMPT_ORDER` option. Use Zsh array syntax to define your own prompt order.
 
