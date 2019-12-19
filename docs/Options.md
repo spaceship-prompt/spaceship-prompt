@@ -223,6 +223,18 @@ Mercurial status indicators is shown only when you have dirty repository.
 | `SPACESHIP_HG_STATUS_MODIFIED` | `!` | Indicator for unstaged files |
 | `SPACESHIP_HG_STATUS_DELETED` | `✘` | Indicator for deleted files |
 
+### DVC (`dvc`)
+
+DVC section is shown only in directories inside a DVC repository (.dvc).
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_DVC_SHOW` | `true` | Show DVC section |
+| `SPACESHIP_DVC_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before DVC section |
+| `SPACESHIP_DVC_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after DVC section |
+| `SPACESHIP_DVC_SYMBOL` | `DVC·` | Character to be shown before DVC version |
+| `SPACESHIP_DVC_COLOR` | `white` | Color of Ruby section |
+
 ### Package version (`package`)
 
 > Works for [npm](https://www.npmjs.com/) and [cargo](https://crates.io/) at the moment. Please, help us improve this section!

@@ -15,6 +15,7 @@
   * [Mercurial (hg)](/docs/Options.md#mercurial-hg)
     * [Mercurial branch (hg_branch)](/docs/Options.md#mercurial-branch-hg_branch)
     * [Mercurial status (hg_status)](/docs/Options.md#mercurial-status-hg_status)
+  * [DVC (dvc)](/docs/Options.md#dvc-dvc)
   * [Package version (package)](/docs/Options.md#package-version-package)
   * [Node (node)](/docs/Options.md#nodejs-node)
   * [Ruby (ruby)](/docs/Options.md#ruby-ruby)
