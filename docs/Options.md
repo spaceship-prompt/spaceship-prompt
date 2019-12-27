@@ -491,7 +491,7 @@ Kubernetes section consists of `kubectl_version` and `kubectl_context` subsectio
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_KUBECTL_SHOW` | `true` | Show Kubernetes section |
+| `SPACESHIP_KUBECTL_SHOW` | `false` | Show Kubernetes section |
 | `SPACESHIP_KUBECTL_PREFIX` | `at·` | Prefix before Kubernetes section |
 | `SPACESHIP_KUBECTL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubernetes section |
 | `SPACESHIP_KUBECTL_COLOR` | `white` | Color of Kubernetes section |
@@ -514,7 +514,7 @@ Shows the active kubectl context, which consists of a cluster name and, when wor
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_KUBECONTEXT_SHOW` | `false` | Current Kubectl context section |
+| `SPACESHIP_KUBECONTEXT_SHOW` | `true` | Current Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_PREFIX` | `at·` | Prefix before Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_COLOR` | `cyan` | Color of Kubectl context section |
