@@ -10,7 +10,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_KUBECTL_VERSION_SHOW="${SPACESHIP_KUBECTL_VERSION_SHOW=true}"
-SPACESHIP_KUBECTL_VERSION_PREFIX="${SPACESHIP_KUBECTL_VERSION_PREFIX="☸️  "}"
+SPACESHIP_KUBECTL_VERSION_PREFIX="${SPACESHIP_KUBECTL_VERSION_PREFIX=""}"
 SPACESHIP_KUBECTL_VERSION_SUFFIX="${SPACESHIP_KUBECTL_VERSION_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_KUBECTL_VERSION_COLOR="${SPACESHIP_KUBECTL_VERSION_COLOR="cyan"}"
 
@@ -24,7 +24,7 @@ spaceship_kubectl_version() {
 
   spaceship::exists kubectl || return
 
-  # if kubectl can't connect kubernetes cluster, kubecontext section will be not shown
+  # if kubectl can't connect kubernetes cluster, kubernetes version section will be not shown
   local kubectl_version=$(kubectl version --short 2>/dev/null | grep "Server Version" | awk '{ match($0, /^Server Version: (.+)$/, version); print version[1] }')
   [[ -z $kubectl_version ]] && return
 

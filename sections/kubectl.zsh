@@ -10,6 +10,7 @@ SPACESHIP_KUBECTL_SHOW="${SPACESHIP_KUBECTL_SHOW=true}"
 SPACESHIP_KUBECTL_PREFIX="${SPACESHIP_KUBECTL_PREFIX="at "}"
 SPACESHIP_KUBECTL_SUFFIX="${SPACESHIP_KUBECTL_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_KUBECTL_COLOR="${SPACESHIP_KUBECTL_COLOR="white"}"
+SPACESHIP_KUBECTL_SYMBOL="${SPACESHIP_KUBECTL_SYMBOL="☸️  "}"
 
 # ------------------------------------------------------------------------------
 # Dependencies
@@ -30,11 +31,11 @@ spaceship_kubectl() {
 
   local kubectl_version="$(spaceship_kubectl_version)" kubectl_context="$(spaceship_kubectl_context)"
 
-  [[ -z $kubectl_version ]] && return
+  [[ -z $kubectl_version && -z $kubectl_context ]] && return
 
   spaceship::section \
     "$SPACESHIP_KUBECTL_COLOR" \
     "$SPACESHIP_KUBECTL_PREFIX" \
-    "${kubectl_version}${kubectl_context}" \
+    "${SPACESHIP_KUBECTL_SYMBOL}${kubectl_version}${kubectl_context}" \
     "$SPACESHIP_KUBECTL_SUFFIX"
 }
