@@ -8,7 +8,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_DOCKER_CONTEXT_SHOW="${SPACESHIP_DOCKER_CONTEXT_SHOW=true}"
-SPACESHIP_DOCKER_CONTEXT_PREFIX="${SPACESHIP_DOCKER_CONTEXT_PREFIX="("}"
+SPACESHIP_DOCKER_CONTEXT_PREFIX="${SPACESHIP_DOCKER_CONTEXT_PREFIX=" ("}"
 SPACESHIP_DOCKER_CONTEXT_SUFFIX="${SPACESHIP_DOCKER_CONTEXT_SUFFIX=")"}"
 
 # ------------------------------------------------------------------------------
@@ -40,7 +40,5 @@ spaceship_docker_context() {
 
   spaceship::section \
     "$SPACESHIP_DOCKER_COLOR" \
-    "$SPACESHIP_DOCKER_CONTEXT_PREFIX" \
-    "${docker_remote_context}" \
-    "$SPACESHIP_DOCKER_CONTEXT_SUFFIX"
+    "$SPACESHIP_DOCKER_CONTEXT_PREFIX${docker_remote_context}$SPACESHIP_DOCKER_CONTEXT_SUFFIX"
 }
