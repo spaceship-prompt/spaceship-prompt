@@ -11,6 +11,7 @@ SPACESHIP_VI_MODE_PREFIX="${SPACESHIP_VI_MODE_PREFIX=""}"
 SPACESHIP_VI_MODE_SUFFIX="${SPACESHIP_VI_MODE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_VI_MODE_INSERT="${SPACESHIP_VI_MODE_INSERT="[I]"}"
 SPACESHIP_VI_MODE_NORMAL="${SPACESHIP_VI_MODE_NORMAL="[N]"}"
+SPACESHIP_VI_MODE_VISUAL="${SPACESHIP_VI_MODE_VISUAL="[V]"}"
 SPACESHIP_VI_MODE_COLOR="${SPACESHIP_VI_MODE_COLOR="white"}"
 
 # ------------------------------------------------------------------------------
@@ -30,6 +31,9 @@ spaceship_vi_mode() {
       ;;
       vicmd)
       mode_indicator="${SPACESHIP_VI_MODE_NORMAL}"
+      ;;
+      vivis)
+      mode_indicator="${SPACESHIP_VI_MODE_VISUAL}"
       ;;
     esac
 
