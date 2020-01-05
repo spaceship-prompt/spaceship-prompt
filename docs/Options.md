@@ -398,12 +398,20 @@ The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more inf
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_DOCKER_SHOW` | `true` | Show current Docker version and connected docker-machine or not |
+| `SPACESHIP_DOCKER_SHOW` | `true` | Show current Docker version or not |
 | `SPACESHIP_DOCKER_PREFIX` | `on ` | Prefix before the Docker section |
 | `SPACESHIP_DOCKER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Docker section |
 | `SPACESHIP_DOCKER_SYMBOL` | `🐳·` | Character to be shown before Docker version |
 | `SPACESHIP_DOCKER_COLOR` | `cyan` | Color of Docker section |
 | `SPACESHIP_DOCKER_VERBOSE` | `false` | Show complete Docker version |
+
+### Docker context (`docker_context`)
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_DOCKER_CONTEXT_SHOW` | `true` | Show current Docker context or not |
+| `SPACESHIP_DOCKER_CONTEXT_PREFIX` | `(` | Prefix before the Docker context section |
+| `SPACESHIP_DOCKER_CONTEXT_SUFFIX` | `)` | Suffix after the Docker context section |
 
 ### Amazon Web Services (AWS) (`aws`)
 
