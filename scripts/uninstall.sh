@@ -90,7 +90,7 @@ main() {
       sed '/^# Set Spaceship ZSH as a prompt$/d' "$ZSHRC" | \
       sed '/^autoload -U promptinit; promptinit$/d' | \
       sed '/^prompt spaceship$/d' | \
-      sed  -E '/^SPACESHIP_R?PROMPT_ORDER=\([^)]*$/,/^[^(]*)/d' | \
+      sed  -E '/^SPACESHIP_R?PROMPT_ORDER=\([^)]*$/,/^[^(]*\)/d' | \
       sed '/^SPACESHIP_.*$/d' > "$ZSHRC.bak" && \
       mv -- "$ZSHRC.bak" "$ZSHRC"
     fi
