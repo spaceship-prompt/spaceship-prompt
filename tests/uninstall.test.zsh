@@ -25,13 +25,14 @@ setUp() {
 # ------------------------------------------------------------------------------
 
 test_uninstall_preserve_zshrc_content() {
-  echo "TEST=TEST" >> ~/.zshrc
+  local zshrc_content_to_preserve="TEST=TEST"
+  echo $zshrc_content_to_preserve >> ~/.zshrc
 
   ./scripts/uninstall.sh -y >/dev/null
 
   zshrc_content=$(<~/.zshrc)
 
-  assertContains "preserve non spaceship related install config" "$zshrc_content" "TEST=TEST"
+  assertContains "preserve non spaceship related install config" "$zshrc_content" "$zshrc_content_to_preserve"
 }
 
 test_uninstall_remove_spaceship_content_from_zshrc() {
