@@ -35,13 +35,18 @@ test_uninstall_preserve_zshrc_content() {
 }
 
 test_uninstall_remove_spaceship_content_from_zshrc() {
+  local spaceship_promt_order_env="SPACESHIP_PROMPT_ORDER=(
+    time          # Time stampts section
+  )"
+  echo $spaceship_promt_order_env >> ~/.zshrc
+
   ./scripts/uninstall.sh -y >/dev/null
 
   zshrc_content=$(<~/.zshrc)
 
   assertNotContains "remove spaceship load comment" "$zshrc_content" "# Set Spaceship ZSH as a prompt"
   assertNotContains "remove auto load prompt init" "$zshrc_content" "autoload -U promptinit; promptinit"
-  assertNotContains "remove SPACESHIP_PROMPT_ORDER env" "$zshrc_content" "SPACESHIP_RPROMPT_ORDER"
+  assertNotContains "remove SPACESHIP_PROMPT_ORDER env" "$zshrc_content" "$spaceship_promt_order_env"
 }
 
 # ------------------------------------------------------------------------------
