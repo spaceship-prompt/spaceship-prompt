@@ -24,6 +24,7 @@ SPACESHIP_PROMPT_ORDER=(
   hg            # Mercurial section (hg_branch  + hg_status)
   package       # Package version
   node          # Node.js section
+  cordova       # Cordova section
   ruby          # Ruby section
   elixir        # Elixir section
   xcode         # Xcode section
