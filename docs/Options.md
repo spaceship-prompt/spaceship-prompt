@@ -147,7 +147,7 @@ If current directory is write-protected or if current user has not enough rights
 
 ### Git (`git`)
 
-Git section is consists with `git_branch` and `git_status` subsections. It is shown only in Git repositories.
+Git section consists of `git_branch` and `git_status` subsections. It is shown only in Git repositories.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -485,7 +485,28 @@ Ember.js section is shown only in directories that contain a `ember-cli-build.js
 | `SPACESHIP_EMBER_SYMBOL` | `🐹·` | Character to be shown before Ember.js version |
 | `SPACESHIP_EMBER_COLOR` | `210` | Color of Ember.js section |
 
-### Kubectl context (`kubecontext`)
+### Kubernetes (`kubectl`)
+
+Kubernetes section consists of `kubectl_version` and `kubectl_context` subsections. It is shown only when kubectl can connect to Kubernetes cluster.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_KUBECTL_SHOW` | `false` | Show Kubernetes section |
+| `SPACESHIP_KUBECTL_PREFIX` | `at·` | Prefix before Kubernetes section |
+| `SPACESHIP_KUBECTL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubernetes section |
+| `SPACESHIP_KUBECTL_COLOR` | `white` | Color of Kubernetes section |
+| `SPACESHIP_KUBECTL_SYMBOL` | `☸️··` | Character to be shown before Kubernetes subsection |
+
+#### Kubernetes version (`kubectl_version`)
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_KUBECTL_VERSION_SHOW` | `true` | Show Kubernetes version subsection |
+| `SPACESHIP_KUBECTL_VERSION_PREFIX` | ` ` | Prefix before Kubernetes version subsection |
+| `SPACESHIP_KUBECTL_VERSION_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubernetes version subsection |
+| `SPACESHIP_KUBECTL_VERSION_COLOR` | `cyan` | Color of Kubernetes version subsection |
+
+### Kubernetes context (`kubectl_context`)
 
 Shows the active kubectl context, which consists of a cluster name and, when working in a non-default namespace, also a namespace name.
 
@@ -496,7 +517,6 @@ Shows the active kubectl context, which consists of a cluster name and, when wor
 | `SPACESHIP_KUBECONTEXT_SHOW` | `true` | Current Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_PREFIX` | `at·` | Prefix before Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubectl context section |
-| `SPACESHIP_KUBECONTEXT_SYMBOL` | `☸️·` | Character to be shown before Kubectl context |
 | `SPACESHIP_KUBECONTEXT_COLOR` | `cyan` | Color of Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW` | `true` | Should namespace be also displayed |
 | `SPACESHIP_KUBECONTEXT_COLOR_GROUPS` | ` ` | _Array_ of pairs of colors and match patterns, empty by default |
