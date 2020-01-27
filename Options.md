@@ -410,7 +410,7 @@ The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more inf
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_DOCKER_CONTEXT_SHOW` | `true` | Show current Docker context or not |
-| `SPACESHIP_DOCKER_CONTEXT_PREFIX` | `(` | Prefix before the Docker context section |
+| `SPACESHIP_DOCKER_CONTEXT_PREFIX` | `·(` | Prefix before the Docker context section |
 | `SPACESHIP_DOCKER_CONTEXT_SUFFIX` | `)` | Suffix after the Docker context section |
 
 ### Amazon Web Services (AWS) (`aws`)
