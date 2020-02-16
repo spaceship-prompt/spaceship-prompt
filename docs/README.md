@@ -17,6 +17,7 @@
     * [Mercurial status (hg_status)](/docs/Options.md#mercurial-status-hg_status)
   * [Package version (package)](/docs/Options.md#package-version-package)
   * [Node (node)](/docs/Options.md#nodejs-node)
+  * [Yarn (yarn)](/docs/Options.md#yarn-yarn)
   * [Ruby (ruby)](/docs/Options.md#ruby-ruby)
   * [Elm (elm)](/docs/Options.md#elm-elm)
   * [Elixir (elixir)](/docs/Options.md#elixir-elixir)
@@ -58,4 +59,3 @@
   * [spaceship::displaytime](/docs/API.md#spaceshipdisplaytime-seconds)
   * [spaceship::union](/docs/API.md#spaceshipunion-arr1-arr2-)
 * [Troubleshooting](/docs/Troubleshooting.md)
-
