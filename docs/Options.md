@@ -257,6 +257,21 @@ If you set `SPACESHIP_NODE_DEFAULT_VERSION` to the default Node.js version and y
 | `SPACESHIP_NODE_DEFAULT_VERSION` | ` ` | Node.js version to be treated as default |
 | `SPACESHIP_NODE_COLOR` | `green` | Color of Node.js section |
 
+### Yarn (`yarn`)
+
+Yarn section is shown only in directories that contain `package.json` file, or `node_modules` folder, or any other file with `.js` extension.
+
+If you set `SPACESHIP_YARN_DEFAULT_VERSION` to the default Yarn version and your current version is the same as `SPACESHIP_YARN_DEFAULT_VERSION`, then Yarn section will be hidden.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_YARN_SHOW` | `true` | Current Yarn section |
+| `SPACESHIP_YARN_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Yarn section |
+| `SPACESHIP_YARN_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Yarn section |
+| `SPACESHIP_YARN_SYMBOL` | `🐈·` | Character to be shown before Yarn version |
+| `SPACESHIP_YARN_DEFAULT_VERSION` | ` ` | Yarn version to be treated as default |
+| `SPACESHIP_YARN_COLOR` | `green` | Color of Yarn section |
+
 ### Ruby (`ruby`)
 
 Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`, or any other file with `.rb` extension.
