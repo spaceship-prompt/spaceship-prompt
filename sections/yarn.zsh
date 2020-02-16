@@ -1,5 +1,6 @@
 #
 # Yarn
+# Module created by 🗡️ https://github.com/bouteillerAlan
 #
 # Yarn is a package manager
 # Link: https://yarnpkg.com/
