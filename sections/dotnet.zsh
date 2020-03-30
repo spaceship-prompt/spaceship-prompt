@@ -1,10 +1,10 @@
 #
 # .NET
 #
-# .NET Framework is a software framework developed by Microsoft.
+# .NET is an open source platform developed by Microsoft.
 # It includes a large class library and provides language interoperability
-# across several programming languages.
-# Link: https://www.microsoft.com/net
+# across several programming languages and operating systems.
+# Link: https://dotnet.microsoft.com/
 
 # ------------------------------------------------------------------------------
 # Configuration
@@ -24,7 +24,7 @@ SPACESHIP_DOTNET_COLOR="${SPACESHIP_DOTNET_COLOR="128"}"
 spaceship_dotnet() {
   [[ $SPACESHIP_DOTNET_SHOW == false ]] && return
 
-  [[ -f project.json || -f global.json || -f paket.dependencies || -n *.(cs|fs|x)proj(#qN^/) || -n *.sln(#qN^/) ]] || return
+  [[ -f project.json || -f global.json || -f paket.dependencies || -n *.props || -n *.targets || -n *.(cs|fs|x)proj(#qN^/) || -n *.sln(#qN^/) ]] || return
 
   spaceship::exists dotnet || return
 
