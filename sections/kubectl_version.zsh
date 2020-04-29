@@ -25,7 +25,7 @@ spaceship_kubectl_version() {
   spaceship::exists kubectl || return
 
   # if kubectl can't connect kubernetes cluster, kubernetes version section will be not shown
-  local kubectl_version=$(kubectl version --short 2>/dev/null | grep "Server Version" | awk '{ match($0, /^Server Version: (.+)$/, version); print version[1] }')
+  local kubectl_version=$(kubectl version --short 2>/dev/null | grep "Server Version" | sed 's/Server Version: \(.*\)/\1/')
   [[ -z $kubectl_version ]] && return
 
   spaceship::section \
