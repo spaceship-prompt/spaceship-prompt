@@ -16,6 +16,12 @@ SPACESHIP_DOCKER_COLOR="${SPACESHIP_DOCKER_COLOR="cyan"}"
 SPACESHIP_DOCKER_VERBOSE="${SPACESHIP_DOCKER_VERBOSE=false}"
 
 # ------------------------------------------------------------------------------
+# Dependencies
+# ------------------------------------------------------------------------------
+
+source "$SPACESHIP_ROOT/sections/docker_context.zsh"
+
+# ------------------------------------------------------------------------------
 # Section
 # ------------------------------------------------------------------------------
 
@@ -46,8 +52,10 @@ spaceship_docker() {
     [[ "$compose_exists" == false ]] && return
   fi
 
+  local docker_context="$(spaceship_docker_context)"
+
   # Show Docker status only for Docker-specific folders or when connected to external host
-  [[ "$compose_exists" == true || -f Dockerfile || -f docker-compose.yml || -f /.dockerenv || -n $DOCKER_MACHINE_NAME || -n $DOCKER_HOST ]] || return
+  [[ "$compose_exists" == true || -f Dockerfile || -f docker-compose.yml || -f /.dockerenv || -n $docker_context ]] || return
 
   # if docker daemon isn't running you'll get an error saying it can't connect
   local docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
@@ -55,19 +63,9 @@ spaceship_docker() {
 
   [[ $SPACESHIP_DOCKER_VERBOSE == false ]] && docker_version=${docker_version%-*}
 
-  local docker_host=''
-  if [[ -n $DOCKER_MACHINE_NAME ]]; then
-    docker_host=" via ($DOCKER_MACHINE_NAME)"
-  fi
-
-  if [[ -n $DOCKER_HOST ]]; then
-    # Remove protocol (tcp://) and port number from displayed Docker host
-    docker_host=" via ("$(basename $DOCKER_HOST | cut -d':' -f1)")"
-  fi
-
   spaceship::section \
     "$SPACESHIP_DOCKER_COLOR" \
     "$SPACESHIP_DOCKER_PREFIX" \
-    "${SPACESHIP_DOCKER_SYMBOL}v${docker_version}${docker_host}" \
+    "${SPACESHIP_DOCKER_SYMBOL}v${docker_version}${docker_context}" \
     "$SPACESHIP_DOCKER_SUFFIX"
 }

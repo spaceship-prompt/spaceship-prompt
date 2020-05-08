@@ -107,10 +107,9 @@ main() {
   fi
 
   # Enabling statements for ~/.zshrc
-  msg="
-  # Set Spaceship ZSH as a prompt
-  autoload -U promptinit; promptinit
-  prompt spaceship"
+  msg="\n# Set Spaceship ZSH as a prompt"
+  msg+="\nautoload -U promptinit; promptinit"
+  msg+="\nprompt spaceship"
 
   # Check if appending was successful and perform corresponding actions
   if append_zshrc "$msg"; then
