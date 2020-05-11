@@ -45,6 +45,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     package       # Package version
     node          # Node.js section
     bun           # Bun section
+    deno          # Deno section
     ruby          # Ruby section
     python        # Python section
     elm           # Elm section
