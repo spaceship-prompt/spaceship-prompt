@@ -17,6 +17,7 @@
     * [Mercurial status (hg_status)](/docs/Options.md#mercurial-status-hg_status)
   * [Package version (package)](/docs/Options.md#package-version-package)
   * [Node (node)](/docs/Options.md#nodejs-node)
+  * [Deno (deno)](/docs/Options.md#deno-deno)
   * [Ruby (ruby)](/docs/Options.md#ruby-ruby)
   * [Elm (elm)](/docs/Options.md#elm-elm)
   * [Elixir (elixir)](/docs/Options.md#elixir-elixir)
