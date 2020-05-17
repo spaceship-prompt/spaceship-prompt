@@ -24,7 +24,14 @@ spaceship_ocaml() {
   [[ $SPACESHIP_OCAML_SHOW == false ]] && return
 
   # Show OCaml status only for OCaml/Reason-specific folders
-  [[ -n {dune,dune-project}(#qN^/) || -d esy.lock || -d _opam || -n *.{opam,ml,mli,re,rei}(#qN^/) ]] || return
+  [[ -n *.opam(#qN^/) || \
+     -d _opam || \
+     -d esy.lock || \
+     -n dune*(#qN^/) || \
+     -n jbuild*(#qN^/) || \
+     -f .merlin || \
+     -n *.{ml,mli,re,rei}(#qN^/)
+  ]] || return
 
   local 'ocaml_version'
 

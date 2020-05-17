@@ -259,7 +259,7 @@ If you set `SPACESHIP_NODE_DEFAULT_VERSION` to the default Node.js version and y
 
 ### OCaml (`ocaml`)
 
-OCaml section is shown only in directories that contain `.opam`, `dune`, or `dune-project` file; `esy.lock` or `_opam` directory or any other file with `.ml`, `.mli`, `.re` or `.rei` extension.
+OCaml section is shown only in directories that contain `*.opam` file or `_opam` directory; `esy.lock` directory; `dune*`, `jbuild*` or `.merlin` file or any other file with `.ml`, `.mli`, `.re` or `.rei` extension.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
