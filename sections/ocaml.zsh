@@ -29,12 +29,15 @@ spaceship_ocaml() {
   local 'ocaml_version'
 
   if spaceship::exists esy && $(esy true 2>/dev/null); then
-    ocaml_version=$(esy ocaml --version 2>/dev/null | cut -d' ' -f5)
+    ocaml_version=$(esy ocaml -vnum)
   elif spaceship::exists ocaml; then
-    ocaml_version=$(ocaml --version 2>/dev/null | cut -d' ' -f5)
+    ocaml_version=$(ocaml -vnum)
   else
     return
   fi
+
+  # Add 'v' before OCaml version that starts with a number
+  [[ "${ocaml_version}" =~ ^[0-9].+$ ]] && ocaml_version="v${ocaml_version}"
 
   spaceship::section \
     "$SPACESHIP_OCAML_COLOR" \
