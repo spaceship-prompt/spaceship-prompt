@@ -266,7 +266,7 @@ OCaml section is shown only in directories that contain `.opam`, `dune`, or `dun
 | `SPACESHIP_OCAML_SHOW` | `true` | Current OCaml section |
 | `SPACESHIP_OCAML_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before OCaml section |
 | `SPACESHIP_OCAML_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after OCaml section |
-| `SPACESHIP_OCAML_SYMBOL` | `🐪·` | Character to be shown before OCaml version |
+| `SPACESHIP_OCAML_SYMBOL` | `🐫·` | Character to be shown before OCaml version |
 | `SPACESHIP_OCAML_COLOR` | `yellow` | Color of OCaml section |
 
 ### Ruby (`ruby`)
