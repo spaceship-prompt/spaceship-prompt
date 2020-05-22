@@ -25,16 +25,29 @@ spaceship_gcloud() {
   # Check if the glcoud-cli is installed
   spaceship::exists gcloud || return
 
+  # Set the gcloud config base dir
+  local GCLOUD_DIR=${HOME}/.config/gcloud/
+
   # Check if there is an active config
-  [[ -f ~/.config/gcloud/active_config ]] || return
+  [[ -f ${GCLOUD_DIR}/active_config ]] || return
 
   # Reads the current config from the file
-  local GCLOUD_CONFIG=${$(head -n1 ~/.config/gcloud/active_config)}
+  local GCLOUD_ACTIVE_CONFIG=$(head -n1 ${GCLOUD_DIR}/active_config)
+
+  # Check the active config file exists
+  local GCLOUD_ACTIVE_CONFIG_FILE=${GCLOUD_DIR}/configurations/config_${GCLOUD_ACTIVE_CONFIG}
+  [[ -f ${GCLOUD_ACTIVE_CONFIG_FILE} ]] || return
+
+  # Reads the current project from the active config file
+  local GCLOUD_ACTIVE_PROJECT=$(sed -n 's/project = \(.*\)/\1/p' ${GCLOUD_ACTIVE_CONFIG_FILE})
+
+  # Sets the prompt text to `active-config/active-project`
+  SPACESHIP_GCLOUD_TEXT="${GCLOUD_ACTIVE_CONFIG}/${GCLOUD_ACTIVE_PROJECT}"
 
   # Show prompt section
   spaceship::section \
     "$SPACESHIP_GCLOUD_COLOR" \
     "$SPACESHIP_GCLOUD_PREFIX" \
-    "${SPACESHIP_GCLOUD_SYMBOL}$GCLOUD_CONFIG" \
+    "${SPACESHIP_GCLOUD_SYMBOL}${SPACESHIP_GCLOUD_TEXT}" \
     "$SPACESHIP_GCLOUD_SUFFIX"
 }
