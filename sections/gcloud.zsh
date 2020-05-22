@@ -1,7 +1,7 @@
 #
 # Google Cloud Platform (gcloud)
 #
-# gcloud is a tool that provides the primary command-line interface to Google Cloud Platform. 
+# gcloud is a tool that provides the primary command-line interface to Google Cloud Platform.
 # Link: https://cloud.google.com/sdk/gcloud/
 
 # ------------------------------------------------------------------------------
@@ -27,8 +27,8 @@ spaceship_gcloud() {
 
   # Check if there is an active config
   [[ -f ~/.config/gcloud/active_config ]] || return
- 
-  # Reads the current config from the file 
+
+  # Reads the current config from the file
   local GCLOUD_CONFIG=${$(head -n1 ~/.config/gcloud/active_config)}
 
   # Show prompt section
