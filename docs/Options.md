@@ -302,7 +302,7 @@ Shows current version of Xcode. Local version has more priority than global.
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_XCODE_SHOW_LOCAL` | `true` | Current local Xcode version based on [xcenv] |
-| `SPACESHIP_XCODE_SHOW_GLOBAL` | `true` | Global Xcode version based on [xcenv] |
+| `SPACESHIP_XCODE_SHOW_GLOBAL` | `false` | Global Xcode version based on [xcenv] |
 | `SPACESHIP_XCODE_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Xcode section |
 | `SPACESHIP_XCODE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Xcode section |
 | `SPACESHIP_XCODE_SYMBOL` | `🛠·` | Character to be shown before Xcode version |
