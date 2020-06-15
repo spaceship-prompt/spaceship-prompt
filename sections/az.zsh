@@ -1,8 +1,8 @@
 #
 # Azure (az)
 #
-# The az Command Line Interface (CLI) is a unified tool to manage Microsoft Azure services.
-# Link: https://github.com/Azure/azure-cli
+# The az Command Line Interface (CLI) is a unified tool to manage Microsoft
+# Azure services. Link: https://github.com/Azure/azure-cli
 
 # ------------------------------------------------------------------------------
 # Configuration
@@ -18,30 +18,30 @@ SPACESHIP_AZ_COLOR="${SPACESHIP_AZ_COLOR="blue"}"
 # Section
 # ------------------------------------------------------------------------------
 
-# Shows selected AZ-cli profile.
+# Shows active az subscription and default resource group
 spaceship_az() {
   [[ $SPACESHIP_AZ_SHOW == false ]] && return
 
   # Check if the az cli is installed
   spaceship::exists az || return
 
-  DEFAULT_GROUP=$(grep "group = .\+" ~/.azure/config | sed 's/group = \(.\+\)/\1/g')
-  SUBSCRIPTION=$(grep AzureCloud ~/.azure/clouds.config -A 1 | grep subscription | sed 's/subscription = \(.\+\)/\1/g')
+  local default_group=$(command grep "group = .\+" ~/.azure/config 2> /dev/null | command sed 's/group = \(.\+\)/\1/g' 2> /dev/null)
+  local subscription=$(command grep AzureCloud ~/.azure/clouds.config -A 1 2> /dev/null | command grep subscription 2> /dev/null | command sed 's/subscription = \(.\+\)/\1/g' 2> /dev/null)
 
-  if [[ -n $DEFAULT_GROUP && -n $SUBSCRIPTION ]]; then
-      AZ_STATUS="$SUBSCRIPTION - $DEFAULT_GROUP"
-  elif [[ -n $DEFAULT_GROUP ]] ; then
-      AZ_STATUS=$DEFAULT_GROUP
-  elif [[ -n $SUBSCRIPTION ]] ; then
-      AZ_STATUS=$SUBSCRIPTION
+  if [[ -n $default_group && -n $subscription ]]; then
+      local az_status="$subscription/$default_group"
+  elif [[ -n $default_group ]] ; then
+      local az_status=$default_group
+  elif [[ -n $subscription ]] ; then
+      local az_status=$subscription
   fi
 
-  [[ -n AZ_STATUS ]] || return
+  [[ -n az_status ]] || return
 
   # Show prompt section
   spaceship::section \
     "$SPACESHIP_AZ_COLOR" \
     "$SPACESHIP_AZ_PREFIX" \
-    "${SPACESHIP_AZ_SYMBOL}${AZ_STATUS}" \
+    "${SPACESHIP_AZ_SYMBOL}${az_status}" \
     "$SPACESHIP_AZ_SUFFIX"
 }
