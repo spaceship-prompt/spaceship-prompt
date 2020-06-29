@@ -187,6 +187,14 @@ Update your `.zshrc` file with the following line:
 antibody bundle denysdovhan/spaceship-prompt
 ```
 
+### [zinit]
+
+Add the following line to your `~/.zshrc` where you're adding your other Zsh plugins:
+
+```
+zinit light denysdovhan/spaceship-prompt
+```
+
 ### [zgen]
 
 Add the following line to your `~/.zshrc` where you're adding your other Zsh plugins:
@@ -323,3 +331,4 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [xcenv]: http://xcenv.org/
 [swiftenv]: https://github.com/kylef/swiftenv
 [powerline]: https://github.com/powerline/fonts
+[zinit]: https://github.com/zdharma/zinit
