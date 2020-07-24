@@ -29,7 +29,7 @@ spaceship_pulumi() {
   # Show PULUMI Stack when exists
   [[ -d .pulumi/stacks ]] || return
 
-  local pulumi_stack=$(ls .pulumi/stacks/*json |cut -d'/' -f3|cut -d'.' -f1)
+  local pulumi_stack=$(pulumi stack ls 2>/dev/null| sed -n -e '2p' |cut -f1 -d" "|sed s/\*// )
   [[ -z $pulumi_stack ]] && return
 
   spaceship::section \
