@@ -96,6 +96,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 - Current Julia version (`ஃ`).
 - Current Docker version and connected machine (`🐳`).
 - Current Amazon Web Services (AWS) profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)).
+- Current Google Cloud Platform gcloud active configuration (`☁️`).
 - Current Python virtualenv.
 - Current Conda virtualenv (`🅒`).
 - Current Python pyenv (`🐍`).
@@ -167,6 +168,10 @@ Set `ZSH_THEME="spaceship"` in your `.zshrc`.
 - Enable the `contrib-prompt` module (before the `prompt` module).
 - Set `zstyle ':prezto:module:prompt' theme 'spaceship'` in your `.zpreztorc`.
 
+### [zim]
+
+Add `zmodule denysdovhan/spaceship-prompt --name spaceship` to your `.zimrc` and run `zimfw install`.
+
 ### [antigen]
 
 Add the following snippet in your `~/.zshrc`:
@@ -181,6 +186,14 @@ Update your `.zshrc` file with the following line:
 
 ```
 antibody bundle denysdovhan/spaceship-prompt
+```
+
+### [zinit]
+
+Add the following line to your `~/.zshrc` where you're adding your other Zsh plugins:
+
+```
+zinit light denysdovhan/spaceship-prompt
 ```
 
 ### [zgen]
@@ -273,9 +286,9 @@ Here's a list of related projects that have been inspired by Spaceship ZSH.
 
 ## Team
 
-| [![Denys Dovhan](https://github.com/denysdovhan.png?size=100)](http://denysdovhan.com) | [![Salmanul Farzy](https://github.com/salmanulfarzy.png?size=100)](https://github.com/salmanulfarzy) | [![Maxim Baz](https://github.com/maximbaz.png?size=100)](https://github.com/maximbaz) |
-| :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
-|                     [Denys Dovhan](https://github.com/denysdovhan)                     |                          [Salmanul Farzy](https://github.com/salmanulfarzy)                          |                       [Maxim Baz](https://github.com/maximbaz)                        |
+| [![Denys Dovhan](https://github.com/denysdovhan.png?size=100)](http://denysdovhan.com) | [![Salmanul Farzy](https://github.com/salmanulfarzy.png?size=100)](https://github.com/salmanulfarzy) | [![Maxim Baz](https://github.com/maximbaz.png?size=100)](https://github.com/maximbaz) | [![Runrioter Wung](https://github.com/Runrioter.png?size=100)](https://github.com/Runrioter) |
+| :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
+|                     [Denys Dovhan](https://github.com/denysdovhan)                     |                          [Salmanul Farzy](https://github.com/salmanulfarzy)                          |                       [Maxim Baz](https://github.com/maximbaz)                        |                       [Runrioter Wung](https://github.com/Runrioter)                        |
 
 ## Donate
 
@@ -309,6 +322,7 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 
 [oh-my-zsh]: http://ohmyz.sh/
 [prezto]: https://github.com/sorin-ionescu/prezto
+[zim]: https://github.com/zimfw/zimfw
 [antigen]: http://antigen.sharats.me/
 [zgen]: https://github.com/tarjoilija/zgen
 [npm]: https://www.npmjs.com/
@@ -318,3 +332,4 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [xcenv]: http://xcenv.org/
 [swiftenv]: https://github.com/kylef/swiftenv
 [powerline]: https://github.com/powerline/fonts
+[zinit]: https://github.com/zdharma/zinit

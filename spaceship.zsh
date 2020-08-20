@@ -61,12 +61,13 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     docker        # Docker section
     azure         # Azure CLI Context section
     aws           # Amazon Web Services section
+    gcloud        # Google Cloud Platform section
     venv          # virtualenv section
     conda         # conda virtualenv section
     pyenv         # Pyenv section
     dotnet        # .NET section
     ember         # Ember.js section
-    kubecontext   # Kubectl context section
+    kubectl       # Kubectl context section
     terraform     # Terraform workspace section
     exec_time     # Execution time
     line_sep      # Line break

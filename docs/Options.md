@@ -36,12 +36,13 @@ SPACESHIP_PROMPT_ORDER=(
   docker        # Docker section
   azure         # Azure Context section
   aws           # Amazon Web Services section
+  gcloud        # Google Cloud Platform section
   venv          # virtualenv section
   conda         # conda virtualenv section
   pyenv         # Pyenv section
   dotnet        # .NET section
   ember         # Ember.js section
-  kubecontext   # Kubectl context section
+  kubectl       # Kubectl context section
   terraform     # Terraform workspace section
   exec_time     # Execution time
   line_sep      # Line break
@@ -66,7 +67,7 @@ This group of options defines a behaviour of prompt and standard parameters for 
 | `SPACESHIP_PROMPT_FIRST_PREFIX_SHOW` | `false` | Shows a prefix of the first section in prompt  |
 | `SPACESHIP_PROMPT_PREFIXES_SHOW` | `true` | Show prefixes before prompt sections or not |
 | `SPACESHIP_PROMPT_SUFFIXES_SHOW` | `true` | Show suffixes before prompt sections or not |
-| `SPACESHIP_PROMPT_DEFAULT_PREFIX` | `via ` | Default prefix for prompt sections |
+| `SPACESHIP_PROMPT_DEFAULT_PREFIX` | `via·` | Default prefix for prompt sections |
 | `SPACESHIP_PROMPT_DEFAULT_SUFFIX` | ` ` | Default suffix for prompt section |
 
 ### Char
@@ -148,7 +149,7 @@ If current directory is write-protected or if current user has not enough rights
 
 ### Git (`git`)
 
-Git section is consists with `git_branch` and `git_status` subsections. It is shown only in Git repositories.
+Git section consists of `git_branch` and `git_status` subsections. It is shown only in Git repositories.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
@@ -302,7 +303,7 @@ Shows current version of Xcode. Local version has more priority than global.
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_XCODE_SHOW_LOCAL` | `true` | Current local Xcode version based on [xcenv] |
-| `SPACESHIP_XCODE_SHOW_GLOBAL` | `true` | Global Xcode version based on [xcenv] |
+| `SPACESHIP_XCODE_SHOW_GLOBAL` | `false` | Global Xcode version based on [xcenv] |
 | `SPACESHIP_XCODE_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Xcode section |
 | `SPACESHIP_XCODE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Xcode section |
 | `SPACESHIP_XCODE_SYMBOL` | `🛠·` | Character to be shown before Xcode version |
@@ -399,12 +400,32 @@ The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more inf
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_DOCKER_SHOW` | `true` | Show current Docker version and connected docker-machine or not |
+| `SPACESHIP_DOCKER_SHOW` | `true` | Show current Docker version or not |
 | `SPACESHIP_DOCKER_PREFIX` | `on ` | Prefix before the Docker section |
 | `SPACESHIP_DOCKER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Docker section |
 | `SPACESHIP_DOCKER_SYMBOL` | `🐳·` | Character to be shown before Docker version |
 | `SPACESHIP_DOCKER_COLOR` | `cyan` | Color of Docker section |
 | `SPACESHIP_DOCKER_VERBOSE` | `false` | Show complete Docker version |
+
+### Docker context (`docker_context`)
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_DOCKER_CONTEXT_SHOW` | `true` | Show current Docker context or not |
+| `SPACESHIP_DOCKER_CONTEXT_PREFIX` | `·(` | Prefix before the Docker context section |
+| `SPACESHIP_DOCKER_CONTEXT_SUFFIX` | `)` | Suffix after the Docker context section |
+
+### Amazon Web Services (AWS) (`aws`)
+
+Shows selected Amazon Web Services profile configured using  [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) variable.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_AWS_SHOW` | `true` | Show current selected AWS-cli profile or not |
+| `SPACESHIP_AWS_PREFIX` | `using·` | Prefix before the AWS section |
+| `SPACESHIP_AWS_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the AWS section |
+| `SPACESHIP_AWS_SYMBOL` | `☁️·` | Character to be shown before AWS profile |
+| `SPACESHIP_AWS_COLOR` | `208` | Color of AWS section |
 
 ### Azure (AZURE) (`azure`)
 
@@ -418,17 +439,17 @@ Shows selected Azure Context configured using ~/.azure/accessTokens.json file.
 | `SPACESHIP_AZURE_SYMBOL` | `☁️·` | Character to be shown before Azure Context |
 | `SPACESHIP_AZURE_COLOR` | `blue` | Color of Azure section |
 
-### Amazon Web Services (AWS) (`aws`)
+### Google Cloud Platform (`gcloud`)
 
-Shows selected Amazon Web Services profile configured using  [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) variable.
+Shows active Google Cloud Platform configuration using gcloud active configuration file.
 
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
-| `SPACESHIP_AWS_SHOW` | `true` | Show current selected AWS-cli profile or not |
-| `SPACESHIP_AWS_PREFIX` | `using·` | Prefix before the AWS section |
-| `SPACESHIP_AWS_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the AWS section |
-| `SPACESHIP_AWS_SYMBOL` | `☁️·` | Character to be shown before AWS profile |
-| `SPACESHIP_AWS_COLOR` | `208` | Color of AWS section |
+| `SPACESHIP_GCLOUD_SHOW` | `true` | Show current active gcloud configuration or not |
+| `SPACESHIP_GCLOUD_PREFIX` | `using·` | Prefix before the GCLOUD section |
+| `SPACESHIP_GCLOUD_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the GCLOUD section |
+| `SPACESHIP_GCLOUD_SYMBOL` | `☁️· ` | Character to be shown before GCLOUD active configuration |
+| `SPACESHIP_GCLOUD_COLOR` | `26` | Color of GCLOUD section |
 
 ### Virtualenv (`venv`)
 
@@ -490,7 +511,28 @@ Ember.js section is shown only in directories that contain a `ember-cli-build.js
 | `SPACESHIP_EMBER_SYMBOL` | `🐹·` | Character to be shown before Ember.js version |
 | `SPACESHIP_EMBER_COLOR` | `210` | Color of Ember.js section |
 
-### Kubectl context (`kubecontext`)
+### Kubernetes (`kubectl`)
+
+Kubernetes section consists of `kubectl_version` and `kubectl_context` subsections. It is shown only when kubectl can connect to Kubernetes cluster.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_KUBECTL_SHOW` | `false` | Show Kubernetes section |
+| `SPACESHIP_KUBECTL_PREFIX` | `at·` | Prefix before Kubernetes section |
+| `SPACESHIP_KUBECTL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubernetes section |
+| `SPACESHIP_KUBECTL_COLOR` | `white` | Color of Kubernetes section |
+| `SPACESHIP_KUBECTL_SYMBOL` | `☸️··` | Character to be shown before Kubernetes subsection |
+
+#### Kubernetes version (`kubectl_version`)
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_KUBECTL_VERSION_SHOW` | `true` | Show Kubernetes version subsection |
+| `SPACESHIP_KUBECTL_VERSION_PREFIX` | ` ` | Prefix before Kubernetes version subsection |
+| `SPACESHIP_KUBECTL_VERSION_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubernetes version subsection |
+| `SPACESHIP_KUBECTL_VERSION_COLOR` | `cyan` | Color of Kubernetes version subsection |
+
+### Kubernetes context (`kubectl_context`)
 
 Shows the active kubectl context, which consists of a cluster name and, when working in a non-default namespace, also a namespace name.
 
@@ -501,7 +543,6 @@ Shows the active kubectl context, which consists of a cluster name and, when wor
 | `SPACESHIP_KUBECONTEXT_SHOW` | `true` | Current Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_PREFIX` | `at·` | Prefix before Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubectl context section |
-| `SPACESHIP_KUBECONTEXT_SYMBOL` | `☸️·` | Character to be shown before Kubectl context |
 | `SPACESHIP_KUBECONTEXT_COLOR` | `cyan` | Color of Kubectl context section |
 | `SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW` | `true` | Should namespace be also displayed |
 | `SPACESHIP_KUBECONTEXT_COLOR_GROUPS` | ` ` | _Array_ of pairs of colors and match patterns, empty by default |
