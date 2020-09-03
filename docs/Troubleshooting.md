@@ -72,7 +72,7 @@ SPACESHIP_PROMPT_ORDER=(
   pyenv         # Pyenv section
   dotnet        # .NET section
   # ember       # Ember.js section (Disabled)
-  kubecontext   # Kubectl context section
+  kubectl_context   # Kubectl context section
   terraform     # Terraform workspace section
   exec_time     # Execution time
   line_sep      # Line break
