@@ -60,7 +60,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
   <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
 </p>
 
-<sub>Vist <a href="./docs/Troubleshooting.md#why-doesnt-my-prompt-look-like-the-preview">Troubleshooting</a> for similar setup and find more examples with different color schemes in <a href="https://github.com/denysdovhan/spaceship-prompt/wiki/Screenshots">Screenshots </a>wiki-page.</sub>
+<sub>Visit <a href="./docs/Troubleshooting.md#why-doesnt-my-prompt-look-like-the-preview">Troubleshooting</a> for similar setup and find more examples with different color schemes in <a href="https://github.com/denysdovhan/spaceship-prompt/wiki/Screenshots">Screenshots </a>wiki-page.</sub>
 
 ## Features
 
