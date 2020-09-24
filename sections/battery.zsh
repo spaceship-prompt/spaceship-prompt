@@ -43,7 +43,7 @@ spaceship_battery() {
     # Return if no internal battery
     [[ -z "$battery_data" ]] && return
 
-    battery_percent="$( echo $battery_data | grep -oE '[0-9]{1,3}%' )"
+    battery_percent="$( echo $battery_data | \grep -oE '[0-9]{1,3}%' )"
     battery_status="$( echo $battery_data | awk -F '; *' '{ print $2 }' )"
   elif spaceship::exists acpi; then
     battery_data=$(acpi -b 2>/dev/null | head -1)
