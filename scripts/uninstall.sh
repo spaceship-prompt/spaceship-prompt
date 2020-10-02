@@ -25,10 +25,10 @@ fi
 # Paths to important resources
 # ------------------------------------------------------------------------------
 
-ZSHRC="$HOME/.zshrc"
-USER_SOURCE="$HOME/.spaceship-prompt"
+ZSHRC="${ZDOTDIR:-$HOME}/.zshrc"
+USER_SOURCE="${ZDOTDIR:-$HOME}/.spaceship-prompt"
 GLOBAL_DEST="/usr/local/share/zsh/site-functions/prompt_spaceship_setup"
-USER_DEST="$HOME/.zfunctions/prompt_spaceship_setup"
+USER_DEST="${ZDOTDIR:-$HOME}/.zfunctions/prompt_spaceship_setup"
 
 # ------------------------------------------------------------------------------
 # HELPERS
@@ -70,8 +70,8 @@ rmln() {
 # ------------------------------------------------------------------------------
 
 remove_zshrc_content() {
-  info "Removing Spaceship from ~/.zshrc"
-  # Remove enabling statements from ~/.zshrc
+  info "Removing Spaceship from \"${ZDOTDIR:-$HOME}/.zshrc\""
+  # Remove enabling statements from .zshrc
   # and remove Spaceship configuration
   # Note: SPACESHIP_RPROMPT_ORDER and SPACESHIP_PROMPT_ORDER configuration may have multiple lines
   # which are grouped by `(`, `)`
@@ -103,7 +103,7 @@ main() {
       fi
     fi
   else
-    warn "Spaceship configuration not found in ~/.zshrc!"
+    warn "Spaceship configuration not found in \"${ZDOTDIR:-$HOME}/.zshrc\"!"
   fi
 
   success "Done! Spaceship installation has been removed!"
