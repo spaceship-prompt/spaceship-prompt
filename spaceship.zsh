@@ -62,6 +62,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     aws           # Amazon Web Services section
     venv          # virtualenv section
     conda         # conda virtualenv section
+    jabba         # jabba version section
     pyenv         # Pyenv section
     dotnet        # .NET section
     ember         # Ember.js section
