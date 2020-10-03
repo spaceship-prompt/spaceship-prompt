@@ -40,6 +40,6 @@ spaceship_flutter() {
   spaceship::section \
     "$SPACESHIP_FLUTTER_COLOR" \
     "$SPACESHIP_FLUTTER_PREFIX" \
-    "${SPACESHIP_FLUTTER_SYMBOL}${flutter_version}" \
+    "${SPACESHIP_FLUTTER_SYMBOL}v${flutter_version}" \
     "$SPACESHIP_FLUTTER_SUFFIX"
 }
