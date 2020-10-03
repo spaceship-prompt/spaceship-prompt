@@ -47,6 +47,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     git           # Git section (git_branch + git_status)
     hg            # Mercurial section (hg_branch  + hg_status)
     package       # Package version
+    flutter       # Flutter section
     node          # Node.js section
     ruby          # Ruby section
     elm           # Elm section
