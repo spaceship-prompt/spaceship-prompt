@@ -96,6 +96,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 - Current Julia version (`ஃ`).
 - Current Docker version and connected machine (`🐳`).
 - Current Amazon Web Services (AWS) profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)).
+- Current Google Cloud Platform gcloud active configuration (`☁️`).
 - Current Python virtualenv.
 - Current Conda virtualenv (`🅒`).
 - Current Python pyenv (`🐍`).
@@ -149,13 +150,13 @@ Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to yo
 Clone this repo:
 
 ```zsh
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
 ```
 
 Symlink `spaceship.zsh-theme` to your oh-my-zsh custom themes directory:
 
 ```zsh
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" 
 ```
 
 Set `ZSH_THEME="spaceship"` in your `.zshrc`.
@@ -186,6 +187,14 @@ Update your `.zshrc` file with the following line:
 antibody bundle denysdovhan/spaceship-prompt
 ```
 
+### [zinit]
+
+Add the following line to your `~/.zshrc` where you're adding your other Zsh plugins:
+
+```
+zinit light denysdovhan/spaceship-prompt
+```
+
 ### [zgen]
 
 Add the following line to your `~/.zshrc` where you're adding your other Zsh plugins:
@@ -209,7 +218,7 @@ zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 Install the latest master from the AUR package [`spaceship-prompt-git`](https://aur.archlinux.org/packages/spaceship-prompt-git/):
 
 ```
-git clone https://aur.archlinux.org/spaceship-prompt-git.git
+git clone https://aur.archlinux.org/spaceship-prompt-git.git --depth=1
 cd spaceship-prompt-git
 makepkg -si
 ```
@@ -218,7 +227,7 @@ makepkg -si
 
 If you have problems with approaches above, follow these instructions:
 
-- Clone this repo `git clone https://github.com/denysdovhan/spaceship-prompt.git`
+- Clone this repo `git clone https://github.com/denysdovhan/spaceship-prompt.git --depth=1`
 - Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
 - Initialize prompt system and choose `spaceship`.
 
@@ -322,3 +331,4 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [xcenv]: http://xcenv.org/
 [swiftenv]: https://github.com/kylef/swiftenv
 [powerline]: https://github.com/powerline/fonts
+[zinit]: https://github.com/zdharma/zinit
