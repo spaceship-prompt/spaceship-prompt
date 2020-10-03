@@ -46,7 +46,12 @@ spaceship_package() {
   fi
 
   if [[ -f pubspec.yaml ]] && spaceship::exists flutter; then
-    package_version=$(flutter pub deps | sed -n 3p | tr " " "\n" | sed -n 2p 2>/dev/null)
+    if spaceship::exists ruby; then
+      PUBSPEC_YAML_PARSE="pubspec = YAML::load(STDIN.read); puts pubspec['version']"
+      package_version=$(cat pubspec.yaml | ruby -ryaml -e "${PUBSPEC_YAML_PARSE}")
+    elif spaceship::exists flutter; then
+      package_version=$(flutter pub deps | sed -n 3p | tr " " "\n" | sed -n 2p 2>/dev/null)
+    fi
   fi
 
   [[ -z $package_version || "$package_version" == "null" || "$package_version" == "undefined" ]] && return
