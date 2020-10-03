@@ -5,6 +5,7 @@
 # These package managers supported:
 #   * NPM
 #   * Cargo
+#   * Pub (Flutter)
 
 # ------------------------------------------------------------------------------
 # Configuration
@@ -42,6 +43,10 @@ spaceship_package() {
     # https://github.com/denysdovhan/spaceship-prompt/pull/617
     local pkgid=$(cargo pkgid 2>&1)
     echo $pkgid | grep -q "error:" || package_version=${pkgid##*\#}
+  fi
+
+  if [[ -f pubspec.yaml ]] && spaceship::exists flutter; then
+    package_version=$(flutter pub deps | sed -n 3p | tr " " "\n" | sed -n 2p 2>/dev/null)
   fi
 
   [[ -z $package_version || "$package_version" == "null" || "$package_version" == "undefined" ]] && return
