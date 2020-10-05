@@ -35,6 +35,7 @@ SPACESHIP_PROMPT_ORDER=(
   julia         # Julia section
   docker        # Docker section
   aws           # Amazon Web Services section
+  gcloud        # Google Cloud Platform section
   venv          # virtualenv section
   conda         # conda virtualenv section
   pyenv         # Pyenv section
@@ -301,7 +302,7 @@ Shows current version of Xcode. Local version has more priority than global.
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_XCODE_SHOW_LOCAL` | `true` | Current local Xcode version based on [xcenv] |
-| `SPACESHIP_XCODE_SHOW_GLOBAL` | `true` | Global Xcode version based on [xcenv] |
+| `SPACESHIP_XCODE_SHOW_GLOBAL` | `false` | Global Xcode version based on [xcenv] |
 | `SPACESHIP_XCODE_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Xcode section |
 | `SPACESHIP_XCODE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Xcode section |
 | `SPACESHIP_XCODE_SYMBOL` | `🛠·` | Character to be shown before Xcode version |
@@ -424,6 +425,18 @@ Shows selected Amazon Web Services profile configured using  [`AWS_PROFILE`](htt
 | `SPACESHIP_AWS_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the AWS section |
 | `SPACESHIP_AWS_SYMBOL` | `☁️·` | Character to be shown before AWS profile |
 | `SPACESHIP_AWS_COLOR` | `208` | Color of AWS section |
+
+### Google Cloud Platform (`gcloud`)
+
+Shows active Google Cloud Platform configuration using gcloud active configuration file.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_GCLOUD_SHOW` | `true` | Show current active gcloud configuration or not |
+| `SPACESHIP_GCLOUD_PREFIX` | `using·` | Prefix before the GCLOUD section |
+| `SPACESHIP_GCLOUD_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the GCLOUD section |
+| `SPACESHIP_GCLOUD_SYMBOL` | `☁️· ` | Character to be shown before GCLOUD active configuration |
+| `SPACESHIP_GCLOUD_COLOR` | `26` | Color of GCLOUD section |
 
 ### Virtualenv (`venv`)
 
