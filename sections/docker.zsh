@@ -59,7 +59,7 @@ spaceship_docker() {
 
   # if docker daemon isn't running you'll get an error saying it can't connect
   # Note: Declaration and assignment is separated for correctly getting the exit code
-  local docker_version
+  local 'docker_version'
   docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
   [[ $? -ne 0 || -z $docker_version ]] && return
 
