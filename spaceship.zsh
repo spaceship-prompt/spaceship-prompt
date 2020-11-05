@@ -75,6 +75,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     jobs          # Background jobs indicator
     exit_code     # Exit code section
     char          # Prompt character
+    v             # V section
   )
 fi
 
