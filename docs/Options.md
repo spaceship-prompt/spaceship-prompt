@@ -649,6 +649,18 @@ Disabled by default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, 
 | `SPACESHIP_EXIT_CODE_SYMBOL` | `✘` | Character to be shown before exit code |
 | `SPACESHIP_EXIT_CODE_COLOR` | `red` | Color of exit code section |
 
+### V (`v`)
+
+V section is shown only in directories that contain `*.v*` extension.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_V_SHOW` | `true` | Current V section |
+| `SPACESHIP_V_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before V section |
+| `SPACESHIP_V_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after V section |
+| `SPACESHIP_V_SYMBOL` | `V(bold cyan) ` | Character to be shown before V version |
+| `SPACESHIP_V_COLOR` | `blue` | Color of V section |
+
 ## Need more?
 
 If these options are not enough to do what you want, read more about Spaceship's API on [API page](./API.md) of the documentation.
