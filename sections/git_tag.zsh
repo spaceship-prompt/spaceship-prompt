@@ -22,7 +22,7 @@ spaceship_git_tag() {
 
   spaceship::is_git || return
 
-  git_tag=$(command git describe --tags --abbrev=0)
+  git_tag=$(command git describe --tags --abbrev=0 &> /dev/null)
 
   if [[ $? -eq 0 ]]; then
     spaceship::section \
