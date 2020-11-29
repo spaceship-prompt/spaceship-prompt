@@ -8,7 +8,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_GIT_DIFFSTAT_SHOW="${SPACESHIP_GIT_DIFFSTAT_SHOW=true}"
-SPACESHIP_GIT_DIFFSTAT_PREFIX="${SPACESHIP_GIT_DIFFSTAT_PREFIX="\t"}"
+SPACESHIP_GIT_DIFFSTAT_PREFIX="${SPACESHIP_GIT_DIFFSTAT_PREFIX=" "}"
 SPACESHIP_GIT_DIFFSTAT_SUFFIX="${SPACESHIP_GIT_DIFFSTAT_SUFFIX=""}"
 
 # ------------------------------------------------------------------------------
