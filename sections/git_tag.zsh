@@ -11,7 +11,7 @@
 SPACESHIP_GIT_TAG_SHOW="${SPACESHIP_GIT_TAG_SHOW=true}"
 SPACESHIP_GIT_TAG_PREFIX="${SPACESHIP_GIT_TAG_PREFIX=" @"}"
 SPACESHIP_GIT_TAG_SUFFIX="${SPACESHIP_GIT_TAG_SUFFIX=""}"
-SPACESHIP_GIT_TAG_COLOR="${SPACESHIP_GIT_TAG_COLOR="chartreuse"}"
+SPACESHIP_GIT_TAG_COLOR="${SPACESHIP_GIT_TAG_COLOR="blue"}"
 
 # ------------------------------------------------------------------------------
 # Section
