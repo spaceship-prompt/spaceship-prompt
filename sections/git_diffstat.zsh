@@ -23,9 +23,10 @@ spaceship_git_diffstat() {
   # Shows count of lines added in green (with '+' prefix) and lines removed in red (with '-' prefix)
   # e.g. "+21 -7"
   
-  git_diffstat=$(command git diff --numstat HEAD | awk 'NF==3 {added+=$1; removed+=$2} END {printf("\x1B[32m+%d\x1B[0m \x1B[31m-%d\x1B[0m\n", added, removed)}')
+  git_diffstat=$(command git diff --staged --numstat HEAD | awk 'NF==3 {added+=$1; removed+=$2} END {printf("\x1B[32m+%d\x1B[0m \x1B[31m-%d\x1B[0m\n", added, removed)}')
 
-  if [[ -n $(git status -s) ]]; then
+  # Only show the diffstat if there are files staged.
+  if ! git diff-index --quiet HEAD; then
     # Commit prefixes are colorized
     spaceship::section \
       '' \
