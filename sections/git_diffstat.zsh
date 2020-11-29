@@ -27,7 +27,7 @@ spaceship_git_diffstat() {
 
   # Only show the diffstat if there are files staged.
   if ! git diff-index --quiet HEAD; then
-    # Commit prefixes are colorized
+    # Diffstats are colorized, so no color is necessary.
     spaceship::section \
       '' \
       "$SPACESHIP_GIT_DIFFSTAT_PREFIX$git_diffstat$SPACESHIP_GIT_DIFFSTAT_SUFFIX"
