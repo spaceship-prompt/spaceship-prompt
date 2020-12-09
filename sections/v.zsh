@@ -1,7 +1,7 @@
 #
 # V
 #
-# V is a languaje program designed to be "Simple, fast, safe, compiled. For developing maintainable software."
+# V is a simple, fast, safe, compiled language for developing maintainable software.
 # Link: https://vlang.io/
 
 # ------------------------------------------------------------------------------
