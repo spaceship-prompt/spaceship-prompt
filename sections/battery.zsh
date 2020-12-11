@@ -42,21 +42,24 @@ spaceship_battery() {
 
     # Return if no internal battery
     [[ -z "$battery_data" ]] && return
-
-    battery_percent="$( echo $battery_data | grep -oE '[0-9]{1,3}%' )"
-    battery_status="$( echo $battery_data | awk -F '; *' 'NR==2 { print $2 }' )"
+    
+    # Colored output from pmset will break prompt if grep is aliased to show colors
+    battery_percent="$( echo $battery_data | \grep -oE '[0-9]{1,3}%' )"
+    battery_status="$( echo $battery_data | awk -F '; *' '{ print $2 }' )"
   elif spaceship::exists acpi; then
     battery_data=$(acpi -b 2>/dev/null | head -1)
 
     # Return if no battery
     [[ -z $battery_data ]] && return
 
-    battery_percent="$( echo $battery_data | awk '{print $4}' )"
+    battery_status_and_percent="$(echo $battery_data |  sed 's/Battery [0-9]*: \(.*\), \([0-9]*\)%.*/\1:\2/')"
+    battery_status_and_percent_array=("${(@s/:/)battery_status_and_percent}")
+    battery_status=$battery_status_and_percent_array[1]:l
+    battery_percent=$battery_status_and_percent_array[2]
 
 	# If battery is 0% charge, battery likely doesn't exist.
-    [[ $battery_percent == "0%," ]] && return
+    [[ $battery_percent == "0" ]] && return
 
-    battery_status="$( echo $battery_data | awk '{print tolower($3)}' | tr -d ',')"
   elif spaceship::exists upower; then
     local battery=$(command upower -e | grep battery | head -1)
 
