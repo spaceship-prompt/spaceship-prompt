@@ -631,6 +631,8 @@ You can temporarily enable or disable vi-mode with handy functions (just execute
 | `spaceship_vi_mode_enable` | Enable vi-mode for current terminal session |
 | `spaceship_vi_mode_disable` | Disable vi-mode for current terminal session |
 
+**Note:** If the prompt does not refresh when changing modes add `eval spaceship_vi_mode_enable` to your `.zshrc`. Beware that `spaceship_vi_mode_enable` will override the`zle-keymap-select` widget, so if you have a custom one just make sure it contains the line `zle reset-prompt ; zle -R`.
+
 **Note:** For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$reset_color%}"` before `source $ZSH/oh-my-zsh.sh` in `.zshrc` to disable default `<<<` NORMAL mode indicator in right prompt.
 
 ### Jobs (`jobs`)
