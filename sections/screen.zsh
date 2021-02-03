@@ -34,6 +34,6 @@ spaceship_screen() {
   spaceship::section \
     "$SPACESHIP_SCREEN_COLOR" \
     "$SPACESHIP_SCREEN_PREFIX" \
-    "$SPACESHIP_SCREEN_SYMBOL${STY}" \
+    "$SPACESHIP_SCREEN_SYMBOL${STY#*.}" \
     "$SPACESHIP_SCREEN_SUFFIX"
 }
