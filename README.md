@@ -60,7 +60,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
   <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
 </p>
 
-<sub>Vist <a href="./docs/Troubleshooting.md#why-doesnt-my-prompt-look-like-the-preview">Troubleshooting</a> for similar setup and find more examples with different color schemes in <a href="https://github.com/denysdovhan/spaceship-prompt/wiki/Screenshots">Screenshots </a>wiki-page.</sub>
+<sub>Visit <a href="./docs/Troubleshooting.md#why-doesnt-my-prompt-look-like-the-preview">Troubleshooting</a> for similar setup and find more examples with different color schemes in <a href="https://github.com/denysdovhan/spaceship-prompt/wiki/Screenshots">Screenshots </a>wiki-page.</sub>
 
 ## Features
 
@@ -96,6 +96,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 - Current Julia version (`ஃ`).
 - Current Docker version and connected machine (`🐳`).
 - Current Amazon Web Services (AWS) profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)).
+- Current Google Cloud Platform gcloud active configuration (`☁️`).
 - Current Python virtualenv.
 - Current Conda virtualenv (`🅒`).
 - Current Python pyenv (`🐍`).
@@ -150,13 +151,13 @@ Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to yo
 Clone this repo:
 
 ```zsh
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
 ```
 
 Symlink `spaceship.zsh-theme` to your oh-my-zsh custom themes directory:
 
 ```zsh
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" 
 ```
 
 Set `ZSH_THEME="spaceship"` in your `.zshrc`.
@@ -166,6 +167,10 @@ Set `ZSH_THEME="spaceship"` in your `.zshrc`.
 - Follow [prezto-contrib#usage](https://github.com/belak/prezto-contrib#usage) to clone `prezto-contrib` to the proper location.
 - Enable the `contrib-prompt` module (before the `prompt` module).
 - Set `zstyle ':prezto:module:prompt' theme 'spaceship'` in your `.zpreztorc`.
+
+### [zim]
+
+Add `zmodule denysdovhan/spaceship-prompt --name spaceship` to your `.zimrc` and run `zimfw install`.
 
 ### [antigen]
 
@@ -181,6 +186,14 @@ Update your `.zshrc` file with the following line:
 
 ```
 antibody bundle denysdovhan/spaceship-prompt
+```
+
+### [zinit]
+
+Add the following line to your `~/.zshrc` where you're adding your other Zsh plugins:
+
+```
+zinit light denysdovhan/spaceship-prompt
 ```
 
 ### [zgen]
@@ -206,7 +219,7 @@ zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 Install the latest master from the AUR package [`spaceship-prompt-git`](https://aur.archlinux.org/packages/spaceship-prompt-git/):
 
 ```
-git clone https://aur.archlinux.org/spaceship-prompt-git.git
+git clone https://aur.archlinux.org/spaceship-prompt-git.git --depth=1
 cd spaceship-prompt-git
 makepkg -si
 ```
@@ -215,7 +228,7 @@ makepkg -si
 
 If you have problems with approaches above, follow these instructions:
 
-- Clone this repo `git clone https://github.com/denysdovhan/spaceship-prompt.git`
+- Clone this repo `git clone https://github.com/denysdovhan/spaceship-prompt.git --depth=1`
 - Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
 - Initialize prompt system and choose `spaceship`.
 
@@ -273,9 +286,9 @@ Here's a list of related projects that have been inspired by Spaceship ZSH.
 
 ## Team
 
-| [![Denys Dovhan](https://github.com/denysdovhan.png?size=100)](http://denysdovhan.com) | [![Salmanul Farzy](https://github.com/salmanulfarzy.png?size=100)](https://github.com/salmanulfarzy) | [![Maxim Baz](https://github.com/maximbaz.png?size=100)](https://github.com/maximbaz) |
-| :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
-|                     [Denys Dovhan](https://github.com/denysdovhan)                     |                          [Salmanul Farzy](https://github.com/salmanulfarzy)                          |                       [Maxim Baz](https://github.com/maximbaz)                        |
+| [![Denys Dovhan](https://github.com/denysdovhan.png?size=100)](http://denysdovhan.com) | [![Salmanul Farzy](https://github.com/salmanulfarzy.png?size=100)](https://github.com/salmanulfarzy) | [![Maxim Baz](https://github.com/maximbaz.png?size=100)](https://github.com/maximbaz) | [![Runrioter Wung](https://github.com/Runrioter.png?size=100)](https://github.com/Runrioter) |
+| :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
+|                     [Denys Dovhan](https://github.com/denysdovhan)                     |                          [Salmanul Farzy](https://github.com/salmanulfarzy)                          |                       [Maxim Baz](https://github.com/maximbaz)                        |                       [Runrioter Wung](https://github.com/Runrioter)                        |
 
 ## Donate
 
@@ -309,6 +322,7 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 
 [oh-my-zsh]: http://ohmyz.sh/
 [prezto]: https://github.com/sorin-ionescu/prezto
+[zim]: https://github.com/zimfw/zimfw
 [antigen]: http://antigen.sharats.me/
 [zgen]: https://github.com/tarjoilija/zgen
 [npm]: https://www.npmjs.com/
@@ -318,3 +332,4 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [xcenv]: http://xcenv.org/
 [swiftenv]: https://github.com/kylef/swiftenv
 [powerline]: https://github.com/powerline/fonts
+[zinit]: https://github.com/zdharma/zinit
