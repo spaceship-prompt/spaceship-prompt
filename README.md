@@ -173,7 +173,7 @@ Add `zmodule denysdovhan/spaceship-prompt --name spaceship` to your `.zimrc` and
 
 ### [antigen]
 
-Add the following snippet in your `~/.zshrc`:
+Add the following snippet in your `.zshrc`:
 
 ```
 antigen theme denysdovhan/spaceship-prompt
@@ -189,7 +189,7 @@ antibody bundle denysdovhan/spaceship-prompt
 
 ### [zinit]
 
-Add the following line to your `~/.zshrc` where you're adding your other Zsh plugins:
+Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
 
 ```
 zinit light denysdovhan/spaceship-prompt
@@ -197,7 +197,7 @@ zinit light denysdovhan/spaceship-prompt
 
 ### [zgen]
 
-Add the following line to your `~/.zshrc` where you're adding your other Zsh plugins:
+Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
 
 ```
 zgen load denysdovhan/spaceship-prompt spaceship
@@ -242,13 +242,13 @@ $ ln -sf "$PWD/spaceship.zsh" "/usr/local/share/zsh/site-functions/prompt_spaces
 For a user-specific installation, simply add a directory to `$fpath` for that user in `.zshrc`:
 
 ```zsh
-fpath=( "$HOME/.zfunctions" $fpath )
+fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
 ```
 
 Then install the theme like this:
 
 ```zsh
-$ ln -sf "$PWD/spaceship.zsh" "$HOME/.zfunctions/prompt_spaceship_setup"
+$ ln -sf "$PWD/spaceship.zsh" "${ZDOTDIR:-$HOME}/.zfunctions/prompt_spaceship_setup"
 ```
 
 For initializing prompt system add this to your `.zshrc`:
