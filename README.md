@@ -253,7 +253,7 @@ Spaceship works well out of the box, but you can customize almost everything if 
 - [**Options**](./docs/Options.md) — Tweak section's behavior with tons of options.
 - [**API**](./docs/API.md) — Define a custom section that will do exactly what you want.
 
-You have ability to customize or disable specific elements of Spaceship. Set options and define new sections in in your `.zshrc` file, **after** the theme. To include a custom section you have defined in your prompt, add it to the `SPACESHIP_PROMPT_ORDER`.
+You have the ability to customize or disable specific elements of Spaceship. Set options and define new sections in your `.zshrc` file, **after** the theme. To include a custom section you have defined in your prompt, add it to the `SPACESHIP_PROMPT_ORDER`.
 
 For example:
 
@@ -269,13 +269,13 @@ section_mysection() {
 SPACESHIP_PROMPT_ORDER=(<any preceding sections> mysection <any following sections>)
 ```
 
-To append custom sections to the default Spaceship prompt, follow the form
+To append custom sections to the default Spaceship prompt, follow the form:
 
 ```shell
 SPACESHIP_PROMPT_ORDER=($SPACESHIP_PROMPT_ORDER mysection)
 ```
 
-To prepend custom sections to the default Spaceship prompt, follow the form
+To prepend custom sections to the default Spaceship prompt, follow the form:
 
 ```shell
 SPACESHIP_PROMPT_ORDER=(mysection $SPACESHIP_PROMPT_ORDER)
