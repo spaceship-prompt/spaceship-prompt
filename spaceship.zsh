@@ -120,7 +120,7 @@ for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORD
     # Custom section is declared, nothing else to do
     continue
   else
-    echo "Section '$section' have not been loaded."
+    echo "Section '$section' was not loaded."
   fi
 done
 
