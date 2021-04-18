@@ -58,8 +58,10 @@ spaceship_docker() {
   [[ "$compose_exists" == true || -f Dockerfile || -f docker-compose.yml || -f /.dockerenv || -n $docker_context ]] || return
 
   # if docker daemon isn't running you'll get an error saying it can't connect
-  local docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
-  [[ -z $docker_version ]] && return
+  # Note: Declaration and assignment is separated for correctly getting the exit code
+  local 'docker_version'
+  docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
+  [[ $? -ne 0 || -z $docker_version ]] && return
 
   [[ $SPACESHIP_DOCKER_VERBOSE == false ]] && docker_version=${docker_version%-*}
 
