@@ -24,6 +24,7 @@ SPACESHIP_PROMPT_ORDER=(
   hg            # Mercurial section (hg_branch  + hg_status)
   package       # Package version
   gradle        # Gradle section
+  maven         # Maven section
   node          # Node.js section
   ruby          # Ruby section
   elixir        # Elixir section
