@@ -38,6 +38,6 @@ spaceship_git() {
   spaceship::section \
     'white' \
     "$SPACESHIP_GIT_PREFIX" \
-    "${git_branch}${git_status}${git_stat}" \
+    "${git_branch}[${git_status}${git_stat}]" \
     "$SPACESHIP_GIT_SUFFIX"
 }
