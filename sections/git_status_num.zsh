@@ -1,5 +1,5 @@
 #
-# Git status
+# Git status With Numbers
 #
 
 # ------------------------------------------------------------------------------
@@ -7,7 +7,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_GIT_STATUS_SHOW="${SPACESHIP_GIT_STATUS_SHOW=true}"
-SPACESHIP_GIT_STATUS_PREFIX="${SPACESHIP_GIT_STATUS_PREFIX=" "}"
+SPACESHIP_GIT_STATUS_PREFIX="${SPACESHIP_GIT_STATUS_PREFIX="["}"
 SPACESHIP_GIT_STATUS_SUFFIX="${SPACESHIP_GIT_STATUS_SUFFIX="]"}"
 SPACESHIP_GIT_STATUS_COLOR="${SPACESHIP_GIT_STATUS_COLOR="red"}"
 SPACESHIP_GIT_STATUS_UNTRACKED="${SPACESHIP_GIT_STATUS_UNTRACKED="?"}"
@@ -30,60 +30,58 @@ SPACESHIP_GIT_STATUS_DIVERGED="${SPACESHIP_GIT_STATUS_DIVERGED="⇕"}"
 # Also, It's hard to maintain external dependency.
 # See PR #147 at https://git.io/vQkkB
 # See git help status to know more about status formats
-spaceship_git_status() {
+spaceship_git_status_num() {
   [[ $SPACESHIP_GIT_STATUS_SHOW == false ]] && return
 
   spaceship::is_git || return
 
-  local INDEX git_status=""
+  local NUMBER INDEX git_status=""
 
   INDEX=$(command git status --porcelain -b 2> /dev/null)
 
   # Check for untracked files
-  if $(echo "$INDEX" | command grep -E '^\?\? ' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_UNTRACKED$git_status"
+  NUMBER=$(git status --porcelain | command grep  '^\?\? ' | wc -l | awk '{$1=$1;print}')
+  if [ $NUMBER != "0" ]; then
+    git_status="$SPACESHIP_GIT_STATUS_UNTRACKED$NUMBER $git_status"
   fi
 
   # Check for staged files
-  if $(echo "$INDEX" | command grep '^A[ MDAU] ' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_ADDED$git_status"
-  elif $(echo "$INDEX" | command grep '^M[ MD] ' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_ADDED$git_status"
-  elif $(echo "$INDEX" | command grep '^UA' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_ADDED$git_status"
+  NUMBER=$(($(git status --porcelain | command grep '^A[ MDAU] ' | wc -l | awk '{$1=$1;print}') + $(git status --porcelain | command grep '^M[ MD] ' | wc -l | awk '{$1=$1;print}') + $(git status --porcelain | command grep '^UA' | wc -l | awk '{$1=$1;print}') ))
+  if [ $NUMBER != "0" ]; then
+    git_status="$SPACESHIP_GIT_STATUS_ADDED$NUMBER $git_status"
   fi
-
   # Check for modified files
-  if $(echo "$INDEX" | command grep '^[ MARC]M ' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_MODIFIED$git_status"
+  NUMBER=$(($(git status --porcelain | command grep '^[ MARC]M ' | wc -l | awk '{$1=$1;print}') ))
+  if [ $NUMBER != "0" ]; then
+    git_status="$SPACESHIP_GIT_STATUS_MODIFIED$NUMBER $git_status"
   fi
 
   # Check for renamed files
-  if $(echo "$INDEX" | command grep '^R[ MD] ' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_RENAMED$git_status"
+  NUMBER=$(($(git status --porcelain | command grep '^R[ MD] ' | wc -l | awk '{$1=$1;print}') ))
+  if [ $NUMBER != "0" ]; then
+    git_status="$SPACESHIP_GIT_STATUS_RENAMED$NUMBER $git_status"
   fi
 
   # Check for deleted files
-  if $(echo "$INDEX" | command grep '^[MARCDU ]D ' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_DELETED$git_status"
-  elif $(echo "$INDEX" | command grep '^D[ UM] ' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_DELETED$git_status"
+  NUMBER=$(($(git status --porcelain | command grep '^[MARCDU ]D ' | wc -l | awk '{$1=$1;print}') + $(git status --porcelain | command grep '^D[ UM] ' | wc -l | awk '{$1=$1;print}') ))
+  if [ $NUMBER != "0" ]; then
+    git_status="$SPACESHIP_GIT_STATUS_DELETED$NUMBER $git_status"
   fi
 
   # Check for stashes
   if $(command git rev-parse --verify refs/stash >/dev/null 2>&1); then
-    git_status="$SPACESHIP_GIT_STATUS_STASHED$git_status"
+    git_status="$SPACESHIP_GIT_STATUS_STASHED $git_status"
   fi
 
   # Check for unmerged files
   if $(echo "$INDEX" | command grep '^U[UDA] ' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_UNMERGED$git_status"
+    git_status="$SPACESHIP_GIT_STATUS_UNMERGED $git_status"
   elif $(echo "$INDEX" | command grep '^AA ' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_UNMERGED$git_status"
+    git_status="$SPACESHIP_GIT_STATUS_UNMERGED $git_status"
   elif $(echo "$INDEX" | command grep '^DD ' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_UNMERGED$git_status"
+    git_status="$SPACESHIP_GIT_STATUS_UNMERGED $git_status"
   elif $(echo "$INDEX" | command grep '^[DA]U ' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_UNMERGED$git_status"
+    git_status="$SPACESHIP_GIT_STATUS_UNMERGED $git_status"
   fi
 
   # Check whether branch is ahead
@@ -100,10 +98,10 @@ spaceship_git_status() {
 
   # Check wheather branch has diverged
   if [[ "$is_ahead" == true && "$is_behind" == true ]]; then
-    git_status="$SPACESHIP_GIT_STATUS_DIVERGED$git_status"
+    git_status="$SPACESHIP_GIT_STATUS_DIVERGED $git_status"
   else
-    [[ "$is_ahead" == true ]] && git_status="$SPACESHIP_GIT_STATUS_AHEAD$git_status"
-    [[ "$is_behind" == true ]] && git_status="$SPACESHIP_GIT_STATUS_BEHIND$git_status"
+    [[ "$is_ahead" == true ]] && git_status="$SPACESHIP_GIT_STATUS_AHEAD $git_status"
+    [[ "$is_behind" == true ]] && git_status="$SPACESHIP_GIT_STATUS_BEHIND $git_status"
   fi
 
   if [[ -n $git_status ]]; then
