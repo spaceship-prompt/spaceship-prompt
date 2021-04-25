@@ -46,6 +46,8 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     host          # Hostname section
     git           # Git section (git_branch + git_status)
     hg            # Mercurial section (hg_branch  + hg_status)
+    gradle        # Gradle section
+    maven         # Maven section
     package       # Package version
     node          # Node.js section
     ruby          # Ruby section
@@ -68,7 +70,6 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     ember         # Ember.js section
     kubectl       # Kubectl context section
     terraform     # Terraform workspace section
-    direnv        # direnv section
     exec_time     # Execution time
     line_sep      # Line break
     battery       # Battery level and status
@@ -120,7 +121,7 @@ for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORD
     # Custom section is declared, nothing else to do
     continue
   else
-    echo "Section '$section' have not been loaded."
+    echo "Section '$section' was not loaded."
   fi
 done
 

@@ -33,7 +33,10 @@ spaceship_docker_context() {
     # Docker contexts can be set using either the DOCKER_CONTEXT environment variable
     # or the `docker context use` command. `docker context ls` will show the selected
     # context in both cases. But we are not interested in the local "default" context.
-    docker_remote_context=$(docker context ls --format '{{if .Current}}{{if ne .Name "default"}}{{.Name}}{{end}}{{end}}' 2>/dev/null | tr -d '\n')
+    docker_remote_context=$(docker context ls --format '{{if .Current}}{{if ne .Name "default"}}{{.Name}}{{end}}{{end}}' 2>/dev/null)
+    [[ $? -ne 0 ]] && return
+
+    docker_remote_context=$(echo $docker_remote_context | tr -d '\n')
   fi
 
   [[ -z $docker_remote_context ]] && return
