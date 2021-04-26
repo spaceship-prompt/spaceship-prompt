@@ -40,7 +40,7 @@ spaceship_git_status_num() {
   INDEX=$(command git status --porcelain -b 2> /dev/null)
 
   # Check for untracked files
-  NUMBER=$(git status --porcelain | command grep "^ \?\? " | wc -l | awk '{$1=$1;print}')
+  NUMBER=$(git status --porcelain | command grep -E '^\?\? ' | wc -l | awk '{$1=$1;print}')
   if [ $NUMBER != "0" ]; then
     git_status="$SPACESHIP_GIT_STATUS_UNTRACKED$NUMBER $git_status"
   fi
