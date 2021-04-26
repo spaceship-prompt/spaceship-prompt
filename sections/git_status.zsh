@@ -45,11 +45,11 @@ spaceship_git_status() {
   fi
 
   # Check for staged files
-  if $(echo "$INDEX" | command grep '^A[ MDAU] ' &> /dev/null); then
+  if $(echo "$INDEX" | command grep '^A [ MDAU] ' &> /dev/null); then
     git_status="$SPACESHIP_GIT_STATUS_ADDED$git_status"
   elif $(echo "$INDEX" | command grep '^M[ MD] ' &> /dev/null); then
     git_status="$SPACESHIP_GIT_STATUS_ADDED$git_status"
-  elif $(echo "$INDEX" | command grep '^UA' &> /dev/null); then
+  elif $(echo "$INDEX" | command grep '^UA ' &> /dev/null); then
     git_status="$SPACESHIP_GIT_STATUS_ADDED$git_status"
   fi
 
