@@ -111,3 +111,4 @@ spaceship_git_status_num() {
       "$SPACESHIP_GIT_STATUS_PREFIX$git_status$SPACESHIP_GIT_STATUS_SUFFIX"
   fi
 }
+
