@@ -28,6 +28,7 @@
   * [PHP (php)](/docs/Options.md#php-php)
   * [Rust (rust)](/docs/Options.md#rust-rust)
   * [Haskell (haskell)](/docs/Options.md#haskell-haskell)
+  * [Java (java)](/docs/Options.md#java-java)
   * [Julia (julia)](/docs/Options.md#julia-julia)
   * [Docker (docker)](/docs/Options.md#docker-docker)
   * [Amazon Web Services (aws)](/docs/Options.md#amazon-web-services-aws-aws)

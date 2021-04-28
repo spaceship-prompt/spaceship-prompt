@@ -34,6 +34,7 @@ SPACESHIP_PROMPT_ORDER=(
   php           # PHP section
   rust          # Rust section
   haskell       # Haskell Stack section
+  java          # Java section
   julia         # Julia section
   docker        # Docker section
   aws           # Amazon Web Services section
@@ -379,6 +380,18 @@ Haskell section is shown only in directories that contain `stack.yaml` file.
 | `SPACESHIP_HASKELL_SYMBOL` | `λ·` | Character to be shown before Haskell Tool Stack version |
 | `SPACESHIP_HASKELL_COLOR` | `red` | Color of Haskell section |
 
+### Java (`java`)
+
+The Java section is displayed, by default, only in a Java context, ie. in directories that contain files associated with Java (`pom.xml`|`build.gradle`|`settings.gradle`|`*.(java|class|jar|war)`) or if in a Git repository that is a Java project (`$git_root/pom.xml`|`$git_root/build.gradle`|`$git_root/settings.gradle`). To always show Java section set `SPACESHIP_JAVA_IN_CONTEXT_ONLY=false`.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_JAVA_SHOW` | `true` | Show current Java version or not |
+| `SPACESHIP_JAVA_IN_CONTEXT_ONLY` | `true` | Show Java section only in a Java context |
+| `SPACESHIP_JAVA_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Java section |
+| `SPACESHIP_JAVA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Java section |
+| `SPACESHIP_JAVA_SYMBOL` | `☕·` | Character to be shown before Java version |
+| `SPACESHIP_JAVA_COLOR` | `cyan` | Color of Java section |
 ### Julia (`julia`)
 
 Julia section is shown only in directories that contain file with `.jl` extension.
@@ -565,7 +578,7 @@ Shows current gradle & jvm version.
 | `SPACESHIP_GRADLE_SYMBOL` | `⬡·` | Character to be shown before Gradle section |
 | `SPACESHIP_GRADLE_DEFAULT_VERSION` | ` ` | Gradle version to be treated as default |
 | `SPACESHIP_GRADLE_COLOR` | `green` | Color of Gradle section |
-| `SPACESHIP_GRADLE_JVM_SHOW` | `true` | Show JVM version used by Gradle |
+| `SPACESHIP_GRADLE_JVM_SHOW` | `false` | Show JVM version used by Gradle |
 | `SPACESHIP_GRADLE_JVM_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Gradle JVM section |
 | `SPACESHIP_GRADLE_JVM_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Gradle JVM section |
 | `SPACESHIP_GRADLE_JVM_SYMBOL` | `☕️·` | Character to be shown before Gradle JVM section |
@@ -584,7 +597,7 @@ Shows current maven & jvm version.
 | `SPACESHIP_MAVEN_SYMBOL` | `𝑚·` | Character to be shown before Maven section |
 | `SPACESHIP_MAVEN_DEFAULT_VERSION` | ` ` | Maven version to be treated as default |
 | `SPACESHIP_MAVEN_COLOR` | `yellow` | Color of Maven section |
-| `SPACESHIP_MAVEN_JVM_SHOW` | `true` | Show JVM version used by Maven |
+| `SPACESHIP_MAVEN_JVM_SHOW` | `false` | Show JVM version used by Maven |
 | `SPACESHIP_MAVEN_JVM_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Maven JVM section |
 | `SPACESHIP_MAVEN_JVM_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Maven JVM section |
 | `SPACESHIP_MAVEN_JVM_SYMBOL` | `☕️·` | Character to be shown before Maven JVM section |
