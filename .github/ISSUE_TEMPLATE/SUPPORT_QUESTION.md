@@ -9,5 +9,5 @@ Make sure you're not asking duplicate question by searching on the issues lists.
 
 Also read our TROUBLESHOOTING page for commonly encountered problems:
 
-https://github.com/denysdovhan/spaceship-prompt/blob/master/docs/Troubleshooting.md
+https://github.com/denysdovhan/spaceship-prompt/blob/master/docs/troubleshooting.md
 -->

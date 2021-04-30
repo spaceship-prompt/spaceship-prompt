@@ -42,8 +42,8 @@
     <a href="https://denysdovhan.com/spaceship-prompt/">Website</a> |
     <a href="#installing">Install</a> |
     <a href="#features">Features</a> |
-    <a href="./docs/Options.md">Options</a> |
-    <a href="./docs/API.md">API</a>
+    <a href="./docs/options.md">Options</a> |
+    <a href="./docs/api.md">API</a>
   </h4>
 </div>
 
@@ -60,7 +60,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
   <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
 </p>
 
-<sub>Visit <a href="./docs/Troubleshooting.md#why-doesnt-my-prompt-look-like-the-preview">Troubleshooting</a> for similar setup and find more examples with different color schemes in <a href="https://github.com/denysdovhan/spaceship-prompt/wiki/Screenshots">Screenshots </a>wiki-page.</sub>
+<sub>Visit <a href="./docs/troubleshooting.md#why-doesnt-my-prompt-look-like-the-preview">Troubleshooting</a> for similar setup and find more examples with different color schemes in <a href="https://github.com/denysdovhan/spaceship-prompt/wiki/Screenshots">Screenshots </a>wiki-page.</sub>
 
 ## Features
 
@@ -109,9 +109,9 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
   - `⇡` - charging;
   - `⇣` - discharging;
   - `•` - fully charged.
-- Current Vi-mode mode ([with handy aliases for temporarily enabling](./docs/Options.md#vi-mode-vi_mode)).
-- Optional exit-code of last command ([how to enable](./docs/Options.md#exit-code-exit_code)).
-- Optional time stamps 12/24hr in format ([how to enable](./docs/Options.md#time-time)).
+- Current Vi-mode mode ([with handy aliases for temporarily enabling](./docs/options.md#vi-mode-vi_mode)).
+- Optional exit-code of last command ([how to enable](./docs/options.md#exit-code-exit_code)).
+- Optional time stamps 12/24hr in format ([how to enable](./docs/options.md#time-time)).
 - Execution time of the last command if it exceeds the set threshold.
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose) or send pull request.
@@ -156,7 +156,7 @@ git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/theme
 Symlink `spaceship.zsh-theme` to your oh-my-zsh custom themes directory:
 
 ```zsh
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" 
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 ```
 
 Set `ZSH_THEME="spaceship"` in your `.zshrc`.
@@ -263,8 +263,8 @@ prompt spaceship
 
 Spaceship works well out of the box, but you can customize almost everything if you want.
 
-- [**Options**](./docs/Options.md) — Tweak section's behavior with tons of options.
-- [**API**](./docs/API.md) — Define a custom section that will do exactly what you want.
+- [**Options**](./docs/options.md) — Tweak section's behavior with tons of options.
+- [**API**](./docs/api.md) — Define a custom section that will do exactly what you want.
 
 You have the ability to customize or disable specific elements of Spaceship. Set options and define new sections in your `.zshrc` file, **after** the theme. To include a custom section you have defined in your prompt, add it to the `SPACESHIP_PROMPT_ORDER`.
 
@@ -294,12 +294,11 @@ To prepend custom sections to the default Spaceship prompt, follow the form:
 SPACESHIP_PROMPT_ORDER=(mysection $SPACESHIP_PROMPT_ORDER)
 ```
 
-
 **💡 Tip:** Take a look at popular option presets or share your own configuration on [Presets](https://github.com/denysdovhan/spaceship-prompt/wiki/Presets) wiki page.
 
 ## Troubleshooting
 
-Having trouble? Take a look at out [Troubleshooting](./docs/Troubleshooting.md) page.
+Having trouble? Take a look at out [Troubleshooting](./docs/troubleshooting.md) page.
 
 Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.
 
@@ -313,8 +312,8 @@ Here's a list of related projects that have been inspired by Spaceship ZSH.
 ## Team
 
 | [![Denys Dovhan](https://github.com/denysdovhan.png?size=100)](http://denysdovhan.com) | [![Salmanul Farzy](https://github.com/salmanulfarzy.png?size=100)](https://github.com/salmanulfarzy) | [![Maxim Baz](https://github.com/maximbaz.png?size=100)](https://github.com/maximbaz) | [![Runrioter Wung](https://github.com/Runrioter.png?size=100)](https://github.com/Runrioter) |
-| :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
-|                     [Denys Dovhan](https://github.com/denysdovhan)                     |                          [Salmanul Farzy](https://github.com/salmanulfarzy)                          |                       [Maxim Baz](https://github.com/maximbaz)                        |                       [Runrioter Wung](https://github.com/Runrioter)                        |
+| :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: |
+|                     [Denys Dovhan](https://github.com/denysdovhan)                     |                          [Salmanul Farzy](https://github.com/salmanulfarzy)                          |                       [Maxim Baz](https://github.com/maximbaz)                        |                        [Runrioter Wung](https://github.com/Runrioter)                        |
 
 ## Donate
 
