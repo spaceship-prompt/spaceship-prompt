@@ -1,0 +1,65 @@
+site_name: Spaceship ZSH
+site_author: Spaceship Team
+site_url: https://denysdovhan.com/spaceship-prompt
+site_description: Minimalistic, powerful and extremely customizable Zsh prompt
+
+copyright: "Copyright &copy; 2021 Denys Dovhan"
+
+repo_url: https://github.com/denysdovhan/spaceship-prompt
+repo_name: spaceship-prompt
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  logo: assets/logo.svg
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    scheme: spaceship
+    # # Light mode
+    # - media: "(prefers-color-scheme: light)"
+    #   scheme: default
+    #   primary: youtube
+    #   accent: cyan
+    #   toggle:
+    #     icon: material/weather-night
+    #     name: Switch to dark mode
+    # # Dark mode
+    # - media: "(prefers-color-scheme: dark)"
+    #   scheme: slate
+    #   primary: cyan
+    #   accent: cyan
+    #   toggle:
+    #     icon: material/weather-sunny
+    #     name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.instant
+
+nav:
+  - Home: index.md
+  - Options: options.md
+  - API: api.md
+  - Troubleshooting: troubleshooting.md
+
+markdown_extensions:
+  - meta
+  - toc:
+      permalink: true
+  - attr_list
+  - admonition
+  - pymdownx.tabbed
+  - pymdownx.details
+  - pymdownx.superfences
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/denysdovhan/spaceship-prompt
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/SpaceshipZSH
+
+extra_css:
+  - assets/styles.css
