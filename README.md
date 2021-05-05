@@ -211,6 +211,14 @@ Use this command in your `.zshrc` to load Spaceship as prompt theme:
 zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 ```
 
+### [Homebrew]
+
+Simply `brew install spaceship`, and/or add the following to your [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage):
+
+```ruby
+brew "spaceship"
+```
+
 ### Linux package manager
 
 #### Arch Linux
@@ -354,6 +362,7 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [npm]: https://www.npmjs.com/
 [antibody]: https://github.com/getantibody/antibody
 [zplug]: https://github.com/zplug/zplug
+[Homebrew]: https://brew.sh
 [n]: https://github.com/tj/n
 [xcenv]: http://xcenv.org/
 [swiftenv]: https://github.com/kylef/swiftenv
