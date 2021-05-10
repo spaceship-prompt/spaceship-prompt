@@ -47,6 +47,8 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     arch          # Architecture section
     git           # Git section (git_branch + git_status)
     hg            # Mercurial section (hg_branch  + hg_status)
+    gradle        # Gradle section
+    maven         # Maven section
     package       # Package version
     node          # Node.js section
     ruby          # Ruby section
