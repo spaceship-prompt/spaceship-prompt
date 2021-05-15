@@ -9,7 +9,9 @@
 SPACESHIP_HG_SHOW="${SPACESHIP_HG_SHOW=true}"
 SPACESHIP_HG_PREFIX="${SPACESHIP_HG_PREFIX="on "}"
 SPACESHIP_HG_SUFFIX="${SPACESHIP_HG_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_HG_SYMBOL="${SPACESHIP_HG_SYMBOL="☿ "}"
+if [[ $SPACESHIP_PROMPT_SYMBOLS_SHOW == true ]]; then
+	SPACESHIP_HG_SYMBOL="${SPACESHIP_HG_SYMBOL="☿ "}"
+fi
 
 # ------------------------------------------------------------------------------
 # Dependencies
