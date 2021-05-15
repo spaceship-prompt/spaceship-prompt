@@ -12,7 +12,9 @@ SPACESHIP_KUBECTL_SUFFIX="${SPACESHIP_KUBECTL_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_
 SPACESHIP_KUBECTL_COLOR="${SPACESHIP_KUBECTL_COLOR="white"}"
 # Additional space is added because ☸️ is much bigger than the other symbols
 # See: https://github.com/denysdovhan/spaceship-prompt/pull/432
-SPACESHIP_KUBECTL_SYMBOL="${SPACESHIP_KUBECTL_SYMBOL="☸️  "}"
+if [[ $SPACESHIP_PROMPT_SYMBOLS_SHOW == true ]]; then
+	SPACESHIP_KUBECTL_SYMBOL="${SPACESHIP_KUBECTL_SYMBOL="☸️  "}"
+fi
 
 # ------------------------------------------------------------------------------
 # Dependencies
