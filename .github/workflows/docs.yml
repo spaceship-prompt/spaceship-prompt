@@ -4,6 +4,9 @@ on:
     branches:
       - master
 
+env:
+  PYTHON_VERSION: 3.x
+
 jobs:
   docs:
     name: Build documentation
@@ -12,18 +15,15 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Install Node.js
-        uses: actions/setup-node@v2
-
-      - name: Perform npm install
-        run: npm install --only=dev --ignore-scripts
-
-      - name: Build documentation
-        run: npm run docs:build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Set up Python
+        uses: actions/setup-python@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _book
-          keep_files: true
+          python-version: 3.x
+
+      - name: Install Python dependencies
+        uses: py-actions/py-dependency-install@v2
+
+      - name: Deploy Documentation
+        run: |
+          mkdocs gh-deploy --force
+          mkdocs --version
