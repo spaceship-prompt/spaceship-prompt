@@ -11,7 +11,7 @@ repo_name: spaceship-prompt
 theme:
   name: material
   custom_dir: docs/overrides
-  logo: assets/logo.svg
+  logo: //spaceship-prompt.github.io/brand/spaceship-no-letters.svg
   icon:
     repo: fontawesome/brands/github
   palette:
