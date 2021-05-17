@@ -14,11 +14,7 @@
     "postuninstall": "./scripts/uninstall.sh",
     "version": "./scripts/version.sh",
     "postpublish": "git push --follow-tags",
-    "test": "./scripts/tests.sh",
-    "docs:prepare": "gitbook install",
-    "docs:icons": "cp logos/apple-touch-icon.png _book/gitbook/images/apple-touch-icon-precomposed-152.png && cp logos/favicon.ico _book/gitbook/images",
-    "docs:serve": "npm run docs:prepare && gitbook serve .",
-    "docs:build": "npm run docs:prepare && gitbook build && npm run docs:icons"
+    "test": "./scripts/tests.sh"
   },
   "repository": {
     "type": "git",
@@ -37,12 +33,6 @@
     "url": "https://github.com/denysdovhan/spaceship-prompt/issues"
   },
   "homepage": "https://github.com/denysdovhan/spaceship-prompt#readme",
-  "devDependencies": {
-    "gitbook-cli": "^2.3.2",
-    "gitbook-plugin-anchorjs": "^1.1.1",
-    "gitbook-plugin-edit-link": "^2.0.2",
-    "gitbook-plugin-github": "^2.0.0",
-    "gitbook-plugin-github-buttons": "^3.0.0",
-    "gitbook-plugin-prism": "^2.3.0"
-  }
+  "dependencies:": {},
+  "devDependencies": {}
 }
