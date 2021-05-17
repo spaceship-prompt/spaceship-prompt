@@ -1,5 +1,4 @@
 node_modules
-_book
 
 # Lockfiles
 package-lock.json
