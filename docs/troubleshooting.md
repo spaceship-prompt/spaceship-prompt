@@ -21,7 +21,7 @@ This is not an issue with Spaceship prompt. Spaceship uses Unicode symbols to re
   ```
 - Configure your terminal emulator to use UTF-8 as character encoding.
 
-In case Unicode symbols aren't supported, you can replace them to those that are compatible with your terminal with `SPACESHIP_*_SYMBOL` options. Check out [Options](./docs/options.md) page for more information.
+In case Unicode symbols aren't supported, you can replace them to those that are compatible with your terminal with `SPACESHIP_*_SYMBOL` options. Check out [Options](./options.md) page for more information.
 
 ## What is the `[I]` before prompt character ?
 
