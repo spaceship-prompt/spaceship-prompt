@@ -7,3 +7,15 @@
   --md-accent-fg-color--light: #db8f86;
   --md-accent-fg-color--dark: #752920;
 }
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 260;
+
+  --md-accent-fg-color: #221c3e;
+  --md-accent-fg-color--light: #a7a4b2;
+  --md-accent-fg-color--dark: #1b1632;
+
+  --md-primary-fg-color: #c34435;
+  --md-primary-fg-color--light: #db8f86;
+  --md-primary-fg-color--dark: #752920;
+}

@@ -15,23 +15,18 @@ theme:
   icon:
     repo: fontawesome/brands/github
   palette:
-    scheme: spaceship
-    # # Light mode
-    # - media: "(prefers-color-scheme: light)"
-    #   scheme: default
-    #   primary: youtube
-    #   accent: cyan
-    #   toggle:
-    #     icon: material/weather-night
-    #     name: Switch to dark mode
-    # # Dark mode
-    # - media: "(prefers-color-scheme: dark)"
-    #   scheme: slate
-    #   primary: cyan
-    #   accent: cyan
-    #   toggle:
-    #     icon: material/weather-sunny
-    #     name: Switch to light mode
+    # Light mode
+    - media: '(prefers-color-scheme: light)'
+      scheme: spaceship
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Dark mode
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
   features:
     - navigation.tabs
     - navigation.tabs.sticky
