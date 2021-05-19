@@ -1,0 +1,29 @@
+name: Main
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  main:
+    name: Build documentation
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Install zsh
+        if: runner.os == 'Linux'
+        run: sudo apt-get update; sudo apt-get install zsh
+
+      - name: Print Zsh vesion
+        run: zsh --version
+
+      - name: Run tests
+        run: scripts/tests.sh
