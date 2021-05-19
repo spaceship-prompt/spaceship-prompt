@@ -1,6 +1,4 @@
-{#- This file was automatically generated - do not edit -#}
-<!-- TODO: Replace with future base -->
-{% extends "base.html" %}
+{% extends "main.html" %}
 <!--  -->
 {% block tabs %} {{ super() }}
 <style>
@@ -81,7 +79,7 @@
 
     .mdx-hero__content {
       width: 50%;
-      margin-top: 4rem;
+      margin-top: 5rem;
       padding-bottom: 20vh;
       text-align: left;
     }
@@ -109,14 +107,14 @@
           title="{{ page.next_page.title | e }}"
           class="md-button md-button--primary"
         >
-          Quick start
+          Getting Started
         </a>
         <a
-          href="{{ 'insiders/' | url }}"
-          title="Material for MkDocs Insiders"
+          href="{{ '//github.com/denysdovhan/spaceship-prompt' | url }}"
+          title="Source code of Spaceship"
           class="md-button"
         >
-          Source code
+          Source Code
         </a>
       </div>
     </div>
