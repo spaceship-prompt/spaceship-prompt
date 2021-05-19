@@ -1,2 +1,2 @@
 mkdocs
-mkdocs-material
+mkdocs-material>=7
