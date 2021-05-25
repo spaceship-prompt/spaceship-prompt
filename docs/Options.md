@@ -363,7 +363,7 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 | `SPACESHIP_RUST_SHOW` | `true` | Shown current Rust version or not |
 | `SPACESHIP_RUST_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Rust section |
 | `SPACESHIP_RUST_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Rust section |
-| `SPACESHIP_RUST_SYMBOL` | `𝗥·` | Character to be shown before Rust version |
+| `SPACESHIP_RUST_SYMBOL` | `🦀·` | Character to be shown before Rust version |
 | `SPACESHIP_RUST_COLOR` | `red` | Color of Rust section |
 | `SPACESHIP_RUST_VERBOSE_VERSION` | `false` | Show what branch is being used, if any. (Beta, Nightly) |
 
