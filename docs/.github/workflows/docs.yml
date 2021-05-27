@@ -1,0 +1,29 @@
+name: Docs
+on:
+  push:
+    branches:
+      - main
+
+env:
+  PYTHON_VERSION: 3.x
+
+jobs:
+  docs:
+    name: Build documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.x
+
+      - name: Install Python dependencies
+        uses: py-actions/py-dependency-install@v2
+
+      - name: Deploy Documentation
+        run: |
+          mkdocs gh-deploy --force
+          mkdocs --version
