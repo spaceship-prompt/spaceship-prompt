@@ -1,6 +1,8 @@
 ---
 template: index.html
 title: Home
+hide:
+  - navigation
 ---
 
 # Welcome aboard, Astronaut!
@@ -10,6 +12,8 @@ title: Home
 </p>
 
 ## Features
+
+**Spaceship** is packed with cool features. Here are some sneak picks:
 
 - Clever hostname, username and prompt character displaying.
 - Current Git and Mercurial repo statuses.
@@ -27,7 +31,8 @@ title: Home
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/yspaceship-prompt/issues/new/choose) or send pull request.
 
-**💡 Tip:** Follow our Twitter to keep yourself updated about new features, improvements, and bugfixes.
+!!! tip
+    Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
 
 ## Troubleshooting
 
@@ -42,15 +47,9 @@ Here's a list of related projects that have been inspired by Spaceship ZSH.
 - [**matchai/spacefish**](https://github.com/matchai/spacefish) - A port of Spaceship ZSH for fish shell intending to achieve complete feature parity.
 - [**starship/starship**](https://github.com/starship/starship) - A blazing-fast, cross-shell prompt written in Rust, heavily inspired by Spaceship ZSH.
 
-## Team
+## Support
 
-| [![Denys Dovhan](https://github.com/denysdovhan.png?size=100)](http://denysdovhan.com) | [![Salmanul Farzy](https://github.com/salmanulfarzy.png?size=100)](https://github.com/salmanulfarzy) | [![Maxim Baz](https://github.com/maximbaz.png?size=100)](https://github.com/maximbaz) | [![Runrioter Wung](https://github.com/Runrioter.png?size=100)](https://github.com/Runrioter) |
-| :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: |
-|                     [Denys Dovhan](https://github.com/denysdovhan)                     |                          [Salmanul Farzy](https://github.com/salmanulfarzy)                          |                       [Maxim Baz](https://github.com/maximbaz)                        |                        [Runrioter Wung](https://github.com/Runrioter)                        |
-
-## Donate
-
-Hi! I work on this project in my spare time, in addition to my primary job. I hope you enjoy using Spaceship ZSH. If you do, please, [become my patron 🤝][patreon-url].
+Hi! I work on this project in my spare time, in addition to my primary job. I hope you enjoy using Spaceship. If you do, please, [become my patron 🤝][patreon-url].
 
 |                                                                    Patreon                                                                     |                                                            Bitcoin                                                             |                                                            Ethereum                                                            |
 | :--------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |

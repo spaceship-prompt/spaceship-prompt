@@ -1,16 +1,22 @@
+---
+hide:
+  - navigation
+---
+
 # Options
 
 You have ability to customize or disable specific elements of Spaceship. All options must be overridden in your `.zshrc` file **after** the theme.
 
 Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
 
-**Note:** the symbol `·` in this document represents a regular space character ` `, it is used to clearly indicate when an option default value starts or ends with a space.
+!!! note
+    The symbol `·` in this document represents a regular space character ` `, it is used to clearly indicate when an option default value starts or ends with a space.
 
 ## Order
 
 You can specify the order of prompt section using `SPACESHIP_PROMPT_ORDER` option. Use Zsh array syntax to define your own prompt order.
 
-The order also defines which sections that Spaceship loads. If you're struggling with slow prompt, you can just omit the sections that you don't use, and they won't be loaded.
+The order also defines which sections Spaceship loads. If you're struggling with slow prompt, you can just omit the sections that you don't use, and they won't be loaded.
 
 The default order is:
 
@@ -235,7 +241,8 @@ Package version is shown when repository is a package.
 - **npm** — `npm` package contains a `package.json` file. We use `jq`, `python` to parse package version for improving performance and `node` as a fallback. Install [jq](https://stedolan.github.io/jq/) for **improved performance** of this section ([Why?](./troubleshooting.md#why-is-my-prompt-slow))
 - **cargo** — `cargo` package contains a `Cargo.toml` file. Currently, we use `cargo pkgid`, it depends on `Cargo.lock`. So if package version isn't shown, you may need to run some command like `cargo build` which can generate `Cargo.lock` file.
 
-> **Note:** This is the version of the package you are working on, not the version of package manager itself.
+!!! note
+    This is the version of the package you are working on, not the version of package manager itself.
 
 | Variable                   |              Default               | Meaning                                      |
 | :------------------------- | :--------------------------------: | -------------------------------------------- |
@@ -525,7 +532,8 @@ Kubernetes section consists of `kubectl_version` and `kubectl_context` subsectio
 
 Shows the active kubectl context, which consists of a cluster name and, when working in a non-default namespace, also a namespace name.
 
-**💡 Tip:** If your cluster name (and thus context name) is too long, you can give it a shorter name using `kubectl config rename-context very_long_context_name name`.
+!!! tip
+    If your cluster name (and thus context name) is too long, you can give it a shorter name using `kubectl config rename-context very_long_context_name name`.
 
 | Variable                               |              Default               | Meaning                                                         |
 | :------------------------------------- | :--------------------------------: | --------------------------------------------------------------- |
@@ -658,9 +666,11 @@ You can temporarily enable or disable vi-mode with handy functions (just execute
 | `spaceship_vi_mode_enable`  | Enable vi-mode for current terminal session  |
 | `spaceship_vi_mode_disable` | Disable vi-mode for current terminal session |
 
-**Note:** If the prompt does not refresh when changing modes add `eval spaceship_vi_mode_enable` to your `.zshrc`. Beware that `spaceship_vi_mode_enable` will override the`zle-keymap-select` widget, so if you have a custom one just make sure it contains the line `zle reset-prompt ; zle -R`.
+!!! note
+    If the prompt does not refresh when changing modes add `eval spaceship_vi_mode_enable` to your `.zshrc`. Beware that `spaceship_vi_mode_enable` will override the`zle-keymap-select` widget, so if you have a custom one just make sure it contains the line `zle reset-prompt ; zle -R`.
 
-**Note:** For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$reset_color%}"` before `source $ZSH/oh-my-zsh.sh` in `.zshrc` to disable default `<<<` NORMAL mode indicator in right prompt.
+!!! note
+    For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$reset_color%}"` before `source $ZSH/oh-my-zsh.sh` in `.zshrc` to disable default `<<<` NORMAL mode indicator in right prompt.
 
 ## Jobs (`jobs`)
 

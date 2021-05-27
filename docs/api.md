@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # API
 
 This page describes Spaceship API for creating plugins and tweaking Spaceship's behavior.
@@ -90,7 +95,8 @@ echo $SPACESHIP_VERSION
 
 ## `SPACESHIP_ROOT`
 
-> **Attention!** Do not modify the value of this variable! Changing the value may cause the damage to Spaceship installation!
+!!! danger
+    Do not modify the value of this variable! Changing the value may cause the damage to Spaceship installation!
 
 An environment variable that defines the path to Spaceship prompt installation. Spaceship uses this variable for resolving path to sections and utils.
 
