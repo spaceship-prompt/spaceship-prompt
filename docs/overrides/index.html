@@ -34,14 +34,6 @@
     position: initial;
   }
 
-  .md-main__inner {
-    margin: 0;
-  }
-
-  .md-content {
-    display: none;
-  }
-
   .mdx-hero {
     color: var(--md-primary-bg-color);
     margin-bottom: 4rem;
@@ -73,6 +65,18 @@
     margin-bottom: 1rem;
     font-weight: 700;
     color: currentColor;
+  }
+
+  .mdx-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .mdx-features img {
+    height: 160px;
+    object-fit: fixed;
   }
 
   @media screen and (min-width: 960px) {
@@ -134,7 +138,24 @@
   </div>
 </section>
 {% endblock %}
-<!--  -->
-{% block content %}{% endblock %}
-<!--  -->
-{% block footer %}{% endblock %}
+<!-- Content -->
+{% block content %}
+  <div class="mdx-features">
+    <div>
+      <img src="assets/what-is-needed.svg" alt="Clean and simple">
+      <h2>Clean and simple</h2>
+      <p>The prompt is not overloaded, it shows only what you need at the moment (current directory, git branch, etc).</p>
+    </div>
+    <div>
+      <img src="assets/out-of-the-box.svg" alt="Easy to set up">
+      <h2>Easy to set up</h2>
+      <p>The prompt works right after installation without any additional configuration. Install it and use it.</p>
+    </div>
+    <div>
+      <img src="assets/configurable.svg" alt="Configurable">
+      <h2>Configurable</h2>
+      <p>The prompt is zero-config, but if a customization is needed, it provides an easy-to-use interface for customization.</p>
+    </div>
+  </div>
+  {{ super() }}
+{% endblock %}
