@@ -9,18 +9,15 @@ hero:
   install_button: Getting Started
   source_button: Source Code
 features:
-  - 
-    title: Clean and simple
-    image: /assets/what-is-needed.svg
-    description: The prompt is not overloaded, it shows only what you need at the moment (current directory, git branch, etc).
-  - 
-    title: Easy to set up
-    image: /assets/out-of-the-box.svg
-    description: The prompt works right after installation without any additional configuration. install it and use it.
-  - 
-    title: Configurable
-    image: /assets/configurable.svg
-    description: The prompt is zero-config, but if a customization is needed, it provides an easy-to-use interface for customization.
+  - title: Охайний та простий
+    image: assets/what-is-needed.svg
+    description: Командний рядок не перевантажений, а показує тільки те, що вам потрібно в даний момент (поточна директорія, гілка git тощо).
+  - title: Просто встановлюється
+    image: assets/out-of-the-box.svg
+    description: Командний рядок працює відразу після встановлення, без додаткової конфігурації. Встановлюйте та користуйтесь.
+  - title: Легко налаштовується
+    image: assets/configurable.svg
+    description: Командний рядок не потребує конфігурації, однак надає зрозумілий та простий інтерфейс для налаштувань.
 ---
 
 # Ласкаво просимо на борт, астронавте!
@@ -50,7 +47,8 @@ features:
 Хочете більше можливостей? Будь ласка, [відкрити задачу](https://github.com/denysdovhan/yspaceship-prompt/issues/new/choose) або надіслати запит на зміни.
 
 <!-- prettier-ignore -->
-!!! tip Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
+!!! tip
+    Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
 
 ## Усунення несправностей
 
@@ -69,10 +67,10 @@ features:
 
 Привіт! Я працюю над цим проектом у свій вільний час, на додачу до моєї основної роботи. Сподіваюсь, вам подобається користуватися Spaceship. Якщо це так, будь ласка, [стати моїм патроном 🤝][patreon-url].
 
-|            Patreon            |                                                                     Bitcoin                                                                      |                                                                     Ethereum                                                                     |
-|:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------:|
-| [Стати патроном][patreon-url] |                                                       `1FrPrQb6ACTkbSBAz9PduJWrDFfq41Ggb4`                                                       |                                                   `0x6aF39C917359897ae6969Ad682C14110afe1a0a1`                                                   |
-|   <a href="https://www.patreon.com/denysdovhan"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px"></a>   | <img src="https://user-images.githubusercontent.com/3459374/33760933-1c9b81b4-dc10-11e7-8e4b-22d81f98c138.png" width="100px" /> | <img src="https://user-images.githubusercontent.com/3459374/33760932-1c7b3fb2-dc10-11e7-9774-411264d533da.png" width="100px" /> |
+|                                                                    Patreon                                                                     |                                                             Bitcoin                                                             |                                                            Ethereum                                                             |
+| :--------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------: |
+|                                                         [Стати патроном][patreon-url]                                                          |                                              `1FrPrQb6ACTkbSBAz9PduJWrDFfq41Ggb4`                                               |                                          `0x6aF39C917359897ae6969Ad682C14110afe1a0a1`                                           |
+| <a href="https://www.patreon.com/denysdovhan"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px"></a> | <img src="https://user-images.githubusercontent.com/3459374/33760933-1c9b81b4-dc10-11e7-8e4b-22d81f98c138.png" width="100px" /> | <img src="https://user-images.githubusercontent.com/3459374/33760932-1c7b3fb2-dc10-11e7-9774-411264d533da.png" width="100px" /> |
 
 Цей спосіб чітко заявити: **Моя робота цінується.**
 
@@ -83,5 +81,4 @@ features:
 MIT © [Денис Довгань](http://denysdovhan.com)
 
 [patreon-url]: https://www.patreon.com/denysdovhan
-
 [patreon-url]: https://www.patreon.com/denysdovhan
