@@ -3,19 +3,19 @@ hide:
   - navigation
 ---
 
-# Опції
+## Options
 
 You have ability to customize or disable specific elements of Spaceship. All options must be overridden in your `.zshrc` file **after** the theme.
 
 Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
 
-!!! note The symbol `·` in this document represents a regular space character ``, it is used to clearly indicate when an option default value starts or ends with a space.
+**Note:** the symbol `·` in this document represents a regular space character ``, it is used to clearly indicate when an option default value starts or ends with a space.
 
-## Порядок
+### Order
 
 You can specify the order of prompt section using `SPACESHIP_PROMPT_ORDER` option. Use Zsh array syntax to define your own prompt order.
 
-The order also defines which sections Spaceship loads. If you're struggling with slow prompt, you can just omit the sections that you don't use, and they won't be loaded.
+The order also defines which sections that Spaceship loads. If you're struggling with slow prompt, you can just omit the sections that you don't use, and they won't be loaded.
 
 Типовий порядок:
 
@@ -62,7 +62,7 @@ SPACESHIP_PROMPT_ORDER=(
 
 You can also add items to the right prompt by specifying them in the `SPACESHIP_RPROMPT_ORDER` option. By default `SPACESHIP_RPROMPT_ORDER` is empty.
 
-## Командний рядок
+### Prompt
 
 This group of options defines a behaviour of prompt and standard parameters for sections displaying.
 
@@ -76,7 +76,7 @@ This group of options defines a behaviour of prompt and standard parameters for 
 | `SPACESHIP_PROMPT_DEFAULT_PREFIX`    |      `via·`      | Типовий префікс для секцій                                  |
 | `SPACESHIP_PROMPT_DEFAULT_SUFFIX`    |        ``        | Типовий суфікс для секцій                                   |
 
-## Символ
+### Char
 
 | Змінна                            |     За замовчуванням     | Пояснення                                                            |
 |:--------------------------------- |:------------------------:| -------------------------------------------------------------------- |
@@ -89,7 +89,7 @@ This group of options defines a behaviour of prompt and standard parameters for 
 | `SPACESHIP_CHAR_COLOR_FAILURE`    |          `red`           | Color of prompt character if last command returns non-zero exit-code |
 | `SPACESHIP_CHAR_COLOR_SECONDARY`  |         `yellow`         | Color of secondary prompt character                                  |
 
-## Час (`time`)
+### Time (`time`)
 
 Disabled by default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if you need to show time stamps.
 
@@ -102,7 +102,7 @@ Disabled by default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | `SPACESHIP_TIME_FORMAT` |              `false`               | Custom date formatting [ZSH date formats](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Date-and-time) |
 | `SPACESHIP_TIME_12HR`   |              `false`               | Format time using 12-hour clock (am/pm)                                                                               |
 
-## Ім’я користувача (`user`)
+### Username (`user`)
 
 By default, a username is shown only when it's not the same as `$LOGNAME`, when you're connected via SSH or when you're root. Root user is highlighted in `SPACESHIP_USER_COLOR_ROOT` color (red as default).
 
@@ -123,7 +123,7 @@ By default, a username is shown only when it's not the same as `$LOGNAME`, when 
 |        `true`         | If needed     | Always         |
 |       `needed`        | If needed     | If needed      |
 
-## Ім’я хоста (`host`)
+### Hostname (`host`)
 
 Hostname is shown only when you're connected via SSH unless you change this behavior.
 
@@ -136,7 +136,7 @@ Hostname is shown only when you're connected via SSH unless you change this beha
 | `SPACESHIP_HOST_COLOR`     |               `blue`               | Color of host section                           |
 | `SPACESHIP_HOST_COLOR_SSH` |              `green`               | Color of host in SSH connection                 |
 
-## Директорія (`dir`)
+### Directory (`dir`)
 
 Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`. While you are in repository, it shows only root directory and folders inside it. If current directory is write-protected or if current user has not enough rights to write in it, a padlock (by default) is displayed as a suffix.
 
@@ -152,7 +152,7 @@ Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`. W
 | `SPACESHIP_DIR_LOCK_SYMBOL`  | ![·](https://user-images.githubusercontent.com/10276208/46248218-4af95d80-c434-11e8-8e25-595d792503f1.png) | The symbol displayed if directory is write-protected (requires powerline patched font) |
 | `SPACESHIP_DIR_LOCK_COLOR`   |                                                    `red`                                                    | Color for the lock symbol                                                              |
 
-## Git (`git`)
+### Git (`git`)
 
 Git section consists of `git_branch` and `git_status` subsections. It is shown only in Git repositories.
 
@@ -163,7 +163,7 @@ Git section consists of `git_branch` and `git_status` subsections. It is shown o
 | `SPACESHIP_GIT_SUFFIX` |                                     `$SPACESHIP_PROMPT_DEFAULT_SUFFIX`                                     | Suffix after Git section                                                                                        |
 | `SPACESHIP_GIT_SYMBOL` | ![·](https://user-images.githubusercontent.com/3459374/34947621-4f324a92-fa13-11e7-9b99-cdba2cdda6b9.png) | Character to be shown before Git section (requires [powerline patched font](https://github.com/powerline/fonts) |
 
-### Git branch (`git_branch`)
+#### Git branch (`git_branch`)
 
 | Variable                      |         Default         | Meaning                             |
 |:----------------------------- |:-----------------------:| ----------------------------------- |
@@ -172,7 +172,7 @@ Git section consists of `git_branch` and `git_status` subsections. It is shown o
 | `SPACESHIP_GIT_BRANCH_SUFFIX` |           ``            | Suffix after Git branch subsection  |
 | `SPACESHIP_GIT_BRANCH_COLOR`  |        `magenta`        | Color of Git branch subsection      |
 
-### Git status (`git_status`)
+#### Git status (`git_status`)
 
 Git status indicators is shown only when you have dirty repository.
 
@@ -193,7 +193,7 @@ Git status indicators is shown only when you have dirty repository.
 | `SPACESHIP_GIT_STATUS_BEHIND`    |   `⇣`   | Indicator for unpulled changes (behind of remote branch)     |
 | `SPACESHIP_GIT_STATUS_DIVERGED`  |   `⇕`   | Indicator for diverged changes (diverged with remote branch) |
 
-## Mercurial (`hg`)
+### Mercurial (`hg`)
 
 Mercurial section is consists with `hg_branch` and `hg_status` subsections. It is shown only in Mercurial repositories.
 
@@ -204,7 +204,7 @@ Mercurial section is consists with `hg_branch` and `hg_status` subsections. It i
 | `SPACESHIP_HG_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Mercurial section                 |
 | `SPACESHIP_HG_SYMBOL` |                `☿·`                | Character to be shown before Mercurial section |
 
-### Mercurial branch (`hg_branch`)
+#### Mercurial branch (`hg_branch`)
 
 Shows Mercurial bookmarks when available, otherwise shows Mercurial branch information.
 
@@ -215,7 +215,7 @@ Shows Mercurial bookmarks when available, otherwise shows Mercurial branch infor
 | `SPACESHIP_HG_BRANCH_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Mercurial branch subsection  |
 | `SPACESHIP_HG_BRANCH_COLOR`  |             `magenta`              | Color of Mercurial branch subsection      |
 
-### Mercurial status (`hg_status`)
+#### Mercurial status (`hg_status`)
 
 Mercurial status indicators is shown only when you have dirty repository.
 
@@ -230,7 +230,7 @@ Mercurial status indicators is shown only when you have dirty repository.
 | `SPACESHIP_HG_STATUS_MODIFIED`  |   `!`   | Indicator for unstaged files              |
 | `SPACESHIP_HG_STATUS_DELETED`   |   `✘`   | Indicator for deleted files               |
 
-## Package version (`package`)
+### Package version (`package`)
 
 > Works for [npm](https://www.npmjs.com/) and [cargo](https://crates.io/) at the moment. Please, help us improve this section!
 
@@ -239,7 +239,7 @@ Package version is shown when repository is a package.
 - **npm** — `npm` package contains a `package.json` file. We use `jq`, `python` to parse package version for improving performance and `node` as a fallback. Install [jq](https://stedolan.github.io/jq/) for **improved performance** of this section ([Why?](./troubleshooting.md#why-is-my-prompt-slow))
 - **cargo** — `cargo` package contains a `Cargo.toml` file. Currently, we use `cargo pkgid`, it depends on `Cargo.lock`. So if package version isn't shown, you may need to run some command like `cargo build` which can generate `Cargo.lock` file.
 
-!!! note This is the version of the package you are working on, not the version of package manager itself.
+> **Note:** This is the version of the package you are working on, not the version of package manager itself.
 
 | Variable                   |              Default               | Meaning                                      |
 |:-------------------------- |:----------------------------------:| -------------------------------------------- |
@@ -249,7 +249,7 @@ Package version is shown when repository is a package.
 | `SPACESHIP_PACKAGE_SYMBOL` |                `📦·`                | Character to be shown before package version |
 | `SPACESHIP_PACKAGE_COLOR`  |               `red`                | Color of package version section             |
 
-## Node.js (`node`)
+### Node.js (`node`)
 
 Node.js section is shown only in directories that contain `package.json` file, or `node_modules` folder, or any other file with `.js` extension.
 
@@ -264,7 +264,7 @@ If you set `SPACESHIP_NODE_DEFAULT_VERSION` to the default Node.js version and y
 | `SPACESHIP_NODE_DEFAULT_VERSION` |                 ``                 | Node.js version to be treated as default     |
 | `SPACESHIP_NODE_COLOR`           |              `green`               | Color of Node.js section                     |
 
-## Ruby (`ruby`)
+### Ruby (`ruby`)
 
 Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`, or any other file with `.rb` extension.
 
@@ -276,7 +276,7 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 | `SPACESHIP_RUBY_SYMBOL` |                `💎·`                | Character to be shown before Ruby version |
 | `SPACESHIP_RUBY_COLOR`  |               `red`                | Color of Ruby section                     |
 
-## Elm (`elm`)
+### Elm (`elm`)
 
 Elm section is shown only in directories that contain `elm.json` file, `elm-package.json` file, `elm-stuff` directory, or any other file with `.elm` extension.
 
@@ -288,7 +288,7 @@ Elm section is shown only in directories that contain `elm.json` file, `elm-pack
 | `SPACESHIP_ELM_SYMBOL` |                `🌳·`                | Character to be shown before Elm version |
 | `SPACESHIP_ELM_COLOR`  |               `cyan`               | Color of Elm section                     |
 
-## Elixir (`elixir`)
+### Elixir (`elixir`)
 
 Elixir section is shown only in directories that contain `mix.exs`, or any other file with `.ex` or `.exs` extension. If the current elixir version is the same as the version set in `SPACESHIP_ELIXIR_DEFAULT_VERSION`, the elixir section will be hidden.
 
@@ -301,7 +301,7 @@ Elixir section is shown only in directories that contain `mix.exs`, or any other
 | `SPACESHIP_ELIXIR_SYMBOL`          |                `💧·`                | Character to be shown before Elixir version |
 | `SPACESHIP_ELIXIR_COLOR`           |             `magenta`              | Color of Elixir section                     |
 
-## Xcode (`xcode`)
+### Xcode (`xcode`)
 
 Shows current version of Xcode. Local version has more priority than global.
 
@@ -314,7 +314,7 @@ Shows current version of Xcode. Local version has more priority than global.
 | `SPACESHIP_XCODE_SYMBOL`      |                `🛠·`                | Character to be shown before Xcode version   |
 | `SPACESHIP_XCODE_COLOR`       |               `blue`               | Color of Xcode section                       |
 
-## Swift (`swift`)
+### Swift (`swift`)
 
 Shows current version of Swift. Local version has more priority than global.
 
@@ -327,7 +327,7 @@ Shows current version of Swift. Local version has more priority than global.
 | `SPACESHIP_SWIFT_SYMBOL`      |                `🐦·`                | Character to be shown before Swift version      |
 | `SPACESHIP_SWIFT_COLOR`       |              `yellow`              | Color of Swift section                          |
 
-## Go (`golang`)
+### Go (`golang`)
 
 Go section is shown only in directories that contain `go.mod`, `Godeps`, `glide.yaml`, any other file with `.go` extension, or when current directory is in the Go workspace defined in `$GOPATH`.
 
@@ -346,7 +346,7 @@ For example:
 | `SPACESHIP_GOLANG_SYMBOL` |                `🐹·`                | Character to be shown before Go version |
 | `SPACESHIP_GOLANG_COLOR`  |               `cyan`               | Color of Go section                     |
 
-## PHP (`php`)
+### PHP (`php`)
 
 PHP section is shown only in directories that contain `composer.json` file, or any other file with `.php` extension.
 
@@ -358,7 +358,7 @@ PHP section is shown only in directories that contain `composer.json` file, or a
 | `SPACESHIP_PHP_SYMBOL` |                `🐘·`                | Character to be shown before PHP version |
 | `SPACESHIP_PHP_COLOR`  |               `blue`               | Color of PHP section                     |
 
-## Rust (`rust`)
+### Rust (`rust`)
 
 Rust section is shown only in directories that contain `Cargo.toml` or any other file with `.rs` extension.
 
@@ -367,11 +367,11 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 | `SPACESHIP_RUST_SHOW`            |               `true`               | Shown current Rust version or not                       |
 | `SPACESHIP_RUST_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Rust section                          |
 | `SPACESHIP_RUST_SUFFIX`          | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Rust section                           |
-| `SPACESHIP_RUST_SYMBOL`          |                `𝗥·`                | Character to be shown before Rust version               |
+| `SPACESHIP_RUST_SYMBOL`          |                `🦀·`                | Character to be shown before Rust version               |
 | `SPACESHIP_RUST_COLOR`           |               `red`                | Color of Rust section                                   |
 | `SPACESHIP_RUST_VERBOSE_VERSION` |              `false`               | Show what branch is being used, if any. (Beta, Nightly) |
 
-## Haskell (`haskell`)
+### Haskell (`haskell`)
 
 Haskell section is shown only in directories that contain `stack.yaml` file.
 
@@ -383,7 +383,7 @@ Haskell section is shown only in directories that contain `stack.yaml` file.
 | `SPACESHIP_HASKELL_SYMBOL` |                `λ·`                | Character to be shown before Haskell Tool Stack version |
 | `SPACESHIP_HASKELL_COLOR`  |               `red`                | Color of Haskell section                                |
 
-## Julia (`julia`)
+### Julia (`julia`)
 
 Julia section is shown only in directories that contain file with `.jl` extension.
 
@@ -395,7 +395,7 @@ Julia section is shown only in directories that contain file with `.jl` extensio
 | `SPACESHIP_JULIA_SYMBOL` |                `ஃ·`                | Character to be shown before Julia version |
 | `SPACESHIP_JULIA_COLOR`  |              `green`               | Color of Julia section                     |
 
-## Docker (`docker`)
+### Docker (`docker`)
 
 Docker section is shown only in directories that contain `Dockerfile` or it's possible to run `docker-compose`.
 
@@ -412,7 +412,7 @@ The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more inf
 | `SPACESHIP_DOCKER_COLOR`   |               `cyan`               | Color of Docker section                     |
 | `SPACESHIP_DOCKER_VERBOSE` |              `false`               | Show complete Docker version                |
 
-## Docker context (`docker_context`)
+### Docker context (`docker_context`)
 
 | Variable                          | Default | Meaning                                  |
 |:--------------------------------- |:-------:| ---------------------------------------- |
@@ -420,7 +420,7 @@ The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more inf
 | `SPACESHIP_DOCKER_CONTEXT_PREFIX` |  `·(`   | Prefix before the Docker context section |
 | `SPACESHIP_DOCKER_CONTEXT_SUFFIX` |   `)`   | Suffix after the Docker context section  |
 
-## Amazon Web Services (AWS) (`aws`)
+### Amazon Web Services (AWS) (`aws`)
 
 Shows selected Amazon Web Services profile configured using [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) variable.
 
@@ -432,7 +432,7 @@ Shows selected Amazon Web Services profile configured using [`AWS_PROFILE`](http
 | `SPACESHIP_AWS_SYMBOL` |               `☁️·`                | Character to be shown before AWS profile     |
 | `SPACESHIP_AWS_COLOR`  |               `208`                | Color of AWS section                         |
 
-## Google Cloud Platform (`gcloud`)
+### Google Cloud Platform (`gcloud`)
 
 Shows active Google Cloud Platform configuration using gcloud active configuration file.
 
@@ -444,7 +444,7 @@ Shows active Google Cloud Platform configuration using gcloud active configurati
 | `SPACESHIP_GCLOUD_SYMBOL` |               `☁️·`                | Character to be shown before GCLOUD active configuration |
 | `SPACESHIP_GCLOUD_COLOR`  |                `26`                | Color of GCLOUD section                                  |
 
-## Virtualenv (`venv`)
+### Virtualenv (`venv`)
 
 | Variable                       |              Default               | Meaning                                                                                        |
 |:------------------------------ |:----------------------------------:| ---------------------------------------------------------------------------------------------- |
@@ -455,7 +455,7 @@ Shows active Google Cloud Platform configuration using gcloud active configurati
 | `SPACESHIP_VENV_GENERIC_NAMES` |     `(virtualenv venv .venv)`      | If the virtualenv folder is in this _array_, than use its parent directory as its name instead |
 | `SPACESHIP_VENV_COLOR`         |               `blue`               | Color of virtualenv environment section                                                        |
 
-## Conda virtualenv (`conda`)
+### Conda virtualenv (`conda`)
 
 Show activated conda virtual environment. Disable native conda prompt by `conda config --set changeps1 False`.
 
@@ -468,7 +468,7 @@ Show activated conda virtual environment. Disable native conda prompt by `conda 
 | `SPACESHIP_CONDA_COLOR`   |               `blue`               | Color of conda virtualenv environment section            |
 | `SPACESHIP_CONDA_VERBOSE` |               `true`               | Toggle to truncate environment names under custom prefix |
 
-## Pyenv (`pyenv`)
+### Pyenv (`pyenv`)
 
 pyenv section is shown only in directories that contain `requirements.txt`, `pyproject.toml` or any other file with `.py` extension.
 
@@ -480,7 +480,7 @@ pyenv section is shown only in directories that contain `requirements.txt`, `pyp
 | `SPACESHIP_PYENV_SYMBOL` |                `🐍·`                | Character to be shown before Pyenv version |
 | `SPACESHIP_PYENV_COLOR`  |              `yellow`              | Color of Pyenv section                     |
 
-## .NET (`dotnet`)
+### .NET (`dotnet`)
 
 .NET section is shown only in directories that contains a `project.json` or `global.json` file, or a file with one of these extensions: `.csproj`, `.xproj` or `.sln`.
 
@@ -492,7 +492,7 @@ pyenv section is shown only in directories that contain `requirements.txt`, `pyp
 | `SPACESHIP_DOTNET_SYMBOL` |              `.NET·`               | Character to be shown before .NET version |
 | `SPACESHIP_DOTNET_COLOR`  |               `128`                | Color of .NET section                     |
 
-## Ember.js (`ember`)
+### Ember.js (`ember`)
 
 Ember.js section is shown only in directories that contain a `ember-cli-build.js` file.
 
@@ -504,7 +504,7 @@ Ember.js section is shown only in directories that contain a `ember-cli-build.js
 | `SPACESHIP_EMBER_SYMBOL` |                `🐹·`                | Character to be shown before Ember.js version |
 | `SPACESHIP_EMBER_COLOR`  |               `210`                | Color of Ember.js section                     |
 
-## Kubernetes (`kubectl`)
+### Kubernetes (`kubectl`)
 
 Kubernetes section consists of `kubectl_version` and `kubectl_context` subsections. It is shown only when kubectl can connect to Kubernetes cluster.
 
@@ -516,7 +516,7 @@ Kubernetes section consists of `kubectl_version` and `kubectl_context` subsectio
 | `SPACESHIP_KUBECTL_COLOR`  |              `white`               | Color of Kubernetes section                        |
 | `SPACESHIP_KUBECTL_SYMBOL` |               `☸️··`               | Character to be shown before Kubernetes subsection |
 
-### Kubernetes version (`kubectl_version`)
+#### Kubernetes version (`kubectl_version`)
 
 | Variable                           |              Default               | Meaning                                     |
 |:---------------------------------- |:----------------------------------:| ------------------------------------------- |
@@ -525,11 +525,11 @@ Kubernetes section consists of `kubectl_version` and `kubectl_context` subsectio
 | `SPACESHIP_KUBECTL_VERSION_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubernetes version subsection  |
 | `SPACESHIP_KUBECTL_VERSION_COLOR`  |               `cyan`               | Color of Kubernetes version subsection      |
 
-## Kubernetes context (`kubectl_context`)
+### Kubernetes context (`kubectl_context`)
 
 Shows the active kubectl context, which consists of a cluster name and, when working in a non-default namespace, also a namespace name.
 
-!!! tip If your cluster name (and thus context name) is too long, you can give it a shorter name using `kubectl config rename-context very_long_context_name name`.
+**💡 Tip:** If your cluster name (and thus context name) is too long, you can give it a shorter name using `kubectl config rename-context very_long_context_name name`.
 
 | Variable                               |              Default               | Meaning                                                         |
 |:-------------------------------------- |:----------------------------------:| --------------------------------------------------------------- |
@@ -557,7 +557,7 @@ SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
 )
 ```
 
-## Gradle (`gradle`)
+### Gradle (`gradle`)
 
 Shows current gradle & jvm version.
 
@@ -576,9 +576,9 @@ Shows current gradle & jvm version.
 | `SPACESHIP_GRADLE_JVM_DEFAULT_VERSION` |                 ``                 | Gradle JVM version to be treated as default     |
 | `SPACESHIP_GRADLE_JVM_COLOR`           |             `magenta`              | Color of Gradle JVM section                     |
 
-## Maven (`maven`)
+### Maven (`maven`)
 
-Показує поточну версію maven та jvm.
+Shows current maven & jvm version.
 
 | Змінна                                |          За замовчуванням          | Пояснення                                      |
 |:------------------------------------- |:----------------------------------:| ---------------------------------------------- |
@@ -595,7 +595,7 @@ Shows current gradle & jvm version.
 | `SPACESHIP_MAVEN_JVM_DEFAULT_VERSION` |                 ``                 | Maven JVM version to be treated as default     |
 | `SPACESHIP_MAVEN_JVM_COLOR`           |             `magenta`              | Color of Maven JVM section                     |
 
-## Terraform workspace (`terraform`)
+### Terraform workspace (`terraform`)
 
 Shows the active Terraform wokspace in directories that contain `.terraform/environment` file.
 
@@ -607,7 +607,7 @@ Shows the active Terraform wokspace in directories that contain `.terraform/envi
 | `SPACESHIP_TERRAFORM_SYMBOL` |               `🛠️·`                | Character to be shown before Terraform workspace |
 | `SPACESHIP_TERRAFORM_COLOR`  |               `105`                | Color of Terraform workspace section             |
 
-## Execution time (`exec_time`)
+### Execution time (`exec_time`)
 
 Execution time of the last command. Will be displayed if it exceeds the set threshold of time.
 
@@ -619,7 +619,7 @@ Execution time of the last command. Will be displayed if it exceeds the set thre
 | `SPACESHIP_EXEC_TIME_COLOR`   |              `yellow`              | Color of execution time section                                  |
 | `SPACESHIP_EXEC_TIME_ELAPSED` |                `2`                 | The minimum number of seconds for showing execution time section |
 
-## Battery (`battery`)
+### Battery (`battery`)
 
 By default, Battery section is shown only if battery level is below `SPACESHIP_BATTERY_THRESHOLD` (default: 10%).
 
@@ -642,7 +642,7 @@ By default, Battery section is shown only if battery level is below `SPACESHIP_B
 |          `true`          | Shown           | Hidden          | Hidden        |
 |        `charged`         | Shown           | Hidden          | Shown         |
 
-## Vi-mode (`vi_mode`)
+### Vi-mode (`vi_mode`)
 
 This section shows mode indicator only when Vi-mode is enabled.
 
@@ -662,11 +662,11 @@ You can temporarily enable or disable vi-mode with handy functions (just execute
 | `spaceship_vi_mode_enable`  | Enable vi-mode for current terminal session  |
 | `spaceship_vi_mode_disable` | Disable vi-mode for current terminal session |
 
-!!! note If the prompt does not refresh when changing modes add `eval spaceship_vi_mode_enable` to your `.zshrc`. Beware that `spaceship_vi_mode_enable` will override the`zle-keymap-select` widget, so if you have a custom one just make sure it contains the line `zle reset-prompt ; zle -R`.
+**Note:** If the prompt does not refresh when changing modes add `eval spaceship_vi_mode_enable` to your `.zshrc`. Beware that `spaceship_vi_mode_enable` will override the`zle-keymap-select` widget, so if you have a custom one just make sure it contains the line `zle reset-prompt ; zle -R`.
 
-!!! note For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$reset_color%}"` before `source $ZSH/oh-my-zsh.sh` in `.zshrc` to disable default `<<<` NORMAL mode indicator in right prompt.
+**Note:** For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$reset_color%}"` before `source $ZSH/oh-my-zsh.sh` in `.zshrc` to disable default `<<<` NORMAL mode indicator in right prompt.
 
-## Jobs (`jobs`)
+### Jobs (`jobs`)
 
 This section show only when there are active jobs in the background.
 
@@ -681,7 +681,7 @@ This section show only when there are active jobs in the background.
 | `SPACESHIP_JOBS_AMOUNT_SUFFIX`    |   ``    | Suffix after the number of jobs                                           |
 | `SPACESHIP_JOBS_AMOUNT_THRESHOLD` |   `1`   | Number of jobs after which job count will be shown                        |
 
-## Exit code (`exit_code`)
+### Exit code (`exit_code`)
 
 Disabled by default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show exit code of last command.
 
@@ -693,6 +693,6 @@ Disabled by default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, 
 | `SPACESHIP_EXIT_CODE_SYMBOL` |       `✘`        | Character to be shown before exit code |
 | `SPACESHIP_EXIT_CODE_COLOR`  |      `red`       | Color of exit code section             |
 
-# Потрібно більше?
+## Need more?
 
 If these options are not enough to do what you want, read more about Spaceship's API on [API page](./api.md) of the documentation.
