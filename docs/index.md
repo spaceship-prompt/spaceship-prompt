@@ -3,6 +3,19 @@ template: index.html
 title: Home
 hide:
   - navigation
+headline: It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
+install_button: Getting Started
+source_button: Source Code
+features:
+  - title: Clean and simple
+    image: assets/what-is-needed.svg
+    description: The prompt is not overloaded, it shows only what you need at the moment (current directory, git branch, etc).
+  - title: Easy to set up
+    image: assets/out-of-the-box.svg
+    description: The prompt works right after installation without any additional configuration. install it and use it.
+  - title: Configurable
+    image: assets/configurable.svg
+    description: The prompt is zero-config, but if a customization is needed, it provides an easy-to-use interface for customization.
 ---
 
 # Welcome aboard, Astronaut!
@@ -32,7 +45,7 @@ hide:
 Want more features? Please, [open an issue](https://github.com/denysdovhan/yspaceship-prompt/issues/new/choose) or send pull request.
 
 !!! tip
-    Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
+Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
 
 ## Troubleshooting
 
