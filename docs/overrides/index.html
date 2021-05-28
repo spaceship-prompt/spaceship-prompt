@@ -114,20 +114,20 @@
         />
       </div>
       <div class="mdx-hero__content">
-        <h1>{{ config.site_description }}</h1>
-        <p>{{ page.meta.headline }}</p>
+        <h1>{{ page.meta.hero.title }}</h1>
+        <p>{{ page.meta.hero.subtitle }}</p>
         <a
           href="{{ page.next_page.url | url }}"
           title="{{ page.next_page.title | e }}"
           class="md-button md-button--primary"
         >
-          {{ page.meta.install_button }}
+          {{ page.meta.hero.install_button }}
         </a>
         <a
           href="{{ '//github.com/denysdovhan/spaceship-prompt' | url }}"
           title="Source code of Spaceship"
           class="md-button"
-          >{{ page.meta.source_button }}
+          >{{ page.meta.hero.source_button }}
         </a>
       </div>
     </div>

@@ -3,9 +3,11 @@ template: index.html
 title: Home
 hide:
   - navigation
-headline: It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
-install_button: Getting Started
-source_button: Source Code
+hero:
+  title: Minimalistic, powerful and extremely customizable Zsh prompt
+  subtitle: It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
+  install_button: Getting Started
+  source_button: Source Code
 features:
   - title: Clean and simple
     image: /assets/what-is-needed.svg
@@ -44,8 +46,9 @@ features:
 
 Want more features? Please, [open an issue](https://github.com/denysdovhan/yspaceship-prompt/issues/new/choose) or send pull request.
 
+<!-- prettier-ignore -->
 !!! tip
-Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
+    Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
 
 ## Troubleshooting
 
