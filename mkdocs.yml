@@ -61,6 +61,7 @@ extra_css:
   - assets/styles.css
 
 plugins:
+  - search
   - i18n:
       default_language: en
       languages:
