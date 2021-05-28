@@ -120,14 +120,15 @@
           href="{{ page.next_page.url | url }}"
           title="{{ page.next_page.title | e }}"
           class="md-button md-button--primary"
-          >{{ page.meta.install_button }}</a
         >
+          {{ page.meta.install_button }}
+        </a>
         <a
           href="{{ '//github.com/denysdovhan/spaceship-prompt' | url }}"
           title="Source code of Spaceship"
           class="md-button"
-          >{{ page.meta.source_code }}</a
-        >
+          >{{ page.meta.source_button }}
+        </a>
       </div>
     </div>
   </div>
