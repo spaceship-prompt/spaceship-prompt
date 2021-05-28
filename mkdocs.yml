@@ -59,3 +59,9 @@ extra:
 
 extra_css:
   - assets/styles.css
+
+plugins:
+  - i18n:
+      default_language: en
+      languages:
+        en: English
