@@ -1,4 +1,4 @@
 pull_request_title: "docs(i18n): New Crowdin translations"
 files:
   - source: /docs/**/*.md
-    translation: /**/%file_name%.%two_letters_code%.%file_extension%
+    translation: /docs/**/%file_name%.%two_letters_code%.%file_extension%
