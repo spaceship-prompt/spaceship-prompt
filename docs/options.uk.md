@@ -3,7 +3,7 @@ hide:
   - navigation
 ---
 
-# Options
+# Опції
 
 You have ability to customize or disable specific elements of Spaceship. All options must be overridden in your `.zshrc` file **after** the theme.
 
@@ -11,13 +11,13 @@ Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/z
 
 !!! note The symbol `·` in this document represents a regular space character ``, it is used to clearly indicate when an option default value starts or ends with a space.
 
-## Order
+## Порядок
 
 You can specify the order of prompt section using `SPACESHIP_PROMPT_ORDER` option. Use Zsh array syntax to define your own prompt order.
 
 The order also defines which sections Spaceship loads. If you're struggling with slow prompt, you can just omit the sections that you don't use, and they won't be loaded.
 
-The default order is:
+Типовий порядок:
 
 ```zsh
 SPACESHIP_PROMPT_ORDER=(
@@ -62,23 +62,23 @@ SPACESHIP_PROMPT_ORDER=(
 
 You can also add items to the right prompt by specifying them in the `SPACESHIP_RPROMPT_ORDER` option. By default `SPACESHIP_RPROMPT_ORDER` is empty.
 
-## Prompt
+## Командний рядок
 
 This group of options defines a behaviour of prompt and standard parameters for sections displaying.
 
-| Variable                             | Default | Meaning                                          |
-|:------------------------------------ |:-------:| ------------------------------------------------ |
-| `SPACESHIP_PROMPT_ADD_NEWLINE`       | `true`  | Adds a newline character before each prompt line |
-| `SPACESHIP_PROMPT_SEPARATE_LINE`     | `true`  | Make the prompt span across two lines            |
-| `SPACESHIP_PROMPT_FIRST_PREFIX_SHOW` | `false` | Shows a prefix of the first section in prompt    |
-| `SPACESHIP_PROMPT_PREFIXES_SHOW`     | `true`  | Show prefixes before prompt sections or not      |
-| `SPACESHIP_PROMPT_SUFFIXES_SHOW`     | `true`  | Show suffixes before prompt sections or not      |
-| `SPACESHIP_PROMPT_DEFAULT_PREFIX`    | `via·`  | Default prefix for prompt sections               |
-| `SPACESHIP_PROMPT_DEFAULT_SUFFIX`    |   ``    | Default suffix for prompt section                |
+| Змінна                               | За замовчуванням | Пояснення                                                   |
+|:------------------------------------ |:----------------:| ----------------------------------------------------------- |
+| `SPACESHIP_PROMPT_ADD_NEWLINE`       |      `true`      | Додає символ нового рядка перед кожним командним рядком     |
+| `SPACESHIP_PROMPT_SEPARATE_LINE`     |      `true`      | Відображати підказку у два рядки                            |
+| `SPACESHIP_PROMPT_FIRST_PREFIX_SHOW` |     `false`      | Показує префікс першого розділу у командному рядку          |
+| `SPACESHIP_PROMPT_PREFIXES_SHOW`     |      `true`      | Показувати префікси перед секціями у командному рядку чи ні |
+| `SPACESHIP_PROMPT_SUFFIXES_SHOW`     |      `true`      | Показувати суфікси після секцій у командному рядку чи ні    |
+| `SPACESHIP_PROMPT_DEFAULT_PREFIX`    |      `via·`      | Типовий префікс для секцій                                  |
+| `SPACESHIP_PROMPT_DEFAULT_SUFFIX`    |        ``        | Типовий суфікс для секцій                                   |
 
-## Char
+## Символ
 
-| Variable                          |         Default          | Meaning                                                              |
+| Змінна                            |     За замовчуванням     | Пояснення                                                            |
 |:--------------------------------- |:------------------------:| -------------------------------------------------------------------- |
 | `SPACESHIP_CHAR_PREFIX`           |            ``            | Prefix before prompt character                                       |
 | `SPACESHIP_CHAR_SUFFIX`           |            ``            | Suffix after prompt character                                        |
@@ -89,11 +89,11 @@ This group of options defines a behaviour of prompt and standard parameters for 
 | `SPACESHIP_CHAR_COLOR_FAILURE`    |          `red`           | Color of prompt character if last command returns non-zero exit-code |
 | `SPACESHIP_CHAR_COLOR_SECONDARY`  |         `yellow`         | Color of secondary prompt character                                  |
 
-## Time (`time`)
+## Час (`time`)
 
 Disabled by default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if you need to show time stamps.
 
-| Variable                |              Default               | Meaning                                                                                                               |
+| Змінна                  |          За замовчуванням          | Пояснення                                                                                                             |
 |:----------------------- |:----------------------------------:| --------------------------------------------------------------------------------------------------------------------- |
 | `SPACESHIP_TIME_SHOW`   |              `false`               | Show time (set to `true` for enabling)                                                                                |
 | `SPACESHIP_TIME_PREFIX` |               `at·`                | Prefix before time section                                                                                            |
@@ -102,7 +102,7 @@ Disabled by default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 | `SPACESHIP_TIME_FORMAT` |              `false`               | Custom date formatting [ZSH date formats](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Date-and-time) |
 | `SPACESHIP_TIME_12HR`   |              `false`               | Format time using 12-hour clock (am/pm)                                                                               |
 
-## Username (`user`)
+## Ім’я користувача (`user`)
 
 By default, a username is shown only when it's not the same as `$LOGNAME`, when you're connected via SSH or when you're root. Root user is highlighted in `SPACESHIP_USER_COLOR_ROOT` color (red as default).
 
@@ -123,7 +123,7 @@ By default, a username is shown only when it's not the same as `$LOGNAME`, when 
 |        `true`         | If needed     | Always         |
 |       `needed`        | If needed     | If needed      |
 
-## Hostname (`host`)
+## Ім’я хоста (`host`)
 
 Hostname is shown only when you're connected via SSH unless you change this behavior.
 
@@ -136,7 +136,7 @@ Hostname is shown only when you're connected via SSH unless you change this beha
 | `SPACESHIP_HOST_COLOR`     |               `blue`               | Color of host section                           |
 | `SPACESHIP_HOST_COLOR_SSH` |              `green`               | Color of host in SSH connection                 |
 
-## Directory (`dir`)
+## Директорія (`dir`)
 
 Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`. While you are in repository, it shows only root directory and folders inside it. If current directory is write-protected or if current user has not enough rights to write in it, a padlock (by default) is displayed as a suffix.
 
@@ -578,9 +578,9 @@ Shows current gradle & jvm version.
 
 ## Maven (`maven`)
 
-Shows current maven & jvm version.
+Показує поточну версію maven та jvm.
 
-| Variable                              |              Default               | Meaning                                        |
+| Змінна                                |          За замовчуванням          | Пояснення                                      |
 |:------------------------------------- |:----------------------------------:| ---------------------------------------------- |
 | `SPACESHIP_MAVEN_SHOW`                |               `true`               | Current Maven section                          |
 | `SPACESHIP_MAVEN_PREFIX`              | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Maven section                    |
@@ -685,14 +685,14 @@ This section show only when there are active jobs in the background.
 
 Disabled by default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show exit code of last command.
 
-| Variable                     | Default | Meaning                                |
-|:---------------------------- |:-------:| -------------------------------------- |
-| `SPACESHIP_EXIT_CODE_SHOW`   | `false` | Show exit code of last command         |
-| `SPACESHIP_EXIT_CODE_PREFIX` |   ``    | Prefix before exit code section        |
-| `SPACESHIP_EXIT_CODE_SUFFIX` |   ``    | Suffix after exit code section         |
-| `SPACESHIP_EXIT_CODE_SYMBOL` |   `✘`   | Character to be shown before exit code |
-| `SPACESHIP_EXIT_CODE_COLOR`  |  `red`  | Color of exit code section             |
+| Змінна                       | За замовчуванням | Пояснення                              |
+|:---------------------------- |:----------------:| -------------------------------------- |
+| `SPACESHIP_EXIT_CODE_SHOW`   |     `false`      | Show exit code of last command         |
+| `SPACESHIP_EXIT_CODE_PREFIX` |        ``        | Prefix before exit code section        |
+| `SPACESHIP_EXIT_CODE_SUFFIX` |        ``        | Suffix after exit code section         |
+| `SPACESHIP_EXIT_CODE_SYMBOL` |       `✘`        | Character to be shown before exit code |
+| `SPACESHIP_EXIT_CODE_COLOR`  |      `red`       | Color of exit code section             |
 
-# Need more?
+# Потрібно більше?
 
 If these options are not enough to do what you want, read more about Spaceship's API on [API page](./api.md) of the documentation.

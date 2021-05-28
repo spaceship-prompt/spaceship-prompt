@@ -3,34 +3,34 @@ hide:
   - navigation
 ---
 
-# Getting Started
+# Початок роботи
 
-## Requirements
+## Вимоги
 
-- [`zsh`](http://www.zsh.org/) (v5.2 or recent) must be installed.
-- [Powerline Font](https://github.com/powerline/fonts) must be installed and used in your terminal (for example, switch font to [Fira Code](https://github.com/tonsky/FiraCode)).
+- [`zsh`](http://www.zsh.org/) (v5.2 або новіше) має бути встановлено.
+- [Powerline-шрифт](https://github.com/powerline/fonts) слід встановити і використовувати у вашому терміналі (наприклад, змінити шрифт на [Fira Code](https://github.com/tonsky/FiraCode)).
 
-## Installing
+## Встановлення
 
-Now that the requirements are satisfied, you can install Spaceship via any of the following tools.
+Тепер, коли вимоги задоволені, ви можете встановити Spaceship за допомогою будь-якого з перелічених інструментів.
 
 === "oh-my-zsh"
 
-    Clone this repo:
+    Клонуйте репозиторій:
 
     ```zsh
     git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
     ```
 
 
-    Symlink `spaceship.zsh-theme` to your oh-my-zsh custom themes directory:
+    Створіть файлове посилання на `spaceship.zsh-theme` у вашому каталозі користувацьких тем oh-my-zsh:
 
     ```zsh
     ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
     ```
 
 
-    Set `ZSH_THEME="spaceship"` in your `.zshrc`.
+    Встановіть `ZSH_THEME="spaceship"` у вашому `.zshrc`.
 
 === "npm"
 
@@ -39,23 +39,23 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     ```
 
 
-    Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath` and set `prompt spaceship` in `.zshrc`. Just reload your terminal.
+    Готово. Ця команда має залінкувати `spaceship.zsh` як `prompt_spaceship_setup` у вашому `$fpath` та встановити  `prompt spaceship` у `.zshrc`. Just reload your terminal.
     
-    **💡 Tip:** Update Spaceship to new versions as you would any other package.
+    **💡 Порада:** Ви можете оновлювати Spaceship до нових версій, так як і будь-який інший пакет.
 
 === "prezto"
 
-    - Follow [prezto-contrib#usage](https://github.com/belak/prezto-contrib#usage) to clone `prezto-contrib` to the proper location.
-    - Enable the `contrib-prompt` module (before the `prompt` module).
-    - Set `zstyle ':prezto:module:prompt' theme 'spaceship'` in your `.zpreztorc`.
+    - Скористайтесь [prezto-contrib#usage](https://github.com/belak/prezto-contrib#usage) , щоб клонувати `prezto-contrib` до правильного розташування.
+    - Увімкніть модуль `contrib-prompt` (перед модулем `prompt`).
+    - Встановіть `zstyle ':prezto:module:prompt' theme 'spaceship'` у вашому `.zpreztorc`.
 
 === "zim"
 
-    Add `zmodule denysdovhan/spaceship-prompt --name spaceship` to your `.zimrc` and run `zimfw install`.
+    Додайте `zmodule denysdovhan/spaceship-prompt --name spaceship` у `.zimrc` та запустіть `zimfw install`.
 
 === "antigen"
 
-    Add the following snippet in your `.zshrc`:
+    Додайте такий фрагмент у вашому `.zshrc`:
 
     ```
     antigen theme denysdovhan/spaceship-prompt
@@ -63,7 +63,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 === "antibody"
 
-    Update your `.zshrc` file with the following line:
+    Додайте у файл `.zshrc` такий рядок:
 
     ```
     antibody bundle denysdovhan/spaceship-prompt
@@ -71,7 +71,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 === "zinit"
 
-    Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
+    Додайте такий рядок до вашого `.zshrc` у місці, де ви додаєте інші плагіни Zsh:
 
     ```
     zinit light denysdovhan/spaceship-prompt
@@ -79,7 +79,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 === "zgen"
 
-    Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
+    Додайте такий рядок до вашого `.zshrc` у місці, де ви додаєте інші плагіни Zsh:
 
     ```
     zgen load denysdovhan/spaceship-prompt spaceship
@@ -87,7 +87,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 === "zplug"
 
-    Use this command in your `.zshrc` to load Spaceship as prompt theme:
+    Використовуйте цю команду в вашому `.zshrc` для завантаження Spaceship в якості теми командного рядка:
 
     ```
     zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
@@ -95,7 +95,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 === "Arch"
 
-    Install the latest master from the AUR package [`spaceship-prompt-git`](https://aur.archlinux.org/packages/spaceship-prompt-git/):
+    Встановіть найновіший master з AUR-пакета [`spaceship-prompt-git`](https://aur.archlinux.org/packages/spaceship-prompt-git/):
 
     ```
     git clone https://aur.archlinux.org/spaceship-prompt-git.git --depth=1
@@ -103,35 +103,35 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     makepkg -si
     ```
 
-### Manual
+### Ручне встановлення
 
-If you have problems with approaches above, follow these instructions:
+Якщо у вас виникли проблеми з підходом описаним вище, виконайте наступні інструкції:
 
-- Clone this repo `git clone https://github.com/denysdovhan/spaceship-prompt.git --depth=1`
-- Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
-- Initialize prompt system and choose `spaceship`.
+- Клонувати цей репозиторій `git clone https://github.com/denysdovhan/spaceship-prompt.git --depth=1`
+- Зробіть символічне посилання на `spaceship.zsh` у вашому [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) як `prompt_spaceship_setup`.
+- Ініціалізуйте систему командного рядка та оберіть `spaceship`.
 
-#### Example
+#### Приклад
 
-Run `echo $fpath` to see possible location and link `spaceship.zsh` there, like:
+Запустіть `echo $fpath`, щоб побачити можливе розташування та залінкуйте туди `spaceship.zsh`, ось так:
 
 ```zsh
 $ ln -sf "$PWD/spaceship.zsh" "/usr/local/share/zsh/site-functions/prompt_spaceship_setup"
 ```
 
-For a user-specific installation, simply add a directory to `$fpath` for that user in `.zshrc`:
+Щоб встановити для окремого користувача, просто додайте каталог у `$fpath` для цього користувача у `.zshrc`:
 
 ```zsh
 fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
 ```
 
-Then install the theme like this:
+Далі встановіть тему отак:
 
 ```zsh
 $ ln -sf "$PWD/spaceship.zsh" "${ZDOTDIR:-$HOME}/.zfunctions/prompt_spaceship_setup"
 ```
 
-For initializing prompt system add this to your `.zshrc`:
+Для ініціалізації командного рядка додайте це до вашого `.zshrc`:
 
 ```zsh
 # .zshrc
