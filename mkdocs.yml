@@ -65,3 +65,4 @@ plugins:
       default_language: en
       languages:
         en: English
+        uk: Українська
