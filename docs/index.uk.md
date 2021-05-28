@@ -3,22 +3,24 @@ template: index.html
 title: Головна
 hide:
   - navigation
-headline: Він поєднує в собі все, що вам може знадобитися для зручної роботи без зайвих ускладнень. Неначе справжній космічний корабель.
-install_button: Встановити
-source_button: Вихідний код
+hero:
+  title: Minimalistic, powerful and extremely customizable Zsh prompt
+  subtitle: It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
+  install_button: Getting Started
+  source_button: Source Code
 features:
   - 
-    title: Охайний та простий
-    image: assets/what-is-needed.svg
-    description: Командний рядок не перевантажений, а показує тільки те, що вам потрібно в даний момент (поточна директорія, гілка git тощо).
+    title: Clean and simple
+    image: /assets/what-is-needed.svg
+    description: The prompt is not overloaded, it shows only what you need at the moment (current directory, git branch, etc).
   - 
-    title: Просто встановлюється
-    image: assets/out-of-the-box.svg
-    description: Командний рядок працює відразу після встановлення, без додаткової конфігурації. Встановлюйте та користуйтесь.
+    title: Easy to set up
+    image: /assets/out-of-the-box.svg
+    description: The prompt works right after installation without any additional configuration. install it and use it.
   - 
-    title: Легко налаштовується
-    image: assets/configurable.svg
-    description: Командний рядок не потребує конфігурації, однак надає зрозумілий та простий інтерфейс для налаштувань.
+    title: Configurable
+    image: /assets/configurable.svg
+    description: The prompt is zero-config, but if a customization is needed, it provides an easy-to-use interface for customization.
 ---
 
 # Ласкаво просимо на борт, астронавте!
@@ -42,12 +44,13 @@ features:
 - Поточний контекст Kubectl `☸️`.
 - Поточна робоча область Terraform `🛠`.
 - Поточний рівень заряду батареї та її статус.
-- Поточний режим Vi-mode ([з зручними аліасами для тимчасово ввімкнення/вимкнення](./docs/options.md#vi-mode-vi_mode)).
+- Current Vi-mode mode ([with handy aliases for temporarily enabling](./options.md#vi-mode-vi_mode)).
 - Час виконання останньої команди, якщо він перевищує встановлене значення.
 
 Хочете більше можливостей? Будь ласка, [відкрити задачу](https://github.com/denysdovhan/yspaceship-prompt/issues/new/choose) або надіслати запит на зміни.
 
-!!! tip Підпишіться на [наш Twitter](//twitter.com/SpaceshipPrompt) , щоб залишатись в курсі нових функцій, удосконалень і виправлень.
+<!-- prettier-ignore -->
+!!! tip Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
 
 ## Усунення несправностей
 
