@@ -16,13 +16,13 @@ theme:
     repo: fontawesome/brands/github
   palette:
     # Light mode
-    - media: '(prefers-color-scheme: light)'
+    - media: "(prefers-color-scheme: light)"
       scheme: spaceship
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
     # Dark mode
-    - media: '(prefers-color-scheme: dark)'
+    - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
         icon: material/weather-sunny
