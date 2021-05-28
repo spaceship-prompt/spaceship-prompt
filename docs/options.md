@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 ## Options
 
 You have ability to customize or disable specific elements of Spaceship. All options must be overridden in your `.zshrc` file **after** the theme.
