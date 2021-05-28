@@ -3,13 +3,13 @@ hide:
   - navigation
 ---
 
-## Опції
+## Порядок
 
 You have ability to customize or disable specific elements of Spaceship. All options must be overridden in your `.zshrc` file **after** the theme.
 
 Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
 
-**Note:** the symbol `·` in this document represents a regular space character ``, it is used to clearly indicate when an option default value starts or ends with a space.
+!!! note The symbol `·` in this document represents a regular space character ``, it is used to clearly indicate when an option default value starts or ends with a space.
 
 ### Порядок
 
@@ -693,6 +693,6 @@ You can temporarily enable or disable vi-mode with handy functions (just execute
 | `SPACESHIP_EXIT_CODE_SYMBOL` |       `✘`        | Character to be shown before exit code |
 | `SPACESHIP_EXIT_CODE_COLOR`  |      `red`       | Колір секції коду виходу               |
 
-## Потрібно більше?
+## Командний рядок
 
 Якщо цих опцій недостатньо для того, щоб зробити те, що ви хочете, ознайомтеся з API на [сторінці API](./api.md) цієї документації.
