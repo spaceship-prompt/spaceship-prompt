@@ -106,7 +106,7 @@ spaceship_git_status() {
     [[ "$is_behind" == true ]] && git_status="$SPACESHIP_GIT_STATUS_BEHIND$git_status"
   fi
 
-  if [[ -n $git_status ]]; then
+  if [[ -n$git_status ]]; then
     # Status prefixes are colorized
     spaceship::section \
       "$SPACESHIP_GIT_STATUS_COLOR" \

@@ -42,35 +42,35 @@ spaceship_git_status_num() {
   # Check for untracked files
   NUMBER=$(git status --porcelain | command grep -E '^\?\? ' | wc -l | awk '{$1=$1;print}')
   if [ $NUMBER != "0" ]; then
-    git_status="$SPACESHIP_GIT_STATUS_UNTRACKED$NUMBER $git_status"
+    git_status="$SPACESHIP_GIT_STATUS_UNTRACKED$NUMBER$git_status"
   fi
 
   # Check for staged files
   NUMBER=$(($(git status --porcelain | command grep '^A [ MDAU] ' | wc -l | awk '{$1=$1;print}') + $(git status --porcelain | command grep '^M[ MD] ' | wc -l | awk '{$1=$1;print}') + $(git status --porcelain | command grep '^UA ' | wc -l | awk '{$1=$1;print}') ))
   if [ $NUMBER != "0" ]; then
-    git_status="$SPACESHIP_GIT_STATUS_ADDED$NUMBER $git_status"
+    git_status="$SPACESHIP_GIT_STATUS_ADDED$NUMBER$git_status"
   fi
   # Check for modified files
   NUMBER=$(($(git status --porcelain | command grep '^[ MARC]M ' | wc -l | awk '{$1=$1;print}') ))
   if [ $NUMBER != "0" ]; then
-    git_status="$SPACESHIP_GIT_STATUS_MODIFIED$NUMBER $git_status"
+    git_status="$SPACESHIP_GIT_STATUS_MODIFIED$NUMBER$git_status"
   fi
 
   # Check for renamed files
   NUMBER=$(($(git status --porcelain | command grep '^R[ MD] ' | wc -l | awk '{$1=$1;print}') ))
   if [ $NUMBER != "0" ]; then
-    git_status="$SPACESHIP_GIT_STATUS_RENAMED$NUMBER $git_status"
+    git_status="$SPACESHIP_GIT_STATUS_RENAMED$NUMBER$git_status"
   fi
 
   # Check for deleted files
   NUMBER=$(($(git status --porcelain | command grep '^[MARCDU ]D ' | wc -l | awk '{$1=$1;print}') + $(git status --porcelain | command grep '^D[ UM] ' | wc -l | awk '{$1=$1;print}') ))
   if [ $NUMBER != "0" ]; then
-    git_status="$SPACESHIP_GIT_STATUS_DELETED$NUMBER $git_status"
+    git_status="$SPACESHIP_GIT_STATUS_DELETED$NUMBER$git_status"
   fi
 
   # Check for stashes
   if $(command git rev-parse --verify refs/stash >/dev/null 2>&1); then
-    git_status="$SPACESHIP_GIT_STATUS_STASHED $git_status"
+    git_status="$SPACESHIP_GIT_STATUS_STASHED$git_status"
   fi
 
   # Check for unmerged files
@@ -98,13 +98,13 @@ spaceship_git_status_num() {
 
   # Check wheather branch has diverged
   if [[ "$is_ahead" == true && "$is_behind" == true ]]; then
-    git_status="$SPACESHIP_GIT_STATUS_DIVERGED $git_status"
+    git_status="$SPACESHIP_GIT_STATUS_DIVERGED$git_status"
   else
-    [[ "$is_ahead" == true ]] && git_status="$SPACESHIP_GIT_STATUS_AHEAD $git_status"
-    [[ "$is_behind" == true ]] && git_status="$SPACESHIP_GIT_STATUS_BEHIND $git_status"
+    [[ "$is_ahead" == true ]] && git_status="$SPACESHIP_GIT_STATUS_AHEAD$git_status"
+    [[ "$is_behind" == true ]] && git_status="$SPACESHIP_GIT_STATUS_BEHIND$git_status"
   fi
 
-  if [[ -n $git_status ]]; then
+  if [[ -n$git_status ]]; then
     # Status prefixes are colorized
     spaceship::section \
       "$SPACESHIP_GIT_STATUS_COLOR" \
