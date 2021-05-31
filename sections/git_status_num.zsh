@@ -111,6 +111,6 @@ spaceship_git_status_num() {
     # Status prefixes are colorized
     spaceship::section \
       "$SPACESHIP_GIT_STATUS_COLOR" \
-      "$git_status$SPACESHIP_GIT_STATUS_SUFFIX"
+      "$git_status"
   fi
 }
