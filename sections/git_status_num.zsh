@@ -104,10 +104,13 @@ spaceship_git_status_num() {
     [[ "$is_behind" == true ]] && git_status="$SPACESHIP_GIT_STATUS_BEHIND$git_status"
   fi
 
+  if [ $git_status != "" ]; then
+    git_status="$SPACESHIP_GIT_STATUS_PREFIX$git_status$SPACESHIP_GIT_STATUS_SUFFIX"
+  fi
   if [[ -n$git_status ]]; then
     # Status prefixes are colorized
     spaceship::section \
       "$SPACESHIP_GIT_STATUS_COLOR" \
-      "$SPACESHIP_GIT_STATUS_PREFIX$git_status$SPACESHIP_GIT_STATUS_SUFFIX"
+      "$git_status$SPACESHIP_GIT_STATUS_SUFFIX"
   fi
 }
