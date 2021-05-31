@@ -75,13 +75,13 @@ spaceship_git_status_num() {
 
   # Check for unmerged files
   if $(echo "$INDEX" | command grep '^U[UDA] ' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_UNMERGED $git_status"
+    git_status="$SPACESHIP_GIT_STATUS_UNMERGED$git_status"
   elif $(echo "$INDEX" | command grep '^AA ' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_UNMERGED $git_status"
+    git_status="$SPACESHIP_GIT_STATUS_UNMERGED$git_status"
   elif $(echo "$INDEX" | command grep '^DD ' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_UNMERGED $git_status"
+    git_status="$SPACESHIP_GIT_STATUS_UNMERGED$git_status"
   elif $(echo "$INDEX" | command grep '^[DA]U ' &> /dev/null); then
-    git_status="$SPACESHIP_GIT_STATUS_UNMERGED $git_status"
+    git_status="$SPACESHIP_GIT_STATUS_UNMERGED$git_status"
   fi
 
   # Check whether branch is ahead
