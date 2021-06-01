@@ -175,6 +175,7 @@ Git status indicators is shown only when you have dirty repository.
 | Variable | Default | Meaning |
 | :------- | :-----: | ------- |
 | `SPACESHIP_GIT_STATUS_SHOW` | `true` | Show Git status subsection |
+| `SPACESHIP_GIT_STATUS_SHOW_NUMBER` | `false` | Show Git status changed file numbers |
 | `SPACESHIP_GIT_STATUS_PREFIX` | `·[` | Prefix before Git status subsection |
 | `SPACESHIP_GIT_STATUS_SUFFIX` | `]` | Suffix after Git status subsection |
 | `SPACESHIP_GIT_STATUS_COLOR` | `red` | Color of Git status subsection |
