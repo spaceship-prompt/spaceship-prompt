@@ -10,8 +10,7 @@
 </h4>
 
 <p align="center">
-  <!-- NPM Version -->
-    <a href="https://npmjs.org/package/spaceship-prompt">
+  <a href="https://npmjs.org/package/spaceship-prompt">
     <img src="https://img.shields.io/npm/v/spaceship-prompt.svg?style=flat-square"
       alt="NPM Version" />
   </a>

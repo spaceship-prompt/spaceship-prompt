@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # API
 
 This page describes Spaceship API for creating plugins and tweaking Spaceship's behavior.
@@ -12,7 +17,7 @@ Below is an example of a typical section for Spaceship. Pay attention to a few c
 * Section's name should start with `spaceship_`.
 * Show section only where it's needed (in directories which contains specific files, when a specific command is available, etc).
 
-Take a look at [Contribution guidelines](../CONTRIBUTING.md) for further information.
+Take a look at [Contribution guidelines](//github.com/denysdovhan/spaceship-prompt/blob/master/CONTRIBUTING.md) for further information.
 
 ```zsh
 #
@@ -90,7 +95,8 @@ echo $SPACESHIP_VERSION
 
 ## `SPACESHIP_ROOT`
 
-> **Attention!** Do not modify the value of this variable! Changing the value may cause the damage to Spaceship installation!
+!!! danger
+    Do not modify the value of this variable! Changing the value may cause the damage to Spaceship installation!
 
 An environment variable that defines the path to Spaceship prompt installation. Spaceship uses this variable for resolving path to sections and utils.
 
