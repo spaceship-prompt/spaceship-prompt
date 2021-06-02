@@ -14,6 +14,7 @@ theme:
   logo: //spaceship-prompt.github.io/brand/spaceship-no-letters.svg
   icon:
     repo: fontawesome/brands/github
+  favicon: assets/favicon.ico
   palette:
     # Light mode
     - media: "(prefers-color-scheme: light)"
