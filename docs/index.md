@@ -50,12 +50,6 @@ Want more features? Please, [open an issue](https://github.com/denysdovhan/yspac
 !!! tip
     Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
 
-## Troubleshooting
-
-Having trouble? Take a look at out [Troubleshooting](./troubleshooting.md) page.
-
-Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.
-
 ## Related Projects
 
 Here's a list of related projects that have been inspired by Spaceship ZSH.

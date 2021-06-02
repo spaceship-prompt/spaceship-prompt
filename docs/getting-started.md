@@ -12,7 +12,46 @@ hide:
 
 ## Installing
 
-Now that the requirements are satisfied, you can install Spaceship via any of the following tools.
+Now that the requirements are satisfied, you can install Spaceship via any of the following approaches:
+
+=== "Manual"
+
+    !!! hint
+        If you're using any plugin manager, like Oh-My-Zsh, zplug, antigen or other, this might not be the best way to install Spaceship for you.
+
+    This is way to install Spaceship if you don't use any tool for managing Zsh plugins.
+
+    - Clone this repo `git clone https://github.com/denysdovhan/spaceship-prompt.git --depth=1`
+    - Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
+    - Initialize prompt system and choose `spaceship`.
+
+    #### Example
+
+    Run `echo $fpath` to see possible location and link `spaceship.zsh` there, like:
+
+    ```zsh
+    $ ln -sf "$PWD/spaceship.zsh" "/usr/local/share/zsh/site-functions/prompt_spaceship_setup"
+    ```
+
+    For a user-specific installation, simply add a directory to `$fpath` for that user in `.zshrc`:
+
+    ```zsh
+    fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
+    ```
+
+    Then install the theme like this:
+
+    ```zsh
+    $ ln -sf "$PWD/spaceship.zsh" "${ZDOTDIR:-$HOME}/.zfunctions/prompt_spaceship_setup"
+    ```
+
+    For initializing prompt system add this to your `.zshrc`:
+
+    ```zsh
+    # .zshrc
+    autoload -U promptinit; promptinit
+    prompt spaceship
+    ```
 
 === "oh-my-zsh"
 
@@ -38,7 +77,8 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
     Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath` and set `prompt spaceship` in `.zshrc`. Just reload your terminal.
 
-    **💡 Tip:** Update Spaceship to new versions as you would any other package.
+    !!!tip
+        Update Spaceship to new versions as you would any other package.
 
 === "prezto"
 
@@ -100,38 +140,18 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     makepkg -si
     ```
 
-### Manual 
+## Congratulations!
 
-If you have problems with approaches above, follow these instructions:
+You've made it! You've installed Spaceship on your machine!
 
-- Clone this repo `git clone https://github.com/denysdovhan/spaceship-prompt.git --depth=1`
-- Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
-- Initialize prompt system and choose `spaceship`.
+What's next? Spaceship has reasonable defaults, but you might want to adjust them to your needs. Visit our [Options](./options.md) page to learn how to configure your Spaceship.
 
-#### Example
+<!-- prettier-ignore -->
+!!! tip
+    Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
 
-Run `echo $fpath` to see possible location and link `spaceship.zsh` there, like:
+## Troubleshooting
 
-```zsh
-$ ln -sf "$PWD/spaceship.zsh" "/usr/local/share/zsh/site-functions/prompt_spaceship_setup"
-```
+Having trouble? Take a look at out [Troubleshooting](./troubleshooting.md) page.
 
-For a user-specific installation, simply add a directory to `$fpath` for that user in `.zshrc`:
-
-```zsh
-fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
-```
-
-Then install the theme like this:
-
-```zsh
-$ ln -sf "$PWD/spaceship.zsh" "${ZDOTDIR:-$HOME}/.zfunctions/prompt_spaceship_setup"
-```
-
-For initializing prompt system add this to your `.zshrc`:
-
-```zsh
-# .zshrc
-autoload -U promptinit; promptinit
-prompt spaceship
-```
+Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.
