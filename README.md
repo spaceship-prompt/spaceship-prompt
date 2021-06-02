@@ -262,8 +262,8 @@ prompt spaceship
 
 Spaceship works well out of the box, but you can customize almost everything if you want.
 
-- [**Options**](./docs/Options.md) — Tweak section's behavior with tons of options.
-- [**API**](./docs/API.md) — Define a custom section that will do exactly what you want.
+- [**Options**](./docs/options.md) — Tweak section's behavior with tons of options.
+- [**API**](./docs/api.md) — Define a custom section that will do exactly what you want.
 
 You have the ability to customize or disable specific elements of Spaceship. Set options and define new sections in your `.zshrc` file, **after** the theme. To include a custom section you have defined in your prompt, add it to the `SPACESHIP_PROMPT_ORDER`.
 
