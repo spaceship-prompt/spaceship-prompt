@@ -13,11 +13,11 @@ Spaceship uses `SPACESHIP_` prefix for variables and `spaceship::` prefix for a 
 
 Below is an example of a typical section for Spaceship. Pay attention to a few crucial moments:
 
-* Define options for customization. Their names should start with `SPACESHIP_`.
-* Section's name should start with `spaceship_`.
-* Show section only where it's needed (in directories which contains specific files, when a specific command is available, etc).
+- Define options for customization. Their names should start with `SPACESHIP_`.
+- Section's name should start with `spaceship_`.
+- Show section only where it's needed (in directories which contains specific files, when a specific command is available, etc).
 
-Take a look at [Contribution guidelines](//github.com/denysdovhan/spaceship-prompt/blob/master/CONTRIBUTING.md) for further information.
+Take a look at [Contribution guidelines](//github.com/spaceship-prompt/spaceship-prompt/blob/master/CONTRIBUTING.md) for further information.
 
 ```zsh
 #

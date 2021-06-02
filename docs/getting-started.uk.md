@@ -19,7 +19,7 @@ hide:
     Клонуйте репозиторій:
 
     ```zsh
-    git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+    git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
     ```
 
 
@@ -40,7 +40,7 @@ hide:
 
 
     Готово. Ця команда має залінкувати `spaceship.zsh` як `prompt_spaceship_setup` у вашому `$fpath` та встановити  `prompt spaceship` у `.zshrc`. Just reload your terminal.
-    
+
     **💡 Порада:** Ви можете оновлювати Spaceship до нових версій, так як і будь-який інший пакет.
 
 === "prezto"
@@ -51,14 +51,14 @@ hide:
 
 === "zim"
 
-    Додайте `zmodule denysdovhan/spaceship-prompt --name spaceship` у `.zimrc` та запустіть `zimfw install`.
+    Додайте `zmodule spaceship-prompt/spaceship-prompt --name spaceship` у `.zimrc` та запустіть `zimfw install`.
 
 === "antigen"
 
     Додайте такий фрагмент у вашому `.zshrc`:
 
     ```
-    antigen theme denysdovhan/spaceship-prompt
+    antigen theme spaceship-prompt/spaceship-prompt
     ```
 
 === "antibody"
@@ -66,7 +66,7 @@ hide:
     Додайте у файл `.zshrc` такий рядок:
 
     ```
-    antibody bundle denysdovhan/spaceship-prompt
+    antibody bundle spaceship-prompt/spaceship-prompt
     ```
 
 === "zinit"
@@ -74,7 +74,7 @@ hide:
     Додайте такий рядок до вашого `.zshrc` у місці, де ви додаєте інші плагіни Zsh:
 
     ```
-    zinit light denysdovhan/spaceship-prompt
+    zinit light spaceship-prompt/spaceship-prompt
     ```
 
 === "zgen"
@@ -82,7 +82,7 @@ hide:
     Додайте такий рядок до вашого `.zshrc` у місці, де ви додаєте інші плагіни Zsh:
 
     ```
-    zgen load denysdovhan/spaceship-prompt spaceship
+    zgen load spaceship-prompt/spaceship-prompt spaceship
     ```
 
 === "zplug"
@@ -90,7 +90,7 @@ hide:
     Використовуйте цю команду в вашому `.zshrc` для завантаження Spaceship в якості теми командного рядка:
 
     ```
-    zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+    zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
     ```
 
 === "Arch"
@@ -107,7 +107,7 @@ hide:
 
 Якщо у вас виникли проблеми з підходом описаним вище, виконайте наступні інструкції:
 
-- Клонувати цей репозиторій `git clone https://github.com/denysdovhan/spaceship-prompt.git --depth=1`
+- Клонувати цей репозиторій `git clone https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1`
 - Зробіть символічне посилання на `spaceship.zsh` у вашому [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) як `prompt_spaceship_setup`.
 - Ініціалізуйте систему командного рядка та оберіть `spaceship`.
 
