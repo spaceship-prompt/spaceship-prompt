@@ -1,6 +1,6 @@
 ---
 template: index.html
-title: Home
+title: Minimalistic, powerful and extremely customizable Zsh prompt
 hide:
   - navigation
 hero:
