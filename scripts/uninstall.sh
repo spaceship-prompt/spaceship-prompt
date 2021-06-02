@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 #
 # Author: Denys Dovhan, denysdovhan.com
-# https://github.com/denysdovhan/spaceship-prompt
+# https://github.com/spaceship-prompt/spaceship-prompt
 
 # ------------------------------------------------------------------------------
 # Colors

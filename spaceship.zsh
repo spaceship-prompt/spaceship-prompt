@@ -3,7 +3,7 @@
 #
 # Author: Denys Dovhan, denysdovhan.com
 # License: MIT
-# https://github.com/denysdovhan/spaceship-prompt
+# https://github.com/spaceship-prompt/spaceship-prompt
 
 # Current version of Spaceship
 # Useful for issue reporting

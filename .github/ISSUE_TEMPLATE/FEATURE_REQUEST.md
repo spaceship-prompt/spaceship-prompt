@@ -10,14 +10,14 @@ For example, I have an issue when […]
 
 **Is your feature request related to new section on prompt? Then consider the following questions:**
 
-* Will it clutter the prompt?
-* Is it worth to be aware of it?
-* Will it slow down the prompt?
+- Will it clutter the prompt?
+- Is it worth to be aware of it?
+- Will it slow down the prompt?
 
 <!--
 For more information on above points, See our contributing guidelines:
 
-https://github.com/denysdovhan/spaceship-prompt/blob/master/CONTRIBUTING.md#sections
+https://github.com/spaceship-prompt/spaceship-prompt/blob/master/CONTRIBUTING.md#sections
 -->
 
 **Describe the solution you'd like**

@@ -1,11 +1,11 @@
 site_name: Spaceship
 site_author: Spaceship Team
-site_url: https://denysdovhan.com/spaceship-prompt
+site_url: https://spaceship-prompt.sh
 site_description: Minimalistic, powerful and extremely customizable Zsh prompt
 
 copyright: "Copyright &copy; 2021 Denys Dovhan"
 
-repo_url: https://github.com/denysdovhan/spaceship-prompt
+repo_url: https://github.com/spaceship-prompt/spaceship-prompt
 repo_name: spaceship-prompt
 
 theme:
@@ -54,7 +54,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/denysdovhan/spaceship-prompt
+      link: https://github.com/spaceship-prompt/spaceship-prompt
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/SpaceshipZSH
 
