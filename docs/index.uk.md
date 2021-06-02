@@ -44,7 +44,7 @@ features:
 - Поточний режим Vi-mode ([з зручними аліасами для тимчасово ввімкнення/вимкнення](./options.md#vi-mode-vi_mode)).
 - Час виконання останньої команди, якщо він перевищує встановлене значення.
 
-Хочете більше можливостей? Будь ласка, [відкрити задачу](https://github.com/denysdovhan/yspaceship-prompt/issues/new/choose) або надіслати запит на зміни.
+Хочете більше можливостей? Будь ласка, [відкрити задачу](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose) або надіслати запит на зміни.
 
 <!-- prettier-ignore -->
 !!! tip Підпишіться на [наш Twitter](//twitter.com/SpaceshipPrompt) , щоб залишатись в курсі нових функцій, удосконалень і виправлень.
@@ -53,7 +53,7 @@ features:
 
 Виникли проблеми? Перегляньте сторінку [Усунення несправностей](./troubleshooting.md).
 
-Не допомогло? Будь ласка, [надішліть нам повідомлення](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose), опишіть вашу проблему, і ми з радістю допоможемо вам.
+Не допомогло? Будь ласка, [надішліть нам повідомлення](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose), опишіть вашу проблему, і ми з радістю допоможемо вам.
 
 ## Пов'язані проекти
 

@@ -21,7 +21,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
     This is way to install Spaceship if you don't use any tool for managing Zsh plugins.
 
-    - Clone this repo `git clone https://github.com/denysdovhan/spaceship-prompt.git --depth=1`
+    - Clone this repo `git clone https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1`
     - Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
     - Initialize prompt system and choose `spaceship`.
 
@@ -58,7 +58,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     Clone this repo:
 
     ```zsh
-    git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+    git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
     ```
 
     Symlink `spaceship.zsh-theme` to your oh-my-zsh custom themes directory:
@@ -88,14 +88,14 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 === "zim"
 
-    Add `zmodule denysdovhan/spaceship-prompt --name spaceship` to your `.zimrc` and run `zimfw install`.
+    Add `zmodule spaceship-prompt/spaceship-prompt --name spaceship` to your `.zimrc` and run `zimfw install`.
 
 === "antigen"
 
     Add the following snippet in your `.zshrc`:
 
     ```
-    antigen theme denysdovhan/spaceship-prompt
+    antigen theme spaceship-prompt/spaceship-prompt
     ```
 
 === "antibody"
@@ -103,7 +103,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     Update your `.zshrc` file with the following line:
 
     ```
-    antibody bundle denysdovhan/spaceship-prompt
+    antibody bundle spaceship-prompt/spaceship-prompt
     ```
 
 === "zinit"
@@ -111,7 +111,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
 
     ```
-    zinit light denysdovhan/spaceship-prompt
+    zinit light spaceship-prompt/spaceship-prompt
     ```
 
 === "zgen"
@@ -119,7 +119,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
 
     ```
-    zgen load denysdovhan/spaceship-prompt spaceship
+    zgen load spaceship-prompt/spaceship-prompt spaceship
     ```
 
 === "zplug"
@@ -127,7 +127,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     Use this command in your `.zshrc` to load Spaceship as prompt theme:
 
     ```
-    zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+    zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
     ```
 
 === "Arch"
@@ -154,4 +154,4 @@ What's next? Spaceship has reasonable defaults, but you might want to adjust the
 
 Having trouble? Take a look at out [Troubleshooting](./troubleshooting.md) page.
 
-Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.
+Still struggling? Please, [file an issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.

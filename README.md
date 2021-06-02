@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://github.com/denysdovhan/spaceship-prompt">
+  <a href="https://github.com/spaceship-prompt/spaceship-prompt">
     <img alt="spaceship →~ prompt" src="https://cloud.githubusercontent.com/assets/3459374/21679181/46e24706-d34b-11e6-82ee-5efb3d2ba70f.png" width="400">
   </a>
   <br>🚀⭐ Spaceship ZSH <br>
@@ -15,9 +15,9 @@
       alt="NPM Version" />
   </a>
 
-  <a href="https://travis-ci.org/denysdovhan/spaceship-prompt">
-    <img src="https://img.shields.io/travis/denysdovhan/spaceship-prompt.svg?style=flat-square"
-      alt="CI Status" />
+  <a href="https://githucom/spaceship-prompt/spaceship-prompt/actions">
+    <img src="https://img.shields.io/github/workflow/status/spaceship-prompt/spaceship-prompt/Main?style=flat-square"
+      alt="GitHub Workflow Status" />
   </a>
 
   <a href="http://zsh.org/">
@@ -38,18 +38,18 @@
 
 <div align="center">
   <h4>
-    <a href="https://denysdovhan.com/spaceship-prompt/">Website</a> |
-    <a href="#installing">Install</a> |
+    <a href="https://spaceship-prompt.sh">Website</a> |
+    <a href="https://spaceship-prompt.sh/getting-started">Installing</a> |
     <a href="#features">Features</a> |
-    <a href="./docs/Options.md">Options</a> |
-    <a href="./docs/API.md">API</a>
+    <a href="https://spaceship-prompt.sh/options">Options</a> |
+    <a href="https://spaceship-prompt.sh/api">API</a>
   </h4>
 </div>
 
 <div align="center">
   <sub>Built with ❤︎ by
   <a href="https://denysdovhan.com">Denys Dovhan</a> and
-  <a href="https://github.com/denysdovhan/spaceship-prompt/graphs/contributors">contributors </a>
+  <a href="https://github.com/spaceship-prompt/spaceship-prompt/graphs/contributors">contributors </a>
 </div>
 <br>
 
@@ -59,7 +59,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
   <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
 </p>
 
-<sub>Visit <a href="./docs/Troubleshooting.md#why-doesnt-my-prompt-look-like-the-preview">Troubleshooting</a> for similar setup and find more examples with different color schemes in <a href="https://github.com/denysdovhan/spaceship-prompt/wiki/Screenshots">Screenshots </a>wiki-page.</sub>
+<sub>Visit <a href="./docs/Troubleshooting.md#why-doesnt-my-prompt-look-like-the-preview">Troubleshooting</a> for similar setup and find more examples with different color schemes in <a href="https://github.com/spaceship-prompt/spaceship-prompt/wiki/Screenshots">Screenshots </a>wiki-page.</sub>
 
 ## Features
 
@@ -113,7 +113,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 - Optional time stamps 12/24hr in format ([how to enable](./docs/Options.md#time-time)).
 - Execution time of the last command if it exceeds the set threshold.
 
-Want more features? Please, [open an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose) or send pull request.
+Want more features? Please, [open an issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose) or send pull request.
 
 **💡 Tip:** Follow our Twitter to keep yourself updated about new features, improvements, and bugfixes.
 
@@ -149,7 +149,7 @@ Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to yo
 Clone this repo:
 
 ```zsh
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
 ```
 
 Symlink `spaceship.zsh-theme` to your oh-my-zsh custom themes directory:
@@ -168,14 +168,14 @@ Set `ZSH_THEME="spaceship"` in your `.zshrc`.
 
 ### [zim]
 
-Add `zmodule denysdovhan/spaceship-prompt --name spaceship` to your `.zimrc` and run `zimfw install`.
+Add `zmodule spaceship-prompt/spaceship-prompt --name spaceship` to your `.zimrc` and run `zimfw install`.
 
 ### [antigen]
 
 Add the following snippet in your `.zshrc`:
 
 ```
-antigen theme denysdovhan/spaceship-prompt
+antigen theme spaceship-prompt/spaceship-prompt
 ```
 
 ### [antibody]
@@ -183,7 +183,7 @@ antigen theme denysdovhan/spaceship-prompt
 Update your `.zshrc` file with the following line:
 
 ```
-antibody bundle denysdovhan/spaceship-prompt
+antibody bundle spaceship-prompt/spaceship-prompt
 ```
 
 ### [zinit]
@@ -191,7 +191,7 @@ antibody bundle denysdovhan/spaceship-prompt
 Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
 
 ```
-zinit light denysdovhan/spaceship-prompt
+zinit light spaceship-prompt/spaceship-prompt
 ```
 
 ### [zgen]
@@ -199,7 +199,7 @@ zinit light denysdovhan/spaceship-prompt
 Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
 
 ```
-zgen load denysdovhan/spaceship-prompt spaceship
+zgen load spaceship-prompt/spaceship-prompt spaceship
 ```
 
 ### [zplug]
@@ -207,7 +207,7 @@ zgen load denysdovhan/spaceship-prompt spaceship
 Use this command in your `.zshrc` to load Spaceship as prompt theme:
 
 ```
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 ```
 
 ### Linux package manager
@@ -226,7 +226,7 @@ makepkg -si
 
 If you have problems with approaches above, follow these instructions:
 
-- Clone this repo `git clone https://github.com/denysdovhan/spaceship-prompt.git --depth=1`
+- Clone this repo `git clone https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1`
 - Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
 - Initialize prompt system and choose `spaceship`.
 
@@ -293,13 +293,13 @@ To prepend custom sections to the default Spaceship prompt, follow the form:
 SPACESHIP_PROMPT_ORDER=(mysection $SPACESHIP_PROMPT_ORDER)
 ```
 
-**💡 Tip:** Take a look at popular option presets or share your own configuration on [Presets](https://github.com/denysdovhan/spaceship-prompt/wiki/Presets) wiki page.
+**💡 Tip:** Take a look at popular option presets or share your own configuration on [Presets](https://github.com/spaceship-prompt/spaceship-prompt/wiki/Presets) wiki page.
 
 ## Troubleshooting
 
 Having trouble? Take a look at out [Troubleshooting](./docs/Troubleshooting.md) page.
 
-Still struggling? Please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.
+Still struggling? Please, [file an issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.
 
 ## Related Projects
 
@@ -335,8 +335,6 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 
 [npm-url]: https://npmjs.org/package/spaceship-prompt
 [npm-image]: https://img.shields.io/npm/v/spaceship-prompt.svg?style=flat-square
-[ci-url]: https://travis-ci.org/denysdovhan/spaceship-prompt
-[ci-image]: https://img.shields.io/travis/denysdovhan/spaceship-prompt.svg?style=flat-square
 [zsh-url]: http://zsh.org/
 [zsh-image]: https://img.shields.io/badge/zsh-%3E%3Dv5.2-777777.svg?style=flat-square
 [patreon-url]: https://www.patreon.com/denysdovhan

@@ -44,7 +44,7 @@ features:
 - Current Vi-mode mode ([with handy aliases for temporarily enabling](./options.md#vi-mode-vi_mode)).
 - Execution time of the last command if it exceeds the set threshold.
 
-Want more features? Please, [open an issue](https://github.com/denysdovhan/yspaceship-prompt/issues/new/choose) or send pull request.
+Want more features? Please, [open an issue](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose) or send pull request.
 
 <!-- prettier-ignore -->
 !!! tip
@@ -61,10 +61,10 @@ Here's a list of related projects that have been inspired by Spaceship ZSH.
 
 Hi! I work on this project in my spare time, in addition to my primary job. I hope you enjoy using Spaceship. If you do, please, [become my patron 🤝][patreon-url].
 
-|                                                                    Patreon                                                                     |                                                            Bitcoin                                                             |                                                            Ethereum                                                            |
-| :--------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
-|                                                         [Become a patron][patreon-url]                                                         |                                              `1FrPrQb6ACTkbSBAz9PduJWrDFfq41Ggb4`                                              |                                          `0x6aF39C917359897ae6969Ad682C14110afe1a0a1`                                          |
-| <a href="https://www.patreon.com/denysdovhan"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px"></a> | <img src="https://user-images.githubusercontent.com/3459374/33760933-1c9b81b4-dc10-11e7-8e4b-22d81f98c138.png" width="100px"/> | <img src="https://user-images.githubusercontent.com/3459374/33760932-1c7b3fb2-dc10-11e7-9774-411264d533da.png" width="100px"/> |
+|                                                                       Patreon                                                                       |                                                            Bitcoin                                                             |                                                            Ethereum                                                            |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
+|                                                           [Become a patron][patreon-url]                                                            |                                              `1FrPrQb6ACTkbSBAz9PduJWrDFfq41Ggb4`                                              |                                          `0x6aF39C917359897ae6969Ad682C14110afe1a0a1`                                          |
+| <a href="https://www.patreon.com/spaceship-prompt"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px"></a> | <img src="https://user-images.githubusercontent.com/3459374/33760933-1c9b81b4-dc10-11e7-8e4b-22d81f98c138.png" width="100px"/> | <img src="https://user-images.githubusercontent.com/3459374/33760932-1c7b3fb2-dc10-11e7-9774-411264d533da.png" width="100px"/> |
 
 This is your way make a clear statement: **My work is valued.**
 

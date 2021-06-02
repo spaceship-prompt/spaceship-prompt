@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/denysdovhan/spaceship-prompt.git"
+    "url": "git+https://github.com/spaceship-prompt/spaceship-prompt.git"
   },
   "keywords": [
     "prompt",
@@ -27,11 +27,11 @@
     "zsh-theme",
     "terminal"
   ],
-  "author": "Denys Dovhan <email@denysdovhan.com> (http://denysdovhan.com/)",
+  "author": "Denys Dovhan <denysdovhan@gmail.com> (http://denysdovhan.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/denysdovhan/spaceship-prompt/issues"
+    "url": "https://github.com/spaceship-prompt/spaceship-prompt/issues"
   },
-  "homepage": "https://github.com/denysdovhan/spaceship-prompt#readme",
+  "homepage": "https://github.com/spaceship-prompt/spaceship-prompt#readme",
   "dependencies": {}
 }
