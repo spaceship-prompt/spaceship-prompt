@@ -9,7 +9,7 @@
       "license": {
         "path": "LICENSE.md"
       }
-    }]
+    }],
     ["@google/semantic-release-replace-plugin", {
       "replacements": [{
         "files": ["spaceship.zsh"],
