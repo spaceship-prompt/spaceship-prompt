@@ -51,12 +51,6 @@ jobs:
         with:
           submodules: true
 
-      - name: ⎔ Setup Node.js
-        uses: actions/setup-node@v2
-
-      - name: 📥 Install Dependencies
-        uses: bahmutov/npm-install@v1
-
       - name: 🚀 Release
         uses: cycjimmy/semantic-release-action@v2
         with:
