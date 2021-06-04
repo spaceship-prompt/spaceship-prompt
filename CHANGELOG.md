@@ -1,3 +1,11 @@
+## [3.12.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.0...v3.12.1) (2021-06-04)
+
+
+### Bug Fixes
+
+* **ci:** Fix typo in .releaserc.json ([4f19ada](https://github.com/spaceship-prompt/spaceship-prompt/commit/4f19ada63c36a41eb144969a684b04b9aafb80d5))
+* **ci:** Specify which files to commit on release ([631df26](https://github.com/spaceship-prompt/spaceship-prompt/commit/631df26c6c0e1348d2a9790477cc8e2a38e91850))
+
 # [3.12.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.11.2...v3.12.0) (2021-06-04)
 
 
