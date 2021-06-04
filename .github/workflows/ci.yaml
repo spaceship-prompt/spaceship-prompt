@@ -1,0 +1,69 @@
+name: ci
+on:
+  push:
+    branches:
+      - master
+      - +([0-9])?(.{+([0-9]),x}).x
+      - next
+      - next-major
+      - beta
+  pull_request:
+
+jobs:
+  main:
+    name: Tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.0
+
+      - name: ⬇️ Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: 💤 Install Zsh
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install zsh
+
+      - name: 🖨 Print Zsh Vesion
+        run: zsh --version
+
+      - name: 🧪 Run Tests
+        run: scripts/tests.sh
+
+  release:
+    name: Release
+    needs: main
+    if: ${{ github.event_name == 'push'}}
+    runs-on: ubuntu-latest
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.0
+
+      - name: ⬇️ Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: ⎔ Setup Node.js
+        uses: actions/setup-node@v2
+
+      - name: 📥 Install Dependencies
+        uses: bahmutov/npm-install@v1
+
+      - name: 🚀 Release
+        uses: cycjimmy/semantic-release-action@v2
+        with:
+          extra_plugins: |
+            @google/semantic-release-replace-plugin
+            @semantic-release/changelog
+            @semantic-release/git
+            semantic-release-license
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
