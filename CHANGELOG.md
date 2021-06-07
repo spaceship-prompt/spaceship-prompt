@@ -1,3 +1,10 @@
+## [3.12.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.1...v3.12.2) (2021-06-07)
+
+
+### Bug Fixes
+
+* tweak CI ([#958](https://github.com/spaceship-prompt/spaceship-prompt/issues/958)) ([e9055c2](https://github.com/spaceship-prompt/spaceship-prompt/commit/e9055c2de2ffd72f6d4e568ceb00453afb5f0598))
+
 ## [3.12.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.0...v3.12.1) (2021-06-04)
 
 

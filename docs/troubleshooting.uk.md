@@ -30,7 +30,7 @@ In case Unicode symbols aren't supported, you can replace them to those that are
 
 ## What is the `[I]` before prompt character ?
 
-That's [`vi_mode`](https://github.com/denysdovhan/spaceship-prompt/blob/master/docs/options.md#vi-mode-vi_mode) section indicating `insert` mode. You can disable that with following line in your configuration,
+That's [`vi_mode`](https://spaceship-prompt.sh/options/#vi-mode-vi_mode) section indicating `insert` mode. You can disable that with following line in your configuration,
 
 ```
 SPACESHIP_VI_MODE_SHOW=false
@@ -129,5 +129,5 @@ See [screenshots](https://github.com/denysdovhan/spaceship-prompt/wiki/Screensho
 
 If any of above does not help, please, [file an issue](https://github.com/denysdovhan/spaceship-prompt/issues/new), describe your problem and we will gladly help you.
 
-[#439]: https://github.com/denysdovhan/spaceship-prompt/issues/439
-[#441]: https://github.com/denysdovhan/spaceship-prompt/pull/441
+[#439]: https://github.com/spaceship-prompt/spaceship-prompt/issues/439
+[#441]: https://github.com/spaceship-prompt/spaceship-prompt/pull/441
