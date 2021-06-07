@@ -5,17 +5,20 @@ hide:
   - navigation
 hero:
   title: Мінімалістичний, потужний та надзвичайно гнучкий командний рядок Zsh
-  subtitle: Він поєднує в собі все, що вам може знадобитися для зручної роботи без зайвих ускладнень. Неначе справжній космічний корабель.
+  subtitle: It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
   install_button: Початок роботи
   source_button: Вихідний код
 features:
-  - title: Охайний та простий
+  - 
+    title: Охайний та простий
     image: /assets/what-is-needed.svg
     description: Командний рядок не перевантажений, а показує тільки те, що вам потрібно в даний момент (поточна директорія, гілка git тощо).
-  - title: Просто встановлюється
+  - 
+    title: Просто встановлюється
     image: /assets/out-of-the-box.svg
-    description: Командний рядок працює відразу після встановлення, без додаткової конфігурації. Встановлюйте та користуйтесь.
-  - title: Легко налаштовується
+    description: The prompt works right after installation without any additional configuration. install it and use it.
+  - 
+    title: Легко налаштовується
     image: /assets/configurable.svg
     description: Командний рядок не потребує конфігурації, однак надає зрозумілий та простий інтерфейс для налаштувань.
 ---
@@ -44,10 +47,11 @@ features:
 - Поточний режим Vi-mode ([з зручними аліасами для тимчасово ввімкнення/вимкнення](./options.md#vi-mode-vi_mode)).
 - Час виконання останньої команди, якщо він перевищує встановлене значення.
 
-Хочете більше можливостей? Будь ласка, [відкрити задачу](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose) або надіслати запит на зміни.
+Want more features? Please, [open an issue](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose) or send pull request.
 
 <!-- prettier-ignore -->
-!!! tip Підпишіться на [наш Twitter](//twitter.com/SpaceshipPrompt) , щоб залишатись в курсі нових функцій, удосконалень і виправлень.
+!!! tip
+    Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
 
 ## Усунення несправностей
 
@@ -79,5 +83,4 @@ features:
 
 MIT © [Денис Довгань](http://denysdovhan.com)
 
-[patreon-url]: https://www.patreon.com/denysdovhan
 [patreon-url]: https://www.patreon.com/denysdovhan
