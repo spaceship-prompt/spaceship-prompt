@@ -1,4 +1,5 @@
-pull_request_title: "docs(i18n): New Crowdin translations"
+commit_message: "docs(i18n): New translations %original_file_name% (%language%)"
+append_commit_message: false
 files:
   - source: /docs/**/*.md
     translation: /docs/**/%file_name%.%two_letters_code%.%file_extension%
