@@ -1,0 +1,7 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+# These files should always checkout with LF line endings, even on windows.
+*.zsh-theme text eol=lf
+*.zsh text eol=lf
+*.sh text eol=lf

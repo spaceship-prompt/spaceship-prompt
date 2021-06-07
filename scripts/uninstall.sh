@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 #
 # Author: Denys Dovhan, denysdovhan.com
-# https://github.com/denysdovhan/spaceship-prompt
+# https://github.com/spaceship-prompt/spaceship-prompt
 
 # ------------------------------------------------------------------------------
 # Colors
@@ -25,10 +25,10 @@ fi
 # Paths to important resources
 # ------------------------------------------------------------------------------
 
-ZSHRC="$HOME/.zshrc"
-USER_SOURCE="$HOME/.spaceship-prompt"
+ZSHRC="${ZDOTDIR:-$HOME}/.zshrc"
+USER_SOURCE="${ZDOTDIR:-$HOME}/.spaceship-prompt"
 GLOBAL_DEST="/usr/local/share/zsh/site-functions/prompt_spaceship_setup"
-USER_DEST="$HOME/.zfunctions/prompt_spaceship_setup"
+USER_DEST="${ZDOTDIR:-$HOME}/.zfunctions/prompt_spaceship_setup"
 
 # ------------------------------------------------------------------------------
 # HELPERS
@@ -69,6 +69,20 @@ rmln() {
 # Checkings and uninstalling process
 # ------------------------------------------------------------------------------
 
+remove_zshrc_content() {
+  info "Removing Spaceship from \"${ZDOTDIR:-$HOME}/.zshrc\""
+  # Remove enabling statements from .zshrc
+  # and remove Spaceship configuration
+  # Note: SPACESHIP_RPROMPT_ORDER and SPACESHIP_PROMPT_ORDER configuration may have multiple lines
+  # which are grouped by `(`, `)`
+  sed '/^# Set Spaceship ZSH as a prompt$/d' "$ZSHRC" | \
+  sed '/^autoload -U promptinit; promptinit$/d' | \
+  sed '/^prompt spaceship$/d' | \
+  sed  -E '/^SPACESHIP_R?PROMPT_ORDER=\([^)]*$/,/^[^(]*\)/d' | \
+  sed '/^SPACESHIP_.*$/d' > "$ZSHRC.bak" && \
+  mv -- "$ZSHRC.bak" "$ZSHRC"
+}
+
 main() {
   # Remove $GLOBAL_DEST symlink
   if [[ -L "$GLOBAL_DEST" || -L "$USER_DEST" ]]; then
@@ -80,22 +94,16 @@ main() {
 
   # Remove Spaceship from .zshrc
   if grep -q "spaceship" "$ZSHRC"; then
-    read "answer?Would you like to remove you Spaceship ZSH configuration from .zshrc? (y/N)"
-    if [[ 'y' == ${answer:l} ]]; then
-      info "Removing Spaceship from ~/.zshrc"
-      # Remove enabling statements from ~/.zshrc
-      # and remove Spaceship configuration
-      # Note: SPACESHIP_RPROMPT_ORDER and SPACESHIP_PROMPT_ORDER configuration may have multiple lines
-      # which are grouped by `(`, `)`
-      sed '/^# Set Spaceship ZSH as a prompt$/d' "$ZSHRC" | \
-      sed '/^autoload -U promptinit; promptinit$/d' | \
-      sed '/^prompt spaceship$/d' | \
-      sed  -E '/^SPACESHIP_R?PROMPT_ORDER=\([^)]*$/,/^[^(]*)/d' | \
-      sed '/^SPACESHIP_.*$/d' > "$ZSHRC.bak" && \
-      mv -- "$ZSHRC.bak" "$ZSHRC"
+    if [[ '-y' == $1 ]]; then
+      remove_zshrc_content
+    else
+      read "answer?Would you like to remove you Spaceship ZSH configuration from .zshrc? (y/N)"
+      if [[ 'y' == ${answer:l} ]]; then
+        remove_zshrc_content
+      fi
     fi
   else
-    warn "Spaceship configuration not found in ~/.zshrc!"
+    warn "Spaceship configuration not found in \"${ZDOTDIR:-$HOME}/.zshrc\"!"
   fi
 
   success "Done! Spaceship installation has been removed!"

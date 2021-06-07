@@ -3,11 +3,11 @@
 #
 # Author: Denys Dovhan, denysdovhan.com
 # License: MIT
-# https://github.com/denysdovhan/spaceship-prompt
+# https://github.com/spaceship-prompt/spaceship-prompt
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='3.11.2'
+export SPACESHIP_VERSION='3.12.3'
 
 # Common-used variable for new line separator
 NEWLINE='
@@ -46,6 +46,8 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     host          # Hostname section
     git           # Git section (git_branch + git_status)
     hg            # Mercurial section (hg_branch  + hg_status)
+    gradle        # Gradle section
+    maven         # Maven section
     package       # Package version
     node          # Node.js section
     ruby          # Ruby section
@@ -61,11 +63,12 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     julia         # Julia section
     docker        # Docker section
     aws           # Amazon Web Services section
+    gcloud        # Google Cloud Platform section
     venv          # virtualenv section
     conda         # conda virtualenv section
     dotnet        # .NET section
     ember         # Ember.js section
-    kubecontext   # Kubectl context section
+    kubectl       # Kubectl context section
     terraform     # Terraform workspace section
     exec_time     # Execution time
     line_sep      # Line break
@@ -121,7 +124,7 @@ for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORD
     # Custom section is declared, nothing else to do
     continue
   else
-    echo "Section '$section' have not been loaded."
+    echo "Section '$section' was not loaded."
   fi
 done
 
