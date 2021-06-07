@@ -3,11 +3,11 @@
 #
 # Author: Denys Dovhan, denysdovhan.com
 # License: MIT
-# https://github.com/denysdovhan/spaceship-prompt
+# https://github.com/spaceship-prompt/spaceship-prompt
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='3.11.2'
+export SPACESHIP_VERSION='3.12.2'
 
 # Common-used variable for new line separator
 NEWLINE='

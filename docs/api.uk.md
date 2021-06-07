@@ -96,7 +96,8 @@ echo $SPACESHIP_VERSION
 ## `SPACESHIP_ROOT`
 
 <!-- prettier-ignore -->
-!!! danger Do not modify the value of this variable! Changing the value may cause the damage to Spaceship installation!
+!!! danger
+    Do not modify the value of this variable! Changing the value may cause the damage to Spaceship installation!
 
 An environment variable that defines the path to Spaceship prompt installation. Spaceship uses this variable for resolving path to sections and utils.
 
