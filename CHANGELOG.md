@@ -1,3 +1,10 @@
+## [3.12.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.2...v3.12.3) (2021-06-07)
+
+
+### Bug Fixes
+
+* **license:** Fix years in license ([da7984a](https://github.com/spaceship-prompt/spaceship-prompt/commit/da7984aeede599b919c5c551b8b981a12de46312))
+
 ## [3.12.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.1...v3.12.2) (2021-06-07)
 
 
