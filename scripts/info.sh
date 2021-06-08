@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 paint() {
   local title=$1 content=${@:2}
 
