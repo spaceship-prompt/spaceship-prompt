@@ -66,7 +66,7 @@ You can also add items to the right prompt by specifying them in the `SPACESHIP_
 
 This group of options defines a behaviour of prompt and standard parameters for sections displaying.
 
-| Змінна                               | За замовчуванням | Пояснення                                                   |
+| Variable                             | За замовчуванням | Пояснення                                                   |
 |:------------------------------------ |:----------------:| ----------------------------------------------------------- |
 | `SPACESHIP_PROMPT_ADD_NEWLINE`       |      `true`      | Додає символ нового рядка перед кожним командним рядком     |
 | `SPACESHIP_PROMPT_SEPARATE_LINE`     |      `true`      | Відображати підказку у два рядки                            |
@@ -78,7 +78,7 @@ This group of options defines a behaviour of prompt and standard parameters for 
 
 ### Символ
 
-| Змінна                            |     За замовчуванням     | Пояснення                                                            |
+| Variable                          |     За замовчуванням     | Пояснення                                                            |
 |:--------------------------------- |:------------------------:| -------------------------------------------------------------------- |
 | `SPACESHIP_CHAR_PREFIX`           |            ``            | Prefix before prompt character                                       |
 | `SPACESHIP_CHAR_SUFFIX`           |            ``            | Suffix after prompt character                                        |
@@ -93,7 +93,7 @@ This group of options defines a behaviour of prompt and standard parameters for 
 
 Disabled by default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if you need to show time stamps.
 
-| Змінна                  |          За замовчуванням          | Пояснення                                                                                                             |
+| Variable                |          За замовчуванням          | Пояснення                                                                                                             |
 |:----------------------- |:----------------------------------:| --------------------------------------------------------------------------------------------------------------------- |
 | `SPACESHIP_TIME_SHOW`   |              `false`               | Show time (set to `true` for enabling)                                                                                |
 | `SPACESHIP_TIME_PREFIX` |               `at·`                | Prefix before time section                                                                                            |
@@ -106,7 +106,7 @@ Disabled by default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 
 By default, a username is shown only when it's not the same as `$LOGNAME`, when you're connected via SSH or when you're root. Root user is highlighted in `SPACESHIP_USER_COLOR_ROOT` color (red as default).
 
-| Змінна                      |          За замовчуванням          | Пояснення                                                 |
+| Variable                    |          За замовчуванням          | Пояснення                                                 |
 |:--------------------------- |:----------------------------------:| --------------------------------------------------------- |
 | `SPACESHIP_USER_SHOW`       |               `true`               | Show user section (`true`, `false`, `always` or `needed`) |
 | `SPACESHIP_USER_PREFIX`     |              `with·`               | Prefix before user section                                |
@@ -127,7 +127,7 @@ By default, a username is shown only when it's not the same as `$LOGNAME`, when 
 
 Hostname is shown only when you're connected via SSH unless you change this behavior.
 
-| Змінна                     |          За замовчуванням          | Пояснення                                       |
+| Variable                   |          За замовчуванням          | Пояснення                                       |
 |:-------------------------- |:----------------------------------:| ----------------------------------------------- |
 | `SPACESHIP_HOST_SHOW`      |               `true`               | Show host section (`true`, `false` or `always`) |
 | `SPACESHIP_HOST_SHOW_FULL` |              `false`               | Show full hostname section (`true`, `false`)    |
@@ -140,7 +140,7 @@ Hostname is shown only when you're connected via SSH unless you change this beha
 
 Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`. While you are in repository, it shows only root directory and folders inside it. If current directory is write-protected or if current user has not enough rights to write in it, a padlock (by default) is displayed as a suffix.
 
-| Змінна                       |                                              За замовчуванням                                               | Пояснення                                                                              |
+| Variable                     |                                              За замовчуванням                                               | Пояснення                                                                              |
 |:---------------------------- |:-----------------------------------------------------------------------------------------------------------:| -------------------------------------------------------------------------------------- |
 | `SPACESHIP_DIR_SHOW`         |                                                   `true`                                                    | Show directory section                                                                 |
 | `SPACESHIP_DIR_PREFIX`       |                                                    `in·`                                                    | Prefix before current directory                                                        |
@@ -154,9 +154,9 @@ Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`. W
 
 ### Git (`git`)
 
-Git section consists of `git_branch` and `git_status` subsections. Він відображається лише в Git-репозитаріях.
+Git section consists of `git_branch` and `git_status` subsections. It is shown only in Git repositories.
 
-| Змінна                 |                                              За замовчуванням                                              | Пояснення                                                                                                       |
+| Variable               |                                              За замовчуванням                                              | Пояснення                                                                                                       |
 |:---------------------- |:----------------------------------------------------------------------------------------------------------:| --------------------------------------------------------------------------------------------------------------- |
 | `SPACESHIP_GIT_SHOW`   |                                                   `true`                                                   | Show Git section                                                                                                |
 | `SPACESHIP_GIT_PREFIX` |                                                   `on·`                                                    | Prefix before Git section                                                                                       |
@@ -165,7 +165,7 @@ Git section consists of `git_branch` and `git_status` subsections. Він від
 
 #### Git гілка (`git_branch`)
 
-| Змінна                        |    За замовчуванням     | Пояснення                           |
+| Variable                      |    За замовчуванням     | Пояснення                           |
 |:----------------------------- |:-----------------------:| ----------------------------------- |
 | `SPACESHIP_GIT_BRANCH_SHOW`   |         `true`          | Show Git branch subsection          |
 | `SPACESHIP_GIT_BRANCH_PREFIX` | `$SPACESHIP_GIT_SYMBOL` | Prefix before Git branch subsection |
@@ -176,7 +176,7 @@ Git section consists of `git_branch` and `git_status` subsections. Він від
 
 Індикатори стану Git показуються лише тоді, коли у вас є зміни в репозиторії.
 
-| Змінна                           | За замовчуванням | Пояснення                                                    |
+| Variable                         | За замовчуванням | Пояснення                                                    |
 |:-------------------------------- |:----------------:| ------------------------------------------------------------ |
 | `SPACESHIP_GIT_STATUS_SHOW`      |      `true`      | Show Git status subsection                                   |
 | `SPACESHIP_GIT_STATUS_PREFIX`    |       `·[`       | Prefix before Git status subsection                          |
@@ -197,7 +197,7 @@ Git section consists of `git_branch` and `git_status` subsections. Він від
 
 Mercurial section is consists with `hg_branch` and `hg_status` subsections. It is shown only in Mercurial repositories.
 
-| Змінна                |          За замовчуванням          | Пояснення                                      |
+| Variable              |          За замовчуванням          | Пояснення                                      |
 |:--------------------- |:----------------------------------:| ---------------------------------------------- |
 | `SPACESHIP_HG_SHOW`   |               `true`               | Show Mercurial section                         |
 | `SPACESHIP_HG_PREFIX` |               `on·`                | Prefix before Mercurial section                |
@@ -208,7 +208,7 @@ Mercurial section is consists with `hg_branch` and `hg_status` subsections. It i
 
 Shows Mercurial bookmarks when available, otherwise shows Mercurial branch information.
 
-| Змінна                       |          За замовчуванням          | Пояснення                                 |
+| Variable                     |          За замовчуванням          | Пояснення                                 |
 |:---------------------------- |:----------------------------------:| ----------------------------------------- |
 | `SPACESHIP_HG_BRANCH_SHOW`   |               `true`               | Show Mercurial branch subsection          |
 | `SPACESHIP_HG_BRANCH_PREFIX` |       `$SPACESHIP_HG_SYMBOL`       | Prefix before Mercurial branch subsection |
@@ -219,7 +219,7 @@ Shows Mercurial bookmarks when available, otherwise shows Mercurial branch infor
 
 Mercurial status indicators is shown only when you have dirty repository.
 
-| Змінна                          | За замовчуванням | Пояснення                                 |
+| Variable                        | За замовчуванням | Пояснення                                 |
 |:------------------------------- |:----------------:| ----------------------------------------- |
 | `SPACESHIP_HG_STATUS_SHOW`      |      `true`      | Show Mercurial status subsection          |
 | `SPACESHIP_HG_STATUS_PREFIX`    |       `[`        | Prefix before Mercurial status subsection |
@@ -241,7 +241,7 @@ Package version is shown when repository is a package.
 
 > **Note:** This is the version of the package you are working on, not the version of package manager itself.
 
-| Змінна                     |          За замовчуванням          | Пояснення                                    |
+| Variable                   |          За замовчуванням          | Пояснення                                    |
 |:-------------------------- |:----------------------------------:| -------------------------------------------- |
 | `SPACESHIP_PACKAGE_SHOW`   |               `true`               | Show package version                         |
 | `SPACESHIP_PACKAGE_PREFIX` |               `is·`                | Prefix before package version section        |
@@ -255,7 +255,7 @@ Node.js section is shown only in directories that contain `package.json` file, o
 
 If you set `SPACESHIP_NODE_DEFAULT_VERSION` to the default Node.js version and your current version is the same as `SPACESHIP_NODE_DEFAULT_VERSION`, then Node.js section will be hidden.
 
-| Змінна                           |          За замовчуванням          | Пояснення                                    |
+| Variable                         |          За замовчуванням          | Пояснення                                    |
 |:-------------------------------- |:----------------------------------:| -------------------------------------------- |
 | `SPACESHIP_NODE_SHOW`            |               `true`               | Current Node.js section                      |
 | `SPACESHIP_NODE_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Node.js section                |
@@ -268,7 +268,7 @@ If you set `SPACESHIP_NODE_DEFAULT_VERSION` to the default Node.js version and y
 
 Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`, or any other file with `.rb` extension.
 
-| Змінна                  |          За замовчуванням          | Пояснення                                 |
+| Variable                |          За замовчуванням          | Пояснення                                 |
 |:----------------------- |:----------------------------------:| ----------------------------------------- |
 | `SPACESHIP_RUBY_SHOW`   |               `true`               | Show Ruby section                         |
 | `SPACESHIP_RUBY_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Ruby section                |
@@ -280,7 +280,7 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 
 Elm section is shown only in directories that contain `elm.json` file, `elm-package.json` file, `elm-stuff` directory, or any other file with `.elm` extension.
 
-| Змінна                 |          За замовчуванням          | Пояснення                                |
+| Variable               |          За замовчуванням          | Пояснення                                |
 |:---------------------- |:----------------------------------:| ---------------------------------------- |
 | `SPACESHIP_ELM_SHOW`   |               `true`               | Show installed Elm version               |
 | `SPACESHIP_ELM_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Elm section                |
@@ -292,7 +292,7 @@ Elm section is shown only in directories that contain `elm.json` file, `elm-pack
 
 Elixir section is shown only in directories that contain `mix.exs`, or any other file with `.ex` or `.exs` extension. If the current elixir version is the same as the version set in `SPACESHIP_ELIXIR_DEFAULT_VERSION`, the elixir section will be hidden.
 
-| Змінна                             |          За замовчуванням          | Пояснення                                   |
+| Variable                           |          За замовчуванням          | Пояснення                                   |
 |:---------------------------------- |:----------------------------------:| ------------------------------------------- |
 | `SPACESHIP_ELIXIR_SHOW`            |               `true`               | Show Elixir section                         |
 | `SPACESHIP_ELIXIR_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Elixir section                |
@@ -303,9 +303,9 @@ Elixir section is shown only in directories that contain `mix.exs`, or any other
 
 ### Xcode (`xcode`)
 
-Показує поточну версію Xcode. Локальна версія має більший пріоритет, ніж глобальна.
+Shows current version of Xcode. Local version has more priority than global.
 
-| Змінна                        |          За замовчуванням          | Пояснення                                    |
+| Variable                      |          За замовчуванням          | Пояснення                                    |
 |:----------------------------- |:----------------------------------:| -------------------------------------------- |
 | `SPACESHIP_XCODE_SHOW_LOCAL`  |               `true`               | Current local Xcode version based on [xcenv] |
 | `SPACESHIP_XCODE_SHOW_GLOBAL` |              `false`               | Global Xcode version based on [xcenv]        |
@@ -316,9 +316,9 @@ Elixir section is shown only in directories that contain `mix.exs`, or any other
 
 ### Swift (`swift`)
 
-Показує поточну версію Swift. Локальна версія має більший пріоритет, ніж глобальна.
+Shows current version of Swift. Local version has more priority than global.
 
-| Змінна                        |          За замовчуванням          | Пояснення                                       |
+| Variable                      |          За замовчуванням          | Пояснення                                       |
 |:----------------------------- |:----------------------------------:| ----------------------------------------------- |
 | `SPACESHIP_SWIFT_SHOW_LOCAL`  |               `true`               | Current local Swift version based on [swiftenv] |
 | `SPACESHIP_SWIFT_SHOW_GLOBAL` |              `false`               | Global Swift version based on [swiftenv]        |
@@ -338,7 +338,7 @@ If you are using a development version of `Go`, the version uses git commit hash
 - `devel:5efe9a8f11` for development version
 - `v1.11.4` for release version
 
-| Змінна                    |          За замовчуванням          | Пояснення                               |
+| Variable                  |          За замовчуванням          | Пояснення                               |
 |:------------------------- |:----------------------------------:| --------------------------------------- |
 | `SPACESHIP_GOLANG_SHOW`   |               `true`               | Shown current Go version or not         |
 | `SPACESHIP_GOLANG_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Go section            |
@@ -350,7 +350,7 @@ If you are using a development version of `Go`, the version uses git commit hash
 
 PHP section is shown only in directories that contain `composer.json` file, or any other file with `.php` extension.
 
-| Змінна                 |          За замовчуванням          | Пояснення                                |
+| Variable               |          За замовчуванням          | Пояснення                                |
 |:---------------------- |:----------------------------------:| ---------------------------------------- |
 | `SPACESHIP_PHP_SHOW`   |                true                | Показувати секцію PHP                    |
 | `SPACESHIP_PHP_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Префікс перед секцією PHP                |
@@ -362,7 +362,7 @@ PHP section is shown only in directories that contain `composer.json` file, or a
 
 Rust section is shown only in directories that contain `Cargo.toml` or any other file with `.rs` extension.
 
-| Змінна                           |          За замовчуванням          | Пояснення                                               |
+| Variable                         |          За замовчуванням          | Пояснення                                               |
 |:-------------------------------- |:----------------------------------:| ------------------------------------------------------- |
 | `SPACESHIP_RUST_SHOW`            |               `true`               | Shown current Rust version or not                       |
 | `SPACESHIP_RUST_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Rust section                          |
@@ -375,7 +375,7 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 
 Секція Haskell відображається лише у каталогах, які містять файл `stack.yaml`.
 
-| Змінна                     |          За замовчуванням          | Пояснення                                               |
+| Variable                   |          За замовчуванням          | Пояснення                                               |
 |:-------------------------- |:----------------------------------:| ------------------------------------------------------- |
 | `SPACESHIP_HASKELL_SHOW`   |               `true`               | Shown current Haskell Tool Stack version or not         |
 | `SPACESHIP_HASKELL_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Haskell section                       |
@@ -387,7 +387,7 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 
 Секція Julia відображається лише у каталогах, що містять файл з розширенням `.jl`.
 
-| Змінна                   |          За замовчуванням          | Пояснення                                  |
+| Variable                 |          За замовчуванням          | Пояснення                                  |
 |:------------------------ |:----------------------------------:| ------------------------------------------ |
 | `SPACESHIP_JULIA_SHOW`   |               `true`               | Shown current Julia version or not         |
 | `SPACESHIP_JULIA_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Julia section            |
@@ -403,7 +403,7 @@ Docker section is shown only in directories that contain `Dockerfile` or it's po
 
 The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more information see [Compose CLI environment variables](https://docs.docker.com/compose/reference/envvars/).
 
-| Змінна                     |          За замовчуванням          | Пояснення                                   |
+| Variable                   |          За замовчуванням          | Пояснення                                   |
 |:-------------------------- |:----------------------------------:| ------------------------------------------- |
 | `SPACESHIP_DOCKER_SHOW`    |               `true`               | Show current Docker version or not          |
 | `SPACESHIP_DOCKER_PREFIX`  |                `on`                | Prefix before the Docker section            |
@@ -414,7 +414,7 @@ The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more inf
 
 ### Контекст Docker (`docker_context`)
 
-| Змінна                            | За замовчуванням | Пояснення                                |
+| Variable                          | За замовчуванням | Пояснення                                |
 |:--------------------------------- |:----------------:| ---------------------------------------- |
 | `SPACESHIP_DOCKER_CONTEXT_SHOW`   |      `true`      | Show current Docker context or not       |
 | `SPACESHIP_DOCKER_CONTEXT_PREFIX` |       `·(`       | Prefix before the Docker context section |
@@ -424,7 +424,7 @@ The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more inf
 
 Shows selected Amazon Web Services profile configured using [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) variable.
 
-| Змінна                 |          За замовчуванням          | Пояснення                                    |
+| Variable               |          За замовчуванням          | Пояснення                                    |
 |:---------------------- |:----------------------------------:| -------------------------------------------- |
 | `SPACESHIP_AWS_SHOW`   |               `true`               | Show current selected AWS-cli profile or not |
 | `SPACESHIP_AWS_PREFIX` |              `using·`              | Prefix before the AWS section                |
@@ -436,7 +436,7 @@ Shows selected Amazon Web Services profile configured using [`AWS_PROFILE`](http
 
 Shows active Google Cloud Platform configuration using gcloud active configuration file.
 
-| Змінна                    |          За замовчуванням          | Пояснення                                                |
+| Variable                  |          За замовчуванням          | Пояснення                                                |
 |:------------------------- |:----------------------------------:| -------------------------------------------------------- |
 | `SPACESHIP_GCLOUD_SHOW`   |               `true`               | Show current active gcloud configuration or not          |
 | `SPACESHIP_GCLOUD_PREFIX` |              `using·`              | Prefix before the GCLOUD section                         |
@@ -446,7 +446,7 @@ Shows active Google Cloud Platform configuration using gcloud active configurati
 
 ### Virtualenv (`venv`)
 
-| Змінна                         |          За замовчуванням          | Пояснення                                                                                      |
+| Variable                       |          За замовчуванням          | Пояснення                                                                                      |
 |:------------------------------ |:----------------------------------:| ---------------------------------------------------------------------------------------------- |
 | `SPACESHIP_VENV_SHOW`          |               `true`               | Show current Python virtualenv or not                                                          |
 | `SPACESHIP_VENV_PREFIX`        | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the virtualenv section                                                           |
@@ -459,7 +459,7 @@ Shows active Google Cloud Platform configuration using gcloud active configurati
 
 Show activated conda virtual environment. Disable native conda prompt by `conda config --set changeps1 False`.
 
-| Змінна                    |          За замовчуванням          | Пояснення                                                |
+| Variable                  |          За замовчуванням          | Пояснення                                                |
 |:------------------------- |:----------------------------------:| -------------------------------------------------------- |
 | `SPACESHIP_CONDA_SHOW`    |               `true`               | Show current Python conda virtualenv or not              |
 | `SPACESHIP_CONDA_PREFIX`  | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the conda virtualenv section               |
@@ -472,7 +472,7 @@ Show activated conda virtual environment. Disable native conda prompt by `conda 
 
 pyenv section is shown only in directories that contain `requirements.txt`, `pyproject.toml` or any other file with `.py` extension.
 
-| Змінна                   |          За замовчуванням          | Пояснення                                  |
+| Variable                 |          За замовчуванням          | Пояснення                                  |
 |:------------------------ |:----------------------------------:| ------------------------------------------ |
 | `SPACESHIP_PYENV_SHOW`   |               `true`               | Show current Pyenv version or not          |
 | `SPACESHIP_PYENV_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the pyenv section            |
@@ -484,7 +484,7 @@ pyenv section is shown only in directories that contain `requirements.txt`, `pyp
 
 .NET section is shown only in directories that contains a `project.json` or `global.json` file, or a file with one of these extensions: `.csproj`, `.xproj` or `.sln`.
 
-| Змінна                    |          За замовчуванням          | Пояснення                                 |
+| Variable                  |          За замовчуванням          | Пояснення                                 |
 |:------------------------- |:----------------------------------:| ----------------------------------------- |
 | `SPACESHIP_DOTNET_SHOW`   |               `true`               | Current .NET section                      |
 | `SPACESHIP_DOTNET_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before .NET section                |
@@ -508,7 +508,7 @@ Ember.js section is shown only in directories that contain a `ember-cli-build.js
 
 Kubernetes section consists of `kubectl_version` and `kubectl_context` subsections. It is shown only when kubectl can connect to Kubernetes cluster.
 
-| Змінна                     |          За замовчуванням          | Пояснення                                          |
+| Variable                   |          За замовчуванням          | Пояснення                                          |
 |:-------------------------- |:----------------------------------:| -------------------------------------------------- |
 | `SPACESHIP_KUBECTL_SHOW`   |              `false`               | Show Kubernetes section                            |
 | `SPACESHIP_KUBECTL_PREFIX` |               `at·`                | Prefix before Kubernetes section                   |
@@ -518,7 +518,7 @@ Kubernetes section consists of `kubectl_version` and `kubectl_context` subsectio
 
 #### Версія Kubernetes (`kubectl_version`)
 
-| Змінна                             |          За замовчуванням          | Пояснення                                   |
+| Variable                           |          За замовчуванням          | Пояснення                                   |
 |:---------------------------------- |:----------------------------------:| ------------------------------------------- |
 | `SPACESHIP_KUBECTL_VERSION_SHOW`   |               `true`               | Show Kubernetes version subsection          |
 | `SPACESHIP_KUBECTL_VERSION_PREFIX` |                 ``                 | Prefix before Kubernetes version subsection |
@@ -531,7 +531,7 @@ Shows the active kubectl context, which consists of a cluster name and, when wor
 
 **💡 Tip:** If your cluster name (and thus context name) is too long, you can give it a shorter name using `kubectl config rename-context very_long_context_name name`.
 
-| Змінна                                 |          За замовчуванням          | Пояснення                                                       |
+| Variable                               |          За замовчуванням          | Пояснення                                                       |
 |:-------------------------------------- |:----------------------------------:| --------------------------------------------------------------- |
 | `SPACESHIP_KUBECONTEXT_SHOW`           |               `true`               | Current Kubectl context section                                 |
 | `SPACESHIP_KUBECONTEXT_PREFIX`         |               `at·`                | Prefix before Kubectl context section                           |
@@ -561,7 +561,7 @@ SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
 
 Показує поточні версії maven та jvm.
 
-| Змінна                                 |          За замовчуванням          | Пояснення                                       |
+| Variable                               |          За замовчуванням          | Пояснення                                       |
 |:-------------------------------------- |:----------------------------------:| ----------------------------------------------- |
 | `SPACESHIP_GRADLE_SHOW`                |               `true`               | Current Gradle section                          |
 | `SPACESHIP_GRADLE_PREFIX`              | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Gradle section                    |
@@ -580,7 +580,7 @@ SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
 
 Показує поточну версію maven та jvm.
 
-| Змінна                                |          За замовчуванням          | Пояснення                                      |
+| Variable                              |          За замовчуванням          | Пояснення                                      |
 |:------------------------------------- |:----------------------------------:| ---------------------------------------------- |
 | `SPACESHIP_MAVEN_SHOW`                |               `true`               | Current Maven section                          |
 | `SPACESHIP_MAVEN_PREFIX`              | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Maven section                    |
@@ -599,7 +599,7 @@ SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
 
 Shows the active Terraform wokspace in directories that contain `.terraform/environment` file.
 
-| Змінна                       |          За замовчуванням          | Пояснення                                        |
+| Variable                     |          За замовчуванням          | Пояснення                                        |
 |:---------------------------- |:----------------------------------:| ------------------------------------------------ |
 | `SPACESHIP_TERRAFORM_SHOW`   |               `true`               | Current Terraform workspace section              |
 | `SPACESHIP_TERRAFORM_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Terraform workspace section        |
@@ -609,9 +609,9 @@ Shows the active Terraform wokspace in directories that contain `.terraform/envi
 
 ### Час виконання (`exec_time`)
 
-Час виконання останньої команди. Відображуватиметься якщо він перевищить встановлений поріг часу.
+Execution time of the last command. Will be displayed if it exceeds the set threshold of time.
 
-| Змінна                        |          За замовчуванням          | Пояснення                                                        |
+| Variable                      |          За замовчуванням          | Пояснення                                                        |
 |:----------------------------- |:----------------------------------:| ---------------------------------------------------------------- |
 | `SPACESHIP_EXEC_TIME_SHOW`    |               `true`               | Show execution time                                              |
 | `SPACESHIP_EXEC_TIME_PREFIX`  |              `took·`               | Prefix before execution time section                             |
@@ -623,7 +623,7 @@ Shows the active Terraform wokspace in directories that contain `.terraform/envi
 
 By default, Battery section is shown only if battery level is below `SPACESHIP_BATTERY_THRESHOLD` (default: 10%).
 
-| Змінна                                 |          За замовчуванням          | Пояснення                                                            |
+| Variable                               |          За замовчуванням          | Пояснення                                                            |
 |:-------------------------------------- |:----------------------------------:| -------------------------------------------------------------------- |
 | `SPACESHIP_BATTERY_SHOW`               |               `true`               | Show battery section or not (`true`, `false`, `always` or `charged`) |
 | `SPACESHIP_BATTERY_PREFIX`             |                 ``                 | Prefix before battery section                                        |
@@ -633,7 +633,7 @@ By default, Battery section is shown only if battery level is below `SPACESHIP_B
 | `SPACESHIP_BATTERY_SYMBOL_FULL`        |                `•`                 | Character to be shown if battery is full                             |
 | `SPACESHIP_BATTERY_THRESHOLD`          |                 10                 | Battery level below which battery section will be shown              |
 
-`SPACESHIP_BATTERY_SHOW` defines when to show battery section. Ось можливі значення:
+`SPACESHIP_BATTERY_SHOW` defines when to show battery section. Here are possible values:
 
 | `SPACESHIP_BATTERY_SHOW` | Нижче порогу | Вище порогу | Повністю заряджена |
 |:------------------------:|:------------ |:----------- |:------------------ |
@@ -646,7 +646,7 @@ By default, Battery section is shown only if battery level is below `SPACESHIP_B
 
 This section shows mode indicator only when Vi-mode is enabled.
 
-| Змінна                     |          За замовчуванням          | Пояснення                            |
+| Variable                   |          За замовчуванням          | Пояснення                            |
 |:-------------------------- |:----------------------------------:| ------------------------------------ |
 | `SPACESHIP_VI_MODE_SHOW`   |               `true`               | Shown current Vi-mode or not         |
 | `SPACESHIP_VI_MODE_PREFIX` |                 ``                 | Prefix before Vi-mode section        |
@@ -670,7 +670,7 @@ You can temporarily enable or disable vi-mode with handy functions (just execute
 
 Цей розділ показується лише тоді, коли є активні завдання у фоновому режимі.
 
-| Змінна                            | За замовчуванням | Пояснення                                                                 |
+| Variable                          | За замовчуванням | Пояснення                                                                 |
 |:--------------------------------- |:----------------:| ------------------------------------------------------------------------- |
 | `SPACESHIP_JOBS_SHOW`             |      `true`      | Show background jobs indicator                                            |
 | `SPACESHIP_JOBS_PREFIX`           |        ``        | Prefix before the jobs indicator                                          |
@@ -683,9 +683,9 @@ You can temporarily enable or disable vi-mode with handy functions (just execute
 
 ### Код виходу (`exit_code`)
 
-За замовчуванням вимкнено. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show exit code of last command.
+Disabled by default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show exit code of last command.
 
-| Змінна                       | За замовчуванням | Пояснення                              |
+| Variable                     | За замовчуванням | Пояснення                              |
 |:---------------------------- |:----------------:| -------------------------------------- |
 | `SPACESHIP_EXIT_CODE_SHOW`   |     `false`      | Show exit code of last command         |
 | `SPACESHIP_EXIT_CODE_PREFIX` |        ``        | Prefix before exit code section        |
