@@ -31,7 +31,7 @@ features:
 
 ## Можливості
 
-**Spaceship** переповнений крутими можливостями. Ось лише деякі з них:
+**Spaceship** is packed with cool features. Here are some sneak picks:
 
 - Розумне відображення імені користувача, хоста та символу-запрошення.
 - Поточні статуси Git і Mercurial репозиторіїв.
@@ -50,37 +50,32 @@ features:
 Want more features? Please, [open an issue](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose) or send pull request.
 
 <!-- prettier-ignore -->
-!!! tip
-    Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
+!!! tip Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
 
 ## Усунення несправностей
 
-Виникли проблеми? Перегляньте сторінку [Усунення несправностей](./troubleshooting.md).
-
-Не допомогло? Будь ласка, [надішліть нам повідомлення](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose), опишіть вашу проблему, і ми з радістю допоможемо вам.
-
-## Пов'язані проекти
-
-Ось список пов'язаних проектів, натхнених Spaceship.
+Here's a list of related projects that have been inspired by Spaceship ZSH.
 
 - [**matchai/spacefish**](https://github.com/matchai/spacefish) - порт Spaceship для fish, який має намір досягти повного паритету функцій.
 - [**зірка/зірка**](https://github.com/starship/starship) - швидкий, крос-оболонковий командний рядок, написаний на Rust, натхненний Spaceship.
 
-## Як допомогти?
+## Пов'язані проекти
 
-Привіт! Я працюю над цим проектом у свій вільний час, на додачу до моєї основної роботи. Сподіваюсь, вам подобається користуватися Spaceship. Якщо це так, будь ласка, [стати моїм патроном 🤝][patreon-url].
+Hi! I work on this project in my spare time, in addition to my primary job. I hope you enjoy using Spaceship. If you do, please, [become my patron 🤝][patreon-url].
 
-|                                                                    Patreon                                                                     |                                                             Bitcoin                                                             |                                                            Ethereum                                                             |
-| :--------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------: |
-|                                                         [Стати патроном][patreon-url]                                                          |                                              `1FrPrQb6ACTkbSBAz9PduJWrDFfq41Ggb4`                                               |                                          `0x6aF39C917359897ae6969Ad682C14110afe1a0a1`                                           |
-| <a href="https://www.patreon.com/denysdovhan"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px"></a> | <img src="https://user-images.githubusercontent.com/3459374/33760933-1c9b81b4-dc10-11e7-8e4b-22d81f98c138.png" width="100px" /> | <img src="https://user-images.githubusercontent.com/3459374/33760932-1c7b3fb2-dc10-11e7-9774-411264d533da.png" width="100px" /> |
+|            Patreon            |                                                                     Bitcoin                                                                      |                                                                     Ethereum                                                                     |
+|:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------:|
+| [Стати патроном][patreon-url] |                                                       `1FrPrQb6ACTkbSBAz9PduJWrDFfq41Ggb4`                                                       |                                                   `0x6aF39C917359897ae6969Ad682C14110afe1a0a1`                                                   |
+|   <a href="https://www.patreon.com/spaceship-prompt"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px"></a>   | <img src="https://user-images.githubusercontent.com/3459374/33760933-1c9b81b4-dc10-11e7-8e4b-22d81f98c138.png" width="100px" /> | <img src="https://user-images.githubusercontent.com/3459374/33760932-1c7b3fb2-dc10-11e7-9774-411264d533da.png" width="100px" /> |
 
-Цей спосіб чітко заявити: **Моя робота цінується.**
+Ось список пов'язаних проектів, натхнених Spaceship.
 
-Я ціную вашу підтримку! _Дякую!_
+I would appreciate your support! _Thank you!_
 
 ## Ліцензія
 
-MIT © [Денис Довгань](http://denysdovhan.com)
+Цей спосіб чітко заявити: **Моя робота цінується.**
+
+[patreon-url]: https://www.patreon.com/denysdovhan
 
 [patreon-url]: https://www.patreon.com/denysdovhan
