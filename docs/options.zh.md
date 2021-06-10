@@ -1,23 +1,23 @@
 ---
 hide:
-  - navigation
+  - 导航
 ---
 
-## Options
+## 选项
 
-You have ability to customize or disable specific elements of Spaceship. All options must be overridden in your `.zshrc` file **after** the theme.
+您有能力自定义或禁用Spaceship的特定内容。 所有的选项必须在 `.zshrc` 文件中 Spaceship 主题**后**来重写。
 
-Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
+模块颜色可以是 [基本颜色](https://wiki.archlinux.org/index.php/zsh#Colors) 或 [颜色代码](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg)。
 
-**Note:** the symbol `·` in this document represents a regular space character ``, it is used to clearly indicate when an option default value starts or ends with a space.
+**注意：** 符号 `·` 在本文档中代表一个常规的空格字符 ``, 它用于明确指明选项默认值何时开始或以空格结尾。
 
-### Order
+### 顺序
 
-You can specify the order of prompt section using `SPACESHIP_PROMPT_ORDER` option. Use Zsh array syntax to define your own prompt order.
+您可以使用 `SPACESHIP_PROPT_ORDER` 选项指定提示符的顺序。 使用 Zsh 数组语法来定义您自己的提示符顺序。
 
-The order also defines which sections that Spaceship loads. If you're struggling with slow prompt, you can just omit the sections that you don't use, and they won't be loaded.
+该命令还定义了Spaceship装载的哪些模块。 如果你在缓慢的提示符中挣扎，你可以省略你不使用的模块，它们不会加载。
 
-The default order is:
+默认顺序是：
 
 ```zsh
 SPACESHIP_PROMPT_ORDER=(
@@ -60,13 +60,13 @@ SPACESHIP_PROMPT_ORDER=(
 )
 ```
 
-You can also add items to the right prompt by specifying them in the `SPACESHIP_RPROMPT_ORDER` option. By default `SPACESHIP_RPROMPT_ORDER` is empty.
+您也可以在 `SPACESHIP_RPROPT_ORDER` 选项中指定模块到右边提示符。 默认情况下 `SPACESHIP_RPROPT_ORDER` 是空的。
 
 ### Prompt
 
-This group of options defines a behaviour of prompt and standard parameters for sections displaying.
+这组选项定义显示模块的提示符行为和标准参数。
 
-| Variable                             | Default | Meaning                                          |
+| 变量                                   |   默认    | 释义                                               |
 |:------------------------------------ |:-------:| ------------------------------------------------ |
 | `SPACESHIP_PROMPT_ADD_NEWLINE`       | `true`  | Adds a newline character before each prompt line |
 | `SPACESHIP_PROMPT_SEPARATE_LINE`     | `true`  | Make the prompt span across two lines            |
@@ -78,7 +78,7 @@ This group of options defines a behaviour of prompt and standard parameters for 
 
 ### Char
 
-| Variable                          |         Default          | Meaning                                                              |
+| 变量                                |            默认            | 释义                                                                   |
 |:--------------------------------- |:------------------------:| -------------------------------------------------------------------- |
 | `SPACESHIP_CHAR_PREFIX`           |            ``            | Prefix before prompt character                                       |
 | `SPACESHIP_CHAR_SUFFIX`           |            ``            | Suffix after prompt character                                        |
@@ -91,9 +91,9 @@ This group of options defines a behaviour of prompt and standard parameters for 
 
 ### Time (`time`)
 
-Disabled by default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if you need to show time stamps.
+默认为禁用 如果您需要显示时间戳。在您的 `.zshrc`中, 将 `SPACESHIP_TIME_SHOW` 设置为 `true` 。
 
-| Variable                |              Default               | Meaning                                                                                                               |
+| 变量                      |                 默认                 | 释义                                                                                                                    |
 |:----------------------- |:----------------------------------:| --------------------------------------------------------------------------------------------------------------------- |
 | `SPACESHIP_TIME_SHOW`   |              `false`               | Show time (set to `true` for enabling)                                                                                |
 | `SPACESHIP_TIME_PREFIX` |               `at·`                | Prefix before time section                                                                                            |
@@ -104,9 +104,9 @@ Disabled by default. Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if yo
 
 ### Username (`user`)
 
-By default, a username is shown only when it's not the same as `$LOGNAME`, when you're connected via SSH or when you're root. Root user is highlighted in `SPACESHIP_USER_COLOR_ROOT` color (red as default).
+默认情况下，只有当用户名与 `$LOGNAME`不同时，当您通过 SSH 连接或当您是 root 时才显示。 根用户用 `SPACESHIP_USER_COLOR_ROOT` 颜色高亮(红色为默认值)。
 
-| Variable                    |              Default               | Meaning                                                   |
+| 变量                          |                 默认                 | 释义                                                        |
 |:--------------------------- |:----------------------------------:| --------------------------------------------------------- |
 | `SPACESHIP_USER_SHOW`       |               `true`               | Show user section (`true`, `false`, `always` or `needed`) |
 | `SPACESHIP_USER_PREFIX`     |              `with·`               | Prefix before user section                                |
@@ -114,20 +114,20 @@ By default, a username is shown only when it's not the same as `$LOGNAME`, when 
 | `SPACESHIP_USER_COLOR`      |              `yellow`              | Color of user section                                     |
 | `SPACESHIP_USER_COLOR_ROOT` |               `red`                | Color of user section when it's root                      |
 
-`SPACESHIP_USER_SHOW` defines when to show username section. Here are possible values:
+`SPACESHIP_USER_SHOW` 定义何时显示用户名模块。 以下是可能的值：
 
-| `SPACESHIP_USER_SHOW` | Show on local | Show on remote |
-|:---------------------:|:------------- |:-------------- |
-|        `false`        | Never         | Never          |
-|       `always`        | Always        | Always         |
-|        `true`         | If needed     | Always         |
-|       `needed`        | If needed     | If needed      |
+| `SPACESHIP_USER_SHOW` | 在本地显示     | 在远程显示     |
+|:---------------------:|:--------- |:--------- |
+|        `false`        | Never     | Never     |
+|       `always`        | Always    | Always    |
+|        `true`         | If needed | Always    |
+|       `needed`        | If needed | If needed |
 
 ### Hostname (`host`)
 
-Hostname is shown only when you're connected via SSH unless you change this behavior.
+主机名只在您通过 SSH 连接时才显示，除非您更改此行为。
 
-| Variable                   |              Default               | Meaning                                         |
+| 变量                         |                 默认                 | 释义                                              |
 |:-------------------------- |:----------------------------------:| ----------------------------------------------- |
 | `SPACESHIP_HOST_SHOW`      |               `true`               | Show host section (`true`, `false` or `always`) |
 | `SPACESHIP_HOST_SHOW_FULL` |              `false`               | Show full hostname section (`true`, `false`)    |
@@ -138,9 +138,9 @@ Hostname is shown only when you're connected via SSH unless you change this beha
 
 ### Directory (`dir`)
 
-Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`. While you are in repository, it shows only root directory and folders inside it. If current directory is write-protected or if current user has not enough rights to write in it, a padlock (by default) is displayed as a suffix.
+目录总是显示和截短到 `SPACESHIP_DIR_TRUNC` 的值。 当您在仓库中，它只显示根目录和文件夹。 如果当前目录受写保护或当前用户没有足够的权限写入该目录， 小锁 (默认情况下) 为显示后缀。
 
-| Variable                     |                                                   Default                                                   | Meaning                                                                                |
+| 变量                           |                                                     默认                                                      | 释义                                                                                     |
 |:---------------------------- |:-----------------------------------------------------------------------------------------------------------:| -------------------------------------------------------------------------------------- |
 | `SPACESHIP_DIR_SHOW`         |                                                   `true`                                                    | Show directory section                                                                 |
 | `SPACESHIP_DIR_PREFIX`       |                                                    `in·`                                                    | Prefix before current directory                                                        |
@@ -154,9 +154,9 @@ Directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC`. W
 
 ### Git (`git`)
 
-Git section consists of `git_branch` and `git_status` subsections. It is shown only in Git repositories.
+Git 模块由 `git_brant` 和 `git_status` 子模块组成。 它仅在 Git 仓库中显示。
 
-| Variable               |                                                  Default                                                   | Meaning                                                                                                         |
+| 变量                     |                                                     默认                                                     | 释义                                                                                                              |
 |:---------------------- |:----------------------------------------------------------------------------------------------------------:| --------------------------------------------------------------------------------------------------------------- |
 | `SPACESHIP_GIT_SHOW`   |                                                   `true`                                                   | Show Git section                                                                                                |
 | `SPACESHIP_GIT_PREFIX` |                                                   `on·`                                                    | Prefix before Git section                                                                                       |
@@ -165,7 +165,7 @@ Git section consists of `git_branch` and `git_status` subsections. It is shown o
 
 #### Git branch (`git_branch`)
 
-| Variable                      |         Default         | Meaning                             |
+| 变量                            |           默认            | 释义                                  |
 |:----------------------------- |:-----------------------:| ----------------------------------- |
 | `SPACESHIP_GIT_BRANCH_SHOW`   |         `true`          | Show Git branch subsection          |
 | `SPACESHIP_GIT_BRANCH_PREFIX` | `$SPACESHIP_GIT_SYMBOL` | Prefix before Git branch subsection |
@@ -174,30 +174,30 @@ Git section consists of `git_branch` and `git_status` subsections. It is shown o
 
 #### Git status (`git_status`)
 
-Git status indicators is shown only when you have dirty repository.
+Git 状态指示器仅在您弄乱的仓库时才显示。
 
-| Variable                         | Default | Meaning                                                      |
-|:-------------------------------- |:-------:| ------------------------------------------------------------ |
-| `SPACESHIP_GIT_STATUS_SHOW`      | `true`  | Show Git status subsection                                   |
-| `SPACESHIP_GIT_STATUS_PREFIX`    |  `·[`   | Prefix before Git status subsection                          |
-| `SPACESHIP_GIT_STATUS_SUFFIX`    |   `]`   | Suffix after Git status subsection                           |
-| `SPACESHIP_GIT_STATUS_COLOR`     |  `red`  | Color of Git status subsection                               |
-| `SPACESHIP_GIT_STATUS_UNTRACKED` |   `?`   | Indicator for untracked changes                              |
-| `SPACESHIP_GIT_STATUS_ADDED`     |   `+`   | Indicator for added changes                                  |
-| `SPACESHIP_GIT_STATUS_MODIFIED`  |   `!`   | Indicator for unstaged files                                 |
-| `SPACESHIP_GIT_STATUS_RENAMED`   |   `»`   | Indicator for renamed files                                  |
-| `SPACESHIP_GIT_STATUS_DELETED`   |   `✘`   | Indicator for deleted files                                  |
-| `SPACESHIP_GIT_STATUS_STASHED`   |   `$`   | Indicator for stashed changes                                |
-| `SPACESHIP_GIT_STATUS_UNMERGED`  |   `=`   | Indicator for unmerged changes                               |
-| `SPACESHIP_GIT_STATUS_AHEAD`     |   `⇡`   | Indicator for unpushed changes (ahead of remote branch)      |
-| `SPACESHIP_GIT_STATUS_BEHIND`    |   `⇣`   | Indicator for unpulled changes (behind of remote branch)     |
-| `SPACESHIP_GIT_STATUS_DIVERGED`  |   `⇕`   | Indicator for diverged changes (diverged with remote branch) |
+| 变量                               |   默认   | 释义                                                           |
+|:-------------------------------- |:------:| ------------------------------------------------------------ |
+| `SPACESHIP_GIT_STATUS_SHOW`      | `true` | Show Git status subsection                                   |
+| `SPACESHIP_GIT_STATUS_PREFIX`    |  `·[`  | Prefix before Git status subsection                          |
+| `SPACESHIP_GIT_STATUS_SUFFIX`    |  `]`   | Suffix after Git status subsection                           |
+| `SPACESHIP_GIT_STATUS_COLOR`     | `red`  | Color of Git status subsection                               |
+| `SPACESHIP_GIT_STATUS_UNTRACKED` |  `?`   | Indicator for untracked changes                              |
+| `SPACESHIP_GIT_STATUS_ADDED`     |  `+`   | Indicator for added changes                                  |
+| `SPACESHIP_GIT_STATUS_MODIFIED`  |  `!`   | Indicator for unstaged files                                 |
+| `SPACESHIP_GIT_STATUS_RENAMED`   |  `»`   | Indicator for renamed files                                  |
+| `SPACESHIP_GIT_STATUS_DELETED`   |  `✘`   | Indicator for deleted files                                  |
+| `SPACESHIP_GIT_STATUS_STASHED`   |  `$`   | Indicator for stashed changes                                |
+| `SPACESHIP_GIT_STATUS_UNMERGED`  |  `=`   | Indicator for unmerged changes                               |
+| `SPACESHIP_GIT_STATUS_AHEAD`     |  `⇡`   | Indicator for unpushed changes (ahead of remote branch)      |
+| `SPACESHIP_GIT_STATUS_BEHIND`    |  `⇣`   | Indicator for unpulled changes (behind of remote branch)     |
+| `SPACESHIP_GIT_STATUS_DIVERGED`  |  `⇕`   | Indicator for diverged changes (diverged with remote branch) |
 
 ### Mercurial (`hg`)
 
-Mercurial section is consists with `hg_branch` and `hg_status` subsections. It is shown only in Mercurial repositories.
+Mercurial 模块由 ` hg_branch ` 和 ` hg_status ` 子模块组成。 它只显示在 Mercurial 仓库中。
 
-| Variable              |              Default               | Meaning                                        |
+| 变量                    |                 默认                 | 释义                                             |
 |:--------------------- |:----------------------------------:| ---------------------------------------------- |
 | `SPACESHIP_HG_SHOW`   |               `true`               | Show Mercurial section                         |
 | `SPACESHIP_HG_PREFIX` |               `on·`                | Prefix before Mercurial section                |
@@ -206,9 +206,9 @@ Mercurial section is consists with `hg_branch` and `hg_status` subsections. It i
 
 #### Mercurial branch (`hg_branch`)
 
-Shows Mercurial bookmarks when available, otherwise shows Mercurial branch information.
+在可用时显示 Mercurial 书签，否则显示 Mercurial 分支信息。
 
-| Variable                     |              Default               | Meaning                                   |
+| 变量                           |                 默认                 | 释义                                        |
 |:---------------------------- |:----------------------------------:| ----------------------------------------- |
 | `SPACESHIP_HG_BRANCH_SHOW`   |               `true`               | Show Mercurial branch subsection          |
 | `SPACESHIP_HG_BRANCH_PREFIX` |       `$SPACESHIP_HG_SYMBOL`       | Prefix before Mercurial branch subsection |
@@ -217,31 +217,31 @@ Shows Mercurial bookmarks when available, otherwise shows Mercurial branch infor
 
 #### Mercurial status (`hg_status`)
 
-Mercurial status indicators is shown only when you have dirty repository.
+Mercurial 状态指示器仅在您弄乱的仓库时才显示。
 
-| Variable                        | Default | Meaning                                   |
-|:------------------------------- |:-------:| ----------------------------------------- |
-| `SPACESHIP_HG_STATUS_SHOW`      | `true`  | Show Mercurial status subsection          |
-| `SPACESHIP_HG_STATUS_PREFIX`    |   `[`   | Prefix before Mercurial status subsection |
-| `SPACESHIP_HG_STATUS_SUFFIX`    |   `]`   | Suffix after Mercurial status subsection  |
-| `SPACESHIP_HG_STATUS_COLOR`     |  `red`  | Color of Mercurial status subsection      |
-| `SPACESHIP_HG_STATUS_UNTRACKED` |   `?`   | Indicator for untracked changes           |
-| `SPACESHIP_HG_STATUS_ADDED`     |   `+`   | Indicator for added changes               |
-| `SPACESHIP_HG_STATUS_MODIFIED`  |   `!`   | Indicator for unstaged files              |
-| `SPACESHIP_HG_STATUS_DELETED`   |   `✘`   | Indicator for deleted files               |
+| 变量                              |   默认   | 释义                                        |
+|:------------------------------- |:------:| ----------------------------------------- |
+| `SPACESHIP_HG_STATUS_SHOW`      | `true` | Show Mercurial status subsection          |
+| `SPACESHIP_HG_STATUS_PREFIX`    |  `[`   | Prefix before Mercurial status subsection |
+| `SPACESHIP_HG_STATUS_SUFFIX`    |  `]`   | Suffix after Mercurial status subsection  |
+| `SPACESHIP_HG_STATUS_COLOR`     | `red`  | Color of Mercurial status subsection      |
+| `SPACESHIP_HG_STATUS_UNTRACKED` |  `?`   | Indicator for untracked changes           |
+| `SPACESHIP_HG_STATUS_ADDED`     |  `+`   | Indicator for added changes               |
+| `SPACESHIP_HG_STATUS_MODIFIED`  |  `!`   | Indicator for unstaged files              |
+| `SPACESHIP_HG_STATUS_DELETED`   |  `✘`   | Indicator for deleted files               |
 
 ### Package version (`package`)
 
-> Works for [npm](https://www.npmjs.com/) and [cargo](https://crates.io/) at the moment. Please, help us improve this section!
+> 目前适用于 [npm](https://www.npmjs.com/) 和 [cargo](https://crates.io/)。 请帮助我们改进这个版块！
 
-Package version is shown when repository is a package.
+当仓库是一个软件包时，将显示软件包版本。
 
-- **npm** — `npm` package contains a `package.json` file. We use `jq`, `python` to parse package version for improving performance and `node` as a fallback. Install [jq](https://stedolan.github.io/jq/) for **improved performance** of this section ([Why?](./troubleshooting.md#why-is-my-prompt-slow))
-- **cargo** — `cargo` package contains a `Cargo.toml` file. Currently, we use `cargo pkgid`, it depends on `Cargo.lock`. So if package version isn't shown, you may need to run some command like `cargo build` which can generate `Cargo.lock` file.
+- **npm** — `npm` 软件包包含一个 `package.json` 文件。 我们使用 `jq`, `python` 解析软件包版本以提高性能， `node` 作为后补。 安装 [jq](https://stedolan.github.io/jq/) 来此模块的性能 **改进性能**([为什么？](./troubleshooting.md#why-is-my-prompt-slow))
+- ** cargo ** — ` cargo ` 软件包包含一个 `Cargo.toml` 文件。 目前，我们使用 `cargo pkgid`, 它依赖 `Cargo.lock`文件。 因此，如果软件包版本未显示，您可能需要运行一些命令，如 `cargo build` ，这些命令可以生成 `Cargo.lock` 文件。
 
-> **Note:** This is the version of the package you are working on, not the version of package manager itself.
+> **注意：** 这是您正在使用的软件包版本，而不是软件包管理器本身的版本。
 
-| Variable                   |              Default               | Meaning                                      |
+| 变量                         |                 默认                 | 释义                                           |
 |:-------------------------- |:----------------------------------:| -------------------------------------------- |
 | `SPACESHIP_PACKAGE_SHOW`   |               `true`               | Show package version                         |
 | `SPACESHIP_PACKAGE_PREFIX` |               `is·`                | Prefix before package version section        |
@@ -251,7 +251,7 @@ Package version is shown when repository is a package.
 
 ### Node.js (`node`)
 
-Node.js section is shown only in directories that contain `package.json` file, or `node_modules` folder, or any other file with `.js` extension.
+Node.js包只显示在包含 `package.json` 文件, 或 `node_modules` 文件夹, 或者其他以 `.js` 为后缀的文件的包。
 
 If you set `SPACESHIP_NODE_DEFAULT_VERSION` to the default Node.js version and your current version is the same as `SPACESHIP_NODE_DEFAULT_VERSION`, then Node.js section will be hidden.
 
