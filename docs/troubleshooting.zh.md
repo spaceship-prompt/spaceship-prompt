@@ -1,48 +1,48 @@
 ---
 hide:
-  - navigation
+  - 导航
 ---
 
-# Troubleshooting
+# 疑难解答
 
-This page aimed to help you fix the common problems encountered while using Spaceship prompt.
+此页面旨在帮助您修复在使用Spaceship提示符遇到的常见问题。
 
-## What's the weird symbol for `git` branch?
+## `git` 分支的奇怪符号是什么?
 
-You need to have a powerline patched font in order to properly display `git` branch symbol.
+您需要有一个powerline的补丁字体才能正确显示 `git` 分支符号。
 
-- Install any powerline compatible font like [Fira Code](https://github.com/tonsky/FiraCode) or [others](https://github.com/powerline/fonts).
-- Configure your terminal emulator to [use that font](https://powerline.readthedocs.io/en/master/troubleshooting/osx.html).
+- 安装任何powerline兼容的字体，例如 [Fira Code](https://github.com/tonsky/FiraCode) 或 [其他](https://github.com/powerline/fonts)。
+- 配置您的终端仿真器 [使用那个字体](https://powerline.readthedocs.io/en/master/troubleshooting/osx.html)。
 
-## What's the weird character in front of a section?
+## 模块前面奇怪的字符是什么？
 
-This is not an issue with Spaceship prompt. Spaceship uses Unicode symbols to represent `SPACESHIP_*_SYMBOL` in sections. To solve this problem:
+这并不是Spaceship提示符的问题。 Spaceship在模块中使用 Unicode 符号来代表 `SPACESHIP_*_SYMBOL`。 要解决此问题：
 
-- Verify your terminal emulator support Unicode characters with this command:
+- 使用此命令验证您的终端模拟器支持 Unicode 字符：
   ```zsh
-  curl -L https://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
-  # or
+  curl - L https://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
+  # 或
   wget -O - https://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
   ```
-- Configure your terminal emulator to use UTF-8 as character encoding.
+- 配置您的终端模拟器使用UTF-8作为字符编码。
 
-In case Unicode symbols aren't supported, you can replace them to those that are compatible with your terminal with `SPACESHIP_*_SYMBOL` options. Check out [Options](./options.md) page for more information.
+如果不支持 Unicode 符号，您可以用 `SPACESHIP_*_SYMBOL` 选项替换它们与您终端兼容。 查看 [选项](./options.zh.md) 页面以获取更多信息。
 
-## What is the `[I]` before prompt character ?
+## 提示符之前的 `[I]` 是什么？
 
-That's [`vi_mode`](https://spaceship-prompt.sh/options/#vi-mode-vi_mode) section indicating `insert` mode. You can disable that with following line in your configuration,
+那是 [`vi_mode`](https://spaceship-prompt.sh/options/#vi-mode-vi_mode) 模块表示 `插入` 模式。 您可以在您的配置中用以下行禁用此功能：
 
 ```
 SPACESHIP_VI_MODE_SHOW=false
 ```
 
-## Why is my prompt slow?
+## 为什么我的提示符很慢？
 
-Spaceship may work slower in big repositories since status checkings are quite a heavy operation. In this case, try to avoid having many uncommitted files.
+由于状态检查是相当繁重的操作，空间飞船在大仓库中Spaceship可能较慢。 在这种情况下，试图避免有许多未提交的文件。
 
-Using `grep` to fetch package version wasn't returning accurate information. So now we use `jq` with fallbacks to `python` and `node`, Which might slightly affect performance. In that case install [jq](https://stedolan.github.io/jq/) (see [#439][], [#441][] for more information).
+使用 `grep` 获取软件包版本没有返回准确信息。 所以我们现在使用 `jq` ，并且用 `python` 和 `node`作为备选。这可能会稍微影响性能。 在这种情况下安装 [jq](https://stedolan.github.io/jq/) (详情请 [#439][], [#441][])。
 
-Prompt also may slow down because of loading of unused sections. Spaceship loads only sections mentioned in `SPACESHIP_PROMPT_ORDER` or `SPACESHIP_RPROMPT_ORDER`. If you think some sections might be useless for you, try to disable them by omitting their names in order options.
+由于未使用的模块加载，提示符也可能变慢。 Spaceship只装载 `SPACESHIP_PROPT_ORDER` 或 `SPACESHIP_RPROPT_ORDER` 中提到的模块。 If you think some sections might be useless for you, try to disable them by omitting their names in order options.
 
 In the example below, `time`, `package`, `xcode`, `julia`, `docker`, `ember` and `vi_mode` sections are disabled so that they won't be loaded at all.
 
