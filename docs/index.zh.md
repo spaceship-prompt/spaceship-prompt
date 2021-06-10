@@ -50,7 +50,7 @@ features:
 需要更多功能？ 请 [提出 issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose)，描述你的问题，我们将乐意帮助你。
 
 <!-- prettier-ignore -->
-!!! !!! 提示 关注 [我们的 Twitter](//twitter.com/SpaceshipPrompt) 以便随时了解新功能、改进和错误修正的最新情况。
+!!! 提示 关注 [我们的 Twitter](//twitter.com/SpaceshipPrompt) 以便随时了解新功能、改进和错误修正的最新情况。
 
 ## 相关项目
 
@@ -70,7 +70,7 @@ features:
 
 赞助是您肯定的表达： **我的工作是有价值的**
 
-我会感谢您的支持！ _谢谢！ _
+我会感谢您的支持！ _谢谢！_
 
 ## 许可证
 
