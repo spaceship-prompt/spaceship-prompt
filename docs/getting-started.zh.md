@@ -136,7 +136,7 @@ hide:
 
 === "Arch"
 
-    从 AUR 软件源安装最近的版本 [`spaceship-impt-git`](https://aur.archlinux.org/packes/spaceship-impt-git/):
+    从 AUR 软件源安装最近的版本 [`spaceship-prompt-git`](https://aur.archlinux.org/packes/spaceship-prompt-git/):
 
     ```
     git clone https://aur.archlinux.org/spaceship-prompt-git.git --depth=1
