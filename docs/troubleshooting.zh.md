@@ -42,12 +42,12 @@ SPACESHIP_VI_MODE_SHOW=false
 
 使用 `grep` 获取软件包版本没有返回准确信息。 所以我们现在使用 `jq` ，并且用 `python` 和 `node`作为备选。这可能会稍微影响性能。 在这种情况下安装 [jq](https://stedolan.github.io/jq/) (详情请 [#439][], [#441][])。
 
-由于未使用的模块加载，提示符也可能变慢。 Spaceship只装载 `SPACESHIP_PROPT_ORDER` 或 `SPACESHIP_RPROPT_ORDER` 中提到的模块。 If you think some sections might be useless for you, try to disable them by omitting their names in order options.
+由于未使用的模块加载，提示符也可能变慢。 Spaceship只装载 `SPACESHIP_PROPT_ORDER` 或 `SPACESHIP_RPROPT_ORDER` 中提到的模块。 如果你认为某些模块对你来说可能毫无用处，试图通过在排序选项中省略它们的名字来禁用它们。
 
-In the example below, `time`, `package`, `xcode`, `julia`, `docker`, `ember` and `vi_mode` sections are disabled so that they won't be loaded at all.
+在下面的示例中， `time`, `package`, `xcode`, `julia`, `docker`, ` ember ` 和 `vi_mode` 模块被禁用，根本不会被加载。
 
 ```zsh
-# Just comment a section if you want to disable it
+#  如果你想禁用仅仅需要将模块注释
 SPACESHIP_PROMPT_ORDER=(
   # time        # Time stamps section (Disabled)
   user          # Username section
@@ -86,48 +86,48 @@ SPACESHIP_PROMPT_ORDER=(
 )
 ```
 
-Disabling a lot of unused section may achieve a significant performance boost. Here's a comparison of rendering Spaceship prompt 100 times with all sections enabled and with `SPACESHIP_PROMPT_ORDER` from example above:
+禁用大量未使用的部分可能会实现显著的性能提升。 下面是用上面示例的 `SPACESHIP_PROPT_ORDER` 和所有模块全部开启运行100次的渲染Spaceship的比较：
 
-|                      | All section | With disabled sections |
-|:-------------------- |:-----------:|:----------------------:|
-| Inside Git repo\*  |   `23.5s`   |        `21.3s`         |
-| Outside Git repo\* |   `8.3s`    |         `7.4s`         |
+|             |  所有模块   |  有禁用模块  |
+|:----------- |:-------:|:-------:|
+| 在Git仓库内\* | `23.5秒` | `21.3秒` |
+| 在Git仓库外\* | `8.3秒`  | `7.4秒`  |
 
-\* — `spaceship-prompt` repo is used in this test.
+\* - `spaceship-prompt ` 项目用于此测试。
 
-## Some section icons overlap each other?
+## 某些模块图标相互重叠？
 
 ![](https://user-images.githubusercontent.com/3459374/34945188-1f6398be-fa0b-11e7-9845-a744bc3e148d.png)
 
-This issue is related to how your terminal emulator renders Unicode 9 characters. To fix this issue:
+此问题与您的终端模拟器如何渲染Unicode 9字符有关。 要解决此问题：
 
-- Make sure terminal uses _Unicode Version 9 Widths_.
-- Let your terminal render ambiguous-width characters as double-width.
+- 确保终端使用 _Unicode 版本 9 宽度_。
+- 让您的终端以双宽度渲染不明确的字符。
 
-In _iTerm_ follow these instructions:
+在 _iTerm_ 中，遵循这些指令：
 
-- Go _iTerm → Preferences… (⌘,) → Profiles → Text_
-- Check _Unicode Version 9 Widths_.
-- Check _Threat ambiguous-width characters as double-width_.
-- Reload terminal's tab.
+- 转至 _iTerm → Preferences… (⌘,) → Profiles → Text_
+- 检查 _Unicode 版本 9 宽度_。
+- 检查 _宽度模糊字符是否为双宽度_。
+- 重新装入终端标签页。
 
-## Why doesn't my prompt look like the preview?
+## 为什么我的提示符看起来不像预览？
 
-![preview](https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif)
+![预览](https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif)
 
-Preview shows `spaceship` prompt setup with:
+预览显示 `Spaceship` 提示符设置为：
 
-- [Hyper](https://hyper.is) as terminal emulator.
-- [One Dark](https://www.npmjs.com/package/hyperterm-atom-dark) color theme from [Atom](https://atom.io/) editor.
-- [Fira Code](https://github.com/tonsky/FiraCode) with with ligatures as primary font (16px size).
-- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) to have commands colorized.
-- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) to have browser-like autocompletions.
+- [ Hyper ](https://hyper.is)作为终端仿真器。
+- [One Dark](https://www.npmjs.com/package/hyperterm-atom-dark) 来自 [Atom](https://atom.io/) 编辑器的一个颜色主题。
+- [Fira Code](https://github.com/tonsky/FiraCode), 与ligatures 作为主字体 (16px size).
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) 让命令颜色化。
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) 类似浏览器的自动补全。
 
-See [screenshots](https://github.com/spaceship-prompt/spaceship-prompt/wiki/Screenshots) wiki for more color schemes examples.
+查看 [屏幕截图](https://github.com/spaceship-prompt/spaceship-prompt/wiki/Screenshots) 维基以了解更多的配色方案示例。
 
-## Does not help?
+## 难道没有帮助吗？
 
-If any of above does not help, please, [file an issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new), describe your problem and we will gladly help you.
+请 [提出 issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new)，描述你的问题，我们将乐意帮助你。
 
 [#439]: https://github.com/spaceship-prompt/spaceship-prompt/issues/439
 [#441]: https://github.com/spaceship-prompt/spaceship-prompt/pull/441
