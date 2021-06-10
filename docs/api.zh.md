@@ -156,7 +156,7 @@ spaceship:section "$color"$SPACESHIP_CHAR_SYMBOL"
 ### 示例
 
 ```zsh
-# Check multiple commands for existing
+# 检查多个命令是否存在
 if spaceship::exists nvm; then
   # extract nvm version
 elif spaceship::exists node; then
@@ -165,7 +165,7 @@ else
   return
 fi
 
-# Do nothing if pyenv is not installed
+# 如果 pyenv 没被安装，不执行任何命令
 spaceship::exists pyenv || return
 ```
 
@@ -182,11 +182,11 @@ spaceship::exists pyenv || return
 ### 示例
 
 ```zsh
-# Check if section has been defined
+# 检查是否模块被定义
 if spaceship::defined spaceship_section; then
   spaceship_section
 else
-  # section is not found
+  # 模块未定义
 fi
 ```
 
@@ -197,7 +197,7 @@ fi
 ### 示例
 
 ```zsh
-# Return if current directory is not a git repository
+# 如果当前目录不是一个 git 资源库
 spaceship::is_git || return
 ```
 
@@ -208,7 +208,7 @@ spaceship::is_git || return
 ### 示例
 
 ```zsh
-# Return if current directory is not a Mercurial repository
+# 返回，如果当前目录不是 Mercurial 版本库
 spaceship::is_hg || return
 ```
 
@@ -224,7 +224,7 @@ spaceship::is_hg || return
 ### 示例
 
 ```zsh
-# Check if SPACESHIP_BATTERY_ALWAYS_SHOW is set
+# 检查是否设置了 SPACESHIP_BATTERY_ALWAYS_SHOW
 spaceship::deprecated SPACESHIP_BATTERY_ALWAYS_SHOW "Use %BSPACESHIP_BATTERY_SHOW='always'%b instead."
 #> SPACESHIP_BATTERY_ALWAYS_SHOW is deprecated. Use SPACESHIP_BATTERY_SHOW='always' instead.
 ```
