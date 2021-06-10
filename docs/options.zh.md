@@ -1,6 +1,6 @@
 ---
 hide:
-  - 导航
+  - navigation
 ---
 
 ## 选项
@@ -253,9 +253,9 @@ Mercurial 状态指示器仅在您弄乱的仓库时才显示。
 
 Node.js包只显示在包含 `package.json` 文件, 或 `node_modules` 文件夹, 或者其他以 `.js` 为后缀的文件的包。
 
-If you set `SPACESHIP_NODE_DEFAULT_VERSION` to the default Node.js version and your current version is the same as `SPACESHIP_NODE_DEFAULT_VERSION`, then Node.js section will be hidden.
+如果您将 `SPACESHIP_NODEFAULT_VERSION` 设置为默认 Node.js 版本并且您当前的版本与 `SPACESHIP_NODEFAULT_VERSION`相同，那么Node.js 模块将被隐藏。
 
-| Variable                         |              Default               | Meaning                                      |
+| 变量                               |                 默认                 | 释义                                           |
 |:-------------------------------- |:----------------------------------:| -------------------------------------------- |
 | `SPACESHIP_NODE_SHOW`            |               `true`               | Current Node.js section                      |
 | `SPACESHIP_NODE_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Node.js section                |
@@ -266,9 +266,9 @@ If you set `SPACESHIP_NODE_DEFAULT_VERSION` to the default Node.js version and y
 
 ### Ruby (`ruby`)
 
-Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`, or any other file with `.rb` extension.
+Ruby 模块包只显示在包含 ` Gemfile ` 文件, 或 ` Rakefile ` 文件夹, 或者其他以 `.rb` 为后缀的文件的包。
 
-| Variable                |              Default               | Meaning                                   |
+| 变量                      |                 默认                 | 释义                                        |
 |:----------------------- |:----------------------------------:| ----------------------------------------- |
 | `SPACESHIP_RUBY_SHOW`   |               `true`               | Show Ruby section                         |
 | `SPACESHIP_RUBY_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Ruby section                |
@@ -278,9 +278,9 @@ Ruby section is shown only in directories that contain `Gemfile`, or `Rakefile`,
 
 ### Elm (`elm`)
 
-Elm section is shown only in directories that contain `elm.json` file, `elm-package.json` file, `elm-stuff` directory, or any other file with `.elm` extension.
+Elm 模块包只显示在包含 `elm.json` 文件, 或 `elm-package.json` 文件, 或 `elm-stuff` 文件夹或者其他以 `. elm ` 为后缀的文件的包。
 
-| Variable               |              Default               | Meaning                                  |
+| 变量                     |                 默认                 | 释义                                       |
 |:---------------------- |:----------------------------------:| ---------------------------------------- |
 | `SPACESHIP_ELM_SHOW`   |               `true`               | Show installed Elm version               |
 | `SPACESHIP_ELM_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Elm section                |
@@ -290,9 +290,9 @@ Elm section is shown only in directories that contain `elm.json` file, `elm-pack
 
 ### Elixir (`elixir`)
 
-Elixir section is shown only in directories that contain `mix.exs`, or any other file with `.ex` or `.exs` extension. If the current elixir version is the same as the version set in `SPACESHIP_ELIXIR_DEFAULT_VERSION`, the elixir section will be hidden.
+Elixir 模块只显示在包含 `mix.exs`, 或任何其他有 `.ex` 或 `.exs` 扩展名的文件的目录中。 如果当前elixir版本与 `SPACESHIP_ELIXIR_DEFAULT_VERSION`中设置的版本相同，elixir 模块将被隐藏。
 
-| Variable                           |              Default               | Meaning                                     |
+| 变量                                 |                 默认                 | 释义                                          |
 |:---------------------------------- |:----------------------------------:| ------------------------------------------- |
 | `SPACESHIP_ELIXIR_SHOW`            |               `true`               | Show Elixir section                         |
 | `SPACESHIP_ELIXIR_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Elixir section                |
@@ -303,9 +303,9 @@ Elixir section is shown only in directories that contain `mix.exs`, or any other
 
 ### Xcode (`xcode`)
 
-Shows current version of Xcode. Local version has more priority than global.
+显示 Xcode 的当前版本 本地版本比全局更优先。
 
-| Variable                      |              Default               | Meaning                                      |
+| 变量                            |                 默认                 | 释义                                           |
 |:----------------------------- |:----------------------------------:| -------------------------------------------- |
 | `SPACESHIP_XCODE_SHOW_LOCAL`  |               `true`               | Current local Xcode version based on [xcenv] |
 | `SPACESHIP_XCODE_SHOW_GLOBAL` |              `false`               | Global Xcode version based on [xcenv]        |
@@ -316,9 +316,9 @@ Shows current version of Xcode. Local version has more priority than global.
 
 ### Swift (`swift`)
 
-Shows current version of Swift. Local version has more priority than global.
+显示 Swift 的当前版本 本地版本比全局更优先。
 
-| Variable                      |              Default               | Meaning                                         |
+| 变量                            |                 默认                 | 释义                                              |
 |:----------------------------- |:----------------------------------:| ----------------------------------------------- |
 | `SPACESHIP_SWIFT_SHOW_LOCAL`  |               `true`               | Current local Swift version based on [swiftenv] |
 | `SPACESHIP_SWIFT_SHOW_GLOBAL` |              `false`               | Global Swift version based on [swiftenv]        |
@@ -329,16 +329,16 @@ Shows current version of Swift. Local version has more priority than global.
 
 ### Go (`golang`)
 
-Go section is shown only in directories that contain `go.mod`, `Godeps`, `glide.yaml`, any other file with `.go` extension, or when current directory is in the Go workspace defined in `$GOPATH`.
+Go 模块只在包含 `go.mod`, `Godeps`, `glide.yaml`, 等其他以 `.go` 为后缀的目录中或者工作区被定义在 `$GOPATH`中的目录内显示。
 
-If you are using a development version of `Go`, the version uses git commit hash instead.
+如果您正在使用开发版的 `Go`，版本将使用 git 提交哈希值代替。
 
-For example:
+例如
 
-- `devel:5efe9a8f11` for development version
-- `v1.11.4` for release version
+- `devel:5efe9a8f11` 开发版本
+- `v1.1.4` 发行版
 
-| Variable                  |              Default               | Meaning                                 |
+| 变量                        |                 默认                 | 释义                                      |
 |:------------------------- |:----------------------------------:| --------------------------------------- |
 | `SPACESHIP_GOLANG_SHOW`   |               `true`               | Shown current Go version or not         |
 | `SPACESHIP_GOLANG_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Go section            |
@@ -348,9 +348,9 @@ For example:
 
 ### PHP (`php`)
 
-PHP section is shown only in directories that contain `composer.json` file, or any other file with `.php` extension.
+PHP 模块包只显示在包含 ` composer.json ` 文件, 或者其他以 `. php ` 为后缀的文件的包中。
 
-| Variable               |              Default               | Meaning                                  |
+| 变量                     |                 默认                 | 释义                                       |
 |:---------------------- |:----------------------------------:| ---------------------------------------- |
 | `SPACESHIP_PHP_SHOW`   |                true                | Show PHP section                         |
 | `SPACESHIP_PHP_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the PHP section            |
@@ -360,9 +360,9 @@ PHP section is shown only in directories that contain `composer.json` file, or a
 
 ### Rust (`rust`)
 
-Rust section is shown only in directories that contain `Cargo.toml` or any other file with `.rs` extension.
+Rust 模块包只显示在包含 ` Cargo.toml ` 文件, 或者其他以 `. rs ` 为后缀的文件的包中。
 
-| Variable                         |              Default               | Meaning                                                 |
+| 变量                               |                 默认                 | 释义                                                      |
 |:-------------------------------- |:----------------------------------:| ------------------------------------------------------- |
 | `SPACESHIP_RUST_SHOW`            |               `true`               | Shown current Rust version or not                       |
 | `SPACESHIP_RUST_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Rust section                          |
@@ -373,9 +373,9 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 
 ### Haskell (`haskell`)
 
-Haskell section is shown only in directories that contain `stack.yaml` file.
+Haskell 模块只显示在包含 `stack.yaml` 文件的目录中。
 
-| Variable                   |              Default               | Meaning                                                 |
+| 变量                         |                 默认                 | 释义                                                      |
 |:-------------------------- |:----------------------------------:| ------------------------------------------------------- |
 | `SPACESHIP_HASKELL_SHOW`   |               `true`               | Shown current Haskell Tool Stack version or not         |
 | `SPACESHIP_HASKELL_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Haskell section                       |
@@ -385,9 +385,9 @@ Haskell section is shown only in directories that contain `stack.yaml` file.
 
 ### Julia (`julia`)
 
-Julia section is shown only in directories that contain file with `.jl` extension.
+Julia 模块包只显示在包含    文件, 或者其他以 `. jl ` 为后缀的文件的包中。
 
-| Variable                 |              Default               | Meaning                                    |
+| 变量                       |                 默认                 | 释义                                         |
 |:------------------------ |:----------------------------------:| ------------------------------------------ |
 | `SPACESHIP_JULIA_SHOW`   |               `true`               | Shown current Julia version or not         |
 | `SPACESHIP_JULIA_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Julia section            |
@@ -403,7 +403,7 @@ Docker section is shown only in directories that contain `Dockerfile` or it's po
 
 The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more information see [Compose CLI environment variables](https://docs.docker.com/compose/reference/envvars/).
 
-| Variable                   |              Default               | Meaning                                     |
+| 变量                         |                 默认                 | 释义                                          |
 |:-------------------------- |:----------------------------------:| ------------------------------------------- |
 | `SPACESHIP_DOCKER_SHOW`    |               `true`               | Show current Docker version or not          |
 | `SPACESHIP_DOCKER_PREFIX`  |                `on`                | Prefix before the Docker section            |
@@ -414,17 +414,17 @@ The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more inf
 
 ### Docker context (`docker_context`)
 
-| Variable                          | Default | Meaning                                  |
-|:--------------------------------- |:-------:| ---------------------------------------- |
-| `SPACESHIP_DOCKER_CONTEXT_SHOW`   | `true`  | Show current Docker context or not       |
-| `SPACESHIP_DOCKER_CONTEXT_PREFIX` |  `·(`   | Prefix before the Docker context section |
-| `SPACESHIP_DOCKER_CONTEXT_SUFFIX` |   `)`   | Suffix after the Docker context section  |
+| 变量                                |   默认   | 释义                                       |
+|:--------------------------------- |:------:| ---------------------------------------- |
+| `SPACESHIP_DOCKER_CONTEXT_SHOW`   | `true` | Show current Docker context or not       |
+| `SPACESHIP_DOCKER_CONTEXT_PREFIX` |  `·(`  | Prefix before the Docker context section |
+| `SPACESHIP_DOCKER_CONTEXT_SUFFIX` |  `)`   | Suffix after the Docker context section  |
 
 ### Amazon Web Services (AWS) (`aws`)
 
-Shows selected Amazon Web Services profile configured using [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) variable.
+显示使用 [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) 变量配置的 Amazon 网络服务。
 
-| Variable               |              Default               | Meaning                                      |
+| 变量                     |                 默认                 | 释义                                           |
 |:---------------------- |:----------------------------------:| -------------------------------------------- |
 | `SPACESHIP_AWS_SHOW`   |               `true`               | Show current selected AWS-cli profile or not |
 | `SPACESHIP_AWS_PREFIX` |              `using·`              | Prefix before the AWS section                |
@@ -434,9 +434,9 @@ Shows selected Amazon Web Services profile configured using [`AWS_PROFILE`](http
 
 ### Google Cloud Platform (`gcloud`)
 
-Shows active Google Cloud Platform configuration using gcloud active configuration file.
+使用 gcloud 活动配置文件显示活跃的 Google 云平台配置。
 
-| Variable                  |              Default               | Meaning                                                  |
+| 变量                        |                 默认                 | 释义                                                       |
 |:------------------------- |:----------------------------------:| -------------------------------------------------------- |
 | `SPACESHIP_GCLOUD_SHOW`   |               `true`               | Show current active gcloud configuration or not          |
 | `SPACESHIP_GCLOUD_PREFIX` |              `using·`              | Prefix before the GCLOUD section                         |
@@ -446,7 +446,7 @@ Shows active Google Cloud Platform configuration using gcloud active configurati
 
 ### Virtualenv (`venv`)
 
-| Variable                       |              Default               | Meaning                                                                                        |
+| 字段                             |                 默认                 | 含义                                                                                             |
 |:------------------------------ |:----------------------------------:| ---------------------------------------------------------------------------------------------- |
 | `SPACESHIP_VENV_SHOW`          |               `true`               | Show current Python virtualenv or not                                                          |
 | `SPACESHIP_VENV_PREFIX`        | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the virtualenv section                                                           |
@@ -457,9 +457,9 @@ Shows active Google Cloud Platform configuration using gcloud active configurati
 
 ### Conda virtualenv (`conda`)
 
-Show activated conda virtual environment. Disable native conda prompt by `conda config --set changeps1 False`.
+显示激活的 conda 虚拟环境。 使用 `config --set changeps1 False` 禁用本机conda 提示符。
 
-| Variable                  |              Default               | Meaning                                                  |
+| 变量                        |                 默认                 | 释义                                                       |
 |:------------------------- |:----------------------------------:| -------------------------------------------------------- |
 | `SPACESHIP_CONDA_SHOW`    |               `true`               | Show current Python conda virtualenv or not              |
 | `SPACESHIP_CONDA_PREFIX`  | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the conda virtualenv section               |
@@ -470,9 +470,9 @@ Show activated conda virtual environment. Disable native conda prompt by `conda 
 
 ### Pyenv (`pyenv`)
 
-pyenv section is shown only in directories that contain `requirements.txt`, `pyproject.toml` or any other file with `.py` extension.
+pyenv 模块包只显示在包含`requirements.txt` 文件, `pyproject.toml` 或者其他以 `.py` 为后缀的文件的包中。
 
-| Variable                 |              Default               | Meaning                                    |
+| 变量                       |                 默认                 | 释义                                         |
 |:------------------------ |:----------------------------------:| ------------------------------------------ |
 | `SPACESHIP_PYENV_SHOW`   |               `true`               | Show current Pyenv version or not          |
 | `SPACESHIP_PYENV_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the pyenv section            |
@@ -484,7 +484,7 @@ pyenv section is shown only in directories that contain `requirements.txt`, `pyp
 
 .NET section is shown only in directories that contains a `project.json` or `global.json` file, or a file with one of these extensions: `.csproj`, `.xproj` or `.sln`.
 
-| Variable                  |              Default               | Meaning                                   |
+| 变量                        |                 默认                 | 释义                                        |
 |:------------------------- |:----------------------------------:| ----------------------------------------- |
 | `SPACESHIP_DOTNET_SHOW`   |               `true`               | Current .NET section                      |
 | `SPACESHIP_DOTNET_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before .NET section                |
@@ -496,7 +496,7 @@ pyenv section is shown only in directories that contain `requirements.txt`, `pyp
 
 Ember.js section is shown only in directories that contain a `ember-cli-build.js` file.
 
-| Variable                 |              Default               | Meaning                                       |
+| 变量                       |                 默认                 | 释义                                            |
 |:------------------------ |:----------------------------------:| --------------------------------------------- |
 | `SPACESHIP_EMBER_SHOW`   |               `true`               | Current Ember.js section                      |
 | `SPACESHIP_EMBER_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Ember.js section                |
@@ -508,7 +508,7 @@ Ember.js section is shown only in directories that contain a `ember-cli-build.js
 
 Kubernetes section consists of `kubectl_version` and `kubectl_context` subsections. It is shown only when kubectl can connect to Kubernetes cluster.
 
-| Variable                   |              Default               | Meaning                                            |
+| 变量                         |                 默认                 | 释义                                                 |
 |:-------------------------- |:----------------------------------:| -------------------------------------------------- |
 | `SPACESHIP_KUBECTL_SHOW`   |              `false`               | Show Kubernetes section                            |
 | `SPACESHIP_KUBECTL_PREFIX` |               `at·`                | Prefix before Kubernetes section                   |
@@ -518,7 +518,7 @@ Kubernetes section consists of `kubectl_version` and `kubectl_context` subsectio
 
 #### Kubernetes version (`kubectl_version`)
 
-| Variable                           |              Default               | Meaning                                     |
+| 变量                                 |                 默认                 | 释义                                          |
 |:---------------------------------- |:----------------------------------:| ------------------------------------------- |
 | `SPACESHIP_KUBECTL_VERSION_SHOW`   |               `true`               | Show Kubernetes version subsection          |
 | `SPACESHIP_KUBECTL_VERSION_PREFIX` |                 ``                 | Prefix before Kubernetes version subsection |
@@ -531,7 +531,7 @@ Shows the active kubectl context, which consists of a cluster name and, when wor
 
 **💡 Tip:** If your cluster name (and thus context name) is too long, you can give it a shorter name using `kubectl config rename-context very_long_context_name name`.
 
-| Variable                               |              Default               | Meaning                                                         |
+| 变量                                     |                 默认                 | 释义                                                              |
 |:-------------------------------------- |:----------------------------------:| --------------------------------------------------------------- |
 | `SPACESHIP_KUBECONTEXT_SHOW`           |               `true`               | Current Kubectl context section                                 |
 | `SPACESHIP_KUBECONTEXT_PREFIX`         |               `at·`                | Prefix before Kubectl context section                           |
@@ -561,7 +561,7 @@ SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
 
 Shows current gradle & jvm version.
 
-| Variable                               |              Default               | Meaning                                         |
+| 变量                                     |                 默认                 | 释义                                              |
 |:-------------------------------------- |:----------------------------------:| ----------------------------------------------- |
 | `SPACESHIP_GRADLE_SHOW`                |               `true`               | Current Gradle section                          |
 | `SPACESHIP_GRADLE_PREFIX`              | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Gradle section                    |
@@ -578,9 +578,9 @@ Shows current gradle & jvm version.
 
 ### Maven (`maven`)
 
-Shows current maven & jvm version.
+显示当前的 maven & jvm 版本。
 
-| Variable                              |              Default               | Meaning                                        |
+| 变量                                    |                 默认                 | 释义                                             |
 |:------------------------------------- |:----------------------------------:| ---------------------------------------------- |
 | `SPACESHIP_MAVEN_SHOW`                |               `true`               | Current Maven section                          |
 | `SPACESHIP_MAVEN_PREFIX`              | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Maven section                    |
@@ -599,7 +599,7 @@ Shows current maven & jvm version.
 
 Shows the active Terraform wokspace in directories that contain `.terraform/environment` file.
 
-| Variable                     |              Default               | Meaning                                          |
+| 变量                           |                 默认                 | 释义                                               |
 |:---------------------------- |:----------------------------------:| ------------------------------------------------ |
 | `SPACESHIP_TERRAFORM_SHOW`   |               `true`               | Current Terraform workspace section              |
 | `SPACESHIP_TERRAFORM_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Terraform workspace section        |
@@ -611,7 +611,7 @@ Shows the active Terraform wokspace in directories that contain `.terraform/envi
 
 Execution time of the last command. Will be displayed if it exceeds the set threshold of time.
 
-| Variable                      |              Default               | Meaning                                                          |
+| 变量                            |                 默认                 | 释义                                                               |
 |:----------------------------- |:----------------------------------:| ---------------------------------------------------------------- |
 | `SPACESHIP_EXEC_TIME_SHOW`    |               `true`               | Show execution time                                              |
 | `SPACESHIP_EXEC_TIME_PREFIX`  |              `took·`               | Prefix before execution time section                             |
@@ -623,7 +623,7 @@ Execution time of the last command. Will be displayed if it exceeds the set thre
 
 By default, Battery section is shown only if battery level is below `SPACESHIP_BATTERY_THRESHOLD` (default: 10%).
 
-| Variable                               |              Default               | Meaning                                                              |
+| 变量                                     |                 默认                 | 释义                                                                   |
 |:-------------------------------------- |:----------------------------------:| -------------------------------------------------------------------- |
 | `SPACESHIP_BATTERY_SHOW`               |               `true`               | Show battery section or not (`true`, `false`, `always` or `charged`) |
 | `SPACESHIP_BATTERY_PREFIX`             |                 ``                 | Prefix before battery section                                        |
@@ -635,18 +635,18 @@ By default, Battery section is shown only if battery level is below `SPACESHIP_B
 
 `SPACESHIP_BATTERY_SHOW` defines when to show battery section. Here are possible values:
 
-| `SPACESHIP_BATTERY_SHOW` | Below threshold | Above threshold | Fully charged |
-|:------------------------:|:--------------- |:--------------- |:------------- |
-|         `false`          | Hidden          | Hidden          | Hidden        |
-|         `always`         | Shown           | Shown           | Shown         |
-|          `true`          | Shown           | Hidden          | Hidden        |
-|        `charged`         | Shown           | Hidden          | Shown         |
+| `SPACESHIP_BATTERY_SHOW` | 低于阈值   | 阈值以上…  | 充电完成   |
+|:------------------------:|:------ |:------ |:------ |
+|         `false`          | Hidden | Hidden | Hidden |
+|         `always`         | Shown  | Shown  | Shown  |
+|          `true`          | Shown  | Hidden | Hidden |
+|        `charged`         | Shown  | Hidden | Shown  |
 
 ### Vi-mode (`vi_mode`)
 
 This section shows mode indicator only when Vi-mode is enabled.
 
-| Variable                   |              Default               | Meaning                              |
+| 变量                         |                 默认                 | 释义                                   |
 |:-------------------------- |:----------------------------------:| ------------------------------------ |
 | `SPACESHIP_VI_MODE_SHOW`   |               `true`               | Shown current Vi-mode or not         |
 | `SPACESHIP_VI_MODE_PREFIX` |                 ``                 | Prefix before Vi-mode section        |
@@ -657,7 +657,7 @@ This section shows mode indicator only when Vi-mode is enabled.
 
 You can temporarily enable or disable vi-mode with handy functions (just execute them in terminal as any other regular command):
 
-| Function                    | Meaning                                      |
+| 函数                          | 释义                                           |
 |:--------------------------- | -------------------------------------------- |
 | `spaceship_vi_mode_enable`  | Enable vi-mode for current terminal session  |
 | `spaceship_vi_mode_disable` | Disable vi-mode for current terminal session |
@@ -668,24 +668,24 @@ You can temporarily enable or disable vi-mode with handy functions (just execute
 
 ### Jobs (`jobs`)
 
-This section show only when there are active jobs in the background.
+此模块仅在后台有活动任务时才显示。
 
-| Variable                          | Default | Meaning                                                                   |
-|:--------------------------------- |:-------:| ------------------------------------------------------------------------- |
-| `SPACESHIP_JOBS_SHOW`             | `true`  | Show background jobs indicator                                            |
-| `SPACESHIP_JOBS_PREFIX`           |   ``    | Prefix before the jobs indicator                                          |
-| `SPACESHIP_JOBS_SUFFIX`           |   ``    | Suffix after the jobs indicator                                           |
-| `SPACESHIP_JOBS_SYMBOL`           |   `✦`   | Character to be shown when jobs are hiding                                |
-| `SPACESHIP_JOBS_COLOR`            | `blue`  | Color of background jobs section                                          |
-| `SPACESHIP_JOBS_AMOUNT_PREFIX`    |   ``    | Prefix before the number of jobs (between jobs indicator and jobs amount) |
-| `SPACESHIP_JOBS_AMOUNT_SUFFIX`    |   ``    | Suffix after the number of jobs                                           |
-| `SPACESHIP_JOBS_AMOUNT_THRESHOLD` |   `1`   | Number of jobs after which job count will be shown                        |
+| 变量                                |   默认   | 释义                                                                        |
+|:--------------------------------- |:------:| ------------------------------------------------------------------------- |
+| `SPACESHIP_JOBS_SHOW`             | `true` | Show background jobs indicator                                            |
+| `SPACESHIP_JOBS_PREFIX`           |   ``   | Prefix before the jobs indicator                                          |
+| `SPACESHIP_JOBS_SUFFIX`           |   ``   | Suffix after the jobs indicator                                           |
+| `SPACESHIP_JOBS_SYMBOL`           |  `✦`   | Character to be shown when jobs are hiding                                |
+| `SPACESHIP_JOBS_COLOR`            | `blue` | Color of background jobs section                                          |
+| `SPACESHIP_JOBS_AMOUNT_PREFIX`    |   ``   | Prefix before the number of jobs (between jobs indicator and jobs amount) |
+| `SPACESHIP_JOBS_AMOUNT_SUFFIX`    |   ``   | Suffix after the number of jobs                                           |
+| `SPACESHIP_JOBS_AMOUNT_THRESHOLD` |  `1`   | Number of jobs after which job count will be shown                        |
 
 ### Exit code (`exit_code`)
 
-Disabled by default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show exit code of last command.
+默认为禁用 如果您需要显示时间戳。在您的 `.zshrc`中, 将 ` SPACESHIP_EXIT_CODE_SHOW ` 设置为 `true` 。
 
-| Variable                     | Default | Meaning                                |
+| 变量                           |   默认    | 释义                                     |
 |:---------------------------- |:-------:| -------------------------------------- |
 | `SPACESHIP_EXIT_CODE_SHOW`   | `false` | Show exit code of last command         |
 | `SPACESHIP_EXIT_CODE_PREFIX` |   ``    | Prefix before exit code section        |
@@ -693,6 +693,6 @@ Disabled by default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, 
 | `SPACESHIP_EXIT_CODE_SYMBOL` |   `✘`   | Character to be shown before exit code |
 | `SPACESHIP_EXIT_CODE_COLOR`  |  `red`  | Color of exit code section             |
 
-## Need more?
+## 需要更多？
 
-If these options are not enough to do what you want, read more about Spaceship's API on [API page](./api.md) of the documentation.
+如果这些选项无法满足你的所需，请阅读文档 [API页面](./api.md) 来了解更多关于 Spaceship API 的内容。
