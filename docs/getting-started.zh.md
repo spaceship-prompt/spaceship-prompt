@@ -148,13 +148,13 @@ hide:
 
 你已经成功了! 你已经在你的机器上安装了 Spaceship！
 
-下一步是什么？ Spaceship has reasonable defaults, but you might want to adjust them to your needs. Visit our [Options](./options.md) page to learn how to configure your Spaceship.
+下一步是什么？ Spaceship 有合理的默认设置，但您可能想要根据需要调整它们。 访问我们的 [选项](./options.md) 页面来学习如何配置您的 Spaceship。
 
 <!-- prettier-ignore -->
-!!! tip Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
+!!! 提示 关注 [我们的 Twitter](//twitter.com/SpaceshipPrompt) 以便随时了解新功能、改进和错误修正的最新情况。
 
-## Troubleshooting
+## 疑难解答
 
-Having trouble? Take a look at out [Troubleshooting](./troubleshooting.md) page.
+遇到问题？ 查看 [疑难解答](./troubleshooting.md) 页面。
 
-Still struggling? Please, [file an issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.
+仍然困惑？ 请 [提出 issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose)，描述你的问题，我们将乐意帮助你。
