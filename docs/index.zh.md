@@ -16,14 +16,14 @@ features:
   - 
     title: 轻松设定
     image: /assets/out-of-the-box.svg
-    description: 提示在安装后即可正常工作，没有任何附加配置。 安装并使用它。
+    description: 提示符在安装后即可正常工作，没有任何附加配置。 安装并使用它。
   - 
     title: 可配置
     image: /assets/configurable.svg
     description: 该提示符是零配置的，但如果需要自定义的话，它将提供一个易于自定义的接口。
 ---
 
-# 欢迎加入宇航员！
+# 欢迎加入，宇航员！
 
 <p align="center">
   <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
@@ -33,11 +33,11 @@ features:
 
 **Spaceship** 配备了酷酷的功能。 先睹为快：
 
-- 清楚的主机名、用户名和提示字符显示。
+- 精巧地显示主机名、用户名和提示字符。
 - 当前 Git 和 Mercurial 项目状态
 - 显示后台运行进程数（`✦`）
 - 显示这些命令当前的版本 Node.js `⬢`, Ruby `💎`, Elm `🌳`, Elixir `💧`, Swift `🐦`, Xcode `🛠`, Go `🐹`, PHP `🐘`, Rust `𝗥`, Haskell `λ`, Julia `ஃ`, Python `🐍`, Conda `🅒`, .NET SDK `.NET`, Ember.js `🐹`.
-- 软件包版本，如果当前目录时一个包 `📦`
+- 软件包版本，如果当前目录是一个包 `📦`
 - 当前的 Docker 版本和已连接的机器信息 `🐳`
 - 当前亚马逊网络服务(AWS)配置 `☁️` ([使用命名配置](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)).
 - 当前谷歌云平台云端活动配置 `☁️`
@@ -47,7 +47,7 @@ features:
 - 当前 Vi-mode 模式([暂时启用的方便标识](./options.md#vi-mode-vi_mode))。
 - 如果超过设定阈值，上一个命令的执行时间
 
-需要更多功能？ 请 [提出 issue](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose)，描述你的问题，我们将乐意帮助你。
+需要更多功能？ 请 [提出 issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose)，描述你的问题，我们将乐意帮助你。
 
 <!-- prettier-ignore -->
 !!! 提示 关注 [我们的 Twitter](//twitter.com/SpaceshipPrompt) 以便随时了解新功能、改进和错误修正的最新情况。
