@@ -2,7 +2,7 @@
 template: index.html
 title: 简洁、强大和极易定制的 Zsh 提示符
 hide:
-  - 导航
+  - navigation
 hero:
   title: 简洁、强大和极易定制的 Zsh 提示符
   subtitle: 它将你可能需要的方便工作的一切结合起来，而不会造成不必要的麻烦。像真正的宇宙飞船一样。

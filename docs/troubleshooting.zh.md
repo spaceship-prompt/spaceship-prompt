@@ -1,6 +1,6 @@
 ---
 hide:
-  - 导航
+  - navigation
 ---
 
 # 疑难解答
