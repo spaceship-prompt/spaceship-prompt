@@ -1,23 +1,23 @@
 ---
 hide:
-  - navigation
+  - 导航
 ---
 
-# API
+# 应用程序接口
 
-This page describes Spaceship API for creating plugins and tweaking Spaceship's behavior.
+这个页面描述了用于创建插件和调节 Spaceship 行为的 Spaceship API 。
 
-Spaceship uses `SPACESHIP_` prefix for variables and `spaceship::` prefix for a function to avoid conflicts with other ones. All section, including custom ones, are being required to use `spaceship_` prefix before their name to load properly.
+Spaceship 使用 `SPACESHIP_` 前缀变量和 `spaceship::` 函数前缀以避免与其他函数发生冲突。 所有模块，包括自定义模块，都需要在名称前使用 `spaceship_` 前缀以便合理加载。
 
-## Typical section
+## 典型模块
 
-Below is an example of a typical section for Spaceship. Pay attention to a few crucial moments:
+下面是一个 Spaceship 典型模块的例子。 注意几个关键点：
 
-- Define options for customization. Their names should start with `SPACESHIP_`.
-- Section's name should start with `spaceship_`.
-- Show section only where it's needed (in directories which contains specific files, when a specific command is available, etc).
+- 定义自定义选项。 它们的名字应该以 `SPACESHIP_` 开头。
+- 模块名称应该以 `spaceship_` 开头。
+- 仅在需要时显示模块(在包含特定文件的目录中，或当有特定命令可用时等)。
 
-Take a look at [Contribution guidelines](//github.com/spaceship-prompt/spaceship-prompt/blob/master/CONTRIBUTING.md) for further information.
+查看 [贡献指南](//github.com/spaceship-prompt/spaceship-prompt/blob/master/CONTRIBUTING.md) 以获取更多信息。
 
 ```zsh
 #
