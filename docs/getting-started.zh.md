@@ -21,8 +21,8 @@ hide:
     
     如果您不使用任何工具来管理 Zsh 插件，那么此手动方法可以用来安装 Spaceship。
 
-    - 克隆这个仓库 `git clone https://github.com/spaceship-impt/spaceship-impt.git --depth=1`
-    - 将 `spaceship.zsh` 符号链接到 [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/)中的某个位置 以作为 ` prompt_spaceship_setup `
+    - 克隆这个仓库 `git clone https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1`
+    - 将 `spaceship.zsh` 符号链接到 [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/)中的某个位置以作为 ` prompt_spaceship_setup `
     - 初始化命令提示系统并选择 ` spaceship `
 
 
@@ -46,7 +46,7 @@ hide:
     $ ln -sf "$PWD/spaceship.zsh" "${ZDOTDIR:-$HOME}/.zfunctions/prompt_spaceship_setup"
     ```
 
-    为了初始化命令提示系统，需要将其添加到您的 `.zshrc`中：
+    为了初始化命令提示系统，需要将其添加到您的 `.zshrc` 中：
 
     ```zsh
     # .zshrc
@@ -63,7 +63,7 @@ hide:
     ```
 
 
-    符号链接`spaceship.zsh-theme`到您 oh-my-zsh 的自定义主题目录：
+    将 `spaceship.zsh-theme` 软链到您 oh-my-zsh 的自定义主题目录：
 
     ```zsh
     ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
