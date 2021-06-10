@@ -23,7 +23,7 @@ Spaceship 使用 `SPACESHIP_` 前缀变量和 `spaceship::` 函数前缀以避�
 #
 # Foobar
 #
-# Foobar is a supa-dupa cool tool for making you development easier.
+# Foobar 是一个超很酷的工具，可以让开发更容易。
 # Link: https://www.foobar.xyz
 
 # ------------------------------------------------------------------------------
@@ -82,11 +82,11 @@ spaceship_foobar() {
 
 ## `SPACESHIP_VERSION`
 
-An environment variable that defines the version of currently running Spaceship prompt version. Can be used for issue reporting or debugging purposes.
+一个定义当前运行的 Spaceship prompt 版本的环境变量。 可以用于问题报告或调试目的。
 
-Accessible to any program or script running in a current shell session.
+可以在当前 shell 会话中运行的任何程序或脚本中访问。
 
-### Example:
+### 示例:
 
 ```zsh
 echo $SPACESHIP_VERSION
@@ -96,13 +96,13 @@ echo $SPACESHIP_VERSION
 ## `SPACESHIP_ROOT`
 
 <!-- prettier-ignore -->
-!!! danger Do not modify the value of this variable! Changing the value may cause the damage to Spaceship installation!
+!!! 危险 不要修改此变量的值! 改变值可能会对 Spaceship 的安装造成损坏！
 
-An environment variable that defines the path to Spaceship prompt installation. Spaceship uses this variable for resolving path to sections and utils.
+一个定义当前运行的 Spaceship prompt 安装路径的环境变量。 Spaceship 使用此变量解析模块和实用程序的路径。
 
-Accessible to any program or script running in a current shell session.
+可以在当前 shell 会话中运行的任何程序或脚本中访问。
 
-### Example:
+### 示例:
 
 ```zsh
 echo $SPACESHIP_ROOT
@@ -111,24 +111,24 @@ echo $SPACESHIP_ROOT
 
 ## `spaceship::section <color> [prefix] <content> [suffix]`
 
-This command displays prompt section prefixed with `prefix`, suffixed with `suffix` and `content` painted in `color`. **Bold** style is applied by default.
+此命令以 ` prefix `为前缀， ` suffix ` 为后缀， `color` 来绘制 ` content ` 的模块。 默认情况下使用 **粗体** 样式。
 
-`prefix`, `suffix` and `content` can contain escapes to set additional foreground color, background color and other visual effects. Read more about escapes in [13 Prompt Expansion](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html) section of Zsh documentation.
+` prefix `, ` suffix ` 和 ` content ` 可以包含转义符来设置额外的前景色、 背景色和其他视觉效果。 在[13 Prompt Expansion](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html) Zsh文档中阅读更多关于转义符的信息。
 
-If `SPACESHIP_PROMPT_PREFIXES_SHOW` is `false` or if the section is not the first in the prompt, then `prefix` will be omitted.
+如果 `SPACESHIP_PROMPT_PREFIXES_SHOW` 为 `false` 或如果该部分不是提示符中的第一个模块, 然后 ` prefix ` 将被省去。
 
-If `SPACESHIP_PROMPT_SUFFIXES_SHOW` is `false`, then `suffix` will be omitted.
+如果 `SPACESHIP_PROMPT_SUFFIXES_SHOW` 是 `false`, 那么 ` suffix ` 将被省略。
 
-Both `prefix` and `suffix` are optional. They are equal to empty strings by default.
+` prefix ` 和 ` suffix ` 均为可选的。 默认情况下，它们等于空字符串。
 
-### Arguments
+### 参数
 
-1. `color` _Required_ — Color for displaying the `content`. Can be any of [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
-2. `prefix` _Optional_ — Prefix before `content`. Usually, it's the value of `SPACESHIP_*_PREFIX`.
-3. `content` _Required_ — The content of the section. Can be any valid value or result of command execution.
+1. ` color ` _需要_ - 显示 ` content ` 的颜色。 可以是 [基本颜色](https://wiki.archlinux.org/index.php/zsh#Colors) 或 [颜色代码](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg)。
+2. `prefix` _可选的_ - `content` 的前缀 通常是 `SPACESHIP_*_PREFIX` 的值。
+3. ` content ` _必须的_ — — 模块内容。 Can be any valid value or result of command execution.
 4. `suffix` _Optional_ — Suffix after `content`. Usually, it's the value of `SPACESHIP_*_SUFFIX`.
 
-### Example
+### 示例
 
 ```zsh
 # Display prompt section with prefix and suffix
@@ -149,11 +149,11 @@ This command validates that given program is available for execution. It checks 
 
 You can use this utility to check if some program is installed and perform actions conditionally. For example, you can either return an error and exit or continue script's execution.
 
-### Arguments
+### 参数
 
 1. `command` _Required_ — a command that needs to be checked.
 
-### Example
+### 示例
 
 ```zsh
 # Check multiple commands for existing
@@ -175,11 +175,11 @@ The same as [`spaceship::exists`](#spaceshipexists-command), but for functions. 
 
 You can use this utility to check if a user has previously defined a function or not. Spaceship uses this utility internally to check if a custom section has been defined and available for execution.
 
-### Arguments
+### 参数
 
 1. `function` _Required_ — a function that needs to be checked.
 
-### Example
+### 示例
 
 ```zsh
 # Check if section has been defined
@@ -194,7 +194,7 @@ fi
 
 This utility returns zero exit code if a current working directory is a Git repository and non-zero if it's not.
 
-### Example
+### 示例
 
 ```zsh
 # Return if current directory is not a git repository
@@ -205,7 +205,7 @@ spaceship::is_git || return
 
 The same as [`spaceship::is_git`](#spaceshipisgit), but for Mercurial repositories. This utility returns zero exit code if a current working directory is a Mercurial repository and non-zero if it's not.
 
-### Example
+### 示例
 
 ```zsh
 # Return if current directory is not a Mercurial repository
@@ -216,12 +216,12 @@ spaceship::is_hg || return
 
 This utility checks if `option` variable is set and if it is, prints the `message`. The `message` supports escapes to set foreground color, background color and other visual effects. Read more about escapes in [13 Prompt Expansion](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html) section of Zsh documentation.
 
-### Arguments
+### 参数
 
 1. `option` _Required_ — the name of a deprecated variable. If this variable is set (contains any value), then `"%B$deprecated%b is deprecated.` will be printed. `%B` and `%b` is escapes to set the bold style for text.
 2. `message` _Optional_ — a string for additional deprecation message.
 
-### Example
+### 示例
 
 ```zsh
 # Check if SPACESHIP_BATTERY_ALWAYS_SHOW is set
@@ -233,11 +233,11 @@ spaceship::deprecated SPACESHIP_BATTERY_ALWAYS_SHOW "Use %BSPACESHIP_BATTERY_SHO
 
 This utility converts `seconds` into a human-readable format. It splits `seconds` into days (`d`), hours (`h`), minutes (`m`) and seconds (`s`).
 
-### Arguments
+### 参数
 
 1. `seconds` _Required_ — seconds for conversion into the readable format.
 
-### Example
+### 示例
 
 ```zsh
 spaceship::displaytime 123456
@@ -246,15 +246,15 @@ spaceship::displaytime 123456
 
 ## `spaceship::union <arr1[ arr2[ ...]]>`
 
-A utility for performing a union (intersection) of arrays. It lists the contents found in two or more arrays.
+一种对数组进行并集(交集) 的实用工具。 它列出了在两个或两个以上数组中发现的内容。
 
-Spaceship uses this utility internally for resolution of sections that need to be sourced.
+Spaceship 在内部使用此工具来解析需要 source 的部分。
 
-### Arguments
+### 参数
 
-1. `arr...` — a list of arrays.
+1. `arr...` — 一个数组列表。
 
-### Example
+### 示例
 
 ```zsh
 arr1=('a' 'b' 'c')
