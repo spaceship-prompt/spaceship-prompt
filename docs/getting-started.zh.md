@@ -3,25 +3,25 @@ hide:
   - navigation
 ---
 
-# Getting Started
+# 快速上手
 
-## Requirements
+## 安装要求
 
-- [`zsh`](http://www.zsh.org/) (v5.2 or recent) must be installed.
-- [Powerline Font](https://github.com/powerline/fonts) must be installed and used in your terminal (for example, switch font to [Fira Code](https://github.com/tonsky/FiraCode)).
+- [`zsh`](http://www.zsh.org/) 必须安装(v5.2或更新的版本)。
+- 安装一种 [Powerline 字体](https://github.com/powerline/fonts)（如 [Fira Code](https://github.com/tonsky/FiraCode)）并在您的终端启用 。
 
-## Installing
+## 安装
 
-Now that the requirements are satisfied, you can install Spaceship via any of the following approaches:
+如果满足了这些要求，您可以通过以下任何方式安装 Spaceship：
 
-=== "Manual"
+=== "手动方式"
 
-    !!! hint
-        If you're using any plugin manager, like Oh-My-Zsh, zplug, antigen or other, this might not be the best way to install Spaceship for you.
+    !!! 提示
+        如果你正在使用任何插件管理器，例如 Oh-My-Zsh, zplug, antigen 等，那么手动方式可能不是为您安装 Spaceship 的最佳方式。
     
-    This is way to install Spaceship if you don't use any tool for managing Zsh plugins.
+    如果您不使用任何工具来管理 Zsh 插件，那么此手动方法可以用来安装 Spaceship。
 
-    - Clone this repo `git clone https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1`
+    - 克隆这个仓库 `git clone https://github.com/spaceship-impt/spaceship-impt.git --depth=1`
     - Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
     - Initialize prompt system and choose `spaceship`.
 
