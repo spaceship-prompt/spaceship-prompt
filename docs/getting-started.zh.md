@@ -22,8 +22,8 @@ hide:
     如果您不使用任何工具来管理 Zsh 插件，那么此手动方法可以用来安装 Spaceship。
 
     - 克隆这个仓库 `git clone https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1`
-    - 将 `spaceship.zsh` 符号链接到 [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/)中的某个位置以作为 ` prompt_spaceship_setup `
-    - 初始化命令提示系统并选择 ` spaceship `
+    - 将 `spaceship.zsh` 符号链接到 [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/)中的某个位置以作为 `prompt_spaceship_setup`
+    - 初始化命令提示系统并选择 `spaceship`
 
 
     #### 示例
@@ -80,6 +80,9 @@ hide:
 
 
     安装完毕。 此命令应将 `spaceship.zsh` 作为 `prompt_spaceship_setup` 链接到你的 `$fpath`中 ，并在`.zshrc`中设置 `prompt spaceship ` 。 Just reload your terminal.
+    
+    !!!小提示
+        就像更新其他软件包一样，将 Spaceship 更新到最新版本。
     
     !!!小提示
         就像更新其他软件包一样，将 Spaceship 更新到最新版本。
@@ -146,12 +149,12 @@ hide:
 
 ## 恭喜您！
 
-你已经成功了! 你已经在你的机器上安装了 Spaceship！
+你已经成功了! 你已经成功了! 你已经在你的机器上安装了 Spaceship！
 
 下一步是什么？ Spaceship 有合理的默认设置，但您可能想要根据需要调整它们。 访问我们的 [选项](./options.md) 页面来学习如何配置您的 Spaceship。
 
 <!-- prettier-ignore -->
-!!! 提示 关注 [我们的 Twitter](//twitter.com/SpaceshipPrompt) 以便随时了解新功能、改进和错误修正的最新情况。
+!!! !!! 提示 关注 [我们的 Twitter](//twitter.com/SpaceshipPrompt) 以便随时了解新功能、改进和错误修正的最新情况。
 
 ## 疑难解答
 
