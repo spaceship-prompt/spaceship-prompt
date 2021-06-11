@@ -683,7 +683,7 @@ SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
 
 ### Exit code (`exit_code`)
 
-默认为禁用 如果您需要显示时间戳。在您的 `.zshrc `中将 ` SPACESHIP_EXIT_CODE_SHOW ` 设置为 `true` 。
+默认为禁用。 如果您需要显示时间戳。在您的 `.zshrc `中将 ` SPACESHIP_EXIT_CODE_SHOW ` 设置为 `true` 。
 
 | 变量                           |   默认    | 释义                                     |
 |:---------------------------- |:-------:| -------------------------------------- |
