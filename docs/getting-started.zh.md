@@ -79,10 +79,7 @@ hide:
     ```
 
 
-    安装完毕。 此命令应将 `spaceship.zsh` 作为 `prompt_spaceship_setup` 链接到你的 `$fpath`中 ，并在`.zshrc`中设置 `prompt spaceship ` 。 Just reload your terminal.
-    
-    !!!小提示
-        就像更新其他软件包一样，将 Spaceship 更新到最新版本。
+    安装完毕。 此命令应将 `spaceship.zsh` 作为 `prompt_spaceship_setup` 链接到你的 `$fpath`中 ，并在`.zshrc`中设置 `prompt spaceship ` 。 只需重载您的终端。
     
     !!!小提示
         就像更新其他软件包一样，将 Spaceship 更新到最新版本。
@@ -149,7 +146,7 @@ hide:
 
 ## 恭喜您！
 
-你已经成功了! 你已经成功了! 你已经在你的机器上安装了 Spaceship！
+你已经成功了! 你已经在你的机器上安装了 Spaceship！
 
 下一步是什么？ Spaceship 有合理的默认设置，但您可能想要根据需要调整它们。 访问我们的 [选项](./options.md) 页面来学习如何配置您的 Spaceship。
 
