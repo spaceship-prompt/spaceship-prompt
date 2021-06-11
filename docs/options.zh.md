@@ -9,13 +9,13 @@ hide:
 
 模块颜色可以是 [基本颜色](https://wiki.archlinux.org/index.php/zsh#Colors) 或 [颜色代码](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg)。
 
-**注意：** 符号 `·` 在本文档中代表一个常规的空格字符 ``, 它用于明确指明选项默认值何时开始或以空格结尾。
+**注意：** 符号 `·` 在本文档中代表一个常规的空格字符 ` `, 它用于明确指明选项的默认值何时以空格开始或结尾。
 
 ### 顺序
 
 您可以使用 `SPACESHIP_PROPT_ORDER` 选项指定提示符的顺序。 使用 Zsh 数组语法来定义您自己的提示符顺序。
 
-该命令还定义了Spaceship装载的哪些模块。 如果你在缓慢的提示符中挣扎，你可以省略你不使用的模块，它们不会加载。
+该选项同时定义 Spaceship 装载哪些模块。 如果你在缓慢的提示符中挣扎，你可以省略你不使用的模块，它们不会加载。
 
 默认顺序是：
 
@@ -91,7 +91,7 @@ SPACESHIP_PROMPT_ORDER=(
 
 ### Time (`time`)
 
-默认为禁用 如果您需要显示时间戳。在您的 `.zshrc`中, 将 `SPACESHIP_TIME_SHOW` 设置为 `true` 。
+默认为禁用。 如果您需要显示时间戳。在您的 `.zshrc`中, 将 `SPACESHIP_TIME_SHOW` 设置为 `true` 。
 
 | 变量                      |                 默认                 | 释义                                                                                                                    |
 |:----------------------- |:----------------------------------:| --------------------------------------------------------------------------------------------------------------------- |
@@ -303,7 +303,7 @@ Elixir 模块只显示在包含 `mix.exs`, 或任何其他有 `.ex` 或 `.exs` �
 
 ### Xcode (`xcode`)
 
-显示 Xcode 的当前版本 本地版本比全局更优先。
+显示 Xcode 的当前版本。 本地版本比全局更优先。
 
 | 变量                            |                 默认                 | 释义                                           |
 |:----------------------------- |:----------------------------------:| -------------------------------------------- |
@@ -316,7 +316,7 @@ Elixir 模块只显示在包含 `mix.exs`, 或任何其他有 `.ex` 或 `.exs` �
 
 ### Swift (`swift`)
 
-显示 Swift 的当前版本 本地版本比全局更优先。
+显示 Swift 的当前版本。 本地版本比全局更优先。
 
 | 变量                            |                 默认                 | 释义                                              |
 |:----------------------------- |:----------------------------------:| ----------------------------------------------- |
@@ -397,11 +397,11 @@ Julia 模块包只显示在包含    文件, 或者其他以 `. jl ` 为后缀�
 
 ### Docker (`docker`)
 
-Docker section is shown only in directories that contain `Dockerfile` or it's possible to run `docker-compose`.
+Docker 模块只显示在包含 `Dockerfile` 或可以运行 `docker-compose` 的目录中。
 
-`docker-compose` will run only if there is docker-compose.yml, or other file(s) specified with `COMPOSE_FILE` are accessible.
+`docker-compose` 将仅在有 docker-compose.yml 或者其他由 `COMPOSE_FILE` 指定可以访问的文件的情况下运行。
 
-The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more information see [Compose CLI environment variables](https://docs.docker.com/compose/reference/envvars/).
+环境变量 `COMPOSE_PATH_SEPARATOR` 也被支持。 更多信息见 [Compose CLI 环境变量](https://docs.docker.com/compose/reference/envvars/)。
 
 | 变量                         |                 默认                 | 释义                                          |
 |:-------------------------- |:----------------------------------:| ------------------------------------------- |
@@ -482,7 +482,7 @@ pyenv 模块包只显示在包含`requirements.txt` 文件, `pyproject.toml` 或
 
 ### .NET (`dotnet`)
 
-.NET section is shown only in directories that contains a `project.json` or `global.json` file, or a file with one of these extensions: `.csproj`, `.xproj` or `.sln`.
+.NET 模块只显示在包含 `project.json` 或 `global.json` 文件或其扩展名为 `.csproj`, `.xproj` 或 `.sln` 的文件的目录中。
 
 | 变量                        |                 默认                 | 释义                                        |
 |:------------------------- |:----------------------------------:| ----------------------------------------- |
@@ -494,7 +494,7 @@ pyenv 模块包只显示在包含`requirements.txt` 文件, `pyproject.toml` 或
 
 ### Ember.js (`ember`)
 
-Ember.js section is shown only in directories that contain a `ember-cli-build.js` file.
+Ember.js 模块只显示在包含 `ember-cli-build.js` 文件的目录中。
 
 | 变量                       |                 默认                 | 释义                                            |
 |:------------------------ |:----------------------------------:| --------------------------------------------- |
@@ -506,7 +506,7 @@ Ember.js section is shown only in directories that contain a `ember-cli-build.js
 
 ### Kubernetes (`kubectl`)
 
-Kubernetes section consists of `kubectl_version` and `kubectl_context` subsections. It is shown only when kubectl can connect to Kubernetes cluster.
+Kubernetes 模块由 `kubectl_version` 和 `kubectl_context` 子模块组成。 它仅在 kubectl 可以连接到 Kubernetes 集群时才显示。
 
 | 变量                         |                 默认                 | 释义                                                 |
 |:-------------------------- |:----------------------------------:| -------------------------------------------------- |
@@ -527,9 +527,9 @@ Kubernetes section consists of `kubectl_version` and `kubectl_context` subsectio
 
 ### Kubernetes context (`kubectl_context`)
 
-Shows the active kubectl context, which consists of a cluster name and, when working in a non-default namespace, also a namespace name.
+显示活动的 kubectl 上下文，它包含一个群集名称，并且在非默认命名空间中工作时，也包含命名空间名称。
 
-**💡 Tip:** If your cluster name (and thus context name) is too long, you can give it a shorter name using `kubectl config rename-context very_long_context_name name`.
+**💡 提示:** 如果你的集群名称(因而也是上下文名称) 过长。 您可以使用 `kubectl config rename-context very_long_context_name name` 给它一个较短的名称。
 
 | 变量                                     |                 默认                 | 释义                                                              |
 |:-------------------------------------- |:----------------------------------:| --------------------------------------------------------------- |
@@ -540,9 +540,9 @@ Shows the active kubectl context, which consists of a cluster name and, when wor
 | `SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW` |               `true`               | Should namespace be also displayed                              |
 | `SPACESHIP_KUBECONTEXT_COLOR_GROUPS`   |                 ``                 | _Array_ of pairs of colors and match patterns, empty by default |
 
-**Color Groups:** To set the section to a different color based on context or namespace, you can define an array of pair values in which the first value of a pair is a color name to use and the second value is a regular expression pattern to match against the section text (context name and/or namespace). The first matched pattern will determine the color, so list order can be used to prioritize patterns.
+**颜色组：** 根据上下文或命名空间将该模块设置为不同的颜色。 您可以定义一个对值数组，在这个数组中，对值的第一个值是要使用的颜色名称，第二个值是与模块文本 (上下文名称和/或命名空间) 匹配的正则表达式模式。 第一个匹配的模式将决定颜色，所以列表顺序可以用来确定模式的优先次序。
 
-For example, add the following to your `.zshrc` file:
+例如：如下设置可被添加到 `.bashrc` 文件中：
 
 ```zsh
 SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
@@ -559,7 +559,7 @@ SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
 
 ### Gradle (`gradle`)
 
-Shows current gradle & jvm version.
+显示当前的 gradle & jvm 版本。
 
 | 变量                                     |                 默认                 | 释义                                              |
 |:-------------------------------------- |:----------------------------------:| ----------------------------------------------- |
@@ -597,7 +597,7 @@ Shows current gradle & jvm version.
 
 ### Terraform workspace (`terraform`)
 
-Shows the active Terraform wokspace in directories that contain `.terraform/environment` file.
+在包含 `.terraform/environment` 文件的目录中显示活动的 Terraform 工作区。
 
 | 变量                           |                 默认                 | 释义                                               |
 |:---------------------------- |:----------------------------------:| ------------------------------------------------ |
@@ -609,7 +609,7 @@ Shows the active Terraform wokspace in directories that contain `.terraform/envi
 
 ### Execution time (`exec_time`)
 
-Execution time of the last command. Will be displayed if it exceeds the set threshold of time.
+显示上一条命令的执行用时。 如果超过设定的时间阈值，将会显示出来。
 
 | 变量                            |                 默认                 | 释义                                                               |
 |:----------------------------- |:----------------------------------:| ---------------------------------------------------------------- |
@@ -621,7 +621,7 @@ Execution time of the last command. Will be displayed if it exceeds the set thre
 
 ### Battery (`battery`)
 
-By default, Battery section is shown only if battery level is below `SPACESHIP_BATTERY_THRESHOLD` (default: 10%).
+默认情况下，电池模块仅在电池电量低于 `SPACESHIP_BATTERY_THRESHOLD` (默认：10%) 时显示。
 
 | 变量                                     |                 默认                 | 释义                                                                   |
 |:-------------------------------------- |:----------------------------------:| -------------------------------------------------------------------- |
@@ -633,7 +633,7 @@ By default, Battery section is shown only if battery level is below `SPACESHIP_B
 | `SPACESHIP_BATTERY_SYMBOL_FULL`        |                `•`                 | Character to be shown if battery is full                             |
 | `SPACESHIP_BATTERY_THRESHOLD`          |                 10                 | Battery level below which battery section will be shown              |
 
-`SPACESHIP_BATTERY_SHOW` defines when to show battery section. Here are possible values:
+` SPACESHIP_BATTERY_SHOW ` 定义何时显示电池模块。 以下是可能的值：
 
 | `SPACESHIP_BATTERY_SHOW` | 低于阈值   | 阈值以上…  | 充电完成   |
 |:------------------------:|:------ |:------ |:------ |
@@ -644,7 +644,7 @@ By default, Battery section is shown only if battery level is below `SPACESHIP_B
 
 ### Vi-mode (`vi_mode`)
 
-This section shows mode indicator only when Vi-mode is enabled.
+此模块仅在启用 V-mode 时显示模式指示器。
 
 | 变量                         |                 默认                 | 释义                                   |
 |:-------------------------- |:----------------------------------:| ------------------------------------ |
@@ -655,16 +655,16 @@ This section shows mode indicator only when Vi-mode is enabled.
 | `SPACESHIP_VI_MODE_NORMAL` |               `[N]`                | Text to be shown when in normal mode |
 | `SPACESHIP_VI_MODE_COLOR`  |              `white`               | Color of Vi-mode section             |
 
-You can temporarily enable or disable vi-mode with handy functions (just execute them in terminal as any other regular command):
+您可以暂时用便捷函数启用或禁用 vi-mode (仅在终端中执行它们，就像其他常规命令一样)：
 
 | 函数                          | 释义                                           |
 |:--------------------------- | -------------------------------------------- |
 | `spaceship_vi_mode_enable`  | Enable vi-mode for current terminal session  |
 | `spaceship_vi_mode_disable` | Disable vi-mode for current terminal session |
 
-**Note:** If the prompt does not refresh when changing modes add `eval spaceship_vi_mode_enable` to your `.zshrc`. Beware that `spaceship_vi_mode_enable` will override the`zle-keymap-select` widget, so if you have a custom one just make sure it contains the line `zle reset-prompt ; zle -R`.
+**注意：** 如果提示符在更改模式时不刷新，加 `eval spaceship_vi_mode_enabled` 到您的 `.zshrc` 中。 请注意， `spaceship_vi_mode_enable` 将覆盖`zle-keymap-select` 组件， 如果您有一个自定义组件的话，请确保它包含此行 `zle reset-prompt ; zle -R` 指令。
 
-**Note:** For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$reset_color%}"` before `source $ZSH/oh-my-zsh.sh` in `.zshrc` to disable default `<<<` NORMAL mode indicator in right prompt.
+**注意：** 对于启用了 v 模式插件的 oh-my-zsh 用户：添加 `export RPS1="%{$reset_color%}"` 到 `.zshrc` 文件的 `source $ZSH/oh-my-zsh.sh` 之前 以禁用默认 `<<<` NORMAL 模式指示器显示在右部的提示符。
 
 ### Jobs (`jobs`)
 
@@ -683,7 +683,7 @@ You can temporarily enable or disable vi-mode with handy functions (just execute
 
 ### Exit code (`exit_code`)
 
-默认为禁用 如果您需要显示时间戳。在您的 `.zshrc`中, 将 ` SPACESHIP_EXIT_CODE_SHOW ` 设置为 `true` 。
+默认为禁用。 如果您需要显示时间戳。在您的 `.zshrc `中将 ` SPACESHIP_EXIT_CODE_SHOW ` 设置为 `true` 。
 
 | 变量                           |   默认    | 释义                                     |
 |:---------------------------- |:-------:| -------------------------------------- |
