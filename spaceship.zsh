@@ -151,7 +151,9 @@ spaceship_prompt() {
   RETVAL=$?
 
   # Should it add a new line before the prompt?
-  [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
+  [[ $UID == 0 ]] && SPACESHIP_PROMPT_NEED_NEWLINE=true
+  [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true && $SPACESHIP_PROMPT_NEED_NEWLINE == true ]] && echo -n "$NEWLINE"
+  SPACESHIP_PROMPT_NEED_NEWLINE=true
   spaceship::compose_prompt $SPACESHIP_PROMPT_ORDER
 }
 
