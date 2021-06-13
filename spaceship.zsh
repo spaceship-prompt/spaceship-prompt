@@ -150,7 +150,7 @@ spaceship_prompt() {
   # will be overridden by a different command execution - do not move this line!
   RETVAL=$?
 
-  # Should it add a new line before the prompt?
+  # Removes a new line before the prompt when terminal opens. See more at https://github.com/spaceship-prompt/spaceship-prompt/issues/977
   [[ $UID == 0 ]] && SPACESHIP_PROMPT_NEED_NEWLINE=true
   [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true && $SPACESHIP_PROMPT_NEED_NEWLINE == true ]] && echo -n "$NEWLINE"
   SPACESHIP_PROMPT_NEED_NEWLINE=true
