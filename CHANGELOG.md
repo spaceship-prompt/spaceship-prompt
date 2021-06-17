@@ -1,3 +1,10 @@
+## [3.12.6](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.5...v3.12.6) (2021-06-17)
+
+
+### Bug Fixes
+
+* Revert changes from aaf35d562118e2074d8eaff89c749e1560776e44 ([d35eb19](https://github.com/spaceship-prompt/spaceship-prompt/commit/d35eb1912559dd29ff387376aa62ea27a22c3bd9))
+
 ## [3.12.5](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.4...v3.12.5) (2021-06-17)
 
 
