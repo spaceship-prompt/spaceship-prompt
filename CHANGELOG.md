@@ -1,3 +1,10 @@
+## [3.12.5](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.4...v3.12.5) (2021-06-17)
+
+
+### Bug Fixes
+
+* Do not add a newline before prompt when terminal opens ([#1016](https://github.com/spaceship-prompt/spaceship-prompt/issues/1016)) ([aaf35d5](https://github.com/spaceship-prompt/spaceship-prompt/commit/aaf35d562118e2074d8eaff89c749e1560776e44))
+
 ## [3.12.4](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.3...v3.12.4) (2021-06-09)
 
 
