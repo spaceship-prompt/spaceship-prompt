@@ -618,7 +618,7 @@ Shows the selected IBM Cloud account by looking up with `ibmcloud target`.
 | `SPACESHIP_IBMCLOUD_SHOW` | `false` | Current IBM Cloud section |
 | `SPACESHIP_IBMCLOUD_PREFIX` | `using·` | Prefix before IBM Cloud section |
 | `SPACESHIP_IBMCLOUD_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after IBM Cloud section |
-| `SPACESHIP_IBMCLOUD_SYMBOL` | `🧢·` | Character to be shown before IBM Cloud section |
+| `SPACESHIP_IBMCLOUD_SYMBOL` | `👔·` | Character to be shown before IBM Cloud section |
 | `SPACESHIP_IBMCLOUD_COLOR` | `039` | Color of IBM Cloud section |
 
 ### Execution time (`exec_time`)
