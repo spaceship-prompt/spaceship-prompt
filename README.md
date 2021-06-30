@@ -148,6 +148,7 @@ npm install -g spaceship-prompt
 ```
 
 Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath` and set `prompt spaceship` in `.zshrc`. Just reload your terminal.
+Ensure that you have enabled post-scripts in npm by ```npm config set ignore-scripts false``` before starting installation.
 
 **💡 Tip:** Update Spaceship to new versions as you would any other package.
 
