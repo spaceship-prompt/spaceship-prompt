@@ -1,3 +1,10 @@
+## [3.12.7](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.6...v3.12.7) (2021-06-30)
+
+
+### Bug Fixes
+
+* **ruby:** Update ruby asdf version finder, asdf was updated to print version second ([#864](https://github.com/spaceship-prompt/spaceship-prompt/issues/864)) ([24a75d8](https://github.com/spaceship-prompt/spaceship-prompt/commit/24a75d8a8a5b461fe47f2abc7523a62806e457e2))
+
 ## [3.12.6](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.5...v3.12.6) (2021-06-17)
 
 
