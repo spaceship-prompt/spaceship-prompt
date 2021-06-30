@@ -1,0 +1,73 @@
+site_name: Spaceship
+site_author: Spaceship Team
+site_url: https://spaceship-prompt.sh
+site_description: Minimalistic, powerful and extremely customizable Zsh prompt
+
+copyright: "Copyright &copy; 2021 Denys Dovhan"
+
+repo_url: https://github.com/spaceship-prompt/spaceship-prompt
+repo_name: spaceship-prompt
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  logo: //spaceship-prompt.github.io/brand/spaceship-no-letters.svg
+  icon:
+    repo: fontawesome/brands/github
+  favicon: assets/favicon.ico
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: spaceship
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.instant
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Options: options.md
+  - API: api.md
+  - Troubleshooting: troubleshooting.md
+
+markdown_extensions:
+  - meta
+  - toc:
+      permalink: true
+  - attr_list
+  - admonition
+  - pymdownx.tabbed
+  - pymdownx.details
+  - pymdownx.superfences
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/spaceship-prompt/spaceship-prompt
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/SpaceshipPrompt
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/NTQWz8Dyt9
+
+extra_css:
+  - assets/styles.css
+
+plugins:
+  - search
+  - i18n:
+      default_language: en
+      languages:
+        en: English
+        uk: Українська
+        zh: 简体中文

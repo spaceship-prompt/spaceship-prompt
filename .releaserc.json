@@ -1,0 +1,33 @@
+{
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/npm",
+    "@semantic-release/github",
+    "@semantic-release/changelog",
+    ["semantic-release-license", {
+      "license": {
+        "path": "LICENSE.md"
+      }
+    }],
+    ["@google/semantic-release-replace-plugin", {
+      "replacements": [{
+        "files": ["spaceship.zsh"],
+        "from": "export SPACESHIP_VERSION='.*'",
+        "to": "export SPACESHIP_VERSION='${nextRelease.version}'",
+        "results": [
+          {
+            "file": "spaceship.zsh",
+            "hasChanged": true,
+            "numMatches": 1,
+            "numReplacements": 1
+          }
+        ],
+        "countMatches": true
+      }]
+    }],
+    ["@semantic-release/git", {
+      "assets": ["package.json", "spaceship.zsh","CHANGELOG.md", "LICENSE.md"]
+    }]
+  ]
+}

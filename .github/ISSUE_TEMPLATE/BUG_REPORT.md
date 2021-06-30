@@ -6,7 +6,7 @@ about: If something isn't working as expected 🤔.
 <!--
 Please read our TROUBLESHOOTING page for commonly encountered problems:
 
-https://github.com/denysdovhan/spaceship-prompt/blob/master/docs/Troubleshooting.md
+https://spaceship-prompt.sh/troubleshooting
 -->
 
 **Current behavior**
