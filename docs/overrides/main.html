@@ -38,6 +38,18 @@ and powered by <a href="https://www.netlify.com">Netlify</a>.
 <!-- -->
 {% endset %}
 
+<!-- Announcement bar -->
+{% block announce %}
+<a class="announce discord" href="https://discord.gg/NTQWz8Dyt9">
+  We have recently launched our
+  <span class="twemoji twitter">
+    {% include ".icons/fontawesome/brands/discord.svg" %}
+  </span>
+  <strong>Discord</strong>
+  server!
+</a>
+{% endblock %}
+
 <!-- Self-hosted Analytics -->
 {% block analytics %}
 <script
