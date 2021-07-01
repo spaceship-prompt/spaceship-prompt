@@ -1,0 +1,16 @@
+name: homebrew
+on:
+  push:
+    tags: "v*"
+
+jobs:
+  main:
+    name: Homebrew Bump
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🍺 Bump Homebrew Formula
+        uses: mislav/bump-homebrew-formula-action@v1.12
+        with:
+          formula-name: spaceship
+        env:
+          COMMITTER_TOKEN: ${{ secrets.GH_TOKEN }}
