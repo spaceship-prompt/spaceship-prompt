@@ -1,3 +1,10 @@
+## [3.12.23](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.22...v3.12.23) (2021-07-01)
+
+
+### Bug Fixes
+
+* **ci:** tags trigger as array ([57e46df](https://github.com/spaceship-prompt/spaceship-prompt/commit/57e46df89bfc79816b4086b383960a08f2d94192))
+
 ## [3.12.22](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.21...v3.12.22) (2021-07-01)
 
 
