@@ -60,12 +60,13 @@ jobs:
             @semantic-release/git
             semantic-release-license
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: 🍺 Bump Homebrew Formula
-        uses: dawidd6/action-homebrew-bump-formula@v3
+        uses: mislav/bump-homebrew-formula-action@v1.12
         if: ${{ steps.semantic.outputs.new_release_published }}
         with:
-          token: ${{ secrets.HOMEBREW_GITHUB_PAT }}
-          formula: spaceship
+          formula-name: spaceship
+        env:
+          COMMITTER_TOKEN: ${{ secrets.GH_TOKEN }}
