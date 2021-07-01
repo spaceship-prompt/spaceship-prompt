@@ -1,3 +1,10 @@
+## [3.12.8](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.7...v3.12.8) (2021-07-01)
+
+
+### Bug Fixes
+
+* **ci:** Attempt to fix release for Homebrew ([a1af3f6](https://github.com/spaceship-prompt/spaceship-prompt/commit/a1af3f60c96a07927fad49ad66d4fd1fe5f73bca))
+
 ## [3.12.7](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.6...v3.12.7) (2021-06-30)
 
 
