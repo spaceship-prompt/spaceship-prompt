@@ -62,17 +62,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-  homebrew:
-    name: Homebrew Bump
-    needs: release
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.9.0
-
       - name: 🍺 Bump Homebrew Formula
         uses: mislav/bump-homebrew-formula-action@v1.12
+        if: ${{ new_release_published }}
         with:
           formula-name: spaceship
+          tag-name: ${{ new_release_version }}
         env:
           COMMITTER_TOKEN: ${{ secrets.HOMEBREW_GITHUB_PAT }}
