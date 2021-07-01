@@ -1,6 +1,6 @@
 {
   "name": "spaceship-prompt",
-  "version": "3.12.16",
+  "version": "3.12.17",
   "description": "A Zsh prompt for Astronauts.",
   "files": [
     "lib",
