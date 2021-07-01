@@ -1,3 +1,10 @@
+## [3.12.21](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.20...v3.12.21) (2021-07-01)
+
+
+### Bug Fixes
+
+* **ci:** Provide tag-name ([5238054](https://github.com/spaceship-prompt/spaceship-prompt/commit/5238054a97f08a6e4bf41998b70f4a4b9a290194))
+
 ## [3.12.20](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.19...v3.12.20) (2021-07-01)
 
 
