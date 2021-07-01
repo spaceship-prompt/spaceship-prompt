@@ -1,3 +1,10 @@
+## [3.12.25](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.24...v3.12.25) (2021-07-01)
+
+
+### Bug Fixes
+
+* **ci:** Add a comment and jobs canceling ([dbfaa0c](https://github.com/spaceship-prompt/spaceship-prompt/commit/dbfaa0cca1e74a209c8adb2805505106946c4075))
+
 ## [3.12.24](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.23...v3.12.24) (2021-07-01)
 
 
