@@ -69,6 +69,6 @@ jobs:
         with:
           formula-name: spaceship
           tag-name: ${{ steps.semantic.outputs.new_release_version }}
-          download-url: https://github.com/spaceship-prompt/spaceship-prompt/archive/${{ steps.semantic.outputs.new_release_version }}.tar.gz
+          download-url: https://github.com/spaceship-prompt/spaceship-prompt/archive/refs/tags/${{ steps.semantic.outputs.new_release_version }}.tar.gz
         env:
           COMMITTER_TOKEN: ${{ secrets.HOMEBREW_GITHUB_PAT }}
