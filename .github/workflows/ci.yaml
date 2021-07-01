@@ -63,7 +63,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: 🍺 Bump Homebrew Formula
-        uses: mislav/bump-homebrew-formula-action@v1
+        uses: mislav/bump-homebrew-formula-action@v1.12
         with:
           formula-name: spaceship
         env:
