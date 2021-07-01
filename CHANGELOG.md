@@ -1,3 +1,10 @@
+## [3.12.24](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.23...v3.12.24) (2021-07-01)
+
+
+### Bug Fixes
+
+* **ci:** Try using release as a trigger ([af38f82](https://github.com/spaceship-prompt/spaceship-prompt/commit/af38f82b661ca609146acd43ac5dd483405aa13b))
+
 ## [3.12.23](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.22...v3.12.23) (2021-07-01)
 
 
