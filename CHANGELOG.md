@@ -1,3 +1,10 @@
+## [3.12.11](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.10...v3.12.11) (2021-07-01)
+
+
+### Bug Fixes
+
+* **ci:** Move homebrew to a separate file ([554f065](https://github.com/spaceship-prompt/spaceship-prompt/commit/554f06504138c8d6baf1ad9ba92dd0517c1b71d2))
+
 ## [3.12.10](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.9...v3.12.10) (2021-07-01)
 
 
