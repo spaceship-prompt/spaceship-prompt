@@ -1,3 +1,10 @@
+## [3.12.19](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.18...v3.12.19) (2021-07-01)
+
+
+### Bug Fixes
+
+* **ci:** Try dawidd6/action-homebrew-bump-formula ([002b9f7](https://github.com/spaceship-prompt/spaceship-prompt/commit/002b9f70f29ce56423aebff4d7c55452913c4077))
+
 ## [3.12.18](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.17...v3.12.18) (2021-07-01)
 
 
