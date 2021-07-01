@@ -1,3 +1,10 @@
+## [3.12.9](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.8...v3.12.9) (2021-07-01)
+
+
+### Bug Fixes
+
+* **ci:** Move Homebrew formula to a separate job ([741bc3e](https://github.com/spaceship-prompt/spaceship-prompt/commit/741bc3e5b1118379c4c5112f2670e56b04dc5773))
+
 ## [3.12.8](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.7...v3.12.8) (2021-07-01)
 
 
