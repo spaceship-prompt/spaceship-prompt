@@ -1,3 +1,10 @@
+## [3.12.14](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.13...v3.12.14) (2021-07-01)
+
+
+### Bug Fixes
+
+* **ci:** wrap tags in quotes ([742a310](https://github.com/spaceship-prompt/spaceship-prompt/commit/742a310ea72781433d0936c6eb77951c65e46c48))
+
 ## [3.12.13](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.12...v3.12.13) (2021-07-01)
 
 
