@@ -64,11 +64,8 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: 🍺 Bump Homebrew Formula
-        uses: mislav/bump-homebrew-formula-action@v1
+        uses: dawidd6/action-homebrew-bump-formula@v3
         if: ${{ steps.semantic.outputs.new_release_published }}
         with:
-          formula-name: spaceship
-          tag-name: ${{ steps.semantic.outputs.new_release_version }}
-          download-url: https://github.com/spaceship-prompt/spaceship-prompt/archive/refs/tags/${{ steps.semantic.outputs.new_release_version }}.tar.gz
-        env:
-          COMMITTER_TOKEN: ${{ secrets.HOMEBREW_GITHUB_PAT }}
+          token: ${{ secrets.HOMEBREW_GITHUB_PAT }}
+          formula: spaceship
