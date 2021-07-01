@@ -61,3 +61,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: 🍺 Bump Homebrew Formula
+        uses: mislav/bump-homebrew-formula-action@v1
+        with:
+          formula-name: spaceship
+        env:
+          COMMITTER_TOKEN: ${{ secrets.HOMEBREW_GITHUB_PAT }}
