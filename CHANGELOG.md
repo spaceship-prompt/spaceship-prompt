@@ -1,3 +1,10 @@
+## [3.12.20](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.19...v3.12.20) (2021-07-01)
+
+
+### Bug Fixes
+
+* **ci:** Try using PAT for publishing releases ([89e52f5](https://github.com/spaceship-prompt/spaceship-prompt/commit/89e52f5d463cf0ba15f319ca27e9d8cf2f642115))
+
 ## [3.12.19](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.18...v3.12.19) (2021-07-01)
 
 
