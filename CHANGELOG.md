@@ -1,3 +1,10 @@
+## [3.12.16](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.15...v3.12.16) (2021-07-01)
+
+
+### Bug Fixes
+
+* **ci:** move homebrew back to ci workflow ([1c90270](https://github.com/spaceship-prompt/spaceship-prompt/commit/1c902701b35d475bd8c79cae7aa3de28c24ed21d))
+
 ## [3.12.15](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.14...v3.12.15) (2021-07-01)
 
 
