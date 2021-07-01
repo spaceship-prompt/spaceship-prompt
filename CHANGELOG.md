@@ -1,3 +1,10 @@
+## [3.12.15](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.14...v3.12.15) (2021-07-01)
+
+
+### Bug Fixes
+
+* **ci:** trigger homebrew on every tag push ([3e40ef8](https://github.com/spaceship-prompt/spaceship-prompt/commit/3e40ef83e93ab1696906b310033aed04b5843fc8))
+
 ## [3.12.14](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.13...v3.12.14) (2021-07-01)
 
 
