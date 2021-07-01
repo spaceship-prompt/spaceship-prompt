@@ -1,3 +1,10 @@
+## [3.12.22](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.21...v3.12.22) (2021-07-01)
+
+
+### Bug Fixes
+
+* **ci:** Homebrew in separate file. Trigger via PAT ([30d4f74](https://github.com/spaceship-prompt/spaceship-prompt/commit/30d4f74019bc6edaf5e739cc31abeffdfb3f703c))
+
 ## [3.12.21](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.20...v3.12.21) (2021-07-01)
 
 
