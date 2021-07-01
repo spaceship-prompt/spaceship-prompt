@@ -1,7 +1,8 @@
 name: homebrew
 on:
   push:
-    tags: "v*"
+    tags:
+      - "v*"
 
 jobs:
   main:
