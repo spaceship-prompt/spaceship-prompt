@@ -8,6 +8,7 @@ body:
       label: Is there an existing issue for this?
       description: >
         Please search to see if an issue already exists for the bug you encountered.
+
         Check troubleshooting page for commonly encountered problems: https://spaceship-prompt.sh/troubleshooting
       options:
         - label: Yes, I have searched the existing issues
@@ -19,16 +20,16 @@ body:
     attributes:
       label: The problem
       description: >
-        Describe the issue you are experiencing here.
-        Tell us what you were trying to do and what happened.
         Provide a clear and concise description of what the problem is.
+
+        Tell us what you were trying to do and what happened.
     validations:
       required: true
 
   - type: textarea
     attributes:
-      label: Relevant Zsh configurationw
-      description: For example, error message, or stack traces.
+      label: Relevant Zsh configuration
+      description: Please, provide the part of your `~/.zshrc` file related to Spaceship.
       render: zsh
 
   - type: markdown
@@ -83,6 +84,7 @@ body:
       label: Additional information
       description: >
         If you have any additional information for us, use the field below.
+
         Provide logs, suggestions, possible solutions, fixes or anything you consider useful.
 
         Please note, you can attach screenshots or screen recordings here, by
