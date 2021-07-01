@@ -1,3 +1,11 @@
+## [3.12.10](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.9...v3.12.10) (2021-07-01)
+
+
+### Bug Fixes
+
+* **ci:** Bump Homebrew only if new releaes is published. Pass tag-name. ([4412f68](https://github.com/spaceship-prompt/spaceship-prompt/commit/4412f68dcb838e130b388613528a6ae47dcf3620))
+* **ci:** Fix syntax error in workflow file ([9119f46](https://github.com/spaceship-prompt/spaceship-prompt/commit/9119f461f3058424cf3d0cf794b30d115fa40e99))
+
 ## [3.12.9](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.8...v3.12.9) (2021-07-01)
 
 
