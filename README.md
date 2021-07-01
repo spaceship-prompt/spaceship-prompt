@@ -141,6 +141,18 @@ Now that the requirements are satisfied, you can install Spaceship ZSH via any o
   <img alt="Become a patron" src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px">
 </a>
 
+### [Homebrew]
+
+```
+brew install spaceship
+```
+
+You can also add the following to your [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage):
+
+```ruby
+brew "spaceship"
+```
+
 ### [npm]
 
 ```
@@ -148,7 +160,7 @@ npm install -g spaceship-prompt
 ```
 
 Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath` and set `prompt spaceship` in `.zshrc`. Just reload your terminal.
-Ensure that you have enabled post-scripts in npm by ```npm config set ignore-scripts false``` before starting installation.
+Ensure that you have enabled post-scripts in npm by `npm config set ignore-scripts false` before starting installation.
 
 **💡 Tip:** Update Spaceship to new versions as you would any other package.
 
@@ -358,6 +370,7 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [npm]: https://www.npmjs.com/
 [antibody]: https://github.com/getantibody/antibody
 [zplug]: https://github.com/zplug/zplug
+[homebrew]: https://brew.sh
 [n]: https://github.com/tj/n
 [xcenv]: http://xcenv.org/
 [swiftenv]: https://github.com/kylef/swiftenv
