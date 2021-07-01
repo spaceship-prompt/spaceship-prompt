@@ -2,7 +2,6 @@ name: homebrew
 on:
   push:
     tags:
-      - "v*"
 
 jobs:
   homebrew:
