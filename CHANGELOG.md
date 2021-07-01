@@ -1,3 +1,10 @@
+## [3.12.13](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.12...v3.12.13) (2021-07-01)
+
+
+### Bug Fixes
+
+* **ci:** Attempt to fix homebrew with tags as array ([278a87d](https://github.com/spaceship-prompt/spaceship-prompt/commit/278a87d8ef5fb4fbd9699d4bbfe9faebd0941781))
+
 ## [3.12.12](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.11...v3.12.12) (2021-07-01)
 
 
