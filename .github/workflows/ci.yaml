@@ -52,6 +52,7 @@ jobs:
 
       - name: 🚀 Release
         uses: cycjimmy/semantic-release-action@v2
+        id: semantic
         with:
           extra_plugins: |
             @google/semantic-release-replace-plugin
@@ -64,9 +65,9 @@ jobs:
 
       - name: 🍺 Bump Homebrew Formula
         uses: mislav/bump-homebrew-formula-action@v1.12
-        if: ${{ new_release_published }}
+        if: steps.semantic.outputs.new_release_published == 'true'
         with:
           formula-name: spaceship
-          tag-name: ${{ new_release_version }}
+          tag-name: ${{ steps.semantic.outputs.new_release_version }}
         env:
           COMMITTER_TOKEN: ${{ secrets.HOMEBREW_GITHUB_PAT }}
