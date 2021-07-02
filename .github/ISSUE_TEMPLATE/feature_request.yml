@@ -3,19 +3,20 @@ description: I have a suggestion (and might want to implement myself 🙂)!
 labels:
   - proposal
 body:
-  - type: markdown
+  - type: checkboxes
     attributes:
-      value: >
-        ## Considerations
-
-        Is your feature request related to new section on prompt? Then consider the following questions:
-
-        * Will it clutter the prompt?
-        * Is it worth to be aware of it?
-        * Will it slow down the prompt?
+      label: Suggesting a new section? Consider the following questions:
+      description: >
+        Help  us validate your suggestion.
 
         Read more information about these points, see our [contributing guidelines][contributing].
+
         [contributing]: https://github.com/spaceship-prompt/spaceship-prompt/blob/master/CONTRIBUTING.md#sections
+      options:
+        - label: It will not clutter the prompt
+        - label: It will not slow down the prompt
+        - label: It is worth to be aware of
+
 
   - type: textarea
     attributes:
