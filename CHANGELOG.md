@@ -1,129 +1,27 @@
-## [3.12.25](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.24...v3.12.25) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** Add a comment and jobs canceling ([dbfaa0c](https://github.com/spaceship-prompt/spaceship-prompt/commit/dbfaa0cca1e74a209c8adb2805505106946c4075))
-
-## [3.12.24](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.23...v3.12.24) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** Try using release as a trigger ([af38f82](https://github.com/spaceship-prompt/spaceship-prompt/commit/af38f82b661ca609146acd43ac5dd483405aa13b))
-
-## [3.12.23](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.22...v3.12.23) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** tags trigger as array ([57e46df](https://github.com/spaceship-prompt/spaceship-prompt/commit/57e46df89bfc79816b4086b383960a08f2d94192))
-
-## [3.12.22](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.21...v3.12.22) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** Homebrew in separate file. Trigger via PAT ([30d4f74](https://github.com/spaceship-prompt/spaceship-prompt/commit/30d4f74019bc6edaf5e739cc31abeffdfb3f703c))
-
-## [3.12.21](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.20...v3.12.21) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** Provide tag-name ([5238054](https://github.com/spaceship-prompt/spaceship-prompt/commit/5238054a97f08a6e4bf41998b70f4a4b9a290194))
-
-## [3.12.20](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.19...v3.12.20) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** Try using PAT for publishing releases ([89e52f5](https://github.com/spaceship-prompt/spaceship-prompt/commit/89e52f5d463cf0ba15f319ca27e9d8cf2f642115))
-
-## [3.12.19](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.18...v3.12.19) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** Try dawidd6/action-homebrew-bump-formula ([002b9f7](https://github.com/spaceship-prompt/spaceship-prompt/commit/002b9f70f29ce56423aebff4d7c55452913c4077))
-
-## [3.12.18](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.17...v3.12.18) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** Update download-url for homebrew once again ([838b68e](https://github.com/spaceship-prompt/spaceship-prompt/commit/838b68eaf7ad41546a525323a5846fa2c560613c))
-
-## [3.12.17](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.16...v3.12.17) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** Update download url for Homebrew ([ab95d19](https://github.com/spaceship-prompt/spaceship-prompt/commit/ab95d19809dc96b76267da45f1a9830a484f5a38))
-
-## [3.12.16](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.15...v3.12.16) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** move homebrew back to ci workflow ([1c90270](https://github.com/spaceship-prompt/spaceship-prompt/commit/1c902701b35d475bd8c79cae7aa3de28c24ed21d))
-
-## [3.12.15](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.14...v3.12.15) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** trigger homebrew on every tag push ([3e40ef8](https://github.com/spaceship-prompt/spaceship-prompt/commit/3e40ef83e93ab1696906b310033aed04b5843fc8))
-
-## [3.12.14](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.13...v3.12.14) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** wrap tags in quotes ([742a310](https://github.com/spaceship-prompt/spaceship-prompt/commit/742a310ea72781433d0936c6eb77951c65e46c48))
-
-## [3.12.13](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.12...v3.12.13) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** Attempt to fix homebrew with tags as array ([278a87d](https://github.com/spaceship-prompt/spaceship-prompt/commit/278a87d8ef5fb4fbd9699d4bbfe9faebd0941781))
-
-## [3.12.12](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.11...v3.12.12) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** Attempt to fix Homebrew ([7d17060](https://github.com/spaceship-prompt/spaceship-prompt/commit/7d17060dfd4b4ad7e4dd2214492698b0a1f8b959))
-
-## [3.12.11](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.10...v3.12.11) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** Move homebrew to a separate file ([554f065](https://github.com/spaceship-prompt/spaceship-prompt/commit/554f06504138c8d6baf1ad9ba92dd0517c1b71d2))
-
-## [3.12.10](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.9...v3.12.10) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** Bump Homebrew only if new releaes is published. Pass tag-name. ([4412f68](https://github.com/spaceship-prompt/spaceship-prompt/commit/4412f68dcb838e130b388613528a6ae47dcf3620))
-* **ci:** Fix syntax error in workflow file ([9119f46](https://github.com/spaceship-prompt/spaceship-prompt/commit/9119f461f3058424cf3d0cf794b30d115fa40e99))
-
-## [3.12.9](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.8...v3.12.9) (2021-07-01)
-
-
-### Bug Fixes
-
-* **ci:** Move Homebrew formula to a separate job ([741bc3e](https://github.com/spaceship-prompt/spaceship-prompt/commit/741bc3e5b1118379c4c5112f2670e56b04dc5773))
-
-## [3.12.8](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.7...v3.12.8) (2021-07-01)
+## [3.12.8-3.12.25](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.8...v3.12.25) (2021-07-01)
 
 
 ### Bug Fixes
 
 * **ci:** Attempt to fix release for Homebrew ([a1af3f6](https://github.com/spaceship-prompt/spaceship-prompt/commit/a1af3f60c96a07927fad49ad66d4fd1fe5f73bca))
+* **ci:** Move Homebrew formula to a separate job ([741bc3e](https://github.com/spaceship-prompt/spaceship-prompt/commit/741bc3e5b1118379c4c5112f2670e56b04dc5773))
+* **ci:** Bump Homebrew only if new releaes is published. Pass tag-name. ([4412f68](https://github.com/spaceship-prompt/spaceship-prompt/commit/4412f68dcb838e130b388613528a6ae47dcf3620))
+* **ci:** Fix syntax error in workflow file ([9119f46](https://github.com/spaceship-prompt/spaceship-prompt/commit/9119f461f3058424cf3d0cf794b30d115fa40e99))
+* **ci:** Move homebrew to a separate file ([554f065](https://github.com/spaceship-prompt/spaceship-prompt/commit/554f06504138c8d6baf1ad9ba92dd0517c1b71d2))
+* **ci:** Attempt to fix Homebrew ([7d17060](https://github.com/spaceship-prompt/spaceship-prompt/commit/7d17060dfd4b4ad7e4dd2214492698b0a1f8b959))
+* **ci:** Attempt to fix homebrew with tags as array ([278a87d](https://github.com/spaceship-prompt/spaceship-prompt/commit/278a87d8ef5fb4fbd9699d4bbfe9faebd0941781))
+* **ci:** wrap tags in quotes ([742a310](https://github.com/spaceship-prompt/spaceship-prompt/commit/742a310ea72781433d0936c6eb77951c65e46c48))
+* **ci:** trigger homebrew on every tag push ([3e40ef8](https://github.com/spaceship-prompt/spaceship-prompt/commit/3e40ef83e93ab1696906b310033aed04b5843fc8))
+* **ci:** move homebrew back to ci workflow ([1c90270](https://github.com/spaceship-prompt/spaceship-prompt/commit/1c902701b35d475bd8c79cae7aa3de28c24ed21d))
+* **ci:** Update download url for Homebrew ([ab95d19](https://github.com/spaceship-prompt/spaceship-prompt/commit/ab95d19809dc96b76267da45f1a9830a484f5a38))
+* **ci:** Update download-url for homebrew once again ([838b68e](https://github.com/spaceship-prompt/spaceship-prompt/commit/838b68eaf7ad41546a525323a5846fa2c560613c))
+* **ci:** Try dawidd6/action-homebrew-bump-formula ([002b9f7](https://github.com/spaceship-prompt/spaceship-prompt/commit/002b9f70f29ce56423aebff4d7c55452913c4077))
+* **ci:** Try using PAT for publishing releases ([89e52f5](https://github.com/spaceship-prompt/spaceship-prompt/commit/89e52f5d463cf0ba15f319ca27e9d8cf2f642115))
+* **ci:** Provide tag-name ([5238054](https://github.com/spaceship-prompt/spaceship-prompt/commit/5238054a97f08a6e4bf41998b70f4a4b9a290194))
+* **ci:** Homebrew in separate file. Trigger via PAT ([30d4f74](https://github.com/spaceship-prompt/spaceship-prompt/commit/30d4f74019bc6edaf5e739cc31abeffdfb3f703c))
+* **ci:** tags trigger as array ([57e46df](https://github.com/spaceship-prompt/spaceship-prompt/commit/57e46df89bfc79816b4086b383960a08f2d94192))
+* **ci:** Try using release as a trigger ([af38f82](https://github.com/spaceship-prompt/spaceship-prompt/commit/af38f82b661ca609146acd43ac5dd483405aa13b))
+* **ci:** Add a comment and jobs canceling ([dbfaa0c](https://github.com/spaceship-prompt/spaceship-prompt/commit/dbfaa0cca1e74a209c8adb2805505106946c4075))
 
 ## [3.12.7](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.6...v3.12.7) (2021-06-30)
 
