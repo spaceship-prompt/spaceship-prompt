@@ -56,7 +56,9 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/spaceship-prompt/spaceship-prompt
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/SpaceshipZSH
+      link: https://twitter.com/SpaceshipPrompt
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/NTQWz8Dyt9
 
 extra_css:
   - assets/styles.css
@@ -68,3 +70,4 @@ plugins:
       languages:
         en: English
         uk: Українська
+        zh: 简体中文

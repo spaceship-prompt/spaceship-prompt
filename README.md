@@ -25,9 +25,16 @@
       alt="Zsh Version" />
   </a>
 
-  <a href="https://twitter.com/SpaceshipZSH">
+  <a href="https://twitter.com/SpaceshipPrompt">
     <img src="https://img.shields.io/badge/twitter-%40SpaceshipZSH-00ACEE.svg?style=flat-square"
-      alt="Spaceship ZSH Twitter" />
+      alt="Spaceship Twitter" />
+  </a>
+
+  <a href="https://discord.gg/NTQWz8Dyt9">
+    <img
+      src="https://img.shields.io/discord/859409950999707668?label=discord&logoColor=white&style=flat-square"
+      alt="Chat on Discord"
+    />
   </a>
 
   <a href="https://patreon.com/denysdovhan">
@@ -115,7 +122,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 
 Want more features? Please, [open an issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose) or send pull request.
 
-**💡 Tip:** Follow our Twitter to keep yourself updated about new features, improvements, and bugfixes.
+**💡 Tip:** Follow [our Twitter](https://twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
 
 ## Requirements
 
@@ -134,6 +141,18 @@ Now that the requirements are satisfied, you can install Spaceship ZSH via any o
   <img alt="Become a patron" src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px">
 </a>
 
+### [Homebrew]
+
+```
+brew install spaceship
+```
+
+You can also add the following to your [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage):
+
+```ruby
+brew "spaceship"
+```
+
 ### [npm]
 
 ```
@@ -141,6 +160,7 @@ npm install -g spaceship-prompt
 ```
 
 Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath` and set `prompt spaceship` in `.zshrc`. Just reload your terminal.
+Ensure that you have enabled post-scripts in npm by `npm config set ignore-scripts false` before starting installation.
 
 **💡 Tip:** Update Spaceship to new versions as you would any other package.
 
@@ -350,6 +370,7 @@ MIT © [Denys Dovhan](http://denysdovhan.com)
 [npm]: https://www.npmjs.com/
 [antibody]: https://github.com/getantibody/antibody
 [zplug]: https://github.com/zplug/zplug
+[homebrew]: https://brew.sh
 [n]: https://github.com/tj/n
 [xcenv]: http://xcenv.org/
 [swiftenv]: https://github.com/kylef/swiftenv

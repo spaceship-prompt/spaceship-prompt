@@ -53,6 +53,18 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     prompt spaceship
     ```
 
+=== "Homebrew"
+
+    ```
+    brew install spaceship
+    ```
+
+    You can also add the following to your [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage):
+
+    ```ruby
+    brew "spaceship"
+    ```
+
 === "oh-my-zsh"
 
     Clone this repo:
