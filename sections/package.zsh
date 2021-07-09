@@ -63,7 +63,7 @@ spaceship_package() {
   if [[ -f Cargo.toml ]] && spaceship::exists cargo; then
     # Handle missing field `version` in Cargo.toml.
     # `cargo pkgid` need Cargo.lock exists too. If it does't, do not show package version
-    # https://github.com/denysdovhan/spaceship-prompt/pull/617
+    # https://github.com/spaceship-prompt/spaceship-prompt/pull/617
     local pkgid=$(cargo pkgid 2>&1)
     echo $pkgid | grep -q "error:" || package_version=${pkgid##*\#}
   fi
