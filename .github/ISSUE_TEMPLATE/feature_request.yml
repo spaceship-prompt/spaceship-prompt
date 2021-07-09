@@ -1,0 +1,51 @@
+name: 🚀 Feature Request
+description: I have a suggestion (and might want to implement myself 🙂)!
+labels:
+  - proposal
+body:
+  - type: checkboxes
+    attributes:
+      label: Suggesting a new section? Consider the following validations.
+      description: >
+        Help  us validate your suggestion.
+
+        Read more information about these points, see our contributing guidelines:
+
+        https://github.com/spaceship-prompt/spaceship-prompt/blob/master/CONTRIBUTING.md#sections
+      options:
+        - label: It will not clutter the prompt
+        - label: It will not slow down the prompt
+        - label: It is worth to be aware of
+
+  - type: textarea
+    attributes:
+      label: The problem
+      description: >
+        Is your feature request related to a problem? Please describe.
+        Provide a clear and concise description of what the problem is.
+
+        Tell us what you were trying to do and what happened.
+
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      label: Describe the solution you'd like
+      description: >
+        A clear and concise description of what you want to happen. Add any considered drawbacks.
+
+  - type: textarea
+    attributes:
+      label: Describe alternatives you've considered
+      description: >
+        A clear and concise description of any alternative solutions or features you've considered.
+
+  - type: textarea
+    attributes:
+      label: Documentation and adoption
+      description: >
+        If you can, explain how users will be able to use this and possibly write out a version the docs.
+
+        Please note, you can attach screenshots or screen recordings here, by
+        dragging and dropping files in the field below.
+      render: markdown
