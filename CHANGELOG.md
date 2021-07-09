@@ -1,3 +1,10 @@
+# [3.13.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.26...v3.13.0) (2021-07-09)
+
+
+### Features
+
+* **package:** add support for package version from lerna.json instead of package.json ([f09b9da](https://github.com/spaceship-prompt/spaceship-prompt/commit/f09b9da70cd6e9f072e68ed02921ee59b515bcbf))
+
 ## [3.12.26](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.25...v3.12.26) (2021-07-08)
 
 
