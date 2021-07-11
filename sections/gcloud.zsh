@@ -31,8 +31,14 @@ spaceship_gcloud() {
   # Check if there is an active config
   [[ -f ${GCLOUD_DIR}/active_config ]] || return
 
-  # Reads the current config from the file
-  local GCLOUD_ACTIVE_CONFIG=$(head -n1 ${GCLOUD_DIR}/active_config)
+  # Check if there is an active config override
+  if (( ${+CLOUDSDK_ACTIVE_CONFIG_NAME} )); then
+    # Uses the current config from the environment variable
+    local GCLOUD_ACTIVE_CONFIG=${CLOUDSDK_ACTIVE_CONFIG_NAME}
+  else
+    # Reads the current config from the file
+    local GCLOUD_ACTIVE_CONFIG=$(head -n1 ${GCLOUD_DIR}/active_config)
+  fi
 
   # Check the active config file exists
   local GCLOUD_ACTIVE_CONFIG_FILE=${GCLOUD_DIR}/configurations/config_${GCLOUD_ACTIVE_CONFIG}
