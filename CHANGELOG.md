@@ -1,3 +1,10 @@
+## [3.13.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.0...v3.13.1) (2021-07-12)
+
+
+### Bug Fixes
+
+* docker section bug and optimize package section ([#1045](https://github.com/spaceship-prompt/spaceship-prompt/issues/1045)) ([b459a1a](https://github.com/spaceship-prompt/spaceship-prompt/commit/b459a1aabd71f93bf3c3adc1b8a3527ab9da5647))
+
 # [3.13.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.26...v3.13.0) (2021-07-09)
 
 
