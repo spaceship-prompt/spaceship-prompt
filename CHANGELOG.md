@@ -1,3 +1,10 @@
+## [3.13.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.1...v3.13.2) (2021-07-12)
+
+
+### Bug Fixes
+
+* get GCLOUD_ACTIVE_CONFIG from ENVIRONMENT, if set ([#1046](https://github.com/spaceship-prompt/spaceship-prompt/issues/1046)) ([349240e](https://github.com/spaceship-prompt/spaceship-prompt/commit/349240e01506672380a3c5c5a04343348329dd5b))
+
 ## [3.13.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.0...v3.13.1) (2021-07-12)
 
 
