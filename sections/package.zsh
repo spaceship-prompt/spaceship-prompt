@@ -3,7 +3,8 @@
 #
 # Current package version.
 # These package managers supported:
-#   * NPM
+#   * npm
+#   * lerna
 #   * Cargo
 
 # ------------------------------------------------------------------------------
@@ -24,7 +25,7 @@ spaceship_package() {
   [[ $SPACESHIP_PACKAGE_SHOW == false ]] && return
 
   # Show package version only when repository is a package
-  local 'package_version'
+  local package_version
 
   if [[ -f package.json ]] && spaceship::exists npm; then
     if spaceship::exists jq; then
@@ -33,6 +34,29 @@ spaceship_package() {
       package_version=$(python -c "import json; print(json.load(open('package.json'))['version'])" 2>/dev/null)
     elif spaceship::exists node; then
       package_version=$(node -p "require('./package.json').version" 2> /dev/null)
+    fi
+  fi
+
+  # Show package version from lerna.json if is a lerna monorepo
+  # Note: lerna does not have to be installed in the global context
+  # so checking for lerna binary does not make sense
+   if [[ -f lerna.json ]] && spaceship::exists npm; then
+    local lerna_package_version
+
+    if spaceship::exists jq; then
+      lerna_package_version=$(jq -r '.version' lerna.json 2>/dev/null)
+    elif spaceship::exists python; then
+      lerna_package_version=$(python -c "import json; print(json.load(open('lerna.json'))['version'])" 2>/dev/null)
+    elif spaceship::exists node; then
+      lerna_package_version=$(node -p "require('./lerna.json').version" 2> /dev/null)
+    fi
+
+    if [[ ! -z "$lerna_package_version" || "$package_version" != "null" || "$package_version" != "undefined" ]]; then
+      if [[ "$lerna_package_version" == "independent" ]]; then
+        package_version="($lerna_package_version)"
+      else
+        package_version="${lerna_package_version}"
+      fi
     fi
   fi
 

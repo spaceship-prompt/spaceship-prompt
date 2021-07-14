@@ -1,3 +1,10 @@
+## [3.12.26](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.25...v3.12.26) (2021-07-08)
+
+
+### Bug Fixes
+
+* **php:** Unalias grep for PHP version ([#1030](https://github.com/spaceship-prompt/spaceship-prompt/issues/1030)) ([354ae0f](https://github.com/spaceship-prompt/spaceship-prompt/commit/354ae0f13192f1da66ad0e21c917ae8859a7e926)), closes [#857](https://github.com/spaceship-prompt/spaceship-prompt/issues/857)
+
 ## [3.12.8-3.12.25](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.8...v3.12.25) (2021-07-01)
 
 
