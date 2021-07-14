@@ -2,3 +2,7 @@
   path = modules/shunit2
   url = https://github.com/kward/shunit2.git
   update = merge
+[submodule "modules/zsh-async"]
+  path = modules/zsh-async
+  url = https://github.com/mafredri/zsh-async.git
+  update = merge
