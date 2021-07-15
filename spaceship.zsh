@@ -118,9 +118,6 @@ source "$SPACESHIP_ROOT/lib/section.zsh"
 # Placeholder string
 SPACESHIP_SECTION_PLACEHOLDER="${SPACESHIP_SECTION_PLACEHOLDER="…"}"
 
-# Load custom section functions tagged with "::custom" from files
-SPACESHIP_CUSTOM_SECTION_LOCATION="${SPACESHIP_CUSTOM_SECTION_LOCATION=$HOME/.config/spaceship/sections}"
-
 # Load functions for sections defined in prompt order arrays
 #
 # @args
@@ -138,7 +135,6 @@ spaceship::load_sections() {
     __SS_DATA[${alignment}_raw_sections]=""
     __SS_DATA[${alignment}_sections]=""
     __SS_DATA[async_${alignment}_sections]=""
-    __SS_DATA[custom_${alignment}_sections]=""
 
     sections_var="SPACESHIP_${(U)alignment}_ORDER"
     raw_sections=(${(P)sections_var})
@@ -160,9 +156,6 @@ spaceship::load_sections() {
       if spaceship::defined "spaceship_$section"; then
         # Custom section is declared, nothing else to do
         continue
-      elif spaceship::section_is_tagged_as "custom" "${section}" \
-        && [[ -f "${SPACESHIP_CUSTOM_SECTION_LOCATION}/${section}.zsh" ]]; then
-        source "${SPACESHIP_CUSTOM_SECTION_LOCATION}/${section}.zsh"
       elif [[ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]]; then
         source "$SPACESHIP_ROOT/sections/$section.zsh"
       else
