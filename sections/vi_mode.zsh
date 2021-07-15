@@ -60,5 +60,3 @@ spaceship_vi_mode_enable() {
 spaceship_vi_mode_disable() {
   bindkey -e
 }
-
-spaceship_vi_mode_enable

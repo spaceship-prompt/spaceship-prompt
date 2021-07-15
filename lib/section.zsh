@@ -72,7 +72,7 @@ spaceship::build_section_cache() {
 
   local -a alignments=("prompt" "rprompt")
   local alignment
-  local custom async section cache_key result
+  local async section cache_key result
 
   [[ -n "$1" ]] && alignments=("$1")
 

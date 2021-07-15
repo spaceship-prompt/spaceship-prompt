@@ -33,7 +33,6 @@ prompt_spaceship_precmd() {
   # Must be the very first line in all entry prompt functions, or the value
   # will be overridden by a different command execution - do not move this line!
   RETVAL=$?
-  RETVALS=( "$pipestatus[@]" )
 
   # Stop measuring exec_time, must be the first precmd action
   spaceship_exec_time_precmd_hook
