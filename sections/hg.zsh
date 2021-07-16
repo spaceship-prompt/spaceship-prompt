@@ -7,6 +7,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_HG_SHOW="${SPACESHIP_HG_SHOW=true}"
+SPACESHIP_HG_ASYNC="${SPACESHIP_HG_ASYNC=false}" # FIXME: should be async
 SPACESHIP_HG_PREFIX="${SPACESHIP_HG_PREFIX="on "}"
 SPACESHIP_HG_SUFFIX="${SPACESHIP_HG_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_HG_SYMBOL="${SPACESHIP_HG_SYMBOL="☿ "}"
