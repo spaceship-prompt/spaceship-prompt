@@ -148,12 +148,6 @@ spaceship::deprecated SPACESHIP_PYENV_COLOR "Use %bSPACESHIP_PYTHON_COLOR%b inst
 # PROMPT
 # Primary (left) prompt
 spaceship_prompt() {
-  # Retrieve exit code of last command to use in exit_code
-  # Must be captured before any other command in prompt is executed
-  # Must be the very first line in all entry prompt functions, or the value
-  # will be overridden by a different command execution - do not move this line!
-  RETVAL=$?
-
   # Should it add a new line before the prompt?
   [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
 
@@ -164,18 +158,12 @@ spaceship_prompt() {
 # $RPROMPT
 # Optional (right) prompt
 spaceship_rprompt() {
-  # Retrieve exit code of last command to use in exit_code
-  RETVAL=$?
-
   spaceship::compose_prompt $SPACESHIP_RPROMPT_ORDER
 }
 
 # PS2
 # Continuation interactive prompt
 spaceship_ps2() {
-  # Retrieve exit code of last command to use in exit_code
-  RETVAL=$?
-
   local char="${SPACESHIP_CHAR_SYMBOL_SECONDARY="$SPACESHIP_CHAR_SYMBOL"}"
   spaceship::section "$SPACESHIP_CHAR_COLOR_SECONDARY" "$char"
 }
@@ -199,9 +187,13 @@ prompt_spaceship_setup() {
   # initialized via promptinit.
   setopt noprompt{bang,cr,percent,subst} "prompt${^prompt_opts[@]}"
 
+  # initialize hooks
+  autoload -Uz add-zsh-hook
+
   # Add exec_time hooks
-  add-zsh-hook preexec spaceship_exec_time_preexec_hook
-  add-zsh-hook precmd spaceship_exec_time_precmd_hook
+  add-zsh-hook preexec prompt_spaceship_preexec
+  add-zsh-hook precmd prompt_spaceship_precmd
+  add-zsh-hook chpwd prompt_spaceship_chpwd
 
   # Disable python virtualenv environment prompt prefix
   VIRTUAL_ENV_DISABLE_PROMPT=true

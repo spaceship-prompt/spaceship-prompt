@@ -27,3 +27,23 @@ spaceship_exec_vcs_info_precmd_hook() {
   [[ $SPACESHIP_GIT_BRANCH_SHOW == false ]] && return
   vcs_info
 }
+
+prompt_spaceship_precmd() {
+  # Retrieve exit code of last command to use in exit_code
+  # Must be captured before any other command in prompt is executed
+  # Must be the very first line in all entry prompt functions, or the value
+  # will be overridden by a different command execution - do not move this line!
+  RETVAL=$?
+  RETVALS=( "$pipestatus[@]" )
+
+  # echo precmd
+  spaceship_exec_time_precmd_hook
+}
+
+prompt_spaceship_preexec() {
+  spaceship_exec_time_preexec_hook
+}
+
+prompt_spaceship_chpwd() {
+  #
+}
