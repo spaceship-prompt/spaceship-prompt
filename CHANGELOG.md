@@ -1,3 +1,24 @@
+## [3.13.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.1...v3.13.2) (2021-07-12)
+
+
+### Bug Fixes
+
+* get GCLOUD_ACTIVE_CONFIG from ENVIRONMENT, if set ([#1046](https://github.com/spaceship-prompt/spaceship-prompt/issues/1046)) ([349240e](https://github.com/spaceship-prompt/spaceship-prompt/commit/349240e01506672380a3c5c5a04343348329dd5b))
+
+## [3.13.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.0...v3.13.1) (2021-07-12)
+
+
+### Bug Fixes
+
+* docker section bug and optimize package section ([#1045](https://github.com/spaceship-prompt/spaceship-prompt/issues/1045)) ([b459a1a](https://github.com/spaceship-prompt/spaceship-prompt/commit/b459a1aabd71f93bf3c3adc1b8a3527ab9da5647))
+
+# [3.13.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.26...v3.13.0) (2021-07-09)
+
+
+### Features
+
+* **package:** add support for package version from lerna.json instead of package.json ([f09b9da](https://github.com/spaceship-prompt/spaceship-prompt/commit/f09b9da70cd6e9f072e68ed02921ee59b515bcbf))
+
 ## [3.12.26](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.12.25...v3.12.26) (2021-07-08)
 
 
