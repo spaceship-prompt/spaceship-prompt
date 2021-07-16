@@ -55,4 +55,4 @@ test_uninstall_remove_spaceship_content_from_zshrc() {
 # Run tests with shunit2
 # ------------------------------------------------------------------------------
 
-source modules/shunit2/shunit2
+source tests/shunit2/shunit2
