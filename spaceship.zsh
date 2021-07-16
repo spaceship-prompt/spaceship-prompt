@@ -9,6 +9,8 @@
 # Useful for issue reporting
 export SPACESHIP_VERSION='3.13.2'
 
+typeset -gAH SPACESHIP
+
 # Common-used variable for new line separator
 NEWLINE='
 '
@@ -117,16 +119,44 @@ source "$SPACESHIP_ROOT/scripts/info.sh"
 # Sourcing sections the prompt consists of
 # ------------------------------------------------------------------------------
 
-for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
-  if [[ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]]; then
-    source "$SPACESHIP_ROOT/sections/$section.zsh"
-  elif spaceship::defined "spaceship_$section"; then
-    # Custom section is declared, nothing else to do
-    continue
-  else
-    echo "Section '$section' was not loaded."
+# SPACESHIP[async]=true
+# SPACESHIP_CACHE[node] = 'node value'
+
+loading_sections() {
+  local load_async=false
+  local section_async_var section_async
+
+  # Iterate over sections
+  for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
+    if spaceship::defined "spaceship_$section"; then
+      # Custom section is declared, nothing else to do
+      continue
+    elif [[ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]]; then
+      source "$SPACESHIP_ROOT/sections/$section.zsh"
+    else
+      # section is not found!
+      # when this happens, we remove the section from the configured elements,
+      # so that we avoid printing errors over and over.
+      print -P "%F{yellow}Warning!%f The '%F{cyan}${section}%f' section was not found. Removing it from the prompt."
+      SPACESHIP_PROMPT_ORDER=("${(@)SPACESHIP_PROMPT_ORDER:#${section}}")
+      SPACESHIP_RPROMPT_ORDER=("${(@)SPACESHIP_RPROMPT_ORDER:#${section}}")
+    fi
+
+    section_async_var="SPACESHIP_${(U)section}_ASYNC"
+    section_async=${(P)section_async_var}
+
+    if ${section_async}; then
+      load_async=true
+      SPACESHIP[async]=true
+    fi
+  done
+
+  if ${load_async}; then
+    (( ASYNC_INIT_DONE )) || source "${SPACESHIP_ROOT}/async/async.zsh"
   fi
-done
+}
+
+loading_sections
 
 # ------------------------------------------------------------------------------
 # BACKWARD COMPATIBILITY WARNINGS
