@@ -217,6 +217,10 @@ prompt_spaceship_setup() {
   # initialized via promptinit.
   setopt noprompt{bang,cr,percent,subst} "prompt${^prompt_opts[@]}"
 
+  # Initialize builtin functions
+  zmodload zsh/datetime
+  zmodload zsh/mathfunc
+
   # initialize hooks
   autoload -Uz add-zsh-hook
 
