@@ -26,7 +26,8 @@ spaceship_pyenv() {
 
   local pyenv_status=${$(pyenv version-name 2>/dev/null)//:/ }
 
-  [[ $pyenv_status == system ]] && return
+  # Empty string can happen if .python-version points to non-existent venv
+  [[ $pyenv_status == "" || $pyenv_status == system ]] && return
 
   spaceship::section \
     "$SPACESHIP_PYENV_COLOR" \
