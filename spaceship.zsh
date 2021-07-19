@@ -11,11 +11,12 @@ export SPACESHIP_VERSION='3.14.0'
 
 typeset -gAh SPACESHIP
 
-# Common-used variable for new line separator
-NEWLINE='
-'
 typeset -gAh SPACESHIP_CACHE
 
+# Newline with zero-width space,
+# because last newline is trimmed in command expansion.
+# See: https://unix.stackexchange.com/a/248229
+local NEWLINE=$'\n\u200b'
 
 # Determination of Spaceship working directory
 # https://git.io/vdBH7
