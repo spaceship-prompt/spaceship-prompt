@@ -121,9 +121,6 @@ source "$SPACESHIP_ROOT/scripts/info.sh"
 # Sourcing sections the prompt consists of
 # ------------------------------------------------------------------------------
 
-# SPACESHIP[async]=true
-# SPACESHIP_CACHE[node] = 'node value'
-
 loading_sections() {
   local load_async=false
   local section_async_var section_async
@@ -144,10 +141,7 @@ loading_sections() {
       SPACESHIP_RPROMPT_ORDER=("${(@)SPACESHIP_RPROMPT_ORDER:#${section}}")
     fi
 
-    section_async_var="SPACESHIP_${(U)section}_ASYNC"
-    section_async=${(P)section_async_var}
-
-    if ${section_async}; then
+    if $(spaceship::is_section_async $section); then
       load_async=true
       SPACESHIP[async]=true
     fi
@@ -177,28 +171,7 @@ spaceship::deprecated SPACESHIP_PYENV_COLOR "Use %bSPACESHIP_PYTHON_COLOR%b inst
 # An entry point of prompt
 # ------------------------------------------------------------------------------
 
-# PROMPT
-# Primary (left) prompt
-spaceship_prompt() {
-  # Should it add a new line before the prompt?
-  [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
-
-  # Compose prompt from the order
-  spaceship::compose_prompt $SPACESHIP_PROMPT_ORDER
-}
-
-# $RPROMPT
-# Optional (right) prompt
-spaceship_rprompt() {
-  spaceship::compose_prompt $SPACESHIP_RPROMPT_ORDER
-}
-
-# PS2
-# Continuation interactive prompt
-spaceship_ps2() {
-  local char="${SPACESHIP_CHAR_SYMBOL_SECONDARY="$SPACESHIP_CHAR_SYMBOL"}"
-  spaceship::section "$SPACESHIP_CHAR_COLOR_SECONDARY" "$char"
-}
+# TODO: Update
 
 # ------------------------------------------------------------------------------
 # SETUP
@@ -237,11 +210,6 @@ prompt_spaceship_setup() {
   # Configure vcs_info helper for potential use in the future
   zstyle ':vcs_info:*' enable git
   zstyle ':vcs_info:git*' formats '%b'
-
-  # Expose Spaceship to environment variables
-  PROMPT='$(spaceship_prompt)'
-  PS2='$(spaceship_ps2)'
-  RPS1='$(spaceship_rprompt)'
 }
 
 # ------------------------------------------------------------------------------
