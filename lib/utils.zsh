@@ -38,6 +38,15 @@ spaceship::is_hg() {
   [[ -n "$root" ]] &>/dev/null
 }
 
+# Checks if the section is async or not
+# USAGE:
+#   spaceship::is_section_async <section>
+spaceship::is_section_async() {
+  local section="$1"
+  local async_option="SPACESHIP_${(U)section}_ASYNC"
+  [[ "${(P)async_option}" == true ]]
+}
+
 # Print message backward compatibility warning
 # USAGE:
 #  spaceship::deprecated <deprecated> [message]
