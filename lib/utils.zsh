@@ -87,3 +87,17 @@ spaceship::union() {
   typeset -U sections=("$@")
   echo $sections
 }
+
+# TODO: Add description
+spaceship::get_cache() {
+  echo -n "${SPACESHIP_CACHE[${1}]}"
+}
+
+spaceship::set_cache() {
+  local key="$1" value="$2"
+  SPACESHIP_CACHE[$key]="$value"
+}
+
+spaceship::clear_cache() {
+  SPACESHIP_CACHE=( )
+}
