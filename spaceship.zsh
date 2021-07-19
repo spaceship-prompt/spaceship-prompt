@@ -14,6 +14,8 @@ typeset -gAh SPACESHIP
 # Common-used variable for new line separator
 NEWLINE='
 '
+typeset -gAh SPACESHIP_CACHE
+
 
 # Determination of Spaceship working directory
 # https://git.io/vdBH7
