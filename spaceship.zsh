@@ -9,7 +9,7 @@
 # Useful for issue reporting
 export SPACESHIP_VERSION='3.13.2'
 
-typeset -gAH SPACESHIP
+typeset -gAh SPACESHIP
 
 # Common-used variable for new line separator
 NEWLINE='
@@ -233,7 +233,6 @@ prompt_spaceship_setup() {
   VIRTUAL_ENV_DISABLE_PROMPT=true
 
   # Configure vcs_info helper for potential use in the future
-  add-zsh-hook precmd spaceship_exec_vcs_info_precmd_hook
   zstyle ':vcs_info:*' enable git
   zstyle ':vcs_info:git*' formats '%b'
 

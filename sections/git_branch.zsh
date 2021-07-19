@@ -19,6 +19,8 @@ SPACESHIP_GIT_BRANCH_COLOR="${SPACESHIP_GIT_BRANCH_COLOR="magenta"}"
 spaceship_git_branch() {
   [[ $SPACESHIP_GIT_BRANCH_SHOW == false ]] && return
 
+  vcs_info
+
   local git_current_branch="$vcs_info_msg_0_"
   [[ -z "$git_current_branch" ]] && return
 
