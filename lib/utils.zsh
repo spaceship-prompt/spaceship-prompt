@@ -43,6 +43,23 @@ spaceship::is_hg() {
 #   spaceship::is_section_async <section>
 spaceship::is_section_async() {
   local section="$1"
+  local sync_sections=(
+    user
+    dir
+    host
+    exec_time
+    line_sep
+    vi_mode
+    jobs
+    exit_code
+    char
+  )
+
+  # Some sections must be always sync
+  if (( $sync_sections[(Ie)$section] )); then
+    return 1
+  fi
+
   local async_option="SPACESHIP_${(U)section}_ASYNC"
   [[ "${(P)async_option}" == true ]]
 }
