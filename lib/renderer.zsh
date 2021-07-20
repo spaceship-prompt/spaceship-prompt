@@ -8,7 +8,6 @@
 #   spaceship::load_sections
 spaceship::load_sections() {
   local load_async=false
-  local section_async_var section_async
 
   # Iterate over sections
   for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
@@ -28,12 +27,12 @@ spaceship::load_sections() {
 
     if $(spaceship::is_section_async $section); then
       load_async=true
-      SPACESHIP[async]=true
     fi
   done
 
   if ${load_async}; then
     (( ASYNC_INIT_DONE )) || source "${SPACESHIP_ROOT}/async/async.zsh"
+    SPACESHIP[async]=true
   fi
 }
 
@@ -54,7 +53,7 @@ spaceship::build_section_cache() {
   spaceship::set_cache open "$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
 
   for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
-    if $(spaceship::is_section_async $section); then
+    if $(spaceship::is_async) && $(spaceship::is_section_async $section); then
       # TODO: Count started jobs
       async_job "spaceship" "spaceship_${section}"
     else
