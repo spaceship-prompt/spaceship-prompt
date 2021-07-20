@@ -1,6 +1,3 @@
-# Internal variable for checking if prompt is opened
-spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
-
 # Draw prompt section (bold is used as default)
 # USAGE:
 #   spaceship::section <color> [prefix] <content> [suffix]
@@ -13,12 +10,15 @@ spaceship::section() {
 
   [[ -z $3 && -z $4 ]] && content=$2 prefix=''
 
+  local is_prompt_open=$(spaceship::get_cache open)
+
   echo -n "%{%B%}" # set bold
-  if [[ $spaceship_prompt_opened == true ]] && [[ $SPACESHIP_PROMPT_PREFIXES_SHOW == true ]]; then
+  if [[ $is_prompt_open == true ]] && [[ $SPACESHIP_PROMPT_PREFIXES_SHOW == true ]]; then
     echo -n "$prefix"
   fi
-  spaceship_prompt_opened=true
   echo -n "%{%b%}" # unset bold
+
+  spaceship::set_cache open "true"
 
   echo -n "%{%B$color%}" # set color
   echo -n "$content"     # section content
@@ -65,6 +65,7 @@ spaceship::build_section_cache() {
   setopt EXTENDED_GLOB LOCAL_OPTIONS
 
   spaceship::clear_cache
+  spaceship::set_cache open "$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
 
   for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
     if $(spaceship::is_section_async $section); then

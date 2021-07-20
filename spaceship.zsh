@@ -11,6 +11,9 @@ export SPACESHIP_VERSION='3.13.2'
 
 typeset -gAh SPACESHIP
 
+SPACESHIP[async]=false
+SPACESHIP[cache_file]="${XDG_RUNTIME_DIR:-$TMPDIR}/spaceship_cache.${UID}.zsh"
+
 typeset -gAh SPACESHIP_CACHE
 
 # Newline with zero-width space,
