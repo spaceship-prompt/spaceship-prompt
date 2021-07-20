@@ -111,52 +111,20 @@ SPACESHIP_PROMPT_DEFAULT_SUFFIX="${SPACESHIP_PROMPT_DEFAULT_SUFFIX=" "}"
 # Load utils
 source "$SPACESHIP_ROOT/lib/utils.zsh"
 
-# load hooks
+# Load hooks
 source "$SPACESHIP_ROOT/lib/hooks.zsh"
 
-# load section utils
+# Load section utils
 source "$SPACESHIP_ROOT/lib/section.zsh"
 
-# load environment detection
+# Load prompt renderer
+source "$SPACESHIP_ROOT/lib/renderer.zsh"
+
+# Load functions for composing prompts
+source "$SPACESHIP_ROOT/lib/prompts.zsh"
+
+# Load environment detection
 source "$SPACESHIP_ROOT/scripts/info.sh"
-
-# ------------------------------------------------------------------------------
-# SECTIONS
-# Sourcing sections the prompt consists of
-# ------------------------------------------------------------------------------
-
-loading_sections() {
-  local load_async=false
-  local section_async_var section_async
-
-  # Iterate over sections
-  for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
-    if spaceship::defined "spaceship_$section"; then
-      # Custom section is declared, nothing else to do
-      continue
-    elif [[ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]]; then
-      source "$SPACESHIP_ROOT/sections/$section.zsh"
-    else
-      # section is not found!
-      # when this happens, we remove the section from the configured elements,
-      # so that we avoid printing errors over and over.
-      print -P "%F{yellow}Warning!%f The '%F{cyan}${section}%f' section was not found. Removing it from the prompt."
-      SPACESHIP_PROMPT_ORDER=("${(@)SPACESHIP_PROMPT_ORDER:#${section}}")
-      SPACESHIP_RPROMPT_ORDER=("${(@)SPACESHIP_RPROMPT_ORDER:#${section}}")
-    fi
-
-    if $(spaceship::is_section_async $section); then
-      load_async=true
-      SPACESHIP[async]=true
-    fi
-  done
-
-  if ${load_async}; then
-    (( ASYNC_INIT_DONE )) || source "${SPACESHIP_ROOT}/async/async.zsh"
-  fi
-}
-
-loading_sections
 
 # ------------------------------------------------------------------------------
 # BACKWARD COMPATIBILITY WARNINGS
@@ -169,13 +137,6 @@ spaceship::deprecated SPACESHIP_PYENV_PREFIX "Use %BSPACESHIP_PYTHON_PREFIX%b in
 spaceship::deprecated SPACESHIP_PYENV_SUFFIX "Use %BSPACESHIP_PYTHON_SUFFIX%b instead"
 spaceship::deprecated SPACESHIP_PYENV_SYMBOL "Use %BSPACESHIP_PYTHON_SYMBOL%b instead"
 spaceship::deprecated SPACESHIP_PYENV_COLOR "Use %bSPACESHIP_PYTHON_COLOR%b instead"
-
-# ------------------------------------------------------------------------------
-# PROMPTS
-# An entry point of prompt
-# ------------------------------------------------------------------------------
-
-# TODO: Update
 
 # ------------------------------------------------------------------------------
 # SETUP
@@ -214,6 +175,9 @@ prompt_spaceship_setup() {
   # Configure vcs_info helper for potential use in the future
   zstyle ':vcs_info:*' enable git
   zstyle ':vcs_info:git*' formats '%b'
+
+  # Load sections before rendering
+  spaceship::load_sections
 }
 
 # ------------------------------------------------------------------------------
