@@ -90,14 +90,27 @@ spaceship::union() {
 
 # TODO: Add description
 spaceship::get_cache() {
+  if [[ "${SPACESHIP[async]}" == true ]]; then
+    source "${SPACESHIP[cache_file]}"
+  fi
+
   echo -n "${SPACESHIP_CACHE[${1}]}"
 }
 
 spaceship::set_cache() {
   local key="$1" value="$2"
+
+  if [[ "${SPACESHIP[async]}" == true ]]; then
+    echo "SPACESHIP_CACHE[$1]='$2'" >>| "${SPACESHIP[cache_file]}"
+  fi
+
   SPACESHIP_CACHE[$key]="$value"
 }
 
 spaceship::clear_cache() {
+  if [[ "${SPACESHIP[async]}" == true ]]; then
+    echo '' >| "${SPACESHIP[cache_file]}"
+  fi
+
   SPACESHIP_CACHE=( )
 }
