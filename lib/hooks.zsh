@@ -20,6 +20,7 @@ spaceship_exec_time_stop() {
   unset SPACESHIP_EXEC_TIME_start
 }
 
+# A hook before every command
 prompt_spaceship_precmd() {
   # Retrieve exit code of last command to use in exit_code
   # Must be captured before any other command in prompt is executed
@@ -32,7 +33,7 @@ prompt_spaceship_precmd() {
   spaceship_exec_time_stop
 
   # Restarts the async worker, in order to get an update-to-date shell environment
-  if [[ "${SPACESHIP[async]}" == true ]]; then
+  if $(spaceship::is_async); then
     async_stop_worker "spaceship"
     async_start_worker "spaceship" #-n
     # setopt before call register to avoid callback by async_worker_eval
@@ -44,9 +45,10 @@ prompt_spaceship_precmd() {
   spaceship::build_section_cache
 }
 
+# A hook right before the command is started executing
 prompt_spaceship_preexec() {
   # Stop running prompt async jobs
-  if [[ "${SPACESHIP[async]}" == true ]]; then
+  if $(spaceship::is_async); then
     async_flush_jobs "spaceship"
   fi
 
@@ -54,8 +56,9 @@ prompt_spaceship_preexec() {
   spaceship_exec_time_start
 }
 
+# A hook after changing the working directory
 prompt_spaceship_chpwd() {
-  if [[ "${SPACESHIP[async]}" == true ]]; then
+  if $(spaceship::is_async); then
     async_worker_eval "spaceship" 'cd' "$PWD"
   fi
 

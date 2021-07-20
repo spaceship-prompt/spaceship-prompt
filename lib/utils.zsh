@@ -64,6 +64,13 @@ spaceship::is_section_async() {
   [[ "${(P)async_option}" == true ]]
 }
 
+# Check if async is available and there is an async section
+# USAGE:
+#   spaceship::is_async
+spaceship::is_async() {
+  (( ASYNC_INIT_DONE )) && [[ "${SPACESHIP[async]}" == true ]]
+}
+
 # Print message backward compatibility warning
 # USAGE:
 #  spaceship::deprecated <deprecated> [message]
