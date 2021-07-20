@@ -4,8 +4,6 @@
 # custom hooks for sections
 # ------------------------------------------------------------------------------
 
-# TODO: Let sections register their own hooks via `spaceship::register_hook`
-
 # Execution time start
 spaceship_exec_time_start() {
   [[ $SPACESHIP_EXEC_TIME_SHOW == false ]] && return
@@ -58,7 +56,6 @@ prompt_spaceship_preexec() {
 
 prompt_spaceship_chpwd() {
   if [[ "${SPACESHIP[async]}" == true ]]; then
-    # echo "\nchpwd $PWD"
     async_worker_eval "spaceship" 'cd' "$PWD"
   fi
 

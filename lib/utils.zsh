@@ -88,26 +88,39 @@ spaceship::union() {
   echo $sections
 }
 
-# TODO: Add description
+# Get cache value from a given key
+# USAGE:
+#   spaceship::get_cache_value <key>
 spaceship::get_cache() {
+  local key="$1"
+
+  # Source cache file to make cache work in multiple shells
   if [[ "${SPACESHIP[async]}" == true ]]; then
     source "${SPACESHIP[cache_file]}"
   fi
 
-  echo -n "${SPACESHIP_CACHE[${1}]}"
+  echo -n "${SPACESHIP_CACHE[$key]}"
 }
 
+# Set cache value for a given key
+# USAGE:
+#   spaceship::set_cache_value <key> <value>
 spaceship::set_cache() {
   local key="$1" value="$2"
 
+  # Write to the cache file to make cache work in multiple shells
   if [[ "${SPACESHIP[async]}" == true ]]; then
-    echo "SPACESHIP_CACHE[$1]='$2'" >>| "${SPACESHIP[cache_file]}"
+    echo "SPACESHIP_CACHE[$key]='$value'" >>| "${SPACESHIP[cache_file]}"
   fi
 
   SPACESHIP_CACHE[$key]="$value"
 }
 
+# Clear cache
+# USAGE:
+#   spaceship::clear_cache
 spaceship::clear_cache() {
+  # Clear cache file to make cache work in multiple shells
   if [[ "${SPACESHIP[async]}" == true ]]; then
     echo '' >| "${SPACESHIP[cache_file]}"
   fi
