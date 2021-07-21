@@ -1,3 +1,10 @@
+## [3.13.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.2...v3.13.3) (2021-07-21)
+
+
+### Bug Fixes
+
+* fix maven 3.5.0 bug ([#1053](https://github.com/spaceship-prompt/spaceship-prompt/issues/1053)) ([c24ff52](https://github.com/spaceship-prompt/spaceship-prompt/commit/c24ff52e7a1256900fce9ca6750fdaa9c1958129))
+
 ## [3.13.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.1...v3.13.2) (2021-07-12)
 
 
