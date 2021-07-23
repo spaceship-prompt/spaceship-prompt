@@ -14,8 +14,6 @@ typeset -gAh SPACESHIP
 SPACESHIP[async]=false
 SPACESHIP[cache_file]="${XDG_RUNTIME_DIR:-$TMPDIR}/spaceship_cache.${UID}.zsh"
 
-typeset -gAh SPACESHIP_CACHE
-
 # Newline with zero-width space,
 # because last newline is trimmed in command expansion.
 # See: https://unix.stackexchange.com/a/248229
@@ -110,6 +108,9 @@ SPACESHIP_PROMPT_DEFAULT_SUFFIX="${SPACESHIP_PROMPT_DEFAULT_SUFFIX=" "}"
 
 # Load utils
 source "$SPACESHIP_ROOT/lib/utils.zsh"
+
+# Load cache
+source "$SPACESHIP_ROOT/lib/cache.zsh"
 
 # Load hooks
 source "$SPACESHIP_ROOT/lib/hooks.zsh"
