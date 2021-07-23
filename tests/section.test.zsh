@@ -11,7 +11,10 @@ SHUNIT_PARENT=$0
 oneTimeSetUp() {
   export TERM="xterm-256color"
 
+  typeset -gAh SPACESHIP_CACHE
+
   source lib/utils.zsh
+  source lib/renderer.zsh
   source lib/section.zsh
 }
 
@@ -47,30 +50,11 @@ test_section() {
 
   assertEquals "render full section with suffix" "$expected_suffix" "$actual_suffix"
 
-  spaceship_prompt_opened=true
+  spaceship::set_cache open "true"
   local expected="%{%B%}$prefix%{%b%}%{%B%F{$color}%}$content%{%b%f%}%{%B%}$suffix%{%b%}"
   local actual="$(spaceship::section $color $prefix $content $suffix)"
 
   assertEquals "render full section with prefix and suffix" "$expected" "$actual"
-}
-
-test_compose_prompt() {
-  spaceship_foo() { echo -n 'foo' }
-  spaceship_bar() { echo -n 'bar' }
-
-  local TEST_SPACESHIP_ORDER=(foo bar)
-
-  local expected="foobar"
-  local actual="$(spaceship::compose_prompt $TEST_SPACESHIP_ORDER)"
-
-  assertEquals "render spaceship sections" "$expected" "$actual"
-
-  local TEST_SPACESHIP_ORDER_NOT_FOUND=(foo bar baz)
-
-  local expected_not_found="foobar%{%B%}%{%b%}%{%B%F{red}%}'baz' not found%{%b%f%}%{%B%}%{%b%}"
-  local actual_not_found="$(spaceship::compose_prompt $TEST_SPACESHIP_ORDER_NOT_FOUND)"
-
-  assertEquals "render missing sections" "$expected_not_found" "$actual_not_found"
 }
 
 # ------------------------------------------------------------------------------
