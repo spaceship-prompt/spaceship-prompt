@@ -60,6 +60,11 @@ spaceship::is_section_async() {
     return 1
   fi
 
+  # If user disabled async rendering for whole prompt
+  if [[ "$SPACESHIP_PROMPT_ASYNC" != true ]]; then
+    return 1
+  fi
+
   local async_option="SPACESHIP_${(U)section}_ASYNC"
   [[ "${(P)async_option}" == true ]]
 }
@@ -68,7 +73,7 @@ spaceship::is_section_async() {
 # USAGE:
 #   spaceship::is_async
 spaceship::is_async() {
-  (( ASYNC_INIT_DONE )) && [[ "${SPACESHIP[async]}" == true ]]
+  [[ "$SPACESHIP_PROMPT_ASYNC" == true ]] && (( ASYNC_INIT_DONE ))
 }
 
 # Print message backward compatibility warning
