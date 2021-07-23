@@ -114,3 +114,14 @@ spaceship::async_render() {
   # https://github.com/zsh-users/zsh-autosuggestions/issues/107#issuecomment-183824034
   zle .reset-prompt && zle -R
 }
+
+# Compose whole prompt from sections
+# USAGE:
+#   spaceship::compose_prompt [section...]
+spaceship::compose_prompt() {
+  # Treat the first argument as list of prompt sections
+  # Compose whole prompt from diferent parts
+  for section in $@; do
+    spaceship::get_cache "$section"
+  done
+}

@@ -3,17 +3,6 @@
 # Compose prompts for different prompt variables.
 # ------------------------------------------------------------------------------
 
-# Compose whole prompt from sections
-# USAGE:
-#   spaceship::compose_prompt [section...]
-spaceship::compose_prompt() {
-  # Treat the first argument as list of prompt sections
-  # Compose whole prompt from diferent parts
-  for section in $@; do
-    spaceship::get_cache "$section"
-  done
-}
-
 # PROMPT
 # Primary (left) prompt
 spaceship::prompt() {
