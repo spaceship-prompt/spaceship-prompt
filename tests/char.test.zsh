@@ -16,6 +16,11 @@ oneTimeSetUp() {
   SPACESHIP_PROMPT_ORDER=(char)
 
   source spaceship.zsh
+
+  spaceship_render_prompt() {
+    prompt_spaceship_precmd
+    spaceship::prompt "$*"
+  }
 }
 
 setUp() {
@@ -50,8 +55,7 @@ test_char() {
   SPACESHIP_CHAR_COLOR_SUCCESS=blue
 
   local expected="%{%B%}%{%b%}%{%B%F{$SPACESHIP_CHAR_COLOR_SUCCESS}%}➜ %{%b%f%}%{%B%}%{%b%}"
-  prompt_spaceship_precmd
-  local actual="$(spaceship::prompt)"
+  local actual="$(spaceship_render_prompt)"
 
   assertEquals "render char" "$expected" "$actual"
 }
@@ -61,8 +65,7 @@ test_char_failure() {
 
   local expected="%{%B%}%{%b%}%{%B%F{$SPACESHIP_CHAR_COLOR_FAILURE}%}➜ %{%b%f%}%{%B%}%{%b%}"
   command false # this command should exit with non-zero code
-  prompt_spaceship_precmd
-  local actual="$(spaceship::prompt)"
+  local actual="$(spaceship_render_prompt)"
 
   assertEquals "render char with failure" "$expected" "$actual"
 }
@@ -71,8 +74,7 @@ test_char_symbol() {
   SPACESHIP_CHAR_SYMBOL='-> '
 
   local expected="%{%B%}%{%b%}%{%B%F{green}%}$SPACESHIP_CHAR_SYMBOL%{%b%f%}%{%B%}%{%b%}"
-  prompt_spaceship_precmd
-  local actual="$(spaceship::prompt)"
+  local actual="$(spaceship_render_prompt)"
 
   assertEquals "render char with custom symbol" "$expected" "$actual"
 }
@@ -83,7 +85,7 @@ test_char_prefix() {
 
   local expected="%{%B%}$SPACESHIP_CHAR_PREFIX%{%b%}%{%B%F{green}%}➜ %{%b%f%}%{%B%}$SPACESHIP_CHAR_SUFFIX%{%b%}"
   prompt_spaceship_precmd
-  local actual="$(spaceship::prompt)"
+  local actual="$(spaceship_render_prompt)"
 
   assertEquals "render char with prefix" "$expected" "$actual"
 }
@@ -93,8 +95,7 @@ test_char_suffix() {
   SPACESHIP_CHAR_SUFFIX='suffix'
 
   local expected="%{%B%}$SPACESHIP_CHAR_PREFIX%{%b%}%{%B%F{green}%}➜ %{%b%f%}%{%B%}$SPACESHIP_CHAR_SUFFIX%{%b%}"
-  prompt_spaceship_precmd
-  local actual="$(spaceship::prompt)"
+  local actual="$(spaceship_render_prompt)"
 
   assertEquals "render char with suffix" "$expected" "$actual"
 }
