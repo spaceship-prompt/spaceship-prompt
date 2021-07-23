@@ -67,22 +67,6 @@ test_exec_time_precmd_hook() {
   assertNull "should not calculate duration" "$SPACESHIP_EXEC_TIME_duration"
 }
 
-test_exec_vcs_info_precmd_hook() {
-  local info_mock="vcs_info"
-  vcs_info() { echo -n $info_mock }
-
-  local expected="$info_mock"
-  local actual="$(spaceship_exec_vcs_info_precmd_hook)"
-
-  assertEquals "call vcs_info" "$expected" "$actual"
-
-  SPACESHIP_GIT_BRANCH_SHOW=false
-  local expected_skip=""
-  local actual_skip="$(spaceship_exec_vcs_info_precmd_hook)"
-
-  assertEquals "should not call vcs_info hook" "$expected_skip" "$actual_skip"
-}
-
 # ------------------------------------------------------------------------------
 # SHUNIT2
 # Run tests with shunit2
