@@ -19,8 +19,7 @@ setUp() {
   touch "$CACHE_FILE"
 
   # Mock runtime variables
-  typeset -gAh SPACESHIP
-  SPACESHIP[cache_file]="$CACHE_FILE"
+  SPACESHIP_CACHE_FILE="$CACHE_FILE"
 }
 
 tearDown() {

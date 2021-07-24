@@ -3,6 +3,8 @@
 # Spaceship storage for data, works in multiple threads
 # ------------------------------------------------------------------------------
 
+readonly SPACESHIP_CACHE_FILE="${XDG_RUNTIME_DIR:-$TMPDIR}/spaceship_cache.${UID}.zsh"
+
 # Declare a cache variable
 typeset -gAh SPACESHIP_CACHE
 
@@ -14,7 +16,7 @@ spaceship::get_cache() {
 
   # Source cache file to make cache work in multiple shells
   if $(spaceship::is_async); then
-    source "${SPACESHIP[cache_file]}"
+    source "${SPACESHIP_CACHE_FILE}"
   fi
 
   echo -n "${SPACESHIP_CACHE[$key]}"
@@ -28,7 +30,7 @@ spaceship::set_cache() {
 
   # Write to the cache file to make cache work in multiple shells
   if $(spaceship::is_async); then
-    echo "SPACESHIP_CACHE[$key]='$value'" >>| "${SPACESHIP[cache_file]}"
+    echo "SPACESHIP_CACHE[$key]='$value'" >>| "${SPACESHIP_CACHE_FILE}"
   fi
 
   SPACESHIP_CACHE[$key]="$value"
@@ -40,7 +42,7 @@ spaceship::set_cache() {
 spaceship::clear_cache() {
   # Clear cache file to make cache work in multiple shells
   if $(spaceship::is_async); then
-    echo '' >| "${SPACESHIP[cache_file]}"
+    echo '' >| "${SPACESHIP_CACHE_FILE}"
   fi
 
   SPACESHIP_CACHE=( )
