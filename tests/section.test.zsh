@@ -13,6 +13,7 @@ oneTimeSetUp() {
 
   typeset -gAh SPACESHIP_CACHE
 
+  source lib/cache.zsh
   source lib/utils.zsh
   source lib/renderer.zsh
   source lib/section.zsh
