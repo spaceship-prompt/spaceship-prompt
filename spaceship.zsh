@@ -9,11 +9,6 @@
 # Useful for issue reporting
 export SPACESHIP_VERSION='3.13.2'
 
-typeset -gAh SPACESHIP
-
-SPACESHIP[async]=false
-SPACESHIP[cache_file]="${XDG_RUNTIME_DIR:-$TMPDIR}/spaceship_cache.${UID}.zsh"
-
 # Newline with zero-width space,
 # because last newline is trimmed in command expansion.
 # See: https://unix.stackexchange.com/a/248229
