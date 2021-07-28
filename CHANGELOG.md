@@ -1,3 +1,10 @@
+## [3.13.4](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.3...v3.13.4) (2021-07-28)
+
+
+### Bug Fixes
+
+* Prevent unintended output when `dotnet --version` fails ([#1054](https://github.com/spaceship-prompt/spaceship-prompt/issues/1054)) ([d18449a](https://github.com/spaceship-prompt/spaceship-prompt/commit/d18449a93600b20c2b318beafcabb584b4d3c3d5))
+
 ## [3.13.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.2...v3.13.3) (2021-07-21)
 
 
