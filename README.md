@@ -89,7 +89,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
   - `!` — unstaged changes;
   - `✘` — deleted files;
 - Indicator for jobs in the background (`✦`).
-- Current Node.js version, through nvm/nodenv/n (`⬢`).
+- Current Node.js version, through fnm/nvm/nodenv/n (`⬢`).
 - Current Ruby version, through rvm/rbenv/chruby/asdf (`💎`).
 - Current Python version (`🐍`).
 - Current Elm version (`🌳`)
