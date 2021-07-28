@@ -1,3 +1,10 @@
+# [3.14.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.4...v3.14.0) (2021-07-28)
+
+
+### Features
+
+* **node:** Added support for fnm ([#1058](https://github.com/spaceship-prompt/spaceship-prompt/issues/1058)) ([b92b7d2](https://github.com/spaceship-prompt/spaceship-prompt/commit/b92b7d2ecb8ded6b1a0ff72617f0106bbe8dcc69))
+
 ## [3.13.4](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.3...v3.13.4) (2021-07-28)
 
 
