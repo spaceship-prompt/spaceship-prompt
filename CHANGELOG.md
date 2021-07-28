@@ -1,3 +1,24 @@
+# [3.14.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.4...v3.14.0) (2021-07-28)
+
+
+### Features
+
+* **node:** Added support for fnm ([#1058](https://github.com/spaceship-prompt/spaceship-prompt/issues/1058)) ([b92b7d2](https://github.com/spaceship-prompt/spaceship-prompt/commit/b92b7d2ecb8ded6b1a0ff72617f0106bbe8dcc69))
+
+## [3.13.4](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.3...v3.13.4) (2021-07-28)
+
+
+### Bug Fixes
+
+* Prevent unintended output when `dotnet --version` fails ([#1054](https://github.com/spaceship-prompt/spaceship-prompt/issues/1054)) ([d18449a](https://github.com/spaceship-prompt/spaceship-prompt/commit/d18449a93600b20c2b318beafcabb584b4d3c3d5))
+
+## [3.13.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.2...v3.13.3) (2021-07-21)
+
+
+### Bug Fixes
+
+* fix maven 3.5.0 bug ([#1053](https://github.com/spaceship-prompt/spaceship-prompt/issues/1053)) ([c24ff52](https://github.com/spaceship-prompt/spaceship-prompt/commit/c24ff52e7a1256900fce9ca6750fdaa9c1958129))
+
 ## [3.13.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.1...v3.13.2) (2021-07-12)
 
 
