@@ -102,6 +102,8 @@ test_is_section_async() {
   assertFalse "host section should be always false" '$(spaceship::is_section_async host)'
   SPACESHIP_EXEC_TIME_ASYNC=true
   assertFalse "exec_time section should be always false" '$(spaceship::is_section_async exec_time)'
+  SPACESHIP_ASYNC_ASYNC=true
+  assertFalse "async section should be always false" '$(spaceship::is_section_async async)'
   SPACESHIP_LINE_SEP_ASYNC=true
   assertFalse "line_sep section should be always false" '$(spaceship::is_section_async line_sep)'
   SPACESHIP_JOBS_ASYNC=true

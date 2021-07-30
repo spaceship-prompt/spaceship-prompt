@@ -51,9 +51,6 @@ spaceship::start_async_jobs() {
       async_job "spaceship" "spaceship_${section}"
     fi
   done
-
-  # Initiate the first render
-  spaceship::render
 }
 
 # Render the prompt. Compose variables using prompt functoins.
@@ -113,6 +110,12 @@ spaceship::async_render() {
 # USAGE:
 #   spaceship::compose_prompt [section...]
 spaceship::compose_prompt() {
+  # Option EXTENDED_GLOB is set locally to force filename generation on
+  # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
+  # See the description of filename generation in
+  # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
+  setopt EXTENDED_GLOB LOCAL_OPTIONS
+
   # Reset the first prefix value
   _spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
 

@@ -29,12 +29,6 @@ prompt_spaceship_precmd() {
   RETVAL=$?
   RETVALS=("$pipestatus[@]")
 
-  # Option EXTENDED_GLOB is set locally to force filename generation on
-  # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
-  # See the description of filename generation in
-  # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
-  setopt EXTENDED_GLOB LOCAL_OPTIONS
-
   # Stop measuring exec_time, must be the first precmd action
   spaceship_exec_time_stop
 
@@ -49,6 +43,9 @@ prompt_spaceship_precmd() {
     # Kick off async jobs
     spaceship::start_async_jobs
   fi
+
+  # Initiate the first render
+  spaceship::render
 }
 
 # A hook right before the command is started executing
