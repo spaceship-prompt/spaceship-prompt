@@ -48,6 +48,7 @@ spaceship::is_section_async() {
     dir
     host
     exec_time
+    async
     line_sep
     vi_mode
     jobs
