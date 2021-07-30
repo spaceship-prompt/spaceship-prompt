@@ -11,11 +11,6 @@ SHUNIT_PARENT=$0
 oneTimeSetUp() {
   export TERM="xterm-256color"
 
-  typeset -gAh SPACESHIP_CACHE
-
-  source lib/cache.zsh
-  source lib/utils.zsh
-  source lib/renderer.zsh
   source lib/section.zsh
 }
 
@@ -34,26 +29,54 @@ tearDown() {
 # ------------------------------------------------------------------------------
 
 test_section() {
+  local delimiter="·|·"
+
   local color="cyan" content="content" prefix="prefix" suffix="suffix"
 
-  local expected_none="%{%B%}%{%b%}%{%B%f%}%{%b%f%}%{%B%}%{%b%}"
+  local expected_none="$delimiter$delimiter$delimiter"
   local actual_none="$(spaceship::section)"
 
-  assertEquals "render section without arguments" "$expected_none" "$actual_none"
+  assertEquals "section without arguments" "$expected_none" "$actual_none"
 
-  local expected_short="%{%B%}%{%b%}%{%B%F{$color}%}$content%{%b%f%}%{%B%}%{%b%}"
+  local expected_short="$color$delimiter$delimiter$content$delimiter"
   local actual_short="$(spaceship::section $color $content)"
+
+  assertEquals "short section" "$expected_short" "$actual_short"
+
+  local expected_suffix="$color$delimiter$prefix$delimiter$content$delimiter$suffix"
+  local actual_suffix="$(spaceship::section $color $prefix $content $suffix)"
+
+  assertEquals "full section" "$expected_suffix" "$actual_suffix"
+}
+
+test_render_section() {
+  local delimiter="·|·"
+  local input=""
+
+  local color="cyan" content="content" prefix="prefix" suffix="suffix"
+
+  input="$delimiter$delimiter$delimiter"
+  local actual_none="$(spaceship::render_section $input)"
+  local expected_none=""
+
+  assertEquals "render empty section" "$expected_none" "$actual_none"
+
+  input="$color$delimiter$delimiter$content$delimiter"
+  local actual_short="$(spaceship::render_section $input)"
+  local expected_short="%{%B%}%{%b%}%{%B%F{$color}%}$content%{%b%f%}%{%B%}%{%b%}"
 
   assertEquals "render short section" "$expected_short" "$actual_short"
 
+  input="$color$delimiter$prefix$delimiter$content$delimiter$suffix"
+  local actual_suffix="$(spaceship::render_section $input)"
   local expected_suffix="%{%B%}%{%b%}%{%B%F{$color}%}$content%{%b%f%}%{%B%}$suffix%{%b%}"
-  local actual_suffix="$(spaceship::section $color $prefix $content $suffix)"
 
   assertEquals "render full section with suffix" "$expected_suffix" "$actual_suffix"
 
-  spaceship::set_cache open "true"
+  _spaceship_prompt_opened=true
+  input="$color$delimiter$prefix$delimiter$content$delimiter$suffix"
+  local actual="$(spaceship::render_section $input)"
   local expected="%{%B%}$prefix%{%b%}%{%B%F{$color}%}$content%{%b%f%}%{%B%}$suffix%{%b%}"
-  local actual="$(spaceship::section $color $prefix $content $suffix)"
 
   assertEquals "render full section with prefix and suffix" "$expected" "$actual"
 }

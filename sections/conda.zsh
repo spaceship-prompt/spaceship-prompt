@@ -33,7 +33,6 @@ spaceship_conda() {
     conda_env=${CONDA_DEFAULT_ENV:t}
   fi
 
-
   spaceship::section \
     "$SPACESHIP_CONDA_COLOR" \
     "$SPACESHIP_CONDA_PREFIX" \
