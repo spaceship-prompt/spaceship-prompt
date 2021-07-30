@@ -3,6 +3,9 @@
 # Tools for loading sections, building sections and invoking the renderer
 # ------------------------------------------------------------------------------
 
+# Unique array of async jobs
+typeset -aU SPACESHIP_JOBS=()
+
 # Loads the sections from files and functions
 # USAGE:
 #   spaceship::load_sections
@@ -37,26 +40,15 @@ spaceship::load_sections() {
 
 # Iterate over sections, start async jobs and store results in cache
 # USAGE:
-#   spaceship::build_section_cache
-spaceship::build_section_cache() {
-  # Option EXTENDED_GLOB is set locally to force filename generation on
-  # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
-  # See the description of filename generation in
-  # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
-  setopt EXTENDED_GLOB LOCAL_OPTIONS
-
+#   spaceship::start_async_jobs
+spaceship::start_async_jobs() {
   # Clear the cache before every render
   spaceship::clear_cache
 
-  # Reset the first prefix value
-  spaceship::set_cache open "$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
-
   for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
-    if $(spaceship::is_async) && $(spaceship::is_section_async $section); then
-      # TODO: Count started jobs
+    if $(spaceship::is_section_async $section); then
+      SPACESHIP_JOBS+=("$section")
       async_job "spaceship" "spaceship_${section}"
-    else
-      spaceship::set_cache "$section" "$(spaceship_${section})"
     fi
   done
 
@@ -80,9 +72,12 @@ spaceship::async_callback() {
 
   section="${job#"spaceship_"}" # TODO: Move spaceship_ to a constant
 
-  # Skip prompt re-rendering if both placeholder and section content are empty,
-  # or section cache is unchanged
-  if [[ "$(spaceship::get_cache $section)" == "$output" ]]; then
+  SPACESHIP_JOBS=("${(@)SPACESHIP_JOBS:#${section}}")
+
+  # Skip prompt re-rendering if section is empty
+  # Do not skip re-rendering when the last async job has finished
+  if [[ "$(spaceship::get_cache $section)" == "$output" ]] \
+  && [[ ${#SPACESHIP_JOBS} -ne 0 ]]; then
     return
   fi
 
@@ -118,9 +113,21 @@ spaceship::async_render() {
 # USAGE:
 #   spaceship::compose_prompt [section...]
 spaceship::compose_prompt() {
+  # Reset the first prefix value
+  _spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
+
   # Treat the first argument as list of prompt sections
   # Compose whole prompt from diferent parts
   for section in $@; do
-    spaceship::get_cache "$section"
+    local output="" meta=()
+    local color="" prefix="" content="" suffix=""
+
+    if $(spaceship::is_async) && $(spaceship::is_section_async $section); then
+      output="$(spaceship::get_cache $section)"
+    else
+      output="$(spaceship_$section)"
+    fi
+
+    spaceship::render_section "$output"
   done
 }

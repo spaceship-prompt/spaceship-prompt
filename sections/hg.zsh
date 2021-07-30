@@ -29,9 +29,13 @@ source "$SPACESHIP_ROOT/sections/hg_status.zsh"
 spaceship_hg() {
   [[ $SPACESHIP_HG_SHOW == false ]] && return
 
-  local hg_branch="$(spaceship_hg_branch)" hg_status="$(spaceship_hg_status)"
-
   [[ -z $hg_branch ]] && return
+
+  local hg_branch="$(spaceship_hg_branch)"
+  local hg_status="$(spaceship_hg_status)"
+
+  local hg_branch_section="$(spaceship::render_section $hg_branch)"
+  local hg_branch_status="$(spaceship::render_section $hg_status)"
 
   spaceship::section \
     'white' \
