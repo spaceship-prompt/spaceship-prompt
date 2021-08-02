@@ -23,6 +23,7 @@ The default order is:
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stamps section
   user          # Username section
+  screen        # GNU Screen section
   dir           # Current directory section
   host          # Hostname section
   git           # Git section (git_branch + git_status)
@@ -135,6 +136,19 @@ Hostname is shown only when you're connected via SSH unless you change this beha
 | `SPACESHIP_HOST_SUFFIX`    | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the connected SSH machine name     |
 | `SPACESHIP_HOST_COLOR`     |               `blue`               | Color of host section                           |
 | `SPACESHIP_HOST_COLOR_SSH` |              `green`               | Color of host in SSH connection                 |
+
+### GNU Screen (`screen`)
+
+Screen is shown only when you're attached to a session.
+
+| Variable                        |              Default               | Meaning                                          |
+| :------------------------------ | :--------------------------------: | ------------------------------------------------ |
+| `SPACESHIP_SCREEN_SHOW`         |               `true`               | Show screen section (`true` or `false`)          |
+| `SPACESHIP_SCREEN_PREFIX`       | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before screen session name                |
+| `SPACESHIP_SCREEN_SUFFIX`       | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after screen session name                 |
+| `SPACESHIP_SCREEN_SYMBOL`       |               `💻·`                | Character to be shown before screen session name |
+| `SPACESHIP_SCREEN_COLOR`        |               `yellow`             | Color of screen section                          |
+| `SPACESHIP_SCREEN_SHOW_SESSION` |               `true`               | Show session name in prompt (`true` or `false`)  |
 
 ### Directory (`dir`)
 
