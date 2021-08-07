@@ -28,13 +28,11 @@ spaceship_screen() {
   # Show screen section only when it is attached in a session
   [[ "$STY" =~ ^"[0-9]+\." ]] || return
 
-  local screen_session
+  local screen_session=""
 
   if [[ "$SPACESHIP_SCREEN_SHOW_SESSION" == "true" ]]; then
     # STY could not be empty because regex match
     screen_session=$STY
-  else
-    screen_session=""
   fi
 
   spaceship::section \
