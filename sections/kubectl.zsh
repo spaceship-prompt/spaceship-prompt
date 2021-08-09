@@ -7,7 +7,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_KUBECTL_SHOW="${SPACESHIP_KUBECTL_SHOW=false}"
-SPACESHIP_KUBECTL_ASYNC="${SPACESHIP_KUBECTL_ASYNC=false}"
+SPACESHIP_KUBECTL_ASYNC="${SPACESHIP_KUBECTL_ASYNC=true}"
 SPACESHIP_KUBECTL_PREFIX="${SPACESHIP_KUBECTL_PREFIX="at "}"
 SPACESHIP_KUBECTL_SUFFIX="${SPACESHIP_KUBECTL_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_KUBECTL_COLOR="${SPACESHIP_KUBECTL_COLOR="white"}"
@@ -32,13 +32,17 @@ source "$SPACESHIP_ROOT/sections/kubectl_context.zsh"
 spaceship_kubectl() {
   [[ $SPACESHIP_KUBECTL_SHOW == false ]] && return
 
-  local kubectl_version="$(spaceship_kubectl_version)" kubectl_context="$(spaceship_kubectl_context)"
+  local kubectl_version="$(spaceship_kubectl_version)"
+  local kubectl_context="$(spaceship_kubectl_context)"
 
   [[ -z $kubectl_version && -z $kubectl_context ]] && return
+
+  local kubectl_version_section="$(spaceship::render_section $kubectl_version)"
+  local kubectl_context_section="$(spaceship::render_section $kubectl_context)"
 
   spaceship::section \
     "$SPACESHIP_KUBECTL_COLOR" \
     "$SPACESHIP_KUBECTL_PREFIX" \
-    "${SPACESHIP_KUBECTL_SYMBOL}${kubectl_version}${kubectl_context}" \
+    "${SPACESHIP_KUBECTL_SYMBOL}${kubectl_version_section}${kubectl_context_section}" \
     "$SPACESHIP_KUBECTL_SUFFIX"
 }
