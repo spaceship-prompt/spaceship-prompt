@@ -91,6 +91,12 @@ spaceship::refresh_section() {
 
   [[ -z $section ]] && return 1
 
+  # Option EXTENDED_GLOB is set locally to force filename generation on
+  # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
+  # See the description of filename generation in
+  # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
+  setopt EXTENDED_GLOB LOCAL_OPTIONS
+
   if $(spaceship::is_section_async $section); then
     SPACESHIP_JOBS+=("$section")
     async_job "spaceship" "spaceship_${section}"
