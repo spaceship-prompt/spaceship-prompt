@@ -39,13 +39,13 @@ prompt_spaceship_precmd() {
     # setopt before call register to avoid callback by async_worker_eval
     async_worker_eval "spaceship" 'setopt extendedglob'
     async_register_callback "spaceship" "spaceship::async_callback"
-
-    # Kick off async jobs
-    spaceship::start_async_jobs
   fi
 
+  # Start building cache from sections
+  spaceship::build_cache
+
   # Initiate the first render
-  spaceship::render
+  spaceship::populate
 }
 
 # A hook right before the command is started executing

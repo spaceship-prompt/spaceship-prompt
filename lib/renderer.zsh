@@ -40,16 +40,13 @@ spaceship::load_sections() {
 
 # Iterate over sections, start async jobs and store results in cache
 # USAGE:
-#   spaceship::start_async_jobs
-spaceship::start_async_jobs() {
+#   spaceship::build_cache
+spaceship::build_cache() {
   # Clear the cache before every render
   spaceship::clear_cache
 
   for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
-    if $(spaceship::is_section_async $section); then
-      SPACESHIP_JOBS+=("$section")
-      async_job "spaceship" "spaceship_${section}"
-    fi
+    spaceship::refresh_section "$section"
   done
 }
 
@@ -71,66 +68,45 @@ spaceship::async_callback() {
 
   SPACESHIP_JOBS=("${(@)SPACESHIP_JOBS:#${section}}")
 
+  # Refresh async section when the last async job has finished
+  if [[ "${#SPACESHIP_JOBS}" -eq 0 ]]; then
+    spaceship::refresh_section "async"
+    spaceship::render
+  fi
+
   # Skip prompt re-rendering if section is empty
-  # Do not skip re-rendering when the last async job has finished
-  if [[ "$(spaceship::get_cache $section)" == "$output" ]] \
-  && [[ ${#SPACESHIP_JOBS} -ne 0 ]]; then
+  if [[ "$(spaceship::get_cache $section)" == "$output" ]]; then
     return
   fi
 
   spaceship::set_cache "$section" "$output"
 
   if [[ "$has_next" == 0 ]]; then
-    spaceship::async_render
+    spaceship::render
   fi
 }
 
-# Render the prompt. Compose variables using prompt functoins.
-# USAGE:
-#   spaceship::render
-spaceship::render() {
-  PROMPT='$(spaceship::prompt)'
-  RPROMPT='$(spaceship::rprompt)'
-  PS2='$(spaceship::ps2)'
+spaceship::refresh_section() {
+  local section="$1"
+
+  [[ -z $section ]] && return 1
+
+  if $(spaceship::is_section_async $section); then
+    SPACESHIP_JOBS+=("$section")
+    async_job "spaceship" "spaceship_${section}"
+  else
+    spaceship::set_cache "$section" "$(spaceship_$section)"
+  fi
 }
 
 # Render and reset the prompt asyncronously.
 # USAGE:
-#   spaceship::async_render
-spaceship::async_render() {
-  spaceship::render
+#   spaceship::render
+spaceship::render() {
+  spaceship::populate
 
   # .reset-prompt: bypass the zsh-syntax-highlighting wrapper
   # https://github.com/sorin-ionescu/prezto/issues/1026
   # https://github.com/zsh-users/zsh-autosuggestions/issues/107#issuecomment-183824034
   zle .reset-prompt && zle -R
-}
-
-# Compose whole prompt from sections
-# USAGE:
-#   spaceship::compose_prompt [section...]
-spaceship::compose_prompt() {
-  # Option EXTENDED_GLOB is set locally to force filename generation on
-  # argument to conditions, i.e. allow usage of explicit glob qualifier (#q).
-  # See the description of filename generation in
-  # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
-  setopt EXTENDED_GLOB LOCAL_OPTIONS
-
-  # Reset the first prefix value
-  _spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
-
-  # Treat the first argument as list of prompt sections
-  # Compose whole prompt from diferent parts
-  for section in $@; do
-    local output="" meta=()
-    local color="" prefix="" content="" suffix=""
-
-    if $(spaceship::is_async) && $(spaceship::is_section_async $section); then
-      output="$(spaceship::get_cache $section)"
-    else
-      output="$(spaceship_$section)"
-    fi
-
-    spaceship::render_section "$output"
-  done
 }
