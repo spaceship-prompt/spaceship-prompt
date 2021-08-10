@@ -38,6 +38,7 @@ body:
         ## Environment
 
   - type: input
+    id: spaceship-version
     validations:
       required: true
     attributes:
@@ -47,6 +48,7 @@ body:
         Run `echo $SPACESHIP_VERSION` to get the version of Spaceship you are using.
 
   - type: input
+    id: zsh-version
     validations:
       required: true
     attributes:
@@ -56,6 +58,7 @@ body:
         Run `zsh --version` to get the version of Spaceship you are using.
 
   - type: dropdown
+    id: os-system
     validations:
       required: true
     attributes:
@@ -66,6 +69,7 @@ body:
         - Windows
 
   - type: input
+    id: zsh-framework
     attributes:
       label: Do you use any Zsh framework or plugin manager?
       placeholder: oh-my-zsh/prezto/antigen/zplug/zgen
@@ -73,6 +77,7 @@ body:
         Otherwise leave blank.
 
   - type: input
+    id: terminal
     attributes:
       label: Which terminal emulator do you use?
       placeholder: iTerm/Hyper/Terminator/etc
