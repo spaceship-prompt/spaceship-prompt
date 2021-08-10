@@ -17,17 +17,13 @@ spaceship_exec_time_start() {
 # Execution time end
 spaceship_exec_time_stop() {
   [[ $SPACESHIP_EXEC_TIME_SHOW == false ]] && return
+  [[ -n $SPACESHIP_EXEC_TIME_duration ]] && unset SPACESHIP_EXEC_TIME_duration
   [[ -z $SPACESHIP_EXEC_TIME_start ]] && return
 
   SPACESHIP_EXEC_TIME_duration=$((EPOCHREALTIME - SPACESHIP_EXEC_TIME_start))
 
   # Reset start time
-  SPACESHIP_EXEC_TIME_start=0x7FFFFFFF
-
-  # [[ -n $SPACESHIP_EXEC_TIME_duration ]] && unset SPACESHIP_EXEC_TIME_duration
-  # local SPACESHIP_EXEC_TIME_stop=$(date +%s)
-  # SPACESHIP_EXEC_TIME_duration=$(( $SPACESHIP_EXEC_TIME_stop - $SPACESHIP_EXEC_TIME_start ))
-  # unset SPACESHIP_EXEC_TIME_start
+  unset SPACESHIP_EXEC_TIME_start
 }
 
 # A hook before every command

@@ -90,22 +90,22 @@ spaceship::deprecated() {
 
 # Display seconds in human readable fromat
 # For that use `strftime` and convert the duration (float) to seconds (integer).
-# See http://unix.stackexchange.com/a/8974
 # USAGE:
-#   spaceship::displaytime <seconds>
+#   spaceship::displaytime <seconds> [precision]
 spaceship::displaytime() {
   local duration="$1" precision="$2"
 
   [[ -z "$precision" ]] && precision=1
 
-  if (( duration > 3600 )); then
-    TZ=GMT; strftime '%H:%M:%S' $(( int(rint(duration)) ))
-  elif (( duration > 60 )); then
-    TZ=GMT; strftime '%M:%S' $(( int(rint(duration)) ))
-  else
-    # If the command executed in seconds, round to desired precision and append "s"
-    printf %.${precision}f%s $duration s
-  fi
+  integer D=$((duration/60/60/24))
+  integer H=$((duration/60/60%24))
+  integer M=$((duration/60%60))
+  local S=$((duration%60))
+
+  [[ $D > 0 ]] && printf '%dd ' $D
+  [[ $H > 0 ]] && printf '%dh ' $H
+  [[ $M > 0 ]] && printf '%dm ' $M
+  printf %.${precision}f%s $S s
 }
 
 # Union of two or more arrays

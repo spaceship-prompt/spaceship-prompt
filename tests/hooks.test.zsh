@@ -29,15 +29,13 @@ tearDown() {
 # ------------------------------------------------------------------------------
 
 test_exec_time_preexec_hook() {
-  local date_mock='123456'
-  date() { echo -n $date_mock }
-
-  local expected="$date_mock"
+  local EPOCHREALTIME='123456'
+  local expected="$EPOCHREALTIME"
 
   # Hook call should call `date` and save time to $SPACESHIP_EXEC_TIME_start
   spaceship_exec_time_start
 
-  assertEquals "should save starting time" "$date_mock" "$SPACESHIP_EXEC_TIME_start"
+  assertEquals "should save starting time" "$expected" "$SPACESHIP_EXEC_TIME_start"
 
   unset SPACESHIP_EXEC_TIME_start
 
@@ -50,7 +48,7 @@ test_exec_time_precmd_hook() {
   local date_start_mock='123'
   local date_stop_mock='321'
   local date_duration_mock='198'
-  date() { echo -n $date_stop_mock }
+  local EPOCHREALTIME=$date_stop_mock
 
   SPACESHIP_EXEC_TIME_start="$date_start_mock"
 

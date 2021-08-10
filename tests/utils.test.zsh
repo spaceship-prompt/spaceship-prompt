@@ -148,7 +148,7 @@ test_deprecated() {
 }
 
 test_displaytime() {
-  local expected='14d 6h 56m 7s'
+  local expected='14d 6h 56m 7.0s'
   local actual=$(spaceship::displaytime 1234567)
 
   assertEquals "$expected" "$actual"
