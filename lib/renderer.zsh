@@ -86,6 +86,10 @@ spaceship::async_callback() {
   fi
 }
 
+# Refreshes the cache of a section. If the section is async, it will be
+# executed in a separate process.
+# USAGE:
+#   spaceship::refresh_section [section]
 spaceship::refresh_section() {
   local section="$1"
 
