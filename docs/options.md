@@ -613,13 +613,14 @@ Shows the active Terraform wokspace in directories that contain `.terraform/envi
 
 Execution time of the last command. Will be displayed if it exceeds the set threshold of time.
 
-| Variable                      |              Default               | Meaning                                                          |
-| :---------------------------- | :--------------------------------: | ---------------------------------------------------------------- |
-| `SPACESHIP_EXEC_TIME_SHOW`    |               `true`               | Show execution time                                              |
-| `SPACESHIP_EXEC_TIME_PREFIX`  |              `took·`               | Prefix before execution time section                             |
-| `SPACESHIP_EXEC_TIME_SUFFIX`  | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after execution time section                              |
-| `SPACESHIP_EXEC_TIME_COLOR`   |              `yellow`              | Color of execution time section                                  |
-| `SPACESHIP_EXEC_TIME_ELAPSED` |                `2`                 | The minimum number of seconds for showing execution time section |
+| Variable                        |              Default               | Meaning                                                          |
+| :------------------------------ | :--------------------------------: | ---------------------------------------------------------------- |
+| `SPACESHIP_EXEC_TIME_SHOW`      |               `true`               | Show execution time                                              |
+| `SPACESHIP_EXEC_TIME_PREFIX`    |              `took·`               | Prefix before execution time section                             |
+| `SPACESHIP_EXEC_TIME_SUFFIX`    | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after execution time section                              |
+| `SPACESHIP_EXEC_TIME_COLOR`     |              `yellow`              | Color of execution time section                                  |
+| `SPACESHIP_EXEC_TIME_ELAPSED`   |                `2`                 | The minimum number of seconds for showing execution time section |
+| `SPACESHIP_EXEC_TIME_PRECISION` |                `1`                 | Number of digits to use in the fractional part of the time value |
 
 ### Battery (`battery`)
 

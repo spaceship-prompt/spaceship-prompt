@@ -89,19 +89,23 @@ spaceship::deprecated() {
 }
 
 # Display seconds in human readable fromat
-# Based on http://stackoverflow.com/a/32164707/3859566
+# For that use `strftime` and convert the duration (float) to seconds (integer).
+# See http://unix.stackexchange.com/a/8974
 # USAGE:
 #   spaceship::displaytime <seconds>
 spaceship::displaytime() {
-  local T=$1
-  local D=$((T/60/60/24))
-  local H=$((T/60/60%24))
-  local M=$((T/60%60))
-  local S=$((T%60))
-  [[ $D > 0 ]] && printf '%dd ' $D
-  [[ $H > 0 ]] && printf '%dh ' $H
-  [[ $M > 0 ]] && printf '%dm ' $M
-  printf '%ds' $S
+  local duration="$1" precision="$2"
+
+  [[ -z "$precision" ]] && precision=1
+
+  if (( duration > 3600 )); then
+    TZ=GMT; strftime '%H:%M:%S' $(( int(rint(duration)) ))
+  elif (( duration > 60 )); then
+    TZ=GMT; strftime '%M:%S' $(( int(rint(duration)) ))
+  else
+    # If the command executed in seconds, round to desired precision and append "s"
+    printf %.${precision}f%s $duration s
+  fi
 }
 
 # Union of two or more arrays
