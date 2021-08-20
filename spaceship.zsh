@@ -121,8 +121,8 @@ source "$SPACESHIP_ROOT/lib/renderer.zsh"
 # Load functions for composing prompts
 source "$SPACESHIP_ROOT/lib/prompts.zsh"
 
-# Load environment detection
-source "$SPACESHIP_ROOT/scripts/info.sh"
+# Load command line interface
+source "$SPACESHIP_ROOT/lib/cli.zsh"
 
 # ------------------------------------------------------------------------------
 # BACKWARD COMPATIBILITY WARNINGS
