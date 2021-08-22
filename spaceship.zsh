@@ -12,7 +12,7 @@ export SPACESHIP_VERSION='3.14.0'
 # Newline with zero-width space,
 # because last newline is trimmed in command expansion.
 # See: https://unix.stackexchange.com/a/248229
-local NEWLINE=$'\n\u200b'
+local NEWLINE=$'\n'
 
 # Determination of Spaceship working directory
 # https://git.io/vdBH7
