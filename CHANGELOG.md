@@ -1,3 +1,10 @@
+## [3.14.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.14.0...v3.14.1) (2021-08-30)
+
+
+### Bug Fixes
+
+* **docs:** fix discord announcement color ([91af763](https://github.com/spaceship-prompt/spaceship-prompt/commit/91af7638aadb94bb3f2ff8d924d47c4001d07709))
+
 # [3.14.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.4...v3.14.0) (2021-07-28)
 
 
