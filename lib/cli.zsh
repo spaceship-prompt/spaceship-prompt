@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+# ------------------------------------------------------------------------------
+# UTILS
+# ------------------------------------------------------------------------------
+
 _spaceship::cli::print::key_value() {
   local key="$1" value="${@:2}"
 
@@ -11,6 +15,10 @@ _spaceship::cli::print::key_value() {
 _spaceship::cli::urlencore() {
   python -c 'import urllib, sys; print urllib.quote(sys.argv[1])' "$1"
 }
+
+# ------------------------------------------------------------------------------
+# COMMANDS
+# ------------------------------------------------------------------------------
 
 _spaceship::cli::help() {
     cat >&2 <<EOF
@@ -140,7 +148,10 @@ _spaceship::cli::bug-report() {
   echo "$short_url"
 }
 
-# TODO: Add command completions
+# ------------------------------------------------------------------------------
+# MAIN
+# ------------------------------------------------------------------------------
+
 spaceship() {
   local cmd="$1"
 
@@ -168,3 +179,27 @@ spaceship() {
 
   _spaceship::cli::$cmd "$@"
 }
+
+# ------------------------------------------------------------------------------
+# COMPLETIONS
+# ------------------------------------------------------------------------------
+
+_spaceship() {
+  local -a cmds
+
+  cmds=(
+    'bug-report:Create a GitHub issue with information about your environment'
+    'version:Print Spaceship version'
+    'help:Print this help message'
+  )
+
+  if (( CURRENT == 2 )); then
+    _describe 'commands' cmds
+  fi
+
+  return 0
+}
+
+if spaceship::exists compdef; then
+  compdef _spaceship spaceship
+fi
