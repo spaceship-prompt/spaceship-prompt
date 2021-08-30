@@ -129,7 +129,7 @@ source "$SPACESHIP_ROOT/lib/cli.zsh"
 # Show deprecation messages for options that are set, but not supported
 # ------------------------------------------------------------------------------
 
-# pyenv to Python deprecation warnings
+# pyenv to python deprecation warnings
 spaceship::deprecated SPACESHIP_PYENV_SHOW "Use %BSPACESHIP_PYTHON_SHOW%b instead"
 spaceship::deprecated SPACESHIP_PYENV_PREFIX "Use %BSPACESHIP_PYTHON_PREFIX%b instead"
 spaceship::deprecated SPACESHIP_PYENV_SUFFIX "Use %BSPACESHIP_PYTHON_SUFFIX%b instead"
@@ -146,6 +146,13 @@ spaceship::deprecated SPACESHIP_PYENV_COLOR "Use %bSPACESHIP_PYTHON_COLOR%b inst
 prompt_spaceship_setup() {
   autoload -Uz vcs_info
   autoload -Uz add-zsh-hook
+  autoload -Uz add-zsh-hook
+  autoload -Uz is-at-least
+
+  if ! is-at-least 5.2; then
+    print -P "%Bspaceship-prompt%b requires at least %Bzsh v5.2%b (you have %Bv$ZSH_VERSION%b)."
+    print -P "Please upgrade your zsh installation."
+  fi
 
   # This variable is a magic variable used when loading themes with zsh's prompt
   # function. It will ensure the proper prompt options are set.
@@ -159,10 +166,7 @@ prompt_spaceship_setup() {
   zmodload zsh/datetime
   zmodload zsh/mathfunc
 
-  # initialize hooks
-  autoload -Uz add-zsh-hook
-
-  # Add exec_time hooks
+  # Add hooks
   add-zsh-hook preexec prompt_spaceship_preexec
   add-zsh-hook precmd prompt_spaceship_precmd
   add-zsh-hook chpwd prompt_spaceship_chpwd
