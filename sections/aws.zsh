@@ -15,9 +15,16 @@ SPACESHIP_AWS_SYMBOL="${SPACESHIP_AWS_SYMBOL="☁️ "}"
 SPACESHIP_AWS_COLOR="${SPACESHIP_AWS_COLOR="208"}"
 
 # ------------------------------------------------------------------------------
+# Dependencies
+# ------------------------------------------------------------------------------
+
+source "$SPACESHIP_ROOT/sections/aws_region.zsh"
+
+# ------------------------------------------------------------------------------
 # Section
 # ------------------------------------------------------------------------------
 
+#
 # Shows selected AWS-cli profile.
 spaceship_aws() {
   [[ $SPACESHIP_AWS_SHOW == false ]] && return
@@ -28,10 +35,13 @@ spaceship_aws() {
   # Is the current profile not the default profile
   [[ -z $AWS_PROFILE ]] || [[ "$AWS_PROFILE" == "default" ]] && return
 
+  # Is there an aws region set?
+  local aws_region=" $(spaceship_aws_region)"
+
   # Show prompt section
   spaceship::section \
     "$SPACESHIP_AWS_COLOR" \
     "$SPACESHIP_AWS_PREFIX" \
-    "${SPACESHIP_AWS_SYMBOL}$AWS_PROFILE" \
+    "${SPACESHIP_AWS_SYMBOL}$AWS_PROFILE $aws_region" \
     "$SPACESHIP_AWS_SUFFIX"
 }
