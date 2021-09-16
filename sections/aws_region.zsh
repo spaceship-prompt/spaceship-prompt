@@ -24,13 +24,18 @@ spaceship_aws_region() {
   # Check if the AWS-cli is installed
   spaceship::exists aws || return
 
-  # Is Is any region set?
-  [[ -v $AWS_DEFAULT_REGION ]] && return
+  # Is Is any region set in context or overidden by ENV?
+  local aws_profile=${AWS_PROFILE=default}
+  local aws_config_region=$(aws configure get ${aws_profile}.region)
+
+  [[ ! -z ${aws_config_region} ]] && local aws_region="${aws_config_region}"
+  [[ -v $AWS_DEFAULT_REGION ]] && local aws_region=$AWS_DEFAULT_REGION
+  [[ -z ${aws_region} ]] && return
 
   # Show prompt section
   spaceship::section \
     "$SPACESHIP_AWS_REGION_COLOR" \
     "$SPACESHIP_AWS_REGION_PREFIX" \
-    "${SPACESHIP_AWS_REGION_SYMBOL}$AWS_DEFAULT_REGION" \
+    "${aws_region}" \
     "$SPACESHIP_AWS_REGION_SUFFIX"
-  }
+}

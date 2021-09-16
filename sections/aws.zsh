@@ -42,6 +42,6 @@ spaceship_aws() {
   spaceship::section \
     "$SPACESHIP_AWS_COLOR" \
     "$SPACESHIP_AWS_PREFIX" \
-    "${SPACESHIP_AWS_SYMBOL}$AWS_PROFILE $aws_region" \
+    "${SPACESHIP_AWS_SYMBOL}$AWS_PROFILE${aws_region}" \
     "$SPACESHIP_AWS_SUFFIX"
 }
