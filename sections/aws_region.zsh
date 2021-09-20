@@ -26,10 +26,10 @@ spaceship_aws_region() {
 
   # Is Is any region set in context or overidden by ENV?
   local aws_profile=${AWS_PROFILE=default}
-  local aws_config_region=$(aws configure get ${aws_profile}.region)
+  local aws_config_region="$(aws configure get ${aws_profile}.region)"
 
   [[ ! -z ${aws_config_region} ]] && local aws_region="${aws_config_region}"
-  [[ -v $AWS_DEFAULT_REGION ]] && local aws_region=$AWS_DEFAULT_REGION
+  [[ -v AWS_DEFAULT_REGION ]] && local aws_region=$AWS_DEFAULT_REGION
   [[ -z ${aws_region} ]] && return
 
   # Show prompt section
