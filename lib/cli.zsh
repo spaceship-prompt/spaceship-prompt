@@ -227,6 +227,30 @@ _spaceship::cli::remove() {
   done
 }
 
+_spaceship::cli::print() {
+  zparseopts -E -D - P:=prompt_ -prompt:=prompt_
+
+  local prompt_type="${prompt_[2]=prompt}"
+
+  # Modifying orders
+  case "$prompt_type" in
+    prompt)
+      spaceship::prompt
+    ;;
+    rprompt)
+      spaceship::rprompt
+    ;;
+    ps2)
+      spaceship::ps2
+    ;;
+    *)
+      echo "Unknown prompt type: $prompt_type"
+      echo "Available types: prompt, rprompt, ps2"
+      return 1
+    ;;
+  esac
+}
+
 # ------------------------------------------------------------------------------
 # MAIN
 # ------------------------------------------------------------------------------
@@ -274,6 +298,7 @@ _spaceship() {
     'bug-report:Create a GitHub issue with information about your environment'
     'add:Add a section to the prompt at specific position'
     'remove:Remove a section from prompt'
+    'print:Print Spaceship prompt'
     'version:Print Spaceship version'
     'help:Print this help message'
   )
@@ -306,6 +331,14 @@ _spaceship() {
 
         subcmds+=("--prompt: A prompt to include the section to")
         subcmds+=("-P: A prompt to include the section to")
+
+        _describe 'command' subcmds
+      ;;
+      print)
+        local -a subcmds=(
+          "--prompt: A prompt to print"
+          "-P: A prompt to print"
+        )
 
         _describe 'command' subcmds
       ;;
