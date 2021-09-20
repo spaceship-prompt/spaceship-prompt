@@ -1,6 +1,7 @@
 # ------------------------------------------------------------------------------
 # UTILS
 # Utils for common used actions
+# This file is used as a API for sections developers
 # ------------------------------------------------------------------------------
 
 # Check if command exists in $PATH

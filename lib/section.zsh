@@ -1,3 +1,8 @@
+# ------------------------------------------------------------------------------
+# SECTION
+# Functions for packing, extracting and rendering sections.
+# ------------------------------------------------------------------------------
+
 # Pack section into a tuple of section data joined by a delimiter.
 # USAGE:
 #   spaceship::section <color> [prefix] <content> [suffix]
@@ -40,11 +45,11 @@ spaceship::render_section() {
     return
   fi
 
-  result+="%{%B%}" # set bold
   if [[ "$_spaceship_prompt_opened" == true ]] && [[ "$SPACESHIP_PROMPT_PREFIXES_SHOW" == true ]]; then
+    result+="%{%B%}" # set bold
     result+="$prefix"
+    result+="%{%b%}" # unset bold
   fi
-  result+="%{%b%}" # unset bold
 
   _spaceship_prompt_opened=true
 
@@ -52,11 +57,11 @@ spaceship::render_section() {
   result+="$content"     # section content
   result+="%{%b%f%}"     # unset color
 
-  result+="%{%B%}" # reset bold, if it was diabled before
   if [[ "$SPACESHIP_PROMPT_SUFFIXES_SHOW" == true ]]; then
+    result+="%{%B%}" # reset bold, if it was diabled before
     result+="$suffix"
+    result+="%{%b%}" # unset bold
   fi
-  result+="%{%b%}" # unset bold
 
   echo -n "$result"
 }
