@@ -21,11 +21,8 @@ spaceship::load_sections() {
       source "$SPACESHIP_ROOT/sections/$section.zsh"
     else
       # section is not found!
-      # when this happens, we remove the section from the configured elements,
-      # so that we avoid printing errors over and over.
-      print -P "%F{yellow}Warning!%f The '%F{cyan}${section}%f' section was not found. Removing it from the prompt."
-      SPACESHIP_PROMPT_ORDER=("${(@)SPACESHIP_PROMPT_ORDER:#${section}}")
-      SPACESHIP_RPROMPT_ORDER=("${(@)SPACESHIP_RPROMPT_ORDER:#${section}}")
+      spaceship::skip_section "$section"
+      continue
     fi
 
     if $(spaceship::is_section_async $section); then
@@ -101,7 +98,12 @@ spaceship::refresh_section() {
   # http://zsh.sourceforge.net/Doc/Release/Conditional-Expressions.html
   setopt EXTENDED_GLOB LOCAL_OPTIONS
 
-  if $(spaceship::is_section_async $section); then
+  if ! spaceship::defined "spaceship_$section"; then
+    spaceship::skip_section "$section"
+    return 1
+  fi
+
+  if spaceship::is_section_async "$section"; then
     SPACESHIP_JOBS+=("$section")
     async_job "spaceship" "spaceship_${section}"
   else
