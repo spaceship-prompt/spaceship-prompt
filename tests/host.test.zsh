@@ -124,7 +124,7 @@ test_host_prefix() {
   SPACESHIP_HOST_PREFIX='prefix'
   SPACESHIP_HOST_SUFFIX=''
 
-  local expected="%{%B%}$SPACESHIP_HOST_PREFIX%{%b%}%{%B%F{blue}%}%m%{%b%f%}%{%B%}$SPACESHIP_HOST_SUFFIX%{%b%}"
+  local expected="%{%B%}$SPACESHIP_HOST_PREFIX%{%b%}%{%B%F{blue}%}%m%{%b%f%}"
   local actual="$(spaceship_render_prompt)"
 
   assertEquals "render host with prefix" "$expected" "$actual"
@@ -135,7 +135,7 @@ test_host_suffix() {
   SPACESHIP_HOST_PREFIX=''
   SPACESHIP_HOST_SUFFIX='suffix'
 
-  local expected="%{%B%}$SPACESHIP_HOST_PREFIX%{%b%}%{%B%F{blue}%}%m%{%b%f%}%{%B%}$SPACESHIP_HOST_SUFFIX%{%b%}"
+  local expected="%{%B%F{blue}%}%m%{%b%f%}%{%B%}$SPACESHIP_HOST_SUFFIX%{%b%}"
   local actual="$(spaceship_render_prompt)"
 
   assertEquals "render host with suffix" "$expected" "$actual"

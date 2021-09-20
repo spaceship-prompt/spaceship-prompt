@@ -45,7 +45,9 @@ spaceship::render_section() {
     return
   fi
 
-  if [[ "$_spaceship_prompt_opened" == true ]] && [[ "$SPACESHIP_PROMPT_PREFIXES_SHOW" == true ]]; then
+  if [[ "$_spaceship_prompt_opened" == true ]] \
+  && [[ "$SPACESHIP_PROMPT_PREFIXES_SHOW" == true ]] \
+  && [[ -n "$prefix" ]]; then
     result+="%{%B%}" # set bold
     result+="$prefix"
     result+="%{%b%}" # unset bold
@@ -57,7 +59,8 @@ spaceship::render_section() {
   result+="$content"     # section content
   result+="%{%b%f%}"     # unset color
 
-  if [[ "$SPACESHIP_PROMPT_SUFFIXES_SHOW" == true ]]; then
+  if [[ "$SPACESHIP_PROMPT_SUFFIXES_SHOW" == true ]] \
+  && [[ -n "$suffix" ]]; then
     result+="%{%B%}" # reset bold, if it was diabled before
     result+="$suffix"
     result+="%{%b%}" # unset bold

@@ -63,13 +63,13 @@ test_render_section() {
 
   input="$color$delimiter$delimiter$content$delimiter"
   local actual_short="$(spaceship::render_section $input)"
-  local expected_short="%{%B%}%{%b%}%{%B%F{$color}%}$content%{%b%f%}%{%B%}%{%b%}"
+  local expected_short="%{%B%F{$color}%}$content%{%b%f%}"
 
   assertEquals "render short section" "$expected_short" "$actual_short"
 
   input="$color$delimiter$prefix$delimiter$content$delimiter$suffix"
   local actual_suffix="$(spaceship::render_section $input)"
-  local expected_suffix="%{%B%}%{%b%}%{%B%F{$color}%}$content%{%b%f%}%{%B%}$suffix%{%b%}"
+  local expected_suffix="%{%B%F{$color}%}$content%{%b%f%}%{%B%}$suffix%{%b%}"
 
   assertEquals "render full section with suffix" "$expected_suffix" "$actual_suffix"
 

@@ -106,7 +106,7 @@ test_user_prefix() {
   SPACESHIP_USER_PREFIX='prefix'
   SPACESHIP_USER_SUFFIX=''
 
-  local expected="%{%B%}$SPACESHIP_USER_PREFIX%{%b%}%{%B%F{yellow}%}%n%{%b%f%}%{%B%}$SPACESHIP_USER_SUFFIX%{%b%}"
+  local expected="%{%B%}$SPACESHIP_USER_PREFIX%{%b%}%{%B%F{yellow}%}%n%{%b%f%}"
   local actual="$(spaceship_render_prompt)"
 
   assertEquals "render user with prefix" "$expected" "$actual"
@@ -117,7 +117,7 @@ test_user_suffix() {
   SPACESHIP_USER_PREFIX=''
   SPACESHIP_USER_SUFFIX='suffix'
 
-  local expected="%{%B%}$SPACESHIP_USER_PREFIX%{%b%}%{%B%F{yellow}%}%n%{%b%f%}%{%B%}$SPACESHIP_USER_SUFFIX%{%b%}"
+  local expected="%{%B%F{yellow}%}%n%{%b%f%}%{%B%}$SPACESHIP_USER_SUFFIX%{%b%}"
   local actual="$(spaceship_render_prompt)"
 
   assertEquals "render user with suffix" "$expected" "$actual"

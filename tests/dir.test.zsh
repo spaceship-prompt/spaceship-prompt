@@ -75,7 +75,7 @@ test_dir_prefix() {
   SPACESHIP_DIR_PREFIX='prefix'
   SPACESHIP_DIR_SUFFIX=''
 
-  local expected="%{%B%}$SPACESHIP_DIR_PREFIX%{%b%}%{%B%F{cyan}%}%(4~||)%3~%{%b%f%}%{%B%}$SPACESHIP_DIR_SUFFIX%{%b%}"
+  local expected="%{%B%}$SPACESHIP_DIR_PREFIX%{%b%}%{%B%F{cyan}%}%(4~||)%3~%{%b%f%}"
   local actual="$(spaceship_render_prompt)"
 
   assertEquals "render dir with prefix" "$expected" "$actual"
@@ -85,7 +85,7 @@ test_dir_suffix() {
   SPACESHIP_DIR_PREFIX=''
   SPACESHIP_DIR_SUFFIX='suffix'
 
-  local expected="%{%B%}$SPACESHIP_DIR_PREFIX%{%b%}%{%B%F{cyan}%}%(4~||)%3~%{%b%f%}%{%B%}$SPACESHIP_DIR_SUFFIX%{%b%}"
+  local expected="%{%B%F{cyan}%}%(4~||)%3~%{%b%f%}%{%B%}$SPACESHIP_DIR_SUFFIX%{%b%}"
   local actual="$(spaceship_render_prompt)"
 
   assertEquals "render dir with suffix" "$expected" "$actual"

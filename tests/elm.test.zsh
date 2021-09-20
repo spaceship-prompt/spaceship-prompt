@@ -55,7 +55,7 @@ tearDown() {
 # ------------------------------------------------------------------------------
 
 test_elm() {
-  local expected="%{%B%}via %{%b%}%{%B%F{cyan}%}🌳 v0.20.0%{%b%f%}%{%B%}%{%b%}"
+  local expected="%{%B%}via %{%b%}%{%B%F{cyan}%}🌳 v0.20.0%{%b%f%}"
   local actual="$(spaceship_render_prompt)"
 
   assertEquals "render elm" "$expected" "$actual"
@@ -71,7 +71,7 @@ test_elm_show_false() {
 }
 
 test_elm_files() {
-  local expected="%{%B%}via %{%b%}%{%B%F{cyan}%}🌳 v0.20.0%{%b%f%}%{%B%}%{%b%}"
+  local expected="%{%B%}via %{%b%}%{%B%F{cyan}%}🌳 v0.20.0%{%b%f%}"
   local actual=""
 
   actual="$(spaceship_render_prompt)"
@@ -111,7 +111,7 @@ test_elm_files() {
 test_elm_symbol() {
   SPACESHIP_ELM_SYMBOL="🌵 "
 
-  local expected="%{%B%}via %{%b%}%{%B%F{cyan}%}🌵 v0.20.0%{%b%f%}%{%B%}%{%b%}"
+  local expected="%{%B%}via %{%b%}%{%B%F{cyan}%}🌵 v0.20.0%{%b%f%}"
   local actual="$(spaceship_render_prompt)"
 
   assertEquals "render elm with custom symbol" "$expected" "$actual"
@@ -121,7 +121,7 @@ test_elm_prefix() {
   SPACESHIP_ELM_PREFIX='prefix'
   SPACESHIP_ELM_SUFFIX=''
 
-  local expected="%{%B%}prefix%{%b%}%{%B%F{cyan}%}🌳 v0.20.0%{%b%f%}%{%B%}%{%b%}"
+  local expected="%{%B%}prefix%{%b%}%{%B%F{cyan}%}🌳 v0.20.0%{%b%f%}"
   local actual="$(spaceship_render_prompt)"
 
   assertEquals "render elm with prefix" "$expected" "$actual"
@@ -131,7 +131,7 @@ test_elm_suffix() {
   SPACESHIP_ELM_PREFIX=''
   SPACESHIP_ELM_SUFFIX='suffix'
 
-  local expected="%{%B%}%{%b%}%{%B%F{cyan}%}🌳 v0.20.0%{%b%f%}%{%B%}suffix%{%b%}"
+  local expected="%{%B%F{cyan}%}🌳 v0.20.0%{%b%f%}%{%B%}suffix%{%b%}"
   local actual="$(spaceship_render_prompt)"
 
   assertEquals "render elm with suffix" "$expected" "$actual"
