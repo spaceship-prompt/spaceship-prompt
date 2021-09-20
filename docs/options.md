@@ -439,12 +439,13 @@ Shows selected Amazon Web Services profile configured using [`AWS_PROFILE`](http
 
 Shows selected Amazon Web Services region configured using [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) variable.
 
-| Variable                      |              Default               | Meaning                                      |
-| :---------------------------- | :--------------------------------: | -------------------------------------------- |
-| `SPACESHIP_AWS_REGION_SHOW`   | `false`              | Show the current AWS region or not |
-| `SPACESHIP_AWS_REGION_PREFIX` | `at` | Prefix before the AWS REGION section |
-| `SPACESHIP_AWS_REGION_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}` | Suffix after the AWS REGION section |
-| `SPACESHIP_AWS_REGION_COLOR`  | `208` |  COLOR of the AWS region section |
+| Variable                      |              `Default`             |                Meaning               |
+| :-----------------------------|:----------------------------------:| ------------------------------------ |
+| `SPACESHIP_AWS_REGION_SHOW`   |               `false`              | Show the current AWS region or not   |
+| `SPACESHIP_AWS_REGION_PREFIX` |                `at `               | Prefix before the AWS REGION section |
+| `SPACESHIP_AWS_REGION_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the AWS REGION section  |
+| `SPACESHIP_AWS_REGION_COLOR`  |                `208`               | COLOR of the AWS region section      |
+
 ### Google Cloud Platform (`gcloud`)
 
 Shows active Google Cloud Platform configuration using gcloud active configuration file.
