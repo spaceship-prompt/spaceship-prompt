@@ -39,7 +39,7 @@ prompt_spaceship_precmd() {
   spaceship_exec_time_stop
 
   # Restarts the async worker, in order to get an update-to-date shell environment
-  if $(spaceship::is_async); then
+  if spaceship::is_async; then
     async_stop_worker "spaceship"
     async_start_worker "spaceship" #-n
     # setopt before call register to avoid callback by async_worker_eval
@@ -57,7 +57,7 @@ prompt_spaceship_precmd() {
 # A hook right before the command is started executing
 prompt_spaceship_preexec() {
   # Stop running prompt async jobs
-  if $(spaceship::is_async); then
+  if spaceship::is_async; then
     async_flush_jobs "spaceship"
   fi
 
@@ -67,7 +67,7 @@ prompt_spaceship_preexec() {
 
 # A hook after changing the working directory
 prompt_spaceship_chpwd() {
-  if $(spaceship::is_async); then
+  if spaceship::is_async; then
     async_worker_eval "spaceship" 'cd' "$PWD"
   fi
 

@@ -25,7 +25,7 @@ spaceship::load_sections() {
       continue
     fi
 
-    if $(spaceship::is_section_async $section); then
+    if spaceship::is_section_async "$section"; then
       load_async=true
     fi
   done
