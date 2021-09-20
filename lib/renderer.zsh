@@ -109,6 +109,17 @@ spaceship::refresh_section() {
   fi
 }
 
+# Removes a section from both prompts and prints a message,
+# so that we avoid printing errors over and over.
+# USAGE:
+#  spaceship::skip_section <section>
+spaceship::skip_section() {
+  local section="$1"
+  print -P "%F{yellow}Warning!%f The '%F{cyan}${section}%f' section was not found. Removing it from the prompt."
+  SPACESHIP_PROMPT_ORDER=("${(@)SPACESHIP_PROMPT_ORDER:#${section}}")
+  SPACESHIP_RPROMPT_ORDER=("${(@)SPACESHIP_RPROMPT_ORDER:#${section}}")
+}
+
 # Render and reset the prompt asyncronously.
 # USAGE:
 #   spaceship::render

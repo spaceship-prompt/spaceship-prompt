@@ -148,17 +148,96 @@ _spaceship::cli::bug-report() {
   echo "$short_url"
 }
 
+_spaceship::cli::add() {
+  # Parse CLI options
+  zparseopts -E -D - \
+    A:=after_ -after:=after_ \
+    B:=before_ -before:=before_ \
+    P:=prompt_ -prompt:=prompt_
+
+  local sections=("$@") index
+  local after_section="${after_[2]}" before_section="${before_[2]=line_sep}"
+
+  local prompt_type="${prompt_[2]=prompt}"
+  local prompt_option="SPACESHIP_${(U)prompt_type}_ORDER"
+  local prompt_order=("${(P@)prompt_option}")
+  local new_order=()
+
+  for section in "${sections[@]}"; do
+    if ! spaceship::defined "spaceship_$section"; then
+      spaceship::skip_section "$section"
+    fi
+  done
+
+  if [[ -n "$before_section" ]]; then
+    index="${prompt_order[(i)${before_section}]=0}"
+    new_order=(
+      "${(@)prompt_order[0,$((index-1))]}"
+      "${sections[@]}"
+      "${(@)prompt_order[${index},$]}"
+    )
+  fi
+
+  if [[ -n "$after_section" ]]; then
+    index="${prompt_order[(i)${after_section}]=0}"
+    new_order=(
+      "${(@)prompt_order[0,${index}]}"
+      "${sections[@]}"
+      "${(@)prompt_order[$((index+1)),$]}"
+    )
+  fi
+
+  # Modifying orders
+  case "$prompt_type" in
+    prompt)
+      export SPACESHIP_PROMPT_ORDER=("${new_order[@]}")
+    ;;
+    rprompt)
+      export SPACESHIP_RPROMPT_ORDER=("${new_order[@]}")
+    ;;
+    *)
+      echo "Unknown prompt type: $prompt_type"
+      echo "Available types: prompt, rprompt"
+    ;;
+  esac
+}
+
+_spaceship::cli::remove() {
+  # Parse CLI options
+  zparseopts -E -D - P:=prompt_ -prompt:=prompt_
+
+  local sections=("$@")
+  local prompt_type="${prompt_[2]=prompt}"
+
+  # Modifying orders
+  for section in "${sections[@]}"; do
+    # Modifying orders
+    case "$prompt_type" in
+      prompt)
+        export SPACESHIP_PROMPT_ORDER=("${(@)SPACESHIP_PROMPT_ORDER:#${section}}")
+      ;;
+      rprompt)
+        export SPACESHIP_RPROMPT_ORDER=("${(@)SPACESHIP_RPROMPT_ORDER:#${section}}")
+      ;;
+      *)
+        echo "Unknown prompt type: $prompt_type"
+        echo "Available types: prompt, rprompt"
+      ;;
+    esac
+  done
+}
+
 # ------------------------------------------------------------------------------
 # MAIN
 # ------------------------------------------------------------------------------
 
 spaceship() {
-  local cmd="$1"
-
   # Parse CLI options
-  zparseopts -D \
+  zparseopts -E -D \
     h=help -help=help \
     v=version -version=version
+
+  local cmd="$1"
 
   if [[ -n $help ]]; then
     _spaceship::cli::help "${(@)@:2}"
@@ -177,6 +256,10 @@ spaceship() {
     return 1
   }
 
+  # Omit the command from arguments
+  shift
+
+  # Call the subcommand function
   _spaceship::cli::$cmd "$@"
 }
 
@@ -189,12 +272,44 @@ _spaceship() {
 
   cmds=(
     'bug-report:Create a GitHub issue with information about your environment'
+    'add:Add a section to the prompt at specific position'
+    'remove:Remove a section from prompt'
     'version:Print Spaceship version'
     'help:Print this help message'
   )
 
   if (( CURRENT == 2 )); then
-    _describe 'commands' cmds
+    _describe 'command' cmds
+  elif (( CURRENT > 2 )); then
+    local -a sections
+    for section in ${(kM)functions:#spaceship_*}; do
+      sections+=("${section##spaceship_}")
+    done
+
+    case "$words[2]" in
+      add)
+        local -a subcmds=("$sections[@]")
+
+        subcmds+=("--prompt: A prompt to include the section to")
+        subcmds+=("-P: A prompt to include the section to")
+
+        subcmds+=("--after: A section to insert the section after")
+        subcmds+=("-A: A section to insert the section after")
+
+        subcmds+=("--before: A section to insert the section before")
+        subcmds+=("-B: A section to insert the section before")
+
+        _describe 'command' subcmds
+      ;;
+      remove)
+        local -a subcmds=("$sections[@]")
+
+        subcmds+=("--prompt: A prompt to include the section to")
+        subcmds+=("-P: A prompt to include the section to")
+
+        _describe 'command' subcmds
+      ;;
+    esac
   fi
 
   return 0
