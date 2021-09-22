@@ -3,6 +3,9 @@ FROM frapsoft/zsh
 # Configurable user
 ARG USERNAME=spaceship
 
+# Installing utils
+RUN apk add --update --no-cache git curl
+
 # Setting up a user
 RUN adduser -D -s /bin/zsh $USERNAME
 USER $USERNAME
