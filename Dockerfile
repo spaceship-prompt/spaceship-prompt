@@ -13,7 +13,7 @@ RUN apk add --update --no-cache git curl
 WORKDIR /root
 
 # Coppying Spaceship to the image
-COPY . spaceship
+COPY . /spaceship
 
 # Setting up .zshrc
 # RUN echo "export TERM=xterm-256color" >> /home/$USERNAME/.zshrc
