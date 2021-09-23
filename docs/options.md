@@ -431,8 +431,20 @@ Shows selected Amazon Web Services profile configured using [`AWS_PROFILE`](http
 | `SPACESHIP_AWS_SHOW`   |               `true`               | Show current selected AWS-cli profile or not |
 | `SPACESHIP_AWS_PREFIX` |              `using·`              | Prefix before the AWS section                |
 | `SPACESHIP_AWS_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the AWS section                 |
-| `SPACESHIP_AWS_SYMBOL` |               `☁️·`                | Character to be shown before AWS profile     |
+| `SPACESHIP_AWS_SYMBOL` |                `☁️·`                | Character to be shown before AWS profile     |
 | `SPACESHIP_AWS_COLOR`  |               `208`                | Color of AWS section                         |
+
+
+### Amazon Web Services region (`aws_region`)
+
+Shows selected Amazon Web Services region configured using [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) variable.
+
+| Variable                      |              `Default`             |                Meaning               |
+| :-----------------------------|:----------------------------------:| ------------------------------------ |
+| `SPACESHIP_AWS_REGION_SHOW`   |               `false`              | Show the current AWS region or not   |
+| `SPACESHIP_AWS_REGION_PREFIX` |                `at `               | Prefix before the AWS REGION section |
+| `SPACESHIP_AWS_REGION_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the AWS REGION section  |
+| `SPACESHIP_AWS_REGION_COLOR`  |                `208`               | COLOR of the AWS region section      |
 
 ### Google Cloud Platform (`gcloud`)
 

@@ -7,7 +7,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='3.14.0'
+export SPACESHIP_VERSION='3.14.1'
 
 # Newline with zero-width space,
 # because last newline is trimmed in command expansion.
