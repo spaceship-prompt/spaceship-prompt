@@ -17,12 +17,7 @@ oneTimeSetUp() {
   SPACESHIP_PROMPT_ADD_NEWLINE=false
   SPACESHIP_PROMPT_ORDER=(elm)
 
-  source spaceship.zsh
-
-  spaceship_render_prompt() {
-    prompt_spaceship_precmd
-    spaceship::prompt "$*"
-  }
+  source "$SPACESHIP_ROOT/spaceship.zsh"
 }
 
 setUp() {
@@ -56,7 +51,7 @@ tearDown() {
 
 test_elm() {
   local expected="%{%B%}via %{%b%}%{%B%F{cyan}%}🌳 v0.20.0%{%b%f%}"
-  local actual="$(spaceship_render_prompt)"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render elm" "$expected" "$actual"
 }
@@ -65,7 +60,7 @@ test_elm_show_false() {
   SPACESHIP_ELM_SHOW=false
 
   local expected=""
-  local actual="$(spaceship_render_prompt)"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "don't render elm" "$expected" "$actual"
 }
@@ -74,14 +69,14 @@ test_elm_files() {
   local expected="%{%B%}via %{%b%}%{%B%F{cyan}%}🌳 v0.20.0%{%b%f%}"
   local actual=""
 
-  actual="$(spaceship_render_prompt)"
+  actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render elm when test.elm exists" "$expected" "$actual"
 
   rm test.elm
   touch elm.json
 
-  actual="$(spaceship_render_prompt)"
+  actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render elm when elm.json exists" "$expected" "$actual"
 
@@ -89,21 +84,21 @@ test_elm_files() {
   touch elm-package.json
 
   prompt_spaceship_precmd
-  actual="$(spaceship_render_prompt)"
+  actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render elm when elm-package.json exists" "$expected" "$actual"
 
   rm elm-package.json
   mkdir elm-stuff
 
-  actual="$(spaceship_render_prompt)"
+  actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render elm when elm-stuff exists" "$expected" "$actual"
 
   rm -r elm-stuff
 
   expected=""
-  actual="$(spaceship_render_prompt)"
+  actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "don't render when no elm files are present" "$expected" "$actual"
 }
@@ -112,7 +107,7 @@ test_elm_symbol() {
   SPACESHIP_ELM_SYMBOL="🌵 "
 
   local expected="%{%B%}via %{%b%}%{%B%F{cyan}%}🌵 v0.20.0%{%b%f%}"
-  local actual="$(spaceship_render_prompt)"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render elm with custom symbol" "$expected" "$actual"
 }
@@ -122,7 +117,7 @@ test_elm_prefix() {
   SPACESHIP_ELM_SUFFIX=''
 
   local expected="%{%B%}prefix%{%b%}%{%B%F{cyan}%}🌳 v0.20.0%{%b%f%}"
-  local actual="$(spaceship_render_prompt)"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render elm with prefix" "$expected" "$actual"
 }
@@ -132,7 +127,7 @@ test_elm_suffix() {
   SPACESHIP_ELM_SUFFIX='suffix'
 
   local expected="%{%B%F{cyan}%}🌳 v0.20.0%{%b%f%}%{%B%}suffix%{%b%}"
-  local actual="$(spaceship_render_prompt)"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render elm with suffix" "$expected" "$actual"
 }

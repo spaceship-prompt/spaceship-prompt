@@ -124,6 +124,9 @@ source "$SPACESHIP_ROOT/lib/prompts.zsh"
 # Load command line interface
 source "$SPACESHIP_ROOT/lib/cli.zsh"
 
+# Load testkit
+source "$SPACESHIP_ROOT/lib/testkit.zsh"
+
 # ------------------------------------------------------------------------------
 # BACKWARD COMPATIBILITY WARNINGS
 # Show deprecation messages for options that are set, but not supported
