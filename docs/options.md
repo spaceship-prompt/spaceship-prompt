@@ -375,15 +375,17 @@ Rust section is shown only in directories that contain `Cargo.toml` or any other
 
 ### Haskell (`haskell`)
 
-Haskell section is shown only in directories that contain `stack.yaml` file.
+Haskell section is shown in directories that contain `*.cabal` or `stack.yaml`.
 
-| Variable                   |              Default               | Meaning                                                 |
-| :------------------------- | :--------------------------------: | ------------------------------------------------------- |
-| `SPACESHIP_HASKELL_SHOW`   |               `true`               | Shown current Haskell Tool Stack version or not         |
-| `SPACESHIP_HASKELL_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Haskell section                       |
-| `SPACESHIP_HASKELL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Haskell section                        |
-| `SPACESHIP_HASKELL_SYMBOL` |                `λ·`                | Character to be shown before Haskell Tool Stack version |
-| `SPACESHIP_HASKELL_COLOR`  |               `red`                | Color of Haskell section                                |
+| Variable                          | Default                            | Meaning                                                 |
+| :-------------------------        | :--------------------------------: | ------------------------------------------------------- |
+| `SPACESHIP_HASKELL_SHOW`          | `true`                             | Show current Haskell Tool Stack version or not          |
+| `SPACESHIP_HASKELL_PREFIX`        | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Haskell section                       |
+| `SPACESHIP_HASKELL_SUFFIX`        | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Haskell section                        |
+| `SPACESHIP_HASKELL_SYMBOL`        | `λ·`                               | Character to be shown before Haskell Tool Stack version |
+| `SPACESHIP_HASKELL_COLOR`         | `red`                              | Color of Haskell section                                |
+| `SPACESHIP_HASKELL_SUPPORT_CABAL` | `true`                             | Support Cabal based projects                            |
+| `SPACESHIP_HASKELL_SUPPORT_STACK` | `true`                             | Support Stack based projects                            |
 
 ### Julia (`julia`)
 
