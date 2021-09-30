@@ -17,7 +17,7 @@ oneTimeSetUp() {
   SPACESHIP_PROMPT_ADD_NEWLINE=false
   SPACESHIP_PROMPT_ORDER=(elm)
 
-  source "$SPACESHIP_ROOT/spaceship.zsh"
+  source "spaceship.zsh"
 }
 
 setUp() {

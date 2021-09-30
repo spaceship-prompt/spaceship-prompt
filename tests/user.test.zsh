@@ -15,7 +15,7 @@ oneTimeSetUp() {
   SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
   SPACESHIP_PROMPT_ORDER=(user)
 
-  source "$SPACESHIP_ROOT/spaceship.zsh"
+  source "spaceship.zsh"
 }
 
 setUp() {
