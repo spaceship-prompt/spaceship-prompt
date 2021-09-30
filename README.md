@@ -107,7 +107,6 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 - Current Python virtualenv.
 - Current Conda virtualenv (`🅒`).
 - Current .NET SDK version, through dotnet-cli (`.NET`).
-- Current Ember.js version, through ember-cli (`🐹`).
 - Current Kubectl context (`☸️`).
 - Current Terraform workspace (`🛠`).
 - Package version, if there's is a package in current directory (`📦`).

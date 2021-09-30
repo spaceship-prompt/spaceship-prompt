@@ -47,7 +47,6 @@ SPACESHIP_PROMPT_ORDER=(
   conda         # conda virtualenv section
   pyenv         # Pyenv section
   dotnet        # .NET section
-  ember         # Ember.js section
   kubectl       # Kubectl context section
   terraform     # Terraform workspace section
   exec_time     # Execution time
@@ -491,18 +490,6 @@ pyenv section is shown only in directories that contain `requirements.txt`, `pyp
 | `SPACESHIP_DOTNET_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after .NET section                 |
 | `SPACESHIP_DOTNET_SYMBOL` |              `.NET·`               | Character to be shown before .NET version |
 | `SPACESHIP_DOTNET_COLOR`  |               `128`                | Color of .NET section                     |
-
-### Ember.js (`ember`)
-
-Ember.js section is shown only in directories that contain a `ember-cli-build.js` file.
-
-| Variable                 |          За замовчуванням          | Пояснення                                     |
-|:------------------------ |:----------------------------------:| --------------------------------------------- |
-| `SPACESHIP_EMBER_SHOW`   |               `true`               | Current Ember.js section                      |
-| `SPACESHIP_EMBER_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Ember.js section                |
-| `SPACESHIP_EMBER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Ember.js section                 |
-| `SPACESHIP_EMBER_SYMBOL` |                `🐹·`                | Character to be shown before Ember.js version |
-| `SPACESHIP_EMBER_COLOR`  |               `210`                | Color of Ember.js section                     |
 
 ### Kubernetes (`kubectl`)
 

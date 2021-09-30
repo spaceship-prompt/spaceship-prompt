@@ -68,7 +68,6 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     venv          # virtualenv section
     conda         # conda virtualenv section
     dotnet        # .NET section
-    ember         # Ember.js section
     kubectl       # Kubectl context section
     terraform     # Terraform workspace section
     exec_time     # Execution time

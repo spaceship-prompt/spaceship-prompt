@@ -44,7 +44,7 @@ SPACESHIP_VI_MODE_SHOW=false
 
 由于未使用的模块加载，提示符也可能变慢。 Spaceship只装载 `SPACESHIP_PROPT_ORDER` 或 `SPACESHIP_RPROPT_ORDER` 中提到的模块。 如果你认为某些模块对你来说可能毫无用处，试图通过在排序选项中省略它们的名字来禁用它们。
 
-在下面的示例中， `time`, `package`, `xcode`, `julia`, `docker`, ` ember ` 和 `vi_mode` 模块被禁用，根本不会被加载。
+在下面的示例中， `time`, `package`, `xcode`, `julia`, `docker`, 和 `vi_mode` 模块被禁用，根本不会被加载。
 
 ```zsh
 #  如果你想禁用仅仅需要将模块注释
@@ -73,7 +73,6 @@ SPACESHIP_PROMPT_ORDER=(
   conda         # conda virtualenv section
   pyenv         # Pyenv section
   dotnet        # .NET section
-  # ember       # Ember.js section (Disabled)
   kubectl       # Kubectl context section
   terraform     # Terraform workspace section
   exec_time     # Execution time

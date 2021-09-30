@@ -47,7 +47,7 @@ Using `grep` to fetch package version wasn't returning accurate information. So 
 
 Prompt also may slow down because of loading of unused sections. Spaceship loads only sections mentioned in `SPACESHIP_PROMPT_ORDER` or `SPACESHIP_RPROMPT_ORDER`. If you think some sections might be useless for you, try to disable them by omitting their names in order options.
 
-In the example below, `time`, `package`, `xcode`, `julia`, `docker`, `ember` and `vi_mode` sections are disabled so that they won't be loaded at all.
+In the example below, `time`, `package`, `xcode`, `julia`, `docker`, and `vi_mode` sections are disabled so that they won't be loaded at all.
 
 ```zsh
 # Just comment a section if you want to disable it
@@ -76,7 +76,6 @@ SPACESHIP_PROMPT_ORDER=(
   conda         # conda virtualenv section
   pyenv         # Pyenv section
   dotnet        # .NET section
-  # ember       # Ember.js section (Disabled)
   kubectl       # Kubectl context section
   terraform     # Terraform workspace section
   exec_time     # Execution time
