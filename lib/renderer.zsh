@@ -31,7 +31,7 @@ spaceship::load_sections() {
   done
 
   if ${load_async}; then
-    (( ASYNC_INIT_DONE )) || source "${SPACESHIP_ROOT}/async/async.zsh"
+    (( ASYNC_INIT_DONE )) || source "${SPACESHIP_ROOT}/async.zsh"
   fi
 }
 
