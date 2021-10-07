@@ -533,14 +533,16 @@ Shows the active kubectl context, which consists of a cluster name and, when wor
 
 **💡 Tip:** If your cluster name (and thus context name) is too long, you can give it a shorter name using `kubectl config rename-context very_long_context_name name`.
 
-| Variable                               |              Default               | Meaning                                                         |
-| :------------------------------------- | :--------------------------------: | --------------------------------------------------------------- |
-| `SPACESHIP_KUBECONTEXT_SHOW`           |               `true`               | Current Kubectl context section                                 |
-| `SPACESHIP_KUBECONTEXT_PREFIX`         |               `at·`                | Prefix before Kubectl context section                           |
-| `SPACESHIP_KUBECONTEXT_SUFFIX`         | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubectl context section                            |
-| `SPACESHIP_KUBECONTEXT_COLOR`          |               `cyan`               | Color of Kubectl context section                                |
-| `SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW` |               `true`               | Should namespace be also displayed                              |
-| `SPACESHIP_KUBECONTEXT_COLOR_GROUPS`   |                ` `                 | _Array_ of pairs of colors and match patterns, empty by default |
+| Variable                                 |              Default               | Meaning                                                         |
+| :--------------------------------------- | :--------------------------------: | --------------------------------------------------------------- |
+| `SPACESHIP_KUBECONTEXT_SHOW`             |               `true`               | Current Kubectl context section                                 |
+| `SPACESHIP_KUBECONTEXT_PREFIX`           |               `at·`                | Prefix before Kubectl context section                           |
+| `SPACESHIP_KUBECONTEXT_SUFFIX`           | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Kubectl context section                            |
+| `SPACESHIP_KUBECONTEXT_COLOR`            |               `cyan`               | Color of Kubectl context section                                |
+| `SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW`   |               `true`               | Should namespace be also displayed                              |
+| `SPACESHIP_KUBECONTEXT_NAMESPACE_PREFIX` |                `·(`                | Should namespace be also displayed                              |
+| `SPACESHIP_KUBECONTEXT_NAMESPACE_SUFFIX` |                `)`                 | Should namespace be also displayed                              |
+| `SPACESHIP_KUBECONTEXT_COLOR_GROUPS`     |                ` `                 | _Array_ of pairs of colors and match patterns, empty by default |
 
 **Color Groups:** To set the section to a different color based on context or namespace, you can define an array of pair values in which the first value of a pair is a color name to use and the second value is a regular expression pattern to match against the section text (context name and/or namespace). The first matched pattern will determine the color, so list order can be used to prioritize patterns.
 

@@ -14,6 +14,8 @@ SPACESHIP_KUBECONTEXT_PREFIX="${SPACESHIP_KUBECONTEXT_PREFIX=""}"
 SPACESHIP_KUBECONTEXT_SUFFIX="${SPACESHIP_KUBECONTEXT_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_KUBECONTEXT_COLOR="${SPACESHIP_KUBECONTEXT_COLOR="cyan"}"
 SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW="${SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW=true}"
+SPACESHIP_KUBECONTEXT_NAMESPACE_PREFIX="${SPACESHIP_KUBECONTEXT_NAMESPACE_PREFIX=' ('}"
+SPACESHIP_KUBECONTEXT_NAMESPACE_SUFFIX="${SPACESHIP_KUBECONTEXT_NAMESPACE_SUFFIX=')'}"
 SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(${SPACESHIP_KUBECONTEXT_COLOR_GROUPS=})
 
 # ------------------------------------------------------------------------------
@@ -31,7 +33,7 @@ spaceship_kubectl_context() {
 
   if [[ $SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW == true ]]; then
     local kube_namespace=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
-    [[ -n $kube_namespace && "$kube_namespace" != "default" ]] && kube_context="$kube_context ($kube_namespace)"
+    [[ -n $kube_namespace && "$kube_namespace" != "default" ]] && kube_context="$kube_context$SPACESHIP_KUBECONTEXT_NAMESPACE_PREFIX$kube_namespace$SPACESHIP_KUBECONTEXT_NAMESPACE_SUFFIX"
   fi
 
   # Apply custom color to section if $kube_context matches a pattern defined in SPACESHIP_KUBECONTEXT_COLOR_GROUPS array.
