@@ -5,8 +5,15 @@ spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
 # USAGE:
 #   spaceship::section <color> [prefix] <content> [suffix]
 spaceship::section() {
-  local color prefix content suffix
-  [[ -n $1 ]] && color="%F{$1}"  || color="%f"
+  local color prefix content suffix 
+
+  if [[ -z "$1" ]]; then
+    color="%f"
+  elif [[ $1 == 'keep' ]]; then
+    color=""
+  else
+    color="%F{$1}"
+  fi
   [[ -n $2 ]] && prefix="$2"     || prefix=""
   [[ -n $3 ]] && content="$3"    || content=""
   [[ -n $4 ]] && suffix="$4"     || suffix=""
@@ -18,13 +25,13 @@ spaceship::section() {
     echo -n "$prefix"
   fi
   spaceship_prompt_opened=true
-  echo -n "%{%b%}" # unset bold
+  [[ -n $color ]] && echo -n "%{%b%}" # unset bold
 
-  echo -n "%{%B$color%}" # set color
+  [[ -n $color ]] && echo -n "%{%B$color%}" # set color
   echo -n "$content"     # section content
-  echo -n "%{%b%f%}"     # unset color
+  [[ -n $color ]] && echo -n "%{%b%f%}"     # unset color
 
-  echo -n "%{%B%}" # reset bold, if it was diabled before
+  [[ -n $color ]] && echo -n "%{%B%}" # reset bold, if it was diabled before
   if [[ $SPACESHIP_PROMPT_SUFFIXES_SHOW == true ]]; then
     echo -n "$suffix"
   fi
