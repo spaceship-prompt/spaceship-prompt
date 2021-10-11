@@ -47,7 +47,7 @@ SPACESHIP_VI_MODE_SHOW=false
 在下面的示例中， `time`, `package`, `xcode`, `julia`, `docker`, ` ember ` 和 `vi_mode` 模块被禁用，根本不会被加载。
 
 ```zsh
-#  如果你想禁用仅仅需要将模块注释
+# Just comment a section if you want to disable it
 SPACESHIP_PROMPT_ORDER=(
   # time        # Time stamps section (Disabled)
   user          # Username section
@@ -76,6 +76,7 @@ SPACESHIP_PROMPT_ORDER=(
   # ember       # Ember.js section (Disabled)
   kubectl       # Kubectl context section
   terraform     # Terraform workspace section
+  ibmcloud      # IBM Cloud section
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status
