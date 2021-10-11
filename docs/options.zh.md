@@ -50,6 +50,7 @@ SPACESHIP_PROMPT_ORDER=(
   ember         # Ember.js section
   kubectl       # Kubectl context section
   terraform     # Terraform workspace section
+  ibmcloud      # IBM Cloud section
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status
@@ -237,7 +238,8 @@ Mercurial 状态指示器仅在您弄乱的仓库时才显示。
 当仓库是一个软件包时，将显示软件包版本。
 
 - **npm** — `npm` 软件包包含一个 `package.json` 文件。 我们使用 `jq`, `python` 解析软件包版本以提高性能， `node` 作为后补。 安装 [jq](https://stedolan.github.io/jq/) 来此模块的性能 **改进性能**([为什么？](./troubleshooting.md#why-is-my-prompt-slow))
-- ** cargo ** — ` cargo ` 软件包包含一个 `Cargo.toml` 文件。 目前，我们使用 `cargo pkgid`, 它依赖 `Cargo.lock`文件。 因此，如果软件包版本未显示，您可能需要运行一些命令，如 `cargo build` ，这些命令可以生成 `Cargo.lock` 文件。
+- **lerna** — `lerna` monorepo contains a `lerna.json` file. We use `jq`, `python` to parse package version for improving performance and `node` as a fallback. Install [jq](https://stedolan.github.io/jq/) for **improved performance** of this section (same reason as npm).
+- **cargo** — `cargo` package contains a `Cargo.toml` file. Currently, we use `cargo pkgid`, it depends on `Cargo.lock`. So if package version isn't shown, you may need to run some command like `cargo build` which can generate `Cargo.lock` file.
 
 > **注意：** 这是您正在使用的软件包版本，而不是软件包管理器本身的版本。
 
@@ -607,9 +609,21 @@ SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
 | `SPACESHIP_TERRAFORM_SYMBOL` |               `🛠️·`                | Character to be shown before Terraform workspace |
 | `SPACESHIP_TERRAFORM_COLOR`  |               `105`                | Color of Terraform workspace section             |
 
+### IBM Cloud (`ibmcloud`)
+
+Shows the selected IBM Cloud account by looking up with `ibmcloud target`.
+
+| 变量                          |                 默认                 | 释义                                             |
+|:--------------------------- |:----------------------------------:| ---------------------------------------------- |
+| `SPACESHIP_IBMCLOUD_SHOW`   |              `false`               | Current IBM Cloud section                      |
+| `SPACESHIP_IBMCLOUD_PREFIX` |              `using·`              | Prefix before IBM Cloud section                |
+| `SPACESHIP_IBMCLOUD_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after IBM Cloud section                 |
+| `SPACESHIP_IBMCLOUD_SYMBOL` |                `👔·`                | Character to be shown before IBM Cloud section |
+| `SPACESHIP_IBMCLOUD_COLOR`  |               `039`                | Color of IBM Cloud section                     |
+
 ### Execution time (`exec_time`)
 
-显示上一条命令的执行用时。 如果超过设定的时间阈值，将会显示出来。
+Execution time of the last command. Will be displayed if it exceeds the set threshold of time.
 
 | 变量                            |                 默认                 | 释义                                                               |
 |:----------------------------- |:----------------------------------:| ---------------------------------------------------------------- |
@@ -621,9 +635,9 @@ SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
 
 ### Battery (`battery`)
 
-默认情况下，电池模块仅在电池电量低于 `SPACESHIP_BATTERY_THRESHOLD` (默认：10%) 时显示。
+By default, Battery section is shown only if battery level is below `SPACESHIP_BATTERY_THRESHOLD` (default: 10%).
 
-| 变量                                     |                 默认                 | 释义                                                                   |
+| Variable                               |              Default               | Meaning                                                              |
 |:-------------------------------------- |:----------------------------------:| -------------------------------------------------------------------- |
 | `SPACESHIP_BATTERY_SHOW`               |               `true`               | Show battery section or not (`true`, `false`, `always` or `charged`) |
 | `SPACESHIP_BATTERY_PREFIX`             |                 ``                 | Prefix before battery section                                        |
@@ -633,20 +647,20 @@ SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
 | `SPACESHIP_BATTERY_SYMBOL_FULL`        |                `•`                 | Character to be shown if battery is full                             |
 | `SPACESHIP_BATTERY_THRESHOLD`          |                 10                 | Battery level below which battery section will be shown              |
 
-` SPACESHIP_BATTERY_SHOW ` 定义何时显示电池模块。 以下是可能的值：
+`SPACESHIP_BATTERY_SHOW` defines when to show battery section. Here are possible values:
 
-| `SPACESHIP_BATTERY_SHOW` | 低于阈值   | 阈值以上…  | 充电完成   |
-|:------------------------:|:------ |:------ |:------ |
-|         `false`          | Hidden | Hidden | Hidden |
-|         `always`         | Shown  | Shown  | Shown  |
-|          `true`          | Shown  | Hidden | Hidden |
-|        `charged`         | Shown  | Hidden | Shown  |
+| `SPACESHIP_BATTERY_SHOW` | Below threshold | Above threshold | Fully charged |
+|:------------------------:|:--------------- |:--------------- |:------------- |
+|         `false`          | Hidden          | Hidden          | Hidden        |
+|         `always`         | Shown           | Shown           | Shown         |
+|          `true`          | Shown           | Hidden          | Hidden        |
+|        `charged`         | Shown           | Hidden          | Shown         |
 
 ### Vi-mode (`vi_mode`)
 
-此模块仅在启用 V-mode 时显示模式指示器。
+This section shows mode indicator only when Vi-mode is enabled.
 
-| 变量                         |                 默认                 | 释义                                   |
+| Variable                   |              Default               | Meaning                              |
 |:-------------------------- |:----------------------------------:| ------------------------------------ |
 | `SPACESHIP_VI_MODE_SHOW`   |               `true`               | Shown current Vi-mode or not         |
 | `SPACESHIP_VI_MODE_PREFIX` |                 ``                 | Prefix before Vi-mode section        |
@@ -655,20 +669,20 @@ SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
 | `SPACESHIP_VI_MODE_NORMAL` |               `[N]`                | Text to be shown when in normal mode |
 | `SPACESHIP_VI_MODE_COLOR`  |              `white`               | Color of Vi-mode section             |
 
-您可以暂时用便捷函数启用或禁用 vi-mode (仅在终端中执行它们，就像其他常规命令一样)：
+You can temporarily enable or disable vi-mode with handy functions (just execute them in terminal as any other regular command):
 
-| 函数                          | 释义                                           |
+| Function                    | Meaning                                      |
 |:--------------------------- | -------------------------------------------- |
 | `spaceship_vi_mode_enable`  | Enable vi-mode for current terminal session  |
 | `spaceship_vi_mode_disable` | Disable vi-mode for current terminal session |
 
-**注意：** 如果提示符在更改模式时不刷新，加 `eval spaceship_vi_mode_enabled` 到您的 `.zshrc` 中。 请注意， `spaceship_vi_mode_enable` 将覆盖`zle-keymap-select` 组件， 如果您有一个自定义组件的话，请确保它包含此行 `zle reset-prompt ; zle -R` 指令。
+**Note:** If the prompt does not refresh when changing modes add `eval spaceship_vi_mode_enable` to your `.zshrc`. Beware that `spaceship_vi_mode_enable` will override the`zle-keymap-select` widget, so if you have a custom one just make sure it contains the line `zle reset-prompt ; zle -R`.
 
-**注意：** 对于启用了 v 模式插件的 oh-my-zsh 用户：添加 `export RPS1="%{$reset_color%}"` 到 `.zshrc` 文件的 `source $ZSH/oh-my-zsh.sh` 之前 以禁用默认 `<<<` NORMAL 模式指示器显示在右部的提示符。
+**Note:** For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$reset_color%}"` before `source $ZSH/oh-my-zsh.sh` in `.zshrc` to disable default `<<<` NORMAL mode indicator in right prompt.
 
 ### Jobs (`jobs`)
 
-此模块仅在后台有活动任务时才显示。
+This section show only when there are active jobs in the background.
 
 | 变量                                |   默认   | 释义                                                                        |
 |:--------------------------------- |:------:| ------------------------------------------------------------------------- |
@@ -683,9 +697,9 @@ SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
 
 ### Exit code (`exit_code`)
 
-默认为禁用。 如果您需要显示时间戳。在您的 `.zshrc `中将 ` SPACESHIP_EXIT_CODE_SHOW ` 设置为 `true` 。
+Disabled by default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show exit code of last command.
 
-| 变量                           |   默认    | 释义                                     |
+| Variable                     | Default | Meaning                                |
 |:---------------------------- |:-------:| -------------------------------------- |
 | `SPACESHIP_EXIT_CODE_SHOW`   | `false` | Show exit code of last command         |
 | `SPACESHIP_EXIT_CODE_PREFIX` |   ``    | Prefix before exit code section        |
@@ -695,4 +709,4 @@ SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
 
 ## 需要更多？
 
-如果这些选项无法满足你的所需，请阅读文档 [API页面](./api.md) 来了解更多关于 Spaceship API 的内容。
+If these options are not enough to do what you want, read more about Spaceship's API on [API page](./api.md) of the documentation.
