@@ -1,3 +1,10 @@
+# [3.15.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.14.1...v3.15.0) (2021-10-11)
+
+
+### Features
+
+* add IBM Cloud CLI section ([#912](https://github.com/spaceship-prompt/spaceship-prompt/issues/912)) ([6433544](https://github.com/spaceship-prompt/spaceship-prompt/commit/64335447e0b2f250ca6d145a3343a3613853c00a))
+
 ## [3.14.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.14.0...v3.14.1) (2021-08-30)
 
 
