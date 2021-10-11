@@ -70,6 +70,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     dotnet        # .NET section
     kubectl       # Kubectl context section
     terraform     # Terraform workspace section
+    ibmcloud      # IBM Cloud section
     exec_time     # Execution time
     async         # Async jobs indicator
     line_sep      # Line break

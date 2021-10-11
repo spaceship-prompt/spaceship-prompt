@@ -109,6 +109,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 - Current .NET SDK version, through dotnet-cli (`.NET`).
 - Current Kubectl context (`☸️`).
 - Current Terraform workspace (`🛠`).
+- Current IBM Cloud account (`👔`).
 - Package version, if there's is a package in current directory (`📦`).
 - Current battery level and status:
   - `⇡` - charging;
