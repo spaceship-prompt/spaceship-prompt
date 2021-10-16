@@ -1,0 +1,20 @@
+name: homebrew
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  main:
+    name: Homebrew Bump
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+
+      - name: 🍺 Bump Homebrew Formula
+        uses: mislav/bump-homebrew-formula-action@v1.12
+        with:
+          formula-name: spaceship
+        env:
+          COMMITTER_TOKEN: ${{ secrets.GH_TOKEN }}

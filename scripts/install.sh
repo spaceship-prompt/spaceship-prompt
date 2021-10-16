@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 #
 # Author: Denys Dovhan, denysdovhan.com
-# https://github.com/denysdovhan/spaceship-prompt
+# https://github.com/spaceship-prompt/spaceship-prompt
 
 # ------------------------------------------------------------------------------
 # Colors
@@ -26,7 +26,7 @@ fi
 # ------------------------------------------------------------------------------
 
 ZSHRC="${ZDOTDIR:-$HOME}/.zshrc"
-REPO='https://github.com/denysdovhan/spaceship-prompt.git'
+REPO='https://github.com/spaceship-prompt/spaceship-prompt.git'
 SOURCE="$PWD/spaceship.zsh"
 USER_SOURCE="${ZDOTDIR:-$HOME}/.spaceship-prompt"
 DEST='/usr/local/share/zsh/site-functions'

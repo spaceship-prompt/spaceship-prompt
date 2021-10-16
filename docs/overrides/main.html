@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+<!-- Meta tags -->
+{% block extrahead %}
+
+<!-- Determine title -->
+{% set title = config.site_name %}
+<!-- prettier-ignore -->
+{% if page and page.title and not page.is_homepage %}
+{% set title = config.site_name ~ " - " ~ page.title | striptags %}
+{% endif %}
+
+{% set image = 'https://repository-images.githubusercontent.com/50726688/27cc9680-b8db-11eb-8937-546bbfacc378' %}
+
+<!-- Open graph meta tags -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ title }}" />
+<meta property="og:description" content="{{ config.site_description }}" />
+<meta property="og:url" content="{{ page.canonical_url }}" />
+<meta property="og:image" content="{{ image }}" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1080" />
+<meta property="og:image:height" content="568" />
+
+<!-- Twitter meta tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@SpaceshipZSH" />
+<meta name="twitter:creator" content="@SpaceshipZSH" />
+<meta name="twitter:title" content="{{ title }}" />
+<meta name="twitter:description" content="{{ config.site_description }}" />
+<meta name="twitter:image" content="{{ image }}" />
+{% endblock %}
+
+<!-- Additional copyright -->
+{% set extracopyright %}
+<!-- -->
+and powered by <a href="https://www.netlify.com">Netlify</a>.
+<!-- -->
+{% endset %}
+
+<!-- Announcement bar -->
+{% block announce %}
+<style>
+  .announce.discord {
+    color: #7289DA !important;
+  }
+</style>
+<a class="announce discord" href="https://discord.gg/NTQWz8Dyt9">
+  We have recently launched our
+  <span class="twemoji twitter">
+    {% include ".icons/fontawesome/brands/discord.svg" %}
+  </span>
+  <strong>Discord</strong>
+  server!
+</a>
+{% endblock %}
+
+<!-- Self-hosted Analytics -->
+{% block analytics %}
+<script
+  async
+  defer
+  data-website-id="026a346b-c08e-40e0-8d35-be23f8c4c49a"
+  src="https://analytics.denysdovhan.com/umami.js"
+></script>
+{% endblock %}

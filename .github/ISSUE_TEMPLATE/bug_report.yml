@@ -1,0 +1,97 @@
+name: 🐛 Bug Report
+description: If something isn't working as expected 🤔.
+labels:
+  - bug
+body:
+  - type: checkboxes
+    attributes:
+      label: Is there an existing issue for this?
+      description: >
+        Please search to see if an issue already exists for the bug you encountered.
+
+        Check troubleshooting page for commonly encountered problems: https://spaceship-prompt.sh/troubleshooting
+      options:
+        - label: Yes, I have searched the existing issues
+          required: true
+        - label: Yes, I have checked troubleshooting page
+          required: true
+
+  - type: textarea
+    attributes:
+      label: The problem
+      description: >
+        Provide a clear and concise description of what the problem is.
+
+        Tell us what you were trying to do and what happened.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Relevant Zsh configuration
+      description: Please, provide the part of your `~/.zshrc` file related to Spaceship.
+      render: zsh
+
+  - type: markdown
+    attributes:
+      value: >
+        ## Environment
+
+  - type: input
+    id: spaceship-version
+    validations:
+      required: true
+    attributes:
+      label: What is version of Spaceship are you using?
+      placeholder: vX.X.X
+      description: >
+        Run `echo $SPACESHIP_VERSION` to get the version of Spaceship you are using.
+
+  - type: input
+    id: zsh-version
+    validations:
+      required: true
+    attributes:
+      label: What is version of Zsh are you using?
+      placeholder: zsh X.X (architecture)
+      description: >
+        Run `zsh --version` to get the version of Spaceship you are using.
+
+  - type: dropdown
+    id: os-system
+    validations:
+      required: true
+    attributes:
+      label: What operation system are you running?
+      options:
+        - macOS
+        - Linux
+        - Windows
+
+  - type: input
+    id: zsh-framework
+    attributes:
+      label: Do you use any Zsh framework or plugin manager?
+      placeholder: oh-my-zsh/prezto/antigen/zplug/zgen
+      description: >
+        Otherwise leave blank.
+
+  - type: input
+    id: terminal
+    attributes:
+      label: Which terminal emulator do you use?
+      placeholder: iTerm/Hyper/Terminator/etc
+      description: >
+        If known, otherwise leave blank.
+
+  - type: textarea
+    attributes:
+      label: Additional information
+      description: >
+        If you have any additional information for us, use the field below.
+
+        Provide logs, suggestions, possible solutions, fixes or anything you consider useful.
+
+        Please note, you can attach screenshots or screen recordings here, by
+        dragging and dropping files in the field below.
+      render: markdown

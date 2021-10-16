@@ -3,11 +3,11 @@
 #
 # Author: Denys Dovhan, denysdovhan.com
 # License: MIT
-# https://github.com/denysdovhan/spaceship-prompt
+# https://github.com/spaceship-prompt/spaceship-prompt
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='3.11.2'
+export SPACESHIP_VERSION='3.15.0'
 
 # Common-used variable for new line separator
 NEWLINE='
@@ -70,6 +70,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     ember         # Ember.js section
     kubectl       # Kubectl context section
     terraform     # Terraform workspace section
+    ibmcloud      # IBM Cloud section
     exec_time     # Execution time
     line_sep      # Line break
     battery       # Battery level and status
@@ -152,6 +153,8 @@ spaceship_prompt() {
 
   # Should it add a new line before the prompt?
   [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
+
+  # Compose prompt from the order
   spaceship::compose_prompt $SPACESHIP_PROMPT_ORDER
 }
 

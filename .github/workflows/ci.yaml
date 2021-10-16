@@ -1,0 +1,66 @@
+name: ci
+on:
+  push:
+    branches:
+      - master
+      - +([0-9])?(.{+([0-9]),x}).x
+      - next
+      - beta
+  pull_request:
+
+jobs:
+  main:
+    name: Tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+
+      - name: ⬇️ Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: 💤 Install Zsh
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install zsh
+
+      - name: 🖨 Print Zsh Vesion
+        run: zsh --version
+
+      - name: 🧪 Run Tests
+        run: scripts/tests.sh
+
+  release:
+    name: Release
+    needs: main
+    if: ${{ github.repository == 'spaceship-prompt/spaceship-prompt' && github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+
+      - name: ⬇️ Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: 🚀 Release
+        uses: cycjimmy/semantic-release-action@v2
+        id: semantic
+        with:
+          extra_plugins: |
+            @google/semantic-release-replace-plugin
+            @semantic-release/changelog
+            @semantic-release/git
+            semantic-release-license
+        env:
+          # Using PAT here, because published release should trigger a workflow
+          # See: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#triggering-new-workflows-using-a-personal-access-token
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
