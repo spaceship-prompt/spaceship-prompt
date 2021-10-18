@@ -28,7 +28,10 @@ spaceship_node() {
 
   local 'node_version'
 
-  if spaceship::exists nvm; then
+  if spaceship::exists fnm; then
+    node_version=$(fnm current 2>/dev/null)
+    [[ $node_version == "system" || $node_version == "node" ]] && return
+  elif spaceship::exists nvm; then
     node_version=$(nvm current 2>/dev/null)
     [[ $node_version == "system" || $node_version == "node" ]] && return
   elif spaceship::exists nodenv; then

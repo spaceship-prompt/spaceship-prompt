@@ -89,7 +89,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
   - `!` — unstaged changes;
   - `✘` — deleted files;
 - Indicator for jobs in the background (`✦`).
-- Current Node.js version, through nvm/nodenv/n (`⬢`).
+- Current Node.js version, through fnm/nvm/nodenv/n (`⬢`).
 - Current Ruby version, through rvm/rbenv/chruby/asdf (`💎`).
 - Current Elm version (`🌳`)
 - Current Elixir version, through kiex/exenv/elixir (`💧`).
@@ -110,6 +110,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 - Current Ember.js version, through ember-cli (`🐹`).
 - Current Kubectl context (`☸️`).
 - Current Terraform workspace (`🛠`).
+- Current IBM Cloud account (`👔`).
 - Package version, if there's is a package in current directory (`📦`).
 - Current battery level and status:
   - `⇡` - charging;

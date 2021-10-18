@@ -51,7 +51,7 @@ spaceship::maven::versions() {
 
   maven_version_output=$("$maven_exe" --version 2>/dev/null)
   maven_version=$(echo "$maven_version_output" | awk '{ if ($2 ~ /^Maven/) { print "v" $3 } }')
-  jvm_version=$(echo "$maven_version_output" | awk '{ if ($1 ~ /^Java/) { print "v" substr($3, 1, length($3)-1) } }')
+  jvm_version=$(echo "$maven_version_output" | awk '{ if ($0 ~ /^Java version/) { print "v" substr($3, 1, length($3)-1) } }')
 
   print maven "$maven_version" jvm "$jvm_version"
 }

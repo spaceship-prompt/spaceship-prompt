@@ -141,4 +141,4 @@ test_host_suffix() {
 # Run tests with shunit2
 # ------------------------------------------------------------------------------
 
-source modules/shunit2/shunit2
+source tests/shunit2/shunit2

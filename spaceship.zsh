@@ -7,7 +7,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='3.12.7'
+export SPACESHIP_VERSION='3.15.0'
 
 # Common-used variable for new line separator
 NEWLINE='
@@ -70,6 +70,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     ember         # Ember.js section
     kubectl       # Kubectl context section
     terraform     # Terraform workspace section
+    ibmcloud      # IBM Cloud section
     exec_time     # Execution time
     line_sep      # Line break
     battery       # Battery level and status

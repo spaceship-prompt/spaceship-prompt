@@ -50,6 +50,7 @@ SPACESHIP_PROMPT_ORDER=(
   ember         # Ember.js section
   kubectl       # Kubectl context section
   terraform     # Terraform workspace section
+  ibmcloud      # IBM Cloud section
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status
@@ -238,6 +239,7 @@ Mercurial status indicators is shown only when you have dirty repository.
 Package version is shown when repository is a package.
 
 - **npm** — `npm` package contains a `package.json` file. We use `jq`, `python` to parse package version for improving performance and `node` as a fallback. Install [jq](https://stedolan.github.io/jq/) for **improved performance** of this section ([Why?](./troubleshooting.md#why-is-my-prompt-slow))
+- **lerna** — `lerna` monorepo contains a `lerna.json` file. We use `jq`, `python` to parse package version for improving performance and `node` as a fallback. Install [jq](https://stedolan.github.io/jq/) for **improved performance** of this section (same reason as npm).
 - **cargo** — `cargo` package contains a `Cargo.toml` file. Currently, we use `cargo pkgid`, it depends on `Cargo.lock`. So if package version isn't shown, you may need to run some command like `cargo build` which can generate `Cargo.lock` file.
 
 > **Note:** This is the version of the package you are working on, not the version of package manager itself.
@@ -607,6 +609,18 @@ Shows the active Terraform wokspace in directories that contain `.terraform/envi
 | `SPACESHIP_TERRAFORM_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Terraform workspace section         |
 | `SPACESHIP_TERRAFORM_SYMBOL` |               `🛠️·`                | Character to be shown before Terraform workspace |
 | `SPACESHIP_TERRAFORM_COLOR`  |               `105`                | Color of Terraform workspace section             |
+
+### IBM Cloud (`ibmcloud`)
+
+Shows the selected IBM Cloud account by looking up with `ibmcloud target`.
+
+| Variable | Default | Meaning |
+| :------- | :-----: | ------- |
+| `SPACESHIP_IBMCLOUD_SHOW` | `false` | Current IBM Cloud section |
+| `SPACESHIP_IBMCLOUD_PREFIX` | `using·` | Prefix before IBM Cloud section |
+| `SPACESHIP_IBMCLOUD_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after IBM Cloud section |
+| `SPACESHIP_IBMCLOUD_SYMBOL` | `👔·` | Character to be shown before IBM Cloud section |
+| `SPACESHIP_IBMCLOUD_COLOR` | `039` | Color of IBM Cloud section |
 
 ### Execution time (`exec_time`)
 
