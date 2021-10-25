@@ -26,12 +26,12 @@ spaceship_aws() {
   spaceship::exists aws || return
 
   # Is the current profile not the default profile
-  [[ -z $AWS_PROFILE ]] || [[ "$AWS_PROFILE" == "default" ]] && return
+  [[ -z $AWS_PROFILE || -z $AWS_VAULT ]] || [[ "$AWS_PROFILE" == "default" ]] && return
 
   # Show prompt section
   spaceship::section \
     "$SPACESHIP_AWS_COLOR" \
     "$SPACESHIP_AWS_PREFIX" \
-    "${SPACESHIP_AWS_SYMBOL}$AWS_PROFILE" \
+    "${SPACESHIP_AWS_SYMBOL}${AWS_VAULT:=$AWS_PROFILE}" \
     "$SPACESHIP_AWS_SUFFIX"
 }

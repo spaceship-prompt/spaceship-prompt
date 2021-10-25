@@ -120,6 +120,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 - Optional exit-code of last command ([how to enable](./docs/options.md#exit-code-exit_code)).
 - Optional time stamps 12/24hr in format ([how to enable](./docs/options.md#time-time)).
 - Execution time of the last command if it exceeds the set threshold.
+- Optional AWS now supports aws-vault ([aws-vault](https://github.com/99designs/aws-vault))
 
 Want more features? Please, [open an issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose) or send pull request.
 
