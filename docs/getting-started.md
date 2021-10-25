@@ -19,30 +19,15 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     !!! hint
         If you're using any plugin manager, like Oh-My-Zsh, zplug, antigen or other, this might not be the best way to install Spaceship for you.
 
-    This is way to install Spaceship if you don't use any tool for managing Zsh plugins.
-
-    - Clone this repo `git clone https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1`
-    - Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
-    - Initialize prompt system and choose `spaceship`.
+    1. Clone this repo somewhere, for example to `$HOME/.zsh/spaceship`.
+    2. Add the path of the cloned repo to `$fpath` in `$HOME/.zshrc`.
 
     #### Example
 
-    Run `echo $fpath` to see possible location and link `spaceship.zsh` there, like:
-
     ```zsh
-    $ ln -sf "$PWD/spaceship.zsh" "/usr/local/share/zsh/site-functions/prompt_spaceship_setup"
-    ```
-
-    For a user-specific installation, simply add a directory to `$fpath` for that user in `.zshrc`:
-
-    ```zsh
-    fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
-    ```
-
-    Then install the theme like this:
-
-    ```zsh
-    $ ln -sf "$PWD/spaceship.zsh" "${ZDOTDIR:-$HOME}/.zfunctions/prompt_spaceship_setup"
+    mkdir -p "$HOME/.zsh"
+    git clone --depth=1 https://github.com/sindresorhus/pure.git "$HOME/.zsh/spaceship"
+    fpath+="$HOME/.zsh/spaceship"
     ```
 
     For initializing prompt system add this to your `.zshrc`:
@@ -59,11 +44,20 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     brew install spaceship
     ```
 
-    You can also add the following to your [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage):
+    For initializing prompt system add this to your `.zshrc`:
 
-    ```ruby
-    brew "spaceship"
+    ```zsh
+    # .zshrc
+    autoload -U promptinit; promptinit
+    prompt spaceship
     ```
+
+    !!! hint
+        You can also add the following to your [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage):
+
+        ```ruby
+        brew "spaceship"
+        ```
 
 === "oh-my-zsh"
 
@@ -87,7 +81,15 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     npm install -g spaceship-prompt
     ```
 
-    Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath` and set `prompt spaceship` in `.zshrc`. Just reload your terminal.
+    Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath`.
+
+    For initializing prompt system add this to your `.zshrc`:
+
+    ```zsh
+    # .zshrc
+    autoload -U promptinit; promptinit
+    prompt spaceship
+    ```
 
     !!!tip
         Update Spaceship to new versions as you would any other package.
