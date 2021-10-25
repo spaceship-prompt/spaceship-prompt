@@ -7,7 +7,7 @@ hide:
 
 You have ability to customize or disable specific elements of Spaceship. All options must be overridden in your `.zshrc` file **after** the theme.
 
-Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
+Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors), [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg). Set color to `keep` to prevent the color from being reset to the default color for the section.
 
 **Note:** the symbol `·` in this document represents a regular space character ` `, it is used to clearly indicate when an option default value starts or ends with a space.
 

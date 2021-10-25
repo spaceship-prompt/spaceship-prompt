@@ -31,7 +31,7 @@ spaceship::section() {
   echo -n "$content"     # section content
   [[ -n $color ]] && echo -n "%{%b%f%}"     # unset color
 
-  [[ -n $color ]] && echo -n "%{%B%}" # reset bold, if it was diabled before
+  [[ -n $color ]] && echo -n "%{%B%}" # reset bold, if it was disabled before
   if [[ $SPACESHIP_PROMPT_SUFFIXES_SHOW == true ]]; then
     echo -n "$suffix"
   fi
