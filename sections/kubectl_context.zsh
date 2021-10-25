@@ -12,6 +12,8 @@
 SPACESHIP_KUBECONTEXT_SHOW="${SPACESHIP_KUBECONTEXT_SHOW=true}"
 SPACESHIP_KUBECONTEXT_PREFIX="${SPACESHIP_KUBECONTEXT_PREFIX=""}"
 SPACESHIP_KUBECONTEXT_SUFFIX="${SPACESHIP_KUBECONTEXT_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_KUBECONTEXT_TRUNC="${SPACESHIP_KUBECONTEXT_TRUNC="0"}"
+SPACESHIP_KUBECONTEXT_TRUNC_SUFFIX="${SPACESHIP_KUBECONTEXT_TRUNC_SUFFIX="…"}"
 SPACESHIP_KUBECONTEXT_COLOR="${SPACESHIP_KUBECONTEXT_COLOR="cyan"}"
 SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW="${SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW=true}"
 SPACESHIP_KUBECONTEXT_NAMESPACE_PREFIX="${SPACESHIP_KUBECONTEXT_NAMESPACE_PREFIX=' ('}"
@@ -30,6 +32,13 @@ spaceship_kubectl_context() {
 
   local kube_context=$(kubectl config current-context 2>/dev/null)
   [[ -z $kube_context ]] && return
+  if [[ "$SPACESHIP_KUBECONTEXT_TRUNC" != 0 ]]; then
+    local orig_kube_context=$kube_context
+    kube_context=$(cut -c 1-${SPACESHIP_KUBECONTEXT_TRUNC} <<< $kube_context)
+    if [ "$orig_kube_context" != "$kube_context" ]; then
+      kube_context="$kube_context$SPACESHIP_KUBECONTEXT_TRUNC_SUFFIX"
+    fi
+  fi
 
   if [[ $SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW == true ]]; then
     local kube_namespace=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
