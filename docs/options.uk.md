@@ -50,6 +50,7 @@ SPACESHIP_PROMPT_ORDER=(
   ember         # Ember.js section
   kubectl       # Kubectl context section
   terraform     # Terraform workspace section
+  ibmcloud      # IBM Cloud section
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status
@@ -237,6 +238,7 @@ Mercurial status indicators is shown only when you have dirty repository.
 Package version is shown when repository is a package.
 
 - **npm** — `npm` package contains a `package.json` file. We use `jq`, `python` to parse package version for improving performance and `node` as a fallback. Install [jq](https://stedolan.github.io/jq/) for **improved performance** of this section ([Why?](./troubleshooting.md#why-is-my-prompt-slow))
+- **lerna** — `lerna` monorepo contains a `lerna.json` file. We use `jq`, `python` to parse package version for improving performance and `node` as a fallback. Install [jq](https://stedolan.github.io/jq/) for **improved performance** of this section (same reason as npm).
 - **cargo** — `cargo` package contains a `Cargo.toml` file. Currently, we use `cargo pkgid`, it depends on `Cargo.lock`. So if package version isn't shown, you may need to run some command like `cargo build` which can generate `Cargo.lock` file.
 
 > **Note:** This is the version of the package you are working on, not the version of package manager itself.
@@ -422,7 +424,7 @@ The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more inf
 
 ### Amazon Web Services (AWS) (`aws`)
 
-Shows selected Amazon Web Services profile configured using [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) variable.
+Shows selected Amazon Web Services profile configured using [`AWS_VAULT`](https://github.com/99designs/aws-vault) variable if not defined will use [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html).
 
 | Variable               |          За замовчуванням          | Пояснення                                    |
 |:---------------------- |:----------------------------------:| -------------------------------------------- |
@@ -607,7 +609,19 @@ Shows the active Terraform wokspace in directories that contain `.terraform/envi
 | `SPACESHIP_TERRAFORM_SYMBOL` |               `🛠️·`                | Character to be shown before Terraform workspace |
 | `SPACESHIP_TERRAFORM_COLOR`  |               `105`                | Color of Terraform workspace section             |
 
-### Час виконання (`exec_time`)
+### IBM Cloud (`ibmcloud`)
+
+Shows the selected IBM Cloud account by looking up with `ibmcloud target`.
+
+| Variable                    |          За замовчуванням          | Пояснення                                      |
+|:--------------------------- |:----------------------------------:| ---------------------------------------------- |
+| `SPACESHIP_IBMCLOUD_SHOW`   |              `false`               | Current IBM Cloud section                      |
+| `SPACESHIP_IBMCLOUD_PREFIX` |              `using·`              | Prefix before IBM Cloud section                |
+| `SPACESHIP_IBMCLOUD_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after IBM Cloud section                 |
+| `SPACESHIP_IBMCLOUD_SYMBOL` |                `👔·`                | Character to be shown before IBM Cloud section |
+| `SPACESHIP_IBMCLOUD_COLOR`  |               `039`                | Color of IBM Cloud section                     |
+
+### Execution time (`exec_time`)
 
 Execution time of the last command. Will be displayed if it exceeds the set threshold of time.
 
@@ -619,11 +633,11 @@ Execution time of the last command. Will be displayed if it exceeds the set thre
 | `SPACESHIP_EXEC_TIME_COLOR`   |              `yellow`              | Color of execution time section                                  |
 | `SPACESHIP_EXEC_TIME_ELAPSED` |                `2`                 | The minimum number of seconds for showing execution time section |
 
-### Батарея (`battery`)
+### Battery (`battery`)
 
 By default, Battery section is shown only if battery level is below `SPACESHIP_BATTERY_THRESHOLD` (default: 10%).
 
-| Variable                               |          За замовчуванням          | Пояснення                                                            |
+| Variable                               |              Default               | Meaning                                                              |
 |:-------------------------------------- |:----------------------------------:| -------------------------------------------------------------------- |
 | `SPACESHIP_BATTERY_SHOW`               |               `true`               | Show battery section or not (`true`, `false`, `always` or `charged`) |
 | `SPACESHIP_BATTERY_PREFIX`             |                 ``                 | Prefix before battery section                                        |
@@ -635,18 +649,18 @@ By default, Battery section is shown only if battery level is below `SPACESHIP_B
 
 `SPACESHIP_BATTERY_SHOW` defines when to show battery section. Here are possible values:
 
-| `SPACESHIP_BATTERY_SHOW` | Нижче порогу | Вище порогу | Повністю заряджена |
-|:------------------------:|:------------ |:----------- |:------------------ |
-|         `false`          | Приховано    | Приховано   | Приховано          |
-|         `always`         | Показано     | Показано    | Показано           |
-|          `true`          | Показано     | Приховано   | Приховано          |
-|        `charged`         | Показано     | Приховано   | Показано           |
+| `SPACESHIP_BATTERY_SHOW` | Below threshold | Above threshold | Fully charged |
+|:------------------------:|:--------------- |:--------------- |:------------- |
+|         `false`          | Hidden          | Hidden          | Hidden        |
+|         `always`         | Shown           | Shown           | Shown         |
+|          `true`          | Shown           | Hidden          | Hidden        |
+|        `charged`         | Shown           | Hidden          | Shown         |
 
 ### Vi-mode (`vi_mode`)
 
 This section shows mode indicator only when Vi-mode is enabled.
 
-| Variable                   |          За замовчуванням          | Пояснення                            |
+| Variable                   |              Default               | Meaning                              |
 |:-------------------------- |:----------------------------------:| ------------------------------------ |
 | `SPACESHIP_VI_MODE_SHOW`   |               `true`               | Shown current Vi-mode or not         |
 | `SPACESHIP_VI_MODE_PREFIX` |                 ``                 | Prefix before Vi-mode section        |
@@ -657,7 +671,7 @@ This section shows mode indicator only when Vi-mode is enabled.
 
 You can temporarily enable or disable vi-mode with handy functions (just execute them in terminal as any other regular command):
 
-| Функція                     | Пояснення                                    |
+| Function                    | Meaning                                      |
 |:--------------------------- | -------------------------------------------- |
 | `spaceship_vi_mode_enable`  | Enable vi-mode for current terminal session  |
 | `spaceship_vi_mode_disable` | Disable vi-mode for current terminal session |
@@ -666,9 +680,9 @@ You can temporarily enable or disable vi-mode with handy functions (just execute
 
 **Note:** For oh-my-zsh users with vi-mode plugin enabled: Add `export RPS1="%{$reset_color%}"` before `source $ZSH/oh-my-zsh.sh` in `.zshrc` to disable default `<<<` NORMAL mode indicator in right prompt.
 
-### Завдання (`jobs`)
+### Jobs (`jobs`)
 
-Цей розділ показується лише тоді, коли є активні завдання у фоновому режимі.
+This section show only when there are active jobs in the background.
 
 | Variable                          | За замовчуванням | Пояснення                                                                 |
 |:--------------------------------- |:----------------:| ------------------------------------------------------------------------- |
@@ -681,18 +695,18 @@ You can temporarily enable or disable vi-mode with handy functions (just execute
 | `SPACESHIP_JOBS_AMOUNT_SUFFIX`    |        ``        | Suffix after the number of jobs                                           |
 | `SPACESHIP_JOBS_AMOUNT_THRESHOLD` |       `1`        | Number of jobs after which job count will be shown                        |
 
-### Код виходу (`exit_code`)
+### Exit code (`exit_code`)
 
 Disabled by default. Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show exit code of last command.
 
-| Variable                     | За замовчуванням | Пояснення                              |
-|:---------------------------- |:----------------:| -------------------------------------- |
-| `SPACESHIP_EXIT_CODE_SHOW`   |     `false`      | Show exit code of last command         |
-| `SPACESHIP_EXIT_CODE_PREFIX` |        ``        | Prefix before exit code section        |
-| `SPACESHIP_EXIT_CODE_SUFFIX` |        ``        | Suffix after exit code section         |
-| `SPACESHIP_EXIT_CODE_SYMBOL` |       `✘`        | Character to be shown before exit code |
-| `SPACESHIP_EXIT_CODE_COLOR`  |      `red`       | Колір секції коду виходу               |
+| Variable                     | Default | Meaning                                |
+|:---------------------------- |:-------:| -------------------------------------- |
+| `SPACESHIP_EXIT_CODE_SHOW`   | `false` | Show exit code of last command         |
+| `SPACESHIP_EXIT_CODE_PREFIX` |   ``    | Prefix before exit code section        |
+| `SPACESHIP_EXIT_CODE_SUFFIX` |   ``    | Suffix after exit code section         |
+| `SPACESHIP_EXIT_CODE_SYMBOL` |   `✘`   | Character to be shown before exit code |
+| `SPACESHIP_EXIT_CODE_COLOR`  |  `red`  | Color of exit code section             |
 
 ## Командний рядок
 
-Якщо цих опцій недостатньо для того, щоб зробити те, що ви хочете, ознайомтеся з API на [сторінці API](./api.md) цієї документації.
+If these options are not enough to do what you want, read more about Spaceship's API on [API page](./api.md) of the documentation.
