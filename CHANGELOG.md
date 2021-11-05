@@ -1,3 +1,10 @@
+## [3.16.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.0...v3.16.1) (2021-11-05)
+
+
+### Bug Fixes
+
+* fix aws section bug ([#1089](https://github.com/spaceship-prompt/spaceship-prompt/issues/1089)) ([642f645](https://github.com/spaceship-prompt/spaceship-prompt/commit/642f645d5f3d73504bd4c3045077c0354315c113))
+
 # [3.16.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.15.0...v3.16.0) (2021-10-25)
 
 
