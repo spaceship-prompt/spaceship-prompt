@@ -23,19 +23,22 @@ spaceship_ocaml() {
   [[ -f dune || \
      -f dune-project || \
      -f .merlin || \
-     -n *.opam(#qN^/) || \
-     -n *.ml(#qN^/) || \
-     -n *.mli(#qN^/) \
+     -f esy.lock || \
+     -n *.{opam,ml,mli,re,rei}(#qN^/)
   ]] || return
 
   local 'ocaml_version'
 
   if spaceship::exists opam; then
-    ocaml_version=$(opam switch show)
-  elif spaceship::exists ocaml; then
+    ocaml_version=$(opam switch show 2>/dev/null)
+  fi
+
+  if [[ -z "$ocaml_version" ]] && spaceship::exists esy; then
+    ocaml_version=$(esy ocaml -vnum 2>/dev/null)
+  fi
+
+  if [[ -z "$ocaml_version" ]] && spaceship::exists ocaml; then
     ocaml_version=$(ocaml -vnum)
-  else
-    return
   fi
 
   [[ -z $ocaml_version || "${ocaml_version}" == "system" ]] && return
