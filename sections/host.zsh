@@ -21,7 +21,7 @@ SPACESHIP_HOST_COLOR_SSH="${SPACESHIP_HOST_COLOR_SSH="green"}"
 spaceship_host() {
   [[ $SPACESHIP_HOST_SHOW == false ]] && return
 
-  if [[ $SPACESHIP_HOST_SHOW == 'always' ]] || [[ -n $SSH_CONNECTION ]]; then
+  if [[ $SPACESHIP_HOST_SHOW == 'always' ]] || [[ -n $SSH_CONNECTION ]] || [[ -n $debian_chroot ]]; then
     local host_color host
 
     # Determination of what color should be used
@@ -35,6 +35,10 @@ spaceship_host() {
       host="%M"
     else
       host="%m"
+    fi
+
+    if [[ -n $debian_chroot ]]; then
+        host="($debian_chroot)$host"
     fi
 
     spaceship::section \
