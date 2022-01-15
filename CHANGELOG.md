@@ -1,3 +1,10 @@
+## [3.16.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.1...v3.16.2) (2022-01-15)
+
+
+### Bug Fixes
+
+* don't show docker section when using colima ([#1101](https://github.com/spaceship-prompt/spaceship-prompt/issues/1101)) ([9b6e88b](https://github.com/spaceship-prompt/spaceship-prompt/commit/9b6e88b0d2c1d76961c59c1f5476830a2ce44293))
+
 ## [3.16.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.0...v3.16.1) (2021-11-05)
 
 
