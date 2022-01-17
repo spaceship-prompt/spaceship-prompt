@@ -55,7 +55,7 @@ spaceship_docker() {
   local docker_context="$(spaceship_docker_context)"
 
   # Show Docker status only for Docker-specific folders or when connected to external host
-  [[ "$compose_exists" == true || -f Dockerfile || -f docker-compose.yml || -f /.dockerenv || -n $docker_context ]] || return
+  [[ "$compose_exists" == true || -f Dockerfile || -f docker-compose.yml || -f /.dockerenv || -n $docker_context || -f .devcontainer/Dockerfile ]] || return
 
   # if docker daemon isn't running you'll get an error saying it can't connect
   # Note: Declaration and assignment is separated for correctly getting the exit code
