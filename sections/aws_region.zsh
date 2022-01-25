@@ -9,9 +9,11 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_AWS_REGION_SHOW="${SPACESHIP_AWS_REGION_SHOW=false}"
-SPACESHIP_AWS_REGION_PREFIX="${SPACESHIP_AWS_REGION_PREFIX="at "}"
+SPACESHIP_AWS_REGION_ASYNC="${SPACESHIP_AWS_REGION_ASYNC=false}"
+SPACESHIP_AWS_REGION_PREFIX="${SPACESHIP_AWS_REGION_PREFIX=" "}"
 SPACESHIP_AWS_REGION_SUFFIX="${SPACESHIP_AWS_REGION_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_AWS_REGION_COLOR="${SPACESHIP_AWS_REGION_COLOR="208"}"
+SPACESHIP_AWS_REGION_SYMBOL="${SPACESHIP_AWS_REGION_SYMBOL="🌐"}"
+SPACESHIP_AWS_REGION_COLOR="${SPACESHIP_AWS_REGION_COLOR=$SPACESHIP_AWS_COLOR}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -24,18 +26,21 @@ spaceship_aws_region() {
   # Check if the AWS-cli is installed
   spaceship::exists aws || return
 
-  # Is Is any region set in context or overidden by ENV?
+  # Is Is any region set in context or overridden by ENV?
   local aws_profile=${AWS_PROFILE=default}
   local aws_config_region="$(aws configure get ${aws_profile}.region)"
 
-  [[ ! -z ${aws_config_region} ]] && local aws_region="${aws_config_region}"
-  [[ -v AWS_DEFAULT_REGION ]] && local aws_region=$AWS_DEFAULT_REGION
-  [[ -z ${aws_region} ]] && return
+  if [[ -v AWS_DEFAULT_REGION ]]; then
+    AWS_REGION=$AWS_DEFAULT_REGION
+  elif [[ ! -z ${aws_config_region} ]]; then
+    AWS_REGION="${aws_config_region}"
+  fi
+  [[ -z ${AWS_REGION} ]] && return
 
   # Show prompt section
   spaceship::section \
     "$SPACESHIP_AWS_REGION_COLOR" \
     "$SPACESHIP_AWS_REGION_PREFIX" \
-    "${aws_region}" \
+    "${SPACESHIP_AWS_REGION_SYMBOL}${AWS_REGION}" \
     "$SPACESHIP_AWS_REGION_SUFFIX"
 }

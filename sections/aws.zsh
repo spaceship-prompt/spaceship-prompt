@@ -36,13 +36,14 @@ spaceship_aws() {
   # Is the current profile not the default profile
   [[ -z $AWS_PROFILE ]] || [[ "$AWS_PROFILE" == "default" ]] && return
 
-  # Is there an aws region set?
-  local aws_region=" $(spaceship_aws_region)"
+  # Is there an AWS region set?
+  [[ $DEBUG ]] && echo -e "\033[34;1m[DEBUG]\033[0m $(spaceship_aws_region) \n"
+  [[ $DEBUG ]] && echo -e "\033[34;1m[DEBUG]\033[0m AWS Region is set to $aws_region \n"
 
   # Show prompt section
   spaceship::section \
     "$SPACESHIP_AWS_COLOR" \
     "$SPACESHIP_AWS_PREFIX" \
-    "${SPACESHIP_AWS_SYMBOL}$AWS_PROFILE${aws_region}" \
+    "${SPACESHIP_AWS_SYMBOL}$AWS_PROFILE${aws_region_section}" \
     "$SPACESHIP_AWS_SUFFIX"
 }
