@@ -68,7 +68,6 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     venv          # virtualenv section
     conda         # conda virtualenv section
     dotnet        # .NET section
-    ember         # Ember.js section
     kubectl       # Kubectl context section
     terraform     # Terraform workspace section
     exec_time     # Execution time
@@ -123,6 +122,9 @@ source "$SPACESHIP_ROOT/lib/prompts.zsh"
 
 # Load command line interface
 source "$SPACESHIP_ROOT/lib/cli.zsh"
+
+# Load testkit
+source "$SPACESHIP_ROOT/lib/testkit.zsh"
 
 # ------------------------------------------------------------------------------
 # BACKWARD COMPATIBILITY WARNINGS

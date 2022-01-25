@@ -107,7 +107,6 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 - Current Python virtualenv.
 - Current Conda virtualenv (`🅒`).
 - Current .NET SDK version, through dotnet-cli (`.NET`).
-- Current Ember.js version, through ember-cli (`🐹`).
 - Current Kubectl context (`☸️`).
 - Current Terraform workspace (`🛠`).
 - Package version, if there's is a package in current directory (`📦`).
@@ -128,7 +127,7 @@ Want more features? Please, [open an issue](https://github.com/spaceship-prompt/
 
 To work correctly, you will first need:
 
-- [`zsh`](http://www.zsh.org/) (v5.2 or recent) must be installed.
+- [`zsh`](http://www.zsh.org/) (v5.2 or recent) must be installed. Older versions of Zsh are known to work, but they are not recommended.
 - [Powerline Font](https://github.com/powerline/fonts) must be installed and used in your terminal (for example, switch font to [Fira Code](https://github.com/tonsky/FiraCode)).
 
 ## Installing
@@ -160,6 +159,7 @@ npm install -g spaceship-prompt
 ```
 
 Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath` and set `prompt spaceship` in `.zshrc`. Just reload your terminal.
+
 Ensure that you have enabled post-scripts in npm by `npm config set ignore-scripts false` before starting installation.
 
 **💡 Tip:** Update Spaceship to new versions as you would any other package.
@@ -244,30 +244,15 @@ makepkg -si
 
 ### Manual
 
-If you have problems with approaches above, follow these instructions:
-
-- Clone this repo `git clone https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1`
-- Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
-- Initialize prompt system and choose `spaceship`.
+1. Clone this repo somewhere, for example to `$HOME/.zsh/spaceship`.
+2. Add the path of the cloned repo to `$fpath` in `$HOME/.zshrc`.
 
 #### Example
 
-Run `echo $fpath` to see possible location and link `spaceship.zsh` there, like:
-
 ```zsh
-$ ln -sf "$PWD/spaceship.zsh" "/usr/local/share/zsh/site-functions/prompt_spaceship_setup"
-```
-
-For a user-specific installation, simply add a directory to `$fpath` for that user in `.zshrc`:
-
-```zsh
-fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
-```
-
-Then install the theme like this:
-
-```zsh
-$ ln -sf "$PWD/spaceship.zsh" "${ZDOTDIR:-$HOME}/.zfunctions/prompt_spaceship_setup"
+mkdir -p "$HOME/.zsh"
+git clone --depth=1 https://github.com/sindresorhus/pure.git "$HOME/.zsh/spaceship"
+fpath+="$HOME/.zsh/spaceship"
 ```
 
 For initializing prompt system add this to your `.zshrc`:

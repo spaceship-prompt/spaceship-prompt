@@ -11,7 +11,7 @@ SHUNIT_PARENT=$0
 oneTimeSetUp() {
   export TERM="xterm-256color"
 
-  source lib/cache.zsh
+  source "lib/cache.zsh"
 }
 
 # ------------------------------------------------------------------------------
