@@ -1,3 +1,10 @@
+## [3.16.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.2...v3.16.3) (2022-02-16)
+
+
+### Bug Fixes
+
+* set proper message if no account ([#1099](https://github.com/spaceship-prompt/spaceship-prompt/issues/1099)) ([15d2279](https://github.com/spaceship-prompt/spaceship-prompt/commit/15d227994e003a9a3ddd30596f8a675acc212f29))
+
 ## [3.16.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.1...v3.16.2) (2022-01-15)
 
 
