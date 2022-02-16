@@ -14,7 +14,7 @@
 SPACESHIP_IBMCLOUD_SHOW="${SPACESHIP_IBMCLOUD_SHOW=false}"
 SPACESHIP_IBMCLOUD_PREFIX="${SPACESHIP_IBMCLOUD_PREFIX="using "}"
 SPACESHIP_IBMCLOUD_SUFFIX="${SPACESHIP_IBMCLOUD_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_IBMCLOUD_SYMBOL="${SPACESHIP_IBMCLOUD_SYMBOL="👔"}"
+SPACESHIP_IBMCLOUD_SYMBOL="${SPACESHIP_IBMCLOUD_SYMBOL="👔 "}"
 SPACESHIP_IBMCLOUD_COLOR="${SPACESHIP_IBMCLOUD_COLOR="039"}"
 
 # ------------------------------------------------------------------------------
@@ -31,11 +31,11 @@ spaceship_ibmcloud() {
 
     # If no account is targeted, the awk command will return "No", so we need to
     # check for that and set it to the full message manually.
-    [[ "No" == $ibmcloud_account ]] && local ibmcloud_account="No account targeted"
+    [[ "No" == $ibmcloud_account ]] && ibmcloud_account="No account targeted"
 
     spaceship::section \
         "$SPACESHIP_IBMCLOUD_COLOR" \
         "$SPACESHIP_IBMCLOUD_PREFIX" \
-        "$SPACESHIP_IBMCLOUD_SYMBOL $ibmcloud_account" \
+        "$SPACESHIP_IBMCLOUD_SYMBOL$ibmcloud_account" \
         "$SPACESHIP_IBMCLOUD_SUFFIX"
 }
