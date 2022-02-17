@@ -40,6 +40,7 @@ SPACESHIP_PROMPT_ORDER=(
   rust          # Rust section
   haskell       # Haskell Stack section
   julia         # Julia section
+  jupyter       # Jupyter notebooks section
   docker        # Docker section
   aws           # Amazon Web Services section
   gcloud        # Google Cloud Platform section
@@ -397,6 +398,18 @@ Julia section is shown only in directories that contain file with `.jl` extensio
 | `SPACESHIP_JULIA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Julia section             |
 | `SPACESHIP_JULIA_SYMBOL` |                `ஃ·`                | Character to be shown before Julia version |
 | `SPACESHIP_JULIA_COLOR`  |              `green`               | Color of Julia section                     |
+
+### Jupyter (`jupyter`)
+
+Jupyter section is shown only in directories that contain file with `.ipynb` extension.
+
+| Variable                 |              Default               | Meaning                                    |
+| :----------------------- | :--------------------------------: | ------------------------------------------ |
+| `SPACESHIP_JUPYTER_SHOW`   |               `true`               | Shown current Jupyter version or not         |
+| `SPACESHIP_JUPYTER_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Jupyter section            |
+| `SPACESHIP_JUPYTER_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Jupyter section             |
+| `SPACESHIP_JUPYTER_SYMBOL` |               `🌍·`                | Character to be shown before Jupyter         |
+| `SPACESHIP_JUPYTER_COLOR`  |                `178`               | Color of Jupyter section                     |
 
 ### Docker (`docker`)
 
