@@ -1,3 +1,10 @@
+## [3.16.4](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.3...v3.16.4) (2022-02-24)
+
+
+### Bug Fixes
+
+* **readme:** Add notice about Ukraine ([93f328f](https://github.com/spaceship-prompt/spaceship-prompt/commit/93f328ffc049ac0c847d697b0792487b616f4496))
+
 ## [3.16.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.2...v3.16.3) (2022-02-16)
 
 
