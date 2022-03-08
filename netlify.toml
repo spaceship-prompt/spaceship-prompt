@@ -8,4 +8,7 @@
 [[redirects]]
   from = "/*"
   to = "https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/ToRussianPeople.md"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
   conditions = {Country = ["RU", "BY"]}
