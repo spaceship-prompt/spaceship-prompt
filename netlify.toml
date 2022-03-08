@@ -2,7 +2,7 @@
   base = "."
   publish = "site"
   command = "mkdocs build"
-  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF docs mkdocs.yml requirements.txt crowdin.yml"
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF docs mkdocs.yml requirements.txt crowdin.yml netlify.toml"
 
 # StandWithUkraine
 [[redirects]]
