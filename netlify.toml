@@ -6,9 +6,8 @@
 
 # StandWithUkraine
 [[redirects]]
-  from = "/*"
+  from = "https://spaceship-prompt.sh/*"
   to = "https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/ToRussianPeople.md"
-  status = 200
+  status = 301
   force = true
-  headers = {X-From = "Netlify"}
   conditions = {Country = ["RU", "BY"]}
