@@ -25,8 +25,10 @@ features:
 
 # Ласкаво просимо на борт, астронавте!
 
+[![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua)
+
 <p align="center">
-  <img alt="Spaceship з Hyper та One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
+  <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
 </p>
 
 ## Можливості
@@ -68,13 +70,13 @@ Hi! I work on this project in my spare time, in addition to my primary job. I ho
 | [Стати патроном][patreon-url] |                                                       `1FrPrQb6ACTkbSBAz9PduJWrDFfq41Ggb4`                                                       |                                                   `0x6aF39C917359897ae6969Ad682C14110afe1a0a1`                                                   |
 |   <a href="https://www.patreon.com/spaceship-prompt"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px"></a>   | <img src="https://user-images.githubusercontent.com/3459374/33760933-1c9b81b4-dc10-11e7-8e4b-22d81f98c138.png" width="100px" /> | <img src="https://user-images.githubusercontent.com/3459374/33760932-1c7b3fb2-dc10-11e7-9774-411264d533da.png" width="100px" /> |
 
-Ось список пов'язаних проектів, натхнених Spaceship.
+This is your way make a clear statement: **My work is valued.**
 
 I would appreciate your support! _Thank you!_
 
 ## Ліцензія
 
-Цей спосіб чітко заявити: **Моя робота цінується.**
+MIT © [Denys Dovhan](http://denysdovhan.com)
 
 [patreon-url]: https://www.patreon.com/denysdovhan
 
