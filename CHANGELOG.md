@@ -1,3 +1,10 @@
+## [3.16.5](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.4...v3.16.5) (2022-03-28)
+
+
+### Bug Fixes
+
+* support CLOUDSDK_CONFIG env ([#1122](https://github.com/spaceship-prompt/spaceship-prompt/issues/1122)) ([6358eaf](https://github.com/spaceship-prompt/spaceship-prompt/commit/6358eaff0a2ad954445c169335d89ef00602aee1)), closes [#1117](https://github.com/spaceship-prompt/spaceship-prompt/issues/1117)
+
 ## [3.16.4](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.3...v3.16.4) (2022-02-24)
 
 
