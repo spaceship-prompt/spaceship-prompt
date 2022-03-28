@@ -26,7 +26,7 @@ spaceship_gcloud() {
   spaceship::exists gcloud || return
 
   # Set the gcloud config base dir
-  local GCLOUD_DIR=${HOME}/.config/gcloud/
+  local GCLOUD_DIR=${CLOUDSDK_CONFIG:-"${HOME}/.config/gcloud"}
 
   # Check if there is an active config
   [[ -f ${GCLOUD_DIR}/active_config ]] || return
