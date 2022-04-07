@@ -3,11 +3,11 @@
 #
 # Author: Denys Dovhan, denysdovhan.com
 # License: MIT
-# https://github.com/denysdovhan/spaceship-prompt
+# https://github.com/spaceship-prompt/spaceship-prompt
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='3.11.2'
+export SPACESHIP_VERSION='3.16.5'
 
 # Common-used variable for new line separator
 NEWLINE='
@@ -46,6 +46,8 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     host          # Hostname section
     git           # Git section (git_branch + git_status)
     hg            # Mercurial section (hg_branch  + hg_status)
+    gradle        # Gradle section
+    maven         # Maven section
     package       # Package version
     node          # Node.js section
     ruby          # Ruby section
@@ -69,6 +71,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     kubectl       # Kubectl context section
     terraform     # Terraform workspace section
     guix          # Guix environment section
+    ibmcloud      # IBM Cloud section
     exec_time     # Execution time
     line_sep      # Line break
     battery       # Battery level and status
@@ -85,7 +88,8 @@ if [ -z "$SPACESHIP_RPROMPT_ORDER" ]; then
   )
 fi
 
-# PROMPT
+# PROMPT OPTIONS
+SPACESHIP_PROMPT_ASYNC="${SPACESHIP_PROMPT_ASYNC=true}"
 SPACESHIP_PROMPT_ADD_NEWLINE="${SPACESHIP_PROMPT_ADD_NEWLINE=true}"
 SPACESHIP_PROMPT_SEPARATE_LINE="${SPACESHIP_PROMPT_SEPARATE_LINE=true}"
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW="${SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=false}"
@@ -151,6 +155,8 @@ spaceship_prompt() {
 
   # Should it add a new line before the prompt?
   [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
+
+  # Compose prompt from the order
   spaceship::compose_prompt $SPACESHIP_PROMPT_ORDER
 }
 

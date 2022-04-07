@@ -30,7 +30,7 @@ spaceship_golang() {
 
   # Go version is either the commit hash and date like "devel +5efe9a8f11 Web Jan 9 07:21:16 2019 +0000"
   # at the time of the build or a release tag like "go1.11.4".
-  # https://github.com/denysdovhan/spaceship-prompt/issues/610
+  # https://github.com/spaceship-prompt/spaceship-prompt/issues/610
   local go_version=$(go version | awk '{ if ($3 ~ /^devel/) {print $3 ":" substr($4, 2)} else {print "v" substr($3, 3)} }')
 
   spaceship::section \

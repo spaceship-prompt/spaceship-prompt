@@ -3,7 +3,8 @@
 #
 # Current package version.
 # These package managers supported:
-#   * NPM
+#   * npm
+#   * lerna
 #   * Cargo
 
 # ------------------------------------------------------------------------------
@@ -24,7 +25,7 @@ spaceship_package() {
   [[ $SPACESHIP_PACKAGE_SHOW == false ]] && return
 
   # Show package version only when repository is a package
-  local 'package_version'
+  local package_version
 
   if [[ -f package.json ]] && spaceship::exists npm; then
     if spaceship::exists jq; then
@@ -36,10 +37,26 @@ spaceship_package() {
     fi
   fi
 
+  # Show package version from lerna.json if is a lerna monorepo
+  # Note: lerna does not have to be installed in the global context
+  # so checking for lerna binary does not make sense
+  if [[ -f lerna.json ]] && spaceship::exists npm; then
+    if spaceship::exists jq; then
+      package_version=$(jq -r '.version' lerna.json 2>/dev/null)
+    elif spaceship::exists python; then
+      package_version=$(python -c "import json; print(json.load(open('lerna.json'))['version'])" 2>/dev/null)
+    elif spaceship::exists node; then
+      package_version=$(node -p "require('./lerna.json').version" 2> /dev/null)
+    fi
+    if [[ "$package_version" == "independent" ]]; then
+      package_version="($package_version)"
+    fi
+  fi
+
   if [[ -f Cargo.toml ]] && spaceship::exists cargo; then
     # Handle missing field `version` in Cargo.toml.
     # `cargo pkgid` need Cargo.lock exists too. If it does't, do not show package version
-    # https://github.com/denysdovhan/spaceship-prompt/pull/617
+    # https://github.com/spaceship-prompt/spaceship-prompt/pull/617
     local pkgid=$(cargo pkgid 2>&1)
     echo $pkgid | grep -q "error:" || package_version=${pkgid##*\#}
   fi
