@@ -15,10 +15,10 @@ hide:
 Тепер, коли вимоги задоволені, ви можете встановити Spaceship за допомогою будь-якого з перелічених інструментів.
 
 === "Ручне встановлення"
-    
+
     !!! hint
         If you're using any plugin manager, like Oh-My-Zsh, zplug, antigen or other, this might not be the best way to install Spaceship for you.
-    
+
     Ось спосіб встановити Spaceship, якщо ви не використовуєте жодного менеджера для плагінів Zsh:
 
     - Клонувати цей репозиторій `git clone https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1`
@@ -74,7 +74,7 @@ hide:
     ```
     npm install -g spaceship-prompt
     ```
-    
+
     Готово. Ця команда має залінкувати `spaceship.zsh` як `prompt_spaceship_setup` у вашому `$fpath` та встановити  `prompt spaceship` у `.zshrc`. Just reload your terminal.
 
     **💡 Порада:** Ви можете оновлювати Spaceship до нових версій, так як і будь-який інший пакет.
@@ -146,7 +146,8 @@ You've made it! You've installed Spaceship on your machine!
 What's next? Spaceship has reasonable defaults, but you might want to adjust them to your needs. Visit our [Options](./options.md) page to learn how to configure your Spaceship.
 
 <!-- prettier-ignore -->
-!!! tip Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
+!!! tip
+    Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
 
 ## Troubleshooting
 
