@@ -60,7 +60,5 @@ jobs:
             @semantic-release/git
             semantic-release-license
         env:
-          # Using PAT here, because published release should trigger a workflow
-          # See: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#triggering-new-workflows-using-a-personal-access-token
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

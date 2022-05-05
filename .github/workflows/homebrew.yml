@@ -1,8 +1,7 @@
 name: homebrew
 on:
-  release:
-    types:
-      - published
+  push:
+    tags: 'v*'
 
 jobs:
   main:
@@ -13,7 +12,7 @@ jobs:
         uses: styfle/cancel-workflow-action@0.9.1
 
       - name: 🍺 Bump Homebrew Formula
-        uses: mislav/bump-homebrew-formula-action@v1.16
+        uses: mislav/bump-homebrew-formula-action@v2.0
         with:
           formula-name: spaceship
         env:
