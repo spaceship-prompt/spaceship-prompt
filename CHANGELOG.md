@@ -1,3 +1,59 @@
+## [3.16.5](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.4...v3.16.5) (2022-03-28)
+
+
+### Bug Fixes
+
+* support CLOUDSDK_CONFIG env ([#1122](https://github.com/spaceship-prompt/spaceship-prompt/issues/1122)) ([6358eaf](https://github.com/spaceship-prompt/spaceship-prompt/commit/6358eaff0a2ad954445c169335d89ef00602aee1)), closes [#1117](https://github.com/spaceship-prompt/spaceship-prompt/issues/1117)
+
+## [3.16.4](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.3...v3.16.4) (2022-02-24)
+
+
+### Bug Fixes
+
+* **readme:** Add notice about Ukraine ([93f328f](https://github.com/spaceship-prompt/spaceship-prompt/commit/93f328ffc049ac0c847d697b0792487b616f4496))
+
+## [3.16.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.2...v3.16.3) (2022-02-16)
+
+
+### Bug Fixes
+
+* set proper message if no account ([#1099](https://github.com/spaceship-prompt/spaceship-prompt/issues/1099)) ([15d2279](https://github.com/spaceship-prompt/spaceship-prompt/commit/15d227994e003a9a3ddd30596f8a675acc212f29))
+
+## [3.16.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.1...v3.16.2) (2022-01-15)
+
+
+### Bug Fixes
+
+* don't show docker section when using colima ([#1101](https://github.com/spaceship-prompt/spaceship-prompt/issues/1101)) ([9b6e88b](https://github.com/spaceship-prompt/spaceship-prompt/commit/9b6e88b0d2c1d76961c59c1f5476830a2ce44293))
+
+## [3.16.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.0...v3.16.1) (2021-11-05)
+
+
+### Bug Fixes
+
+* fix aws section bug ([#1089](https://github.com/spaceship-prompt/spaceship-prompt/issues/1089)) ([642f645](https://github.com/spaceship-prompt/spaceship-prompt/commit/642f645d5f3d73504bd4c3045077c0354315c113))
+
+# [3.16.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.15.0...v3.16.0) (2021-10-25)
+
+
+### Features
+
+* **aws:** Add support to aws-vault ([#1078](https://github.com/spaceship-prompt/spaceship-prompt/issues/1078)) ([ca8e8f0](https://github.com/spaceship-prompt/spaceship-prompt/commit/ca8e8f0a7da7b84c0cdeca98aa8351a6cc1f48d2))
+
+# [3.15.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.14.1...v3.15.0) (2021-10-11)
+
+
+### Features
+
+* add IBM Cloud CLI section ([#912](https://github.com/spaceship-prompt/spaceship-prompt/issues/912)) ([6433544](https://github.com/spaceship-prompt/spaceship-prompt/commit/64335447e0b2f250ca6d145a3343a3613853c00a))
+
+## [3.14.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.14.0...v3.14.1) (2021-08-30)
+
+
+### Bug Fixes
+
+* **docs:** fix discord announcement color ([91af763](https://github.com/spaceship-prompt/spaceship-prompt/commit/91af7638aadb94bb3f2ff8d924d47c4001d07709))
+
 # [3.14.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.13.4...v3.14.0) (2021-07-28)
 
 

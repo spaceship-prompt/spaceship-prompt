@@ -7,7 +7,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='3.14.0'
+export SPACESHIP_VERSION='3.16.5'
 
 # Newline with zero-width space,
 # because last newline is trimmed in command expansion.
@@ -89,7 +89,7 @@ if [ -z "$SPACESHIP_RPROMPT_ORDER" ]; then
 fi
 
 # PROMPT OPTIONS
-SPACESHIP_PROMPT_ASYNC=${SPACESHIP_PROMPT_ASYNC=true}
+SPACESHIP_PROMPT_ASYNC="${SPACESHIP_PROMPT_ASYNC=true}"
 SPACESHIP_PROMPT_ADD_NEWLINE="${SPACESHIP_PROMPT_ADD_NEWLINE=true}"
 SPACESHIP_PROMPT_SEPARATE_LINE="${SPACESHIP_PROMPT_SEPARATE_LINE=true}"
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW="${SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=false}"
