@@ -230,6 +230,12 @@
       "internal": true
     },
     {
+      "name": "perl",
+      "url": "https://spaceship-prompt.sh/sections/perl",
+      "description": "The version of the Perl binary.",
+      "internal": true
+    },
+    {
       "name": "php",
       "url": "https://spaceship-prompt.sh/sections/php",
       "description": "The version of the PHP binary.",
