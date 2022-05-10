@@ -1,7 +1,8 @@
 name: homebrew
 on:
-  push:
-    tags: 'v*'
+  release:
+    types:
+      - published
 
 jobs:
   main:
