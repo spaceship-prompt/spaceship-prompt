@@ -28,7 +28,6 @@ SPACESHIP_PROMPT_ORDER=(
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
   package       # Package version
-  gradle        # Gradle section
   node          # Node.js section
   ruby          # Ruby section
   elixir        # Elixir section
@@ -545,25 +544,6 @@ SPACESHIP_KUBECONTEXT_COLOR_GROUPS=(
   yellow '^test-[0-9]+$'
 )
 ```
-
-### Gradle (`gradle`)
-
-Shows current gradle & jvm version.
-
-| Variable                               |              Default               | Meaning                                         |
-| :------------------------------------- | :--------------------------------: | ----------------------------------------------- |
-| `SPACESHIP_GRADLE_SHOW`                |               `true`               | Current Gradle section                          |
-| `SPACESHIP_GRADLE_PREFIX`              | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Gradle section                    |
-| `SPACESHIP_GRADLE_SUFFIX`              | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Gradle section                     |
-| `SPACESHIP_GRADLE_SYMBOL`              |                `⬡·`                | Character to be shown before Gradle section     |
-| `SPACESHIP_GRADLE_DEFAULT_VERSION`     |                ` `                 | Gradle version to be treated as default         |
-| `SPACESHIP_GRADLE_COLOR`               |              `green`               | Color of Gradle section                         |
-| `SPACESHIP_GRADLE_JVM_SHOW`            |               `true`               | Show JVM version used by Gradle                 |
-| `SPACESHIP_GRADLE_JVM_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Gradle JVM section                |
-| `SPACESHIP_GRADLE_JVM_SUFFIX`          | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Gradle JVM section                 |
-| `SPACESHIP_GRADLE_JVM_SYMBOL`          |               `☕️·`               | Character to be shown before Gradle JVM section |
-| `SPACESHIP_GRADLE_JVM_DEFAULT_VERSION` |                ` `                 | Gradle JVM version to be treated as default     |
-| `SPACESHIP_GRADLE_JVM_COLOR`           |             `magenta`              | Color of Gradle JVM section                     |
 
 ### Terraform workspace (`terraform`)
 
