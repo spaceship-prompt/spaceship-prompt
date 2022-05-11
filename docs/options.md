@@ -29,7 +29,6 @@ SPACESHIP_PROMPT_ORDER=(
   hg            # Mercurial section (hg_branch  + hg_status)
   package       # Package version
   gradle        # Gradle section
-  maven         # Maven section
   node          # Node.js section
   ruby          # Ruby section
   elixir        # Elixir section
@@ -565,25 +564,6 @@ Shows current gradle & jvm version.
 | `SPACESHIP_GRADLE_JVM_SYMBOL`          |               `☕️·`               | Character to be shown before Gradle JVM section |
 | `SPACESHIP_GRADLE_JVM_DEFAULT_VERSION` |                ` `                 | Gradle JVM version to be treated as default     |
 | `SPACESHIP_GRADLE_JVM_COLOR`           |             `magenta`              | Color of Gradle JVM section                     |
-
-### Maven (`maven`)
-
-Shows current maven & jvm version.
-
-| Variable                              |              Default               | Meaning                                        |
-| :------------------------------------ | :--------------------------------: | ---------------------------------------------- |
-| `SPACESHIP_MAVEN_SHOW`                |               `true`               | Current Maven section                          |
-| `SPACESHIP_MAVEN_PREFIX`              | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Maven section                    |
-| `SPACESHIP_MAVEN_SUFFIX`              | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Maven section                     |
-| `SPACESHIP_MAVEN_SYMBOL`              |                `𝑚·`                | Character to be shown before Maven section     |
-| `SPACESHIP_MAVEN_DEFAULT_VERSION`     |                ` `                 | Maven version to be treated as default         |
-| `SPACESHIP_MAVEN_COLOR`               |              `yellow`              | Color of Maven section                         |
-| `SPACESHIP_MAVEN_JVM_SHOW`            |               `true`               | Show JVM version used by Maven                 |
-| `SPACESHIP_MAVEN_JVM_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Maven JVM section                |
-| `SPACESHIP_MAVEN_JVM_SUFFIX`          | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Maven JVM section                 |
-| `SPACESHIP_MAVEN_JVM_SYMBOL`          |               `☕️·`               | Character to be shown before Maven JVM section |
-| `SPACESHIP_MAVEN_JVM_DEFAULT_VERSION` |                ` `                 | Maven JVM version to be treated as default     |
-| `SPACESHIP_MAVEN_JVM_COLOR`           |             `magenta`              | Color of Maven JVM section                     |
 
 ### Terraform workspace (`terraform`)
 
