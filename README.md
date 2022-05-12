@@ -61,7 +61,7 @@
 <br>
 
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua/)
-  
+
 Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] prompt. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
 
 <p align="center">
@@ -102,6 +102,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 - Current PHP version (`🐘`).
 - Current Rust version (`🦀`).
 - Current version of Haskell GHC Compiler, defined in stack.yaml file (`λ`).
+- Current Java version (`☕️`)
 - Current Julia version (`ஃ`).
 - Current Docker version and connected machine (`🐳`).
 - Current Amazon Web Services (AWS) profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)).

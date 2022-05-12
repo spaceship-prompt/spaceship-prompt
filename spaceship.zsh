@@ -47,8 +47,6 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     host          # Hostname section
     git           # Git section (git_branch + git_status)
     hg            # Mercurial section (hg_branch  + hg_status)
-    gradle        # Gradle section
-    maven         # Maven section
     package       # Package version
     node          # Node.js section
     ruby          # Ruby section
@@ -61,6 +59,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     php           # PHP section
     rust          # Rust section
     haskell       # Haskell Stack section
+    java          # Java section
     julia         # Julia section
     docker        # Docker section
     aws           # Amazon Web Services section
