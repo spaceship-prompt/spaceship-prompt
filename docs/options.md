@@ -383,6 +383,21 @@ Haskell section is shown only in directories that contain `stack.yaml` file.
 | `SPACESHIP_HASKELL_SYMBOL` |                `λ·`                | Character to be shown before Haskell Tool Stack version |
 | `SPACESHIP_HASKELL_COLOR`  |               `red`                | Color of Haskell section                                |
 
+### Java (`java`)
+
+The Java section is displayed, by default, only in a Java context:
+
+* Projects containing `pom.xml`, `build.gradle`, `settings.gradle` files
+* Directories containing `*.java`, `*.class`, `*.jar` or `*.war` files
+
+| Variable                         | Default                            | Meaning                                  |
+| :------------------------------- | :--------------------------------: | ---------------------------------------- |
+| `SPACESHIP_JAVA_SHOW`            | `true`                             | Show current Java version or not         |
+| `SPACESHIP_JAVA_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before the Java section           |
+| `SPACESHIP_JAVA_SUFFIX`          | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after the Java section            |
+| `SPACESHIP_JAVA_SYMBOL`          | `☕·`                              | Character to be shown before Java version |
+| `SPACESHIP_JAVA_COLOR`           | `cyan`                             | Color of Java section                    |
+
 ### Julia (`julia`)
 
 Julia section is shown only in directories that contain file with `.jl` extension.

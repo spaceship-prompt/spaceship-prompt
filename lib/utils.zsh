@@ -122,3 +122,29 @@ spaceship::union() {
   typeset -U sections=("$@")
   echo $sections
 }
+
+# Upsearch for specific file or directory
+# Returns the path to the first found file or fails
+# USAGE:
+#   spaceship::upsearch <paths...>
+# EXAMPLE:
+#   $ spaceship::upsearch package.json node_modules
+#   > /home/username/path/to/project/node_modules
+spaceship::upsearch() {
+  local files=("$@")
+  local root="$(pwd -P)"
+
+  while [ "$root" ]; do
+    for file in "${files[@]}"; do
+      local filepath="$root/$file"
+      if [[ -e "$filepath" ]]; then
+        echo "$filepath"
+        return 0
+      fi
+    done
+
+    root="${root%/*}"
+  done
+
+  return 1
+}
