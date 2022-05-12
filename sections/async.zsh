@@ -20,7 +20,7 @@ SPACESHIP_ASYNC_SHOW_COUNT="${SPACESHIP_ASYNC_SHOW_COUNT=false}"
 # Shows if there are any spaceship async jobs active
 spaceship_async() {
   # Return if Spaceship works syncronosly
-  $(spaceship::is_async) || return
+  spaceship::is_async || return
 
   # Return if this section is hidden
   [[ "$SPACESHIP_ASYNC_SHOW" == false ]] && return
