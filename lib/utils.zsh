@@ -30,13 +30,8 @@ spaceship::is_git() {
 # USAGE:
 #   spaceship::is_hg
 spaceship::is_hg() {
-  local root="$(pwd -P)"
-
-  while [ "$root" ] && [ ! -d "$root/.hg" ]; do
-    root="${root%/*}"
-  done
-
-  [[ -n "$root" ]] &>/dev/null
+  local hg_root="$(spaceship::upsearch .hg)"
+  [[ -n "$hg_root" ]] &>/dev/null
 }
 
 # Checks if the section is async or not
