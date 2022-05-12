@@ -425,7 +425,7 @@ The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more inf
 
 ### Amazon Web Services (AWS) (`aws`)
 
-Shows selected Amazon Web Services profile configured using [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) variable.
+Shows selected Amazon Web Services profile configured using [`AWS_VAULT`](https://github.com/99designs/aws-vault) variable if not defined will use [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html).
 
 | Variable               |              Default               | Meaning                                      |
 | :--------------------- | :--------------------------------: | -------------------------------------------- |

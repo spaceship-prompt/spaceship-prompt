@@ -29,6 +29,10 @@ spaceship_ibmcloud() {
     local ibmcloud_account=$(ibmcloud target | grep Account | awk '{print $2}')
     [[ -z $ibmcloud_account ]] && return
 
+    # If no account is targeted, the awk command will return "No", so we need to
+    # check for that and set it to the full message manually.
+    [[ "No" == $ibmcloud_account ]] && ibmcloud_account="No account targeted"
+
     spaceship::section \
         "$SPACESHIP_IBMCLOUD_COLOR" \
         "$SPACESHIP_IBMCLOUD_PREFIX" \

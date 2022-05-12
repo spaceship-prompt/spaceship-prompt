@@ -2,4 +2,12 @@
   base = "."
   publish = "site"
   command = "mkdocs build"
-  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF docs mkdocs.yml requirements.txt crowdin.yml"
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF docs mkdocs.yml requirements.txt crowdin.yml netlify.toml"
+
+# StandWithUkraine
+[[redirects]]
+  from = "https://spaceship-prompt.sh/*"
+  to = "https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/ToRussianPeople.md"
+  status = 301
+  force = true
+  conditions = {Country = ["RU", "BY"]}

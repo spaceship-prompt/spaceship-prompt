@@ -41,26 +41,16 @@ and powered by <a href="https://www.netlify.com">Netlify</a>.
 <!-- Announcement bar -->
 {% block announce %}
 <style>
-  .announce.discord {
-    color: #7289DA !important;
+  .announce {
+    color: #FFD200 !important;
+  }
+  .hashtag {
+    color: #035DB8 !important;
   }
 </style>
-<a class="announce discord" href="https://discord.gg/NTQWz8Dyt9">
-  We have recently launched our
-  <span class="twemoji twitter">
-    {% include ".icons/fontawesome/brands/discord.svg" %}
-  </span>
-  <strong>Discord</strong>
-  server!
+<a class="announce" href="https://stand-with-ukraine.pp.ua">
+  🇺🇦
+  Russia has invaded Ukraine and already killed thousands of civilians.
+  Please, <strong class="hashtag">#StandWithUkraine</strong> against the Russian regime.
 </a>
-{% endblock %}
-
-<!-- Self-hosted Analytics -->
-{% block analytics %}
-<script
-  async
-  defer
-  data-website-id="026a346b-c08e-40e0-8d35-be23f8c4c49a"
-  src="https://analytics.denysdovhan.com/umami.js"
-></script>
 {% endblock %}
