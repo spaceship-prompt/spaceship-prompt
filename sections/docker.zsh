@@ -56,11 +56,12 @@ spaceship_docker() {
   local docker_context="$(spaceship_docker_context)"
 
   # Show Docker status only for Docker-specific folders or when connected to external host
-  [[ "$compose_exists" == true || -f Dockerfile || -f docker-compose.yml || -f /.dockerenv || -n $docker_context ]] || return
+  local is_docker_project="$(spaceship::upsearch Dockerfile docker-compose.yml)"
+  [[ "$compose_exists" == true || -n "$is_docker_project" || -f /.dockerenv || -n $docker_context ]] || return
 
   # if docker daemon isn't running you'll get an error saying it can't connect
   # Note: Declaration and assignment is separated for correctly getting the exit code
-  local 'docker_version'
+  local docker_version
   docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
   [[ $? -ne 0 || -z $docker_version ]] && return
 

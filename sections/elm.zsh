@@ -23,7 +23,8 @@ SPACESHIP_ELM_COLOR="${SPACESHIP_ELM_COLOR="cyan"}"
 spaceship_elm() {
   [[ $SPACESHIP_ELM_SHOW == false ]] && return
 
-  [[ -f elm.json || -f elm-package.json || -d elm-stuff || -n *.elm(#qN^/) ]] || return
+  local is_elm_project="$(spaceship::upsearch elm.json elm-package.json elm-stuff)"
+  [[ -n "$is_elm_project" || -n *.elm(#qN^/) ]] || return
 
   spaceship::exists elm || return
 

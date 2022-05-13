@@ -25,9 +25,10 @@ spaceship_node() {
   [[ $SPACESHIP_NODE_SHOW == false ]] && return
 
   # Show NODE status only for JS-specific folders
-  [[ -f package.json || -d node_modules || -n *.js(#qN^/) ]] || return
+  local is_node_project="$(spaceship::upsearch package.json node_modules)"
+  [[ -n "$is_node_project" || -n *.js(#qN^/) ]] || return
 
-  local 'node_version'
+  local node_version
 
   if spaceship::exists fnm; then
     node_version=$(fnm current 2>/dev/null)

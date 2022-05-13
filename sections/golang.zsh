@@ -24,8 +24,8 @@ spaceship_golang() {
   [[ $SPACESHIP_GOLANG_SHOW == false ]] && return
 
   # If there are Go-specific files in current directory, or current directory is under the GOPATH
-  [[ -f go.mod || -d Godeps || -f glide.yaml || -n *.go(#qN^/) || -f Gopkg.toml || -f Gopkg.lock \
-  || ( $GOPATH && "$PWD/" =~ "$GOPATH/" ) ]] || return
+  local is_go_project="$(spaceship::upsearch go.mod Godeps glide.yaml Gopkg.toml Gopkg.lock)"
+  [[ -n "$is_go_project" || ( $GOPATH && "$PWD/" =~ "$GOPATH/" ) || -n *.go(#qN^/) ]] || return
 
   spaceship::exists go || return
 

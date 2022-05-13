@@ -33,7 +33,7 @@ spaceship_user() {
   || [[ $UID == 0 ]] \
   || [[ $SPACESHIP_USER_SHOW == true && -n $SSH_CONNECTION ]]
   then
-    local 'user_color'
+    local user_color
 
     if [[ $USER == 'root' ]]; then
       user_color=$SPACESHIP_USER_COLOR_ROOT

@@ -24,9 +24,10 @@ spaceship_ruby() {
   [[ $SPACESHIP_RUBY_SHOW == false ]] && return
 
   # Show versions only for Ruby-specific folders
-  [[ -f Gemfile || -f Rakefile || -n *.rb(#qN^/) ]] || return
+  local is_ruby_project="$(spaceship::upsearch Gemfile Rakefile)"
+  [[ -n "$is_ruby_project" || -n *.rb(#qN^/) ]] || return
 
-  local 'ruby_version'
+  local ruby_version
 
   if spaceship::exists rvm-prompt; then
     ruby_version=$(rvm-prompt i v g)

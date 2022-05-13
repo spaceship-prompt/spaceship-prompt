@@ -24,7 +24,7 @@ SPACESHIP_SWIFT_COLOR="${SPACESHIP_SWIFT_COLOR="yellow"}"
 spaceship_swift() {
   spaceship::exists swiftenv || return
 
-  local 'swift_version'
+  local swift_version
 
   if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
     swift_version=$(swiftenv version | sed 's/ .*//')

@@ -126,20 +126,35 @@ spaceship::union() {
 #   $ spaceship::upsearch package.json node_modules
 #   > /home/username/path/to/project/node_modules
 spaceship::upsearch() {
+  # Parse CLI options
+  zparseopts -E -D \
+    s=silent -silent=silent
+
   local files=("$@")
   local root="$(pwd -P)"
 
+  # Go up to the root
   while [ "$root" ]; do
+    # For every file as an argument
     for file in "${files[@]}"; do
       local filepath="$root/$file"
       if [[ -e "$filepath" ]]; then
+        if [[ -z "$silent" ]]; then
         echo "$filepath"
+        fi
         return 0
+      elif [[ -d .git || -d .hg ]]; then
+        # If we reached the root of repo, return non-zero
+        return 1
       fi
     done
 
+    # Go one level up
     root="${root%/*}"
   done
 
+  # If we reached the root, return non-zero
+  return 1
+}
   return 1
 }

@@ -24,7 +24,7 @@ SPACESHIP_XCODE_COLOR="${SPACESHIP_XCODE_COLOR="blue"}"
 spaceship_xcode() {
   spaceship::exists xcenv || return
 
-  local 'xcode_path'
+  local xcode_path
 
   if [[ $SPACESHIP_XCODE_SHOW_GLOBAL == true ]] ; then
     xcode_path=$(xcenv version | sed 's/ .*//')
