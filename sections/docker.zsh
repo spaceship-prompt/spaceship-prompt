@@ -54,6 +54,7 @@ spaceship_docker() {
   fi
 
   local docker_context="$(spaceship_docker_context)"
+  local docker_context_section="$(spaceship::render_section $docker_context)"
 
   # Show Docker status only for Docker-specific folders or when connected to external host
   local is_docker_project="$(spaceship::upsearch Dockerfile docker-compose.yml)"
@@ -70,6 +71,6 @@ spaceship_docker() {
   spaceship::section \
     "$SPACESHIP_DOCKER_COLOR" \
     "$SPACESHIP_DOCKER_PREFIX" \
-    "${SPACESHIP_DOCKER_SYMBOL}v${docker_version}${docker_context}" \
+    "${SPACESHIP_DOCKER_SYMBOL}v${docker_version}${docker_context_section}" \
     "$SPACESHIP_DOCKER_SUFFIX"
 }

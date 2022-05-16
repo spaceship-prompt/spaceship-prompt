@@ -35,11 +35,11 @@ spaceship_hg() {
   local hg_status="$(spaceship_hg_status)"
 
   local hg_branch_section="$(spaceship::render_section $hg_branch)"
-  local hg_branch_status="$(spaceship::render_section $hg_status)"
+  local hg_status_section="$(spaceship::render_section $hg_status)"
 
   spaceship::section \
     'white' \
     "$SPACESHIP_HG_PREFIX" \
-    "${hg_branch}${hg_status}" \
+    "${hg_branch_section}${hg_status_section}" \
     "$SPACESHIP_HG_SUFFIX"
 }
