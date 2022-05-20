@@ -39,6 +39,8 @@ theme:
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
+  - Customization:
+      - Sections:
   - Options: options.md
   - API: api.md
   - Troubleshooting: troubleshooting.md
