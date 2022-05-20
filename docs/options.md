@@ -231,23 +231,26 @@ Mercurial status indicators is shown only when you have dirty repository.
 
 ### Package version (`package`)
 
-> Works for [npm](https://www.npmjs.com/) and [cargo](https://crates.io/) at the moment. Please, help us improve this section!
-
 Package version is shown when repository is a package.
 
-- **npm** — `npm` package contains a `package.json` file. We use `jq`, `python` to parse package version for improving performance and `node` as a fallback. Install [jq](https://stedolan.github.io/jq/) for **improved performance** of this section ([Why?](./troubleshooting.md#why-is-my-prompt-slow))
-- **lerna** — `lerna` monorepo contains a `lerna.json` file. We use `jq`, `python` to parse package version for improving performance and `node` as a fallback. Install [jq](https://stedolan.github.io/jq/) for **improved performance** of this section (same reason as npm).
+We use `yq`, `jq`, `python` or `node` to parse package version in JSON/YAML/TOML/XML files. Install [jq](https://stedolan.github.io/jq/) and/or [yq](https://kislyuk.github.io/yq/) for **improved performance** of this section ([Why?](./troubleshooting.md#why-is-my-prompt-slow))
+
+- **npm** — `npm` package contains a `package.json` file.
+- **lerna** — `lerna` monorepo contains a `lerna.json` file.
 - **cargo** — `cargo` package contains a `Cargo.toml` file. Currently, we use `cargo pkgid`, it depends on `Cargo.lock`. So if package version isn't shown, you may need to run some command like `cargo build` which can generate `Cargo.lock` file.
+- **composer** — `composer` package containing a `composer.json` file.
+- **julia** — `julia` package containing a `Project.toml` file.
 
 > **Note:** This is the version of the package you are working on, not the version of package manager itself.
 
-| Variable                   |              Default               | Meaning                                      |
-| :------------------------- | :--------------------------------: | -------------------------------------------- |
-| `SPACESHIP_PACKAGE_SHOW`   |               `true`               | Show package version                         |
-| `SPACESHIP_PACKAGE_PREFIX` |               `is·`                | Prefix before package version section        |
-| `SPACESHIP_PACKAGE_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after package version section         |
-| `SPACESHIP_PACKAGE_SYMBOL` |               `📦·`                | Character to be shown before package version |
-| `SPACESHIP_PACKAGE_COLOR`  |               `red`                | Color of package version section             |
+| Variable                         |              Default                | Meaning                                      |
+| :------------------------------- | :---------------------------------: | -------------------------------------------- |
+| `SPACESHIP_PACKAGE_SHOW`         |               `true`                | Show package version                         |
+| `SPACESHIP_PACKAGE_SHOW_PRIVATE` |               `false`               | Show private package version                 |
+| `SPACESHIP_PACKAGE_PREFIX`       |               `is·`                 | Prefix before package version section        |
+| `SPACESHIP_PACKAGE_SUFFIX`       | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX`  | Suffix after package version section         |
+| `SPACESHIP_PACKAGE_SYMBOL`       |               `📦·`                 | Character to be shown before package version |
+| `SPACESHIP_PACKAGE_COLOR`        |               `red`                 | Color of package version section             |
 
 ### Node.js (`node`)
 
