@@ -42,6 +42,7 @@ nav:
   - Getting Started: getting-started.md
   - Customization:
       - Sections:
+        - Prompt character (char): sections/char.md
         - Async (async): sections/async.md
         - Battery (battery): sections/battery.md
         - Amazon Web Services (aws): sections/aws.md
