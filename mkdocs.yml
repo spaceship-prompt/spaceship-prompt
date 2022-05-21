@@ -42,7 +42,7 @@ nav:
   - Getting Started: getting-started.md
   - Customization:
       - Sections:
-        - Async (async): customization/async.md
+        - Async (async): sections/async.md
   - API: api.md
   - Troubleshooting: troubleshooting.md
 
