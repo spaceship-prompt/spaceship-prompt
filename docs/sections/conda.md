@@ -19,7 +19,7 @@ This section is only displayed when you have a `conda` command available in your
 | Variable                  |              Default               | Meaning                                                  |
 | :------------------------ | :--------------------------------: | -------------------------------------------------------- |
 | `SPACESHIP_CONDA_SHOW`    |               `true`               | Show section                                             |
-| `SPACESHIP_CONDA_ASYNC`   |               `false`              | Async rendering for the section                          |
+| `SPACESHIP_CONDA_ASYNC`   |               `false`              | Render section asynchronously                            |
 | `SPACESHIP_CONDA_PREFIX`  | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                                         |
 | `SPACESHIP_CONDA_SUFFIX`  | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                                         |
 | `SPACESHIP_CONDA_SYMBOL`  |                `🅒·`                | Symbol displayed before the section                     |

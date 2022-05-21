@@ -4,7 +4,7 @@ hide: [toc]
 
 # Battery `battery`
 
-The `battery` section shows the current battery level and its status.
+The `battery` section shows the current battery level and its status. This section is executed asynchronously by default.
 
 By default, the `battery` section is shown only if the battery level is below `SPACESHIP_BATTERY_THRESHOLD` (10% by default).
 
@@ -26,6 +26,7 @@ Here are possible values:
 | Variable                               |              Default               | Meaning                                                       |
 | :------------------------------------- | :--------------------------------: | ------------------------------------------------------------- |
 | `SPACESHIP_BATTERY_SHOW`               |               `true`               | Show section (`true`, `false`, `always` or `charged`)         |
+| `SPACESHIP_BATTERY_ASYNC`              |               `true`               | Render section asynchronously                                 |
 | `SPACESHIP_BATTERY_PREFIX`             |                ` `                 | Section's prefix                                              |
 | `SPACESHIP_BATTERY_SUFFIX`             | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                                              |
 | `SPACESHIP_BATTERY_SYMBOL_CHARGING`    |                `⇡`                 | Symbol displayed before the section if battery is charging    |
