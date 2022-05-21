@@ -4,13 +4,13 @@ hide: [toc]
 
 # Battery `battery`
 
-`battery` section shows the current battery level and its status.
+The `battery` section shows the current battery level and its status.
 
-By default, `battery` section is shown only if battery level is below `SPACESHIP_BATTERY_THRESHOLD` (10% by default).
+By default, the `battery` section is shown only if the battery level is below `SPACESHIP_BATTERY_THRESHOLD` (10% by default).
 
-## Controlling when to show `battery` section
+## Controlling when to show the `battery` section
 
-You may want to show `battery` section all the time or only when it's fully charged or discharged. It's easy to control when to show `battery` section by setting `SPACESHIP_BATTERY_SHOW` option.
+You may want to show the `battery` section all the time or only when it's fully charged or discharged. It's easy to control when to show the `battery` section by setting the `SPACESHIP_BATTERY_SHOW` option.
 
 Here are possible values:
 
@@ -23,13 +23,13 @@ Here are possible values:
 
 ## Options
 
-| Variable                               |              Default               | Meaning                                                              |
-| :------------------------------------- | :--------------------------------: | -------------------------------------------------------------------- |
-| `SPACESHIP_BATTERY_SHOW`               |               `true`               | Show battery section or not (`true`, `false`, `always` or `charged`) |
-| `SPACESHIP_BATTERY_PREFIX`             |                ` `                 | Prefix before battery section                                        |
-| `SPACESHIP_BATTERY_SUFFIX`             | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after battery section                                         |
-| `SPACESHIP_BATTERY_SYMBOL_CHARGING`    |                `⇡`                 | Character to be shown if battery is charging                         |
-| `SPACESHIP_BATTERY_SYMBOL_DISCHARGING` |                `⇣`                 | Character to be shown if battery is discharging                      |
-| `SPACESHIP_BATTERY_SYMBOL_FULL`        |                `•`                 | Character to be shown if battery is full                             |
-| `SPACESHIP_BATTERY_THRESHOLD`          |                 10                 | Battery level below which battery section will be shown              |
+| Variable                               |              Default               | Meaning                                                       |
+| :------------------------------------- | :--------------------------------: | ------------------------------------------------------------- |
+| `SPACESHIP_BATTERY_SHOW`               |               `true`               | Show section (`true`, `false`, `always` or `charged`)         |
+| `SPACESHIP_BATTERY_PREFIX`             |                ` `                 | Section's prefix                                              |
+| `SPACESHIP_BATTERY_SUFFIX`             | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                                              |
+| `SPACESHIP_BATTERY_SYMBOL_CHARGING`    |                `⇡`                 | Symbol displayed before the section if battery is charging    |
+| `SPACESHIP_BATTERY_SYMBOL_DISCHARGING` |                `⇣`                 | Symbol displayed before the section if battery is discharging |
+| `SPACESHIP_BATTERY_SYMBOL_FULL`        |                `•`                 | Symbol displayed before the section if battery is full        |
+| `SPACESHIP_BATTERY_THRESHOLD`          |                 10                 | Battery level below which battery section will be shown       |
 
