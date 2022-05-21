@@ -49,6 +49,7 @@ nav:
         - Docker (docker): sections/docker.md
         - Amazon Web Services (aws): sections/aws.md
         - Conda virtualenv (conda): sections/conda.md
+        - .NET (dotnet): sections/dotnet.md
   - API: api.md
   - Troubleshooting: troubleshooting.md
 
