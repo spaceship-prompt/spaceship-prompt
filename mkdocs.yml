@@ -43,6 +43,7 @@ nav:
   - Customization:
       - Sections:
         - Async (async): sections/async.md
+        - Battery (battery): sections/battery.md
         - Amazon Web Services (aws): sections/aws.md
   - API: api.md
   - Troubleshooting: troubleshooting.md
