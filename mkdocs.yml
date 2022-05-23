@@ -52,6 +52,7 @@ nav:
         - Elixir (elixir): sections/elixir.md
         - Docker (docker): sections/docker.md
         - Amazon Web Services (aws): sections/aws.md
+        - Google Cloud Platform (gcloud): sections/gcloud.md
         - Conda virtualenv (conda): sections/conda.md
         - .NET (dotnet): sections/dotnet.md
   - API: api.md
