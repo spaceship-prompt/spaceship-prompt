@@ -4,7 +4,9 @@ hide: [toc]
 
 # Battery `battery`
 
-The `battery` section shows the current battery level and its status. This section is executed asynchronously by default.
+!!! important "This section is rendered asynchronously by default"
+
+The `battery` section shows the current battery level and its status.
 
 By default, the `battery` section is shown only if the battery level is below `SPACESHIP_BATTERY_THRESHOLD` (10% by default).
 

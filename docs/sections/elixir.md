@@ -4,10 +4,12 @@ hide: [toc]
 
 # Elixir `elixir`
 
+!!! important "This section is rendered asynchronously by default"
+
 !!! info
     [**Elixir**](https://elixir-lang.org) is a dynamic, functional language for building scalable and maintainable applications.
 
-The `elixir` section displays the version of the Elixir. This section is rendered asynchronously by default.
+The `elixir` section displays the version of the Elixir.
 
 This section is displayed only when the current directory:
 

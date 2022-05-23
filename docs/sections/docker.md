@@ -4,10 +4,12 @@ hide: [toc]
 
 # Docker `docker`
 
+!!! important "This section is rendered asynchronously by default"
+
 !!! info
     [**Docker**](https://docker.com) is a set of the platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers.
 
-The `docker` displays the version of Docker and the current [Docker context via `docker_context` child section](#docker-context-docker_context). This section is executed asynchronously by default.
+The `docker` displays the version of Docker and the current [Docker context via `docker_context` child section](#docker-context-docker_context).
 
 This section is shown only in the projects containing a `Dockerfile, `docker-compose.yml`, or another file (s) specified with `COMPOSE_FILE`. The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more information see [Compose CLI environment variables](https://docs.docker.com/compose/reference/envvars/).
 

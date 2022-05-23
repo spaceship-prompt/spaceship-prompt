@@ -4,10 +4,12 @@ hide: [toc]
 
 # .NET `dotnet`
 
+!!! important "This section is rendered asynchronously by default"
+
 !!! info
     [**.NET**](https://dotnet.microsoft.com/) is a framework including a large class library for building various applications with languages like C#, F#, or Visual Basic.
 
-The `dotnet` section displays the version of the .NET framework installed on the system. This section is rendered asynchronously by default.
+The `dotnet` section displays the version of the .NET framework installed on the system.
 
 This section is displayed only when the current directory:
 
