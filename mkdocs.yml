@@ -56,6 +56,7 @@ nav:
         - Go (golang): sections/golang.md
         - Haskell (haskell): sections/haskell.md
         - Java (java): sections/java.md
+        - Julia (julia): sections/julia.md
         - Docker (docker): sections/docker.md
         - Amazon Web Services (aws): sections/aws.md
         - Google Cloud Platform (gcloud): sections/gcloud.md
