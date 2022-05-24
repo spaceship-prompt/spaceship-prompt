@@ -51,6 +51,7 @@ nav:
         - Git (git): sections/git.md
         - Elm (elm): sections/elm.md
         - Elixir (elixir): sections/elixir.md
+        - Go (golang): sections/golang.md
         - Docker (docker): sections/docker.md
         - Amazon Web Services (aws): sections/aws.md
         - Google Cloud Platform (gcloud): sections/gcloud.md
