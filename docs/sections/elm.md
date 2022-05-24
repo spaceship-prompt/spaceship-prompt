@@ -13,7 +13,7 @@ The `elm` section displays the Elm version.
 
 This section is displayed only when the current directory:
 
-* Is within an Elm project (upsearch finds a `elm.json`, `elm-package.json`, or `elm-stuff`)
+* Is within an Elm project (upsearch finds `elm.json`, `elm-package.json`, or `elm-stuff`)
 * Contains any `.elm` file
 
 ## Options

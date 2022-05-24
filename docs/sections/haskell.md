@@ -11,7 +11,7 @@ hide: [toc]
 
 The `haskell` section displays the version of the Haskell compiler.
 
-This section is displayed only within a Haskell projects, meaning:
+This section is displayed only within Haskell projects, meaning:
 
 * Upsearch finds a `stack.yaml` file.
 * The current directory contains a file with `.hs` directory.
