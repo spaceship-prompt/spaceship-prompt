@@ -24,7 +24,8 @@ spaceship_haskell() {
   [[ $SPACESHIP_HASKELL_SHOW == false ]] && return
 
   # If there are stack files in the context
-  spaceship::upsearch stack.yaml &>/dev/null || return
+  local is_haskell_project=$(spaceship::upsearch stack.yaml)
+  [[ -n "$is_haskell_project" || -n *.hs(#qN^/) ]] || return
 
   # The command is stack, so do not change this to haskell.
   spaceship::exists stack || return
