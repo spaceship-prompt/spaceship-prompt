@@ -1,5 +1,5 @@
 #
-#  Kubernetes (kubectl)
+# Kubernetes (kubectl) version
 #
 # Kubernetes is an open-source system for deployment, scaling,
 # and management of containerized applications.
@@ -10,6 +10,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_KUBECTL_VERSION_SHOW="${SPACESHIP_KUBECTL_VERSION_SHOW=true}"
+SPACESHIP_KUBECTL_VERSION_ASYNC="${SPACESHIP_KUBECTL_VERSION_ASYNC=true}"
 SPACESHIP_KUBECTL_VERSION_PREFIX="${SPACESHIP_KUBECTL_VERSION_PREFIX=""}"
 SPACESHIP_KUBECTL_VERSION_SUFFIX="${SPACESHIP_KUBECTL_VERSION_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_KUBECTL_VERSION_COLOR="${SPACESHIP_KUBECTL_VERSION_COLOR="cyan"}"
