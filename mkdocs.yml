@@ -55,6 +55,7 @@ nav:
         - Elixir (elixir): sections/elixir.md
         - Go (golang): sections/golang.md
         - Haskell (haskell): sections/haskell.md
+        - Java (java): sections/java.md
         - Docker (docker): sections/docker.md
         - Amazon Web Services (aws): sections/aws.md
         - Google Cloud Platform (gcloud): sections/gcloud.md
