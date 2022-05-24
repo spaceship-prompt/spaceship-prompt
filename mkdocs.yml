@@ -49,6 +49,7 @@ nav:
         - Execution time (exec_time): sections/exec_time.md
         - Exit code (exit_code): sections/exit_code.md
         - Git (git): sections/git.md
+        - Mercurial (hg): sections/hg.md
         - Elm (elm): sections/elm.md
         - Elixir (elixir): sections/elixir.md
         - Go (golang): sections/golang.md

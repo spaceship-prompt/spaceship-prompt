@@ -8,6 +8,8 @@ hide: [toc]
 
 The `git` section consists of [`git_branch`](#git-branch-git_branch) and [`git_status`](#git-status-git_status) subsections.
 
+## Options
+
 | Variable               |             Default                | Meaning                                                                                                     |
 | :--------------------- | :--------------------------------: | ----------------------------------------------------------------------------------------------------------- |
 | `SPACESHIP_GIT_SHOW`   |               `true`               | Show section                                                                                                |
