@@ -45,6 +45,7 @@ nav:
         - Prompt character (char): sections/char.md
         - Hostname (host): sections/host.md
         - Directory (dir): sections/dir.md
+        - Line separator (line_sep): sections/line_sep.md
         - Async (async): sections/async.md
         - Battery (battery): sections/battery.md
         - Execution time (exec_time): sections/exec_time.md
