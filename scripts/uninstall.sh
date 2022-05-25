@@ -3,6 +3,9 @@
 # Author: Denys Dovhan, denysdovhan.com
 # https://github.com/spaceship-prompt/spaceship-prompt
 
+# Stop on errors
+set -e
+
 remove() {
   rm "$1/spaceship.zsh"
   rm "$1/async.zsh"
