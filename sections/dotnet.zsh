@@ -4,7 +4,7 @@
 # .NET Framework is a software framework developed by Microsoft.
 # It includes a large class library and provides language interoperability
 # across several programming languages.
-# Link: https://www.microsoft.com/net
+# Link: https://dotnet.microsoft.com
 
 # ------------------------------------------------------------------------------
 # Configuration
