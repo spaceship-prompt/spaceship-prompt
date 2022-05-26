@@ -60,6 +60,7 @@ nav:
         - Ruby (ruby): sections/ruby.md
         - Elm (elm): sections/elm.md
         - Elixir (elixir): sections/elixir.md
+        - Xcode (xcode): sections/xcode.md
         - Swift (swift): sections/swift.md
         - Go (golang): sections/golang.md
         - PHP (php): sections/php.md
