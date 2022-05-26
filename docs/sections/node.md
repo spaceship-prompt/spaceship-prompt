@@ -9,7 +9,7 @@ hide: [toc]
 !!! info
     [**Node.js**](https://nodejs.org) is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 
-The `node` section displays the current version of the Node.js binary. This sections supports [nvm](https://github.com/nvm-sh/nvm), [nodenv](https://github.com/nodenv/nodenv), [fnm](https://github.com/Schniz/fnm) version managers or uses `node -v` if non of the above is installed.
+The `node` section displays the current version of the Node.js binary. This section supports [nvm](https://github.com/nvm-sh/nvm)](https://github.com/nvm-sh/nvm), [nodenv](https://github.com/nodenv/nodenv), [fnm](https://github.com/Schniz/fnm) version managers or uses `node -v` if non of the above is installed.
 
 This section is displayed only when the current directory is within a Node.js project, meaning:
 
