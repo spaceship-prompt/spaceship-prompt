@@ -55,6 +55,7 @@ nav:
         - Mercurial (hg): sections/hg.md
         - Package (package): sections/package.md
         - Node.js (node): sections/node.md
+        - Ruby (ruby): sections/ruby.md
         - Elm (elm): sections/elm.md
         - Elixir (elixir): sections/elixir.md
         - Go (golang): sections/golang.md
