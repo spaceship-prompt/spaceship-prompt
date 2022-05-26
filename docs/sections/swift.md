@@ -9,7 +9,7 @@ hide: [toc]
 !!! info
     [**Swift**](https://swift.org) is a general-purpose, multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community.
 
-The `swist` section displays the version of Swift.
+The `swift` section displays the version of Swift.
 
 The local version has more priority than the global one.
 
