@@ -18,10 +18,11 @@ This section is displayed only when the current directory is within a Ruby proje
 
 ## Options
 
-| Variable                |              Default               | Meaning                                   |
-| :---------------------- | :--------------------------------: | ----------------------------------------- |
-| `SPACESHIP_RUBY_SHOW`   |               `true`               | Show Ruby section                         |
-| `SPACESHIP_RUBY_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Prefix before Ruby section                |
-| `SPACESHIP_RUBY_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Suffix after Ruby section                 |
-| `SPACESHIP_RUBY_SYMBOL` |               `💎·`                | Character to be shown before Ruby version |
-| `SPACESHIP_RUBY_COLOR`  |               `red`                | Color of Ruby section                     |
+| Variable                |              Default               | Meaning                             |
+| :---------------------- | :--------------------------------: | ----------------------------------- |
+| `SPACESHIP_RUBY_SHOW`   |               `true`               | Show section                        |
+| `SPACESHIP_RUBY_ASYNC`  |               `true`               | Render section asynchronously       |                 |
+| `SPACESHIP_RUBY_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                    |
+| `SPACESHIP_RUBY_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                    |
+| `SPACESHIP_RUBY_SYMBOL` |               `💎·`                | Symbol displayed before the section |
+| `SPACESHIP_RUBY_COLOR`  |               `red`                | Section's color                     |
