@@ -52,6 +52,7 @@ nav:
         - Exit code (exit_code): sections/exit_code.md
         - Git (git): sections/git.md
         - Mercurial (hg): sections/hg.md
+        - Package (package): sections/package.md
         - Node.js (node): sections/node.md
         - Elm (elm): sections/elm.md
         - Elixir (elixir): sections/elixir.md
