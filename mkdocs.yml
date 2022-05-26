@@ -43,6 +43,7 @@ nav:
   - Customization:
       - Sections:
         - Prompt character (char): sections/char.md
+        - Time (time): sections/time.md
         - Hostname (host): sections/host.md
         - Directory (dir): sections/dir.md
         - Line separator (line_sep): sections/line_sep.md
