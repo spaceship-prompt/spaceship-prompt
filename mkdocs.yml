@@ -50,6 +50,7 @@ nav:
         - Battery (battery): sections/battery.md
         - Execution time (exec_time): sections/exec_time.md
         - Exit code (exit_code): sections/exit_code.md
+        - Jobs (jobs): sections/jobs.md
         - Git (git): sections/git.md
         - Mercurial (hg): sections/hg.md
         - Package (package): sections/package.md
