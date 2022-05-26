@@ -61,6 +61,7 @@ nav:
         - Go (golang): sections/golang.md
         - PHP (php): sections/php.md
         - Python (python): sections/python.md
+        - Rust (rust): sections/rust.md
         - Haskell (haskell): sections/haskell.md
         - Java (java): sections/java.md
         - Julia (julia): sections/julia.md
