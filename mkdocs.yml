@@ -57,6 +57,7 @@ nav:
         - Elm (elm): sections/elm.md
         - Elixir (elixir): sections/elixir.md
         - Go (golang): sections/golang.md
+        - PHP (php): sections/php.md
         - Haskell (haskell): sections/haskell.md
         - Java (java): sections/java.md
         - Julia (julia): sections/julia.md
