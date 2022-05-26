@@ -74,7 +74,9 @@ nav:
         - Virtualenv (venv): sections/venv.md
         - Conda virtualenv (conda): sections/conda.md
         - .NET (dotnet): sections/dotnet.md
+        - Kubernetes (kubectl): sections/kubectl.md
         - Terraform (terraform): sections/terraform.md
+        - IBM Cloud (ibmcloud): sections/ibmcloud.md
   - API: api.md
   - Troubleshooting: troubleshooting.md
 
