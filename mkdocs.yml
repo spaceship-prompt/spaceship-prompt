@@ -71,6 +71,7 @@ nav:
         - Google Cloud Platform (gcloud): sections/gcloud.md
         - Conda virtualenv (conda): sections/conda.md
         - .NET (dotnet): sections/dotnet.md
+        - Terraform (terraform): sections/terraform.md
   - API: api.md
   - Troubleshooting: troubleshooting.md
 
