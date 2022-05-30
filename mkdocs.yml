@@ -45,6 +45,8 @@ nav:
 
 markdown_extensions:
   - meta
+  - md_in_html
+  - def_list
   - toc:
       permalink: true
   - attr_list
@@ -54,6 +56,9 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
 extra:
   social:
