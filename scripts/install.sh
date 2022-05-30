@@ -5,6 +5,9 @@
 #
 # Inspired by: https://github.com/sindresorhus/pure
 
+# Stop on errors
+set -e
+
 link() {
   mkdir -p "$1"
   ln -sf "$PWD/spaceship.zsh" "$1/prompt_pure_setup"

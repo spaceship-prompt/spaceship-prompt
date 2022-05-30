@@ -33,7 +33,8 @@ spaceship_rust() {
   local rust_version=$(rustc --version | cut -d' ' -f2)
 
   if [[ $SPACESHIP_RUST_VERBOSE_VERSION == false ]]; then
-  	local rust_version=$(echo $rust_version | cut -d'-' -f1) # Cut off -suffixes from version. "v1.30.0-beta.11" or "v1.30.0-nightly"
+    # Cut off -suffixes from version. "v1.30.0-beta.11" or "v1.30.0-nightly"
+  	local rust_version=$(echo $rust_version | cut -d'-' -f1)
   fi
 
   spaceship::section \

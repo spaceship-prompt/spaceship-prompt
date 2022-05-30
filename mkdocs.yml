@@ -29,6 +29,7 @@ theme:
         icon: material/weather-night
         name: Switch to light mode
   features:
+    - navigation.sections
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
@@ -39,7 +40,44 @@ theme:
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
-  - Options: options.md
+  - Customization:
+      - Sections:
+        - Prompt character (char): sections/char.md
+        - Time (time): sections/time.md
+        - Username (user): sections/user.md
+        - Hostname (host): sections/host.md
+        - Directory (dir): sections/dir.md
+        - Line separator (line_sep): sections/line_sep.md
+        - Async (async): sections/async.md
+        - Battery (battery): sections/battery.md
+        - Execution time (exec_time): sections/exec_time.md
+        - Exit code (exit_code): sections/exit_code.md
+        - Jobs (jobs): sections/jobs.md
+        - Git (git): sections/git.md
+        - Mercurial (hg): sections/hg.md
+        - Package (package): sections/package.md
+        - Node.js (node): sections/node.md
+        - Ruby (ruby): sections/ruby.md
+        - Elm (elm): sections/elm.md
+        - Elixir (elixir): sections/elixir.md
+        - Xcode (xcode): sections/xcode.md
+        - Swift (swift): sections/swift.md
+        - Go (golang): sections/golang.md
+        - PHP (php): sections/php.md
+        - Python (python): sections/python.md
+        - Rust (rust): sections/rust.md
+        - Haskell (haskell): sections/haskell.md
+        - Java (java): sections/java.md
+        - Julia (julia): sections/julia.md
+        - Docker (docker): sections/docker.md
+        - Amazon Web Services (aws): sections/aws.md
+        - Google Cloud Platform (gcloud): sections/gcloud.md
+        - Virtualenv (venv): sections/venv.md
+        - Conda virtualenv (conda): sections/conda.md
+        - .NET (dotnet): sections/dotnet.md
+        - Kubernetes (kubectl): sections/kubectl.md
+        - Terraform (terraform): sections/terraform.md
+        - IBM Cloud (ibmcloud): sections/ibmcloud.md
   - API: api.md
   - Troubleshooting: troubleshooting.md
 

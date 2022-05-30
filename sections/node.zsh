@@ -32,19 +32,18 @@ spaceship_node() {
 
   if spaceship::exists fnm; then
     node_version=$(fnm current 2>/dev/null)
-    [[ $node_version == "system" || $node_version == "node" ]] && return
   elif spaceship::exists nvm; then
     node_version=$(nvm current 2>/dev/null)
-    [[ $node_version == "system" || $node_version == "node" ]] && return
   elif spaceship::exists nodenv; then
     node_version=$(nodenv version-name)
-    [[ $node_version == "system" || $node_version == "node" ]] && return
   elif spaceship::exists node; then
     node_version=$(node -v 2>/dev/null)
   else
     return
   fi
 
+  # Do not show system or default versions
+  [[ $node_version == "system" || $node_version == "node" ]] && return
   [[ $node_version == $SPACESHIP_NODE_DEFAULT_VERSION ]] && return
 
   spaceship::section \
