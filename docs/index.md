@@ -35,7 +35,7 @@ features:
 - Clever hostname, username and prompt character displaying.
 - Current Git and Mercurial repo statuses.
 - Indicator for jobs in the background `✦`.
-- Current version of Node.js `⬢`, Ruby `💎`, Elm `🌳`, Elixir `💧`, Swift `🐦`, Xcode `🛠`, Go `🐹`, PHP `🐘`, Rust `𝗥`, Haskell `λ`, Julia `ஃ`, Python `🐍`, Conda `🅒`, .NET SDK `.NET`, Ember.js `🐹`.
+- Current version of Node.js `⬢`, Ruby `💎`, Elm `🌳`, Elixir `💧`, Swift `🐦`, Xcode `🛠`, Go `🐹`, PHP `🐘`, Rust `𝗥`, Haskell `λ`, Julia `ஃ`, Python `🐍`, Conda `🅒`, .NET SDK `.NET`.
 - Package version, if there's is a package in current directory `📦`.
 - Current Docker version and connected machine `🐳`.
 - Current Amazon Web Services (AWS) profile `☁️` ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)).
@@ -43,7 +43,6 @@ features:
 - Current Kubectl context `☸️`.
 - Current Terraform workspace `🛠`.
 - Current battery level and status.
-- Current Vi-mode mode ([with handy aliases for temporarily enabling](./options.md#vi-mode-vi_mode)).
 - Execution time of the last command if it exceeds the set threshold.
 
 Want more features? Please, [open an issue](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose) or send pull request.

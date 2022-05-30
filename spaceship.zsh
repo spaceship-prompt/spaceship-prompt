@@ -74,7 +74,6 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     async         # Async jobs indicator
     line_sep      # Line break
     battery       # Battery level and status
-    vi_mode       # Vi-mode indicator
     jobs          # Background jobs indicator
     exit_code     # Exit code section
     char          # Prompt character
@@ -137,6 +136,13 @@ spaceship::deprecated SPACESHIP_PYENV_PREFIX "Use %BSPACESHIP_PYTHON_PREFIX%b in
 spaceship::deprecated SPACESHIP_PYENV_SUFFIX "Use %BSPACESHIP_PYTHON_SUFFIX%b instead"
 spaceship::deprecated SPACESHIP_PYENV_SYMBOL "Use %BSPACESHIP_PYTHON_SYMBOL%b instead"
 spaceship::deprecated SPACESHIP_PYENV_COLOR "Use %bSPACESHIP_PYTHON_COLOR%b instead"
+
+spaceship::deprecated SPACESHIP_VI_MODE_SHOW "vi-mode is now an external section: github.com/spaceship-prompt/spaceship-vi-mode"
+spaceship::deprecated SPACESHIP_VI_MODE_PREFIX "vi-mode is now an external section: github.com/spaceship-prompt/spaceship-vi-mode"
+spaceship::deprecated SPACESHIP_VI_MODE_SUFFIX "vi-mode is now an external section: github.com/spaceship-prompt/spaceship-vi-mode"
+spaceship::deprecated SPACESHIP_VI_MODE_INSERT "vi-mode is now an external section: github.com/spaceship-prompt/spaceship-vi-mode"
+spaceship::deprecated SPACESHIP_VI_MODE_NORMAL "vi-mode is now an external section: github.com/spaceship-prompt/spaceship-vi-mode"
+spaceship::deprecated SPACESHIP_VI_MODE_COLOR "vi-mode is now an external section: github.com/spaceship-prompt/spaceship-vi-mode"
 
 # ------------------------------------------------------------------------------
 # SETUP

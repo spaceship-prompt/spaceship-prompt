@@ -46,7 +46,6 @@ spaceship::is_section_async() {
     exec_time
     async
     line_sep
-    vi_mode
     jobs
     exit_code
     char

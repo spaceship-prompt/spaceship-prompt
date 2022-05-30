@@ -28,14 +28,6 @@ hide:
 
 如果不支持 Unicode 符号，您可以用 `SPACESHIP_*_SYMBOL` 选项替换它们与您终端兼容。 查看 [选项](./options.zh.md) 页面以获取更多信息。
 
-## 提示符之前的 `[I]` 是什么？
-
-那是 [`vi_mode`](https://spaceship-prompt.sh/options/#vi-mode-vi_mode) 模块表示 `插入` 模式。 您可以在您的配置中用以下行禁用此功能：
-
-```
-SPACESHIP_VI_MODE_SHOW=false
-```
-
 ## 为什么我的提示符很慢？
 
 由于状态检查是相当繁重的操作，空间飞船在大仓库中Spaceship可能较慢。 在这种情况下，试图避免有许多未提交的文件。
@@ -44,7 +36,7 @@ SPACESHIP_VI_MODE_SHOW=false
 
 由于未使用的模块加载，提示符也可能变慢。 Spaceship只装载 `SPACESHIP_PROPT_ORDER` 或 `SPACESHIP_RPROPT_ORDER` 中提到的模块。 如果你认为某些模块对你来说可能毫无用处，试图通过在排序选项中省略它们的名字来禁用它们。
 
-在下面的示例中， `time`, `package`, `xcode`, `julia`, `docker`, 和 `vi_mode` 模块被禁用，根本不会被加载。
+在下面的示例中， `time`, `package`, `xcode`, `julia`, 和 `docker` 模块被禁用，根本不会被加载。
 
 ```zsh
 #  如果你想禁用仅仅需要将模块注释
@@ -79,7 +71,6 @@ SPACESHIP_PROMPT_ORDER=(
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status
-  # vi_mode     # Vi-mode indicator (Disabled)
   jobs          # Background jobs indicator
   exit_code     # Exit code section
   char          # Prompt character

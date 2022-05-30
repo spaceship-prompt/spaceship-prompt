@@ -118,7 +118,6 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
   - `⇡` - charging;
   - `⇣` - discharging;
   - `•` - fully charged.
-- Current Vi-mode mode ([with handy aliases for temporarily enabling](./docs/options.md#vi-mode-vi_mode)).
 - Optional exit-code of last command ([how to enable](./docs/options.md#exit-code-exit_code)).
 - Optional time stamps 12/24hr in format ([how to enable](./docs/options.md#time-time)).
 - Execution time of the last command if it exceeds the set threshold.
