@@ -10,8 +10,9 @@
     "spaceship.zsh-theme"
   ],
   "scripts": {
-    "postinstall": "./scripts/install.sh",
-    "test": "./scripts/tests.sh"
+    "postinstall": "./scripts/install",
+    "postuninstall": "./scripts/uninstall",
+    "test": "./scripts/tests"
   },
   "repository": {
     "type": "git",
