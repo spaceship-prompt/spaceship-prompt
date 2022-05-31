@@ -158,57 +158,60 @@ spaceship::upsearch() {
 
 # Read json file with dot notation
 # USAGE:
-#   spaceship::datafile <file> [key]
+#   spaceship::datafile --<type> <file> [key]
 # EXAMPLE:
-#  $ spaceship::datafile package.json "author.name"
+#  $ spaceship::datafile --json package.json "author.name"
 #  > "John Doe"
 spaceship::datafile() {
+  # Parse CLI options
+  zparseopts -E -D \
+    -json=json \
+    -yaml=yaml \
+    -toml=toml \
+    -xml=xml
+
   local file="$1" key="$2"
 
-  case "$file" in
-    *.yaml|*.yml)
-      if spaceship::exists yq; then
-        yq -r ".$key" "$file"
-      elif spaceship::exists python; then
-        python -c "import yaml, functools; print(functools.reduce(lambda obj, key: obj[key] if key else obj, '$key'.split('.'), yaml.safe_load(open('$file'))))" 2>/dev/null
-      else
-        return 1
-      fi
-    ;;
-
-    *.json)
-      if spaceship::exists jq; then
-        jq -r ".$key" "$file" 2>/dev/null
-      elif spaceship::exists yq; then
-        yq -r ".$key" "$file" 2>/dev/null
-      elif spaceship::exists python; then
-        python -c "import json, functools; print(functools.reduce(lambda obj, key: obj[key] if key else obj, '$key'.split('.'), json.load(open('$file'))))" 2>/dev/null
-      elif spaceship::exists node; then
-        node -p "require('./$file').$key" 2>/dev/null
-      else
-        return 1
-      fi
-    ;;
-
-    *.toml)
-      if spaceship::exists tomlq; then
-        tomlq -r ".$key" "$file"
-      else
-        return 1
-      fi
-    ;;
-
-    *.xml)
-      if spaceship::exists xq; then
-        xq -r ".$key" "$file"
-      else
-        return 1
-      fi
-    ;;
-
-    *)
-      # todo: grep by regexp?
+  if [[ -n "$yaml" ]]; then
+    if spaceship::exists yq; then
+      yq -r ".$key" "$file"
+    elif spaceship::exists python; then
+      python -c "import yaml, functools; print(functools.reduce(lambda obj, key: obj[key] if key else obj, '$key'.split('.'), yaml.safe_load(open('$file'))))" 2>/dev/null
+    else
       return 1
-    ;;
-  esac
+    fi
+  fi
+
+  if [[ -n "$json" ]]; then
+    if spaceship::exists jq; then
+      jq -r ".$key" "$file" 2>/dev/null
+    elif spaceship::exists yq; then
+      yq -r ".$key" "$file" 2>/dev/null
+    elif spaceship::exists python; then
+      python -c "import json, functools; print(functools.reduce(lambda obj, key: obj[key] if key else obj, '$key'.split('.'), json.load(open('$file'))))" 2>/dev/null
+    elif spaceship::exists node; then
+      node -p "require('./$file').$key" 2>/dev/null
+    else
+      return 1
+    fi
+  fi
+
+  if [[ -n "$toml" ]]; then
+    if spaceship::exists tomlq; then
+      tomlq -r ".$key" "$file"
+    else
+      return 1
+    fi
+  fi
+
+  if [[ -n "$xml" ]]; then
+    if spaceship::exists xq; then
+      xq -r ".$key" "$file"
+    else
+      return 1
+    fi
+  fi
+
+  # todo: grep by regexp?
+  return 1
 }

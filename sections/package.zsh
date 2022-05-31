@@ -33,8 +33,8 @@ spaceship_package::npm() {
   spaceship::exists npm || return
   spaceship::upsearch -s package.json || return
 
-  local package_version="$(spaceship::datafile package.json version)"
-  local is_private_package="$(spaceship::datafile package.json private)"
+  local package_version="$(spaceship::datafile --json package.json version)"
+  local is_private_package="$(spaceship::datafile --json package.json private)"
 
   if [[ "$SPACESHIP_PACKAGE_SHOW_PRIVATE" == false && "$is_private_package" == true ]]; then
     return 0
@@ -54,7 +54,7 @@ spaceship_package::lerna() {
   spaceship::exists npm || return
   spaceship::upsearch -s lerna.json || return
 
-  local package_version="$(spaceship::datafile lerna.json version)"
+  local package_version="$(spaceship::datafile --json lerna.json version)"
 
   if [[ "$package_version" == "independent" ]]; then
     package_version="($package_version)"
@@ -79,14 +79,14 @@ spaceship_package::composer() {
   spaceship::exists composer || return
   spaceship::upsearch -s composer.json || return
 
-  spaceship::datafile composer.json "version"
+  spaceship::datafile --json composer.json "version"
 }
 
 spaceship_package::julia() {
   spaceship::exists julia || return
   spaceship::upsearch -s Project.toml || return
 
-  spaceship::datafile Project.toml "version"
+  spaceship::datafile --toml Project.toml "version"
 }
 
 # ------------------------------------------------------------------------------
