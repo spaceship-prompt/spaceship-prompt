@@ -136,6 +136,7 @@ spaceship::deprecated SPACESHIP_PYENV_PREFIX "Use %BSPACESHIP_PYTHON_PREFIX%b in
 spaceship::deprecated SPACESHIP_PYENV_SUFFIX "Use %BSPACESHIP_PYTHON_SUFFIX%b instead"
 spaceship::deprecated SPACESHIP_PYENV_SYMBOL "Use %BSPACESHIP_PYTHON_SYMBOL%b instead"
 spaceship::deprecated SPACESHIP_PYENV_COLOR "Use %bSPACESHIP_PYTHON_COLOR%b instead"
+
 # kubectl_context warnings
 spaceship::deprecated SPACESHIP_KUBECONTEXT_SHOW "Use %BSPACESHIP_KUBECTL_CONTEXT_SHOW%b instead"
 spaceship::deprecated SPACESHIP_KUBECONTEXT_PREFIX "Use %BSPACESHIP_KUBECTL_CONTEXT_PREFIX%b instead"
@@ -143,13 +144,6 @@ spaceship::deprecated SPACESHIP_KUBECONTEXT_SUFFIX "Use %BSPACESHIP_KUBECTL_CONT
 spaceship::deprecated SPACESHIP_KUBECONTEXT_COLOR "Use %BSPACESHIP_KUBECTL_CONTEXT_COLOR%b instead"
 spaceship::deprecated SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW "Use %BSPACESHIP_KUBECTL_CONTEXT_SHOW_NAMESPACE%b instead"
 spaceship::deprecated SPACESHIP_KUBECONTEXT_COLOR_GROUPS "Use %BSPACESHIP_KUBECTL_CONTEXT_COLOR_GROUPS%b instead"
-
-spaceship::deprecated SPACESHIP_VI_MODE_SHOW "vi-mode is now an external section: github.com/spaceship-prompt/spaceship-vi-mode"
-spaceship::deprecated SPACESHIP_VI_MODE_PREFIX "vi-mode is now an external section: github.com/spaceship-prompt/spaceship-vi-mode"
-spaceship::deprecated SPACESHIP_VI_MODE_SUFFIX "vi-mode is now an external section: github.com/spaceship-prompt/spaceship-vi-mode"
-spaceship::deprecated SPACESHIP_VI_MODE_INSERT "vi-mode is now an external section: github.com/spaceship-prompt/spaceship-vi-mode"
-spaceship::deprecated SPACESHIP_VI_MODE_NORMAL "vi-mode is now an external section: github.com/spaceship-prompt/spaceship-vi-mode"
-spaceship::deprecated SPACESHIP_VI_MODE_COLOR "vi-mode is now an external section: github.com/spaceship-prompt/spaceship-vi-mode"
 
 # ------------------------------------------------------------------------------
 # SETUP
