@@ -2,15 +2,15 @@
 
 # Run all tests with a nice reporer
 tests:
-	./scripts/tests.sh
+	./scripts/tests
 
 # Link spaceship to site-functions
 install:
-	./scripts/install.sh
+	./scripts/install
 
 # Unlink spaceship from site-functions
 uninstall:
-	./scripts/uninstall.sh
+	./scripts/uninstall
 
 # Serve the docs
 docs:
