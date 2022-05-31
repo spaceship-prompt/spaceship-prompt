@@ -34,7 +34,7 @@ jobs:
         run: zsh --version
 
       - name: 🧪 Run Tests
-        run: scripts/tests.sh
+        run: make tests
 
   release:
     name: Release
