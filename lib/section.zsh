@@ -25,6 +25,44 @@ spaceship::section() {
   echo -n "${(j:·|·:)result}"
 }
 
+spaceship::section::v4() {
+  # Parse CLI options
+  zparseopts -E -D \
+    -color:=color_ \
+    -prefix:=prefix_ \
+    -suffix:=suffix_ \
+    -symbol:=symbol_
+
+  local color="${color_[2]}" prefix="${prefix_[2]}" suffix="${suffix_[2]}" symbol="${symbol_[2]}"
+  local content="$@"
+  local result=()
+
+  result+=("$color")
+  result+=("$prefix")
+  result+=("$symbol")
+  result+=("$content")
+  result+=("$suffix")
+
+  echo -n "${(j:·|·:)result}"
+}
+
+spaceship::section::v3() {
+  local color prefix content suffix
+
+  [[ -n "$1" ]] && color="$1"      || color=""
+  [[ -n "$2" ]] && prefix="$2"     || prefix=""
+  [[ -n "$3" ]] && content="$3"    || content=""
+  [[ -n "$4" ]] && suffix="$4"     || suffix=""
+
+  [[ -z $3 && -z $4 ]] && content="$2" prefix=''
+
+  spaceship::section::v4 \
+    --color "$color" \
+    --prefix "$prefix" \
+    --suffix "$suffix" \
+    "$content"
+}
+
 # Extract section data and render a section from it.
 # USAGE:
 #   spaceship::render_section <section_data>
