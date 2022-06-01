@@ -33,8 +33,9 @@ spaceship_haskell() {
   local haskell_version=$(stack ghc -- --numeric-version --no-install-ghc)
 
   spaceship::section \
-    "$SPACESHIP_HASKELL_COLOR" \
-    "$SPACESHIP_HASKELL_PREFIX" \
-    "${SPACESHIP_HASKELL_SYMBOL}v${haskell_version}" \
-    "$SPACESHIP_HASKELL_SUFFIX"
+    --color "$SPACESHIP_HASKELL_COLOR" \
+    --prefix "$SPACESHIP_HASKELL_PREFIX" \
+    --suffix "$SPACESHIP_HASKELL_SUFFIX" \
+    --symbol "$SPACESHIP_HASKELL_SYMBOL" \
+    "v$haskell_version"
 }

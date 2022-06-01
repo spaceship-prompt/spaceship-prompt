@@ -103,7 +103,7 @@ spaceship_git_status() {
   if [[ -n $git_status ]]; then
     # Status prefixes are colorized
     spaceship::section \
-      "$SPACESHIP_GIT_STATUS_COLOR" \
+      --color "$SPACESHIP_GIT_STATUS_COLOR" \
       "$SPACESHIP_GIT_STATUS_PREFIX$git_status$SPACESHIP_GIT_STATUS_SUFFIX"
   fi
 }

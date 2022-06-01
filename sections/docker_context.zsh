@@ -43,6 +43,6 @@ spaceship_docker_context() {
   [[ -z $docker_remote_context ]] && return
 
   spaceship::section \
-    "$SPACESHIP_DOCKER_COLOR" \
+    --color "$SPACESHIP_DOCKER_COLOR" \
     "$SPACESHIP_DOCKER_CONTEXT_PREFIX${docker_remote_context}$SPACESHIP_DOCKER_CONTEXT_SUFFIX"
 }

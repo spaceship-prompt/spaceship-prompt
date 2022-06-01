@@ -32,8 +32,9 @@ spaceship_php() {
   local php_version=$(php -v 2>&1 | \grep --color=never -oe "^PHP\s*[0-9.]\+" | awk '{print $2}')
 
   spaceship::section \
-    "$SPACESHIP_PHP_COLOR" \
-    "$SPACESHIP_PHP_PREFIX" \
-    "${SPACESHIP_PHP_SYMBOL}v${php_version}" \
-    "${SPACESHIP_PHP_SUFFIX}"
+    --color "$SPACESHIP_PHP_COLOR" \
+    --prefix "$SPACESHIP_PHP_PREFIX" \
+    --suffix "${SPACESHIP_PHP_SUFFIX}" \
+    --symbol "${SPACESHIP_PHP_SYMBOL}" \
+    "v${php_version}"
 }

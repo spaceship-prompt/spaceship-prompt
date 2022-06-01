@@ -10,5 +10,5 @@
 spaceship_line_sep() {
   [[ $SPACESHIP_PROMPT_SEPARATE_LINE != true ]] && return
 
-  spaceship::section 'white' "$NEWLINE"
+  spaceship::section --color 'white' "$NEWLINE"
 }

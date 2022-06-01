@@ -46,7 +46,7 @@ spaceship_hg_status() {
 
   if [[ -n $hg_status ]]; then
     spaceship::section \
-      "$SPACESHIP_HG_STATUS_COLOR" \
-      "$SPACESHIP_HG_STATUS_PREFIX"$hg_status"$SPACESHIP_HG_STATUS_SUFFIX"
+      --color "$SPACESHIP_HG_STATUS_COLOR" \
+      "$SPACESHIP_HG_STATUS_PREFIX$hg_status$SPACESHIP_HG_STATUS_SUFFIX"
   fi
 }

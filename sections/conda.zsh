@@ -34,8 +34,9 @@ spaceship_conda() {
   fi
 
   spaceship::section \
-    "$SPACESHIP_CONDA_COLOR" \
-    "$SPACESHIP_CONDA_PREFIX" \
-    "${SPACESHIP_CONDA_SYMBOL}${conda_env}" \
-    "$SPACESHIP_CONDA_SUFFIX"
+    --color "$SPACESHIP_CONDA_COLOR" \
+    --prefix "$SPACESHIP_CONDA_PREFIX" \
+    --suffix "$SPACESHIP_CONDA_SUFFIX" \
+    --symbol "$SPACESHIP_CONDA_SYMBOL" \
+    "$conda_env"
 }

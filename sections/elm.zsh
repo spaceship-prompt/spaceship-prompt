@@ -31,8 +31,9 @@ spaceship_elm() {
   local elm_version=$(elm --version 2> /dev/null)
 
   spaceship::section \
-    "$SPACESHIP_ELM_COLOR" \
-    "$SPACESHIP_ELM_PREFIX" \
-    "${SPACESHIP_ELM_SYMBOL}v${elm_version}" \
-    "$SPACESHIP_ELM_SUFFIX"
+    --color "$SPACESHIP_ELM_COLOR" \
+    --prefix "$SPACESHIP_ELM_PREFIX" \
+    --suffix "$SPACESHIP_ELM_SUFFIX" \
+    --symbol "$SPACESHIP_ELM_SYMBOL" \
+    "v$elm_version"
 }

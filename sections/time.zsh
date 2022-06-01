@@ -32,8 +32,8 @@ spaceship_time() {
   fi
 
   spaceship::section \
-    "$SPACESHIP_TIME_COLOR" \
-    "$SPACESHIP_TIME_PREFIX" \
-    "$time_str" \
-    "$SPACESHIP_TIME_SUFFIX"
+    --color "$SPACESHIP_TIME_COLOR" \
+    --prefix "$SPACESHIP_TIME_PREFIX" \
+    --suffix "$SPACESHIP_TIME_SUFFIX" \
+    "$time_str"
 }

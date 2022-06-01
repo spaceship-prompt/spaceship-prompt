@@ -48,8 +48,9 @@ spaceship_ruby() {
   [[ "${ruby_version}" =~ ^[0-9].+$ ]] && ruby_version="v${ruby_version}"
 
   spaceship::section \
-    "$SPACESHIP_RUBY_COLOR" \
-    "$SPACESHIP_RUBY_PREFIX" \
-    "${SPACESHIP_RUBY_SYMBOL}${ruby_version}" \
-    "$SPACESHIP_RUBY_SUFFIX"
+    --color "$SPACESHIP_RUBY_COLOR" \
+    --prefix "$SPACESHIP_RUBY_PREFIX" \
+    --suffix "$SPACESHIP_RUBY_SUFFIX" \
+    --symbol "$SPACESHIP_RUBY_SYMBOL" \
+    "$ruby_version"
 }

@@ -26,19 +26,20 @@ spaceship_async() {
   [[ "$SPACESHIP_ASYNC_SHOW" == false ]] && return
 
   local jobs_count=${#SPACESHIP_JOBS}
-  local content="$SPACESHIP_ASYNC_SYMBOL"
+  local content
 
   # If there are no jobs, we don't need to show anything
   (( $jobs_count == 0 )) && return
 
   # Display jobs counter
   if [[ "$SPACESHIP_ASYNC_SHOW_COUNT" == true ]]; then
-    content+="$jobs_count"
+    content="$jobs_count"
   fi
 
   spaceship::section \
-    "$SPACESHIP_ASYNC_COLOR" \
-    "$SPACESHIP_ASYNC_PREFIX" \
-    "$content" \
-    "$SPACESHIP_ASYNC_SUFFIX"
+    --color "$SPACESHIP_ASYNC_COLOR" \
+    --prefix "$SPACESHIP_ASYNC_PREFIX" \
+    --suffix "$SPACESHIP_ASYNC_SUFFIX" \
+    --symbol "$SPACESHIP_ASYNC_SYMBOL" \
+    "$content"
 }

@@ -30,8 +30,8 @@ spaceship_kubectl_version() {
   [[ -z $kubectl_version ]] && return
 
   spaceship::section \
-    "$SPACESHIP_KUBECTL_VERSION_COLOR" \
-    "$SPACESHIP_KUBECTL_VERSION_PREFIX" \
-    "${kubectl_version}" \
-    "$SPACESHIP_KUBECTL_VERSION_SUFFIX"
+    --color "$SPACESHIP_KUBECTL_VERSION_COLOR" \
+    --prefix "$SPACESHIP_KUBECTL_VERSION_PREFIX" \
+    --suffix "$SPACESHIP_KUBECTL_VERSION_SUFFIX" \
+    "$kubectl_version"
 }

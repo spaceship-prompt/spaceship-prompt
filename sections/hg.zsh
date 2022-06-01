@@ -38,8 +38,8 @@ spaceship_hg() {
   local hg_status_section="$(spaceship::render_section $hg_status)"
 
   spaceship::section \
-    'white' \
-    "$SPACESHIP_HG_PREFIX" \
-    "${hg_branch_section}${hg_status_section}" \
-    "$SPACESHIP_HG_SUFFIX"
+    --color 'white' \
+    --prefix "$SPACESHIP_HG_PREFIX" \
+    --suffix "$SPACESHIP_HG_SUFFIX" \
+    "${hg_branch_section}${hg_status_section}"
 }

@@ -53,8 +53,9 @@ spaceship_gcloud() {
 
   # Show prompt section
   spaceship::section \
-    "$SPACESHIP_GCLOUD_COLOR" \
-    "$SPACESHIP_GCLOUD_PREFIX" \
-    "$SPACESHIP_GCLOUD_SYMBOL$gcloud_status" \
-    "$SPACESHIP_GCLOUD_SUFFIX"
+    --color "$SPACESHIP_GCLOUD_COLOR" \
+    --prefix "$SPACESHIP_GCLOUD_PREFIX" \
+    --suffix "$SPACESHIP_GCLOUD_SUFFIX" \
+    --symbol "$SPACESHIP_GCLOUD_SYMBOL" \
+    "$gcloud_status"
 }

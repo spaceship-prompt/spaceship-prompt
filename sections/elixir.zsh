@@ -27,7 +27,7 @@ spaceship_elixir() {
   # Show versions only for Elixir-specific folders
   [[ -f mix.exs || -n *.ex(#qN^/) || -n *.exs(#qN^/) ]] || return
 
-  local 'elixir_version'
+  local elixir_version
 
   if spaceship::exists kiex; then
     elixir_version="${ELIXIR_VERSION}"
@@ -47,8 +47,9 @@ spaceship_elixir() {
   [[ "${elixir_version}" =~ ^[0-9].+$ ]] && elixir_version="v${elixir_version}"
 
   spaceship::section \
-    "$SPACESHIP_ELIXIR_COLOR" \
-    "$SPACESHIP_ELIXIR_PREFIX" \
-    "${SPACESHIP_ELIXIR_SYMBOL}${elixir_version}" \
-    "$SPACESHIP_ELIXIR_SUFFIX"
+    --color "$SPACESHIP_ELIXIR_COLOR" \
+    --prefix "$SPACESHIP_ELIXIR_PREFIX" \
+    --suffix "$SPACESHIP_ELIXIR_SUFFIX" \
+    --symbol "$SPACESHIP_ELIXIR_SYMBOL" \
+    "$elixir_version"
 }

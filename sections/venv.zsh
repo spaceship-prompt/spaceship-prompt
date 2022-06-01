@@ -38,9 +38,10 @@ spaceship_venv() {
     venv="$VIRTUAL_ENV:t"
   fi
 
-spaceship::section \
-    "$SPACESHIP_VENV_COLOR" \
-    "$SPACESHIP_VENV_PREFIX" \
-    "${SPACESHIP_VENV_SYMBOL}${venv}" \
-    "$SPACESHIP_VENV_SUFFIX"
+  spaceship::section \
+    --color "$SPACESHIP_VENV_COLOR" \
+    --prefix "$SPACESHIP_VENV_PREFIX" \
+    --suffix "$SPACESHIP_VENV_SUFFIX" \
+    --symbol "$SPACESHIP_VENV_SYMBOL" \
+    "$venv"
 }

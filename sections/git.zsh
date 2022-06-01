@@ -38,8 +38,8 @@ spaceship_git() {
   local git_status_section="$(spaceship::render_section $git_status)"
 
   spaceship::section \
-    'white' \
-    "$SPACESHIP_GIT_PREFIX" \
-    "$git_branch_section$git_status_section" \
-    "$SPACESHIP_GIT_SUFFIX"
+    --color 'white' \
+    --prefix "$SPACESHIP_GIT_PREFIX" \
+    --syffix "$SPACESHIP_GIT_SUFFIX" \
+    "$git_branch_section$git_status_section"
 }

@@ -40,8 +40,9 @@ spaceship_dotnet() {
   [[ $? -eq 0 ]] || return
 
   spaceship::section \
-    "$SPACESHIP_DOTNET_COLOR" \
-    "$SPACESHIP_DOTNET_PREFIX" \
-    "${SPACESHIP_DOTNET_SYMBOL}${dotnet_version}" \
-    "$SPACESHIP_DOTNET_SUFFIX"
+    --color "$SPACESHIP_DOTNET_COLOR" \
+    --prefix "$SPACESHIP_DOTNET_PREFIX" \
+    --suffix "$SPACESHIP_DOTNET_SUFFIX" \
+    --symbol "$SPACESHIP_DOTNET_SYMBOL" \
+    "$dotnet_version"
 }

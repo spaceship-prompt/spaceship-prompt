@@ -38,8 +38,9 @@ spaceship_rust() {
   fi
 
   spaceship::section \
-    "$SPACESHIP_RUST_COLOR" \
-    "$SPACESHIP_RUST_PREFIX" \
-    "${SPACESHIP_RUST_SYMBOL}v${rust_version}" \
-    "$SPACESHIP_RUST_SUFFIX"
+    --color "$SPACESHIP_RUST_COLOR" \
+    --prefix "$SPACESHIP_RUST_PREFIX" \
+    --suffix "$SPACESHIP_RUST_SUFFIX" \
+    --symbol "$SPACESHIP_RUST_SYMBOL" \
+    "$rust_version"
 }

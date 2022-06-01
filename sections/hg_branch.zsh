@@ -29,6 +29,6 @@ spaceship_hg_branch() {
   fi
 
   spaceship::section \
-    "$SPACESHIP_HG_BRANCH_COLOR" \
-    "$SPACESHIP_HG_BRANCH_PREFIX"$hg_info"$SPACESHIP_HG_BRANCH_SUFFIX"
+    --color "$SPACESHIP_HG_BRANCH_COLOR" \
+    "$SPACESHIP_HG_BRANCH_PREFIX$hg_info$SPACESHIP_HG_BRANCH_SUFFIX"
 }

@@ -35,8 +35,9 @@ spaceship_ibmcloud() {
   [[ "No" == $ibmcloud_account ]] && ibmcloud_account="No account targeted"
 
   spaceship::section \
-    "$SPACESHIP_IBMCLOUD_COLOR" \
-    "$SPACESHIP_IBMCLOUD_PREFIX" \
-    "$SPACESHIP_IBMCLOUD_SYMBOL$ibmcloud_account" \
-    "$SPACESHIP_IBMCLOUD_SUFFIX"
+    --color "$SPACESHIP_IBMCLOUD_COLOR" \
+    --prefix "$SPACESHIP_IBMCLOUD_PREFIX" \
+    --suffix "$SPACESHIP_IBMCLOUD_SUFFIX" \
+    --symbol "$SPACESHIP_IBMCLOUD_SYMBOL" \
+    "$ibmcloud_account"
 }

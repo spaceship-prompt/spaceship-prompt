@@ -30,8 +30,9 @@ spaceship_aws() {
 
   # Show prompt section
   spaceship::section \
-    "$SPACESHIP_AWS_COLOR" \
-    "$SPACESHIP_AWS_PREFIX" \
-    "${SPACESHIP_AWS_SYMBOL}${profile}" \
-    "$SPACESHIP_AWS_SUFFIX"
+    --color "$SPACESHIP_AWS_COLOR" \
+    --prefix "$SPACESHIP_AWS_PREFIX" \
+    --suffix "$SPACESHIP_AWS_SUFFIX" \
+    --symbol "$SPACESHIP_AWS_SYMBOL" \
+    "$profile"
 }

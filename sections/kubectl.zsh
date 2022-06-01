@@ -41,8 +41,9 @@ spaceship_kubectl() {
   local kubectl_context_section="$(spaceship::render_section $kubectl_context)"
 
   spaceship::section \
-    "$SPACESHIP_KUBECTL_COLOR" \
-    "$SPACESHIP_KUBECTL_PREFIX" \
-    "${SPACESHIP_KUBECTL_SYMBOL}${kubectl_version_section}${kubectl_context_section}" \
-    "$SPACESHIP_KUBECTL_SUFFIX"
+    --color "$SPACESHIP_KUBECTL_COLOR" \
+    --prefix "$SPACESHIP_KUBECTL_PREFIX" \
+    --suffix "$SPACESHIP_KUBECTL_SUFFIX" \
+    --symbol "$SPACESHIP_KUBECTL_SYMBOL" \
+    "${kubectl_version_section}${kubectl_context_section}"
 }

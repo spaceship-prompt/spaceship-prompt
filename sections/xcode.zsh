@@ -41,10 +41,11 @@ spaceship_xcode() {
         local xcode_version=$(defaults read ${xcode_version_path} CFBundleShortVersionString)
 
         spaceship::section \
-          "$SPACESHIP_XCODE_COLOR" \
-          "$SPACESHIP_XCODE_PREFIX" \
-          "${SPACESHIP_XCODE_SYMBOL}${xcode_version}" \
-          "$SPACESHIP_XCODE_SUFFIX"
+          --color "$SPACESHIP_XCODE_COLOR" \
+          --prefix "$SPACESHIP_XCODE_PREFIX" \
+          --suffix "$SPACESHIP_XCODE_SUFFIX" \
+          --symbol "$SPACESHIP_XCODE_SYMBOL" \
+          "$xcode_version"
       fi
     fi
   fi

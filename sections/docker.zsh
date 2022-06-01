@@ -62,15 +62,15 @@ spaceship_docker() {
 
   # if docker daemon isn't running you'll get an error saying it can't connect
   # Note: Declaration and assignment is separated for correctly getting the exit code
-  local docker_version
-  docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
+  local docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
   [[ $? -ne 0 || -z $docker_version ]] && return
 
   [[ $SPACESHIP_DOCKER_VERBOSE == false ]] && docker_version=${docker_version%-*}
 
   spaceship::section \
-    "$SPACESHIP_DOCKER_COLOR" \
-    "$SPACESHIP_DOCKER_PREFIX" \
-    "${SPACESHIP_DOCKER_SYMBOL}v${docker_version}${docker_context_section}" \
-    "$SPACESHIP_DOCKER_SUFFIX"
+    --color "$SPACESHIP_DOCKER_COLOR" \
+    --prefix "$SPACESHIP_DOCKER_PREFIX" \
+    --suffix "$SPACESHIP_DOCKER_SUFFIX" \
+    --symbol "$SPACESHIP_DOCKER_SYMBOL" \
+    "v${docker_version}${docker_context_section}"
 }

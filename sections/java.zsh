@@ -27,8 +27,9 @@ spaceship_java() {
   local java_version=$(java -version 2>&1 | head -n 1 | awk -F '"' '{print $2}')
 
   spaceship::section \
-    "$SPACESHIP_JAVA_COLOR" \
-    "$SPACESHIP_JAVA_PREFIX" \
-    "${SPACESHIP_JAVA_SYMBOL}v${java_version}" \
-    "$SPACESHIP_JAVA_SUFFIX"
+    --color "$SPACESHIP_JAVA_COLOR" \
+    --prefix "$SPACESHIP_JAVA_PREFIX" \
+    --suffix "$SPACESHIP_JAVA_SUFFIX" \
+    --symbol "$SPACESHIP_JAVA_SYMBOL" \
+    "v${java_version}"
 }

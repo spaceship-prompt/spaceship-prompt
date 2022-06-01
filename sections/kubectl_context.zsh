@@ -39,7 +39,7 @@ spaceship_kubectl_context() {
   # See Options.md for usage example.
   local len=${#SPACESHIP_KUBECTL_CONTEXT_COLOR_GROUPS[@]}
   local it_to=$((len / 2))
-  local 'section_color' 'i'
+  local section_color 'i'
   for ((i = 1; i <= $it_to; i++)); do
     local idx=$(((i - 1) * 2))
     local color="${SPACESHIP_KUBECTL_CONTEXT_COLOR_GROUPS[$idx + 1]}"
@@ -53,8 +53,8 @@ spaceship_kubectl_context() {
   [[ -z "$section_color" ]] && section_color=$SPACESHIP_KUBECTL_CONTEXT_COLOR
 
   spaceship::section \
-    "$section_color" \
-    "$SPACESHIP_KUBECTL_CONTEXT_PREFIX" \
-    "${kube_context}" \
-    "$SPACESHIP_KUBECTL_CONTEXT_SUFFIX"
+    --color "$section_color" \
+    --prefix "$SPACESHIP_KUBECTL_CONTEXT_PREFIX" \
+    --suffix "$SPACESHIP_KUBECTL_CONTEXT_SUFFIX" \
+    "$kube_context"
 }

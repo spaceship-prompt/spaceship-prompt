@@ -34,8 +34,9 @@ spaceship_terraform() {
   [[ -z $terraform_workspace ]] && return
 
   spaceship::section \
-    "$SPACESHIP_TERRAFORM_COLOR" \
-    "$SPACESHIP_TERRAFORM_PREFIX" \
-    "$SPACESHIP_TERRAFORM_SYMBOL$terraform_workspace" \
-    "$SPACESHIP_TERRAFORM_SUFFIX"
+    --color "$SPACESHIP_TERRAFORM_COLOR" \
+    --prefix "$SPACESHIP_TERRAFORM_PREFIX" \
+    --suffix "$SPACESHIP_TERRAFORM_SUFFIX" \
+    --symbol "$SPACESHIP_TERRAFORM_SYMBOL" \
+    "$terraform_workspace"
 }

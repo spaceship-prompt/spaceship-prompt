@@ -29,6 +29,6 @@ spaceship_git_branch() {
   git_current_branch="${git_current_branch/.../}"
 
   spaceship::section \
-    "$SPACESHIP_GIT_BRANCH_COLOR" \
-    "$SPACESHIP_GIT_BRANCH_PREFIX${git_current_branch}$SPACESHIP_GIT_BRANCH_SUFFIX"
+    --color "$SPACESHIP_GIT_BRANCH_COLOR" \
+    "$SPACESHIP_GIT_BRANCH_PREFIX$git_current_branch$SPACESHIP_GIT_BRANCH_SUFFIX"
 }

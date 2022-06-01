@@ -47,8 +47,9 @@ spaceship_node() {
   [[ $node_version == $SPACESHIP_NODE_DEFAULT_VERSION ]] && return
 
   spaceship::section \
-    "$SPACESHIP_NODE_COLOR" \
-    "$SPACESHIP_NODE_PREFIX" \
-    "${SPACESHIP_NODE_SYMBOL}${node_version}" \
-    "$SPACESHIP_NODE_SUFFIX"
+    --color "$SPACESHIP_NODE_COLOR" \
+    --prefix "$SPACESHIP_NODE_PREFIX" \
+    --suffix "$SPACESHIP_NODE_SUFFIX" \
+    --symbol "$SPACESHIP_NODE_SYMBOL" \
+    "$node_version"
 }

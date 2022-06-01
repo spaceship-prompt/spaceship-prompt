@@ -31,8 +31,9 @@ spaceship_julia() {
   local julia_version=$(julia --version | grep --color=never -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]')
 
   spaceship::section \
-    "$SPACESHIP_JULIA_COLOR" \
-    "$SPACESHIP_JULIA_PREFIX" \
-    "${SPACESHIP_JULIA_SYMBOL}v${julia_version}" \
-    "$SPACESHIP_JULIA_SUFFIX"
+    --color "$SPACESHIP_JULIA_COLOR" \
+    --prefix "$SPACESHIP_JULIA_PREFIX" \
+    --suffix "$SPACESHIP_JULIA_SUFFIX" \
+    --symbol "$SPACESHIP_JULIA_SYMBOL" \
+    "$julia_version"
 }

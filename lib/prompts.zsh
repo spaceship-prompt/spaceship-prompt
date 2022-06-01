@@ -48,7 +48,7 @@ spaceship::rprompt() {
 # Continuation interactive prompt
 spaceship::ps2() {
   local char="${SPACESHIP_CHAR_SYMBOL_SECONDARY="$SPACESHIP_CHAR_SYMBOL"}"
-  local ps2="$(spaceship::section "$SPACESHIP_CHAR_COLOR_SECONDARY" "$char")"
+  local ps2="$(spaceship::section --color "$SPACESHIP_CHAR_COLOR_SECONDARY" "$char")"
   spaceship::render_section "$ps2"
 }
 

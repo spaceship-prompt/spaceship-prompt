@@ -36,8 +36,9 @@ spaceship_python() {
   [[ -z $py_version ]] && return
 
   spaceship::section \
-    "$SPACESHIP_PYTHON_COLOR" \
-    "$SPACESHIP_PYTHON_PREFIX" \
-    "${SPACESHIP_PYTHON_SYMBOL}${py_version}" \
-    "$SPACESHIP_PYTHON_SUFFIX"
+    --color "$SPACESHIP_PYTHON_COLOR" \
+    --prefix "$SPACESHIP_PYTHON_PREFIX" \
+    --suffix "$SPACESHIP_PYTHON_SUFFIX" \
+    --symbol "$SPACESHIP_PYTHON_SYMBOL" \
+    "$py_version"
 }

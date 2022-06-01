@@ -35,8 +35,9 @@ spaceship_golang() {
   local go_version=$(go version | awk '{ if ($3 ~ /^devel/) {print $3 ":" substr($4, 2)} else {print "v" substr($3, 3)} }')
 
   spaceship::section \
-    "$SPACESHIP_GOLANG_COLOR" \
-    "$SPACESHIP_GOLANG_PREFIX" \
-    "${SPACESHIP_GOLANG_SYMBOL}${go_version}" \
-    "$SPACESHIP_GOLANG_SUFFIX"
+    --color "$SPACESHIP_GOLANG_COLOR" \
+    --prefix "$SPACESHIP_GOLANG_PREFIX" \
+    --suffix "$SPACESHIP_GOLANG_SUFFIX" \
+    --symbol "$SPACESHIP_GOLANG_SYMBOL" \
+    "$go_version"
 }

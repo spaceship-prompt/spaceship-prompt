@@ -107,10 +107,11 @@ spaceship_package() {
     fi
 
     spaceship::section \
-      "$SPACESHIP_PACKAGE_COLOR" \
-      "$SPACESHIP_PACKAGE_PREFIX" \
-      "${SPACESHIP_PACKAGE_SYMBOL}v${package_version}" \
-      "$SPACESHIP_PACKAGE_SUFFIX"
+      --color "$SPACESHIP_PACKAGE_COLOR" \
+      --prefix "$SPACESHIP_PACKAGE_PREFIX" \
+      --suffix "$SPACESHIP_PACKAGE_SUFFIX" \
+      --symbol "$SPACESHIP_PACKAGE_SYMBOL" \
+      "$package_version"
 
     return
   done

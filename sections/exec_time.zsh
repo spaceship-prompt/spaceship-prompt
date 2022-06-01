@@ -23,9 +23,9 @@ spaceship_exec_time() {
 
   if (( SPACESHIP_EXEC_TIME_duration >= SPACESHIP_EXEC_TIME_ELAPSED )); then
     spaceship::section \
-      "$SPACESHIP_EXEC_TIME_COLOR" \
-      "$SPACESHIP_EXEC_TIME_PREFIX" \
-      "$(spaceship::displaytime $SPACESHIP_EXEC_TIME_duration $SPACESHIP_EXEC_TIME_PRECISION)" \
-      "$SPACESHIP_EXEC_TIME_SUFFIX"
+      --color "$SPACESHIP_EXEC_TIME_COLOR" \
+      --prefix "$SPACESHIP_EXEC_TIME_PREFIX" \
+      --suffix "$SPACESHIP_EXEC_TIME_SUFFIX" \
+      "$(spaceship::displaytime $SPACESHIP_EXEC_TIME_duration $SPACESHIP_EXEC_TIME_PRECISION)"
   fi
 }
