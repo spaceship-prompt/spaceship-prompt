@@ -40,6 +40,6 @@ spaceship_git() {
   spaceship::section \
     --color 'white' \
     --prefix "$SPACESHIP_GIT_PREFIX" \
-    --syffix "$SPACESHIP_GIT_SUFFIX" \
+    --suffix "$SPACESHIP_GIT_SUFFIX" \
     "$git_branch_section$git_status_section"
 }
