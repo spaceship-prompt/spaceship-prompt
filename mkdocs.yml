@@ -41,6 +41,7 @@ nav:
   - Home: index.md
   - Getting Started: getting-started.md
   - Customization:
+      - External Sections: sections.md
       - Sections:
         - Prompt character (char): sections/char.md
         - Time (time): sections/time.md

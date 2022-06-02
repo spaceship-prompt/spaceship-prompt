@@ -1,0 +1,97 @@
+{% extends "main.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <style>
+    #sections-list {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    #sections-list li {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0.5rem;
+      border-bottom: 1px solid var(--md-default-fg-color--lightest);
+      border-radius: 0.1rem;
+      cursor: pointer;
+      color: var(--md-default-fg-color--light);
+      transition: all 0.2s ease-in-out;
+    }
+
+    #sections-list li:hover,
+    #sections-list li:focus {
+      background-color: var(--md-default-fg-color--lightest);
+      color: var(--md-typeset-a-color);
+    }
+
+    #sections-list li em {
+      font-weight: lighter;
+      font-size: smaller;
+      color: var(--md-typeset-a-color);
+    }
+  </style>
+{% endblock %}
+
+<!-- Content -->
+{% block content %}
+{{ super() }}
+
+<div>
+  <input
+    id="sections-search"
+    class="md-input md-input--stretch"
+    placeholder="Search sections by name, description or type"
+  >
+  <ol id="sections-list">
+  </ol>
+</div>
+{% endblock %}
+
+<!-- Search-related JavaScript -->
+{% block scripts %}
+  {{ super() }}
+
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+  <script>
+    const REGISTRY = '/assets/registry/sections.json'
+
+    const list = document.querySelector('#sections-list');
+    const input = document.querySelector('#sections-search');
+
+    fetch(REGISTRY)
+      .then(res => res.json())
+      .then(json => {
+        list.innerHTML = json.sections
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map(item => `
+            <a href="${item.url}">
+              <li>
+                <strong>
+                  ${item.name}
+                  ${item.internal ? '<em>internal</em>' : ''}
+                </strong>
+                ${item.description}
+              </li>
+            </a>
+          `)
+          .join('');
+      });
+
+
+    input.addEventListener('keyup', _.debounce(e => {
+      const query = e.target.value.toLowerCase().trim();
+
+      Array.from(list.children).forEach(item => {
+        if (item.innerText.toLowerCase().includes(query)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      })
+    }, 300));
+  </script>
+{% endblock %}
