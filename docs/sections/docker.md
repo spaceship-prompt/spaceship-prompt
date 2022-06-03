@@ -11,7 +11,7 @@ hide: [toc]
 
 The `docker` displays the version of Docker and the current [Docker context via `docker_context` subsection](#docker-context-docker_context).
 
-This section is shown only in the projects containing a `Dockerfile, `docker-compose.yml`, or another file (s) specified with `COMPOSE_FILE`. The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more information see [Compose CLI environment variables](https://docs.docker.com/compose/reference/envvars/).
+This section is shown only in the projects containing a `Dockerfile`, `docker-compose.yml`, or another file (s) specified with `COMPOSE_FILE`. The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more information see [Compose CLI environment variables](https://docs.docker.com/compose/reference/envvars/).
 
 ## Options
 
