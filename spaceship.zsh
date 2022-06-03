@@ -7,7 +7,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='3.16.5'
+export -r SPACESHIP_VERSION='3.16.5'
 
 # Newline with zero-width space,
 # because last newline is trimmed in command expansion.
@@ -21,7 +21,7 @@ if [[ -z "$SPACESHIP_ROOT" ]]; then
     if [[ "$0" == '-antigen-load' ]] && [[ -r "${PWD}/spaceship.zsh" ]]; then
       # Antigen uses eval to load things so it can change the plugin (!!)
       # https://github.com/zsh-users/antigen/issues/581
-      export SPACESHIP_ROOT=$PWD
+      export -r SPACESHIP_ROOT=$PWD
     else
       print -P "%F{red}You must set SPACESHIP_ROOT to work from within an (eval).%f"
       return 1
@@ -30,22 +30,7 @@ if [[ -z "$SPACESHIP_ROOT" ]]; then
     # Get the path to file this code is executing in; then
     # get the absolute path and strip the filename.
     # See https://stackoverflow.com/a/28336473/108857
-    export SPACESHIP_ROOT=${${(%):-%x}:A:h}
-  fi
-fi
-
-# ------------------------------------------------------------------------------
-# LOAD CONFIG FILE
-# Try to load configuration file from pre-defined locations
-# ------------------------------------------------------------------------------
-
-if [[ -z "$SPACESHIP_CONFIG_PATH" ]]; then
-  SPACESHIP_CONFIG_PATH=(
-    "$HOME/.spaceshiprc"
-    "$HOME/.spaceshiprc.zsh"
-    "${XDG_CONFIG_HOME:="$HOME/.config"}/spaceship.zsh"
-    "${XDG_CONFIG_DIRS:="/etc/xdg"}/spaceship.zsh"
-  )
+    export -r SPACESHIP_ROOT=${${(%):-%x}:A:h}
 fi
 
 export SPACESHIP_CONFIG
