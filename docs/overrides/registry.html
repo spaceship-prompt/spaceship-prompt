@@ -4,8 +4,9 @@
   {{ super() }}
   <style>
     #sections-list {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1rem;
       list-style: none;
       margin: 1rem 0;
     }
@@ -13,6 +14,7 @@
     #sections-list li {
       display: flex;
       flex-direction: column;
+      height: 100%;
       margin: 0;
       padding: 0.5rem;
       border-bottom: 1px solid var(--md-default-fg-color--lightest);
@@ -57,7 +59,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
   <script>
-    const REGISTRY = '/assets/registry/sections.json'
+    const REGISTRY = '/assets/registry.json'
 
     const list = document.querySelector('#sections-list');
     const input = document.querySelector('#sections-search');
