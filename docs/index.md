@@ -1,8 +1,7 @@
 ---
 template: index.html
 title: Minimalistic, powerful and extremely customizable Zsh prompt
-hide:
-  - navigation
+hide: [navigation]
 hero:
   title: Minimalistic, powerful and extremely customizable Zsh prompt
   subtitle: It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.

@@ -40,9 +40,10 @@ theme:
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
-  - Customization:
-      - External Sections: sections.md
-      - Sections:
+  - Configuration:
+      - Introduction: config/intro.md
+      - Prompt configuration: config/prompt.md
+      - Built-in Sections:
         - Prompt character (char): sections/char.md
         - Time (time): sections/time.md
         - Username (user): sections/user.md
@@ -96,6 +97,9 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
