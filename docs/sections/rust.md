@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Rust `rust`
 
 !!! important "This section is rendered asynchronously by default"

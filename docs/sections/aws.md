@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Amazon Web Services (AWS) `aws`
 
 !!! info

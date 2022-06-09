@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Node.js `node`
 
 !!! important "This section is rendered asynchronously by default"

@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Time `time`
 
 !!! warning "This section is hidden by default"

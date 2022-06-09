@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Username `user`
 
 The `user` section shows the current user's username. By default, it's displayed only when:

@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Battery `battery`
 
 !!! important "This section is rendered asynchronously by default"

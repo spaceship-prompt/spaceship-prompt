@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Swift `swift`
 
 !!! important "This section is rendered asynchronously by default"

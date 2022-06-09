@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Jobs `jobs`
 
 The `jobs` section shows only when there are running jobs in the background.

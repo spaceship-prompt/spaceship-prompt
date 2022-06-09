@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Hostname `host`
 
 The `host` section displays the hostname of the current machine.

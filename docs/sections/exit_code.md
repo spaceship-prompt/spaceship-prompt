@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Exit code `exit_code`
 
 !!! warning "This section is hidden by default"

@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Docker `docker`
 
 !!! important "This section is rendered asynchronously by default"

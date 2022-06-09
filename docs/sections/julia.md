@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Julia `julia`
 
 !!! important "This section is rendered asynchronously by default"

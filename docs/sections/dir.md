@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Directory `dir`
 
 The `dir` section displays the current working directory.

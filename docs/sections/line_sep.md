@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Line separator `line_sep`
 
 The `line_sep` section is used as a line break for the prompt.

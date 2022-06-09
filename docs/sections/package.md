@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Package version `package`
 
 !!! important "This section is rendered asynchronously by default"

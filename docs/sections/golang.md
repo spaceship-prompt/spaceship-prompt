@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Go `golang`
 
 !!! important "This section is rendered asynchronously by default"

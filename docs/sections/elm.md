@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Elm `elm`
 
 !!! important "This section is rendered asynchronously by default"

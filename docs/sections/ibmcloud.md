@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # IBM Cloud `ibmcloud`
 
 !!! important "This section is rendered asynchronously by default"

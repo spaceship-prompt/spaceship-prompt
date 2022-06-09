@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Char `char`
 
 `char` is a section responsible for rendering a prompt character. By default, Spaceship uses `➜` as a prompt character.

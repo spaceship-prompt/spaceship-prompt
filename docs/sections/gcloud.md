@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Google Cloud Platform `gcloud`
 
 !!! important "This section is rendered asynchronously by default"

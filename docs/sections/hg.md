@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Mercurial `hg`
 
 !!! important "This section is rendered asynchronously by default"

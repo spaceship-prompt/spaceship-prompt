@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Terraform (`terraform`)
 
 !!! important "This section is rendered asynchronously by default"

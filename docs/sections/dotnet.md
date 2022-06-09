@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # .NET `dotnet`
 
 !!! important "This section is rendered asynchronously by default"

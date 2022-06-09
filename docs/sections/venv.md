@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Virtualenv `venv`
 
 !!! info

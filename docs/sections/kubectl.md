@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Kubernetes `kubectl`
 
 !!! important "This section is rendered asynchronously by default"

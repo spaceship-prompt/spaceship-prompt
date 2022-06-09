@@ -36,6 +36,7 @@ theme:
     - navigation.tabs.sticky
     - navigation.top
     - search.highlight
+    - toc.integrate
 
 nav:
   - Home: index.md

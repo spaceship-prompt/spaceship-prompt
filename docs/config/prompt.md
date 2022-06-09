@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Prompt configuration
 
 This page describes prompt-level options for Spaceship.

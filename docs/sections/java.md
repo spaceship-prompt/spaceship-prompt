@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Java `java`
 
 !!! important "This section is rendered asynchronously by default"

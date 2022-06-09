@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Xcode `xcode`
 
 !!! important "This section is rendered asynchronously by default"

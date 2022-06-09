@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Async `async`
 
 The `async` section is used as a placeholder for sections that are not yet rendered. This section is displayed only when there are still sections to be rendered.

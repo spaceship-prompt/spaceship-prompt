@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Elixir `elixir`
 
 !!! important "This section is rendered asynchronously by default"

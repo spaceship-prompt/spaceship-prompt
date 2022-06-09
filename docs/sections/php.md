@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # PHP `php`
 
 !!! important "This section is rendered asynchronously by default"

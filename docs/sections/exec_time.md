@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Execution time `exec_time`
 
 The `exec_time` section displays the execution time of the last command. Will be displayed if it exceeds the set threshold of time (2 seconds by default).

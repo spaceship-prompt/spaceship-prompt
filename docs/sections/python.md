@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Python `python`
 
 !!! important "This section is rendered asynchronously by default"

@@ -1,7 +1,3 @@
----
-hide: [toc]
----
-
 # Introduction
 
 Welcome to Spaceship configuration! Here is a quick guide of how to adjust Spaceship to your personal workflows.
