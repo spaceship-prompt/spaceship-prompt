@@ -93,7 +93,12 @@ You can also add items to the right prompt by specifying them in the `SPACESHIP_
 
 ## Configuring sections
 
+You can customize every section of the prompt with section's options. Check out each section's documentation for more information.
 
+Besides built-in sections, you can add external section to your prompt or build a custom one.
+
+[Browse built-in sections](/sections){ .md-button }
+[Browse all sections](/registry){ .md-button }
 
 ## Prompt-level options
 

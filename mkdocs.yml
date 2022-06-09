@@ -30,6 +30,7 @@ theme:
         name: Switch to light mode
   features:
     - navigation.sections
+    - navigation.indexes
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
@@ -45,6 +46,7 @@ nav:
       - Introduction: config/intro.md
       - Prompt configuration: config/prompt.md
       - Built-in Sections:
+        - sections/index.md
         - Prompt character (char): sections/char.md
         - Time (time): sections/time.md
         - Username (user): sections/user.md
@@ -84,6 +86,8 @@ nav:
   - Sections Registry: registry.md
   - API: api.md
   - Troubleshooting: troubleshooting.md
+  # Blog: blog.md
+
 
 markdown_extensions:
   - meta
