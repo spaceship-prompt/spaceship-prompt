@@ -1,5 +1,5 @@
 {
-  "$schema": "./registry-schema.json",
+  "$schema": "./schema.json",
   "sections": [
     {
       "name": "async",
@@ -124,7 +124,7 @@
     {
       "name": "hg_branch",
       "url": "https://spaceship-prompt.sh/sections/hg/#mercurial-branch-hg_branch",
-      "description": "The current Mercurial bookmarks when available, otherwise shows Mercurial branch information.",
+      "description": "The current Mercurial bookmark or branch information.",
       "internal": true
     },
     {
@@ -172,7 +172,7 @@
     {
       "name": "kubectl_context",
       "url": "https://spaceship-prompt.sh/sections/kubectl/#kubernetes-context-kubectl_context",
-      "description": "An active Kubernetes context, which consists of a cluster name and a namespace name.",
+      "description": "An active Kubernetes context (cluster name and namespace).",
       "internal": true
     },
     {
@@ -258,36 +258,6 @@
       "url": "https://spaceship-prompt.sh/sections/xcode",
       "description": "the version of the Xcode environment.",
       "internal": true
-    },
-    {
-      "name": "vi_mode",
-      "url": "https://github.com/spaceship-prompt/spaceship-vi-mode",
-      "description": "Vi-mode section for Spaceship prompt."
-    },
-    {
-      "name": "ember",
-      "url": "https://github.com/spaceship-prompt/spaceship-ember",
-      "description": "Ember.js section for Spaceship prompt."
-    },
-    {
-      "name": "maven",
-      "url": "https://github.com/spaceship-prompt/spaceship-maven",
-      "description": "Maven section for Spaceship prompt."
-    },
-    {
-      "name": "gradle",
-      "url": "https://github.com/spaceship-prompt/spaceship-gradle",
-      "description": "Gradle section for Spaceship prompt."
-    },
-    {
-      "name": "ccloud",
-      "url": "https://github.com/rspurgeon/ccloud_spaceship",
-      "description": "Confluent Cloud status for Spaceship prompt."
-    },
-    {
-      "name": "git_user",
-      "url": "https://github.com/hexcowboy/spaceship-git-name",
-      "description": "The current git user name and email."
     }
   ]
 }

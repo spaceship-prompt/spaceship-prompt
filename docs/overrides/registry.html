@@ -6,6 +6,7 @@
     #sections-list {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-auto-rows: minmax(max-content, 1fr);
       gap: 1rem;
       list-style: none;
       margin: 1rem 0;
@@ -38,36 +39,33 @@
   </style>
 {% endblock %}
 
-<!-- Content -->
-{% block content %}
-{{ super() }}
-
-<div>
-  <input
-    id="sections-search"
-    class="md-input md-input--stretch"
-    placeholder="Search sections by name, description or type"
-  >
-  <ol id="sections-list">
-  </ol>
-</div>
-{% endblock %}
-
 <!-- Search-related JavaScript -->
 {% block scripts %}
   {{ super() }}
 
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
   <script>
-    const REGISTRY = '/assets/registry.json'
-
     const list = document.querySelector('#sections-list');
     const input = document.querySelector('#sections-search');
+    const registryType = input ? input.getAttribute('data-registry') : null;
 
-    fetch(REGISTRY)
-      .then(res => res.json())
-      .then(json => {
-        list.innerHTML = json.sections
+    if (list && input) {
+      const registry = registryType
+        ? fetch(`/registry/${registryType}.json`)
+            .then(res => res.json())
+            .then(registry => registry.sections)
+        : Promise.all([
+            fetch('/registry/internal.json').then(res => res.json()),
+            fetch('/registry/external.json').then(res => res.json()),
+          ])
+            .then(([internal, external]) => ([
+              ...internal.sections,
+              ...external.sections
+            ]));
+
+      registry.then(sections => {
+        debugger
+        list.innerHTML = sections
           .sort((a, b) => a.name.localeCompare(b.name))
           .map(item => `
             <a href="${item.url}">
@@ -83,17 +81,17 @@
           .join('');
       });
 
+      input.addEventListener('keyup', _.debounce(e => {
+        const query = e.target.value.toLowerCase().trim();
 
-    input.addEventListener('keyup', _.debounce(e => {
-      const query = e.target.value.toLowerCase().trim();
-
-      Array.from(list.children).forEach(item => {
-        if (item.innerText.toLowerCase().includes(query)) {
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      })
-    }, 300));
+        Array.from(list.children).forEach(item => {
+          if (item.innerText.toLowerCase().includes(query)) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        })
+      }, 300));
+    }
   </script>
 {% endblock %}
