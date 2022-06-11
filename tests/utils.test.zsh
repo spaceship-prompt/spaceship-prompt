@@ -114,19 +114,19 @@ test_is_section_async() {
   assertFalse "char section should be always false" '$(spaceship::is_section_async char)'
 }
 
-test_is_async() {
+test_is_prompt_async() {
   SPACESHIP_PROMPT_ASYNC=true
   ASYNC_INIT_DONE=1
 
-  assertTrue "should be true when prompt is async" '$(spaceship::is_async)'
+  assertTrue "should be true when prompt is async" '$(spaceship::is_prompt_async)'
 
   SPACESHIP_PROMPT_ASYNC=false
   ASYNC_INIT_DONE=1
-  assertFalse "should be false when prompt is sync" '$(spaceship::is_async)'
+  assertFalse "should be false when prompt is sync" '$(spaceship::is_prompt_async)'
 
   SPACESHIP_PROMPT_ASYNC=true
   ASYNC_INIT_DONE=0
-  assertFalse "should be false when async is not loaded" '$(spaceship::is_async)'
+  assertFalse "should be false when async is not loaded" '$(spaceship::is_prompt_async)'
 }
 
 test_deprecated() {

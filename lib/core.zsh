@@ -4,7 +4,7 @@
 # ------------------------------------------------------------------------------
 
 # Unique array of async jobs
-typeset -aU SPACESHIP_JOBS=()
+typeset -ahU SPACESHIP_JOBS=()
 
 # Loads the sections from files and functions
 # USAGE:

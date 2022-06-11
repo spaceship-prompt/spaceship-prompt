@@ -67,8 +67,8 @@ spaceship::is_section_async() {
 
 # Check if async is available and there is an async section
 # USAGE:
-#   spaceship::is_async
-spaceship::is_async() {
+#   spaceship::is_prompt_async
+spaceship::is_prompt_async() {
   [[ "$SPACESHIP_PROMPT_ASYNC" == true ]] && (( ASYNC_INIT_DONE ))
 }
 
