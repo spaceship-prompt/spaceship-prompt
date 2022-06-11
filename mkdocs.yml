@@ -85,6 +85,7 @@ nav:
         - IBM Cloud (ibmcloud): sections/ibmcloud.md
   - API:
       - Environment: api/environment.md
+      - Creating sections: api/section.md
   - Troubleshooting: troubleshooting.md
   # Blog: blog.md
 
