@@ -83,8 +83,8 @@ nav:
         - Kubernetes (kubectl): sections/kubectl.md
         - Terraform (terraform): sections/terraform.md
         - IBM Cloud (ibmcloud): sections/ibmcloud.md
-  - Sections Registry: registry.md
-  - API: api.md
+  - API:
+      - Environment: api/environment.md
   - Troubleshooting: troubleshooting.md
   # Blog: blog.md
 
