@@ -61,7 +61,7 @@ spaceship::compose_prompt() {
   # Treat the first argument as list of prompt sections
   # Compose whole prompt from diferent parts
   for section in $@; do
-    spaceship::render_section "$(spaceship::get_cache $section)"
+    spaceship::render_section "$(spaceship::cache::get $section)"
   done
 }
 

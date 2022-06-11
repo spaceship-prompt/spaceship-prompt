@@ -40,7 +40,7 @@ spaceship::core::load_sections() {
 #   spaceship::core::build_cache
 spaceship::core::build_cache() {
   # Clear the cache before every render
-  spaceship::clear_cache
+  spaceship::cache::clear
 
   for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
     spaceship::core::refresh_section "$section"
@@ -72,11 +72,11 @@ spaceship::core::async_callback() {
   fi
 
   # Skip prompt re-rendering if section is empty
-  if [[ "$(spaceship::get_cache $section)" == "$output" ]]; then
+  if [[ "$(spaceship::cache::get $section)" == "$output" ]]; then
     return
   fi
 
-  spaceship::set_cache "$section" "$output"
+  spaceship::cache::set "$section" "$output"
 
   if [[ "$has_next" == 0 ]]; then
     spaceship::core::render
@@ -107,7 +107,7 @@ spaceship::core::refresh_section() {
     SPACESHIP_JOBS+=("$section")
     async_job "spaceship" "spaceship_${section}"
   else
-    spaceship::set_cache "$section" "$(spaceship_$section)"
+    spaceship::cache::set "$section" "$(spaceship_$section)"
   fi
 }
 

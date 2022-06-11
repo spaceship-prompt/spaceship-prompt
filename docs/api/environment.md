@@ -59,6 +59,9 @@ The variable is empty when no configuration file is found.
 
 ### `SPACESHIP_CACHE`
 
+!!! danger
+    This variable should be used only for reading. Changing the value may cause the incorrect behavior of Spaceship prompt.
+
 An associative array that stores the cached values of the sections. The cache stores data between renders and is cleared on every prompt.
 
 The cache should not be manipulated directly.

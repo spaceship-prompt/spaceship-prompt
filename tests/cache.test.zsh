@@ -18,32 +18,32 @@ oneTimeSetUp() {
 # TEST CASES
 # ------------------------------------------------------------------------------
 
-test_get_cache() {
+test_cache_get() {
   local value="bar"
   local shared_key="shared"
 
   SPACESHIP_CACHE[foo]="$value"
-  assertEquals "should return the cached value" "$(spaceship::get_cache foo)" "$value"
-  assertEquals "should not return unset value" "$(spaceship::get_cache bar)" ""
+  assertEquals "should return the cached value" "$(spaceship::cache::get foo)" "$value"
+  assertEquals "should not return unset value" "$(spaceship::cache::get bar)" ""
 }
 
-test_set_cache() {
+test_cache_set() {
   local key="foo"
   local value="bar"
 
-  spaceship::set_cache "$key" "$value"
-  assertEquals "should set the cache" "$value" "$(spaceship::get_cache "$key")"
+  spaceship::cache::set "$key" "$value"
+  assertEquals "should set the cache" "$value" "$(spaceship::cache::get "$key")"
 }
 
-test_clear_cache() {
+test_cache_clear() {
   local key="foo"
   local value="bar"
 
   SPACESHIP_CACHE=(foo bar)
-  spaceship::clear_cache
+  spaceship::cache::clear
 
-  assertEquals "should clear the cache" "" "$(spaceship::get_cache foo)"
-  assertEquals "should clear the cache" "" "$(spaceship::get_cache bar)"
+  assertEquals "should clear the cache" "" "$(spaceship::cache::get foo)"
+  assertEquals "should clear the cache" "" "$(spaceship::cache::get bar)"
 }
 
 # ------------------------------------------------------------------------------
