@@ -145,7 +145,7 @@ source "$SPACESHIP_ROOT/lib/hooks.zsh"
 source "$SPACESHIP_ROOT/lib/section.zsh"
 
 # Load prompt renderer
-source "$SPACESHIP_ROOT/lib/renderer.zsh"
+source "$SPACESHIP_ROOT/lib/core.zsh"
 
 # Load functions for composing prompts
 source "$SPACESHIP_ROOT/lib/prompts.zsh"
@@ -219,7 +219,7 @@ prompt_spaceship_setup() {
   zstyle ':vcs_info:git*' formats '%b'
 
   # Load sections before rendering
-  spaceship::load_sections
+  spaceship::core::load_sections
 }
 
 # ------------------------------------------------------------------------------

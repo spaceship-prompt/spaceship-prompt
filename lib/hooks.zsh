@@ -44,11 +44,11 @@ prompt_spaceship_precmd() {
     async_start_worker "spaceship" #-n
     # setopt before call register to avoid callback by async_worker_eval
     async_worker_eval "spaceship" 'setopt extendedglob'
-    async_register_callback "spaceship" "spaceship::async_callback"
+    async_register_callback "spaceship" "spaceship::core::async_callback"
   fi
 
   # Start building cache from sections
-  spaceship::build_cache
+  spaceship::core::build_cache
 
   # Initiate the first render
   spaceship::populate

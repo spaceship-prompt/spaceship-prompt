@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------------------
 # CACHE
-# Spaceship storage for data, works in multiple threads
+# Spaceship storage for data
 # ------------------------------------------------------------------------------
 
 # Declare a cache variable

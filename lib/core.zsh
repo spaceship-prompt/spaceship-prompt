@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# RENDERER
+# CORE RENDERER
 # Tools for loading sections, building sections and invoking the renderer
 # ------------------------------------------------------------------------------
 
@@ -8,8 +8,8 @@ typeset -aU SPACESHIP_JOBS=()
 
 # Loads the sections from files and functions
 # USAGE:
-#   spaceship::load_sections
-spaceship::load_sections() {
+#   spaceship::core::load_sections
+spaceship::core::load_sections() {
   local load_async=false
 
   # Iterate over sections
@@ -21,7 +21,7 @@ spaceship::load_sections() {
       source "$SPACESHIP_ROOT/sections/$section.zsh"
     else
       # section is not found!
-      spaceship::skip_section "$section"
+      spaceship::core::skip_section "$section"
       continue
     fi
 
@@ -37,20 +37,20 @@ spaceship::load_sections() {
 
 # Iterate over sections, start async jobs and store results in cache
 # USAGE:
-#   spaceship::build_cache
-spaceship::build_cache() {
+#   spaceship::core::build_cache
+spaceship::core::build_cache() {
   # Clear the cache before every render
   spaceship::clear_cache
 
   for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
-    spaceship::refresh_section "$section"
+    spaceship::core::refresh_section "$section"
   done
 }
 
-# Render the prompt. Compose variables using prompt functoins.
+# A function to be called after async job execution
 # USAGE:
-#   spaceship::render
-spaceship::async_callback() {
+#   spaceship::core::async_callback
+spaceship::core::async_callback() {
   local job="$1" ret="$2" output="$3" exec_time="$4" err="$5" has_next="$6"
   local section
 
@@ -67,8 +67,8 @@ spaceship::async_callback() {
 
   # Refresh async section when the last async job has finished
   if [[ "${#SPACESHIP_JOBS}" -eq 0 ]]; then
-    spaceship::refresh_section "async"
-    spaceship::render
+    spaceship::core::refresh_section "async"
+    spaceship::core::render
   fi
 
   # Skip prompt re-rendering if section is empty
@@ -79,15 +79,15 @@ spaceship::async_callback() {
   spaceship::set_cache "$section" "$output"
 
   if [[ "$has_next" == 0 ]]; then
-    spaceship::render
+    spaceship::core::render
   fi
 }
 
 # Refreshes the cache of a section. If the section is async, it will be
 # executed in a separate process.
 # USAGE:
-#   spaceship::refresh_section [section]
-spaceship::refresh_section() {
+#   spaceship::core::refresh_section [section]
+spaceship::core::refresh_section() {
   local section="$1"
 
   [[ -z $section ]] && return 1
@@ -99,7 +99,7 @@ spaceship::refresh_section() {
   setopt EXTENDED_GLOB LOCAL_OPTIONS
 
   if ! spaceship::defined "spaceship_$section"; then
-    spaceship::skip_section "$section"
+    spaceship::core::skip_section "$section"
     return 1
   fi
 
@@ -114,8 +114,8 @@ spaceship::refresh_section() {
 # Removes a section from both prompts and prints a message,
 # so that we avoid printing errors over and over.
 # USAGE:
-#  spaceship::skip_section <section>
-spaceship::skip_section() {
+#  spaceship::core::skip_section <section>
+spaceship::core::skip_section() {
   local section="$1"
   print -P "%F{yellow}Warning!%f The '%F{cyan}${section}%f' section was not found. Removing it from the prompt."
   SPACESHIP_PROMPT_ORDER=("${(@)SPACESHIP_PROMPT_ORDER:#${section}}")
@@ -124,8 +124,8 @@ spaceship::skip_section() {
 
 # Render and reset the prompt asyncronously.
 # USAGE:
-#   spaceship::render
-spaceship::render() {
+#   spaceship::core::render
+spaceship::core::render() {
   spaceship::populate
 
   # .reset-prompt: bypass the zsh-syntax-highlighting wrapper

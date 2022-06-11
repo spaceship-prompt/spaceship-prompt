@@ -165,7 +165,7 @@ _spaceship::cli::add() {
 
   for section in "${sections[@]}"; do
     if ! spaceship::defined "spaceship_$section"; then
-      spaceship::skip_section "$section"
+      spaceship::core::skip_section "$section"
     fi
   done
 
