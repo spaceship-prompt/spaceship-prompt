@@ -66,9 +66,14 @@ An associative array that stores the cached values of the sections. The cache st
 
 The cache should not be manipulated directly.
 
-<!-- Instead, use the cache functions to work with cache. -->
+### `SPACESHIP_JOBS`
 
-<!-- TODO: Add reference to spaceship cache utils -->
+!!! danger
+    This variable should be used only for reading. Changing the value may cause the incorrect behavior of Spaceship prompt.
+
+An array of currently processing asynchronous sections. Can be used to check what asynchronous sections are being rendered.
+
+The section name is added to the array when the asynchronous section is being rendered. Upon completion of the asynchronouse job, the name is removed from the array.
 
 ## Asynchronous runtime
 
