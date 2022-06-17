@@ -86,6 +86,7 @@ nav:
   - API:
       - Environment: api/environment.md
       - Creating sections: api/section.md
+      - General utilities: api/utils.md
   - Troubleshooting: troubleshooting.md
   # Blog: blog.md
 

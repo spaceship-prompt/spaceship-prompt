@@ -156,7 +156,7 @@ spaceship::upsearch() {
   return 1
 }
 
-# Read json file with dot notation
+# Read data file with dot notation (JSON, YAML, TOML, XML)
 # USAGE:
 #   spaceship::datafile --<type> <file> [key]
 # EXAMPLE:
