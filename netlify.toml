@@ -11,3 +11,11 @@
   status = 301
   force = true
   conditions = {Country = ["RU", "BY"]}
+
+[[redirects]]
+  from = "/api"
+  to = "/api/environent"
+
+[[redirects]]
+  from = "/options"
+  to = "/config/intro/"
