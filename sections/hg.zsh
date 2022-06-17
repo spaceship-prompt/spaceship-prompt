@@ -34,8 +34,8 @@ spaceship_hg() {
   local hg_branch="$(spaceship_hg_branch)"
   local hg_status="$(spaceship_hg_status)"
 
-  local hg_branch_section="$(spaceship::render_section $hg_branch)"
-  local hg_status_section="$(spaceship::render_section $hg_status)"
+  local hg_branch_section="$(spaceship::section::render $hg_branch)"
+  local hg_status_section="$(spaceship::section::render $hg_status)"
 
   spaceship::section \
     --color 'white' \

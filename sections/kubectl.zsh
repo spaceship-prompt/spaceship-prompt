@@ -37,8 +37,8 @@ spaceship_kubectl() {
 
   [[ -z $kubectl_version && -z $kubectl_context ]] && return
 
-  local kubectl_version_section="$(spaceship::render_section $kubectl_version)"
-  local kubectl_context_section="$(spaceship::render_section $kubectl_context)"
+  local kubectl_version_section="$(spaceship::section::render $kubectl_version)"
+  local kubectl_context_section="$(spaceship::section::render $kubectl_context)"
 
   spaceship::section \
     --color "$SPACESHIP_KUBECTL_COLOR" \

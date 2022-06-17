@@ -34,8 +34,8 @@ spaceship_git() {
 
   [[ -z $git_branch ]] && return
 
-  local git_branch_section="$(spaceship::render_section $git_branch)"
-  local git_status_section="$(spaceship::render_section $git_status)"
+  local git_branch_section="$(spaceship::section::render $git_branch)"
+  local git_status_section="$(spaceship::section::render $git_status)"
 
   spaceship::section \
     --color 'white' \

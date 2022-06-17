@@ -2,7 +2,7 @@
 
 Sections are defined using `spaceship::section` function. This section takes the content of the section parameters for displaying, like prefix, suffix, color and symbol for the section. These values will be used for displaying the section.
 
-The `spaceship::section` is used to pack the section data into a data tuple. This data tuple is stored in the cache. During the rendering process, the data tuple for each section is being rendered into a section via `spaceship::render_section` function.
+The `spaceship::section` is used to pack the section data into a data tuple. This data tuple is stored in the cache. During the rendering process, the data tuple for each section is being rendered into a section via `spaceship::section::render` function.
 
 ## `spaceship::section`
 
@@ -81,7 +81,7 @@ spaceship::section \
 spaceship::section "$color" "$SPACESHIP_CHAR_SYMBOL"
 ```
 
-## `spaceship::render_section`
+## `spaceship::section::render`
 
 This function renders the section from the data tuple provided by [`spaceship::section`](#spaceshipsection).
 
@@ -98,7 +98,7 @@ The `data` is a result of the `spaceship::section` function. For example:
 ```zsh
 local color="red" content="value"
 
-spaceship::render_section "$(spaceship::section --color "$color" "$content")"
+spaceship::section::render "$(spaceship::section --color "$color" "$content")"
 #> %{%B%F{red}%}value%{%b%f%}
 ```
 

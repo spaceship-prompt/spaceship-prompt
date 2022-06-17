@@ -49,7 +49,7 @@ spaceship::rprompt() {
 spaceship::ps2() {
   local char="${SPACESHIP_CHAR_SYMBOL_SECONDARY="$SPACESHIP_CHAR_SYMBOL"}"
   local ps2="$(spaceship::section --color "$SPACESHIP_CHAR_COLOR_SECONDARY" "$char")"
-  spaceship::render_section "$ps2"
+  spaceship::section::render "$ps2"
 }
 
 # Compose whole prompt from sections
@@ -61,7 +61,7 @@ spaceship::compose_prompt() {
   # Treat the first argument as list of prompt sections
   # Compose whole prompt from diferent parts
   for section in $@; do
-    spaceship::render_section "$(spaceship::cache::get $section)"
+    spaceship::section::render "$(spaceship::cache::get $section)"
   done
 }
 

@@ -78,26 +78,26 @@ test_render_section() {
   local color="cyan" symbol="symbol" content="content" prefix="prefix" suffix="suffix"
 
   input="$delimiter$delimiter$delimiter"
-  local actual_none="$(spaceship::render_section $input)"
+  local actual_none="$(spaceship::section::render $input)"
   local expected_none=""
 
   assertEquals "render empty section" "$expected_none" "$actual_none"
 
   input="$color$delimiter$delimiter$symbol$delimiter$content$delimiter"
-  local actual_short="$(spaceship::render_section $input)"
+  local actual_short="$(spaceship::section::render $input)"
   local expected_short="%{%B%F{$color}%}$symbol$content%{%b%f%}"
 
   assertEquals "render short section" "$expected_short" "$actual_short"
 
   input="$color$delimiter$prefix$delimiter$symbol$delimiter$content$delimiter$suffix"
-  local actual_suffix="$(spaceship::render_section $input)"
+  local actual_suffix="$(spaceship::section::render $input)"
   local expected_suffix="%{%B%F{$color}%}$symbol$content%{%b%f%}%{%B%}$suffix%{%b%}"
 
   assertEquals "render full section with suffix" "$expected_suffix" "$actual_suffix"
 
   _spaceship_prompt_opened=true
   input="$color$delimiter$prefix$delimiter$symbol$delimiter$content$delimiter$suffix"
-  local actual="$(spaceship::render_section $input)"
+  local actual="$(spaceship::section::render $input)"
   local expected="%{%B%}$prefix%{%b%}%{%B%F{$color}%}$symbol$content%{%b%f%}%{%B%}$suffix%{%b%}"
 
   assertEquals "render full section with prefix and suffix" "$expected" "$actual"

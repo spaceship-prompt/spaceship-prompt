@@ -60,8 +60,8 @@ spaceship::section::v3() {
 
 # Extract section data and render a section from it.
 # USAGE:
-#   spaceship::render_section <section_data>
-spaceship::render_section() {
+#   spaceship::section::render <section_data>
+spaceship::section::render() {
   local tuple="$1" section_data=() result=""
 
   section_data=("${(@s:·|·:)tuple}")
