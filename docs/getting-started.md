@@ -100,7 +100,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 === "zim"
 
-    Add `zmodule spaceship-prompt/spaceship-prompt --name spaceship` to your `.zimrc` and run `zimfw install`.
+    Add `zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules` to your `.zimrc` and run `zimfw install`.
 
 === "antigen"
 

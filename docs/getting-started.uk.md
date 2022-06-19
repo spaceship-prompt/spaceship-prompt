@@ -87,7 +87,7 @@ hide:
 
 === "zim"
 
-    Додайте `zmodule spaceship-prompt/spaceship-prompt --name spaceship` у `.zimrc` та запустіть `zimfw install`.
+    Додайте `zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules` у `.zimrc` та запустіть `zimfw install`.
 
 === "antigen"
 

@@ -92,7 +92,7 @@ hide:
 
 === "zim"
 
-    将 `zmodule spaceship-prompt/spaceship-prompt --name spaceship` 添加到您的 `.zimrc`中并且运行 `zimfw install`.
+    将 `zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules` 添加到您的 `.zimrc`中并且运行 `zimfw install`.
 
 === "antigen"
 

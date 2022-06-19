@@ -192,7 +192,7 @@ Set `ZSH_THEME="spaceship"` in your `.zshrc`.
 
 ### [zim]
 
-Add `zmodule spaceship-prompt/spaceship-prompt --name spaceship` to your `.zimrc` and run `zimfw install`.
+Add `zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules` to your `.zimrc` and run `zimfw install`.
 
 ### [antigen]
 
