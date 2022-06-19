@@ -73,11 +73,12 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     ibmcloud      # IBM Cloud section
     exec_time     # Execution time
     line_sep      # Line break
-    battery       # Battery level and status
-    vi_mode       # Vi-mode indicator
-    jobs          # Background jobs indicator
     exit_code     # Exit code section
-    char          # Prompt character
+    # char          # Prompt character
+    kaomoji       # Emoting kaomoji faces 
+    # battery       # Battery level and status
+    # vi_mode       # Vi-mode indicator
+    jobs          # Background jobs indicator
   )
 fi
 
