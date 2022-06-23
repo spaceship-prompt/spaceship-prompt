@@ -13,7 +13,7 @@ jobs:
         uses: styfle/cancel-workflow-action@0.9.1
 
       - name: 🍺 Bump Homebrew Formula
-        uses: mislav/bump-homebrew-formula-action@v2.0
+        uses: mislav/bump-homebrew-formula-action@v2.1
         with:
           formula-name: spaceship
         env:
