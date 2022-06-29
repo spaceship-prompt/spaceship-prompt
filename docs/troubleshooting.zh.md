@@ -47,7 +47,7 @@ SPACESHIP_VI_MODE_SHOW=false
 在下面的示例中， `time`, `package`, `xcode`, `julia`, `docker`, ` ember ` 和 `vi_mode` 模块被禁用，根本不会被加载。
 
 ```zsh
-#  如果你想禁用仅仅需要将模块注释
+# Just comment a section if you want to disable it
 SPACESHIP_PROMPT_ORDER=(
   # time        # Time stamps section (Disabled)
   user          # Username section
@@ -109,7 +109,7 @@ SPACESHIP_PROMPT_ORDER=(
 
 - 转至 _iTerm → Preferences… (⌘,) → Profiles → Text_
 - 检查 _Unicode 版本 9 宽度_。
-- 检查 _宽度模糊字符是否为双宽度_。
+- Check _Treat ambiguous-width characters as double-width_.
 - 重新装入终端标签页。
 
 ## 为什么我的提示符看起来不像预览？
