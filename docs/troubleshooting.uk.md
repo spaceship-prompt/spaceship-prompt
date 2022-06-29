@@ -109,7 +109,7 @@ In _iTerm_ follow these instructions:
 
 - Go _iTerm → Preferences… (⌘,) → Profiles → Text_
 - Check _Unicode Version 9 Widths_.
-- Check _Threat ambiguous-width characters as double-width_.
+- Check _Treat ambiguous-width characters as double-width_.
 - Reload terminal's tab.
 
 ## Why doesn't my prompt look like the preview?
