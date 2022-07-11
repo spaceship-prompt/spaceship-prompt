@@ -3,12 +3,12 @@
 #
 # zsh-async
 #
-# version: v1.8.4
+# version: v1.8.5
 # author: Mathias Fredriksson
 # url: https://github.com/mafredri/zsh-async
 #
 
-typeset -g ASYNC_VERSION=1.8.4
+typeset -g ASYNC_VERSION=1.8.5
 # Produce debug output from zsh-async when set to 1.
 typeset -g ASYNC_DEBUG=${ASYNC_DEBUG:-0}
 
@@ -20,7 +20,7 @@ _async_eval() {
 	# simplicity, this could be improved in the future.
 	{
 		eval "$@"
-	} &> >(ASYNC_JOB_NAME=[async/eval] _async_job 'cat')
+	} &> >(ASYNC_JOB_NAME=[async/eval] _async_job 'command -p cat')
 }
 
 # Wrapper for jobs executed by the async worker, gives output in parseable format with execution time
@@ -46,7 +46,7 @@ _async_job() {
 			duration=$(( EPOCHREALTIME - duration ))  # Calculate duration.
 
 			print -r -n - $'\0'${(q)jobname} $ret ${(q)stdout} $duration
-		} 2> >(stderr=$(cat) && print -r -n - " "${(q)stderr}$'\0')
+		} 2> >(stderr=$(command -p cat) && print -r -n - " "${(q)stderr}$'\0')
 	)"
 	if [[ $out != $'\0'*$'\0' ]]; then
 		# Corrupted output (aborted job?), skipping.
@@ -232,7 +232,7 @@ _async_worker() {
 		# recreate it when there are no other jobs running.
 		if (( ! coproc_pid )); then
 			# Use coproc as a mutex for synchronized output between children.
-			coproc cat
+			coproc command -p cat
 			coproc_pid="$!"
 			# Insert token into coproc
 			print -n -p "t"
@@ -325,7 +325,7 @@ async_process_results() {
 			else
 				# In case of corrupt data, invoke callback with *async* as job
 				# name, non-zero exit status and an error message on stderr.
-				$callback "[async]" 1 "" 0 "$0:$LINENO: error: bad format, got ${#items} items (${(q)items})" $has_next
+				$callback "[async]" 1 "" 0 "$0:$LINENO: error: bad format, got ${#items} items (${(q)items})" $has_next
 			fi
 		done
 	done
@@ -391,6 +391,9 @@ _async_send_job() {
 
 #
 # Start a new asynchronous job on specified worker, assumes the worker is running.
+#
+# Note if you are using a function for the job, it must have been defined before the worker was
+# started or you will get a `command not found` error.
 #
 # usage:
 # 	async_job <worker_name> <my_function> [<function_params>]
@@ -561,7 +564,11 @@ async_start_worker() {
 	# worker.
 	# See https://github.com/mafredri/zsh-async/issues/35.
 	integer errfd=-1
-	exec {errfd}>&2
+
+	# Redirect of errfd is broken on zsh 5.0.2.
+	if is-at-least 5.0.8; then
+		exec {errfd}>&2
+	fi
 
 	# Make sure async worker is started without xtrace
 	# (the trace output interferes with the worker).
@@ -570,12 +577,16 @@ async_start_worker() {
 		unsetopt xtrace
 	}
 
-	zpty -b $worker _async_worker -p $$ $args 2>&$errfd
+	if (( errfd != -1 )); then
+		zpty -b $worker _async_worker -p $$ $args 2>&$errfd
+	else
+		zpty -b $worker _async_worker -p $$ $args
+	fi
 	local ret=$?
 
 	# Re-enable it if it was enabled, for debugging.
 	(( has_xtrace )) && setopt xtrace
-	exec {errfd}>& -
+	(( errfd != -1 )) && exec {errfd}>& -
 
 	if (( ret )); then
 		async_stop_worker $worker
