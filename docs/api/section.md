@@ -1,4 +1,4 @@
-# Creating sections
+# Sections
 
 Sections are defined using `spaceship::section` function. This section takes the content of the section parameters for displaying, like prefix, suffix, color and symbol for the section. These values will be used for displaying the section.
 

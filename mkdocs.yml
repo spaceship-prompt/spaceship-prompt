@@ -45,6 +45,8 @@ nav:
   - Configuration:
       - Introduction: config/intro.md
       - Prompt configuration: config/prompt.md
+      # - Loading external sections
+      # - Using CLI
       - Built-in Sections:
         - sections/index.md
         - Prompt character (char): sections/char.md
@@ -83,11 +85,15 @@ nav:
         - Kubernetes (kubectl): sections/kubectl.md
         - Terraform (terraform): sections/terraform.md
         - IBM Cloud (ibmcloud): sections/ibmcloud.md
-  - API:
-      - Environment: api/environment.md
-      - Creating sections: api/section.md
-      - General utilities: api/utils.md
-      - Testing kit: api/testkit.md
+  - Registry: registry.md
+  - Advanced:
+      - Creating a custom section: advanced/creating-section.md
+      # - Per-directory configuration
+      - API:
+        - Environment: api/environment.md
+        - Sections: api/section.md
+        - General utilities: api/utils.md
+        - Testing kit: api/testkit.md
   - Troubleshooting: troubleshooting.md
   # Blog: blog.md
 

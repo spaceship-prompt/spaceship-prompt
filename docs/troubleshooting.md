@@ -1,8 +1,3 @@
----
-hide:
-  - navigation
----
-
 # Troubleshooting
 
 This page aimed to help you fix the common problems encountered while using Spaceship prompt.
