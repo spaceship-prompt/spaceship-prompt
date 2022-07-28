@@ -40,8 +40,10 @@ prompt_spaceship_precmd() {
 
   # Restarts the async worker, in order to get an update-to-date shell environment
   if spaceship::is_prompt_async; then
+    SPACESHIP_JOBS=()
+    # restart worker
     async_stop_worker "spaceship"
-    async_start_worker "spaceship" #-n
+    async_start_worker "spaceship" -n -u
     # setopt before call register to avoid callback by async_worker_eval
     async_worker_eval "spaceship" 'setopt extendedglob'
     async_register_callback "spaceship" "spaceship::core::async_callback"
