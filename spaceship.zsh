@@ -9,11 +9,6 @@
 # Useful for issue reporting
 export -r SPACESHIP_VERSION='3.16.5'
 
-# Newline with zero-width space,
-# because last newline is trimmed in command expansion.
-# See: https://unix.stackexchange.com/a/248229
-local NEWLINE=$'\n'
-
 # Determination of Spaceship working directory
 # https://git.io/vdBH7
 if [[ -z "$SPACESHIP_ROOT" ]]; then

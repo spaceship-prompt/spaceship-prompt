@@ -16,7 +16,7 @@ spaceship::prompt() {
 
   # Should it add a new line before the prompt?
   if [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]]; then
-    prompt="${NEWLINE}${prompt}"
+    prompt="\n${prompt}"
   fi
 
   # Print the prompt
