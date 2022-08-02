@@ -107,23 +107,14 @@ spaceship_foobar() {
   # http://zsh.sourceforge.net/Doc/Release/Expansion.html
   [[ -n "$is_foobar_context" || -n *.foo(#qN^/) || -n *.bar(#qN^/) ]] || return
 
-  # Use quotes around unassigned local variables to prevent
-  # getting replaced by global aliases
-  # http://zsh.sourceforge.net/Doc/Release/Shell-Grammar.html#Aliasing
-  local 'foobar_status'
+  local foobar_version="$(foobar --version)"
 
-  if [[ $SOME_CONDITION ]]; then
-    foobar_status=$(foobar baz)
-  else
-    foobar_status=$(foobar foo)
-  fi
-
-  # Exit section if variable is empty
-  [[ -z $foobar_status ]] && return
+  # Check if tool version is correct
+  [[ $tool_version == "system" ]] && return
 
   # Display foobar section
   # spaceship::section utility composes sections. Flags are optional
-  spaceship::section \
+  spaceship::section::v4 \
     --color "$SPACESHIP_FOOBAR_COLOR" \
     --prefix "$SPACESHIP_FOOBAR_PREFIX" \
     --suffix "$SPACESHIP_FOOBAR_SUFFIX" \
