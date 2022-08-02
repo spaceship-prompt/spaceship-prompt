@@ -20,12 +20,12 @@ Is value changes quite often, so it needs to be shown in prompt? Would it be use
 * **Good:** git status/branch, runtime version via version manager, etc
 * **Bad:** version of language-specific framework, settled projects versions, etc
 
-### Section should be minimalistic
+### Section should be fast
 
-If your section performs any heavy checking, find a way to make it faster or consider using an alias instead of creating a new section.
+If your section performs any heavy checking, find a way to make it faster. Use async rendering for performing heavy tasks. Section should be:
 
-* **Good:** check if command exists, check the value of environment variable
-* **Bad:** network requests, reading large files, etc
+* **Async:** if it executes external commands, perform complex calculations, reading large files
+* **Sync:** if it checks command availability, checks the value of environment variable
 
 ### Follow naming convention for options
 
@@ -78,6 +78,7 @@ Typical section might look like this:
 # ------------------------------------------------------------------------------
 
 SPACESHIP_FOOBAR_SHOW="${SPACESHIP_FOOBAR_SHOW=true}"
+SPACESHIP_FOOBAR_ASYNC="${SPACESHIP_FOOBAR_ASYNC=true}"
 SPACESHIP_FOOBAR_PREFIX="${SPACESHIP_FOOBAR_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_FOOBAR_SUFFIX="${SPACESHIP_FOOBAR_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_FOOBAR_SYMBOL="${SPACESHIP_FOOBAR_SYMBOL="🍷 "}"
