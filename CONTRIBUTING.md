@@ -1,6 +1,6 @@
 # Contributing
 
-First of all, thank you for contributing. Any contribution is highly appreciated and welcome.
+First, thank you for contributing. Any contribution is highly appreciated and welcome.
 
 ## Philosophy
 
@@ -27,47 +27,13 @@ Please, keep these simple rules in mind while you're contributing to Spaceship.
 
 Spaceship supports most of the popular programming languages, runtimes, version managers, etc. If it doesn't support something that you need, feel free to open a pull request, but answer these questions for yourself before:
 
-### Will it clutter the prompt?
-
-Having too much in prompt looks ugly. your much space or be shown too often.
-
-* **Good:** `🚀 v1.2.3`
-* **Bad:** `🚀 spasheship#c3BhY2VzaGlw`
-
-### Is it worth to be aware of it?
-
-Is value changes quite often so it needs to be shown in prompt? Would it be useful for other users? Maybe there's a reason to execute a command instead of cluttering prompt.
-
-* **Good:** git status/branch, runtime version via version manager, etc
-* **Bad:** version of language-specific framework, settled projects versions, etc
-
-### Will it slow down the prompt?
-
-Every additional section will slow down the prompt a little bit. If your section performs any heavy checkings, find a way to make it faster or consider using an alias instead of creating a new section.
-
-* **Good:** check if command exists, check the value of environment variable
-* **Bad:** network requests, reading large files, etc
-
-### What is the naming convention for options?
-
-All options of prompt follow a specific pattern so that it is easy to remember: `SPACESHIP_SECTION_<OPTION>[_PROPERTY]`. The rule is simple: when naming new properties, keep unique parts of the name to the end.
-
-* **Good:**
-  ```
-    SPACESHIP_GIT_STATUS_COLOR_BEHIND
-    SPACESHIP_GIT_STATUS_COLOR_DIVERGED
-  ```
-* **Bad:**
-  ```
-    SPACESHIP_GIT_STATUS_BEHIND_COLOR
-    SPACESHIP_GIT_STATUS_DIVERGED_COLOR
-  ```
-
-  Here, `GIT_STATUS` is *section*, `COLOR` is *option* and `BEHIND` or `DIVERGED` is *property*.
+<!-- TODO: Add link to rules -->
 
 ### Documentation
 
-When updating documentation for your section, make sure the markdown document is being properly rendered by Github. Specifically, the following common pitfalls have already been discovered:
+<!-- TODO: Update contributing guide for docs. Reference mkdocs-material -->
+
+When updating documentation for your section, make sure the Markdown document is being properly rendered by GitHub. Specifically, the following common pitfalls have already been discovered:
 
 * Empty inline code block ` ` will only be rendered if you put at least one non-breaking whitespace "&nbsp;" inside, like so: `` ` ` `` → ` `
 * Leading and trailing whitespaces in inline code blocks will be stripped, to indicate that a whitespace is present, use the middot symbol `·`, like so: `` `🚀·` `` → `🚀·`
