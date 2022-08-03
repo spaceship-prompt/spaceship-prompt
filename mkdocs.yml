@@ -88,7 +88,7 @@ nav:
   - Registry: registry.md
   - Advanced:
       - Creating a custom section: advanced/creating-section.md
-      # - Per-directory configuration
+      - Per-directory configuration: advanced/per-directory-config.md
       - API:
         - Environment: api/environment.md
         - Sections: api/section.md
