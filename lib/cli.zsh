@@ -26,6 +26,9 @@ Usage: spaceship <command> [options]
 
 Available commands:
   bug-report          Create a GitHub issue with information about your environment
+  add                 Add a section to the prompt at specific position
+  remove              Remove a section from prompt
+  print               Print Spaceship prompt
   version             Print Spaceship version
   help                Print this help message
 EOF
