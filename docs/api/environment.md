@@ -40,6 +40,7 @@ The default locations are:
 $HOME/.spaceshiprc
 $HOME/.spaceshiprc.zsh
 $HOME/.config/spaceship.zsh
+$HOME/.config/spaceship/spaceship.zsh
 $XDG_CONFIG_HOME/spaceship.zsh
 /etc/xdg/spaceship.zsh
 $XDG_CONFIG_DIRS/spaceship.zsh

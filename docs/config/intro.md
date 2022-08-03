@@ -10,7 +10,7 @@ To get started with customization, create a configuration file:
 touch ~/.spaceshiprc.zsh
 ```
 
-… or, if you prefer to keep your configuration within a `~/.config` folder, you can do so, as well:
+… or, if you prefer to keep your configuration within a `~/.config` or `~/.config/spaceship` folders, you can do so, as well:
 
 ```zsh
 mkdir -p ~/.config/spaceship.zsh

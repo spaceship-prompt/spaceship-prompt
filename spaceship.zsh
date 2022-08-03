@@ -7,7 +7,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export -r SPACESHIP_VERSION='3.16.5'
+export SPACESHIP_VERSION='4.x.x'
 
 # Determination of Spaceship working directory
 # https://git.io/vdBH7
@@ -101,6 +101,7 @@ if [[ -z "$SPACESHIP_CONFIG_PATH" ]]; then
     "$HOME/.spaceshiprc"
     "$HOME/.spaceshiprc.zsh"
     "${XDG_CONFIG_HOME:="$HOME/.config"}/spaceship.zsh"
+    "${XDG_CONFIG_HOME:="$HOME/.config/spaceship"}/spaceship.zsh"
     "${XDG_CONFIG_DIRS:="/etc/xdg"}/spaceship.zsh"
   )
 fi

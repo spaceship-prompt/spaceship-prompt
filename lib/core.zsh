@@ -58,6 +58,7 @@ spaceship::core::async_callback() {
   if [[ "${job}" == "[async/eval]" ]] \
   || [[ "${job}" == ";" ]] \
   || [[ "${job}" == "[async]" ]]; then
+    # FIXME: Restart the async job if it failed
     return
   fi
 
