@@ -45,7 +45,7 @@ nav:
   - Configuration:
       - Introduction: config/intro.md
       - Prompt configuration: config/prompt.md
-      # - Loading external sections
+      - Loading custom sections: config/loading-sections.md
       # - Using CLI
       - Built-in Sections:
         - sections/index.md
