@@ -45,53 +45,55 @@
 
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
   <script>
-    const list = document.querySelector('#sections-list');
-    const input = document.querySelector('#sections-search');
-    const registryType = input ? input.getAttribute('data-registry') : null;
+    // Wait for page to load and application to mount
+    document.addEventListener("DOMContentLoaded", function () {
+      const list = document.querySelector('#sections-list');
+      const input = document.querySelector('#sections-search');
+      const registryType = input ? input.getAttribute('data-registry') : null;
 
-    if (list && input) {
-      const registry = registryType
-        ? fetch(`/registry/${registryType}.json`)
-            .then(res => res.json())
-            .then(registry => registry.sections)
-        : Promise.all([
-            fetch('/registry/internal.json').then(res => res.json()),
-            fetch('/registry/external.json').then(res => res.json()),
-          ])
-            .then(([internal, external]) => ([
-              ...internal.sections,
-              ...external.sections
-            ]));
+      if (list && input) {
+        const registry = registryType
+          ? fetch(`/registry/${registryType}.json`)
+              .then(res => res.json())
+              .then(registry => registry.sections)
+          : Promise.all([
+              fetch('/registry/internal.json').then(res => res.json()),
+              fetch('/registry/external.json').then(res => res.json()),
+            ])
+              .then(([internal, external]) => ([
+                ...internal.sections,
+                ...external.sections
+              ]));
 
-      registry.then(sections => {
-        debugger
-        list.innerHTML = sections
-          .sort((a, b) => a.name.localeCompare(b.name))
-          .map(item => `
-            <a href="${item.url}">
-              <li>
-                <strong>
-                  ${item.name}
-                  ${item.internal ? '<em>internal</em>' : ''}
-                </strong>
-                ${item.description}
-              </li>
-            </a>
-          `)
-          .join('');
-      });
+        registry.then(sections => {
+          list.innerHTML = sections
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map(item => `
+              <a href="${item.url}">
+                <li>
+                  <strong>
+                    ${item.name}
+                    ${item.internal ? '<em>internal</em>' : ''}
+                  </strong>
+                  ${item.description}
+                </li>
+              </a>
+            `)
+            .join('');
+        });
 
-      input.addEventListener('keyup', _.debounce(e => {
-        const query = e.target.value.toLowerCase().trim();
+        input.addEventListener('keyup', _.debounce(e => {
+          const query = e.target.value.toLowerCase().trim();
 
-        Array.from(list.children).forEach(item => {
-          if (item.innerText.toLowerCase().includes(query)) {
-            item.style.display = '';
-          } else {
-            item.style.display = 'none';
-          }
-        })
-      }, 300));
-    }
+          Array.from(list.children).forEach(item => {
+            if (item.innerText.toLowerCase().includes(query)) {
+              item.style.display = '';
+            } else {
+              item.style.display = 'none';
+            }
+          })
+        }, 300));
+      }
+    })
   </script>
 {% endblock %}
