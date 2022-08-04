@@ -18,7 +18,7 @@ theme:
   palette:
     # Light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: spaceship
+      scheme: default
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
@@ -46,7 +46,6 @@ nav:
       - Introduction: config/intro.md
       - Prompt configuration: config/prompt.md
       - Loading custom sections: config/loading-sections.md
-      # - Using CLI
       - Built-in Sections:
         - sections/index.md
         - Prompt character (char): sections/char.md
@@ -85,7 +84,6 @@ nav:
         - Kubernetes (kubectl): sections/kubectl.md
         - Terraform (terraform): sections/terraform.md
         - IBM Cloud (ibmcloud): sections/ibmcloud.md
-  - Registry: registry.md
   - Advanced:
       - Creating a custom section: advanced/creating-section.md
       - Per-directory configuration: advanced/per-directory-config.md
@@ -94,6 +92,7 @@ nav:
         - Sections: api/section.md
         - General utilities: api/utils.md
         - Testing kit: api/testkit.md
+  - Registry: registry.md
   - Troubleshooting: troubleshooting.md
   - Blog:
       - blog/index.md
@@ -104,6 +103,7 @@ nav:
       - 2017:
         - A big update of spaceship-zsh-theme: blog/2017-spaceship-v2.md
 
+# TODO: Add redirects
 markdown_extensions:
   - meta
   - md_in_html
@@ -119,7 +119,6 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight
   - pymdownx.inlinehilite
-
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
