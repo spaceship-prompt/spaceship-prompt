@@ -36,7 +36,7 @@ direnv allow /path/to/directory
 
 Here is a live example of how `direnv` works:
 
-![direnv example](https://user-images.githubusercontent.com/3459374/182612134-d72fea86-fef3-44b6-8414-350c47833eb5.gif){ loading=lazy }
+<script id="asciicast-l6jOkth3csJQGkJRGV8A6DLl0" src="https://asciinema.org/a/l6jOkth3csJQGkJRGV8A6DLl0.js" async></script>
 
 ## Alternatives to `direnv`
 
