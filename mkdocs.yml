@@ -95,8 +95,14 @@ nav:
         - General utilities: api/utils.md
         - Testing kit: api/testkit.md
   - Troubleshooting: troubleshooting.md
-  # Blog: blog.md
-
+  - Blog:
+      - blog/index.md
+      - 2022:
+        - Announcing Spaceship v4 — a rocket-fast and customizable prompt: blog/2022-spaceship-v4.md
+      - 2018:
+        - Meet Spaceship v3.0!: blog/2018-spaceship-v3.md
+      - 2017:
+        - A big update of spaceship-zsh-theme: blog/2017-spaceship-v2.md
 
 markdown_extensions:
   - meta
