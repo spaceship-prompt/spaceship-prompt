@@ -12,7 +12,7 @@ The `git` section consists of [`git_branch`](#git-branch-git_branch) and [`git_s
 | `SPACESHIP_GIT_ASYNC`  |               `true`               | Render section asynchronously                                                                               |
 | `SPACESHIP_GIT_PREFIX` |               `on·`                | Section's prefix                                                                                            |
 | `SPACESHIP_GIT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                                                                                            |
-| `SPACESHIP_GIT_SYMBOL` | ![·][branch-image]                | Symbol displayed before the section (requires [powerline patched font](https://github.com/powerline/fonts)) |
+| `SPACESHIP_GIT_SYMBOL` |               ``                  | Symbol displayed before the section (requires [powerline patched font](https://github.com/powerline/fonts)) |
 
 ## Git branch `git_branch`
 
@@ -51,6 +51,3 @@ The `git_status` subsection displays indicators only when you have a dirty Git r
 | `SPACESHIP_GIT_STATUS_AHEAD`     |   `⇡`   | Indicator for unpushed changes (ahead of remote branch)      |
 | `SPACESHIP_GIT_STATUS_BEHIND`    |   `⇣`   | Indicator for unpulled changes (behind of remote branch)     |
 | `SPACESHIP_GIT_STATUS_DIVERGED`  |   `⇕`   | Indicator for diverged changes (diverged with remote branch) |
-
-<!-- References -->
-[branch-image]: https://user-images.githubusercontent.com/3459374/34947621-4f324a92-fa13-11e7-9b99-cdba2cdda6b9.png
