@@ -141,6 +141,11 @@ plugins:
         - en
         - ru
         - zh
+  - redirects:
+      redirect_maps:
+        options.md: config/intro.md
+        api.md: api/environment.md
+        troubleshooting.md: faq.md
   - i18n:
       default_language: en
       languages:

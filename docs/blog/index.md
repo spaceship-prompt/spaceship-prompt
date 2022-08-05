@@ -25,7 +25,7 @@ search:
 TODO
 
 [:octicons-arrow-right-24: Continue reading][spaceship-v4]
-[spaceship-v4]: /blog/2022-spaceship-v4.md
+[spaceship-v4]: /blog/2022-spaceship-v4
 
 ## [Meet Spaceship ZSH v3.0!][spaceship-v3]
 
