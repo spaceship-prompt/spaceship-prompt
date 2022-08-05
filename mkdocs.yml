@@ -102,6 +102,7 @@ nav:
         - Meet Spaceship v3.0!: blog/2018-spaceship-v3.md
       - 2017:
         - A big update of spaceship-zsh-theme: blog/2017-spaceship-v2.md
+  - Contribute: contribute.md
 
 # TODO: Add redirects
 markdown_extensions:

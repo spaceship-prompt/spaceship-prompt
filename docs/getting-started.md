@@ -206,8 +206,7 @@ What's next? Spaceship has reasonable defaults, but you might want to adjust the
 
 Additionally, join our community or consider contributing to the project.
 
-<!-- TODO: Add Contribute link -->
-[:material-hand-heart: Contribute](#){ .md-button }
+[:material-hand-heart: Contribute](/contribute){ .md-button }
 [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt){ .md-button }
 [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9){ .md-button }
 
