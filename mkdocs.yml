@@ -93,7 +93,7 @@ nav:
         - General utilities: api/utils.md
         - Testing kit: api/testkit.md
   - Registry: registry.md
-  - Troubleshooting: troubleshooting.md
+  - FAQ: faq.md
   - Blog:
       - blog/index.md
       - 2022:
