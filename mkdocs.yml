@@ -104,7 +104,6 @@ nav:
         - A big update of spaceship-zsh-theme: blog/2017-spaceship-v2.md
   - Contribute: contribute.md
 
-# TODO: Add redirects
 markdown_extensions:
   - meta
   - md_in_html
@@ -116,6 +115,7 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - admonition
+  - footnotes
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.highlight
@@ -139,6 +139,11 @@ extra_css:
   - assets/styles/hero.css
   - assets/styles/companies.css
   - assets/styles/announce.css
+  - assets/styles/registry.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js
+  - assets/scripts/registry.js
 
 plugins:
   - search:

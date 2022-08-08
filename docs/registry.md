@@ -1,5 +1,4 @@
 ---
-template: registry.html
 hide: [navigation, toc]
 ---
 
