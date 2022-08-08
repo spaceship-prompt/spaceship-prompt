@@ -54,23 +54,36 @@ hide:
     prompt spaceship
     ```
 
+=== "Homebrew"
+
+    ```
+    brew install spaceship
+    ```
+
+
+    You can also add the following to your [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage):
+
+    ```ruby
+    brew "spaceship"
+    ```
+
 === "oh-my-zsh"
 
-    克隆此仓库：
+    Clone this repo:
 
     ```zsh
     git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
     ```
 
 
-    将 `spaceship.zsh-theme` 软链到您 oh-my-zsh 的自定义主题目录：
+    Symlink `spaceship.zsh-theme` to your oh-my-zsh custom themes directory:
 
     ```zsh
     ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
     ```
 
 
-    在 `.zshrc` 中设置 `ZSH_THEME="spaceship"。
+    Set `ZSH_THEME="spaceship"` in your `.zshrc`.
 
 === "npm"
 
@@ -79,10 +92,10 @@ hide:
     ```
 
 
-    安装完毕。 此命令应将 `spaceship.zsh` 作为 `prompt_spaceship_setup` 链接到你的 `$fpath`中 ，并在`.zshrc`中设置 `prompt spaceship ` 。 只需重载您的终端。
+    Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath` and set `prompt spaceship` in `.zshrc`. Just reload your terminal.
     
-    !!!小提示
-        就像更新其他软件包一样，将 Spaceship 更新到最新版本。
+    !!!tip
+        Update Spaceship to new versions as you would any other package.
 
 === "prezto"
 
@@ -92,11 +105,11 @@ hide:
 
 === "zim"
 
-    将 `zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules` 添加到您的 `.zimrc`中并且运行 `zimfw install`.
+    Add `zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules` to your `.zimrc` and run `zimfw install`.
 
 === "antigen"
 
-    将以下代码片段添加到您的 `.zshrc`中:
+    Add the following snippet in your `.zshrc`:
 
     ```
     antigen theme spaceship-prompt/spaceship-prompt
@@ -104,7 +117,7 @@ hide:
 
 === "antibody"
 
-    使用以下行更新您的`.zshc`文件：
+    Update your `.zshrc` file with the following line:
 
     ```
     antibody bundle spaceship-prompt/spaceship-prompt
@@ -120,7 +133,7 @@ hide:
 
 === "zgen"
 
-    将以下行添加到 `.zshrc`中您要添加其他 Zsh 插件的地方：
+    Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
 
     ```
     zgen load spaceship-prompt/spaceship-prompt spaceship
@@ -128,7 +141,7 @@ hide:
 
 === "zplug"
 
-    在你的`.zshrc`中使用此命令加载 Spaceship 以使其作为命令提示系统的主题：
+    Use this command in your `.zshrc` to load Spaceship as prompt theme:
 
     ```
     zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
@@ -136,7 +149,7 @@ hide:
 
 === "Arch"
 
-    从 AUR 软件源安装最近的版本 [`spaceship-prompt-git`](https://aur.archlinux.org/packes/spaceship-prompt-git/):
+    Install the latest master from the AUR package [`spaceship-prompt-git`](https://aur.archlinux.org/packages/spaceship-prompt-git/):
 
     ```
     git clone https://aur.archlinux.org/spaceship-prompt-git.git --depth=1
@@ -146,15 +159,16 @@ hide:
 
 ## 恭喜您！
 
-你已经成功了! 你已经在你的机器上安装了 Spaceship！
+You've made it! You've installed Spaceship on your machine!
 
-下一步是什么？ Spaceship 有合理的默认设置，但您可能想要根据需要调整它们。 访问我们的 [选项](./options.md) 页面来学习如何配置您的 Spaceship。
+What's next? Spaceship has reasonable defaults, but you might want to adjust them to your needs. Visit our [Options](./options.md) page to learn how to configure your Spaceship.
 
 <!-- prettier-ignore -->
-!!! 提示 关注 [我们的 Twitter](//twitter.com/SpaceshipPrompt) 以便随时了解新功能、改进和错误修正的最新情况。
+!!! tip
+    Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
 
 ## 疑难解答
 
-遇到问题？ 查看 [疑难解答](./troubleshooting.md) 页面。
+Having trouble? Take a look at out [Troubleshooting](./troubleshooting.md) page.
 
-仍然困惑？ 请 [提出 issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose)，描述你的问题，我们将乐意帮助你。
+Still struggling? Please, [file an issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.
