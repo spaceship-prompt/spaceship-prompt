@@ -25,13 +25,15 @@ features:
 
 # 欢迎加入，宇航员！
 
+[![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua)
+
 <p align="center">
   <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
 </p>
 
 ## 特性
 
-**Spaceship** 配备了酷酷的功能。 先睹为快：
+**Spaceship** is packed with cool features. Here are some sneak picks:
 
 - 精巧地显示主机名、用户名和提示字符。
 - 当前 Git 和 Mercurial 项目状态
@@ -47,30 +49,31 @@ features:
 - 当前 Vi-mode 模式([暂时启用的方便标识](./options.md#vi-mode-vi_mode))。
 - 如果超过设定阈值，上一个命令的执行时间
 
-需要更多功能？ 请 [提出 issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose)，描述你的问题，我们将乐意帮助你。
+Want more features? Please, [open an issue](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose) or send pull request.
 
 <!-- prettier-ignore -->
-!!! 提示 关注 [我们的 Twitter](//twitter.com/SpaceshipPrompt) 以便随时了解新功能、改进和错误修正的最新情况。
+!!! tip
+    Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
 
 ## 相关项目
 
-下面列出了受 Spaceship ZSH 启发的相关项目。
+Here's a list of related projects that have been inspired by Spaceship ZSH.
 
 - [**matchai/spacefish**](https://github.com/matchai/spacefish) - 一个旨在实现完全特性对等的移植到 fish shell 的 Spaceship ZSH 命令符。
 - [**starship/starship**](https://github.com/starship/starship) - 一个受到了 Spacship ZSH 的强烈启发的用 Rust 编写的贼快的跨 shell 的命令符。
 
 ## 支持
 
-你好！ 除了我的主要工作外，我还在我的剩余时间内从事这一项目。 我希望你喜欢使用Spaceship。 如果你喜欢，请 [成为我的赞助人 🤝][patreon-url]
+Hi! I work on this project in my spare time, in addition to my primary job. I hope you enjoy using Spaceship. If you do, please, [become my patron 🤝][patreon-url].
 
 |          Patreon          |                                                                     Bitcoin                                                                      |                                                                     Ethereum                                                                     |
 |:-------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------:|
 |   [成为赞助者][patreon-url]    |                                                       `1FrPrQb6ACTkbSBAz9PduJWrDFfq41Ggb4`                                                       |                                                   `0x6aF39C917359897ae6969Ad682C14110afe1a0a1`                                                   |
 | <a href="https://www.patreon.com/spaceship-prompt"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px"></a> | <img src="https://user-images.githubusercontent.com/3459374/33760933-1c9b81b4-dc10-11e7-8e4b-22d81f98c138.png" width="100px" /> | <img src="https://user-images.githubusercontent.com/3459374/33760932-1c7b3fb2-dc10-11e7-9774-411264d533da.png" width="100px" /> |
 
-赞助是您肯定的表达： **我的工作是有价值的**
+This is your way make a clear statement: **My work is valued.**
 
-我会感谢您的支持！ _谢谢！_
+I would appreciate your support! _Thank you!_
 
 ## 许可证
 
