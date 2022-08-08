@@ -61,7 +61,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     prompt spaceship
     ```
 
-    !!! note
+    !!! attention
         If you're not using Zsh from Homebrew, you might also need to add the `site-functions` to your `fpath` _before_ loading `promptinit` in `.zshrc`:
 
         ```zsh title=".zshrc"
@@ -71,7 +71,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     !!! tip
         You can also add the following to your [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage) to bundle Spaceship along with your other software:
 
-        ```ruby
+        ```ruby title="Brewfile"
         brew "spaceship"
         ```
 
@@ -79,13 +79,13 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
     Clone this repo:
 
-    ```zsh
+    ```zsh title="Terminal"
     git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
     ```
 
     Symlink `spaceship.zsh-theme` to your oh-my-zsh custom themes directory:
 
-    ```zsh
+    ```zsh title="Terminal"
     ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
     ```
 
@@ -95,7 +95,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
     Install Spaceship via npm as you would with any other global package:
 
-    ```
+    ``` title="Terminal"
     npm install -g spaceship-prompt
     ```
 
