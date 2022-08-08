@@ -17,6 +17,53 @@ features:
   - title: Configurable
     image: /assets/configurable.svg
     description: The prompt is zero-config, but if a customization is needed, it provides an easy-to-use interface for customization.
+companies:
+  title:  Used daily by marvelous folks at
+  list:
+    - name: Wix
+      logo: https://cdn.svgporn.com/logos/wix.svg
+    - name: Google
+      logo: https://cdn.svgporn.com/logos/google.svg
+    - name: Siemens
+      logo: https://upload.wikimedia.org/wikipedia/commons/5/5f/Siemens-logo.svg
+    - name: Microsoft
+      logo: https://cdn.svgporn.com/logos/microsoft.svg
+    - name: Adobe
+      logo: https://upload.wikimedia.org/wikipedia/commons/6/6e/Adobe_Corporate_logo.svg
+    - name: Docker
+      logo: https://cdn.svgporn.com/logos/docker.svg
+    - name: Shopify
+      logo: https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg
+    - name: GitHub
+      logo: https://cdn.svgporn.com/logos/github.svg
+    - name: Red Hat
+      logo: https://cdn.svgporn.com/logos/redhat.svg
+    - name: Amazon Web Services
+      logo: https://cdn.svgporn.com/logos/aws.svg
+    - name: Facebook
+      logo: https://cdn.worldvectorlogo.com/logos/facebook-7.svg
+    - name: npm
+      logo: https://cdn.svgporn.com/logos/npm.svg
+    - name: Unity Technologies
+      logo: https://cdn.worldvectorlogo.com/logos/unity-technologies-logo.svg
+    - name: Angular
+      logo: https://cdn.svgporn.com/logos/angular.svg
+    - name: Mozilla
+      logo: https://cdn.svgporn.com/logos/mozilla.svg
+    - name: Framer
+      logo: https://cdn.svgporn.com/logos/framer.svg
+    - name: Grammarly
+      logo: https://cdn.svgporn.com/logos/grammarly.svg
+    - name: Skyscanner
+      logo: https://upload.wikimedia.org/wikipedia/commons/9/94/Skyscanner_Logo_LockupHorizontal_SkyBlue_RGB.svg
+    - name: Node.js
+      logo: https://cdn.svgporn.com/logos/nodejs.svg
+    - name: Vue Storefront
+      logo: https://cdn.worldvectorlogo.com/logos/vue-storefront.svg
+    - name: Coinbase
+      logo: https://cdn.worldvectorlogo.com/logos/coinbase-1.svg
+    - name: Suse
+      logo: https://cdn.svgporn.com/logos/suse.svg
 ---
 
 # Welcome aboard, Astronaut!
@@ -29,50 +76,40 @@ features:
 
 ## Features
 
-**Spaceship** is packed with cool features. Here are some sneak picks:
+**Spaceship** is a superpowered Zsh prompt. Prompt is what you see when you type a command. It can show a lot of useful tips, saving your time and making user experience smooth and pleasant.
 
-- Clever hostname, username and prompt character displaying.
-- Current Git and Mercurial repo statuses.
-- Indicator for jobs in the background `✦`.
-- Current version of Node.js `⬢`, Ruby `💎`, Elm `🌳`, Elixir `💧`, Swift `🐦`, Xcode `🛠`, Go `🐹`, PHP `🐘`, Rust `𝗥`, Haskell `λ`, Julia `ஃ`, Python `🐍`, Conda `🅒`, .NET SDK `.NET`.
-- Package version, if there's is a package in current directory `📦`.
-- Current Docker version and connected machine `🐳`.
-- Current Amazon Web Services (AWS) profile `☁️` ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)).
-- Current Google Cloud Platform gcloud active configuration `☁️`.
-- Current Kubectl context `☸️`.
-- Current Terraform workspace `🛠`.
-- Current battery level and status.
-- Execution time of the last command if it exceeds the set threshold.
+Here are some sneak picks of what **Spaceship** can show:
+
+- Clever hostname and username displaying
+- Repository statuses (Git and Mercurial are supported)
+- Runtime environments for various languages (Node.js, Rust, Python, Ruby, Swift, Go, PHP and many others)
+- Docker version, Kubernetes context and connected machine
+- Package version (npm, lerna, cargo, composer and others)
+- Battery level and status
+- Indicator for jobs in the background `✦`
+- A lot of [useful information](/sections)
+- Custom [information of your choice](/advanced/creating-section)
 
 Want more features? Please, [open an issue](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose) or send pull request.
 
-<!-- prettier-ignore -->
-!!! tip
-    Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
+## Getting Started
 
-## Related Projects
+Installing Spaceship is simple and quick. It's configurable and easy to use.
 
-Here's a list of related projects that have been inspired by Spaceship ZSH.
-
-- [**matchai/spacefish**](https://github.com/matchai/spacefish) - A port of Spaceship ZSH for fish shell intending to achieve complete feature parity.
-- [**starship/starship**](https://github.com/starship/starship) - A blazing-fast, cross-shell prompt written in Rust, heavily inspired by Spaceship ZSH.
+[Installation](/getting-started){ .md-button .md-button--primary }
+[Configuration](/config/intro){ .md-button }
 
 ## Support
 
-Hi! I work on this project in my spare time, in addition to my primary job. I hope you enjoy using Spaceship. If you do, please, [become my patron 🤝][patreon-url].
+Join our community and consider contributing to the project.
 
-|                                                                       Patreon                                                                       |                                                            Bitcoin                                                             |                                                            Ethereum                                                            |
-| :-------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
-|                                                           [Become a patron][patreon-url]                                                            |                                              `1FrPrQb6ACTkbSBAz9PduJWrDFfq41Ggb4`                                              |                                          `0x6aF39C917359897ae6969Ad682C14110afe1a0a1`                                          |
-| <a href="https://www.patreon.com/spaceship-prompt"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px"></a> | <img src="https://user-images.githubusercontent.com/3459374/33760933-1c9b81b4-dc10-11e7-8e4b-22d81f98c138.png" width="100px"/> | <img src="https://user-images.githubusercontent.com/3459374/33760932-1c7b3fb2-dc10-11e7-9774-411264d533da.png" width="100px"/> |
-
-This is your way make a clear statement: **My work is valued.**
-
-I would appreciate your support! _Thank you!_
+[:material-hand-heart: Contribute](/contribute){ .md-button }
+[:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt){ .md-button }
+[:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9){ .md-button }
+[:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/){ .md-button }
 
 ## License
 
 MIT © [Denys Dovhan](http://denysdovhan.com)
 
-[patreon-url]: https://www.patreon.com/denysdovhan
-[patreon-image]: https://img.shields.io/badge/zsh-%3E%3Dv5.2-777777.svg?style=flat-square
+[^1]: The list of companies and projects whose contributors are using Spaceship is assembled based on people who opened an issue or PR to Spaceship's repo and explicitly specified their position at those companies and projects.

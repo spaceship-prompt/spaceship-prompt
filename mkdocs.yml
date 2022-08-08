@@ -134,7 +134,11 @@ extra:
       link: https://discord.gg/NTQWz8Dyt9
 
 extra_css:
-  - assets/styles.css
+  - assets/styles/themes.css
+  - assets/styles/code.css
+  - assets/styles/hero.css
+  - assets/styles/companies.css
+  - assets/styles/announce.css
 
 plugins:
   - search:

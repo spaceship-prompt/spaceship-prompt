@@ -23,16 +23,3 @@
 
   --md-typeset-a-color: var(--md-accent-fg-color);
 }
-
-@font-face {
-  font-family: 'FiraCode Nerd Font';
-  src: url("/FiraCodeNerd.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-
-
-code {
-  font-family: 'FiraCode Nerd Font', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-  overflow-wrap: break-word;
-}
