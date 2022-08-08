@@ -96,7 +96,8 @@ echo $SPACESHIP_VERSION
 ## `SPACESHIP_ROOT`
 
 <!-- prettier-ignore -->
-!!! 危险 不要修改此变量的值! 改变值可能会对 Spaceship 的安装造成损坏！
+!!! 危险
+    不要修改此变量的值! 改变值可能会对 Spaceship 的安装造成损坏！
 
 一个定义当前运行的 Spaceship prompt 安装路径的环境变量。 Spaceship 使用此变量解析模块和实用程序的路径。
 
