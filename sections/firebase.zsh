@@ -31,6 +31,6 @@ spaceship_firebase() {
   spaceship::section \
     "$SPACESHIP_FIREBASE_COLOR" \
     "$SPACESHIP_FIREBASE_PREFIX" \
-    "${SPACESHIP_FIREBASE_SYMBOL}${target}" \
-    "$SPACESHIP_NODE_SUFFIX"
+    "${SPACESHIP_FIREBASE_SYMBOL}${target}"
+
 }
