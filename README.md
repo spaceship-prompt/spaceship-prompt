@@ -63,12 +63,14 @@
 
 Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] prompt. Prompt is what you see when you type a command. It can show a lot of useful tips, saving your time and making user experience smooth and pleasant. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
 
-<figure align="center">
-  <img alt="Spaceship with One Dark, zsh-autosuggestions and zsh-syntax-highlight" src="https://user-images.githubusercontent.com/3459374/183478313-5aa02cbe-fafc-42e0-a791-ea08a0902f56.gif" width="60%">
-  <figcaption>
-    Visit <a href="./docs/troubleshooting.md#why-doesnt-my-prompt-look-like-the-preview">Frequently Asked Question</a> for similar setup and find more examples with different color schemes in <a href="https://github.com/spaceship-prompt/spaceship-prompt/wiki/Screenshots">Screenshots </a>wiki-page.
-  </figcaption>
-</figure>
+<p align="center">
+  <a href="https://asciinema.org/a/513451">
+    <img alt="Spaceship with One Dark, zsh-autosuggestions and zsh-syntax-highlight" src="https://user-images.githubusercontent.com/3459374/183478313-5aa02cbe-fafc-42e0-a791-ea08a0902f56.gif" width="80%">
+  </a>
+  <br>
+  <sup>Visit <a href="https://deploy-preview-963--spaceship-prompt.netlify.app/faq/#why-doesnt-my-prompt-look-like-the-preview">Frequently Asked Question</a> for similar setup and find more examples with different color schemes in <a href="https://github.com/spaceship-prompt/spaceship-prompt/wiki/Screenshots">Screenshots </a>wiki-page.
+  </sup>
+</p>
 
 ## ✨ Features
 
