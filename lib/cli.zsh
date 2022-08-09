@@ -26,6 +26,7 @@ Usage: spaceship <command> [options]
 
 Available commands:
   bug-report          Create a GitHub issue with information about your environment
+  edit                Edit Spaceship config
   add                 Add a section to the prompt at specific position
   remove              Remove a section from prompt
   print               Print Spaceship prompt
@@ -36,6 +37,14 @@ EOF
 
 _spaceship::cli::version() {
   echo "$SPACESHIP_VERSION"
+}
+
+_spaceship::cli::edit() {
+  if [[ ! -f "$SPACESHIP_CONFIG" ]]; then
+    echo "No spaceship config found."
+  fi
+
+  "$EDITOR" "$SPACESHIP_CONFIG" && source "$SPACESHIP_CONFIG"
 }
 
 _spaceship::cli::bug-report() {
@@ -300,6 +309,7 @@ _spaceship() {
   cmds=(
     'bug-report:Create a GitHub issue with information about your environment'
     'add:Add a section to the prompt at specific position'
+    'edit:Edit Spaceship config'
     'remove:Remove a section from prompt'
     'print:Print Spaceship prompt'
     'version:Print Spaceship version'
