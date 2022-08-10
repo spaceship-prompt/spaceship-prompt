@@ -9,14 +9,21 @@ If you struggle with something, feel free to ask a question on our Discord serve
 
 ## Why doesn't my prompt look like the preview?
 
-![Preview of the Spaceship prompt](https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif)
+<p align="center">
+  <script id="asciicast-513451" src="https://asciinema.org/a/513451.js" data-autoplay="true" data-loop="true" data-preload="true" async></script>
+  <noscript>
+    <object type="image/svg+xml" data="/assets/images/spaceship-demo.svg">
+      <img src="/assets/images/spaceship-demo.gif" alt="Spaceship demo" />
+    </object>
+  </noscript>
+</p>
 
 Preview shows `spaceship` prompt setup with:
 
 - **Terminal**
-    - [Hyper](https://hyper.is) as terminal emulator.
-    - [One Dark](https://www.npmjs.com/package/hyperterm-atom-dark) color theme from [Atom](https://atom.io/) editor.
-    - [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads) with with ligatures as primary font (16px size).
+    - [iTerm2](https://iterm2.com/) as terminal emulator.
+    - [One Dark](https://www.npmjs.com/package/hyperterm-atom-dark) color theme.
+    - [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads) with ligatures as primary font (16px size).
 - **Shell configuration**
     - [denysdovhan's Dotfiles](https://github.com/denysdovhan/dotfiles)
     - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) to have commands colorized.

@@ -71,7 +71,12 @@ companies:
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua)
 
 <p align="center">
-  <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
+  <script id="asciicast-513451" src="https://asciinema.org/a/513451.js" data-autoplay="true" data-loop="true" data-preload="true" data-size="small" async></script>
+  <noscript>
+    <object type="image/svg+xml" data="/assets/images/spaceship-demo.svg">
+      <img src="/assets/images/spaceship-demo.gif" alt="Spaceship demo" />
+    </object>
+  </noscript>
 </p>
 
 ## Features
