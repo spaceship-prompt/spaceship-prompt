@@ -9,13 +9,13 @@ hero:
   source_button: Source Code
 features:
   - title: Clean and simple
-    image: /assets/what-is-needed.svg
+    image: /assets/images/what-is-needed.svg
     description: The prompt is not overloaded, it shows only what you need at the moment (current directory, git branch, etc).
   - title: Easy to set up
-    image: /assets/out-of-the-box.svg
+    image: /assets/images/out-of-the-box.svg
     description: The prompt works right after installation without any additional configuration. install it and use it.
   - title: Configurable
-    image: /assets/configurable.svg
+    image: /assets/images/configurable.svg
     description: The prompt is zero-config, but if a customization is needed, it provides an easy-to-use interface for customization.
 companies:
   title:  Used daily by marvelous folks at
