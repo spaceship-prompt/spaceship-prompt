@@ -1,7 +1,3 @@
----
-template: registry.html
----
-
 # Built-in sections
 
 <div>
