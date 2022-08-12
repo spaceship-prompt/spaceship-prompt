@@ -54,3 +54,15 @@ and powered by <a href="https://www.netlify.com">Netlify</a>.
   Please, <strong class="hashtag">#StandWithUkraine</strong> against the Russian regime.
 </a>
 {% endblock %}
+
+<!-- Self-hosted Analytics -->
+<!-- prettier-ignore -->
+{% block analytics %}
+{{ super() }}
+<script
+  async
+  defer
+  data-website-id="9faf9274-20b1-4580-91eb-a6a8b5d258eb"
+  src="https://analytics.denysdovhan.com/umami.js"
+></script>
+{% endblock %}
