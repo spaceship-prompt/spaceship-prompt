@@ -1,4 +1,17 @@
-.PHONY: tests install uninstall docs
+.PHONY: zwc clean compile tests install uninstall docs
+
+ZSH := $(shell command -v zsh 2> /dev/null)
+
+# Compile to zwc
+zwc:
+	$(ZSH) -fc 'for f in *.zsh-theme *.zsh lib/*.zsh sections/*.zsh; do zcompile -R -- $$f.zwc $$f || exit; done'
+
+# Clean up zwc
+clean:
+	find . -name "*.zwc" -type f -delete
+
+# Compile everything
+compile: zwc
 
 # Run all tests with a nice reporer
 tests:
