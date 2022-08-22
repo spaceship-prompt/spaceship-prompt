@@ -87,8 +87,11 @@ spaceship::core::async_callback() {
 # Refreshes the cache of a section. If the section is async, it will be
 # executed in a separate process.
 # USAGE:
-#   spaceship::core::refresh_section [section]
+#   spaceship::core::refresh_section [--sync] [section]
 spaceship::core::refresh_section() {
+  # Parse CLI options
+  zparseopts -E -D -sync=sync
+
   local section="$1"
 
   [[ -z $section ]] && return 1
@@ -104,7 +107,7 @@ spaceship::core::refresh_section() {
     return 1
   fi
 
-  if spaceship::is_section_async "$section"; then
+  if spaceship::is_section_async "$section" && [[ -z $sync ]]; then
     SPACESHIP_JOBS+=("$section")
     async_job "spaceship" "spaceship_${section}"
   else
