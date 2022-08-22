@@ -13,7 +13,13 @@ _spaceship::cli::print::key_value() {
 }
 
 _spaceship::cli::urlencore() {
-  python -c 'import urllib, sys; print urllib.quote(sys.argv[1])' "$1"
+  if spaceship::exists python3; then
+    python3 -c 'import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]))' "$1"
+  elif spaceship::exists python2; then
+    python2 -c 'import urllib, sys; print(urllib.quote(sys.argv[1]))' "$1"
+  else
+    python -c 'import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]))' "$1"
+  fi
 }
 
 # ------------------------------------------------------------------------------
@@ -133,31 +139,20 @@ _spaceship::cli::bug-report() {
   local template_url="https://github.com/spaceship-prompt/spaceship-prompt/issues/new?template=bug_report.yml"
   local url="$template_url$issue_params"
 
-  # Make a short URL
-  local gitio_response="$(curl --include --silent https://git.io/ --form url="$url")"
-
-  # Extract the short URL
-  local short_url="$(
-    echo "$gitio_response" \
-    | grep "Location: http" \
-    | cut -c11- \
-    | awk '{print substr($0, 1, length($0) - 1)}' \
-  )"
-
   # A cross-platform attempt to open an URL
   if spaceship::exists xdg-open; then
-    xdg-open "$short_url"
+    xdg-open "$url"
   elif spaceship::exists open; then
-    open "$short_url"
+    open "$url"
   elif spaceship::exists python; then
-    python -m webbrowser "$short_url"
+    python -m webbrowser "$url"
   fi
 
   echo
   echo "Take a look at your browser. It should open a GitHub issue with populated data from your configuration."
   echo "If your browser has failed to open, please click this link:"
   echo
-  echo "$short_url"
+  echo "$url"
 }
 
 _spaceship::cli::add() {
@@ -361,6 +356,6 @@ _spaceship() {
   return 0
 }
 
-if spaceship::exists compdef; then
+if spaceship::exists spaceship; then
   compdef _spaceship spaceship
 fi
