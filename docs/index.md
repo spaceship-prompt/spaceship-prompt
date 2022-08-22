@@ -70,14 +70,14 @@ companies:
 
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua)
 
-<p align="center">
-  <script id="asciicast-513451" src="https://asciinema.org/a/513451.js" data-autoplay="true" data-loop="true" data-preload="true" data-size="small" async></script>
+<div class="terminal-demo">
+  <script id="asciicast-513451" src="https://asciinema.org/a/513451.js" data-autoplay="true" data-loop="true" data-preload="true" async></script>
   <noscript>
-    <object type="image/svg+xml" data="/assets/images/spaceship-demo.svg">
+    <object class="asciicast" type="image/svg+xml" data="/assets/images/spaceship-demo.svg">
       <img src="/assets/images/spaceship-demo.gif" alt="Spaceship demo" />
     </object>
   </noscript>
-</p>
+</div>
 
 ## Features
 

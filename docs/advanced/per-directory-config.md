@@ -36,7 +36,9 @@ direnv allow /path/to/directory
 
 Here is a live example of how `direnv` works:
 
-<script id="asciicast-l6jOkth3csJQGkJRGV8A6DLl0" src="https://asciinema.org/a/l6jOkth3csJQGkJRGV8A6DLl0.js" data-autoplay="true" data-loop="true" data-preload="true" async></script>
+<div class="terminal-demo">
+  <script id="asciicast-l6jOkth3csJQGkJRGV8A6DLl0" src="https://asciinema.org/a/l6jOkth3csJQGkJRGV8A6DLl0.js" data-autoplay="true" data-loop="true" data-preload="true" async></script>
+</div>
 
 ## Alternatives to `direnv`
 
