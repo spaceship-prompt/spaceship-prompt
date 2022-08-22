@@ -12,6 +12,10 @@ SPACESHIP_HG_PREFIX="${SPACESHIP_HG_PREFIX="on "}"
 SPACESHIP_HG_SUFFIX="${SPACESHIP_HG_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_HG_SYMBOL="${SPACESHIP_HG_SYMBOL="☿ "}"
 
+if [ -z "$SPACESHIP_HG_ORDER" ]; then
+  SPACESHIP_HG_ORDER=(hg_branch hg_status)
+fi
+
 # ------------------------------------------------------------------------------
 # Dependencies
 # ------------------------------------------------------------------------------
@@ -29,17 +33,19 @@ source "$SPACESHIP_ROOT/sections/hg_status.zsh"
 spaceship_hg() {
   [[ $SPACESHIP_HG_SHOW == false ]] && return
 
+  for subsection in "${SPACESHIP_HG_ORDER[@]}"; do
+    spaceship::core::refresh_section --sync "$subsection"
+  done
+
+  # Quit if no hg ref is found
+  local hg_branch="$(spaceship::cache::get hg_branch)"
   [[ -z $hg_branch ]] && return
 
-  local hg_branch="$(spaceship_hg_branch)"
-  local hg_status="$(spaceship_hg_status)"
-
-  local hg_branch_section="$(spaceship::section::render $hg_branch)"
-  local hg_status_section="$(spaceship::section::render $hg_status)"
+  local hg_data="$(spaceship::core::compose_order $SPACESHIP_HG_ORDER)"
 
   spaceship::section \
     --color 'white' \
     --prefix "$SPACESHIP_HG_PREFIX" \
     --suffix "$SPACESHIP_HG_SUFFIX" \
-    "${hg_branch_section}${hg_status_section}"
+    "$hg_data"
 }

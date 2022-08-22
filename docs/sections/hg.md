@@ -13,6 +13,7 @@ The `hg` section consists of [`hg_branch`](#hg-branch-hg_branch) and [`hg_status
 | `SPACESHIP_HG_PREFIX` |               `on·`                | Section's prefix                    |
 | `SPACESHIP_HG_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                    |
 | `SPACESHIP_HG_SYMBOL` |                `☿·`                | Symbol displayed before the section |
+| `SPACESHIP_HG_ORDER`  |       `(hg_branch hg_status)`      | Order of hg subsection rendering    |
 
 ## Mercurial branch `hg_branch`
 

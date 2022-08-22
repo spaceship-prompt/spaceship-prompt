@@ -160,14 +160,14 @@ _spaceship::cli::add() {
   zparseopts -E -D - \
     A:=after_ -after:=after_ \
     B:=before_ -before:=before_ \
-    P:=prompt_ -prompt:=prompt_
+    O:=order_ -order:=order_
 
   local sections=("$@") index
   local after_section="${after_[2]}" before_section="${before_[2]=line_sep}"
 
-  local prompt_type="${prompt_[2]=prompt}"
-  local prompt_option="SPACESHIP_${(U)prompt_type}_ORDER"
-  local prompt_order=("${(P@)prompt_option}")
+  local order_type="${order_[2]=prompt}"
+  local order_option="SPACESHIP_${(U)order_type}_ORDER"
+  local order=("${(P@)order_option}")
   local new_order=()
 
   for section in "${sections[@]}"; do
@@ -177,60 +177,41 @@ _spaceship::cli::add() {
   done
 
   if [[ -n "$before_section" ]]; then
-    index="${prompt_order[(i)${before_section}]=0}"
+    index="${order[(i)${before_section}]=0}"
     new_order=(
-      "${(@)prompt_order[0,$((index-1))]}"
+      "${(@)order[0,$((index-1))]}"
       "${sections[@]}"
-      "${(@)prompt_order[${index},$]}"
+      "${(@)order[${index},$]}"
     )
   fi
 
   if [[ -n "$after_section" ]]; then
-    index="${prompt_order[(i)${after_section}]=0}"
+    index="${order[(i)${after_section}]=0}"
     new_order=(
-      "${(@)prompt_order[0,${index}]}"
+      "${(@)order[0,${index}]}"
       "${sections[@]}"
-      "${(@)prompt_order[$((index+1)),$]}"
+      "${(@)order[$((index+1)),$]}"
     )
   fi
 
-  # Modifying orders
-  case "$prompt_type" in
-    prompt)
-      export SPACESHIP_PROMPT_ORDER=("${new_order[@]}")
-    ;;
-    rprompt)
-      export SPACESHIP_RPROMPT_ORDER=("${new_order[@]}")
-    ;;
-    *)
-      echo "Unknown prompt type: $prompt_type"
-      echo "Available types: prompt, rprompt"
-    ;;
-  esac
+  # Modifying order option
+  eval "export $order_option=("${new_order[@]}")"
 }
 
 _spaceship::cli::remove() {
   # Parse CLI options
-  zparseopts -E -D - P:=prompt_ -prompt:=prompt_
+  zparseopts -E -D - O:=order_ -order:=order_
 
   local sections=("$@")
-  local prompt_type="${prompt_[2]=prompt}"
+  local order_type="${order_[2]=prompt}"
+  local order_option="SPACESHIP_${(U)order_type}_ORDER"
 
-  # Modifying orders
+  # Removing all specified sections from order
   for section in "${sections[@]}"; do
-    # Modifying orders
-    case "$prompt_type" in
-      prompt)
-        export SPACESHIP_PROMPT_ORDER=("${(@)SPACESHIP_PROMPT_ORDER:#${section}}")
-      ;;
-      rprompt)
-        export SPACESHIP_RPROMPT_ORDER=("${(@)SPACESHIP_RPROMPT_ORDER:#${section}}")
-      ;;
-      *)
-        echo "Unknown prompt type: $prompt_type"
-        echo "Available types: prompt, rprompt"
-      ;;
-    esac
+    # Modifying order option
+    local order=("${(P@)order_option}")
+    local new_order=("${(@)order:#${section}}")
+    eval "export $order_option=("${new_order[@]}")"
   done
 }
 
@@ -323,8 +304,8 @@ _spaceship() {
       add)
         local -a subcmds=("$sections[@]")
 
-        subcmds+=("--prompt: A prompt to include the section to")
-        subcmds+=("-P: A prompt to include the section to")
+        subcmds+=("--order: An order to include the section to")
+        subcmds+=("-O: An order to include the section to")
 
         subcmds+=("--after: A section to insert the section after")
         subcmds+=("-A: A section to insert the section after")
@@ -337,8 +318,8 @@ _spaceship() {
       remove)
         local -a subcmds=("$sections[@]")
 
-        subcmds+=("--prompt: A prompt to include the section to")
-        subcmds+=("-P: A prompt to include the section to")
+        subcmds+=("--order: An order to include the section to")
+        subcmds+=("-O: An order to include the section to")
 
         _describe 'command' subcmds
       ;;

@@ -13,6 +13,7 @@ The `git` section consists of [`git_branch`](#git-branch-git_branch) and [`git_s
 | `SPACESHIP_GIT_PREFIX` |               `on·`                | Section's prefix                                                                                            |
 | `SPACESHIP_GIT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                                                                                            |
 | `SPACESHIP_GIT_SYMBOL` |               ``                  | Symbol displayed before the section (requires [powerline patched font](https://github.com/powerline/fonts)) |
+| `SPACESHIP_GIT_ORDER`  |     `(git_branch git_status)`      | Order of git subsection rendering                                                                           |
 
 ## Git branch `git_branch`
 
