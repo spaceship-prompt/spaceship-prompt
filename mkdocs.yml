@@ -97,7 +97,7 @@ nav:
   - Blog:
       - blog/index.md
       - 2022:
-        - Announcing Spaceship v4 — a rocket-fast and customizable prompt: blog/2022-spaceship-v4.md
+        - Announcing Spaceship v4 — the faster, the better: blog/2022-spaceship-v4.md
       - 2018:
         - Meet Spaceship v3.0!: blog/2018-spaceship-v3.md
       - 2017:

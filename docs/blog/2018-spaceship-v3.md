@@ -1,7 +1,5 @@
 # Meet Spaceship ZSH v3.0!
 
-**Three… Two… One… Liftoff!**
-
 <aside class="mdx-author" markdown>
   ![@denysdovhan](https://unavatar.io/denysdovhan)
 

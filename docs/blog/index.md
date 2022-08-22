@@ -5,7 +5,7 @@ search:
 
 # Blog
 
-## [Announcing Spaceship v4 — rocket-fast and customizable prompt][spaceship-v4]
+## [Announcing Spaceship v4 — the faster, the better][spaceship-v4]
 
 **TODO**
 

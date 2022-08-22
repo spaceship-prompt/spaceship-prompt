@@ -1,7 +1,5 @@
 # A big update of spaceship-zsh-theme
 
-**What’s new, what was deprecated and what the plan for future**
-
 <aside class="mdx-author" markdown>
   ![@denysdovhna](https://unavatar.io/denysdovhan)
 
