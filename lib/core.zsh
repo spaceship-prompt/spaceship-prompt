@@ -126,6 +126,17 @@ spaceship::core::skip_section() {
   SPACESHIP_RPROMPT_ORDER=("${(@)SPACESHIP_RPROMPT_ORDER:#${section}}")
 }
 
+# Compose whole prompt from sections
+# USAGE:
+#   spaceship::core::compose_order [section...]
+spaceship::core::compose_order() {
+  # Treat the first argument as list of prompt sections
+  # Compose whole prompt from diferent parts
+  for section in $@; do
+    spaceship::section::render "$(spaceship::cache::get $section)"
+  done
+}
+
 # Render and reset the prompt asyncronously.
 # USAGE:
 #   spaceship::core::render

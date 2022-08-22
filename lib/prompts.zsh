@@ -6,8 +6,10 @@
 # PROMPT
 # Primary (left) prompt
 spaceship::prompt() {
+  _spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
+
   # Compose prompt from the order
-  local prompt="$(spaceship::compose_prompt $SPACESHIP_PROMPT_ORDER)"
+  local prompt="$(spaceship::core::compose_order $SPACESHIP_PROMPT_ORDER)"
 
   # Allow iTerm integration to work
   if [[ "${ITERM_SHELL_INTEGRATION_INSTALLED:-}" == "Yes" ]]; then
@@ -27,7 +29,7 @@ spaceship::prompt() {
 # Optional (right) prompt
 spaceship::rprompt() {
   # Compose prompt from the order
-  local rprompt="$(spaceship::compose_prompt $SPACESHIP_RPROMPT_ORDER)"
+  local rprompt="$(spaceship::core::compose_order $SPACESHIP_RPROMPT_ORDER)"
 
   if [[ "$SPACESHIP_RPROMPT_ADD_NEWLINE" != true ]]; then
     # The right prompt should be on the same line as the first line of the left
@@ -52,18 +54,6 @@ spaceship::ps2() {
   spaceship::section::render "$ps2"
 }
 
-# Compose whole prompt from sections
-# USAGE:
-#   spaceship::compose_prompt [section...]
-spaceship::compose_prompt() {
-  _spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
-
-  # Treat the first argument as list of prompt sections
-  # Compose whole prompt from diferent parts
-  for section in $@; do
-    spaceship::section::render "$(spaceship::cache::get $section)"
-  done
-}
 
 # Render the prompt. Compose variables using prompt functoins.
 # USAGE:
