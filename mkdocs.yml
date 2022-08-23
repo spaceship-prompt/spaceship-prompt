@@ -56,6 +56,9 @@ markdown_extensions:
   - pymdownx.superfences
 
 extra:
+  analytics:
+    provider: google
+    property: G-0STBM9BNC1
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/spaceship-prompt/spaceship-prompt
