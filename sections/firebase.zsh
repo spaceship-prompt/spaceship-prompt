@@ -42,7 +42,7 @@ spaceship_firebase() {
 
   if [ "$current_project" != "null" ]; then
     # remove the quotations
-    current_project=$(echo $current_project | awk '{gsub(/[\"]/, "", $1)} {print $1}')
+    current_project=$(echo $current_project | awk '{gsub(/[\"]/, "", $1)} {print $1" "}')
 
     spaceship::section \
       "$SPACESHIP_FIREBASE_COLOR" \
