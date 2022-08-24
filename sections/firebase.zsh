@@ -19,18 +19,34 @@ spaceship_firebase() {
   # check if firebase-tools cli is installed
   spaceship::exists firebase || return
 
-  local FBDIR=$(which firebase)
-
-  $FBDIR target 1>/dev/null
-  if [[ $? -eq 0 ]]; then
-    local target=$($FBDIR target | awk '{gsub(/\:/, "", $4)} {print $4}')
-  else
+  # firebase-cli creates this config file with all the settings
+  local file=~/.config/configstore/firebase-tools.json
+  if [ ! -f "$file" ]; then
     return
   fi
+  local currentDir=$(pwd)
+  # big thanks to https://github.com/jozefcipa/zsh-firebase-prompt for the actual implementation
+  current_project=$(
+    cat $file |
+      jq --arg currentDir $currentDir '
+        [
+            .activeProjects
+            | to_entries[]
+            | .key as $key
+            | select($currentDir | startswith($key))
+        ] | [
+            sort_by(.key | length)
+            | reverse[]
+        ] | .[0].value'
+  )
 
-  spaceship::section \
-    "$SPACESHIP_FIREBASE_COLOR" \
-    "$SPACESHIP_FIREBASE_PREFIX" \
-    "${SPACESHIP_FIREBASE_SYMBOL}${target}"
+  if [ "$current_project" != "null" ]; then
+    # remove the quotations
+    current_project=$(echo $current_project | awk '{gsub(/[\"]/, "", $1)} {print $1}')
 
+    spaceship::section \
+      "$SPACESHIP_FIREBASE_COLOR" \
+      "$SPACESHIP_FIREBASE_PREFIX" \
+      "${SPACESHIP_FIREBASE_SYMBOL}${current_project}"
+  fi
 }
