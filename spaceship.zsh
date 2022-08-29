@@ -139,10 +139,14 @@ readonly SPACESHIP_LIBS=(
   "lib/testkit.zsh" # Testing utils
 )
 
+# Load and precompile internals
 for lib in "${SPACESHIP_LIBS[@]}"; do
   builtin source "$SPACESHIP_ROOT/$lib"
   spaceship::precompile "$SPACESHIP_ROOT/$lib"
 done
+
+# Load and precompile this file
+spaceship::precompile "$0"
 
 # ------------------------------------------------------------------------------
 # BACKWARD COMPATIBILITY WARNINGS

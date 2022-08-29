@@ -31,8 +31,11 @@ spaceship::core::load_sections() {
     fi
   done
 
-  if ${load_async}; then
-    (( ASYNC_INIT_DONE )) || source "${SPACESHIP_ROOT}/async.zsh"
+  if $load_async; then
+    (( ASYNC_INIT_DONE )) || {
+      builtin source "$SPACESHIP_ROOT/async.zsh"
+      spaceship::precompile "$SPACESHIP_ROOT/async.zsh"
+    }
   fi
 }
 
