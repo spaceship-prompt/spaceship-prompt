@@ -128,29 +128,21 @@ fi
 # Spaceship utils/hooks/etc
 # ------------------------------------------------------------------------------
 
-# Load utils
-source "$SPACESHIP_ROOT/lib/utils.zsh"
+readonly SPACESHIP_LIBS=(
+  "lib/utils.zsh"   # General porpuse utils
+  "lib/cache.zsh"   # Cache utils
+  "lib/hooks.zsh"   # Zsh hooks
+  "lib/section.zsh" # Section utils
+  "lib/core.zsh"    # Core functions for loading and rendering
+  "lib/prompts.zsh" # Composing prompt variables
+  "lib/cli.zsh"     # CLI interface
+  "lib/testkit.zsh" # Testing utils
+)
 
-# Load cache
-source "$SPACESHIP_ROOT/lib/cache.zsh"
-
-# Load hooks
-source "$SPACESHIP_ROOT/lib/hooks.zsh"
-
-# Load section utils
-source "$SPACESHIP_ROOT/lib/section.zsh"
-
-# Load prompt renderer
-source "$SPACESHIP_ROOT/lib/core.zsh"
-
-# Load functions for composing prompts
-source "$SPACESHIP_ROOT/lib/prompts.zsh"
-
-# Load command line interface
-source "$SPACESHIP_ROOT/lib/cli.zsh"
-
-# Load testkit
-source "$SPACESHIP_ROOT/lib/testkit.zsh"
+for lib in "${SPACESHIP_LIBS[@]}"; do
+  builtin source "$SPACESHIP_ROOT/$lib"
+  spaceship::precompile "$SPACESHIP_ROOT/$lib"
+done
 
 # ------------------------------------------------------------------------------
 # BACKWARD COMPATIBILITY WARNINGS

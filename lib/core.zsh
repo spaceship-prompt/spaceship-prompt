@@ -18,7 +18,8 @@ spaceship::core::load_sections() {
       # Custom section is declared, nothing else to do
       continue
     elif [[ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]]; then
-      source "$SPACESHIP_ROOT/sections/$section.zsh"
+      builtin source "$SPACESHIP_ROOT/sections/$section.zsh"
+      spaceship::precompile "$SPACESHIP_ROOT/sections/$section.zsh"
     else
       # section is not found!
       spaceship::core::skip_section "$section"

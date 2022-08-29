@@ -18,6 +18,19 @@ spaceship::defined() {
   typeset -f + "$1" &> /dev/null
 }
 
+# Precompile zsh file to ZWC (zsh word code)
+# USAGE:
+#  spaceship::precomile <file>
+spaceship::precompile() {
+  spaceship::exists zcompile || return 1
+
+  local file="$1"
+
+  if [[ ! $file.zwc -nt $file && -w "$(dirname $1)" ]]; then
+    zcompile -R -- $file.zwc $file
+  fi
+}
+
 # Check if the current directory is in a Git repository.
 # USAGE:
 #   spaceship::is_git
