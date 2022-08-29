@@ -337,6 +337,6 @@ _spaceship() {
   return 0
 }
 
-if spaceship::exists spaceship; then
+if spaceship::exists compdef; then
   compdef _spaceship spaceship
 fi
