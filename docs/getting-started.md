@@ -25,8 +25,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
         If you're using any plugin manager, like Oh-My-Zsh, antigen, zgen, zplug or other, this might not be the best way to install Spaceship for you.
 
     1. Clone this repo somewhere, for example to `$HOME/.zsh/spaceship`.
-    2. Add the path of the cloned repo to `$fpath` in `$HOME/.zshrc`.
-    3. Activate Spaceship prompt by `promptinit`.
+    2. Source Spaceship in your `~/.zshrc`.
 
     ### Example
 
@@ -38,12 +37,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     For initializing prompt system add this to your `.zshrc`:
 
     ```zsh title=".zshrc"
-    # Add Spaceship to fpath
-    fpath+="$HOME/.zsh/spaceship"
-
-    # Activate Spaceship prompt
-    autoload -U promptinit; promptinit
-    prompt spaceship
+    source "~/.zsh/spaceship/spaceship.zsh"
     ```
 
 === "Homebrew"
@@ -54,19 +48,11 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     brew install spaceship
     ```
 
-    For initializing prompt system add this to your `.zshrc`:
+    Add prompt initialization to your `.zshrc`:
 
-    ```zsh title=".zshrc"
-    autoload -U promptinit; promptinit
-    prompt spaceship
+    ```zsh title="Terminal"
+    echo "source $(brew --prefix)/opt/spaceship/spaceship.zsh" >>! ~/.zshrc
     ```
-
-    !!! attention
-        If you're not using Zsh from Homebrew, you might also need to add the `site-functions` to your `fpath` _before_ loading `promptinit` in `.zshrc`:
-
-        ```zsh title=".zshrc"
-        fpath+="$(brew --prefix)/share/zsh/site-functions"
-        ```
 
     !!! tip
         You can also add the following to your [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage) to bundle Spaceship along with your other software:
@@ -99,14 +85,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     npm install -g spaceship-prompt
     ```
 
-    Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath`.
-
-    For initializing prompt system add this to your `.zshrc`:
-
-    ```zsh title=".zshrc"
-    autoload -U promptinit; promptinit
-    prompt spaceship
-    ```
+    This command will download Spaceship. It will also ask you to source Spaceship in your `~/.zshrc` file.
 
     !!! tip
         Update Spaceship to new versions as you would any other package.

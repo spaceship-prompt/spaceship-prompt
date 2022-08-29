@@ -40,6 +40,5 @@
   "bugs": {
     "url": "https://github.com/spaceship-prompt/spaceship-prompt/issues"
   },
-  "homepage": "https://github.com/spaceship-prompt/spaceship-prompt#readme",
-  "dependencies": {}
+  "homepage": "https://github.com/spaceship-prompt/spaceship-prompt#readme"
 }
