@@ -109,22 +109,15 @@ Here's a few popular methods to install Spaceship. Select the one you use from t
 <summary>Homebrew</summary>
 Installing Spaceship via Homebrew is a simple command:
 
-```zsh
+```zsh title="Terminal"
 brew install spaceship
 ```
 
-For initializing prompt system add this to your `.zshrc`:
+Add prompt initialization to your `.zshrc`:
 
-```zsh
-autoload -U promptinit; promptinit
-prompt spaceship
+```zsh title="Terminal"
+echo "source $(brew --prefix)/opt/spaceship/spaceship.zsh" >>! ~/.zshrc
 ```
-
-> **Attention:** If you're not using Zsh from Homebrew, you might also need to add the `site-functions` to your `fpath` _before_ loading `promptinit` in `.zshrc`:
->
-> ```zsh
-> fpath+="$(brew --prefix)/share/zsh/site-functions"
-> ```
 </details>
 
 <details>
@@ -152,14 +145,8 @@ Install Spaceship via npm as you would with any other global package:
 npm install -g spaceship-prompt
 ```
 
-Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath`.
+This command will download Spaceship. It will also ask you to source Spaceship in your `~/.zshrc` file.
 
-For initializing prompt system add this to your `.zshrc`:
-
-```zsh
-autoload -U promptinit; promptinit
-prompt spaceship
-```
 </details>
 
 <details>
@@ -276,13 +263,8 @@ git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$H
 
 For initializing prompt system add this to your `.zshrc`:
 
-```zsh
-# Add Spaceship to fpath
-fpath+="$HOME/.zsh/spaceship"
-
-# Activate Spaceship prompt
-autoload -U promptinit; promptinit
-prompt spaceship
+```zsh title=".zshrc"
+source "~/.zsh/spaceship/spaceship.zsh"
 ```
 </details>
 
