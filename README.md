@@ -163,7 +163,7 @@ This command will download Spaceship. It will also ask you to source Spaceship i
 Add Spaceship to your `.zimrc`:
 
 ```zsh
-zmodule spaceship-prompt/spaceship-prompt --name spaceship
+zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules
 ```
 
 Then install Spaceship:
