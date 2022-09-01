@@ -48,7 +48,7 @@ All options of prompt follow a specific pattern so that it is easy to remember: 
 
 The simplest way to create a section is to use a template repo for Spaceship section.
 
-[Use a section template](https://github.com/spaceship-prompt/spaceship-section){ .md-button }
+[:fontawesome-brands-github: Use a section template](https://github.com/spaceship-prompt/spaceship-section){ .md-button }
 
 This boilerplate repo contains a template for a section and its documentation, has configured release and testing workflow. Explore the repo to learn more.
 

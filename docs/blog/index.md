@@ -7,7 +7,7 @@ search:
 
 ## [Announcing Spaceship v4 — the faster, the better][spaceship-v4]
 
-**TODO**
+**_The wait is over._ We're finally ready to launch the new version of Spaceship.**
 
 <!-- TODO: Update tags and date -->
 <aside class="mdx-author" markdown>
@@ -22,7 +22,7 @@ search:
 
 ---
 
-TODO
+This is a major release, bringing many new features and smaller improvements. We've dramatically improved performance, improved API, made configuration easier and refactored dozens of parts of the codebase. Let's see what's new in Spaceship v4.
 
 [:octicons-arrow-right-24: Continue reading][spaceship-v4]
 [spaceship-v4]: /blog/2022-spaceship-v4
