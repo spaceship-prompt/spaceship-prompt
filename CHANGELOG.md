@@ -1,3 +1,95 @@
+# [4.0.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.7...v4.0.0) (2022-09-01)
+
+
+### Bug Fixes
+
+* add permissions to scripts ([7c3e427](https://github.com/spaceship-prompt/spaceship-prompt/commit/7c3e42727531ff612588722c509da643566f57fd))
+* add x permissions to files ([9a34149](https://github.com/spaceship-prompt/spaceship-prompt/commit/9a341498bb6d31bf6d179121adbe781972fcde26))
+* **async:** remove obsolete runtime variables ([2128ab0](https://github.com/spaceship-prompt/spaceship-prompt/commit/2128ab0046080d633c29a69f86322ca4ca9bed90))
+* cherry pick [#1089](https://github.com/spaceship-prompt/spaceship-prompt/issues/1089) ([52448c1](https://github.com/spaceship-prompt/spaceship-prompt/commit/52448c121f7d3602e2e046ae674b70c5a8bbdafa))
+* **cli:** Add missing commands in help message ([c2eb3e3](https://github.com/spaceship-prompt/spaceship-prompt/commit/c2eb3e35e8088c014cc0ed04aaab8133afaa3dd6))
+* compdef only when compdef is available ([c309af6](https://github.com/spaceship-prompt/spaceship-prompt/commit/c309af62cbb8411583228a179ccb37d8329d2af6))
+* **docker:** add additional utils inside docker image ([8813eb0](https://github.com/spaceship-prompt/spaceship-prompt/commit/8813eb0b691d1ccab1042c93edffc1c43764a0b5))
+* fix command-line completion leving one letter on the beginning of prompt ([6a4abd5](https://github.com/spaceship-prompt/spaceship-prompt/commit/6a4abd5c3489ef3a1f1387673bafdb2ab0298887)), closes [#1064](https://github.com/spaceship-prompt/spaceship-prompt/issues/1064)
+* **git:** Add explicit variable for async rendering ([cfa95e6](https://github.com/spaceship-prompt/spaceship-prompt/commit/cfa95e6c80ee9d5d9dfa486daf892c1021278140))
+* **git:** fix ahead/behind indicators ([a067c4d](https://github.com/spaceship-prompt/spaceship-prompt/commit/a067c4df0b663410f7e617e9a2240393f9219095))
+* **git:** Fix typo in a section signature ([f8ed612](https://github.com/spaceship-prompt/spaceship-prompt/commit/f8ed612d8b5328d934a86c5664a745e9fbc0628d))
+* **hg:** Add options for async rendering ([d5bdfa4](https://github.com/spaceship-prompt/spaceship-prompt/commit/d5bdfa42dc969fe9098792a305b34352d1ba4048))
+* **kubectl:** fix kubectl section ([1b71e09](https://github.com/spaceship-prompt/spaceship-prompt/commit/1b71e096dd68be80672173686ea1974d8095ea45))
+* make core variables readonly ([1cd4756](https://github.com/spaceship-prompt/spaceship-prompt/commit/1cd4756caf2080f8a13bd5aab15d927660f3d836))
+* NEWLINE variable doesn't work ([28b37f5](https://github.com/spaceship-prompt/spaceship-prompt/commit/28b37f566ebc141c93395d003601e1447f6bf91f))
+* **ps2:** print PS2 properly ([0d9766c](https://github.com/spaceship-prompt/spaceship-prompt/commit/0d9766c8b65707cb3e7eef19f78bb080cdda3e1b))
+* put user config loading in a proper place ([5c68702](https://github.com/spaceship-prompt/spaceship-prompt/commit/5c68702d6e695b517ca89593777651d665c8719e))
+* **python:** use python3 command ([0466bb8](https://github.com/spaceship-prompt/spaceship-prompt/commit/0466bb8a9c443e930d9ba11318b5fe6b0f8a6cca))
+* **renderer:** fix missing options for globes ([107429c](https://github.com/spaceship-prompt/spaceship-prompt/commit/107429ce5ea936d25fc8cbf813fcf256be75c683))
+* rendering docker context ([b6a49f8](https://github.com/spaceship-prompt/spaceship-prompt/commit/b6a49f8e00f28f265c13340183d102a1bbe5252f))
+* Resolve newline issue with command expansion ([bcfce70](https://github.com/spaceship-prompt/spaceship-prompt/commit/bcfce70c8552d4b8e378e7b542754da4115ce7b8))
+* **scripts:** Stop on errors ([ccee8e9](https://github.com/spaceship-prompt/spaceship-prompt/commit/ccee8e994d5bd1ddda8c3ed89e9d6767792a7b67))
+* set proper message if no account ([#1099](https://github.com/spaceship-prompt/spaceship-prompt/issues/1099)) ([69f906c](https://github.com/spaceship-prompt/spaceship-prompt/commit/69f906caa21af14b7ae199f2252629331485b8cd))
+* support CLOUDSDK_CONFIG env ([#1122](https://github.com/spaceship-prompt/spaceship-prompt/issues/1122)) ([ae348f9](https://github.com/spaceship-prompt/spaceship-prompt/commit/ae348f9a3df50b13134f1dc7f5eaa574f215cf74)), closes [#1117](https://github.com/spaceship-prompt/spaceship-prompt/issues/1117)
+* **tests:** render prefixes and suffixes only when they are not empty ([73c2c71](https://github.com/spaceship-prompt/spaceship-prompt/commit/73c2c7135edfeadb92b285c7db70af63566f7852))
+* **upsearch:** Check repo properly ([4764ed9](https://github.com/spaceship-prompt/spaceship-prompt/commit/4764ed921d2b6a78c2ea72641ba91ed072e7b3b5))
+
+
+### Code Refactoring
+
+* **ember:** remove ember from built-in sections ([05beb8b](https://github.com/spaceship-prompt/spaceship-prompt/commit/05beb8b56f6203d215c50c0b26ff27174b9104ab))
+* **gradle:** migrate Gradle to a separate repo ([984bc01](https://github.com/spaceship-prompt/spaceship-prompt/commit/984bc01c073c399dfb7484c5ecdff672062a213f))
+* **install:** simplify the installation process ([824f876](https://github.com/spaceship-prompt/spaceship-prompt/commit/824f87657309b1f2579173252667a3cfb88c881e))
+* **maven:** migrate Maven to a separate repo ([3efd48b](https://github.com/spaceship-prompt/spaceship-prompt/commit/3efd48b55029ae2c68bbf4e3a43fb922c8b3e942))
+* **vi_mode:** move vi_mode to external section ([9ce611b](https://github.com/spaceship-prompt/spaceship-prompt/commit/9ce611b10ba3766f149abe8a1c1d27f488845b6e)), closes [#586](https://github.com/spaceship-prompt/spaceship-prompt/issues/586)
+
+
+### Features
+
+* add ability to forcefully render a section synchronously ([216f0f2](https://github.com/spaceship-prompt/spaceship-prompt/commit/216f0f2c710191b1f3436c744c52b7de21129b4b))
+* add IBM Cloud CLI section ([#912](https://github.com/spaceship-prompt/spaceship-prompt/issues/912)) ([30b4b60](https://github.com/spaceship-prompt/spaceship-prompt/commit/30b4b60176e727cbf7b1fc7d1bccadcd61139c0b))
+* Add is_async util ([d539ee5](https://github.com/spaceship-prompt/spaceship-prompt/commit/d539ee5d61714addb80ba2d531a36d1029cc3d18))
+* Add java section ([713f406](https://github.com/spaceship-prompt/spaceship-prompt/commit/713f406a3f1bdbeda50bf6924dbf957230361595))
+* **async:** add an option to globaly disable/enable async rendering ([0ca1463](https://github.com/spaceship-prompt/spaceship-prompt/commit/0ca1463b1891edfcad0d25897a0c733dfdd19d73))
+* **async:** introduce async jobs indicator ([f0a75ce](https://github.com/spaceship-prompt/spaceship-prompt/commit/f0a75cece5361963b4c9a39fbd9151093ec3502d))
+* **cli:** add a print command for CLI ([6843105](https://github.com/spaceship-prompt/spaceship-prompt/commit/6843105f2a061629cc912d255f6e9ace98cc485b))
+* **cli:** add CLI ([205cb16](https://github.com/spaceship-prompt/spaceship-prompt/commit/205cb16eef6783d6e37af47d2492861d5c5aba7a))
+* **cli:** add command completions for cli ([2ae45a4](https://github.com/spaceship-prompt/spaceship-prompt/commit/2ae45a4ec0c4231b69c2090d3a7ed2211051945a))
+* **cli:** Add edit command ([b029587](https://github.com/spaceship-prompt/spaceship-prompt/commit/b029587ed9473ba9b8efc19ddaf8135636ae2d08))
+* **cli:** CLI for inserting and removing sections ([5dcce40](https://github.com/spaceship-prompt/spaceship-prompt/commit/5dcce40e99e0595453133862b95720882ab07fe7)), closes [#318](https://github.com/spaceship-prompt/spaceship-prompt/issues/318)
+* **config:** Add ability to store config in ~/.config/spaceship ([b5dee37](https://github.com/spaceship-prompt/spaceship-prompt/commit/b5dee377c85b54e4f70071de42bc1cff52816f82))
+* **config:** introduce config file resolution ([e087459](https://github.com/spaceship-prompt/spaceship-prompt/commit/e087459d316aa445506cf41b3d58be4b0b4b854a)), closes [#508](https://github.com/spaceship-prompt/spaceship-prompt/issues/508)
+* **docker:** add docker image and publishing it to ghcr.io ([77d7457](https://github.com/spaceship-prompt/spaceship-prompt/commit/77d74570b7a68c934bb4e5c5ac1a7b36e9fd96cb))
+* **exec_time:** display exec time with precision ([7b04aed](https://github.com/spaceship-prompt/spaceship-prompt/commit/7b04aed499175e22ec37b9af55fb3375d5fd48b1))
+* **git:** add ability to customize git and hg orders ([8a54cb3](https://github.com/spaceship-prompt/spaceship-prompt/commit/8a54cb39036b173be143b134f1ce00760813fe2d)), closes [#391](https://github.com/spaceship-prompt/spaceship-prompt/issues/391)
+* **haskell:** Look for .hs files ([b2eb8a3](https://github.com/spaceship-prompt/spaceship-prompt/commit/b2eb8a35f3c41b73a7d48787a3f4f413c390407f))
+* **ibmcloud:** Enable async rendering for ibmcloud ([8391054](https://github.com/spaceship-prompt/spaceship-prompt/commit/8391054c79bacd68c87032ae9011f9c8deb424c6))
+* **package:** Add composer and julia support ([3f8bb1e](https://github.com/spaceship-prompt/spaceship-prompt/commit/3f8bb1e5a41ad33f55f5c078ed893a4ef7cee214))
+* **perf:** Compile to zwc ([3549bbf](https://github.com/spaceship-prompt/spaceship-prompt/commit/3549bbf9050670b70f79b61c6c90755022448b7e))
+* **registry:** Add custom sections registry ([86d64dd](https://github.com/spaceship-prompt/spaceship-prompt/commit/86d64ddbba4c42092a6fcb98dc06822726531a49))
+* **renderer:** render sync section on every render ([4e93ae0](https://github.com/spaceship-prompt/spaceship-prompt/commit/4e93ae0ccbb7cd692995b5e78942e783bb25aa71))
+* **section:** migrate default section to v4 ([0684171](https://github.com/spaceship-prompt/spaceship-prompt/commit/0684171c41783c278cfaa84fbc844a18a1b4a7ed))
+* **section:** Migrate sections to new signature ([b3249fb](https://github.com/spaceship-prompt/spaceship-prompt/commit/b3249fb756a31dec21f1c11beca1a37bf961332d))
+* **section:** Named arguments for section ([201496b](https://github.com/spaceship-prompt/spaceship-prompt/commit/201496b4311852e070b315b473dcfbe1d9a792cc))
+* **testkit:** add a simple testkit ([1ceca85](https://github.com/spaceship-prompt/spaceship-prompt/commit/1ceca858ddfe8888418e7096e3f863df5d611d6e))
+* Upsearch for project files up the tree ([08f6d70](https://github.com/spaceship-prompt/spaceship-prompt/commit/08f6d70e972fc56fa47dccb42f1e44b0bdce352b))
+* **vsc:** Make git and hg async ([9ddb9be](https://github.com/spaceship-prompt/spaceship-prompt/commit/9ddb9be29df8058e06b43a4a7504b4faa87cd677))
+
+
+### Performance Improvements
+
+* **zwc:** Precompile root file and async ([ee5afc5](https://github.com/spaceship-prompt/spaceship-prompt/commit/ee5afc5caf87b22bf3467679f8a6849c04956b03))
+* **zwc:** spaceship::precompile compiles sources to zwc ([58758e7](https://github.com/spaceship-prompt/spaceship-prompt/commit/58758e785d948ba3d5a1718dc5cc11321339ab81))
+
+
+### BREAKING CHANGES
+
+* **section:** spaceship::section:v4 uses flags instead of arguments order to pass section params.
+* **vi_mode:** vi_mode section is not include in core anymore
+* **gradle:** Gradle section is not included by default. It can be installed additionally from:
+https://github.com/spaceship-prompt/spaceship-gradle
+* **maven:** Maven section is no longer available by default. It can be additionally installed
+from: https://github.com/spaceship-prompt/spaceship-maven
+* **install:** Now users have to manually enable prompt system and choose spaceship
+* **ember:** ember section is no longer available out of the box. It needs to be installed
+additionally.
+
 ## [3.16.7](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.6...v3.16.7) (2022-05-10)
 
 
