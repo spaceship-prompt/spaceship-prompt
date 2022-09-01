@@ -11,74 +11,130 @@ hero:
 features:
   - 
     title: Охайний та простий
-    image: /assets/what-is-needed.svg
+    image: /assets/images/what-is-needed.svg
     description: Командний рядок не перевантажений, а показує тільки те, що вам потрібно в даний момент (поточна директорія, гілка git тощо).
   - 
     title: Просто встановлюється
-    image: /assets/out-of-the-box.svg
+    image: /assets/images/out-of-the-box.svg
     description: The prompt works right after installation without any additional configuration. install it and use it.
   - 
     title: Легко налаштовується
-    image: /assets/configurable.svg
+    image: /assets/images/configurable.svg
     description: Командний рядок не потребує конфігурації, однак надає зрозумілий та простий інтерфейс для налаштувань.
+companies:
+  title: Used daily by marvelous folks at
+  list:
+    - 
+      name: Wix
+      logo: https://cdn.svgporn.com/logos/wix.svg
+    - 
+      name: Google
+      logo: https://cdn.svgporn.com/logos/google.svg
+    - 
+      name: Siemens
+      logo: https://upload.wikimedia.org/wikipedia/commons/5/5f/Siemens-logo.svg
+    - 
+      name: Microsoft
+      logo: https://cdn.svgporn.com/logos/microsoft.svg
+    - 
+      name: Adobe
+      logo: https://upload.wikimedia.org/wikipedia/commons/6/6e/Adobe_Corporate_logo.svg
+    - 
+      name: Docker
+      logo: https://cdn.svgporn.com/logos/docker.svg
+    - 
+      name: Shopify
+      logo: https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg
+    - 
+      name: GitHub
+      logo: https://cdn.svgporn.com/logos/github.svg
+    - 
+      name: Red Hat
+      logo: https://cdn.svgporn.com/logos/redhat.svg
+    - 
+      name: Amazon Web Services
+      logo: https://cdn.svgporn.com/logos/aws.svg
+    - 
+      name: Facebook
+      logo: https://cdn.worldvectorlogo.com/logos/facebook-7.svg
+    - 
+      name: npm
+      logo: https://cdn.svgporn.com/logos/npm.svg
+    - 
+      name: Unity Technologies
+      logo: https://cdn.worldvectorlogo.com/logos/unity-technologies-logo.svg
+    - 
+      name: Angular
+      logo: https://cdn.svgporn.com/logos/angular.svg
+    - 
+      name: Mozilla
+      logo: https://cdn.svgporn.com/logos/mozilla.svg
+    - 
+      name: Framer
+      logo: https://cdn.svgporn.com/logos/framer.svg
+    - 
+      name: Grammarly
+      logo: https://cdn.svgporn.com/logos/grammarly.svg
+    - 
+      name: Skyscanner
+      logo: https://upload.wikimedia.org/wikipedia/commons/9/94/Skyscanner_Logo_LockupHorizontal_SkyBlue_RGB.svg
+    - 
+      name: Node.js
+      logo: https://cdn.svgporn.com/logos/nodejs.svg
+    - 
+      name: Vue Storefront
+      logo: https://cdn.worldvectorlogo.com/logos/vue-storefront.svg
+    - 
+      name: Coinbase
+      logo: https://cdn.worldvectorlogo.com/logos/coinbase-1.svg
+    - 
+      name: Suse
+      logo: https://cdn.svgporn.com/logos/suse.svg
 ---
 
 # Ласкаво просимо на борт, астронавте!
 
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua)
 
-<p align="center">
-  <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
-</p>
+<div class="terminal-demo">
+  <script id="asciicast-513451" src="https://asciinema.org/a/513451.js" data-autoplay="true" data-loop="true" data-preload="true" async></script>
+  <noscript>
+    <object class="asciicast" type="image/svg+xml" data="/assets/images/spaceship-demo.svg">
+      <img src="/assets/images/spaceship-demo.gif" alt="Spaceship demo" />
+    </object>
+  </noscript>
+</div>
 
 ## Можливості
 
-**Spaceship** is packed with cool features. Here are some sneak picks:
+**Spaceship** is a superpowered Zsh prompt. Prompt is what you see when you type a command. It can show a lot of useful tips, saving your time and making user experience smooth and pleasant.
 
-- Розумне відображення імені користувача, хоста та символу-запрошення.
-- Поточні статуси Git і Mercurial репозиторіїв.
-- Індикатор для задач, що виконуються у фоновому режимі `<unk>`.
-- Поточні версії Node.js `⬢`, Ruby `💎`, Elm `🌳`, Elixir `💧`, Swift `🐦`, Xcode `🛠`, Go `🐹`, PHP `🐘`, Rust `𝗥`, Haskell `λ`, Julia `ஃ`, Python `🐍`, Conda `🅒`, .NET SDK `.NET`, Ember.js `🐹`.
-- Версія пакета, якщо він присутній у поточному каталозі `📦`.
-- Поточна версія Docker і під'єднана машина `🐳`.
-- Поточний профіль Amazon Web Services (AWS) `☁️` ([використовуючи іменовані профілі](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)).
-- Поточна конфігурація Google Cloud Platform gcloud `☁️`.
-- Поточний контекст Kubectl `☸️`.
-- Поточна робоча область Terraform `🛠`.
-- Поточний рівень заряду батареї та її статус.
-- Поточний режим Vi-mode ([з зручними аліасами для тимчасово ввімкнення/вимкнення](./options.md#vi-mode-vi_mode)).
-- Час виконання останньої команди, якщо він перевищує встановлене значення.
+Here are some sneak picks of what **Spaceship** can show:
+
+- Clever hostname and username displaying
+- Repository statuses (Git and Mercurial are supported)
+- Runtime environments for various languages (Node.js, Rust, Python, Ruby, Swift, Go, PHP and many others)
+- Docker version, Kubernetes context and connected machine
+- Package version (npm, lerna, cargo, composer and others)
+- Battery level and status
+- Indicator for jobs in the background `✦`
+- A lot of [useful information](/sections)
+- Custom [information of your choice](/advanced/creating-section)
 
 Want more features? Please, [open an issue](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose) or send pull request.
 
-<!-- prettier-ignore -->
-!!! tip
-    Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
+## Getting Started
 
-## Усунення несправностей
+Installing Spaceship is simple and quick. It's configurable and easy to use.
 
-Here's a list of related projects that have been inspired by Spaceship ZSH.
-
-- [**matchai/spacefish**](https://github.com/matchai/spacefish) - порт Spaceship для fish, який має намір досягти повного паритету функцій.
-- [**зірка/зірка**](https://github.com/starship/starship) - швидкий, крос-оболонковий командний рядок, написаний на Rust, натхненний Spaceship.
+[Installation](/getting-started ""){.md-button.md-button--primary} [Configuration](/config/intro ""){.md-button}
 
 ## Пов'язані проекти
 
-Hi! I work on this project in my spare time, in addition to my primary job. I hope you enjoy using Spaceship. If you do, please, [become my patron 🤝][patreon-url].
+Join our community and consider contributing to the project.
 
-|            Patreon            |                                                                     Bitcoin                                                                      |                                                                     Ethereum                                                                     |
-|:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------:|
-| [Стати патроном][patreon-url] |                                                       `1FrPrQb6ACTkbSBAz9PduJWrDFfq41Ggb4`                                                       |                                                   `0x6aF39C917359897ae6969Ad682C14110afe1a0a1`                                                   |
-|   <a href="https://www.patreon.com/spaceship-prompt"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px"></a>   | <img src="https://user-images.githubusercontent.com/3459374/33760933-1c9b81b4-dc10-11e7-8e4b-22d81f98c138.png" width="100px" /> | <img src="https://user-images.githubusercontent.com/3459374/33760932-1c7b3fb2-dc10-11e7-9774-411264d533da.png" width="100px" /> |
-
-This is your way make a clear statement: **My work is valued.**
-
-I would appreciate your support! _Thank you!_
+[:material-hand-heart: Contribute](/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button} [:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/ ""){.md-button}
 
 ## Ліцензія
 
 MIT © [Denys Dovhan](http://denysdovhan.com)
-
-[patreon-url]: https://www.patreon.com/denysdovhan
-
-[patreon-url]: https://www.patreon.com/denysdovhan
