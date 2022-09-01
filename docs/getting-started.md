@@ -101,7 +101,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     Add Spaceship to your `.zimrc`:
 
     ```zsh title=".zimrc"
-    zmodule spaceship-prompt/spaceship-prompt --name spaceship
+    zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules
     ```
 
     Then install Spaceship:
