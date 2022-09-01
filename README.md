@@ -226,7 +226,6 @@ Add the following to your `plugins.toml` file (open it with `sheldon edit`):
 [plugins.spaceship]
 github = "spaceship-prompt/spaceship-prompt"
 ```
-</details>
 
 Or run the following to automatically add it:
 
