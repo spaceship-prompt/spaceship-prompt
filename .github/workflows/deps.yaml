@@ -1,10 +1,7 @@
 name: deps
 on:
   schedule:
-    # Normaly every 10:00, every day
-    # Now every hour for testing
-    # - cron: '0 10 * * *' # At 10:00, every day
-    - cron: '0 * * * *' # Every hour, every day
+    - cron: '0 10 * * *' # At 10:00, every day
 
 jobs:
   zsh-async:
@@ -40,7 +37,7 @@ jobs:
           commit-message: |
             build(zsh-async): Update zsh-async to ${{ steps.zsh-async.outputs.release_tag }}
           title: |
-            Update zsh-async to ${{ steps.zsh-async.outputs.release_tag }}
+            build(zsh-async): Update zsh-async to ${{ steps.zsh-async.outputs.release_tag }}
           body: |
             Updates [zsh-async][1] to ${{ steps.zsh-async.outputs.release_tag }}
 
