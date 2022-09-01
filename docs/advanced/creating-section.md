@@ -132,5 +132,5 @@ The next step is to share your section with the community.
 
 Open a discussion topic on our Discussion forum:
 
-[Add to Registry](https://github.com/spaceship-prompt/spaceship-prompt/blob/4.x/docs/registry/external.json){ .md-button }
+[Add to Registry](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/docs/registry/external.json){ .md-button }
 [Share on forum](https://github.com/spaceship-prompt/spaceship-prompt/discussions/new?category=show-and-tell&title=Section%20for%20[tool]){ .md-button }

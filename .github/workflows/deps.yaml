@@ -11,15 +11,8 @@ jobs:
     name: Update zsh-async
     runs-on: ubuntu-latest
     steps:
-      - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.9.1
-
       - name: ⬇️ Checkout Repo
-        uses: actions/checkout@v2
-        with:
-          # FIXME: Remove this when 4.x is merged
-          # See: https://stackoverflow.com/a/58800550/5508862
-          ref: 4.x
+        uses: actions/checkout@v3
 
       - name: 👀 Check zsh-async Releases
         id: zsh-async
