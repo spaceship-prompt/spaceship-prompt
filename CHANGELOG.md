@@ -1,3 +1,10 @@
+## [3.16.7](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.6...v3.16.7) (2022-05-10)
+
+
+### Bug Fixes
+
+* revert problem with publishing to brew ([d76cc7b](https://github.com/spaceship-prompt/spaceship-prompt/commit/d76cc7ba804471c78dfc1d471f688019a65934a6))
+
 ## [3.16.6](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.5...v3.16.6) (2022-05-09)
 
 

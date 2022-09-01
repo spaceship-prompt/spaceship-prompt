@@ -23,7 +23,7 @@ SPACESHIP_JOBS_AMOUNT_THRESHOLD="${SPACESHIP_JOBS_AMOUNT_THRESHOLD=1}"
 spaceship_jobs() {
   [[ $SPACESHIP_JOBS_SHOW == false ]] && return
 
-  local jobs_amount=$(jobs -d | awk '!/pwd/' | wc -l | tr -d " ")
+  local jobs_amount=${#jobstates}
 
   [[ $jobs_amount -gt 0 ]] || return
 

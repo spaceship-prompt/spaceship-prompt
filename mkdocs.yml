@@ -125,6 +125,9 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
 extra:
+  analytics:
+    provider: google
+    property: G-0STBM9BNC1
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/spaceship-prompt/spaceship-prompt
