@@ -2,9 +2,7 @@ name: docker
 on:
   push:
     branches:
-      - 4.x
-      # FIXME: Use only master in future
-      # - master
+      - master
 
 env:
   REGISTRY: ghcr.io
