@@ -46,6 +46,5 @@ jobs:
 
             [1]: https://github.com/mafredri/zsh-async
           labels: async, dependencies
-          branch: zsh-async-update
-          branch-suffix: ${{ steps.zsh-async.outputs.release_tag }}
+          branch: zsh-async-bump
           delete-branch: true
