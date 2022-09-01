@@ -23,6 +23,9 @@ fi
 source "$SPACESHIP_ROOT/sections/hg_branch.zsh"
 source "$SPACESHIP_ROOT/sections/hg_status.zsh"
 
+spaceship::precompile "$SPACESHIP_ROOT/sections/hg_branch.zsh"
+spaceship::precompile "$SPACESHIP_ROOT/sections/hg_status.zsh"
+
 # ------------------------------------------------------------------------------
 # Section
 # ------------------------------------------------------------------------------

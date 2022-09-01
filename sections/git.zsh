@@ -23,6 +23,9 @@ fi
 source "$SPACESHIP_ROOT/sections/git_branch.zsh"
 source "$SPACESHIP_ROOT/sections/git_status.zsh"
 
+spaceship::precompile "$SPACESHIP_ROOT/sections/git_branch.zsh"
+spaceship::precompile "$SPACESHIP_ROOT/sections/git_status.zsh"
+
 # ------------------------------------------------------------------------------
 # Section
 # ------------------------------------------------------------------------------

@@ -170,12 +170,6 @@ _spaceship::cli::add() {
   local order=("${(P@)order_option}")
   local new_order=()
 
-  for section in "${sections[@]}"; do
-    if ! spaceship::defined "spaceship_$section"; then
-      spaceship::core::skip_section "$section"
-    fi
-  done
-
   if [[ -n "$before_section" ]]; then
     index="${order[(i)${before_section}]=0}"
     new_order=(

@@ -21,6 +21,7 @@ SPACESHIP_DOCKER_VERBOSE="${SPACESHIP_DOCKER_VERBOSE=false}"
 # ------------------------------------------------------------------------------
 
 source "$SPACESHIP_ROOT/sections/docker_context.zsh"
+spaceship::precompile "$SPACESHIP_ROOT/sections/docker_context.zsh"
 
 # ------------------------------------------------------------------------------
 # Section

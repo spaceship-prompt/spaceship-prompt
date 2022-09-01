@@ -22,6 +22,9 @@ SPACESHIP_KUBECTL_SYMBOL="${SPACESHIP_KUBECTL_SYMBOL="☸️  "}"
 source "$SPACESHIP_ROOT/sections/kubectl_version.zsh"
 source "$SPACESHIP_ROOT/sections/kubectl_context.zsh"
 
+spaceship::precompile "$SPACESHIP_ROOT/sections/kubectl_version.zsh"
+spaceship::precompile "$SPACESHIP_ROOT/sections/kubectl_context.zsh"
+
 # ------------------------------------------------------------------------------
 # Section
 # ------------------------------------------------------------------------------
