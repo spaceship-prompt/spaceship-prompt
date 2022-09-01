@@ -251,8 +251,7 @@ makepkg -si
 If none of the above methods works for you, you can install Spaceship manually.
 
 1. Clone this repo somewhere, for example to `$HOME/.zsh/spaceship`.
-2. Add the path of the cloned repo to `$fpath` in `$HOME/.zshrc`.
-3. Activate Spaceship prompt by `promptinit`.
+2. Source Spaceship in your `~/.zshrc`.
 
 ### Example
 
