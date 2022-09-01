@@ -4,18 +4,90 @@
 # Current package version.
 # These package managers supported:
 #   * npm
-#   * lerna
+#   * Lerna
 #   * Cargo
+#   * Composer
+#   * Julia
 
 # ------------------------------------------------------------------------------
 # Configuration
 # ------------------------------------------------------------------------------
 
 SPACESHIP_PACKAGE_SHOW="${SPACESHIP_PACKAGE_SHOW=true}"
+SPACESHIP_PACKAGE_SHOW_PRIVATE="${SPACESHIP_PACKAGE_SHOW_PRIVATE=false}"
+SPACESHIP_PACKAGE_ASYNC="${SPACESHIP_PACKAGE_ASYNC=true}"
 SPACESHIP_PACKAGE_PREFIX="${SPACESHIP_PACKAGE_PREFIX="is "}"
 SPACESHIP_PACKAGE_SUFFIX="${SPACESHIP_PACKAGE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL="📦 "}"
 SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR="red"}"
+
+if [ -z "$SPACESHIP_PACKAGE_ORDER" ]; then
+  SPACESHIP_PACKAGE_ORDER=(npm lerna cargo composer julia)
+fi
+
+# ------------------------------------------------------------------------------
+# Package Managers
+# ------------------------------------------------------------------------------
+
+spaceship_package::npm() {
+  spaceship::exists npm || return
+  spaceship::upsearch -s package.json || return
+
+  local package_version="$(spaceship::datafile --json package.json version)"
+  local is_private_package="$(spaceship::datafile --json package.json private)"
+
+  if [[ "$SPACESHIP_PACKAGE_SHOW_PRIVATE" == false && "$is_private_package" == true ]]; then
+    return 0
+  fi
+
+  if [[ "$package_version" == '0.0.0-development' || $package_version == '0.0.0-semantic'* ]]; then
+    package_version="(semantic)"
+  fi
+
+  echo "$package_version"
+}
+
+spaceship_package::lerna() {
+  # Show package version from lerna.json if is a lerna monorepo
+  # Note: lerna does not have to be installed in the global context
+  # so checking for lerna binary does not make sense
+  spaceship::exists npm || return
+  spaceship::upsearch -s lerna.json || return
+
+  local package_version="$(spaceship::datafile --json lerna.json version)"
+
+  if [[ "$package_version" == "independent" ]]; then
+    package_version="($package_version)"
+  fi
+
+  echo "$package_version"
+}
+
+spaceship_package::cargo() {
+  spaceship::exists cargo || return
+  spaceship::upsearch -s Cargo.toml || return
+
+  # Handle missing field `version` in Cargo.toml.
+  # `cargo pkgid` need Cargo.lock exists too. If it does't, do not show package version
+  # https://github.com/spaceship-prompt/spaceship-prompt/pull/617
+  local pkgid=$(cargo pkgid 2>&1)
+  echo "$pkgid" | grep -q "error:" && return
+  echo "${pkgid##*\#}"
+}
+
+spaceship_package::composer() {
+  spaceship::exists composer || return
+  spaceship::upsearch -s composer.json || return
+
+  spaceship::datafile --json composer.json "version"
+}
+
+spaceship_package::julia() {
+  spaceship::exists julia || return
+  spaceship::upsearch -s Project.toml || return
+
+  spaceship::datafile --toml Project.toml "version"
+}
 
 # ------------------------------------------------------------------------------
 # Section
@@ -27,45 +99,20 @@ spaceship_package() {
   # Show package version only when repository is a package
   local package_version
 
-  if [[ -f package.json ]] && spaceship::exists npm; then
-    if spaceship::exists jq; then
-      package_version=$(jq -r '.version' package.json 2>/dev/null)
-    elif spaceship::exists python; then
-      package_version=$(python -c "import json; print(json.load(open('package.json'))['version'])" 2>/dev/null)
-    elif spaceship::exists node; then
-      package_version=$(node -p "require('./package.json').version" 2> /dev/null)
+  for manager in "${SPACESHIP_PACKAGE_ORDER[@]}"; do
+    package_version="$(spaceship_package::$manager)"
+
+    if [[ -z $package_version || "$package_version" == "null" || "$package_version" == "undefined" ]]; then
+      continue
     fi
-  fi
 
-  # Show package version from lerna.json if is a lerna monorepo
-  # Note: lerna does not have to be installed in the global context
-  # so checking for lerna binary does not make sense
-  if [[ -f lerna.json ]] && spaceship::exists npm; then
-    if spaceship::exists jq; then
-      package_version=$(jq -r '.version' lerna.json 2>/dev/null)
-    elif spaceship::exists python; then
-      package_version=$(python -c "import json; print(json.load(open('lerna.json'))['version'])" 2>/dev/null)
-    elif spaceship::exists node; then
-      package_version=$(node -p "require('./lerna.json').version" 2> /dev/null)
-    fi
-    if [[ "$package_version" == "independent" ]]; then
-      package_version="($package_version)"
-    fi
-  fi
+    spaceship::section \
+      --color "$SPACESHIP_PACKAGE_COLOR" \
+      --prefix "$SPACESHIP_PACKAGE_PREFIX" \
+      --suffix "$SPACESHIP_PACKAGE_SUFFIX" \
+      --symbol "$SPACESHIP_PACKAGE_SYMBOL" \
+      "$package_version"
 
-  if [[ -f Cargo.toml ]] && spaceship::exists cargo; then
-    # Handle missing field `version` in Cargo.toml.
-    # `cargo pkgid` need Cargo.lock exists too. If it does't, do not show package version
-    # https://github.com/spaceship-prompt/spaceship-prompt/pull/617
-    local pkgid=$(cargo pkgid 2>&1)
-    echo $pkgid | grep -q "error:" || package_version=${pkgid##*\#}
-  fi
-
-  [[ -z $package_version || "$package_version" == "null" || "$package_version" == "undefined" ]] && return
-
-  spaceship::section \
-    "$SPACESHIP_PACKAGE_COLOR" \
-    "$SPACESHIP_PACKAGE_PREFIX" \
-    "${SPACESHIP_PACKAGE_SYMBOL}v${package_version}" \
-    "$SPACESHIP_PACKAGE_SUFFIX"
+    return
+  done
 }

@@ -5,3 +5,4 @@ files:
     translation: /docs/**/%file_name%.%two_letters_code%.%file_extension%
     ignore:
       - /docs/**/%file_name%.%two_letters_code%.%file_extension%
+      - /docs/blog/**/*

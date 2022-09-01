@@ -18,7 +18,7 @@ theme:
   palette:
     # Light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: spaceship
+      scheme: default
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
@@ -29,22 +29,85 @@ theme:
         icon: material/weather-night
         name: Switch to light mode
   features:
+    - navigation.sections
+    - navigation.indexes
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
     - search.highlight
+    - toc.integrate
 
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
-  - Options: options.md
-  - API: api.md
-  - Troubleshooting: troubleshooting.md
+  - Configuration:
+      - Introduction: config/intro.md
+      - Prompt configuration: config/prompt.md
+      - Loading custom sections: config/loading-sections.md
+      - Built-in Sections:
+        - sections/index.md
+        - Prompt character (char): sections/char.md
+        - Time (time): sections/time.md
+        - Username (user): sections/user.md
+        - Hostname (host): sections/host.md
+        - Directory (dir): sections/dir.md
+        - Line separator (line_sep): sections/line_sep.md
+        - Async (async): sections/async.md
+        - Battery (battery): sections/battery.md
+        - Execution time (exec_time): sections/exec_time.md
+        - Exit code (exit_code): sections/exit_code.md
+        - Jobs (jobs): sections/jobs.md
+        - Git (git): sections/git.md
+        - Mercurial (hg): sections/hg.md
+        - Package (package): sections/package.md
+        - Node.js (node): sections/node.md
+        - Ruby (ruby): sections/ruby.md
+        - Elm (elm): sections/elm.md
+        - Elixir (elixir): sections/elixir.md
+        - Xcode (xcode): sections/xcode.md
+        - Swift (swift): sections/swift.md
+        - Go (golang): sections/golang.md
+        - PHP (php): sections/php.md
+        - Python (python): sections/python.md
+        - Rust (rust): sections/rust.md
+        - Haskell (haskell): sections/haskell.md
+        - Java (java): sections/java.md
+        - Julia (julia): sections/julia.md
+        - Docker (docker): sections/docker.md
+        - Amazon Web Services (aws): sections/aws.md
+        - Google Cloud Platform (gcloud): sections/gcloud.md
+        - Virtualenv (venv): sections/venv.md
+        - Conda virtualenv (conda): sections/conda.md
+        - .NET (dotnet): sections/dotnet.md
+        - Kubernetes (kubectl): sections/kubectl.md
+        - Terraform (terraform): sections/terraform.md
+        - IBM Cloud (ibmcloud): sections/ibmcloud.md
+  - Advanced:
+      - Creating a custom section: advanced/creating-section.md
+      - Per-directory configuration: advanced/per-directory-config.md
+      - API:
+        - Environment: api/environment.md
+        - Sections: api/section.md
+        - General utilities: api/utils.md
+        - Testing kit: api/testkit.md
+  - Registry: registry.md
+  - FAQ: faq.md
+  - Blog:
+      - blog/index.md
+      - 2022:
+        - Announcing Spaceship v4 — the faster, the better: blog/2022-spaceship-v4.md
+      - 2018:
+        - Meet Spaceship v3.0!: blog/2018-spaceship-v3.md
+      - 2017:
+        - A big update of spaceship-zsh-theme: blog/2017-spaceship-v2.md
+  - Contribute: contribute.md
 
 markdown_extensions:
   - meta
+  - md_in_html
+  - def_list
   - toc:
       permalink: true
   - attr_list
@@ -52,8 +115,14 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - admonition
+  - footnotes
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
 extra:
   analytics:
@@ -68,7 +137,16 @@ extra:
       link: https://discord.gg/NTQWz8Dyt9
 
 extra_css:
-  - assets/styles.css
+  - assets/styles/themes.css
+  - assets/styles/code.css
+  - assets/styles/hero.css
+  - assets/styles/companies.css
+  - assets/styles/announce.css
+  - assets/styles/registry.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js
+  - assets/scripts/registry.js
 
 plugins:
   - search:
@@ -76,6 +154,11 @@ plugins:
         - en
         - ru
         - zh
+  - redirects:
+      redirect_maps:
+        options.md: config/intro.md
+        api.md: api/environment.md
+        troubleshooting.md: faq.md
   - i18n:
       default_language: en
       languages:

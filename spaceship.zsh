@@ -7,11 +7,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='3.16.7'
-
-# Common-used variable for new line separator
-NEWLINE='
-'
+export SPACESHIP_VERSION='4.x.x'
 
 # Determination of Spaceship working directory
 # https://git.io/vdBH7
@@ -20,7 +16,7 @@ if [[ -z "$SPACESHIP_ROOT" ]]; then
     if [[ "$0" == '-antigen-load' ]] && [[ -r "${PWD}/spaceship.zsh" ]]; then
       # Antigen uses eval to load things so it can change the plugin (!!)
       # https://github.com/zsh-users/antigen/issues/581
-      export SPACESHIP_ROOT=$PWD
+      export -r SPACESHIP_ROOT=$PWD
     else
       print -P "%F{red}You must set SPACESHIP_ROOT to work from within an (eval).%f"
       return 1
@@ -29,7 +25,7 @@ if [[ -z "$SPACESHIP_ROOT" ]]; then
     # Get the path to file this code is executing in; then
     # get the absolute path and strip the filename.
     # See https://stackoverflow.com/a/28336473/108857
-    export SPACESHIP_ROOT=${${(%):-%x}:A:h}
+    export -r SPACESHIP_ROOT=${${(%):-%x}:A:h}
   fi
 fi
 
@@ -46,11 +42,10 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     host          # Hostname section
     git           # Git section (git_branch + git_status)
     hg            # Mercurial section (hg_branch  + hg_status)
-    gradle        # Gradle section
-    maven         # Maven section
     package       # Package version
     node          # Node.js section
     ruby          # Ruby section
+    python        # Python section
     elm           # Elm section
     elixir        # Elixir section
     xcode         # Xcode section
@@ -59,22 +54,21 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     php           # PHP section
     rust          # Rust section
     haskell       # Haskell Stack section
+    java          # Java section
     julia         # Julia section
     docker        # Docker section
     aws           # Amazon Web Services section
     gcloud        # Google Cloud Platform section
     venv          # virtualenv section
     conda         # conda virtualenv section
-    pyenv         # Pyenv section
     dotnet        # .NET section
-    ember         # Ember.js section
     kubectl       # Kubectl context section
     terraform     # Terraform workspace section
     ibmcloud      # IBM Cloud section
     exec_time     # Execution time
+    async         # Async jobs indicator
     line_sep      # Line break
     battery       # Battery level and status
-    vi_mode       # Vi-mode indicator
     jobs          # Background jobs indicator
     exit_code     # Exit code section
     char          # Prompt character
@@ -102,81 +96,46 @@ SPACESHIP_PROMPT_DEFAULT_SUFFIX="${SPACESHIP_PROMPT_DEFAULT_SUFFIX=" "}"
 # Spaceship utils/hooks/etc
 # ------------------------------------------------------------------------------
 
-# Load utils
-source "$SPACESHIP_ROOT/lib/utils.zsh"
+readonly SPACESHIP_LIBS=(
+  "lib/utils.zsh"   # General porpuse utils
+  "lib/cache.zsh"   # Cache utils
+  "lib/hooks.zsh"   # Zsh hooks
+  "lib/section.zsh" # Section utils
+  "lib/core.zsh"    # Core functions for loading and rendering
+  "lib/prompts.zsh" # Composing prompt variables
+  "lib/cli.zsh"     # CLI interface
+  "lib/config.zsh"  # Loading Spaceship configuration file
+  "lib/testkit.zsh" # Testing utils
+)
 
-# load hooks
-source "$SPACESHIP_ROOT/lib/hooks.zsh"
-
-# load section utils
-source "$SPACESHIP_ROOT/lib/section.zsh"
-
-# ------------------------------------------------------------------------------
-# SECTIONS
-# Sourcing sections the prompt consists of
-# ------------------------------------------------------------------------------
-
-for section in $(spaceship::union $SPACESHIP_PROMPT_ORDER $SPACESHIP_RPROMPT_ORDER); do
-  if [[ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]]; then
-    source "$SPACESHIP_ROOT/sections/$section.zsh"
-  elif spaceship::defined "spaceship_$section"; then
-    # Custom section is declared, nothing else to do
-    continue
-  else
-    echo "Section '$section' was not loaded."
-  fi
+# Load and precompile internals
+for lib in "${SPACESHIP_LIBS[@]}"; do
+  builtin source "$SPACESHIP_ROOT/$lib"
+  spaceship::precompile "$SPACESHIP_ROOT/$lib"
 done
+
+# Load and precompile this file
+spaceship::precompile "$0"
 
 # ------------------------------------------------------------------------------
 # BACKWARD COMPATIBILITY WARNINGS
 # Show deprecation messages for options that are set, but not supported
 # ------------------------------------------------------------------------------
 
-spaceship::deprecated SPACESHIP_PROMPT_SYMBOL "Use %BSPACESHIP_CHAR_SYMBOL%b instead."
-spaceship::deprecated SPACESHIP_BATTERY_ALWAYS_SHOW "Use %BSPACESHIP_BATTERY_SHOW='always'%b instead."
-spaceship::deprecated SPACESHIP_BATTERY_CHARGING_SYMBOL "Use %BSPACESHIP_BATTERY_SYMBOL_CHARGING%b instead."
-spaceship::deprecated SPACESHIP_BATTERY_DISCHARGING_SYMBOL "Use %BSPACESHIP_BATTERY_SYMBOL_DISCHARGING%b instead."
-spaceship::deprecated SPACESHIP_BATTERY_FULL_SYMBOL "Use %BSPACESHIP_BATTERY_SYMBOL_FULL%b instead."
+# pyenv to python deprecation warnings
+spaceship::deprecated SPACESHIP_PYENV_SHOW "Use %BSPACESHIP_PYTHON_SHOW%b instead"
+spaceship::deprecated SPACESHIP_PYENV_PREFIX "Use %BSPACESHIP_PYTHON_PREFIX%b instead"
+spaceship::deprecated SPACESHIP_PYENV_SUFFIX "Use %BSPACESHIP_PYTHON_SUFFIX%b instead"
+spaceship::deprecated SPACESHIP_PYENV_SYMBOL "Use %BSPACESHIP_PYTHON_SYMBOL%b instead"
+spaceship::deprecated SPACESHIP_PYENV_COLOR "Use %bSPACESHIP_PYTHON_COLOR%b instead"
 
-# ------------------------------------------------------------------------------
-# PROMPTS
-# An entry point of prompt
-# ------------------------------------------------------------------------------
-
-# PROMPT
-# Primary (left) prompt
-spaceship_prompt() {
-  # Retrieve exit code of last command to use in exit_code
-  # Must be captured before any other command in prompt is executed
-  # Must be the very first line in all entry prompt functions, or the value
-  # will be overridden by a different command execution - do not move this line!
-  RETVAL=$?
-
-  # Should it add a new line before the prompt?
-  [[ $SPACESHIP_PROMPT_ADD_NEWLINE == true ]] && echo -n "$NEWLINE"
-
-  # Compose prompt from the order
-  spaceship::compose_prompt $SPACESHIP_PROMPT_ORDER
-}
-
-# $RPROMPT
-# Optional (right) prompt
-spaceship_rprompt() {
-  # Retrieve exit code of last command to use in exit_code
-  RETVAL=$?
-
-  spaceship::compose_prompt $SPACESHIP_RPROMPT_ORDER
-}
-
-# PS2
-# Continuation interactive prompt
-spaceship_ps2() {
-  # Retrieve exit code of last command to use in exit_code
-  RETVAL=$?
-
-  local char="${SPACESHIP_CHAR_SYMBOL_SECONDARY="$SPACESHIP_CHAR_SYMBOL"}"
-  spaceship::section "$SPACESHIP_CHAR_COLOR_SECONDARY" "$char"
-}
+# kubectl_context warnings
+spaceship::deprecated SPACESHIP_KUBECONTEXT_SHOW "Use %BSPACESHIP_KUBECTL_CONTEXT_SHOW%b instead"
+spaceship::deprecated SPACESHIP_KUBECONTEXT_PREFIX "Use %BSPACESHIP_KUBECTL_CONTEXT_PREFIX%b instead"
+spaceship::deprecated SPACESHIP_KUBECONTEXT_SUFFIX "Use %BSPACESHIP_KUBECTL_CONTEXT_SUFFIX%b instead"
+spaceship::deprecated SPACESHIP_KUBECONTEXT_COLOR "Use %BSPACESHIP_KUBECTL_CONTEXT_COLOR%b instead"
+spaceship::deprecated SPACESHIP_KUBECONTEXT_NAMESPACE_SHOW "Use %BSPACESHIP_KUBECTL_CONTEXT_SHOW_NAMESPACE%b instead"
+spaceship::deprecated SPACESHIP_KUBECONTEXT_COLOR_GROUPS "Use %BSPACESHIP_KUBECTL_CONTEXT_COLOR_GROUPS%b instead"
 
 # ------------------------------------------------------------------------------
 # SETUP
@@ -188,6 +147,13 @@ spaceship_ps2() {
 prompt_spaceship_setup() {
   autoload -Uz vcs_info
   autoload -Uz add-zsh-hook
+  autoload -Uz add-zsh-hook
+  autoload -Uz is-at-least
+
+  if ! is-at-least 5.2; then
+    print -P "%Bspaceship-prompt%b requires at least %Bzsh v5.2%b (you have %Bv$ZSH_VERSION%b)."
+    print -P "Please upgrade your zsh installation."
+  fi
 
   # This variable is a magic variable used when loading themes with zsh's prompt
   # function. It will ensure the proper prompt options are set.
@@ -197,22 +163,24 @@ prompt_spaceship_setup() {
   # initialized via promptinit.
   setopt noprompt{bang,cr,percent,subst} "prompt${^prompt_opts[@]}"
 
-  # Add exec_time hooks
-  add-zsh-hook preexec spaceship_exec_time_preexec_hook
-  add-zsh-hook precmd spaceship_exec_time_precmd_hook
+  # Initialize builtin functions
+  zmodload zsh/datetime
+  zmodload zsh/mathfunc
+
+  # Add hooks
+  add-zsh-hook preexec prompt_spaceship_preexec
+  add-zsh-hook precmd prompt_spaceship_precmd
+  add-zsh-hook chpwd prompt_spaceship_chpwd
 
   # Disable python virtualenv environment prompt prefix
   VIRTUAL_ENV_DISABLE_PROMPT=true
 
   # Configure vcs_info helper for potential use in the future
-  add-zsh-hook precmd spaceship_exec_vcs_info_precmd_hook
   zstyle ':vcs_info:*' enable git
   zstyle ':vcs_info:git*' formats '%b'
 
-  # Expose Spaceship to environment variables
-  PROMPT='$(spaceship_prompt)'
-  PS2='$(spaceship_ps2)'
-  RPS1='$(spaceship_rprompt)'
+  # Load sections before rendering
+  spaceship::core::load_sections
 }
 
 # ------------------------------------------------------------------------------

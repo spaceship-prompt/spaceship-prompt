@@ -34,8 +34,9 @@ spaceship_jobs() {
   fi
 
   spaceship::section \
-    "$SPACESHIP_JOBS_COLOR" \
-    "$SPACESHIP_JOBS_PREFIX" \
-    "${SPACESHIP_JOBS_SYMBOL}${SPACESHIP_JOBS_AMOUNT_PREFIX}${jobs_amount}${SPACESHIP_JOBS_AMOUNT_SUFFIX}" \
-    "$SPACESHIP_JOBS_SUFFIX"
+    --color "$SPACESHIP_JOBS_COLOR" \
+    --prefix "$SPACESHIP_JOBS_PREFIX" \
+    --suffix "$SPACESHIP_JOBS_SUFFIX" \
+    --symbol "$SPACESHIP_JOBS_SYMBOL" \
+    "$SPACESHIP_JOBS_AMOUNT_PREFIX$jobs_amount$SPACESHIP_JOBS_AMOUNT_SUFFIX"
 }

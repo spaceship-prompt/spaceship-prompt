@@ -1,0 +1,35 @@
+{
+  "$schema": "./schema.json",
+  "sections": [
+    {
+      "name": "vi_mode",
+      "url": "https://github.com/spaceship-prompt/spaceship-vi-mode",
+      "description": "Vi-mode section for Spaceship prompt."
+    },
+    {
+      "name": "ember",
+      "url": "https://github.com/spaceship-prompt/spaceship-ember",
+      "description": "Ember.js section for Spaceship prompt."
+    },
+    {
+      "name": "maven",
+      "url": "https://github.com/spaceship-prompt/spaceship-maven",
+      "description": "Maven section for Spaceship prompt."
+    },
+    {
+      "name": "gradle",
+      "url": "https://github.com/spaceship-prompt/spaceship-gradle",
+      "description": "Gradle section for Spaceship prompt."
+    },
+    {
+      "name": "ccloud",
+      "url": "https://github.com/rspurgeon/ccloud_spaceship",
+      "description": "Confluent Cloud status for Spaceship prompt."
+    },
+    {
+      "name": "git_user",
+      "url": "https://github.com/hexcowboy/spaceship-git-name",
+      "description": "The current git user name and email."
+    }
+  ]
+}

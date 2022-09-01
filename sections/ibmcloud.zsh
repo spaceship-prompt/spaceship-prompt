@@ -11,7 +11,8 @@
 # Configuration
 # ------------------------------------------------------------------------------
 
-SPACESHIP_IBMCLOUD_SHOW="${SPACESHIP_IBMCLOUD_SHOW=false}"
+SPACESHIP_IBMCLOUD_SHOW="${SPACESHIP_IBMCLOUD_SHOW=true}"
+SPACESHIP_IBMCLOUD_ASYNC="${SPACESHIP_IBMCLOUD_ASYNC=true}"
 SPACESHIP_IBMCLOUD_PREFIX="${SPACESHIP_IBMCLOUD_PREFIX="using "}"
 SPACESHIP_IBMCLOUD_SUFFIX="${SPACESHIP_IBMCLOUD_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_IBMCLOUD_SYMBOL="${SPACESHIP_IBMCLOUD_SYMBOL="👔 "}"
@@ -19,23 +20,24 @@ SPACESHIP_IBMCLOUD_COLOR="${SPACESHIP_IBMCLOUD_COLOR="039"}"
 
 # ------------------------------------------------------------------------------
 # Section
-# ----------------------------------------------- -------------------------------
+# ----------------------------------------------- ------------------------------
 
 spaceship_ibmcloud() {
-    [[ $SPACESHIP_IBMCLOUD_SHOW == false ]] && return
+  [[ $SPACESHIP_IBMCLOUD_SHOW == false ]] && return
 
-    spaceship::exists ibmcloud || return
+  spaceship::exists ibmcloud || return
 
-    local ibmcloud_account=$(ibmcloud target | grep Account | awk '{print $2}')
-    [[ -z $ibmcloud_account ]] && return
+  local ibmcloud_account=$(ibmcloud target | grep Account | awk '{print $2}')
+  [[ -z $ibmcloud_account ]] && return
 
-    # If no account is targeted, the awk command will return "No", so we need to
-    # check for that and set it to the full message manually.
-    [[ "No" == $ibmcloud_account ]] && ibmcloud_account="No account targeted"
+  # If no account is targeted, the awk command will return "No", so we need to
+  # check for that and set it to the full message manually.
+  [[ "No" == $ibmcloud_account ]] && ibmcloud_account="No account targeted"
 
-    spaceship::section \
-        "$SPACESHIP_IBMCLOUD_COLOR" \
-        "$SPACESHIP_IBMCLOUD_PREFIX" \
-        "$SPACESHIP_IBMCLOUD_SYMBOL$ibmcloud_account" \
-        "$SPACESHIP_IBMCLOUD_SUFFIX"
+  spaceship::section \
+    --color "$SPACESHIP_IBMCLOUD_COLOR" \
+    --prefix "$SPACESHIP_IBMCLOUD_PREFIX" \
+    --suffix "$SPACESHIP_IBMCLOUD_SUFFIX" \
+    --symbol "$SPACESHIP_IBMCLOUD_SYMBOL" \
+    "$ibmcloud_account"
 }

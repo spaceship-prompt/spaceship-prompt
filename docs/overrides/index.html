@@ -1,108 +1,7 @@
 {% extends "main.html" %}
 <!--  -->
-{% block tabs %} {{ super() }}
-<style>
-  .mdx-container {
-    padding: 2rem 0;
-    background: rgb(34, 28, 62);
-    background: url('data:image/svg+xml;utf8,<svg width="1931" height="244" viewBox="0 0 1931 244" xmlns="http://www.w3.org/2000/svg"><path style="fill: white" fill-rule="evenodd" clip-rule="evenodd" d="M1931 67.2018V244H0V56.912C49.8764 40.1141 103.36 31 159 31C292.072 31 412.805 83.1324 501.369 167.83C530.03 150.797 563.606 141 599.5 141C654.788 141 704.576 164.244 739.375 201.37C755.063 195.321 772.138 192 790 192C795.742 192 801.403 192.343 806.963 193.01C841.158 160.788 887.488 141 938.5 141C965.516 141 991.218 146.55 1014.5 156.557C1028.51 150.533 1043.41 146.124 1058.93 143.569C1107.91 105.034 1169.97 82 1237.5 82C1297.66 82 1353.49 100.283 1399.58 131.521C1428.15 122.102 1458.72 117 1490.5 117C1497.96 117 1505.36 117.281 1512.68 117.834C1564.68 46.4753 1649.58 0 1745.5 0C1816.25 0 1881.02 25.2897 1931 67.2018Z" fill="white"/></svg>'),
-      linear-gradient(
-        180deg,
-        var(--md-primary-fg-color),
-        var(--md-accent-fg-color) 99%,
-        var(--md-default-bg-color) 0
-      );
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: contain;
-  }
-
-  [data-md-color-scheme="slate"] .mdx-container {
-    background: url('data:image/svg+xml;utf8,<svg width="1931" height="244" viewBox="0 0 1931 244" xmlns="http://www.w3.org/2000/svg"><path style="fill: hsl(260, 15%, 21%)" fill-rule="evenodd" clip-rule="evenodd" d="M1931 67.2018V244H0V56.912C49.8764 40.1141 103.36 31 159 31C292.072 31 412.805 83.1324 501.369 167.83C530.03 150.797 563.606 141 599.5 141C654.788 141 704.576 164.244 739.375 201.37C755.063 195.321 772.138 192 790 192C795.742 192 801.403 192.343 806.963 193.01C841.158 160.788 887.488 141 938.5 141C965.516 141 991.218 146.55 1014.5 156.557C1028.51 150.533 1043.41 146.124 1058.93 143.569C1107.91 105.034 1169.97 82 1237.5 82C1297.66 82 1353.49 100.283 1399.58 131.521C1428.15 122.102 1458.72 117 1490.5 117C1497.96 117 1505.36 117.281 1512.68 117.834C1564.68 46.4753 1649.58 0 1745.5 0C1816.25 0 1881.02 25.2897 1931 67.2018Z" fill="white"/></svg>'),
-      linear-gradient(
-        180deg,
-        var(--md-primary-fg-color),
-        var(--md-accent-fg-color) 99%,
-        var(--md-default-bg-color) 0
-      );
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: contain;
-  }
-
-  .md-header {
-    position: initial;
-  }
-
-  .mdx-hero {
-    color: var(--md-primary-bg-color);
-    margin-bottom: 4rem;
-  }
-
-  .mdx-hero .md-button {
-    margin-top: 0.5rem;
-    margin-right: 0.5rem;
-    color: var(--md-primary-bg-color);
-  }
-
-  .mdx-hero .md-button--primary {
-    color: rgba(195, 68, 53, 1);
-    background-color: var(--md-primary-bg-color);
-    border-color: var(--md-primary-bg-color);
-  }
-
-  .mdx-hero__image {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
-  .mdx-hero__content {
-    text-align: center;
-  }
-
-  .mdx-hero__content h1 {
-    margin-bottom: 1rem;
-    font-weight: 700;
-    color: currentColor;
-  }
-
-  .mdx-features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 3rem;
-    margin-bottom: 3rem;
-  }
-
-  .mdx-features img {
-    height: 160px;
-    object-fit: fixed;
-  }
-
-  @media screen and (min-width: 960px) {
-    .md-sidebar--secondary {
-      display: none;
-    }
-
-    .mdx-hero {
-      display: flex;
-      align-items: stretch;
-    }
-
-    .mdx-hero__image {
-      order: 1;
-      width: 50%;
-    }
-
-    .mdx-hero__content {
-      width: 50%;
-      margin-top: 5rem;
-      padding-bottom: 20vh;
-      text-align: left;
-    }
-  }
-</style>
-<section class="mdx-container">
+{% block hero %}
+<section class="hero-container">
   <div class="md-grid md-typeset">
     <div class="mdx-hero">
       <div class="mdx-hero__image">
@@ -133,6 +32,20 @@
     </div>
   </div>
 </section>
+<section class="companies-container">
+  <div class="md-grid md-typeset">
+    <h4 class="companies-title">{{ page.meta.companies.title }}</h4>
+  </div>
+  <div class="companies">
+    <div class="companies-slider">
+      {% for company in page.meta.companies.list %}
+        <span class="company">
+          <img src="{{ company.logo }}" alt="{{ company.name }}" />
+        </span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 {% endblock %}
 <!-- Content -->
 {% block content %}
@@ -145,4 +58,5 @@
   </div>
   {% endfor %}
 </div>
-{{ super() }} {% endblock %}
+{{ super() }}
+{% endblock %}

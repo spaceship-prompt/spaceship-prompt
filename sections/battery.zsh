@@ -16,6 +16,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_BATTERY_SHOW="${SPACESHIP_BATTERY_SHOW=true}"
+SPACESHIP_BATTERY_ASYNC="${SPACESHIP_BATTERY_ASYNC=true}"
 SPACESHIP_BATTERY_PREFIX="${SPACESHIP_BATTERY_PREFIX=""}"
 SPACESHIP_BATTERY_SUFFIX="${SPACESHIP_BATTERY_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_BATTERY_SYMBOL_CHARGING="${SPACESHIP_BATTERY_SYMBOL_CHARGING="⇡"}"
@@ -42,7 +43,7 @@ spaceship_battery() {
 
     # Return if no internal battery
     [[ -z "$battery_data" ]] && return
-    
+
     # Colored output from pmset will break prompt if grep is aliased to show colors
     battery_percent="$( echo $battery_data | \grep -oE '[0-9]{1,3}%' )"
     battery_status="$( echo $battery_data | awk -F '; *' '{ print $2 }' )"
@@ -99,9 +100,10 @@ spaceship_battery() {
         $battery_percent -lt $SPACESHIP_BATTERY_THRESHOLD ||
         $SPACESHIP_BATTERY_SHOW == 'charged' && $battery_status =~ "(charged|full)" ]]; then
     spaceship::section \
-      "$battery_color" \
-      "$SPACESHIP_BATTERY_PREFIX" \
-      "$battery_symbol$battery_percent%%" \
-      "$SPACESHIP_BATTERY_SUFFIX"
+      --color "$battery_color" \
+      --prefix "$SPACESHIP_BATTERY_PREFIX" \
+      --suffix "$SPACESHIP_BATTERY_SUFFIX" \
+      --symbol "$battery_symbol" \
+      "$battery_percent%%"
   fi
 }

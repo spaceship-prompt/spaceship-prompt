@@ -1,12 +1,14 @@
+[![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua/)
+
 <h1 align="center">
   <a href="https://github.com/spaceship-prompt/spaceship-prompt">
     <img alt="spaceship →~ prompt" src="https://cloud.githubusercontent.com/assets/3459374/21679181/46e24706-d34b-11e6-82ee-5efb3d2ba70f.png" width="400">
   </a>
-  <br>🚀⭐ Spaceship ZSH <br>
+  <br>Spaceship Prompt 🚀⭐<br>
 </h1>
 
 <h4 align="center">
-  <a href="http://zsh.org" target="_blank"><code>Zsh</code></a> prompt for Astronauts.
+  Minimalistic, powerful and extremely customizable <a href="http://zsh.org" target="_blank"><code>Zsh</code></a> prompt
 </h4>
 
 <p align="center">
@@ -46,10 +48,9 @@
 <div align="center">
   <h4>
     <a href="https://spaceship-prompt.sh">Website</a> |
-    <a href="https://spaceship-prompt.sh/getting-started">Installing</a> |
-    <a href="#features">Features</a> |
-    <a href="https://spaceship-prompt.sh/options">Options</a> |
-    <a href="https://spaceship-prompt.sh/api">API</a>
+    <a href="https://spaceship-prompt.sh/getting-started">Installation</a> |
+    <a href="https://spaceship-prompt.sh/config/intro">Configuration</a> |
+    <a href="https://spaceship-prompt.sh/advanced/creating-section">Advanced Usage</a>
   </h4>
 </div>
 
@@ -60,116 +61,67 @@
 </div>
 <br>
 
-[![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua/)
-  
-Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] prompt. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
+Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] prompt. Prompt is what you see when you type a command. It can show a lot of useful tips, saving your time and making user experience smooth and pleasant. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
 
 <p align="center">
-  <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
+  <a href="https://asciinema.org/a/513451">
+    <img alt="Spaceship with One Dark, zsh-autosuggestions and zsh-syntax-highlight" src="https://user-images.githubusercontent.com/3459374/183478313-5aa02cbe-fafc-42e0-a791-ea08a0902f56.gif" width="80%">
+  </a>
+  <br>
+  <sup>Visit <a href="https://deploy-preview-963--spaceship-prompt.netlify.app/faq/#why-doesnt-my-prompt-look-like-the-preview">Frequently Asked Question</a> for similar setup and find more examples with different color schemes in <a href="https://github.com/spaceship-prompt/spaceship-prompt/wiki/Screenshots">Screenshots </a>wiki-page.
+  </sup>
 </p>
 
-<sub>Visit <a href="./docs/troubleshooting.md#why-doesnt-my-prompt-look-like-the-preview">Troubleshooting</a> for similar setup and find more examples with different color schemes in <a href="https://github.com/spaceship-prompt/spaceship-prompt/wiki/Screenshots">Screenshots </a>wiki-page.</sub>
+## ✨ Features
 
-## Features
+Here are some sneak picks of what **Spaceship** can show:
 
-- Clever hostname and username displaying.
-- Prompt character turns red if the last command exits with non-zero code.
-- Current Git branch and rich repo status:
-  - `?` — untracked changes;
-  - `+` — uncommitted changes in the index;
-  - `!` — unstaged changes;
-  - `»` — renamed files;
-  - `✘` — deleted files;
-  - `$` — stashed changes;
-  - `=` — unmerged changes;
-  - `⇡` — ahead of remote branch;
-  - `⇣` — behind of remote branch;
-  - `⇕` — diverged changes.
-- Current Mercurial bookmark/branch and rich repo status:
-  - `?` — untracked changes;
-  - `+` — uncommitted changes in the index;
-  - `!` — unstaged changes;
-  - `✘` — deleted files;
-- Indicator for jobs in the background (`✦`).
-- Current Node.js version, through fnm/nvm/nodenv/n (`⬢`).
-- Current Ruby version, through rvm/rbenv/chruby/asdf (`💎`).
-- Current Elm version (`🌳`)
-- Current Elixir version, through kiex/exenv/elixir (`💧`).
-- Current Swift version, through swiftenv (`🐦`).
-- Current Xcode version, through xenv (`🛠`).
-- Current Go version (`🐹`).
-- Current PHP version (`🐘`).
-- Current Rust version (`🦀`).
-- Current version of Haskell GHC Compiler, defined in stack.yaml file (`λ`).
-- Current Julia version (`ஃ`).
-- Current Docker version and connected machine (`🐳`).
-- Current Amazon Web Services (AWS) profile (`☁️`) ([Using named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)).
-- Current Google Cloud Platform gcloud active configuration (`☁️`).
-- Current Python virtualenv.
-- Current Conda virtualenv (`🅒`).
-- Current Python pyenv (`🐍`).
-- Current .NET SDK version, through dotnet-cli (`.NET`).
-- Current Ember.js version, through ember-cli (`🐹`).
-- Current Kubectl context (`☸️`).
-- Current Terraform workspace (`🛠`).
-- Current IBM Cloud account (`👔`).
-- Package version, if there's is a package in current directory (`📦`).
-- Current battery level and status:
-  - `⇡` - charging;
-  - `⇣` - discharging;
-  - `•` - fully charged.
-- Current Vi-mode mode ([with handy aliases for temporarily enabling](./docs/options.md#vi-mode-vi_mode)).
-- Optional exit-code of last command ([how to enable](./docs/options.md#exit-code-exit_code)).
-- Optional time stamps 12/24hr in format ([how to enable](./docs/options.md#time-time)).
-- Execution time of the last command if it exceeds the set threshold.
-- Optional AWS now supports aws-vault ([aws-vault](https://github.com/99designs/aws-vault))
+- Clever hostname and username displaying
+- Repository statuses (Git and Mercurial are supported)
+- Runtime environments for various languages (Node.js, Rust, Python, Ruby, Swift, Go, PHP and many others)
+- Docker version, Kubernetes context and connected machine
+- Package version (npm, lerna, cargo, composer and others)
+- Battery level and status
+- Indicator for jobs in the background `✦`
+- A lot of [useful information](https://spaceship-prompt.sh/sections)
+- Custom [information of your choice](https://spaceship-prompt.sh/advanced/creating-section)
 
 Want more features? Please, [open an issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose) or send pull request.
 
-**💡 Tip:** Follow [our Twitter](https://twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
+## 🤝 Requirements
 
-## Requirements
+Before we begin, let's make sure you have the following installed:
 
-To work correctly, you will first need:
+- [Zsh](http://www.zsh.org/) (v5.2 or recent) must be installed. Run the following command to check you version of Zsh:
+  ```zsh
+  echo $ZSH_VERSION #> 5.8.1
+  ```
+- [Powerline Font](https://github.com/powerline/fonts) or [Nerd Font](https://www.nerdfonts.com/) (even better) must be installed and used in your terminal. [Fira Code](https://github.com/tonsky/FiraCode) is a popular choice. To check if Powerline Font works for you, run:
+  ```zsh
+  echo -e "\xee\x82\xa0" #> 
+  ```
 
-- [`zsh`](http://www.zsh.org/) (v5.2 or recent) must be installed.
-- [Powerline Font](https://github.com/powerline/fonts) must be installed and used in your terminal (for example, switch font to [Fira Code](https://github.com/tonsky/FiraCode)).
+## 🚀 Installation
 
-## Installing
+Here's a few popular methods to install Spaceship. Select the one you use from the list below:
 
-Now that the requirements are satisfied, you can install Spaceship ZSH via any of the following tools.
+<details>
+<summary>Homebrew</summary>
+Installing Spaceship via Homebrew is a simple command:
 
-**💡 Tip:** If you like this project ~~and want to get some stickers and postcards~~, consider becoming a patron:
-
-<a href="https://patreon.com/denysdovhan">
-  <img alt="Become a patron" src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px">
-</a>
-
-### [Homebrew]
-
-```
+```zsh title="Terminal"
 brew install spaceship
 ```
 
-You can also add the following to your [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage):
+Add prompt initialization to your `.zshrc`:
 
-```ruby
-brew "spaceship"
+```zsh title="Terminal"
+echo "source $(brew --prefix)/opt/spaceship/spaceship.zsh" >>! ~/.zshrc
 ```
+</details>
 
-### [npm]
-
-```
-npm install -g spaceship-prompt
-```
-
-Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath` and set `prompt spaceship` in `.zshrc`. Just reload your terminal.
-Ensure that you have enabled post-scripts in npm by `npm config set ignore-scripts false` before starting installation.
-
-**💡 Tip:** Update Spaceship to new versions as you would any other package.
-
-### [oh-my-zsh]
-
+<details>
+<summary>Oh-My-Zsh</summary>
 Clone this repo:
 
 ```zsh
@@ -183,61 +135,108 @@ ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/the
 ```
 
 Set `ZSH_THEME="spaceship"` in your `.zshrc`.
+</details>
 
-### [prezto]
+<details>
+<summary>npm</summary>
+Install Spaceship via npm as you would with any other global package:
+
+```
+npm install -g spaceship-prompt
+```
+
+This command will download Spaceship. It will also ask you to source Spaceship in your `~/.zshrc` file.
+
+</details>
+
+<details>
+<summary>prezto</summary>
 
 - Follow [prezto-contrib#usage](https://github.com/belak/prezto-contrib#usage) to clone `prezto-contrib` to the proper location.
 - Enable the `contrib-prompt` module (before the `prompt` module).
 - Set `zstyle ':prezto:module:prompt' theme 'spaceship'` in your `.zpreztorc`.
 
-### [zim]
+</details>
 
-Add `zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules` to your `.zimrc` and run `zimfw install`.
+<details>
+<summary>zim</summary>
+Add Spaceship to your `.zimrc`:
 
-### [antigen]
+```zsh
+zmodule spaceship-prompt/spaceship-prompt --name spaceship
+```
 
+Then install Spaceship:
+
+```zsh
+zim install
+```
+</details>
+
+<details>
+<summary>antigen</summary>
 Add the following snippet in your `.zshrc`:
 
-```
+```zsh
 antigen theme spaceship-prompt/spaceship-prompt
 ```
+</details>
 
-### [antibody]
-
+<details>
+<summary>antibody</summary>
 Update your `.zshrc` file with the following line:
 
-```
+```zsh
 antibody bundle spaceship-prompt/spaceship-prompt
 ```
+</details>
 
-### [zinit]
-
+<details>
+<summary>zinit</summary>
 Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
 
-```
+```zsh
 zinit light spaceship-prompt/spaceship-prompt
 ```
+</details>
 
-### [zgen]
-
+<details>
+<summary>zgen</summary>
 Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
 
-```
+```zsh
 zgen load spaceship-prompt/spaceship-prompt spaceship
 ```
+</details>
 
-### [zplug]
-
+<details>
+<summary>zplug</summary>
 Use this command in your `.zshrc` to load Spaceship as prompt theme:
 
-```
+```zsh
 zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 ```
+</details>
 
-### Linux package manager
+<details>
+<summary>sheldon</summary>
+Add the following to your `plugins.toml` file (open it with `sheldon edit`):
 
-#### Arch Linux
+```toml
+[plugins.spaceship]
+github = "spaceship-prompt/spaceship-prompt"
+```
+</details>
 
+Or run the following to automatically add it:
+
+```zsh
+sheldon add spaceship --github spaceship-prompt/spaceship-prompt
+```
+</details>
+
+<details>
+<summary>Arch</summary>
 Install the latest master from the AUR package [`spaceship-prompt-git`](https://aur.archlinux.org/packages/spaceship-prompt-git/):
 
 ```
@@ -245,138 +244,84 @@ git clone https://aur.archlinux.org/spaceship-prompt-git.git --depth=1
 cd spaceship-prompt-git
 makepkg -si
 ```
+</details>
 
-### Manual
+<details>
+<summary>Manual</summary>
 
-If you have problems with approaches above, follow these instructions:
+If none of the above methods works for you, you can install Spaceship manually.
 
-- Clone this repo `git clone https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1`
-- Symlink `spaceship.zsh` to somewhere in [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) as `prompt_spaceship_setup`.
-- Initialize prompt system and choose `spaceship`.
+1. Clone this repo somewhere, for example to `$HOME/.zsh/spaceship`.
+2. Add the path of the cloned repo to `$fpath` in `$HOME/.zshrc`.
+3. Activate Spaceship prompt by `promptinit`.
 
-#### Example
-
-Run `echo $fpath` to see possible location and link `spaceship.zsh` there, like:
-
-```zsh
-$ ln -sf "$PWD/spaceship.zsh" "/usr/local/share/zsh/site-functions/prompt_spaceship_setup"
-```
-
-For a user-specific installation, simply add a directory to `$fpath` for that user in `.zshrc`:
+### Example
 
 ```zsh
-fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
-```
-
-Then install the theme like this:
-
-```zsh
-$ ln -sf "$PWD/spaceship.zsh" "${ZDOTDIR:-$HOME}/.zfunctions/prompt_spaceship_setup"
+mkdir -p "$HOME/.zsh"
+git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/spaceship"
 ```
 
 For initializing prompt system add this to your `.zshrc`:
 
-```zsh
-# .zshrc
-autoload -U promptinit; promptinit
-prompt spaceship
+```zsh title=".zshrc"
+source "~/.zsh/spaceship/spaceship.zsh"
 ```
+</details>
 
-## Customization
+## ⚙️ Configuration
 
 Spaceship works well out of the box, but you can customize almost everything if you want.
 
-- [**Options**](./docs/options.md) — Tweak section's behavior with tons of options.
-- [**API**](./docs/api.md) — Define a custom section that will do exactly what you want.
+- [**⚙️ Configuration**](https://spaceship-prompt.sh/config/intro) — Tweak section's behavior with tons of options.
+- [**😎 Advanced Usage**](https://spaceship-prompt.sh/advanced/creating-section) — Learn how to create a custom section, benefit of per-directory configuration and more.
 
-You have the ability to customize or disable specific elements of Spaceship. Set options and define new sections in your `.zshrc` file, **after** the theme. To include a custom section you have defined in your prompt, add it to the `SPACESHIP_PROMPT_ORDER`.
+Additionally, join our community in [Discord](https://discord.gg/NTQWz8Dyt9) and follow our [Twitter](https//twitter.com/SpaceshipPrompt) for updates.
 
-For example:
+## 🫶 Contributing
 
-```shell
-# .zshrc
+We're glad to accept contributions from developers of **all skill levels**! If you are interested in contributing to Spaceship, please take a look at our [Contribution Guide](./CONTRIBUTING.md) for more details. If you're looking for an easy way into the project, take one of the issues with [**good first issue**](https://github.com/spaceship-prompt/spaceship-prompt/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) label.
 
-# add Spaceship (differs by setup, see Installating above)
+If you are fluent in any other language besides English, we greatly appreciate any help with translating our documentation in other languages. If you would like to help, join the [team of translators on our Crowdin](https://translate.spaceship-prompt.sh).
 
-section_mysection() {
-  # ...
-}
+If you're interested in helping other people, answer questions asked by other users of Spaceship and help to solve their issues. Additionally, join our [**Discord**](https://discord.gg/NTQWz8Dyt9) to discuss Spaceship and help people who need help.
 
-SPACESHIP_PROMPT_ORDER=(<any preceding sections> mysection <any following sections>)
-```
+## 💌 Sponsoring
 
-To append custom sections to the default Spaceship prompt, follow the form:
+If you really enjoy this project, you can contribute financially. Any contribution is highly appreciated, even the smallest one. There are several ways to donate:
 
-```shell
-SPACESHIP_PROMPT_ORDER=($SPACESHIP_PROMPT_ORDER mysection)
-```
+* **Recurring donations**:
+  * [GitHub Sponsors](https://github.com/sponsors/denysdovhan?frequency=recurring)
+  * [Open Collective](https://opencollective.com/spaceship-prompt)
+  * [Patreon](https://patreon.com/denysdovhan)
+* **One-time donations**:
+  * [GitHub Sponsors](https://github.com/sponsors/denysdovhan?frequency=one-time)
+  * [Buy Me A Coffee](https://buymeacoffee.com/denysdovhan)
+  * [Monobank Jar](https://send.monobank.ua/jar/2N46sWTaZZ)
+* **Crypto donations**:
+  * Ethereum: `0x5C9496De5E51D48daf28354DC04d8f9D33955559`
+  * Bitcoin: `bc1q5ezjvpgftmx42f9qgdf5lscjz43uh4jf02uvje`
 
-To prepend custom sections to the default Spaceship prompt, follow the form:
+## 🤔 Having trouble?
 
-```shell
-SPACESHIP_PROMPT_ORDER=(mysection $SPACESHIP_PROMPT_ORDER)
-```
+Find answers on our troubleshooting page or get help by our community.
 
-**💡 Tip:** Take a look at popular option presets or share your own configuration on [Presets](https://github.com/spaceship-prompt/spaceship-prompt/wiki/Presets) wiki page.
+[**Issues**](https://github.com/spaceship-prompt/spaceship-prompt/issues) • [**Discussions**](https://github.com/spaceship-prompt/spaceship-prompt/discussions/) • [**Discord**](https://discord.gg/NTQWz8Dyt9)
 
-## Troubleshooting
+Still struggling? Please, [*file an issue*](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose), describe your problem, and we will gladly help you.
 
-Having trouble? Take a look at out [Troubleshooting](./docs/troubleshooting.md) page.
-
-Still struggling? Please, [file an issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.
-
-## Related Projects
+## 👀 Derived Projects
 
 Here's a list of related projects that have been inspired by Spaceship ZSH.
 
+- [**denysdovhan/dotfiles**](https://github.com/denysdovhan/dotfiles) - Dotfiles of Spaceship's author from which Spaceship is originated.
 - [**matchai/spacefish**](https://github.com/matchai/spacefish) - A port of Spaceship ZSH for fish shell intending to achieve complete feature parity.
 - [**starship/starship**](https://github.com/starship/starship) - A blazing-fast, cross-shell prompt written in Rust, heavily inspired by Spaceship ZSH.
 
-## Team
-
-| [![Denys Dovhan](https://github.com/denysdovhan.png?size=100)](http://denysdovhan.com) | [![Salmanul Farzy](https://github.com/salmanulfarzy.png?size=100)](https://github.com/salmanulfarzy) | [![Maxim Baz](https://github.com/maximbaz.png?size=100)](https://github.com/maximbaz) | [![Runrioter Wung](https://github.com/Runrioter.png?size=100)](https://github.com/Runrioter) |
-| :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: |
-|                     [Denys Dovhan](https://github.com/denysdovhan)                     |                          [Salmanul Farzy](https://github.com/salmanulfarzy)                          |                       [Maxim Baz](https://github.com/maximbaz)                        |                        [Runrioter Wung](https://github.com/Runrioter)                        |
-
-## Donate
-
-Hi! I work on this project in my spare time, in addition to my primary job. I hope you enjoy using Spaceship ZSH. If you do, please, [become my patron 🤝][patreon-url].
-
-|                                                                    Patreon                                                                     |                                                            Bitcoin                                                             |                                                            Ethereum                                                            |
-| :--------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
-|                                                         [Become a patron][patreon-url]                                                         |                                              `1FrPrQb6ACTkbSBAz9PduJWrDFfq41Ggb4`                                              |                                          `0x6aF39C917359897ae6969Ad682C14110afe1a0a1`                                          |
-| <a href="https://www.patreon.com/denysdovhan"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px"></a> | <img src="https://user-images.githubusercontent.com/3459374/33760933-1c9b81b4-dc10-11e7-8e4b-22d81f98c138.png" width="100px"/> | <img src="https://user-images.githubusercontent.com/3459374/33760932-1c7b3fb2-dc10-11e7-9774-411264d533da.png" width="100px"/> |
-
-This is your way make a clear statement: **My work is valued.**
-
-I would appreciate your support! _Thank you!_
-
-## License
+## 📄 License
 
 MIT © [Denys Dovhan](http://denysdovhan.com)
 
-<!-- Badges -->
-
-[npm-url]: https://npmjs.org/package/spaceship-prompt
-[npm-image]: https://img.shields.io/npm/v/spaceship-prompt.svg?style=flat-square
-[zsh-url]: http://zsh.org/
-[zsh-image]: https://img.shields.io/badge/zsh-%3E%3Dv5.2-777777.svg?style=flat-square
-[patreon-url]: https://www.patreon.com/denysdovhan
-[patreon-image]: https://img.shields.io/badge/zsh-%3E%3Dv5.2-777777.svg?style=flat-square
-
 <!-- References -->
-
-[oh-my-zsh]: http://ohmyz.sh/
-[prezto]: https://github.com/sorin-ionescu/prezto
-[zim]: https://github.com/zimfw/zimfw
-[antigen]: http://antigen.sharats.me/
-[zgen]: https://github.com/tarjoilija/zgen
-[npm]: https://www.npmjs.com/
-[antibody]: https://github.com/getantibody/antibody
-[zplug]: https://github.com/zplug/zplug
-[homebrew]: https://brew.sh
-[n]: https://github.com/tj/n
-[xcenv]: http://xcenv.org/
-[swiftenv]: https://github.com/kylef/swiftenv
-[powerline]: https://github.com/powerline/fonts
-[zinit]: https://github.com/zdharma/zinit
+[zsh-url]: http://zsh.org/
+[patreon-url]: https://www.patreon.com/denysdovhan

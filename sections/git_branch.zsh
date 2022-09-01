@@ -8,6 +8,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_GIT_BRANCH_SHOW="${SPACESHIP_GIT_BRANCH_SHOW=true}"
+SPACESHIP_GIT_BRANCH_ASYNC="${SPACESHIP_GIT_BRANCH_ASYNC=false}"
 SPACESHIP_GIT_BRANCH_PREFIX="${SPACESHIP_GIT_BRANCH_PREFIX="$SPACESHIP_GIT_SYMBOL"}"
 SPACESHIP_GIT_BRANCH_SUFFIX="${SPACESHIP_GIT_BRANCH_SUFFIX=""}"
 SPACESHIP_GIT_BRANCH_COLOR="${SPACESHIP_GIT_BRANCH_COLOR="magenta"}"
@@ -19,6 +20,8 @@ SPACESHIP_GIT_BRANCH_COLOR="${SPACESHIP_GIT_BRANCH_COLOR="magenta"}"
 spaceship_git_branch() {
   [[ $SPACESHIP_GIT_BRANCH_SHOW == false ]] && return
 
+  vcs_info
+
   local git_current_branch="$vcs_info_msg_0_"
   [[ -z "$git_current_branch" ]] && return
 
@@ -26,6 +29,6 @@ spaceship_git_branch() {
   git_current_branch="${git_current_branch/.../}"
 
   spaceship::section \
-    "$SPACESHIP_GIT_BRANCH_COLOR" \
-    "$SPACESHIP_GIT_BRANCH_PREFIX${git_current_branch}$SPACESHIP_GIT_BRANCH_SUFFIX"
+    --color "$SPACESHIP_GIT_BRANCH_COLOR" \
+    "$SPACESHIP_GIT_BRANCH_PREFIX$git_current_branch$SPACESHIP_GIT_BRANCH_SUFFIX"
 }
