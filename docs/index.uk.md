@@ -5,7 +5,7 @@ hide:
   - navigation
 hero:
   title: Мінімалістичний, потужний та надзвичайно гнучкий командний рядок Zsh
-  subtitle: It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
+  subtitle: Він поєднує в собі все, що вам може знадобитися для зручної роботи без зайвих ускладнень. Неначе справжній космічний корабель.
   install_button: Початок роботи
   source_button: Вихідний код
 features:
@@ -16,7 +16,7 @@ features:
   - 
     title: Просто встановлюється
     image: /assets/images/out-of-the-box.svg
-    description: The prompt works right after installation without any additional configuration. install it and use it.
+    description: Командний рядок працює відразу після встановлення, без додаткової конфігурації. Встановлюйте та користуйтесь.
   - 
     title: Легко налаштовується
     image: /assets/images/configurable.svg
@@ -100,32 +100,32 @@ companies:
   <script id="asciicast-513451" src="https://asciinema.org/a/513451.js" data-autoplay="true" data-loop="true" data-preload="true" async></script>
   <noscript>
     <object class="asciicast" type="image/svg+xml" data="/assets/images/spaceship-demo.svg">
-      <img src="/assets/images/spaceship-demo.gif" alt="Spaceship demo" />
+      <img src="/assets/images/spaceship-demo.gif" alt="Демо Spaceship" />
     </object>
   </noscript>
 </div>
 
 ## Можливості
 
-**Spaceship** is a superpowered Zsh prompt. Prompt is what you see when you type a command. It can show a lot of useful tips, saving your time and making user experience smooth and pleasant.
+**Spaceship** — це надпотужний командний рядок для Zsh. Командний рядок — це те, що ви бачите у терміналі, перед командою, яку вводите. Він може показувати багато корисних порад, заощаджуючи час та роблячи користування легким та приємним.
 
-Here are some sneak picks of what **Spaceship** can show:
+Ось деякі цікаві штуки, які **Spaceship** вміє показувати:
 
-- Clever hostname and username displaying
-- Repository statuses (Git and Mercurial are supported)
-- Runtime environments for various languages (Node.js, Rust, Python, Ruby, Swift, Go, PHP and many others)
-- Docker version, Kubernetes context and connected machine
-- Package version (npm, lerna, cargo, composer and others)
-- Battery level and status
-- Indicator for jobs in the background `✦`
-- A lot of [useful information](/sections)
-- Custom [information of your choice](/advanced/creating-section)
+- Розумне ім'я хоста і відображення імені користувача
+- Статуси репозиторіїв (Git та Mercurial підтримуються)
+- Середовища середовища для різних мов (Node.js, Rust, Python, Ruby, Swift, Go, PHP та багато інших)
+- Docker версія, контекст Kubernetes і під'єднана машина
+- Версія пакунку (npm, lerna, cargo, редактор та інші)
+- Поточний рівень заряду батареї та її статус
+- Індикатор для задач, що виконуються у фоновому режимі `✦`
+- Багато [корисної інформації](/sections)
+- Додатково [інформація на ваш вибір](/advanced/creating-section)
 
-Want more features? Please, [open an issue](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose) or send pull request.
+Бажаєте більше можливостей? Будь ласка, [відкрийте задачу](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose) або надішліть пул-реквест.
 
 ## Початок роботи
 
-Встановлення Spaceship просте та швидке. It's configurable and easy to use.
+Встановлення Spaceship просте та швидке. Він легко конфігурується і є простим у використанні.
 
 [Початок роботи](/getting-started){ .md-button .md-button--primary }
 [Конфігурація](/config/intro){ .md-button }
