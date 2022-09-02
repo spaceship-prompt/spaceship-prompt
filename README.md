@@ -17,7 +17,7 @@
       alt="NPM Version" />
   </a>
 
-  <a href="https://githucom/spaceship-prompt/spaceship-prompt/actions">
+  <a href="https://github.com/spaceship-prompt/spaceship-prompt/actions">
     <img src="https://img.shields.io/github/workflow/status/spaceship-prompt/spaceship-prompt/ci?style=flat-square"
       alt="GitHub Workflow Status" />
   </a>
