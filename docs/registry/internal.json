@@ -68,6 +68,12 @@
       "internal": true
     },
     {
+      "name": "bun",
+      "url": "https://spaceship-prompt.sh/sections/bun",
+      "description": "The current version of the Bun.",
+      "internal": true
+    },
+    {
       "name": "exec_time",
       "url": "https://spaceship-prompt.sh/sections/exec_time",
       "description": "The execution time of the last command.",
