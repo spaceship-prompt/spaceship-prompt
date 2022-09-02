@@ -1,3 +1,10 @@
+# [4.1.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.0.0...v4.1.0) (2022-09-02)
+
+
+### Features
+
+* **bun:** Add Bun section ([83ce0ee](https://github.com/spaceship-prompt/spaceship-prompt/commit/83ce0ee893757aee1c41b11c5433849a4c9de61d))
+
 # [4.0.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v3.16.7...v4.0.0) (2022-09-01)
 
 
