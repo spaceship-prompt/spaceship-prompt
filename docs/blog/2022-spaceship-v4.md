@@ -44,6 +44,8 @@ Please, **spread the word and help us, help me**. Thank you. Let's get back to t
 
 This release comes with tons of bigger and smaller improvements. Let's take a closer look at features that are new in v4.
 
+[v4.0.0 Release Notes](https://github.com/spaceship-prompt/spaceship-prompt/releases/tag/v4.0.0){ .md-button }
+
 ### Asynchronous rendering
 
 The biggest feature of this release is [**asynchronous rendering**](/config/prompt/). We know you've been waiting for this for long.
