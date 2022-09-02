@@ -127,13 +127,17 @@ Want more features? Please, [open an issue](https://github.com/spaceship-prompt/
 
 Встановлення Spaceship просте та швидке. It's configurable and easy to use.
 
-[Встановлення](/getting-started ""){.md-button.md-button--primary} [Конфігурація](/config/intro ""){.md-button}
+[Встановлення](/getting-started){ .md-button.md-button--primary }
+[Конфігурація](/config/intro){ .md-button }
 
 ## Пов'язані проекти
 
 Приєднайтеся до нашої спільноти або спробуйте зробити свій внесок у проєкт.
 
-[:material-hand-heart: Зробити внесок](/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button} [:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/ ""){.md-button}
+[:material-hand-heart: Зробити внесок](/contribute){ .md-button }
+[:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt){ .md-button }
+[:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9){ .md-button }
+[:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/){ .md-button }
 
 ## Ліцензія
 
