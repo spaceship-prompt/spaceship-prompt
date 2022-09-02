@@ -188,6 +188,8 @@ spaceship::datafile() {
   if [[ -n "$yaml" ]]; then
     if spaceship::exists yq; then
       yq -r ".$key" "$file"
+    elif spaceship::exists ruby; then
+      ruby -r yaml -e "puts '$key'.split('.').reduce(YAML::load_file('$file')) { |obj, key| obj[key] }" 2>/dev/null
     elif spaceship::exists python3; then
       python3 -c "import yaml, functools; print(functools.reduce(lambda obj, key: obj[key] if key else obj, '$key'.split('.'), yaml.safe_load(open('$file'))))" 2>/dev/null
     else
@@ -200,6 +202,8 @@ spaceship::datafile() {
       jq -r ".$key" "$file" 2>/dev/null
     elif spaceship::exists yq; then
       yq -r ".$key" "$file" 2>/dev/null
+    elif spaceship::exists ruby; then
+      ruby -r json -e "puts '$key'.split('.').reduce(JSON::load(File.read('$file'))){ |obj, key| obj[key] }" 2>/dev/null
     elif spaceship::exists python3; then
       python3 -c "import json, functools; print(functools.reduce(lambda obj, key: obj[key] if key else obj, '$key'.split('.'), json.load(open('$file'))))" 2>/dev/null
     elif spaceship::exists node; then
