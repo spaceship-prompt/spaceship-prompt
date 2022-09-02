@@ -127,7 +127,7 @@ Want more features? Please, [open an issue](https://github.com/spaceship-prompt/
 
 Встановлення Spaceship просте та швидке. It's configurable and easy to use.
 
-[Встановлення](/getting-started){ .md-button.md-button--primary }
+[Початок роботи](/getting-started){ .md-button .md-button--primary }
 [Конфігурація](/config/intro){ .md-button }
 
 ## Пов'язані проекти
