@@ -43,9 +43,6 @@ jobs:
     if: ${{ github.repository == 'spaceship-prompt/spaceship-prompt' && github.event_name == 'push' }}
     runs-on: ubuntu-latest
     steps:
-      - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.10.0
-
       - name: ⬇️ Checkout Repo
         uses: actions/checkout@v3
         with:
