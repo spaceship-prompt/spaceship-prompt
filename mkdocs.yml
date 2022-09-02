@@ -125,6 +125,16 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
 extra:
+  alternate:
+    - name: English
+      lang: en
+      link: /en
+    - name: Українська
+      lang: uk
+      link: /uk
+    - name: 简体中文
+      lang: zh
+      link: /zh
   analytics:
     provider: google
     property: G-0STBM9BNC1
@@ -152,7 +162,7 @@ plugins:
   - search:
       lang:
         - en
-        - ru
+        - uk
         - zh
   - redirects:
       redirect_maps:
@@ -161,7 +171,12 @@ plugins:
         troubleshooting.md: faq.md
   - i18n:
       default_language: en
+      # Default behavior doesn't display language switcher for non-English pages
+      material_alternate: false
       languages:
-        en: English
-        uk: Українська
-        zh: 简体中文
+        en:
+          name: English
+        uk:
+          name: Українська
+        zh:
+          name: 简体中文
