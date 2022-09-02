@@ -1,3 +1,10 @@
+# [4.2.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.1.0...v4.2.0) (2022-09-02)
+
+
+### Features
+
+* Add ruby interpreter in datafile util ([005f9fa](https://github.com/spaceship-prompt/spaceship-prompt/commit/005f9fa6191dc94d29cb6db3bd860b6b05b59ef9))
+
 # [4.1.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.0.0...v4.1.0) (2022-09-02)
 
 
