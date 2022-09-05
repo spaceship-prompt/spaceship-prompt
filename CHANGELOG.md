@@ -1,3 +1,10 @@
+## [4.2.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.0...v4.2.1) (2022-09-05)
+
+
+### Bug Fixes
+
+* change the declaration of readonly variable to typeset ([f80bc28](https://github.com/spaceship-prompt/spaceship-prompt/commit/f80bc2813977f183d8c39ac1694bc1675d808589)), closes [#1175](https://github.com/spaceship-prompt/spaceship-prompt/issues/1175)
+
 # [4.2.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.1.0...v4.2.0) (2022-09-02)
 
 
