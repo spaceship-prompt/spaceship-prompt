@@ -11,6 +11,7 @@ This section is displayed only when:
 
 * `julia` compiler is available.
 * The current directory contains `.jl` files.
+* The upsearch finds a `Project.toml`, `JuliaProject.toml` or `Manifest.toml` file.
 
 ## Options
 
