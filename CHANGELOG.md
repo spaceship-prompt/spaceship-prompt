@@ -1,3 +1,10 @@
+## [4.2.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.1...v4.2.2) (2022-09-05)
+
+
+### Bug Fixes
+
+* **julia:** Better detection for Julia projects ([b91ae3d](https://github.com/spaceship-prompt/spaceship-prompt/commit/b91ae3d0e5006260445c8a62706a3d79f453660d)), closes [#678](https://github.com/spaceship-prompt/spaceship-prompt/issues/678)
+
 ## [4.2.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.0...v4.2.1) (2022-09-05)
 
 
