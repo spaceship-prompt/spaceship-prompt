@@ -149,7 +149,7 @@ extra:
 
 extra_css:
   - assets/styles/themes.css
-  - assets/styles/code.css
+  - assets/styles/embed.css
   - assets/styles/hero.css
   - assets/styles/companies.css
   - assets/styles/announce.css

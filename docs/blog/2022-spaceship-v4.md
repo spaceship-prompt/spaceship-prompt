@@ -221,4 +221,9 @@ If you really enjoy this project, you can contribute financially. Any contributi
 
 Thanks for reading! Thank you for using Spaceship! Hope you'll enjoy using this new version of Spaceship!
 
-See you in our [Discord server](https://discord.gg/NTQWz8Dyt9)!
+See you in our [Discord server](https://discord.gg/NTQWz8Dyt9)! Don't forget to like and retweet our announcement tweet!
+
+<blockquote class="twitter-tweet">
+  <p lang="en" dir="ltr">🎉 Announcing Spaceship 4.0<br><br>The wait is over. We&#39;re finally ready to launch the new version of Spaceship.<br><br>🚀 Fast asynchronous rendering<br>📝 Sections Registry<br>⚙️ Customizable configuration files<br>💻 Command-line interface<br>🤭 New sections are coming<br><br>👉 <a href="https://t.co/gzQRCjiq7i">https://t.co/gzQRCjiq7i</a></p>&mdash; Spaceship 🚀⭐ (@SpaceshipPrompt) <a href="https://twitter.com/SpaceshipPrompt/status/1566742940759650305?ref_src=twsrc%5Etfw">September 5, 2022</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
