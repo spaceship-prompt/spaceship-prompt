@@ -1,3 +1,10 @@
+## [4.2.4](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.3...v4.2.4) (2022-09-05)
+
+
+### Bug Fixes
+
+* **config:** fix wrong path for spaceship config ([cf4b55e](https://github.com/spaceship-prompt/spaceship-prompt/commit/cf4b55e34f2140f83983cc112a175f03cb0e2507)), closes [#1184](https://github.com/spaceship-prompt/spaceship-prompt/issues/1184)
+
 ## [4.2.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.2...v4.2.3) (2022-09-05)
 
 
