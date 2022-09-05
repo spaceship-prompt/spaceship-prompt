@@ -8,7 +8,7 @@ if [[ -z "$SPACESHIP_CONFIG_PATH" ]]; then
     "$HOME/.spaceshiprc"
     "$HOME/.spaceshiprc.zsh"
     "${XDG_CONFIG_HOME:="$HOME/.config"}/spaceship.zsh"
-    "${XDG_CONFIG_HOME:="$HOME/.config/spaceship"}/spaceship.zsh"
+    "${XDG_CONFIG_HOME:="$HOME/.config"}/spaceship/spaceship.zsh"
     "${XDG_CONFIG_DIRS:="/etc/xdg"}/spaceship.zsh"
   )
 fi
