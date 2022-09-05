@@ -1,3 +1,10 @@
+## [4.2.5](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.4...v4.2.5) (2022-09-05)
+
+
+### Bug Fixes
+
+* **npm:** Include async into npm package ([e9ff5af](https://github.com/spaceship-prompt/spaceship-prompt/commit/e9ff5af40f7ef4e813677a4d8ce83e3647bde159))
+
 ## [4.2.4](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.3...v4.2.4) (2022-09-05)
 
 
