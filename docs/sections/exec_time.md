@@ -4,11 +4,11 @@ The `exec_time` section displays the execution time of the last command. Will be
 
 ## Defining the threshold
 
-If you are not satisfied with the default threshold of 2 seconds, you can define it using the `SPACESHIP_EXEC_TIME_THRESHOLD` option.
+If you are not satisfied with the default threshold of 2 seconds, you can define it using the `SPACESHIP_EXEC_TIME_ELAPSED` option.
 
 ```zsh title=".zshrc"
 # This sets threshold to 5 seconds
-SPACESHIP_EXEC_TIME_THRESHOLD=5
+SPACESHIP_EXEC_TIME_ELAPSED=5
 ```
 
 ## Defining precision
