@@ -6,8 +6,10 @@
     "lib",
     "scripts",
     "sections",
+    "async.zsh",
     "spaceship.zsh",
-    "spaceship.zsh-theme"
+    "spaceship.zsh-theme",
+    "prompt_spaceship_setup"
   ],
   "scripts": {
     "postinstall": "./scripts/install",
