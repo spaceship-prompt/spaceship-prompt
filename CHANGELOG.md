@@ -1,3 +1,10 @@
+## [4.2.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.2...v4.2.3) (2022-09-05)
+
+
+### Bug Fixes
+
+* exec_time doc regarding time threshold trigger ([#1183](https://github.com/spaceship-prompt/spaceship-prompt/issues/1183)) ([ffd027b](https://github.com/spaceship-prompt/spaceship-prompt/commit/ffd027b1e6a697c532b40ff8da1b429a371f306a))
+
 ## [4.2.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.1...v4.2.2) (2022-09-05)
 
 
