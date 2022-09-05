@@ -97,7 +97,7 @@ SPACESHIP_PROMPT_DEFAULT_SUFFIX="${SPACESHIP_PROMPT_DEFAULT_SUFFIX=" "}"
 # Spaceship utils/hooks/etc
 # ------------------------------------------------------------------------------
 
-readonly SPACESHIP_LIBS=(
+typeset -r SPACESHIP_LIBS=(
   "lib/utils.zsh"   # General porpuse utils
   "lib/cache.zsh"   # Cache utils
   "lib/hooks.zsh"   # Zsh hooks
