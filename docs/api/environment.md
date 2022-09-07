@@ -53,7 +53,7 @@ A variable storing the path to the configuration file. Usually, this variable st
 You can specify custom path to the configuration file by setting the `SPACESHIP_CONFIG_FILE` environment variable, for example:
 
 ```zsh title="$HOME/.zshrc"
-export SPACESHIP_CONFIG_FILE="${HOME}/.dotfiles/path/to/spaceship.zsh"
+export SPACESHIP_CONFIG_FILE="$HOME/.dotfiles/path/to/spaceship.zsh"
 ```
 
 The variable is empty when no configuration file is found.

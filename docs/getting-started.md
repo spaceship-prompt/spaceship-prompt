@@ -37,7 +37,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     For initializing prompt system add this to your `.zshrc`:
 
     ```zsh title=".zshrc"
-    source "${HOME}/.zsh/spaceship/spaceship.zsh"
+    source "$HOME/.zsh/spaceship/spaceship.zsh"
     ```
 
 === "Homebrew"
