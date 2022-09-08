@@ -1,3 +1,10 @@
+## [4.2.6](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.5...v4.2.6) (2022-09-08)
+
+
+### Bug Fixes
+
+* **documentation:** use home variable instead of tilde ([#1189](https://github.com/spaceship-prompt/spaceship-prompt/issues/1189)) ([01e153e](https://github.com/spaceship-prompt/spaceship-prompt/commit/01e153efa56bc7c599fa1711d0291397411a002a))
+
 ## [4.2.5](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.4...v4.2.5) (2022-09-05)
 
 
