@@ -25,8 +25,6 @@ SPACESHIP_XCODE_PROJDIR_ONLY="${SPACESHIP_XCODE_PROJDIR_ONLY=false}"
 spaceship_xcode() {
   spaceship::exists xcenv || return
 
-  spaceship::upsearch -s *.xcodeproj
-
   if [[ $SPACEHSHIP_XCODE_PROJDIR_ONLY == true ]] ; then
     # Find xcode-specific files or return
     spaceship::upsearch -s *.xcodeproj Package.swift *.xcworkspace *.podspec || return
