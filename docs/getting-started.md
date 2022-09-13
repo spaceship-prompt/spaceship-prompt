@@ -107,7 +107,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     Then install Spaceship:
 
     ```zsh title="Terminal"
-    zim install
+    zimfw install
     ```
 
 === "antigen"

@@ -169,7 +169,7 @@ zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules
 Then install Spaceship:
 
 ```zsh
-zim install
+zimfw install
 ```
 </details>
 
