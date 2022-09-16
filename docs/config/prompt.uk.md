@@ -103,7 +103,7 @@ Besides built-in sections, you can add external section to your prompt or build 
 
 This group of options defines a behavior of prompt and standard parameters for sections displaying.
 
-| Variable                             | Default | Meaning                                          |
+| Змінна                               | Default | Meaning                                          |
 |:------------------------------------ |:-------:| ------------------------------------------------ |
 | `SPACESHIP_PROMPT_ASYNC`             | `true`  | Render prompt asynchronously or not              |
 | `SPACESHIP_PROMPT_ADD_NEWLINE`       | `true`  | Adds a newline character before each prompt line |
