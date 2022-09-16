@@ -21,9 +21,9 @@ By default, this section will strip all of the suffixes from the version. For ex
 SPACESHIP_RUST_VERBOSE_VERSION=true
 ```
 
-## Options
+## Опції
 
-| Variable                         |              Default               | Meaning                                 |
+| Змінна                           |              Default               | Meaning                                 |
 |:-------------------------------- |:----------------------------------:| --------------------------------------- |
 | `SPACESHIP_RUST_SHOW`            |               `true`               | Show section                            |
 | `SPACESHIP_RUST_ASYNC`           |               `true`               | Render section asynchronously           |
