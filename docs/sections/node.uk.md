@@ -1,6 +1,6 @@
 # Node.js `node`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**Node.js**](https://nodejs.org) is a JavaScript runtime built on Chrome's V8 JavaScript engine.
@@ -26,9 +26,9 @@ SPACESHIP_NODE_DEFAULT_VERSION="18.0.0"
 | Змінна                           |              Default               | Meaning                                  |
 |:-------------------------------- |:----------------------------------:| ---------------------------------------- |
 | `SPACESHIP_NODE_SHOW`            |               `true`               | Show section                             |
-| `SPACESHIP_NODE_ASYNC`           |               `true`               | Render section asynchronously            |
+| `SPACESHIP_NODE_ASYNC`           |               `true`               | Рендерити секцію асинхронно              |
 | `SPACESHIP_NODE_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                         |
-| `SPACESHIP_NODE_SUFFIX`          | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                         |
-| `SPACESHIP_NODE_SYMBOL`          |                `⬢·`                | Symbol displayed before the section      |
-| `SPACESHIP_NODE_COLOR`           |              `green`               | Section's color                          |
+| `SPACESHIP_NODE_SUFFIX`          | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                            |
+| `SPACESHIP_NODE_SYMBOL`          |                `⬢·`                | Символ, що відображається перед секцією  |
+| `SPACESHIP_NODE_COLOR`           |              `green`               | Колір секції                             |
 | `SPACESHIP_NODE_DEFAULT_VERSION` |                 ``                 | Node.js version to be treated as default |
