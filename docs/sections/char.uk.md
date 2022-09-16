@@ -14,7 +14,7 @@ SPACESHIP_CHAR_SYMBOL_ROOT="#"
 
 ## Опції
 
-| Змінна                            |         Default          | Meaning                                                              |
+| Змінна                            |     За замовчуванням     | Пояснення                                                            |
 |:--------------------------------- |:------------------------:| -------------------------------------------------------------------- |
 | `SPACESHIP_CHAR_PREFIX`           |            ``            | Prefix before prompt character                                       |
 | `SPACESHIP_CHAR_SUFFIX`           |            ``            | Suffix after prompt character                                        |
