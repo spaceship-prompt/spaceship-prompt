@@ -1,6 +1,6 @@
 # Go `golang`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**Go**](https://go.dev) is a programming language that makes it easy to build simple, reliable, and efficient software.
@@ -20,13 +20,13 @@ If you are using a development version of `Go`, the version uses git commit hash
 * `devel:5efe9a8f11` for development version
 * `v1.11.4` for the release version
 
-## Options
+## Опції
 
-| Variable                  |              Default               | Meaning                             |
-|:------------------------- |:----------------------------------:| ----------------------------------- |
-| `SPACESHIP_GOLANG_SHOW`   |               `true`               | Show section                        |
-| `SPACESHIP_GOLANG_ASYNC`  |               `true`               | Render section asynchronously       |
-| `SPACESHIP_GOLANG_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                    |
-| `SPACESHIP_GOLANG_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                    |
-| `SPACESHIP_GOLANG_SYMBOL` |                `🐹·`                | Symbol displayed before the section |
-| `SPACESHIP_GOLANG_COLOR`  |               `cyan`               | Section's color                     |
+| Змінна                    |          За замовчуванням          | Пояснення                               |
+|:------------------------- |:----------------------------------:| --------------------------------------- |
+| `SPACESHIP_GOLANG_SHOW`   |               `true`               | Показати секцію                         |
+| `SPACESHIP_GOLANG_ASYNC`  |               `true`               | Рендерити секцію асинхронно             |
+| `SPACESHIP_GOLANG_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Префікс секції                          |
+| `SPACESHIP_GOLANG_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
+| `SPACESHIP_GOLANG_SYMBOL` |                `🐹·`                | Символ, що відображається перед секцією |
+| `SPACESHIP_GOLANG_COLOR`  |               `cyan`               | Колір секції                            |
