@@ -10,7 +10,7 @@ The root user is highlighted in `SPACESHIP_USER_COLOR_ROOT` color (red as defaul
 
 ## Controlling when to show the `user` section
 
-`SPACESHIP_USER_SHOW` defines when to show the `user` section. Here are possible values:
+`SPACESHIP_USER_SHOW` defines when to show the `user` section. Ось можливі значення:
 
 | `SPACESHIP_USER_SHOW` | Show on local | Show on remote |
 |:---------------------:|:------------- |:-------------- |
