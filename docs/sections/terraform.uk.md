@@ -9,9 +9,9 @@ The `terraform` section shows Terraform virtual environment.
 
 This section is only displayed when you have a `terraform` command available in your path and upsearch finds a `.terraform/environment` file.
 
-## Options
+## Опції
 
-| Variable                     |              Default               | Meaning                             |
+| Змінна                       |              Default               | Meaning                             |
 |:---------------------------- |:----------------------------------:| ----------------------------------- |
 | `SPACESHIP_TERRAFORM_SHOW`   |               `true`               | Show section                        |
 | `SPACESHIP_TERRAFORM_ASYNC`  |               `true`               | Render section asynchronously       |
