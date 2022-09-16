@@ -1,3 +1,10 @@
+# [4.3.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.6...v4.3.0) (2022-09-16)
+
+
+### Features
+
+* fix package section file path ([71f527b](https://github.com/spaceship-prompt/spaceship-prompt/commit/71f527b68c5464f1283dd878d6481358d67c9741))
+
 ## [4.2.6](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.5...v4.2.6) (2022-09-08)
 
 
