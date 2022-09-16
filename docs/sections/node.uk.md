@@ -21,9 +21,9 @@ If you want to avoid showing the Node.js section for a specific Node.js version 
 SPACESHIP_NODE_DEFAULT_VERSION="18.0.0"
 ```
 
-## Options
+## Опції
 
-| Variable                         |              Default               | Meaning                                  |
+| Змінна                           |              Default               | Meaning                                  |
 |:-------------------------------- |:----------------------------------:| ---------------------------------------- |
 | `SPACESHIP_NODE_SHOW`            |               `true`               | Show section                             |
 | `SPACESHIP_NODE_ASYNC`           |               `true`               | Render section asynchronously            |
