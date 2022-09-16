@@ -9,17 +9,17 @@ The `dotnet` section displays the version of the .NET framework installed on the
 
 Ця секція відображається лише тоді, коли:
 
-* Is within a .NET project (upsearch finds a `project.json`, `global.json`, or `packet.dependecies` file)
-* Contains a `.csproj`, `.fsproj`, or `.xproj` file
-* Contains a `.sln` file
+* Ви всередині .NET-проєкту (пошук вгору знаходить файли `project.json`, `global.json`, or `packet.dependecies`)
+* Містить файли `.csproj`, `.fsproj` або `.xproj`
+* Містить файл `.sln`
 
 ## Опції
 
-| Змінна                    |          За замовчуванням          | Пояснення                     |
-|:------------------------- |:----------------------------------:| ----------------------------- |
-| `SPACESHIP_DOTNET_SHOW`   |               `true`               | Show section                  |
-| `SPACESHIP_DOTNET_ASYNC`  |               `true`               | Render section asynchronously |
-| `SPACESHIP_DOTNET_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix              |
-| `SPACESHIP_DOTNET_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix              |
-| `SPACESHIP_DOTNET_SYMBOL` |              `.NET·`               | Symbol before the section     |
-| `SPACESHIP_DOTNET_COLOR`  |               `128`                | Section's color               |
+| Змінна                    |          За замовчуванням          | Пояснення                   |
+|:------------------------- |:----------------------------------:| --------------------------- |
+| `SPACESHIP_DOTNET_SHOW`   |               `true`               | Показати секцію             |
+| `SPACESHIP_DOTNET_ASYNC`  |               `true`               | Рендерити секцію асинхронно |
+| `SPACESHIP_DOTNET_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Префікс секції              |
+| `SPACESHIP_DOTNET_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції               |
+| `SPACESHIP_DOTNET_SYMBOL` |              `.NET·`               | Символ перед секцією        |
+| `SPACESHIP_DOTNET_COLOR`  |               `128`                | Колір секції                |
