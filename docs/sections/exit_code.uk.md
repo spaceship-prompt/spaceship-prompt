@@ -12,9 +12,9 @@ Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show t
 SPACESHIP_EXIT_CODE_SHOW=true
 ```
 
-## Options
+## Опції
 
-| Variable                     | Default | Meaning                             |
+| Змінна                       | Default | Meaning                             |
 |:---------------------------- |:-------:| ----------------------------------- |
 | `SPACESHIP_EXIT_CODE_SHOW`   | `false` | Show section                        |
 | `SPACESHIP_EXIT_CODE_PREFIX` |    -    | Section's prefix                    |
