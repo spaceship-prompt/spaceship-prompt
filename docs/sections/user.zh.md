@@ -1,6 +1,6 @@
 # Username `user`
 
-The `user` section shows the current user's username. By default, it's displayed only when: By default, it's displayed only when:
+The `user` section shows the current user's username. By default, it's displayed only when: By default, it's displayed only when: By default, it's displayed only when:
 
 * the machine is connected via SSH (`$SSH_CONNECTION` is not empty)
 * username is not the same as `$LOGNAME`
@@ -10,7 +10,7 @@ The root user is highlighted in `SPACESHIP_USER_COLOR_ROOT` color (red as defaul
 
 ## Controlling when to show the `user` section
 
-`SPACESHIP_USER_SHOW` defines when to show the `user` section. Here are possible values: Here are possible values:
+`SPACESHIP_USER_SHOW` defines when to show the `user` section. Here are possible values: Here are possible values: Here are possible values:
 
 | `SPACESHIP_USER_SHOW` | Show on local | Show on remote |
 |:---------------------:|:------------- |:-------------- |
