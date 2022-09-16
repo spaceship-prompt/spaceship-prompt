@@ -9,10 +9,10 @@ If the `AWS_VAULT` variable is not defined, this section will use the [`AWS_PROF
 
 ## Опції
 
-| Змінна                 |              Default               | Meaning                             |
-|:---------------------- |:----------------------------------:| ----------------------------------- |
-| `SPACESHIP_AWS_SHOW`   |               `true`               | Show section                        |
-| `SPACESHIP_AWS_PREFIX` |              `using·`              | Section's prefix                    |
-| `SPACESHIP_AWS_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                    |
-| `SPACESHIP_AWS_SYMBOL` |               `☁️·`                | Symbol displayed before the section |
-| `SPACESHIP_AWS_COLOR`  |               `208`                | Section's color                     |
+| Variable               |          За замовчуванням          | Пояснення                               |
+|:---------------------- |:----------------------------------:| --------------------------------------- |
+| `SPACESHIP_AWS_SHOW`   |               `true`               | Показати секцію                         |
+| `SPACESHIP_AWS_PREFIX` |              `using·`              | Префікс секції                          |
+| `SPACESHIP_AWS_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
+| `SPACESHIP_AWS_SYMBOL` |               `☁️·`                | Символ, що відображається перед секцією |
+| `SPACESHIP_AWS_COLOR`  |               `208`                | Колір секції                            |
