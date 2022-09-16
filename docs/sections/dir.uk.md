@@ -1,10 +1,10 @@
-# Directory `dir`
+# Директорія `dir`
 
 The `dir` section displays the current working directory.
 
 The directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC` (3 levels by default).
 
-## Inside the repositories
+## Всередині репозиторіїв
 
 While you are in a repository, it shows only the root directory of the repository and folders inside it.
 
@@ -14,17 +14,17 @@ If you don't like this behavior, you can disable it by setting `SPACESHIP_DIR_TR
 SPACESHIP_DIR_TRUNC_REPO=false
 ```
 
-## Inside the write-protected directories
+## Всередині каталогів, захищених від запису
 
 If the current directory is write-protected or if the current user doesn't have write permissions, a padlock (by default) is displayed as a suffix.
 
-## Options
+## Опції
 
-| Variable                     |              Default               | Meaning                                                                             |
+| Змінна                       |          За замовчуванням          | Пояснення                                                                           |
 |:---------------------------- |:----------------------------------:| ----------------------------------------------------------------------------------- |
-| `SPACESHIP_DIR_SHOW`         |               `true`               | Show section                                                                        |
-| `SPACESHIP_DIR_PREFIX`       |               `in·`                | Section's prefix                                                                    |
-| `SPACESHIP_DIR_SUFFIX`       | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                                                                    |
+| `SPACESHIP_DIR_SHOW`         |               `true`               | Показати секцію                                                                     |
+| `SPACESHIP_DIR_PREFIX`       |               `in·`                | Префікс секції                                                                      |
+| `SPACESHIP_DIR_SUFFIX`       | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                                                       |
 | `SPACESHIP_DIR_TRUNC`        |                `3`                 | Number of folders of cwd to show in prompt, 0 to show all                           |
 | `SPACESHIP_DIR_TRUNC_PREFIX` |                 -                  | Prefix before cwd when it's truncated. For example `…/` or `.../`, empty to disable |
 | `SPACESHIP_DIR_TRUNC_REPO`   |               `true`               | While in `git` repo, show only root directory and folders inside it                 |
