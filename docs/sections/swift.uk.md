@@ -1,6 +1,6 @@
 # Swift `swift`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**Swift**](https://swift.org) is a general-purpose, multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community.
