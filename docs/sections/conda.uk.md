@@ -12,9 +12,9 @@ This section is only displayed when you have a `conda` command available in your
 !!! tip
     Disable the native conda prompt by executing `conda config --set changeps1 False`.
 
-## Options
+## Опції
 
-| Variable                  |              Default               | Meaning                                                  |
+| Змінна                    |              Default               | Meaning                                                  |
 |:------------------------- |:----------------------------------:| -------------------------------------------------------- |
 | `SPACESHIP_CONDA_SHOW`    |               `true`               | Show section                                             |
 | `SPACESHIP_CONDA_ASYNC`   |              `false`               | Render section asynchronously                            |
