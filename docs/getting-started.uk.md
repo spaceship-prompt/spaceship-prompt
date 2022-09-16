@@ -14,7 +14,7 @@ hide:
 
 Тепер, коли вимоги задоволені, ви можете встановити Spaceship за допомогою будь-якого з перелічених інструментів.
 
-=== "Manual"
+=== "Вручну"
 
     !!! hint
         If you're using any plugin manager, like Oh-My-Zsh, zplug, antigen or other, this might not be the best way to install Spaceship for you.
@@ -157,7 +157,7 @@ hide:
     makepkg -si
     ```
 
-## Congratulations!
+## Вітаємо!
 
 You've made it! You've installed Spaceship on your machine!
 
