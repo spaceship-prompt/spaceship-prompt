@@ -14,10 +14,10 @@ SPACESHIP_EXIT_CODE_SHOW=true
 
 ## Опції
 
-| Змінна                       | Default | Meaning                             |
-|:---------------------------- |:-------:| ----------------------------------- |
-| `SPACESHIP_EXIT_CODE_SHOW`   | `false` | Show section                        |
-| `SPACESHIP_EXIT_CODE_PREFIX` |    -    | Section's prefix                    |
-| `SPACESHIP_EXIT_CODE_SUFFIX` |    -    | Section's suffix                    |
-| `SPACESHIP_EXIT_CODE_SYMBOL` |   `✘`   | Symbol displayed before the section |
-| `SPACESHIP_EXIT_CODE_COLOR`  |  `red`  | Section's color                     |
+| Змінна                       | Default | Meaning                                 |
+|:---------------------------- |:-------:| --------------------------------------- |
+| `SPACESHIP_EXIT_CODE_SHOW`   | `false` | Show section                            |
+| `SPACESHIP_EXIT_CODE_PREFIX` |    -    | Section's prefix                        |
+| `SPACESHIP_EXIT_CODE_SUFFIX` |    -    | Суфікс секції                           |
+| `SPACESHIP_EXIT_CODE_SYMBOL` |   `✘`   | Символ, що відображається перед секцією |
+| `SPACESHIP_EXIT_CODE_COLOR`  |  `red`  | Колір секції                            |
