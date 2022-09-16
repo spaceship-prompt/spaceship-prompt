@@ -1,6 +1,6 @@
 # Battery `battery`
 
-!!! important "This section is rendered asynchronously by default"
+!!! !!! important "This section is rendered asynchronously by default"
 
 The `battery` section shows the current battery level and its status.
 
@@ -8,7 +8,7 @@ By default, the `battery` section is shown only if the battery level is below `S
 
 ## Controlling when to show the `battery` section
 
-You may want to show the `battery` section all the time or only when it's fully charged or discharged. It's easy to control when to show the `battery` section by setting the `SPACESHIP_BATTERY_SHOW` option.
+You may want to show the `battery` section all the time or only when it's fully charged or discharged. You may want to show the `battery` section all the time or only when it's fully charged or discharged. It's easy to control when to show the `battery` section by setting the `SPACESHIP_BATTERY_SHOW` option.
 
 Here are possible values:
 
