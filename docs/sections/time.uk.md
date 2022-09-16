@@ -26,9 +26,9 @@ Additionally, you can set virtually any formatting supported by [ZSH date format
 SPACESHIP_TIME_FORMAT='%D{%H:%M:%S.%.}'
 ```
 
-## Options
+## Опції
 
-| Variable                |              Default               | Meaning                                   |
+| Змінна                  |              Default               | Meaning                                   |
 |:----------------------- |:----------------------------------:| ----------------------------------------- |
 | `SPACESHIP_TIME_SHOW`   |              `false`               | Show section (set to `true` for enabling) |
 | `SPACESHIP_TIME_PREFIX` |               `at·`                | Section's prefix                          |
