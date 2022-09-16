@@ -1,6 +1,6 @@
 # Docker `docker`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**Docker**](https://docker.com) is a set of the platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers.
@@ -11,15 +11,15 @@ This section is shown only in the projects containing a `Dockerfile`, `docker-co
 
 ## Опції
 
-| Змінна                     |              Default               | Meaning                             |
-|:-------------------------- |:----------------------------------:| ----------------------------------- |
-| `SPACESHIP_DOCKER_SHOW`    |               `true`               | Show section                        |
-| `SPACESHIP_DOCKER_ASYNC`   |               `true`               | Render section asynchronously       |
-| `SPACESHIP_DOCKER_PREFIX`  |                `on`                | Section's prefix                    |
-| `SPACESHIP_DOCKER_SUFFIX`  | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                    |
-| `SPACESHIP_DOCKER_SYMBOL`  |                `🐳·`                | Symbol displayed before the section |
-| `SPACESHIP_DOCKER_COLOR`   |               `cyan`               | Section's color                     |
-| `SPACESHIP_DOCKER_VERBOSE` |              `false`               | Show complete Docker version        |
+| Змінна                     |              Default               | Meaning                                 |
+|:-------------------------- |:----------------------------------:| --------------------------------------- |
+| `SPACESHIP_DOCKER_SHOW`    |               `true`               | Show section                            |
+| `SPACESHIP_DOCKER_ASYNC`   |               `true`               | Рендерити секцію асинхронно             |
+| `SPACESHIP_DOCKER_PREFIX`  |                `on`                | Section's prefix                        |
+| `SPACESHIP_DOCKER_SUFFIX`  | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
+| `SPACESHIP_DOCKER_SYMBOL`  |                `🐳·`                | Символ, що відображається перед секцією |
+| `SPACESHIP_DOCKER_COLOR`   |               `cyan`               | Колір секції                            |
+| `SPACESHIP_DOCKER_VERBOSE` |              `false`               | Show complete Docker version            |
 
 ## Docker context `docker_context`
 
@@ -47,9 +47,9 @@ spaceship add docker_context
 
 ### Опції
 
-| Змінна                            | Default | Meaning                       |
-|:--------------------------------- |:-------:| ----------------------------- |
-| `SPACESHIP_DOCKER_CONTEXT_SHOW`   | `true`  | Show section                  |
-| `SPACESHIP_DOCKER_CONTEXT_ASYNC`  | `true`  | Render section asynchronously |
-| `SPACESHIP_DOCKER_CONTEXT_PREFIX` |  `·(`   | Section's prefix              |
-| `SPACESHIP_DOCKER_CONTEXT_SUFFIX` |   `)`   | Section's suffix              |
+| Змінна                            | Default | Meaning                     |
+|:--------------------------------- |:-------:| --------------------------- |
+| `SPACESHIP_DOCKER_CONTEXT_SHOW`   | `true`  | Show section                |
+| `SPACESHIP_DOCKER_CONTEXT_ASYNC`  | `true`  | Рендерити секцію асинхронно |
+| `SPACESHIP_DOCKER_CONTEXT_PREFIX` |  `·(`   | Section's prefix            |
+| `SPACESHIP_DOCKER_CONTEXT_SUFFIX` |   `)`   | Суфікс секції               |
