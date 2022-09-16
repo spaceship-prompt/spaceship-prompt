@@ -12,9 +12,9 @@ This section is displayed only when the current directory is within a Ruby proje
 * Upsearch finds a `Gemfile` or `Rakefile` file
 * The current directory contains any `.rb` file
 
-## Options
+## Опції
 
-| Variable                |              Default               | Meaning                               |
+| Змінна                  |              Default               | Meaning                               |
 |:----------------------- |:----------------------------------:| ------------------------------------- |
 | `SPACESHIP_RUBY_SHOW`   |               `true`               | Show section                          |
 | `SPACESHIP_RUBY_ASYNC`  |               `true`               | Render section asynchronously       | |
