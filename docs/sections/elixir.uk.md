@@ -1,13 +1,13 @@
 # Elixir `elixir`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**Elixir**](https://elixir-lang.org) is a dynamic, functional language for building scalable and maintainable applications.
 
 The `elixir` section displays the version of the Elixir.
 
-This section is displayed only when the current directory:
+Ця секція відображається лише тоді, коли:
 
 * Contains a `mix.exs` file
 * Contains any other file with `.ex` or `.exs` extension
@@ -25,9 +25,9 @@ SPACESHIP_ELIXIR_DEFAULT_VERSION="1.13.4"
 | Змінна                             |              Default               | Meaning                                 |
 |:---------------------------------- |:----------------------------------:| --------------------------------------- |
 | `SPACESHIP_ELIXIR_SHOW`            |               `true`               | Show section                            |
-| `SPACESHIP_ELIXIR_ASYNC`           |               `true`               | Render section asynchronously           |
+| `SPACESHIP_ELIXIR_ASYNC`           |               `true`               | Рендерити секцію асинхронно             |
 | `SPACESHIP_ELIXIR_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                        |
-| `SPACESHIP_ELIXIR_SUFFIX`          | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                        |
+| `SPACESHIP_ELIXIR_SUFFIX`          | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
 | `SPACESHIP_ELIXIR_DEFAULT_VERSION` |                 -                  | Elixir version to be treated as default |
 | `SPACESHIP_ELIXIR_SYMBOL`          |                `💧·`                | Symbol before the section               |
-| `SPACESHIP_ELIXIR_COLOR`           |             `magenta`              | Section's color                         |
+| `SPACESHIP_ELIXIR_COLOR`           |             `magenta`              | Колір секції                            |
