@@ -1,8 +1,8 @@
 # Bun `bun`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! !!! !!! important "This section is rendered asynchronously by default"
 
-!!! !!! info
+!!! !!! !!! info
     [**Bun**](https://bun.sh) is a fast all-in-one JavaScript runtime.
 
 The `bun` section displays the Bun version.
