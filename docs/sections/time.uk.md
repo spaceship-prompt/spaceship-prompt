@@ -26,13 +26,13 @@ Additionally, you can set virtually any formatting supported by [ZSH date format
 SPACESHIP_TIME_FORMAT='%D{%H:%M:%S.%.}'
 ```
 
-## Опції
+## Options
 
-| Змінна                  |              Default               | Meaning                                   |
+| Variable                |              Default               | Meaning                                   |
 |:----------------------- |:----------------------------------:| ----------------------------------------- |
 | `SPACESHIP_TIME_SHOW`   |              `false`               | Show section (set to `true` for enabling) |
 | `SPACESHIP_TIME_PREFIX` |               `at·`                | Section's prefix                          |
-| `SPACESHIP_TIME_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                             |
-| `SPACESHIP_TIME_COLOR`  |              `yellow`              | Колір секції                              |
+| `SPACESHIP_TIME_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                          |
+| `SPACESHIP_TIME_COLOR`  |              `yellow`              | Section's color                           |
 | `SPACESHIP_TIME_FORMAT` |                 -                  | Custom date formatting                    |
 | `SPACESHIP_TIME_12HR`   |              `false`               | Format time using 12-hour clock (am/pm)   |
