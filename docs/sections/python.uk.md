@@ -12,9 +12,9 @@ This section is displayed only when the current directory is within a Python pro
 * Upsearch finds a `requirements.txt`, `Pipfile` or `pyproject.toml` file
 * Current directory contains any `.py` file
 
-## Options
+## Опції
 
-| Variable                  |              Default               | Meaning                             |
+| Змінна                    |              Default               | Meaning                             |
 |:------------------------- |:----------------------------------:| ----------------------------------- |
 | `SPACESHIP_PYTHON_SHOW`   |               `true`               | Show section                        |
 | `SPACESHIP_PYTHON_ASYNC`  |               `true`               | Render section asynchronously       |
