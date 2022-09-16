@@ -1,6 +1,6 @@
 # .NET `dotnet`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**.NET**](https://dotnet.microsoft.com/) is a framework including a large class library for building various applications with languages like C#, F#, or Visual Basic.
@@ -13,9 +13,9 @@ This section is displayed only when the current directory:
 * Contains a `.csproj`, `.fsproj`, or `.xproj` file
 * Contains a `.sln` file
 
-## Options
+## Опції
 
-| Variable                  |              Default               | Meaning                       |
+| Змінна                    |          За замовчуванням          | Пояснення                     |
 |:------------------------- |:----------------------------------:| ----------------------------- |
 | `SPACESHIP_DOTNET_SHOW`   |               `true`               | Show section                  |
 | `SPACESHIP_DOTNET_ASYNC`  |               `true`               | Render section asynchronously |
