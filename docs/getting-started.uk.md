@@ -1,117 +1,120 @@
----
-hide:
-  - navigation
----
+# Getting Started
 
-# Початок роботи
+Welcome aboard! Let's install Spaceship on your machine, astronaut!
 
-## Вимоги
+## Requirements
 
-- [`zsh`](http://www.zsh.org/) (v5.2 або новіше) має бути встановлено.
-- [Powerline-шрифт](https://github.com/powerline/fonts) слід встановити і використовувати у вашому терміналі (наприклад, змінити шрифт на [Fira Code](https://github.com/tonsky/FiraCode)).
+Before we begin, let's make sure you have the following installed:
 
-## Встановлення
+- [Zsh](http://www.zsh.org/) (v5.2 or recent) must be installed. Run the following command to check you version of Zsh:
+  ```zsh
+  echo $ZSH_VERSION #> 5.8.1
+  ```
+- [Powerline Font](https://github.com/powerline/fonts) or [Nerd Font](https://www.nerdfonts.com/) (even better) must be installed and used in your terminal. [Fira Code](https://github.com/tonsky/FiraCode) is a popular choice. To check if Powerline Font works for you, run:
+  ```zsh
+  echo -e "\xee\x82\xa0" #> 
+  ```
 
-Тепер, коли вимоги задоволені, ви можете встановити Spaceship за допомогою будь-якого з перелічених інструментів.
+## Installing
 
-=== "Вручну"
+Now that the requirements are satisfied, you can install Spaceship via any of the following approaches:
+
+=== "Manual"
 
     !!! hint
-        If you're using any plugin manager, like Oh-My-Zsh, zplug, antigen or other, this might not be the best way to install Spaceship for you.
-    
-    This is way to install Spaceship if you don't use any tool for managing Zsh plugins.
+        If you're using any plugin manager, like Oh-My-Zsh, antigen, zgen, zplug or other, this might not be the best way to install Spaceship for you.
 
-    - Скористайтесь [prezto-contrib#usage](https://github.com/belak/prezto-contrib#usage) , щоб клонувати `prezto-contrib` до правильного розташування.
-    - Увімкніть модуль `contrib-prompt` (перед модулем `prompt`).
-    - Initialize prompt system and choose `spaceship`.
+    1. Clone this repo somewhere, for example to `$HOME/.zsh/spaceship`.
+    2. Source Spaceship in your `~/.zshrc`.
 
+    ### Example
 
-    #### Example
-
-    Run `echo $fpath` to see possible location and link `spaceship.zsh` there, like:
-
-    ```zsh
-    $ ln -sf "$PWD/spaceship.zsh" "/usr/local/share/zsh/site-functions/prompt_spaceship_setup"
-    ```
-
-    For a user-specific installation, simply add a directory to `$fpath` for that user in `.zshrc`:
-
-    ```zsh
-    fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
-    ```
-
-    Then install the theme like this:
-
-    ```zsh
-    $ ln -sf "$PWD/spaceship.zsh" "${ZDOTDIR:-$HOME}/.zfunctions/prompt_spaceship_setup"
+    ```zsh title="Terminal"
+    mkdir -p "$HOME/.zsh"
+    git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/spaceship"
     ```
 
     For initializing prompt system add this to your `.zshrc`:
 
-    ```zsh
-    # .zshrc
-    autoload -U promptinit; promptinit
-    prompt spaceship
+    ```zsh title=".zshrc"
+    source "$HOME/.zsh/spaceship/spaceship.zsh"
     ```
 
 === "Homebrew"
 
-    ```
+    Installing Spaceship via Homebrew is a simple command:
+
+    ```zsh title="Terminal"
     brew install spaceship
     ```
 
+    Add prompt initialization to your `.zshrc`:
 
-    You can also add the following to your [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage):
-
-    ```ruby
-    brew "spaceship"
+    ```zsh title="Terminal"
+    echo "source $(brew --prefix)/opt/spaceship/spaceship.zsh" >>! ~/.zshrc
     ```
+
+    !!! tip
+        You can also add the following to your [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage) to bundle Spaceship along with your other software:
+
+        ```ruby title="Brewfile"
+        brew "spaceship"
+        ```
 
 === "oh-my-zsh"
 
     Clone this repo:
 
-    ```zsh
+    ```zsh title="Terminal"
     git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
     ```
 
-
     Symlink `spaceship.zsh-theme` to your oh-my-zsh custom themes directory:
 
-    ```zsh
+    ```zsh title="Terminal"
     ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
     ```
-
 
     Set `ZSH_THEME="spaceship"` in your `.zshrc`.
 
 === "npm"
 
-    ```
+    Install Spaceship via npm as you would with any other global package:
+
+    ``` title="Terminal"
     npm install -g spaceship-prompt
     ```
 
+    This command will download Spaceship. It will also ask you to source Spaceship in your `~/.zshrc` file.
 
-    Done. This command should link `spaceship.zsh` as `prompt_spaceship_setup` to your `$fpath` and set `prompt spaceship` in `.zshrc`. Just reload your terminal.
-    
-    !!!tip
+    !!! tip
         Update Spaceship to new versions as you would any other package.
 
 === "prezto"
 
-    - Клонувати цей репозиторій `git clone https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1`
-    - Зробіть символічне посилання на `spaceship.zsh` у вашому [`$fpath`](http://www.refining-linux.org/archives/46/ZSH-Gem-12-Autoloading-functions/) як `prompt_spaceship_setup`.
-    - Ініціалізуйте систему командного рядка та оберіть `spaceship`.
+    - Follow [prezto-contrib#usage](https://github.com/belak/prezto-contrib#usage) to clone `prezto-contrib` to the proper location.
+    - Enable the `contrib-prompt` module (before the `prompt` module).
+    - Set `zstyle ':prezto:module:prompt' theme 'spaceship'` in your `.zpreztorc`.
 
 === "zim"
 
-    Add `zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules` to your `.zimrc` and run `zimfw install`.
+    Add Spaceship to your `.zimrc`:
+
+    ```zsh title=".zimrc"
+    zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules
+    ```
+
+    Then install Spaceship:
+
+    ```zsh title="Terminal"
+    zimfw install
+    ```
 
 === "antigen"
 
     Add the following snippet in your `.zshrc`:
 
-    ```
+    ```zsh title=".zshrc"
     antigen theme spaceship-prompt/spaceship-prompt
     ```
 
@@ -119,7 +122,7 @@ hide:
 
     Update your `.zshrc` file with the following line:
 
-    ```
+    ```zsh title=".zshrc"
     antibody bundle spaceship-prompt/spaceship-prompt
     ```
 
@@ -127,7 +130,7 @@ hide:
 
     Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
 
-    ```
+    ```zsh title=".zshrc"
     zinit light spaceship-prompt/spaceship-prompt
     ```
 
@@ -135,7 +138,7 @@ hide:
 
     Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
 
-    ```
+    ```zsh title=".zshrc"
     zgen load spaceship-prompt/spaceship-prompt spaceship
     ```
 
@@ -143,8 +146,23 @@ hide:
 
     Use this command in your `.zshrc` to load Spaceship as prompt theme:
 
-    ```
+    ```zsh title=".zshrc"
     zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+    ```
+
+=== "sheldon"
+
+    Add the following to your `plugins.toml` file (open it with `sheldon edit`):
+
+    ```toml title="plugins.toml"
+    [plugins.spaceship]
+    github = "spaceship-prompt/spaceship-prompt"
+    ```
+
+    Or run the following to automatically add it:
+
+    ```zsh title="Terminal"
+    sheldon add spaceship --github spaceship-prompt/spaceship-prompt
     ```
 
 === "Arch"
@@ -157,18 +175,24 @@ hide:
     makepkg -si
     ```
 
-## Вітаємо!
+## Congratulations!
 
 You've made it! You've installed Spaceship on your machine!
 
-What's next? Spaceship has reasonable defaults, but you might want to adjust them to your needs. Visit our [Options](./options.md) page to learn how to configure your Spaceship.
+What's next? Spaceship has reasonable defaults, but you might want to adjust them to your needs. Learn how to configure your Spaceship:
 
-<!-- prettier-ignore -->
-!!! tip
-    Follow [our Twitter](//twitter.com/SpaceshipPrompt) to keep yourself updated about new features, improvements, and bugfixes.
+[Configure Spaceship](/config/intro){ .md-button .md-button--primary }
 
-## Troubleshooting
+Additionally, join our community or consider contributing to the project.
 
-Having trouble? Take a look at out [Troubleshooting](./troubleshooting.md) page.
+[:material-hand-heart: Contribute](/contribute){ .md-button }
+[:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt){ .md-button }
+[:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9){ .md-button }
 
-Still struggling? Please, [file an issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose), describe your problem and we will gladly help you.
+## Having trouble?
+
+Find answers on our troubleshooting page or get help by our community. Still struggling? Please, *file an issue*, describe your problem, and we will gladly help you.
+
+[:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9){ .md-button }
+[:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/){ .md-button }
+[:fontawesome-brands-github: Issues](https://github.com/spaceship-prompt/spaceship-prompt/issues){ .md-button }
