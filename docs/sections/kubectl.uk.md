@@ -1,6 +1,6 @@
 # Kubernetes `kubectl`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**Kubernetes**](https://kubernetes.io) is an open-source container orchestration system for automating software deployment, scaling, and management.
@@ -9,14 +9,14 @@ The `kubectl` section consists of [`kubectl_version`](#kubernetes-version-kubect
 
 ## Опції
 
-| Змінна                     |              Default               | Meaning                               |
-|:-------------------------- |:----------------------------------:| ------------------------------------- |
-| `SPACESHIP_KUBECTL_SHOW`   |              `false`               | Show section                          |
-| `SPACESHIP_KUBECTL_ASYNC`  |               `true`               | Render section asynchronously         |
-| `SPACESHIP_KUBECTL_PREFIX` |               `at·`                | Section's prefix                      |
-| `SPACESHIP_KUBECTL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                      |
-| `SPACESHIP_KUBECTL_COLOR`  |              `white`               | Section's color of Kubernetes section |
-| `SPACESHIP_KUBECTL_SYMBOL` |               `☸️··`               | Symbol displayed before the section   |
+| Змінна                     |              Default               | Meaning                                 |
+|:-------------------------- |:----------------------------------:| --------------------------------------- |
+| `SPACESHIP_KUBECTL_SHOW`   |              `false`               | Show section                            |
+| `SPACESHIP_KUBECTL_ASYNC`  |               `true`               | Рендерити секцію асинхронно             |
+| `SPACESHIP_KUBECTL_PREFIX` |               `at·`                | Section's prefix                        |
+| `SPACESHIP_KUBECTL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
+| `SPACESHIP_KUBECTL_COLOR`  |              `white`               | Section's color of Kubernetes section   |
+| `SPACESHIP_KUBECTL_SYMBOL` |               `☸️··`               | Символ, що відображається перед секцією |
 
 ## Kubernetes version `kubectl_version`
 
@@ -24,13 +24,13 @@ The `kubectl_version` section shows the version of the Kubernetes. It is shown o
 
 ### Опції
 
-| Змінна                             |              Default               | Meaning                       |
-|:---------------------------------- |:----------------------------------:| ----------------------------- |
-| `SPACESHIP_KUBECTL_VERSION_SHOW`   |               `true`               | Show subsection               |
-| `SPACESHIP_KUBECTL_VERSION_ASYNC`  |               `true`               | Render section asynchronously |
-| `SPACESHIP_KUBECTL_VERSION_PREFIX` |                 -                  | Subsection's prefix           |
-| `SPACESHIP_KUBECTL_VERSION_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Subsection's suffix           |
-| `SPACESHIP_KUBECTL_VERSION_COLOR`  |               `cyan`               | Subsection's color            |
+| Змінна                             |              Default               | Meaning                     |
+|:---------------------------------- |:----------------------------------:| --------------------------- |
+| `SPACESHIP_KUBECTL_VERSION_SHOW`   |               `true`               | Show subsection             |
+| `SPACESHIP_KUBECTL_VERSION_ASYNC`  |               `true`               | Рендерити секцію асинхронно |
+| `SPACESHIP_KUBECTL_VERSION_PREFIX` |                 -                  | Subsection's prefix         |
+| `SPACESHIP_KUBECTL_VERSION_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Subsection's suffix         |
+| `SPACESHIP_KUBECTL_VERSION_COLOR`  |               `cyan`               | Subsection's color          |
 
 ## Kubernetes context `kubectl_context`
 
