@@ -13,14 +13,14 @@ For better readability, you can configure the generic names for your virtualenvs
 SPACESHIP_VENV_GENERIC_NAMES=(virtualenv venv .venv generic-name)
 ```
 
-## Опції
+## Options
 
-| Змінна                         |              Default               | Meaning                                                          |
+| Variable                       |              Default               | Meaning                                                          |
 |:------------------------------ |:----------------------------------:| ---------------------------------------------------------------- |
 | `SPACESHIP_VENV_SHOW`          |               `true`               | Show section                                                     |
-| `SPACESHIP_VENV_ASYNC`         |              `false`               | Рендерити секцію асинхронно                                      |
+| `SPACESHIP_VENV_ASYNC`         |              `false`               | Render section asynchronously                                    |
 | `SPACESHIP_VENV_PREFIX`        | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                                                 |
-| `SPACESHIP_VENV_SUFFIX`        | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                                    |
-| `SPACESHIP_VENV_SYMBOL`        |                `·`                 | Символ, що відображається перед секцією                          |
+| `SPACESHIP_VENV_SUFFIX`        | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                                                 |
+| `SPACESHIP_VENV_SYMBOL`        |                `·`                 | Symbol displayed before the section                              |
 | `SPACESHIP_VENV_GENERIC_NAMES` |     `(virtualenv venv .venv)`      | Generic folder names. Parent folder will be used as name instead |
-| `SPACESHIP_VENV_COLOR`         |               `blue`               | Колір секції                                                     |
+| `SPACESHIP_VENV_COLOR`         |               `blue`               | Section's color                                                  |
