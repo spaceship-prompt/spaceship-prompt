@@ -1,8 +1,8 @@
 # Rust `rust`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! !!! !!! important "This section is rendered asynchronously by default"
 
-!!! !!! info
+!!! !!! !!! info
     [**Rust**](https://www.rust-lang.org) is a systems programming language that is focused on safety, speed, and concurrency.
 
 The `rust` section displays the version of Rust.
