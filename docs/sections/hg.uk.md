@@ -4,9 +4,9 @@
 
 The `hg` section consists of [`hg_branch`](#hg-branch-hg_branch) and [`hg_status`](#hg-status-hg_status) subsections. It is displayed only in Mercurial repositories.
 
-## Options
+## Опції
 
-| Variable              |              Default               | Meaning                             |
+| Змінна                |              Default               | Meaning                             |
 |:--------------------- |:----------------------------------:| ----------------------------------- |
 | `SPACESHIP_HG_SHOW`   |               `true`               | Show section                        |
 | `SPACESHIP_HG_ASYNC`  |               `true`               | Render section asynchronously       |
@@ -19,9 +19,9 @@ The `hg` section consists of [`hg_branch`](#hg-branch-hg_branch) and [`hg_status
 
 The `hg_branch` shows Mercurial bookmarks when available, otherwise shows Mercurial branch information.
 
-### Options
+### Опції
 
-| Variable                     |              Default               | Meaning          |
+| Змінна                       |              Default               | Meaning          |
 |:---------------------------- |:----------------------------------:| ---------------- |
 | `SPACESHIP_HG_BRANCH_SHOW`   |               `true`               | Show subsection  |
 | `SPACESHIP_HG_BRANCH_ASYNC`  |               `true`               | Show subsection  |
@@ -33,9 +33,9 @@ The `hg_branch` shows Mercurial bookmarks when available, otherwise shows Mercur
 
 The `hg_status` displays Mercurial status indicators. It is shown only within a dirty Mercurial repository.
 
-### Options
+### Опції
 
-| Variable                        | Default | Meaning                         |
+| Змінна                          | Default | Meaning                         |
 |:------------------------------- |:-------:| ------------------------------- |
 | `SPACESHIP_HG_STATUS_SHOW`      | `true`  | Show subsection                 |
 | `SPACESHIP_HG_STATUS_ASYNC`     | `true`  | Show subsection                 |
