@@ -4,9 +4,9 @@
 
 The `git` section consists of [`git_branch`](#git-branch-git_branch) and [`git_status`](#git-status-git_status) subsections.
 
-## Options
+## Опції
 
-| Variable               |              Default               | Meaning                                                                                                     |
+| Змінна                 |              Default               | Meaning                                                                                                     |
 |:---------------------- |:----------------------------------:| ----------------------------------------------------------------------------------------------------------- |
 | `SPACESHIP_GIT_SHOW`   |               `true`               | Show section                                                                                                |
 | `SPACESHIP_GIT_ASYNC`  |               `true`               | Render section asynchronously                                                                               |
@@ -19,9 +19,9 @@ The `git` section consists of [`git_branch`](#git-branch-git_branch) and [`git_s
 
 The `git_branch` section displays the current branch of the Git repository.
 
-### Options
+### Опції
 
-| Variable                      |         Default         | Meaning                       |
+| Змінна                        |         Default         | Meaning                       |
 |:----------------------------- |:-----------------------:| ----------------------------- |
 | `SPACESHIP_GIT_BRANCH_SHOW`   |         `true`          | Show section                  |
 | `SPACESHIP_GIT_BRANCH_ASYNC`  |         `false`         | Render section asynchronously |
@@ -33,9 +33,9 @@ The `git_branch` section displays the current branch of the Git repository.
 
 The `git_status` subsection displays indicators only when you have a dirty Git repository.
 
-### Options
+### Опції
 
-| Variable                         | Default | Meaning                                                      |
+| Змінна                           | Default | Meaning                                                      |
 |:-------------------------------- |:-------:| ------------------------------------------------------------ |
 | `SPACESHIP_GIT_STATUS_SHOW`      | `true`  | Show section                                                 |
 | `SPACESHIP_GIT_STATUS_ASYNC`     | `true`  | Render section asynchronously                                |
