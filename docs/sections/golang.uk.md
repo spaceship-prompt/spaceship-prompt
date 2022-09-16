@@ -20,9 +20,9 @@ If you are using a development version of `Go`, the version uses git commit hash
 * `devel:5efe9a8f11` for development version
 * `v1.11.4` for the release version
 
-## Options
+## Опції
 
-| Variable                  |              Default               | Meaning                             |
+| Змінна                    |              Default               | Meaning                             |
 |:------------------------- |:----------------------------------:| ----------------------------------- |
 | `SPACESHIP_GOLANG_SHOW`   |               `true`               | Show section                        |
 | `SPACESHIP_GOLANG_ASYNC`  |               `true`               | Render section asynchronously       |
