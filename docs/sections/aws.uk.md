@@ -7,9 +7,9 @@ The `aws` section shows the current AWS profile using the [`AWS_VAULT`](https://
 
 If the `AWS_VAULT` variable is not defined, this section will use the [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) environment variable.
 
-## Options
+## Опції
 
-| Variable               |              Default               | Meaning                             |
+| Змінна                 |              Default               | Meaning                             |
 |:---------------------- |:----------------------------------:| ----------------------------------- |
 | `SPACESHIP_AWS_SHOW`   |               `true`               | Show section                        |
 | `SPACESHIP_AWS_PREFIX` |              `using·`              | Section's prefix                    |
