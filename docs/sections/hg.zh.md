@@ -1,8 +1,8 @@
 # Mercurial `hg`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! !!! !!! important "This section is rendered asynchronously by default"
 
-The `hg` section consists of [`hg_branch`](#hg-branch-hg_branch) and [`hg_status`](#hg-status-hg_status) subsections. It is displayed only in Mercurial repositories. It is displayed only in Mercurial repositories.
+The `hg` section consists of [`hg_branch`](#hg-branch-hg_branch) and [`hg_status`](#hg-status-hg_status) subsections. It is displayed only in Mercurial repositories. It is displayed only in Mercurial repositories. It is displayed only in Mercurial repositories.
 
 ## Options
 
@@ -31,7 +31,7 @@ The `hg_branch` shows Mercurial bookmarks when available, otherwise shows Mercur
 
 ## Mercurial status `hg_status`
 
-The `hg_status` displays Mercurial status indicators. It is shown only within a dirty Mercurial repository. It is shown only within a dirty Mercurial repository.
+The `hg_status` displays Mercurial status indicators. It is shown only within a dirty Mercurial repository. It is shown only within a dirty Mercurial repository. It is shown only within a dirty Mercurial repository.
 
 ### Options
 
