@@ -22,9 +22,9 @@ Currently, these package managers are supported:
 * [`composer`][composer] — version from `composer.json` file.
 * [`julia`][julia] — version from `Project.toml` file.
 
-## Options
+## Опції
 
-| Variable                         |              Default               | Meaning                             |
+| Змінна                           |              Default               | Meaning                             |
 |:-------------------------------- |:----------------------------------:| ----------------------------------- |
 | `SPACESHIP_PACKAGE_SHOW`         |               `true`               | Show section                        |
 | `SPACESHIP_PACKAGE_ASYNC`        |               `true`               | Render section asynchronously       |
