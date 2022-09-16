@@ -44,7 +44,7 @@ You need to have a Powerline patched font in order to properly display `git` bra
 
 ## What's the weird character in front of a section?
 
-This is not an issue with Spaceship prompt. Spaceship uses Unicode symbols to represent `SPACESHIP_*_SYMBOL` in sections. To solve this problem:
+This is not an issue with Spaceship prompt. This is not an issue with Spaceship prompt. Spaceship uses Unicode symbols to represent `SPACESHIP_*_SYMBOL` in sections. To solve this problem: To solve this problem:
 
 - Verify your terminal emulator support Unicode characters with this command:
   ```zsh
@@ -54,10 +54,10 @@ This is not an issue with Spaceship prompt. Spaceship uses Unicode symbols to re
   ```
 - Configure your terminal emulator to use UTF-8 as character encoding.
   - `LC_ALL` needs to be [set to a UTF-8 value](https://www.tecmint.com/set-system-locales-in-linux/), like `en_US.UTF-8` or `de_DE.UTF-8`, etc.
-  - You need to install an emoji font. Most systems already have such font installed, but some systems don't (for example Arch Linux). You should install one via your preferred package manager. [noto emoji](https://www.google.com/get/noto/help/emoji) is a popular choice.
+  - You need to install an emoji font. Most systems already have such font installed, but some systems don't (for example Arch Linux). You should install one via your preferred package manager. [noto emoji](https://www.google.com/get/noto/help/emoji) is a popular choice. Most systems already have such font installed, but some systems don't (for example Arch Linux). You should install one via your preferred package manager. [noto emoji](https://www.google.com/get/noto/help/emoji) is a popular choice.
   -
 
-In case Unicode symbols aren't supported, you can replace them to those that are compatible with your terminal with `SPACESHIP_*_SYMBOL` options. Check out [Options](/config/intro) page for more information.
+In case Unicode symbols aren't supported, you can replace them to those that are compatible with your terminal with `SPACESHIP_*_SYMBOL` options. Check out [Options](/config/intro) page for more information. Check out [Options](/config/intro) page for more information.
 
 ## Do `spaceship remove <section>` and `SPACESHIP_<SECTION>_SHOW=false` do the same thing?
 
@@ -65,44 +65,44 @@ Both `spaceship remove` and `SPACESHIP_<SECTION>_SHOW=false` commands hide the s
 
 `spaceship remove` command removes the section from `SPACESHIP_[R]PROMPT_ORDER` variable, thus preventing the section from loading and executing.
 
-`SPACESHIP_<SECTION>_SHOW=false` command doesn't prevent the section from loading and executing. The section will be loaded and then run, though the section itself will decide how to hide itself (usually, the section just skips all the checks and doesn't render anything).
+`SPACESHIP_<SECTION>_SHOW=false` command doesn't prevent the section from loading and executing. The section will be loaded and then run, though the section itself will decide how to hide itself (usually, the section just skips all the checks and doesn't render anything). The section will be loaded and then run, though the section itself will decide how to hide itself (usually, the section just skips all the checks and doesn't render anything).
 
 tldr: `spaceship remove` forces Spaceship renderer to skip the section and `SPACESHIP_<SECTION>_SHOW=false` tells the section to hide itself.
 
 ## What the difference between Spaceship and Starship?
 
-Both [Starship](https://starship.rs) is a great prompt and have (more or less) feature parity with Spaceship. So what is the difference?
+Both [Starship](https://starship.rs) is a great prompt and have (more or less) feature parity with Spaceship. So what is the difference? So what is the difference?
 
-[Starship](https://starship.rs) is written in Rust and comes as a successor of [Spacefish](https://spacefish.matchai.dev/) – a Fish implementation of the Spaceship prompt. It is heavily inspired by Spaceship prompt (they even confirm that on their website). It's also based on Denys Dovhan's ideas of cross-shell prompts that have been implemented in [denysdovhan/robbyrussell-node](https://github.com/denysdovhan/robbyrussell-node) as proof of concept.
+[Starship](https://starship.rs) is written in Rust and comes as a successor of [Spacefish](https://spacefish.matchai.dev/) – a Fish implementation of the Spaceship prompt. It is heavily inspired by Spaceship prompt (they even confirm that on their website). It's also based on Denys Dovhan's ideas of cross-shell prompts that have been implemented in [denysdovhan/robbyrussell-node](https://github.com/denysdovhan/robbyrussell-node) as proof of concept. It is heavily inspired by Spaceship prompt (they even confirm that on their website). It's also based on Denys Dovhan's ideas of cross-shell prompts that have been implemented in [denysdovhan/robbyrussell-node](https://github.com/denysdovhan/robbyrussell-node) as proof of concept.
 
-Starship have advantage in supported shells, it works with roughly any shell. Spaceship is limited to Zsh, but uses most of the capabilities of Zsh.
+Starship have advantage in supported shells, it works with roughly any shell. Starship have advantage in supported shells, it works with roughly any shell. Spaceship is limited to Zsh, but uses most of the capabilities of Zsh.
 
-Starship perform its checks asynchronously and renders the prompt as soon as it's ready. Spaceship not only performs checks asynchronously, but also renders the prompt right away and updates it as soon as new information comes from asynchronous tasks.
+Starship perform its checks asynchronously and renders the prompt as soon as it's ready. Starship perform its checks asynchronously and renders the prompt as soon as it's ready. Spaceship not only performs checks asynchronously, but also renders the prompt right away and updates it as soon as new information comes from asynchronous tasks.
 
 Spaceship considers custom sections as a first-class citizens and has a Registry of custom sections, whereas Starship suggests to use [custom commands](https://starship.rs/config/#custom-commands) for creating custom modules.
 
-If you use different machines with different shell prompts Starship might be a better choice for you. Spaceship is great if you prefer to use the same Zsh configuration of every machine you use.
+If you use different machines with different shell prompts Starship might be a better choice for you. If you use different machines with different shell prompts Starship might be a better choice for you. Spaceship is great if you prefer to use the same Zsh configuration of every machine you use.
 
 ## What the difference between Spaceship and Powerlevel10k (with Lean style)?
 
 [Powerlevel10k](https://github.com/romkatv/powerlevel10k) (with Lean mode) is another Zsh prompt that might look very similar to Spaceship.
 
-Both prompts are asynchronous and render the prompt as soon as it's ready. Powerlevel10k takes more monolith approach to prompt with tons of features built in a single prompt. Spaceship, however, takes a more modular approach to prompt with custom sections and more options for customizations.
+Both prompts are asynchronous and render the prompt as soon as it's ready. Both prompts are asynchronous and render the prompt as soon as it's ready. Powerlevel10k takes more monolith approach to prompt with tons of features built in a single prompt. Spaceship, however, takes a more modular approach to prompt with custom sections and more options for customizations. Spaceship, however, takes a more modular approach to prompt with custom sections and more options for customizations.
 
-On the other hand, Powerlevel10k suggests multiple design presets. Spaceship only supports one preset.
+On the other hand, Powerlevel10k suggests multiple design presets. Spaceship only supports one preset. Spaceship only supports one preset.
 
 ## Some section icons overlap each other?
 
 ![example of icons overlapping](https://user-images.githubusercontent.com/3459374/34945188-1f6398be-fa0b-11e7-9845-a744bc3e148d.png)
 
-This issue is related to how your terminal emulator renders Unicode 9 characters. To fix this issue:
+This issue is related to how your terminal emulator renders Unicode 9 characters. To fix this issue: To fix this issue:
 
 - Make sure terminal uses _Unicode Version 9 Widths_.
 - Let your terminal render ambiguous-width characters as double-width.
 
 In _iTerm_ follow these instructions:
 
-- Go _iTerm → Preferences… (⌘,) → Profiles → Text_
+- Go _iTerm → Preferences… (⌘,) → Profiles → Text_ (⌘,) → Profiles → Text</em>
 - Check _Unicode Version 9 Widths_.
 - Check _Threat ambiguous-width characters as double-width_.
 - Reload terminal's tab.
