@@ -1,6 +1,6 @@
 # Terraform (`terraform`)
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**Terraform**](https://www.terraform.io) is a tool for building, changing, and combining infrastructure safely and efficiently.
