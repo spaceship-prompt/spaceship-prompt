@@ -8,9 +8,9 @@ Below you can find a list of general purpose utilities.
 spaceship::exists <command>
 ```
 
-This command validates that given program is available for execution. It checks for PATH binaries, functions, and builtins. This command validates that given program is available for execution. It checks for PATH binaries, functions, and builtins. It returns zero exit code if a `command` exists and non-zero code otherwise.
+This command validates that given program is available for execution. It checks for PATH binaries, functions, and builtins. This command validates that given program is available for execution. It checks for PATH binaries, functions, and builtins. It returns zero exit code if a `command` exists and non-zero code otherwise. It checks for PATH binaries, functions, and builtins. This command validates that given program is available for execution. It checks for PATH binaries, functions, and builtins. It returns zero exit code if a `command` exists and non-zero code otherwise.
 
-You can use this utility to check if some program is installed and perform actions conditionally. For example, you can either return an error and exit or continue script's execution. For example: For example, you can either return an error and exit or continue script's execution. For example:
+You can use this utility to check if some program is installed and perform actions conditionally. For example, you can either return an error and exit or continue script's execution. For example: For example, you can either return an error and exit or continue script's execution. For example: For example, you can either return an error and exit or continue script's execution. For example:
 
 ```zsh
 # Check multiple commands for existing
@@ -32,9 +32,9 @@ spaceship::exists docker || return
 spaceship::defined <function>
 ```
 
-The same as [`spaceship::exists`](#spaceshipexists), but for functions. It returns zero exit code if a `function` has been defined previously and non-zero if `function` hasn't. It returns zero exit code if a `function` has been defined previously and non-zero if `function` hasn't.
+The same as [`spaceship::exists`](#spaceshipexists), but for functions. It returns zero exit code if a `function` has been defined previously and non-zero if `function` hasn't. It returns zero exit code if a `function` has been defined previously and non-zero if `function` hasn't. It returns zero exit code if a `function` has been defined previously and non-zero if `function` hasn't.
 
-You can use this utility to check if a user has previously defined a function or not. For example: For example:
+You can use this utility to check if a user has previously defined a function or not. For example: For example: For example:
 
 ```zsh
 # Check if section has been defined
@@ -47,7 +47,7 @@ fi
 
 ## `spaceship::is_git`
 
-This utility returns zero exit code if a current working directory is a Git repository and non-zero if it's not. For example: For example:
+This utility returns zero exit code if a current working directory is a Git repository and non-zero if it's not. For example: For example: For example:
 
 ```zsh
 # Return if current directory is not a git repository
@@ -56,7 +56,7 @@ spaceship::is_git || return
 
 ## `spaceship::is_hg`
 
-The same as [`spaceship::is_git`](#spaceshipisgit), but for Mercurial repositories. This utility returns zero exit code if a current working directory is a Mercurial repository and non-zero if it's not. This utility returns zero exit code if a current working directory is a Mercurial repository and non-zero if it's not.
+The same as [`spaceship::is_git`](#spaceshipisgit), but for Mercurial repositories. This utility returns zero exit code if a current working directory is a Mercurial repository and non-zero if it's not. This utility returns zero exit code if a current working directory is a Mercurial repository and non-zero if it's not. This utility returns zero exit code if a current working directory is a Mercurial repository and non-zero if it's not.
 
 ```zsh
 # Return if current directory is not a Mercurial repository
@@ -65,7 +65,7 @@ spaceship::is_hg || return
 
 ## `spaceship::is_section_async`
 
-Checks if a section is asynchronous or not by checking `SPACESHIP_<SECTION>_ASYNC` option. This utility returns zero exit code if a section is asynchronous and non-zero if it's not. This utility returns zero exit code if a section is asynchronous and non-zero if it's not.
+Checks if a section is asynchronous or not by checking `SPACESHIP_<SECTION>_ASYNC` option. This utility returns zero exit code if a section is asynchronous and non-zero if it's not. This utility returns zero exit code if a section is asynchronous and non-zero if it's not. This utility returns zero exit code if a section is asynchronous and non-zero if it's not.
 
 If `SPACESHIP_PROMPT_ASYNC` is set to `false`, then all sections are considered to be synchronous.
 
@@ -75,24 +75,24 @@ spaceship::is_section_async <section>
 
 1. `section` _Required_ — a section to be checked.
 
-Some sections are always synchronous, not matter what, to ensure correct work of the prompt. Some sections are always synchronous, not matter what, to ensure correct work of the prompt. Those are: `user`, `dir`, `host`, `exec_time`, `async`, `line_sep`, `jobs`, `exit_code` and `char`.
+Some sections are always synchronous, not matter what, to ensure correct work of the prompt. Some sections are always synchronous, not matter what, to ensure correct work of the prompt. Those are: `user`, `dir`, `host`, `exec_time`, `async`, `line_sep`, `jobs`, `exit_code` and `char`. Some sections are always synchronous, not matter what, to ensure correct work of the prompt. Those are: `user`, `dir`, `host`, `exec_time`, `async`, `line_sep`, `jobs`, `exit_code` and `char`.
 
 ## `spaceship::is_prompt_async`
 
-Checks if the prompt works in asynchronous mode or not. Checks if the prompt works in asynchronous mode or not. This utility returns zero exit code if the prompt works in asynchronous mode and non-zero if it's not.
+Checks if the prompt works in asynchronous mode or not. Checks if the prompt works in asynchronous mode or not. Checks if the prompt works in asynchronous mode or not. This utility returns zero exit code if the prompt works in asynchronous mode and non-zero if it's not.
 
 Check if `SPACESHIP_PROMPT_ASYNC` is set to `true` and [`zsh-async` is loaded](/api/environment/#asynchronous-runtime).
 
 ## `spaceship::deprecated`
 
-This utility checks if `option` variable is set and if it is, prints the `message`. This utility checks if `option` variable is set and if it is, prints the `message`. The `message` supports escapes to set foreground color, background color and other visual effects.
+This utility checks if `option` variable is set and if it is, prints the `message`. This utility checks if `option` variable is set and if it is, prints the `message`. The `message` supports escapes to set foreground color, background color and other visual effects. This utility checks if `option` variable is set and if it is, prints the `message`. The `message` supports escapes to set foreground color, background color and other visual effects.
 
 ``` title="Signature"
 spaceship::deprecated <option> [message]
 ```
 
-1. `option` _Required_ — the name of a deprecated variable. If this variable is set (contains any value), then `"%B$deprecated%b is deprecated.` will be printed. `%B` and `%b` is escapes to set the bold style for text. If this variable is set (contains any value), then `"%B$deprecated%b is deprecated.` will be printed. `%B` and `%b` is escapes to set the bold style for text.
-2. `message` _Optional_ — a string for additional deprecation message. Can contain prompt expansions. Can contain prompt expansions.
+1. `option` _Required_ — the name of a deprecated variable. If this variable is set (contains any value), then `"%B$deprecated%b is deprecated.` will be printed. `%B` and `%b` is escapes to set the bold style for text. If this variable is set (contains any value), then `"%B$deprecated%b is deprecated.` will be printed. `%B` and `%b` is escapes to set the bold style for text. If this variable is set (contains any value), then `"%B$deprecated%b is deprecated.` will be printed. `%B` and `%b` is escapes to set the bold style for text.
+2. `message` _Optional_ — a string for additional deprecation message. Can contain prompt expansions. Can contain prompt expansions. Can contain prompt expansions.
 
 Read more about escapes in [Prompt Expansion](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html) section of Zsh documentation.
 
@@ -103,18 +103,19 @@ Here's an example of usage:
 spaceship::deprecated SPACESHIP_BATTERY_ALWAYS_SHOW "Use %BSPACESHIP_BATTERY_SHOW='always'%b instead."
 #> SPACESHIP_BATTERY_ALWAYS_SHOW is deprecated. Use SPACESHIP_BATTERY_SHOW='always' instead.
 #> SPACESHIP_BATTERY_ALWAYS_SHOW is deprecated. Use SPACESHIP_BATTERY_SHOW='always' instead.
+#> SPACESHIP_BATTERY_ALWAYS_SHOW is deprecated. Use SPACESHIP_BATTERY_SHOW='always' instead.
 ```
 
 ## `spaceship::displaytime`
 
-This utility converts `seconds` into a human-readable format. This utility converts `seconds` into a human-readable format. It splits `seconds` into days (`d`), hours (`h`), minutes (`m`) and seconds (`s`).
+This utility converts `seconds` into a human-readable format. This utility converts `seconds` into a human-readable format. It splits `seconds` into days (`d`), hours (`h`), minutes (`m`) and seconds (`s`). This utility converts `seconds` into a human-readable format. It splits `seconds` into days (`d`), hours (`h`), minutes (`m`) and seconds (`s`).
 
 ``` title="Signature"
 spaceship::displaytime <seconds> [precision]
 ```
 
 1. `seconds` _Required_ — seconds for conversion into the readable format.
-1. `precision` _Optional_ — precision of the output. Default value is `1`. Default value is `1`.
+1. `precision` _Optional_ — precision of the output. Default value is `1`. Default value is `1`. Default value is `1`.
 
 The usage example looks like this:
 
@@ -128,7 +129,7 @@ paceship::displaytime 123.45 2
 
 ## `spaceship::union`
 
-A utility for performing a union (intersection) of arrays. A utility for performing a union (intersection) of arrays. It lists the contents found in two or more arrays.
+A utility for performing a union (intersection) of arrays. A utility for performing a union (intersection) of arrays. It lists the contents found in two or more arrays. A utility for performing a union (intersection) of arrays. It lists the contents found in two or more arrays.
 
 Spaceship uses this utility internally for resolution of sections that need to be sourced.
 
@@ -172,17 +173,21 @@ spaceship::upsearch package.json
 # Finding a specific file upwards
 spaceship::upsearch package.json
 #> /path/to/project/package.json
+
+# Finding a specific file upwards
+spaceship::upsearch package.json
+#> /path/to/project/package.json
 ```
 
 ## `spaceship::datafile`
 
-This utility queries data files for a specific key. It returns the value of the key. This utility queries data files for a specific key. It returns the value of the key. Exits with non-zero code when the file type is unknown, data cannot be read, or the key is not found.
+This utility queries data files for a specific key. It returns the value of the key. This utility queries data files for a specific key. It returns the value of the key. This utility queries data files for a specific key. It returns the value of the key. Exits with non-zero code when the file type is unknown, data cannot be read, or the key is not found.
 
 ``` title="Signature"
 spaceship::datafile --<type> <file> [key]
 ```
 
-1. `--type` _Required_ — a type of the data file. Can be `json`, `yaml`, `toml` or `xml`. Can be `json`, `yaml`, `toml` or `xml`.
+1. `--type` _Required_ — a type of the data file. Can be `json`, `yaml`, `toml` or `xml`. Can be `json`, `yaml`, `toml` or `xml`. Can be `json`, `yaml`, `toml` or `xml`.
 2. `file` _Required_ — a path to the data file.
 3. `key` _Optional_ — a key to query within a data file.
 
@@ -200,5 +205,5 @@ It needs the following tools for reading data files:
 * TOML — `tomlq` (comes with [`python-yq`](https://kislyuk.github.io/yq/))
 * XML — `xq` (comes with [`python-yq`](https://kislyuk.github.io/yq/))
 
-!!! !!! tip
+!!! !!! !!! tip
     The most universal solution for reading data files is to use [`python-yq`](https://kislyuk.github.io/yq/).
