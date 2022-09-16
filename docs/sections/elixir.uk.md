@@ -1,18 +1,18 @@
 # Elixir `elixir`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "This section is rendered asynchronously by default"
 
 !!! info
     [**Elixir**](https://elixir-lang.org) is a dynamic, functional language for building scalable and maintainable applications.
 
-The `elixir` section displays the version of the Elixir.
+Секція `elixir` відображає версію Elixir.
 
-Ця секція відображається лише тоді, коли:
+This section is displayed only when the current directory:
 
-* Contains a `mix.exs` file
-* Contains any other file with `.ex` or `.exs` extension
+* Містить файл `mix.exs`
+* Містить будь-який інший файл з розширенням `.ex` або `.exs`
 
-## Setting the default Elixir version
+## Встановлення версії Elixir за замовчуванням
 
 If you want to avoid showing the Elixir section for a specific Elixir version (for example system installed version), use the `SPACESHIP_ELIXIR_DEFAULT_VERSION` environment variable. The section will be hidden if the current version of the Elixir is equal to the one specified in the variable.
 
@@ -20,14 +20,14 @@ If you want to avoid showing the Elixir section for a specific Elixir version (f
 SPACESHIP_ELIXIR_DEFAULT_VERSION="1.13.4"
 ```
 
-## Опції
+## Options
 
-| Змінна                             |              Default               | Meaning                                 |
+| Variable                           |          За замовчуванням          | Пояснення                               |
 |:---------------------------------- |:----------------------------------:| --------------------------------------- |
-| `SPACESHIP_ELIXIR_SHOW`            |               `true`               | Show section                            |
-| `SPACESHIP_ELIXIR_ASYNC`           |               `true`               | Рендерити секцію асинхронно             |
-| `SPACESHIP_ELIXIR_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                        |
+| `SPACESHIP_ELIXIR_SHOW`            |               `true`               | Показати секцію                         |
+| `SPACESHIP_ELIXIR_ASYNC`           |               `true`               | Render section asynchronously           |
+| `SPACESHIP_ELIXIR_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Префікс секції                          |
 | `SPACESHIP_ELIXIR_SUFFIX`          | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
-| `SPACESHIP_ELIXIR_DEFAULT_VERSION` |                 -                  | Elixir version to be treated as default |
-| `SPACESHIP_ELIXIR_SYMBOL`          |                `💧·`                | Symbol before the section               |
-| `SPACESHIP_ELIXIR_COLOR`           |             `magenta`              | Колір секції                            |
+| `SPACESHIP_ELIXIR_DEFAULT_VERSION` |                 -                  | Версія Elixir, яку слід вважати типовою |
+| `SPACESHIP_ELIXIR_SYMBOL`          |                `💧·`                | Символ перед секцією                    |
+| `SPACESHIP_ELIXIR_COLOR`           |             `magenta`              | Section's color                         |
