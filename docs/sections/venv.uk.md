@@ -13,9 +13,9 @@ For better readability, you can configure the generic names for your virtualenvs
 SPACESHIP_VENV_GENERIC_NAMES=(virtualenv venv .venv generic-name)
 ```
 
-## Options
+## Опції
 
-| Variable                       |              Default               | Meaning                                                          |
+| Змінна                         |              Default               | Meaning                                                          |
 |:------------------------------ |:----------------------------------:| ---------------------------------------------------------------- |
 | `SPACESHIP_VENV_SHOW`          |               `true`               | Show section                                                     |
 | `SPACESHIP_VENV_ASYNC`         |              `false`               | Render section asynchronously                                    |
