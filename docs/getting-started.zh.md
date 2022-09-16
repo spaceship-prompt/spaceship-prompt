@@ -16,7 +16,7 @@ hide:
 
 === "手动方式"
 
-    !!! !!! 提示
+    !!! !!! !!! 提示
         如果你正在使用任何插件管理器，例如 Oh-My-Zsh, zplug, antigen 等，那么手动方式可能不是为您安装 Spaceship 的最佳方式。
     
     如果您不使用任何工具来管理 Zsh 插件，那么此手动方法可以用来安装 Spaceship。
@@ -125,7 +125,7 @@ hide:
 
 === "zinit"
 
-    将以下行添加到 `.zshrc`中您要添加其他 Zsh 插件的地方：
+    Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
 
     ```
     zinit light spaceship-prompt/spaceship-prompt
