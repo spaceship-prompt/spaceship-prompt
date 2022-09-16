@@ -1,4 +1,4 @@
-pull_request_title: docs(i18n): New Crowdin updates
+pull_request_title: "docs(i18n): New Crowdin updates"
 pull_request_labels:
   - docs
   - translations
