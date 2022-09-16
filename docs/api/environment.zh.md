@@ -1,12 +1,12 @@
 # Environment
 
-Spaceship uses `SPACESHIP_` prefix for variables and `spaceship::` prefix for a function to avoid conflicts with global environment. All section, including custom ones, are being required to use `spaceship_` prefix before their name to load properly. All section, including custom ones, are being required to use `spaceship_` prefix before their name to load properly.
+Spaceship uses `SPACESHIP_` prefix for variables and `spaceship::` prefix for a function to avoid conflicts with global environment. All section, including custom ones, are being required to use `spaceship_` prefix before their name to load properly. All section, including custom ones, are being required to use `spaceship_` prefix before their name to load properly. All section, including custom ones, are being required to use `spaceship_` prefix before their name to load properly.
 
 ## Prompt variables
 
 ### `SPACESHIP_VERSION`
 
-An environment variable that defines the version of currently running Spaceship prompt version. Can be used for issue reporting or debugging purposes. Can be used for issue reporting or debugging purposes.
+An environment variable that defines the version of currently running Spaceship prompt version. Can be used for issue reporting or debugging purposes. Can be used for issue reporting or debugging purposes. Can be used for issue reporting or debugging purposes.
 
 Accessible to any program or script running in a current shell session.
 
@@ -18,10 +18,10 @@ echo $SPACESHIP_VERSION
 ### `SPACESHIP_ROOT`
 
 <!-- prettier-ignore -->
-!!! danger
-    This variable is read only. !!! danger This variable is read only. Changing the value may cause the damage to Spaceship installation!
+!!! !!! danger
+    This variable is read only. !!! danger This variable is read only. Changing the value may cause the damage to Spaceship installation! !!! danger This variable is read only. Changing the value may cause the damage to Spaceship installation!
 
-An environment variable that defines the path to Spaceship prompt installation. Spaceship uses this variable for resolving path to sections and utils. Spaceship uses this variable for resolving path to sections and utils.
+An environment variable that defines the path to Spaceship prompt installation. Spaceship uses this variable for resolving path to sections and utils. Spaceship uses this variable for resolving path to sections and utils. Spaceship uses this variable for resolving path to sections and utils.
 
 Accessible to any program or script running in a current shell session.
 
@@ -32,7 +32,7 @@ echo $SPACESHIP_ROOT
 
 ### `SPACESHIP_CONFIG_PATH`
 
-An array of path to configuration files. An array of path to configuration files. Spaceship will look for configuration file in the order of the array. The first file that exists will be used. The first file that exists will be used.
+An array of path to configuration files. An array of path to configuration files. An array of path to configuration files. Spaceship will look for configuration file in the order of the array. The first file that exists will be used. The first file that exists will be used. The first file that exists will be used.
 
 The default locations are:
 
@@ -48,7 +48,7 @@ $XDG_CONFIG_DIRS/spaceship.zsh
 
 ### `SPACESHIP_CONFIG`
 
-A variable storing the path to the configuration file. A variable storing the path to the configuration file. Usually, this variable stores one of the paths from the [`SPACESHIP_CONFIG_PATH`](#spaceship_config_path) array.
+A variable storing the path to the configuration file. A variable storing the path to the configuration file. A variable storing the path to the configuration file. Usually, this variable stores one of the paths from the [`SPACESHIP_CONFIG_PATH`](#spaceship_config_path) array.
 
 You can specify custom path to the configuration file by setting the `SPACESHIP_CONFIG_FILE` environment variable, for example:
 
@@ -61,24 +61,24 @@ The variable is empty when no configuration file is found.
 ### `SPACESHIP_CACHE`
 
 !!! !!! danger
-    This variable should be used only for reading. Changing the value may cause the incorrect behavior of Spaceship prompt. Changing the value may cause the incorrect behavior of Spaceship prompt.
+    This variable should be used only for reading. Changing the value may cause the incorrect behavior of Spaceship prompt. !!! !!! danger This variable should be used only for reading. Changing the value may cause the incorrect behavior of Spaceship prompt. Changing the value may cause the incorrect behavior of Spaceship prompt.
 
-An associative array that stores the cached values of the sections. An associative array that stores the cached values of the sections. The cache stores data between renders and is cleared on every prompt.
+An associative array that stores the cached values of the sections. An associative array that stores the cached values of the sections. The cache stores data between renders and is cleared on every prompt. An associative array that stores the cached values of the sections. The cache stores data between renders and is cleared on every prompt.
 
 The cache should not be manipulated directly.
 
 ### `SPACESHIP_JOBS`
 
 !!! !!! danger
-    This variable should be used only for reading. Changing the value may cause the incorrect behavior of Spaceship prompt. Changing the value may cause the incorrect behavior of Spaceship prompt.
+    This variable should be used only for reading. Changing the value may cause the incorrect behavior of Spaceship prompt. !!! !!! danger This variable should be used only for reading. Changing the value may cause the incorrect behavior of Spaceship prompt. Changing the value may cause the incorrect behavior of Spaceship prompt.
 
-An array of currently processing asynchronous sections. An array of currently processing asynchronous sections. Can be used to check what asynchronous sections are being rendered.
+An array of currently processing asynchronous sections. An array of currently processing asynchronous sections. Can be used to check what asynchronous sections are being rendered. An array of currently processing asynchronous sections. Can be used to check what asynchronous sections are being rendered.
 
-The section name is added to the array when the asynchronous section is being rendered. Upon completion of the asynchronouse job, the name is removed from the array. Upon completion of the asynchronouse job, the name is removed from the array.
+The section name is added to the array when the asynchronous section is being rendered. Upon completion of the asynchronouse job, the name is removed from the array. The section name is added to the array when the asynchronous section is being rendered. Upon completion of the asynchronouse job, the name is removed from the array. Upon completion of the asynchronouse job, the name is removed from the array.
 
 ## Asynchronous runtime
 
-Spaceship uses [`zsh-async`](https://github.com/mafredri/zsh-async) library to perform asynchronous tasks. This library comes along with Spaceship and is regularly updated to the latest version. This library comes along with Spaceship and is regularly updated to the latest version.
+Spaceship uses [`zsh-async`](https://github.com/mafredri/zsh-async) library to perform asynchronous tasks. This library comes along with Spaceship and is regularly updated to the latest version. This library comes along with Spaceship and is regularly updated to the latest version. This library comes along with Spaceship and is regularly updated to the latest version.
 
 `zsh-async` is loaded automatically when Spaceship loads sections, when all of these conditions are true:
 
