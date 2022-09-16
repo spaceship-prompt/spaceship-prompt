@@ -1,10 +1,10 @@
 # Час виконання `exec_time`
 
-The `exec_time` section displays the execution time of the last command. Will be displayed if it exceeds the set threshold of time (2 seconds by default).
+Секція `exec_time` відображає час виконання останньої команди. Відображається, якщо він перевищує встановлений поріг часу (2 секунди за замовчуванням).
 
 ## Вставновлення порогу
 
-If you are not satisfied with the default threshold of 2 seconds, you can define it using the `SPACESHIP_EXEC_TIME_ELAPSED` option.
+Якщо ви не задоволені стандартним порогом 2 секунд, ви можете визначити його за допомогою опції `SPACESHIP_EXEC_TIME_ELAPSED`.
 
 ```zsh title=".zshrc"
 # This sets threshold to 5 seconds
@@ -13,7 +13,7 @@ SPACESHIP_EXEC_TIME_ELAPSED=5
 
 ## Встановлення точності
 
-By default time precision is set to 1 digit after the decimal point. You can change it using the `SPACESHIP_EXEC_TIME_PRECISION` option.
+За замовчуванням точність часу встановлюється на 1 цифру після коми. Ви можете змінити його за допомогою опції `SPACESHIP_EXEC_TIME_PRECISION`.
 
 ```zsh title=".zshrc"
 # This sents precision to 2 digits
