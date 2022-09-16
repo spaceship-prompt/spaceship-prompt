@@ -15,7 +15,7 @@ SPACESHIP_HOST_SHOW="always"
 
 ## Displaying full hostname
 
-By default, the hostname is displayed in a short form (`%m`). By default, the hostname is displayed in a short form (`%m`). If you want to see the full information (`%M`), set the `SPACESHIP_HOST_SHOW_FULL` option to `true`.
+By default, the hostname is displayed in a short form (`%m`). By default, the hostname is displayed in a short form (`%m`). If you want to see the full information (`%M`), set the `SPACESHIP_HOST_SHOW_FULL` option to `true`. By default, the hostname is displayed in a short form (`%m`). If you want to see the full information (`%M`), set the `SPACESHIP_HOST_SHOW_FULL` option to `true`.
 
 ```zsh title=".zshrc"
 # This displays the full information about the hostname
