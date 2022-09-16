@@ -13,9 +13,9 @@ This section is displayed only when:
 * The current directory contains `.jl` files.
 * The upsearch finds a `Project.toml`, `JuliaProject.toml` or `Manifest.toml` file.
 
-## Options
+## Опції
 
-| Variable                 |              Default               | Meaning                             |
+| Змінна                   |              Default               | Meaning                             |
 |:------------------------ |:----------------------------------:| ----------------------------------- |
 | `SPACESHIP_JULIA_SHOW`   |               `true`               | Show section                        |
 | `SPACESHIP_JULIA_ASYNC`  |               `true`               | Render section asynchronously       |
