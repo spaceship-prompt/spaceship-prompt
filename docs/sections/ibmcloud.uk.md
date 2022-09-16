@@ -7,9 +7,9 @@
 
 The `ibmcloud` section shows the selected IBM Cloud account by looking up with `ibmcloud target`. Displayed only when the [`ibmcloud`](https://www.ibm.com/cloud/cli) CLI is available.
 
-## Options
+## Опції
 
-| Variable                    |              Default               | Meaning                             |
+| Змінна                      |              Default               | Meaning                             |
 |:--------------------------- |:----------------------------------:|:----------------------------------- |
 | `SPACESHIP_IBMCLOUD_SHOW`   |               `true`               | Show section                        |
 | `SPACESHIP_IBMCLOUD_ASYNC`  |               `true`               | Render section asynchronously       |
