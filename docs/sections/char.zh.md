@@ -1,12 +1,12 @@
 # Char `char`
 
-`char` is a section responsible for rendering a prompt character. By default, Spaceship uses `➜` as a prompt character.
+`char` is a section responsible for rendering a prompt character. `char` is a section responsible for rendering a prompt character. By default, Spaceship uses `➜` as a prompt character.
 
-When the previous command was executed successfully, the prompt character is green (`SPACESHIP_CHAR_COLOR_SUCCESS`). Otherwise, if the previous command exited with non-zero code, the prompt character is red (`SPACESHIP_CHAR_COLOR_FAILURE`).
+When the previous command was executed successfully, the prompt character is green (`SPACESHIP_CHAR_COLOR_SUCCESS`). When the previous command was executed successfully, the prompt character is green (`SPACESHIP_CHAR_COLOR_SUCCESS`). Otherwise, if the previous command exited with non-zero code, the prompt character is red (`SPACESHIP_CHAR_COLOR_FAILURE`).
 
 ## Changing prompt character for the root user
 
-By default, Spaceship doesn't change prompt character when executing commands as a root user. You can change the custom root prompt by setting a `SPACESHIP_CHAR_SYMBOL_ROOT` option.
+By default, Spaceship doesn't change prompt character when executing commands as a root user. You can change the custom root prompt by setting a `SPACESHIP_CHAR_SYMBOL_ROOT` option. You can change the custom root prompt by setting a `SPACESHIP_CHAR_SYMBOL_ROOT` option.
 
 ```zsh title=".zshrc"
 SPACESHIP_CHAR_SYMBOL_ROOT="#"
