@@ -22,9 +22,9 @@ By default, the hostname is displayed in a short form (`%m`). If you want to see
 SPACESHIP_HOST_SHOW_FULL=true
 ```
 
-## Options
+## Опції
 
-| Variable                   |              Default               | Meaning                                    |
+| Змінна                     |              Default               | Meaning                                    |
 |:-------------------------- |:----------------------------------:| ------------------------------------------ |
 | `SPACESHIP_HOST_SHOW`      |               `true`               | Show section (`true`, `false` or `always`) |
 | `SPACESHIP_HOST_SHOW_FULL` |              `false`               | Show full hostname                         |
