@@ -9,9 +9,9 @@ The `docker` displays the version of Docker and the current [Docker context via 
 
 This section is shown only in the projects containing a `Dockerfile`, `docker-compose.yml`, or another file (s) specified with `COMPOSE_FILE`. The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more information see [Compose CLI environment variables](https://docs.docker.com/compose/reference/envvars/).
 
-## Options
+## Опції
 
-| Variable                   |              Default               | Meaning                             |
+| Змінна                     |              Default               | Meaning                             |
 |:-------------------------- |:----------------------------------:| ----------------------------------- |
 | `SPACESHIP_DOCKER_SHOW`    |               `true`               | Show section                        |
 | `SPACESHIP_DOCKER_ASYNC`   |               `true`               | Render section asynchronously       |
@@ -45,9 +45,9 @@ spaceship remove docker
 spaceship add docker_context
 ```
 
-### Options
+### Опції
 
-| Variable                          | Default | Meaning                       |
+| Змінна                            | Default | Meaning                       |
 |:--------------------------------- |:-------:| ----------------------------- |
 | `SPACESHIP_DOCKER_CONTEXT_SHOW`   | `true`  | Show section                  |
 | `SPACESHIP_DOCKER_CONTEXT_ASYNC`  | `true`  | Render section asynchronously |
