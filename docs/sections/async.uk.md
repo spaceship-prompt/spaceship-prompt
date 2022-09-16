@@ -2,9 +2,9 @@
 
 Розділ `async` використовується як заповнювач для розділів, які ще не представлені. Цей розділ відображається лише тоді, коли ще залишаються розділи, які повинні відобразитись згодом.
 
-За замовчуванням Spaceship працює асинхронно. It displays the prompt immediately while checking the environment, then it updates the prompt with new information.
+За замовчуванням Spaceship працює асинхронно. Він відображає командний рядок відразу, і оновлює його в міру надходження нової інформації.
 
-Optionally, you can enable displaying the number of sections that are being processed via the `SPACESHIP_ASYNC_SHOW_COUNT` environment variable:
+За бажанням ви можете увімкнути показ кількості секцій, які ще обробляються за допомогою опції `SPACESHIP_ASYNC_SHOW_COUNT`:
 
 ```sh title=".zshrc"
 SPACESHIP_ASYNC_SHOW_COUNT=true
