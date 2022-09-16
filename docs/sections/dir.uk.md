@@ -18,9 +18,9 @@ SPACESHIP_DIR_TRUNC_REPO=false
 
 If the current directory is write-protected or if the current user doesn't have write permissions, a padlock (by default) is displayed as a suffix.
 
-## Options
+## Опції
 
-| Variable                     |          За замовчуванням          | Пояснення                                                                           |
+| Змінна                       |          За замовчуванням          | Пояснення                                                                           |
 |:---------------------------- |:----------------------------------:| ----------------------------------------------------------------------------------- |
 | `SPACESHIP_DIR_SHOW`         |               `true`               | Показати секцію                                                                     |
 | `SPACESHIP_DIR_PREFIX`       |               `in·`                | Префікс секції                                                                      |
@@ -28,7 +28,7 @@ If the current directory is write-protected or if the current user doesn't have 
 | `SPACESHIP_DIR_TRUNC`        |                `3`                 | Number of folders of cwd to show in prompt, 0 to show all                           |
 | `SPACESHIP_DIR_TRUNC_PREFIX` |                 -                  | Prefix before cwd when it's truncated. For example `…/` or `.../`, empty to disable |
 | `SPACESHIP_DIR_TRUNC_REPO`   |               `true`               | While in `git` repo, show only root directory and folders inside it                 |
-| `SPACESHIP_DIR_COLOR`        |               `cyan`               | Section's color                                                                     |
+| `SPACESHIP_DIR_COLOR`        |               `cyan`               | Колір секції                                                                        |
 | `SPACESHIP_DIR_LOCK_SYMBOL`  |              ![·][1]              | The symbol displayed if directory is write-protected                                |
 | `SPACESHIP_DIR_LOCK_COLOR`   |               `red`                | Color for the lock symbol                                                           |
 
