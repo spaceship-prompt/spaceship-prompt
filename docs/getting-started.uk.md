@@ -1,23 +1,23 @@
 # Початок роботи
 
-Welcome aboard! Let's install Spaceship on your machine, astronaut!
+Ласкаво просимо на борт! Let's install Spaceship on your machine, astronaut!
 
 ## Вимоги
 
 Before we begin, let's make sure you have the following installed:
 
-- [Zsh](http://www.zsh.org/) (v5.2 or recent) must be installed. Run the following command to check you version of Zsh:
+- [](http://www.zsh.org/)zsh (v5.2 або новіше) має бути встановлено. Запустіть наступну команду, щоб перевірити вашу версію Zsh:
   ```zsh
   echo $ZSH_VERSION #> 5.8.1
   ```
-- [Powerline Font](https://github.com/powerline/fonts) or [Nerd Font](https://www.nerdfonts.com/) (even better) must be installed and used in your terminal. [Fira Code](https://github.com/tonsky/FiraCode) is a popular choice. To check if Powerline Font works for you, run:
+- [Powerline шрифт](https://github.com/powerline/fonts) або [Nerd Font](https://www.nerdfonts.com/) (навіть краще) має бути встановлений і використовуватись у вашому терміналі. [Fira Code](https://github.com/tonsky/FiraCode) є популярним вибором. Щоб перевірити чи Powerline шрифт працює для вас, запустіть:
   ```zsh
   echo -e "\xee\x82\xa0" #> 
   ```
 
 ## Встановлення
 
-Now that the requirements are satisfied, you can install Spaceship via any of the following approaches:
+Тепер, коли вимоги задоволені, ви можете встановити Spaceship за допомогою будь-якого з перелічених способів:
 
 === "Вручну"
 
