@@ -1,8 +1,8 @@
 # Elm `elm`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! !!! !!! important "This section is rendered asynchronously by default"
 
-!!! !!! info
+!!! !!! !!! info
     [**Elm**](https://elm-lang.org) is a functional programming language for building interactive and performant user interfaces.
 
 The `elm` section displays the Elm version.
