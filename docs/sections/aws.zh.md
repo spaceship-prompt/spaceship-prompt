@@ -1,6 +1,6 @@
 # Amazon Web Services (AWS) `aws`
 
-!!! info
+!!! !!! info
     [**Amazon Web Services (AWS)**](https://aws.amazon.com) provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis.
 
 The `aws` section shows the current AWS profile using the [`AWS_VAULT`](https://github.com/99designs/aws-vault) environment variable.
