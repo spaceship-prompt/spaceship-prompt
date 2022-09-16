@@ -1,17 +1,17 @@
 # Git `git`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "This section is rendered asynchronously by default"
 
 The `git` section consists of [`git_branch`](#git-branch-git_branch) and [`git_status`](#git-status-git_status) subsections.
 
-## Опції
+## Options
 
-| Змінна                 |              Default               | Meaning                                                                                                     |
+| Variable               |              Default               | Meaning                                                                                                     |
 |:---------------------- |:----------------------------------:| ----------------------------------------------------------------------------------------------------------- |
 | `SPACESHIP_GIT_SHOW`   |               `true`               | Show section                                                                                                |
-| `SPACESHIP_GIT_ASYNC`  |               `true`               | Рендерити секцію асинхронно                                                                                 |
+| `SPACESHIP_GIT_ASYNC`  |               `true`               | Render section asynchronously                                                                               |
 | `SPACESHIP_GIT_PREFIX` |               `on·`                | Section's prefix                                                                                            |
-| `SPACESHIP_GIT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                                                                               |
+| `SPACESHIP_GIT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                                                                                            |
 | `SPACESHIP_GIT_SYMBOL` |                ``                 | Symbol displayed before the section (requires [powerline patched font](https://github.com/powerline/fonts)) |
 | `SPACESHIP_GIT_ORDER`  |     `(git_branch git_status)`      | Order of git subsection rendering                                                                           |
 
@@ -19,26 +19,26 @@ The `git` section consists of [`git_branch`](#git-branch-git_branch) and [`git_s
 
 The `git_branch` section displays the current branch of the Git repository.
 
-### Опції
+### Options
 
-| Змінна                        |         Default         | Meaning                     |
-|:----------------------------- |:-----------------------:| --------------------------- |
-| `SPACESHIP_GIT_BRANCH_SHOW`   |         `true`          | Show section                |
-| `SPACESHIP_GIT_BRANCH_ASYNC`  |         `false`         | Рендерити секцію асинхронно |
-| `SPACESHIP_GIT_BRANCH_PREFIX` | `$SPACESHIP_GIT_SYMBOL` | Section's prefix            |
-| `SPACESHIP_GIT_BRANCH_SUFFIX` |           ``            | Суфікс секції               |
-| `SPACESHIP_GIT_BRANCH_COLOR`  |        `magenta`        | Колір секції                |
+| Variable                      |         Default         | Meaning                       |
+|:----------------------------- |:-----------------------:| ----------------------------- |
+| `SPACESHIP_GIT_BRANCH_SHOW`   |         `true`          | Show section                  |
+| `SPACESHIP_GIT_BRANCH_ASYNC`  |         `false`         | Render section asynchronously |
+| `SPACESHIP_GIT_BRANCH_PREFIX` | `$SPACESHIP_GIT_SYMBOL` | Section's prefix              |
+| `SPACESHIP_GIT_BRANCH_SUFFIX` |           ``            | Section's suffix              |
+| `SPACESHIP_GIT_BRANCH_COLOR`  |        `magenta`        | Section's color               |
 
 ## Git status `git_status`
 
 The `git_status` subsection displays indicators only when you have a dirty Git repository.
 
-### Опції
+### Options
 
-| Змінна                           | Default | Meaning                                                      |
+| Variable                         | Default | Meaning                                                      |
 |:-------------------------------- |:-------:| ------------------------------------------------------------ |
 | `SPACESHIP_GIT_STATUS_SHOW`      | `true`  | Show section                                                 |
-| `SPACESHIP_GIT_STATUS_ASYNC`     | `true`  | Рендерити секцію асинхронно                                  |
+| `SPACESHIP_GIT_STATUS_ASYNC`     | `true`  | Render section asynchronously                                |
 | `SPACESHIP_GIT_STATUS_PREFIX`    |  `·[`   | Prefix before Git status subsection                          |
 | `SPACESHIP_GIT_STATUS_SUFFIX`    |   `]`   | Suffix after Git status subsection                           |
 | `SPACESHIP_GIT_STATUS_COLOR`     |  `red`  | Color of Git status subsection                               |
