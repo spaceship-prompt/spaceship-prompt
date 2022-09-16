@@ -7,9 +7,9 @@
 
 The `gcloud` section shows active Google Cloud Platform configuration using `gcloud` active configuration file.
 
-## Options
+## Опції
 
-| Variable                  |              Default               | Meaning                             |
+| Змінна                    |              Default               | Meaning                             |
 |:------------------------- |:----------------------------------:| ----------------------------------- |
 | `SPACESHIP_GCLOUD_SHOW`   |               `true`               | Show section                        |
 | `SPACESHIP_GCLOUD_ASYNC`  |               `true`               | Render section asynchronously       |
