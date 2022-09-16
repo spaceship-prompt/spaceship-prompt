@@ -12,12 +12,12 @@ SPACESHIP_ASYNC_SHOW_COUNT=true
 
 ## Опції
 
-| Змінна                       | Default | Meaning                             |
-|:---------------------------- |:-------:| ----------------------------------- |
-| `SPACESHIP_ASYNC_SHOW`       | `true`  | Show section                        |
-| `SPACESHIP_ASYNC_SHOW_COUNT` | `false` | Show job count                      |
-| `SPACESHIP_ASYNC_PREFIX`     |    -    | Section's prefix                    |
-| `SPACESHIP_ASYNC_SUFFIX`     |    -    | Section's suffix                    |
-| `SPACESHIP_ASYNC_SYMBOL`     |   `…`   | Symbol displayed before the section |
-| `SPACESHIP_ASYNC_COLOR`      | `gray`  | Section's color                     |
+| Змінна                       | За замовчуванням | Пояснення                               |
+|:---------------------------- |:----------------:| --------------------------------------- |
+| `SPACESHIP_ASYNC_SHOW`       |      `true`      | Show section                            |
+| `SPACESHIP_ASYNC_SHOW_COUNT` |     `false`      | Показувати кількість задач              |
+| `SPACESHIP_ASYNC_PREFIX`     |        -         | Section's prefix                        |
+| `SPACESHIP_ASYNC_SUFFIX`     |        -         | Суфікс секції                           |
+| `SPACESHIP_ASYNC_SYMBOL`     |       `…`        | Символ, що відображається перед секцією |
+| `SPACESHIP_ASYNC_COLOR`      |      `gray`      | Колір секції                            |
 
