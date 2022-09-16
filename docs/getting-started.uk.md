@@ -1,8 +1,8 @@
-# Getting Started
+# Початок роботи
 
 Welcome aboard! Let's install Spaceship on your machine, astronaut!
 
-## Requirements
+## Вимоги
 
 Before we begin, let's make sure you have the following installed:
 
@@ -15,11 +15,11 @@ Before we begin, let's make sure you have the following installed:
   echo -e "\xee\x82\xa0" #> 
   ```
 
-## Installing
+## Встановлення
 
 Now that the requirements are satisfied, you can install Spaceship via any of the following approaches:
 
-=== "Manual"
+=== "Вручну"
 
     !!! hint
         If you're using any plugin manager, like Oh-My-Zsh, antigen, zgen, zplug or other, this might not be the best way to install Spaceship for you.
@@ -28,7 +28,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     2. Source Spaceship in your `~/.zshrc`.
 
 
-    ### Example
+    ### Приклад
 
     ```zsh title="Terminal"
     mkdir -p "$HOME/.zsh"
@@ -183,7 +183,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     makepkg -si
     ```
 
-## Congratulations!
+## Вітаємо!
 
 You've made it! You've installed Spaceship on your machine!
 
@@ -195,7 +195,7 @@ Additionally, join our community or consider contributing to the project.
 
 [:material-hand-heart: Contribute](/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button}
 
-## Having trouble?
+## Виникли проблеми?
 
 Find answers on our troubleshooting page or get help by our community. Still struggling? Please, *file an issue*, describe your problem, and we will gladly help you.
 
