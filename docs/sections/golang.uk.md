@@ -1,6 +1,6 @@
 # Go `golang`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**Go**](https://go.dev) is a programming language that makes it easy to build simple, reliable, and efficient software.
