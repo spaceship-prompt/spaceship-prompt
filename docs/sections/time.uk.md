@@ -1,6 +1,6 @@
 # Time `time`
 
-!!! warning "This section is hidden by default"
+!!! warning "Цю секцію приховано за замовчуванням"
 
 The `time` section displays the timestamp of the prompt.
 
