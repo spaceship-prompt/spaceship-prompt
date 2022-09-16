@@ -22,13 +22,13 @@ By default, the hostname is displayed in a short form (`%m`). If you want to see
 SPACESHIP_HOST_SHOW_FULL=true
 ```
 
-## Опції
+## Options
 
-| Змінна                     |              Default               | Meaning                                    |
+| Variable                   |              Default               | Meaning                                    |
 |:-------------------------- |:----------------------------------:| ------------------------------------------ |
 | `SPACESHIP_HOST_SHOW`      |               `true`               | Show section (`true`, `false` or `always`) |
 | `SPACESHIP_HOST_SHOW_FULL` |              `false`               | Show full hostname                         |
 | `SPACESHIP_HOST_PREFIX`    |               `at·`                | Section's prefix                           |
-| `SPACESHIP_HOST_SUFFIX`    | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                              |
-| `SPACESHIP_HOST_COLOR`     |               `blue`               | Колір секції                               |
+| `SPACESHIP_HOST_SUFFIX`    | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                           |
+| `SPACESHIP_HOST_COLOR`     |               `blue`               | Section's color                            |
 | `SPACESHIP_HOST_COLOR_SSH` |              `green`               | Section's color on SSH connection          |
