@@ -9,9 +9,9 @@ The `xcode` section displays the version of the Xcode.
 
 The local version has more priority than the global one.
 
-## Options
+## Опції
 
-| Variable                      |              Default               | Meaning                                      |
+| Змінна                        |              Default               | Meaning                                      |
 |:----------------------------- |:----------------------------------:| -------------------------------------------- |
 | `SPACESHIP_XCODE_ASYNC`       |               `true`               | Render section asynchronously                |
 | `SPACESHIP_XCODE_SHOW_LOCAL`  |               `true`               | Current local Xcode version based on [xcenv] |
