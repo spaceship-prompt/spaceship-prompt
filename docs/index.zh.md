@@ -125,7 +125,7 @@ Want more features? Please, [open an issue](https://github.com/spaceship-prompt/
 
 ## Getting Started
 
-Installing Spaceship is simple and quick. It's configurable and easy to use.
+Installing Spaceship is simple and quick. It's configurable and easy to use. It's configurable and easy to use.
 
 [Installation](/getting-started ""){.md-button.md-button--primary} [Configuration](/config/intro ""){.md-button}
 
