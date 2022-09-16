@@ -16,17 +16,17 @@ You may want to show the `battery` section all the time or only when it's fully 
 |:------------------------:|:------------ |:----------- |:------------------ |
 |         `false`          | Приховано    | Приховано   | Приховано          |
 |         `always`         | Показано     | Показано    | Показано           |
-|          `true`          | Shown        | Hidden      | Hidden             |
-|        `charged`         | Shown        | Приховано   | Shown              |
+|          `true`          | Показано     | Приховано   | Приховано          |
+|        `charged`         | Показано     | Приховано   | Показано           |
 
-## Options
+## Опції
 
-| Variable                               |          За замовчуванням          | Пояснення                                                     |
+| Змінна                                 |          За замовчуванням          | Пояснення                                                     |
 |:-------------------------------------- |:----------------------------------:| ------------------------------------------------------------- |
 | `SPACESHIP_BATTERY_SHOW`               |               `true`               | Показувати секцію (`true`, `false`, `always` або `charged`)   |
 | `SPACESHIP_BATTERY_ASYNC`              |               `true`               | Рендерити секцію асинхронно                                   |
 | `SPACESHIP_BATTERY_PREFIX`             |                 ``                 | Префікс підсекції                                             |
-| `SPACESHIP_BATTERY_SUFFIX`             | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                                              |
+| `SPACESHIP_BATTERY_SUFFIX`             | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                                 |
 | `SPACESHIP_BATTERY_SYMBOL_CHARGING`    |                `⇡`                 | Symbol displayed before the section if battery is charging    |
 | `SPACESHIP_BATTERY_SYMBOL_DISCHARGING` |                `⇣`                 | Symbol displayed before the section if battery is discharging |
 | `SPACESHIP_BATTERY_SYMBOL_FULL`        |                `•`                 | Symbol displayed before the section if battery is full        |
