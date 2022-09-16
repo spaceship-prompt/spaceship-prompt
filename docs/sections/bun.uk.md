@@ -12,9 +12,9 @@ This section is displayed only when the current directory:
 * Upsearch finds `bun.lockb` file
 * Upsearch finds `bunfig.toml` file
 
-## Options
+## Опції
 
-| Variable               |              Default               | Meaning                             |
+| Змінна                 |              Default               | Meaning                             |
 |:---------------------- |:----------------------------------:| ----------------------------------- |
 | `SPACESHIP_BUN_SHOW`   |               `true`               | Show section                        |
 | `SPACESHIP_BUN_ASYNC`  |               `true`               | Render section asynchronously       |
