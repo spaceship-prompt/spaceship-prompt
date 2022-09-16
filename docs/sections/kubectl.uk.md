@@ -7,9 +7,9 @@
 
 The `kubectl` section consists of [`kubectl_version`](#kubernetes-version-kubectl_version) and [`kubectl_context`](#kubernetes-context-kubectl_context) subsections. It is shown only when `kubectl` can connect to Kubernetes cluster.
 
-## Options
+## Опції
 
-| Variable                   |              Default               | Meaning                               |
+| Змінна                     |              Default               | Meaning                               |
 |:-------------------------- |:----------------------------------:| ------------------------------------- |
 | `SPACESHIP_KUBECTL_SHOW`   |              `false`               | Show section                          |
 | `SPACESHIP_KUBECTL_ASYNC`  |               `true`               | Render section asynchronously         |
@@ -22,9 +22,9 @@ The `kubectl` section consists of [`kubectl_version`](#kubernetes-version-kubect
 
 The `kubectl_version` section shows the version of the Kubernetes. It is shown only when `kubectl` binary is available.
 
-### Options
+### Опції
 
-| Variable                           |              Default               | Meaning                       |
+| Змінна                             |              Default               | Meaning                       |
 |:---------------------------------- |:----------------------------------:| ----------------------------- |
 | `SPACESHIP_KUBECTL_VERSION_SHOW`   |               `true`               | Show subsection               |
 | `SPACESHIP_KUBECTL_VERSION_ASYNC`  |               `true`               | Render section asynchronously |
@@ -65,9 +65,9 @@ SPACESHIP_KUBECTL_CONTEXT_COLOR_GROUPS=(
 )
 ```
 
-### Options
+### Опції
 
-| Variable                                   |              Default               | Meaning                                       |
+| Змінна                                     |              Default               | Meaning                                       |
 |:------------------------------------------ |:----------------------------------:| --------------------------------------------- |
 | `SPACESHIP_KUBECTL_CONTEXT_SHOW`           |               `true`               | Show subsection                               |
 | `SPACESHIP_KUBECTL_CONTEXT_PREFIX`         |               `at·`                | Subsection's prefix                           |
