@@ -12,9 +12,9 @@ This section is displayed only within Haskell projects, meaning:
 * Upsearch finds a `stack.yaml` file.
 * The current directory contains a file with `.hs` directory.
 
-## Options
+## Опції
 
-| Variable                   |              Default               | Meaning                             |
+| Змінна                     |              Default               | Meaning                             |
 |:-------------------------- |:----------------------------------:| ----------------------------------- |
 | `SPACESHIP_HASKELL_SHOW`   |               `true`               | Show section                        |
 | `SPACESHIP_HASKELL_ASYNC`  |               `true`               | Render section asynchronously       |
