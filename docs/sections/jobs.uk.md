@@ -11,9 +11,9 @@ The `SPACESHIP_JOBS_AMOUNT_THRESHOLD` environment variable defines the threshold
 SPACESHIP_JOBS_AMOUNT_THRESHOLD=0
 ```
 
-## Options
+## Опції
 
-| Variable                          | Default | Meaning                                                                   |
+| Змінна                            | Default | Meaning                                                                   |
 |:--------------------------------- |:-------:| ------------------------------------------------------------------------- |
 | `SPACESHIP_JOBS_SHOW`             | `true`  | Show section                                                              |
 | `SPACESHIP_JOBS_PREFIX`           |    -    | Section's prefix                                                          |
