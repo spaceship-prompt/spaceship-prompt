@@ -1,6 +1,6 @@
 # Ruby `ruby`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**Ruby**](https://www.ruby-lang.org) is a dynamic, reflective, object-oriented, general-purpose programming language.
@@ -14,11 +14,11 @@ This section is displayed only when the current directory is within a Ruby proje
 
 ## Опції
 
-| Змінна                  |              Default               | Meaning                               |
-|:----------------------- |:----------------------------------:| ------------------------------------- |
-| `SPACESHIP_RUBY_SHOW`   |               `true`               | Show section                          |
-| `SPACESHIP_RUBY_ASYNC`  |               `true`               | Render section asynchronously       | |
-| `SPACESHIP_RUBY_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                      |
-| `SPACESHIP_RUBY_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                      |
-| `SPACESHIP_RUBY_SYMBOL` |                `💎·`                | Symbol displayed before the section   |
-| `SPACESHIP_RUBY_COLOR`  |               `red`                | Section's color                       |
+| Змінна                  |              Default               | Meaning                                 |
+|:----------------------- |:----------------------------------:| --------------------------------------- |
+| `SPACESHIP_RUBY_SHOW`   |               `true`               | Show section                            |
+| `SPACESHIP_RUBY_ASYNC`  |               `true`               | Render section asynchronously       |   |
+| `SPACESHIP_RUBY_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                        |
+| `SPACESHIP_RUBY_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
+| `SPACESHIP_RUBY_SYMBOL` |                `💎·`                | Символ, що відображається перед секцією |
+| `SPACESHIP_RUBY_COLOR`  |               `red`                | Колір секції                            |
