@@ -1,8 +1,8 @@
-# Introduction
+# Вступ
 
 Welcome to Spaceship configuration! Here is a quick guide of how to adjust Spaceship to your personal workflows.
 
-## Create a config file
+## Створення файлу конфігурації
 
 To get started with customization, create a configuration file:
 
