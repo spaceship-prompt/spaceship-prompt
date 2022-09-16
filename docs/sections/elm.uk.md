@@ -1,13 +1,13 @@
 # Elm `elm`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**Elm**](https://elm-lang.org) is a functional programming language for building interactive and performant user interfaces.
 
 The `elm` section displays the Elm version.
 
-This section is displayed only when the current directory:
+Ця секція відображається лише тоді, коли:
 
 * Is within an Elm project (upsearch finds `elm.json`, `elm-package.json`, or `elm-stuff`)
 * Contains any `.elm` file
