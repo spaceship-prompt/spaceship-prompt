@@ -1,8 +1,8 @@
 # PHP `php`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! !!! !!! important "This section is rendered asynchronously by default"
 
-!!! !!! info
+!!! !!! !!! info
     [**PHP**](https://www.php.net) is a widely-used general-purpose scripting language that is especially suited for web development and can be embedded into HTML.
 
 The `php` section displays the version of the PHP.
