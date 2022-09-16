@@ -1,6 +1,6 @@
 # Java `java`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**Java**](https://www.java.com) is a class-based, object-oriented programming language
