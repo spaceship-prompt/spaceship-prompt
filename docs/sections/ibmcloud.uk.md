@@ -1,6 +1,6 @@
 # IBM Cloud `ibmcloud`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**IMB Cloud**](https://www.ibm.com/cloud) is a set of cloud computing services for business offered by the information technology company IBM.
