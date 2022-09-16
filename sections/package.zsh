@@ -31,10 +31,10 @@ fi
 
 spaceship_package::npm() {
   spaceship::exists npm || return
-  spaceship::upsearch -s package.json || return
+  local package_json=$(spaceship::upsearch package.json) || return
 
-  local package_version="$(spaceship::datafile --json package.json version)"
-  local is_private_package="$(spaceship::datafile --json package.json private)"
+  local package_version="$(spaceship::datafile --json $package_json version)"
+  local is_private_package="$(spaceship::datafile --json $package_json private)"
 
   if [[ "$SPACESHIP_PACKAGE_SHOW_PRIVATE" == false && "$is_private_package" == true ]]; then
     return 0
@@ -52,9 +52,9 @@ spaceship_package::lerna() {
   # Note: lerna does not have to be installed in the global context
   # so checking for lerna binary does not make sense
   spaceship::exists npm || return
-  spaceship::upsearch -s lerna.json || return
+  local lerna_json=$(spaceship::upsearch lerna.json) || return
 
-  local package_version="$(spaceship::datafile --json lerna.json version)"
+  local package_version="$(spaceship::datafile --json $lerna_json version)"
 
   if [[ "$package_version" == "independent" ]]; then
     package_version="($package_version)"
@@ -77,16 +77,16 @@ spaceship_package::cargo() {
 
 spaceship_package::composer() {
   spaceship::exists composer || return
-  spaceship::upsearch -s composer.json || return
+  local composer_json=$(spaceship::upsearch composer.json) || return
 
-  spaceship::datafile --json composer.json "version"
+  spaceship::datafile --json $composer_json "version"
 }
 
 spaceship_package::julia() {
   spaceship::exists julia || return
-  spaceship::upsearch -s Project.toml || return
+  local project_toml=$(spaceship::upsearch Project.toml) || return
 
-  spaceship::datafile --toml Project.toml "version"
+  spaceship::datafile --toml $project_toml "version"
 }
 
 # ------------------------------------------------------------------------------
