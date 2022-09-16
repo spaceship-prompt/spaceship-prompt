@@ -7,13 +7,13 @@
 
 Розділ `gcloud` показує активну конфігурацію Google Cloud Platform за допомогою активного файлу конфігурації `gcloud`.
 
-## Options
+## Опції
 
 | Змінна                    |          За замовчуванням          | Пояснення                               |
 |:------------------------- |:----------------------------------:| --------------------------------------- |
 | `SPACESHIP_GCLOUD_SHOW`   |               `true`               | Показати секцію                         |
-| `SPACESHIP_GCLOUD_ASYNC`  |               `true`               | Render section asynchronously           |
+| `SPACESHIP_GCLOUD_ASYNC`  |               `true`               | Рендерити секцію асинхронно             |
 | `SPACESHIP_GCLOUD_PREFIX` |              `using·`              | Префікс секції                          |
-| `SPACESHIP_GCLOUD_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                        |
+| `SPACESHIP_GCLOUD_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
 | `SPACESHIP_GCLOUD_SYMBOL` |               `☁️·`                | Символ, що відображається перед секцією |
 | `SPACESHIP_GCLOUD_COLOR`  |                `26`                | Колір секції                            |
