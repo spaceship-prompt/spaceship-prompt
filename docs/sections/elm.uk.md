@@ -1,6 +1,6 @@
 # Elm `elm`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**Elm**](https://elm-lang.org) це функціональна мова програмування для інтерактивних та швидких користувацьких інтерфейсів.
