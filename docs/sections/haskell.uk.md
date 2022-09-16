@@ -1,6 +1,6 @@
 # Haskell `haskell`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**Haskell**](https://www.haskell.org) is a general-purpose purely functional programming language, with non-strict semantics.
