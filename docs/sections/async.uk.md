@@ -10,9 +10,9 @@ Optionally, you can enable displaying the number of sections that are being proc
 SPACESHIP_ASYNC_SHOW_COUNT=true
 ```
 
-## Options
+## Опції
 
-| Variable                     | Default | Meaning                             |
+| Змінна                       | Default | Meaning                             |
 |:---------------------------- |:-------:| ----------------------------------- |
 | `SPACESHIP_ASYNC_SHOW`       | `true`  | Show section                        |
 | `SPACESHIP_ASYNC_SHOW_COUNT` | `false` | Show job count                      |
