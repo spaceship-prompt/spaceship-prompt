@@ -6,7 +6,7 @@ hide:
 hero:
   title: 简洁、强大和极易定制的 Zsh 提示符
   subtitle: 它将你可能需要的方便工作的一切结合起来，而不会造成不必要的麻烦。 像真正的宇宙飞船一样。
-  install_button: 快速上手
+  install_button: Getting Started
   source_button: 源代码
 features:
   - 
@@ -125,7 +125,7 @@ Want more features? Please, [open an issue](https://github.com/spaceship-prompt/
 
 ## Getting Started
 
-Installing Spaceship is simple and quick. It's configurable and easy to use. It's configurable and easy to use.
+Installing Spaceship is simple and quick. It's configurable and easy to use. It's configurable and easy to use. It's configurable and easy to use.
 
 [Installation](/getting-started ""){.md-button.md-button--primary} [Configuration](/config/intro ""){.md-button}
 
