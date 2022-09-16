@@ -1,6 +1,6 @@
 # Mercurial `hg`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 The `hg` section consists of [`hg_branch`](#hg-branch-hg_branch) and [`hg_status`](#hg-status-hg_status) subsections. It is displayed only in Mercurial repositories.
 
