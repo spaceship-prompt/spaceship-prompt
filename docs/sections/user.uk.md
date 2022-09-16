@@ -10,7 +10,7 @@ The root user is highlighted in `SPACESHIP_USER_COLOR_ROOT` color (red as defaul
 
 ## Controlling when to show the `user` section
 
-`SPACESHIP_USER_SHOW` defines when to show the `user` section. Ось можливі значення:
+`SPACESHIP_USER_SHOW` defines when to show the `user` section. Here are possible values:
 
 | `SPACESHIP_USER_SHOW` | Show on local | Show on remote |
 |:---------------------:|:------------- |:-------------- |
@@ -21,14 +21,14 @@ The root user is highlighted in `SPACESHIP_USER_COLOR_ROOT` color (red as defaul
 
 *If needed* means the default behavior.
 
-## Опції
+## Options
 
-| Змінна                      |              Default               | Meaning                                              |
+| Variable                    |              Default               | Meaning                                              |
 |:--------------------------- |:----------------------------------:| ---------------------------------------------------- |
 | `SPACESHIP_USER_SHOW`       |               `true`               | Show section (`true`, `false`, `always` or `needed`) |
 | `SPACESHIP_USER_PREFIX`     |              `with·`               | Section's prefix                                     |
-| `SPACESHIP_USER_SUFFIX`     | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                        |
-| `SPACESHIP_USER_COLOR`      |              `yellow`              | Колір секції                                         |
+| `SPACESHIP_USER_SUFFIX`     | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                                     |
+| `SPACESHIP_USER_COLOR`      |              `yellow`              | Section's color                                      |
 | `SPACESHIP_USER_COLOR_ROOT` |               `red`                | Section's color when user is root                    |
 
 
