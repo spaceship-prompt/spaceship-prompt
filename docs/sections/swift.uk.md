@@ -9,9 +9,9 @@ The `swift` section displays the version of Swift.
 
 The local version has more priority than the global one.
 
-## Options
+## Опції
 
-| Variable                      |              Default               | Meaning                                         |
+| Змінна                        |              Default               | Meaning                                         |
 |:----------------------------- |:----------------------------------:| ----------------------------------------------- |
 | `SPACESHIP_SWIFT_ASYNC`       |               `true`               | Render section asynchronously                   |
 | `SPACESHIP_SWIFT_SHOW_LOCAL`  |               `true`               | Current local Swift version based on [swiftenv] |
