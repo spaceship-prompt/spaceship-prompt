@@ -6,7 +6,7 @@ hide:
 
 # Sections Registry
 
-Here you can find built-in and custom sections. Add new section by [contributing to the registry](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/docs/registry/external.json).
+Тут ви можете знайти вбудовані та користувацькі секції. Додавайте нові секції [роблячи внески у реєстр](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/docs/registry/external.json).
 
 ---
 
