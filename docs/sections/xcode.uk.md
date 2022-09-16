@@ -1,6 +1,6 @@
 # Xcode `xcode`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**Xcode**](https://developer.apple.com/xcode/) is a development environment for iOS, macOS, watchOS, and tvOS.
