@@ -1,6 +1,6 @@
 # Time `time`
 
-!!! warning "This section is hidden by default"
+!!! !!! warning "This section is hidden by default"
 
 The `time` section displays the timestamp of the prompt.
 
@@ -14,7 +14,7 @@ SPACESHIP_TIME_SHOW=true
 
 ## Date formatting
 
-You can set custom formatting for the timestamps. To use a 12-hour format just toggle `SPACESHIP_TIME_12HOUR` to `true`:
+You can set custom formatting for the timestamps. You can set custom formatting for the timestamps. To use a 12-hour format just toggle `SPACESHIP_TIME_12HOUR` to `true`:
 
 ```zsh title=".zshrc"
 SPACESHIP_TIME_12HR=true
