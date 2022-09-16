@@ -12,13 +12,13 @@ This section is displayed only when the current directory:
 * Is within an Elm project (upsearch finds `elm.json`, `elm-package.json`, or `elm-stuff`)
 * Contains any `.elm` file
 
-## Options
+## Опції
 
-| Variable               |              Default               | Meaning                             |
-|:---------------------- |:----------------------------------:| ----------------------------------- |
-| `SPACESHIP_ELM_SHOW`   |               `true`               | Show section                        |
-| `SPACESHIP_ELM_ASYNC`  |               `true`               | Render section asynchronously       |
-| `SPACESHIP_ELM_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                    |
-| `SPACESHIP_ELM_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                    |
-| `SPACESHIP_ELM_SYMBOL` |                `🌳·`                | Symbol displayed before the section |
-| `SPACESHIP_ELM_COLOR`  |               `cyan`               | Section's color                     |
+| Змінна                 |          За замовчуванням          | Пояснення                               |
+|:---------------------- |:----------------------------------:| --------------------------------------- |
+| `SPACESHIP_ELM_SHOW`   |               `true`               | Показати секцію                         |
+| `SPACESHIP_ELM_ASYNC`  |               `true`               | Рендерити секцію асинхронно             |
+| `SPACESHIP_ELM_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Префікс секції                          |
+| `SPACESHIP_ELM_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
+| `SPACESHIP_ELM_SYMBOL` |                `🌳·`                | Символ, що відображається перед секцією |
+| `SPACESHIP_ELM_COLOR`  |               `cyan`               | Колір секції                            |
