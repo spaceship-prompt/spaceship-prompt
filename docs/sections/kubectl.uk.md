@@ -1,6 +1,6 @@
 # Kubernetes `kubectl`
 
-!!! important "This section is rendered asynchronously by default"
+!!! important "За замовчуванням ця секція рендериться асинхронно"
 
 !!! info
     [**Kubernetes**](https://kubernetes.io) is an open-source container orchestration system for automating software deployment, scaling, and management.
