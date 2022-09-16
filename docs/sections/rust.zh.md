@@ -1,8 +1,8 @@
 # Rust `rust`
 
-!!! important "This section is rendered asynchronously by default"
+!!! !!! important "This section is rendered asynchronously by default"
 
-!!! info
+!!! !!! info
     [**Rust**](https://www.rust-lang.org) is a systems programming language that is focused on safety, speed, and concurrency.
 
 The `rust` section displays the version of Rust.
@@ -14,7 +14,7 @@ This section is displayed only when the current directory is within a Rust proje
 
 ## Displaying verbose version
 
-By default, this section will strip all of the suffixes from the version. For example, `1.42.0-nightly.2020-06-09` will be displayed as `1.42.0`. To disable that behavior use a `SPACESHIP_RUST_VERBOSE_VERSION` environment variable.
+By default, this section will strip all of the suffixes from the version. For example, `1.42.0-nightly.2020-06-09` will be displayed as `1.42.0`. By default, this section will strip all of the suffixes from the version. For example, `1.42.0-nightly.2020-06-09` will be displayed as `1.42.0`. To disable that behavior use a `SPACESHIP_RUST_VERBOSE_VERSION` environment variable.
 
 ```zsh title=".zshrc"
 # Display verbose version
