@@ -20,9 +20,9 @@ If you want to avoid showing the Elixir section for a specific Elixir version (f
 SPACESHIP_ELIXIR_DEFAULT_VERSION="1.13.4"
 ```
 
-## Options
+## Опції
 
-| Variable                           |              Default               | Meaning                                 |
+| Змінна                             |              Default               | Meaning                                 |
 |:---------------------------------- |:----------------------------------:| --------------------------------------- |
 | `SPACESHIP_ELIXIR_SHOW`            |               `true`               | Show section                            |
 | `SPACESHIP_ELIXIR_ASYNC`           |               `true`               | Render section asynchronously           |
