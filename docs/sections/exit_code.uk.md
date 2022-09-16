@@ -1,10 +1,10 @@
-# Exit code `exit_code`
+# Код виходу `exit_code`
 
-!!! warning "This section is hidden by default"
+!!! warning "Цю секцію приховано за замовчуванням"
 
-The `exit_code` section displays the exit code of the last command.
+Розділ `exit_code` відображає код виходу останньої команди.
 
-## Displaying the section
+## Відображення секції
 
 Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show the exit code of the last command.
 
@@ -12,12 +12,12 @@ Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show t
 SPACESHIP_EXIT_CODE_SHOW=true
 ```
 
-## Опції
+## Options
 
-| Змінна                       | Default | Meaning                                 |
-|:---------------------------- |:-------:| --------------------------------------- |
-| `SPACESHIP_EXIT_CODE_SHOW`   | `false` | Show section                            |
-| `SPACESHIP_EXIT_CODE_PREFIX` |    -    | Section's prefix                        |
-| `SPACESHIP_EXIT_CODE_SUFFIX` |    -    | Суфікс секції                           |
-| `SPACESHIP_EXIT_CODE_SYMBOL` |   `✘`   | Символ, що відображається перед секцією |
-| `SPACESHIP_EXIT_CODE_COLOR`  |  `red`  | Колір секції                            |
+| Variable                     | За замовчуванням | Пояснення                           |
+|:---------------------------- |:----------------:| ----------------------------------- |
+| `SPACESHIP_EXIT_CODE_SHOW`   |     `false`      | Показати секцію                     |
+| `SPACESHIP_EXIT_CODE_PREFIX` |        -         | Префікс секції                      |
+| `SPACESHIP_EXIT_CODE_SUFFIX` |        -         | Section's suffix                    |
+| `SPACESHIP_EXIT_CODE_SYMBOL` |       `✘`        | Symbol displayed before the section |
+| `SPACESHIP_EXIT_CODE_COLOR`  |      `red`       | Section's color                     |
