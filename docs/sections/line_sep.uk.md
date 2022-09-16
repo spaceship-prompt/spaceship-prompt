@@ -31,8 +31,8 @@ You can remove `line_sep` from the prompt entirely like this:
 spaceship remove line_sep
 ```
 
-## Опції
+## Options
 
-| Змінна                           | Default | Meaning                |
+| Variable                         | Default | Meaning                |
 |:-------------------------------- |:-------:| ---------------------- |
 | `SPACESHIP_PROMPT_SEPARATE_LINE` | `true`  | Render line separators |
