@@ -11,15 +11,15 @@ The `SPACESHIP_JOBS_AMOUNT_THRESHOLD` environment variable defines the threshold
 SPACESHIP_JOBS_AMOUNT_THRESHOLD=0
 ```
 
-## Опції
+## Options
 
-| Змінна                            | Default | Meaning                                                                   |
+| Variable                          | Default | Meaning                                                                   |
 |:--------------------------------- |:-------:| ------------------------------------------------------------------------- |
 | `SPACESHIP_JOBS_SHOW`             | `true`  | Show section                                                              |
 | `SPACESHIP_JOBS_PREFIX`           |    -    | Section's prefix                                                          |
-| `SPACESHIP_JOBS_SUFFIX`           |   `·`   | Суфікс секції                                                             |
+| `SPACESHIP_JOBS_SUFFIX`           |   `·`   | Section's suffix                                                          |
 | `SPACESHIP_JOBS_SYMBOL`           |   `✦`   | Symbol displayed when jobs are hiding                                     |
-| `SPACESHIP_JOBS_COLOR`            | `blue`  | Колір секції                                                              |
+| `SPACESHIP_JOBS_COLOR`            | `blue`  | Section's color                                                           |
 | `SPACESHIP_JOBS_AMOUNT_PREFIX`    |    -    | Prefix before the number of jobs (between jobs indicator and jobs amount) |
 | `SPACESHIP_JOBS_AMOUNT_SUFFIX`    |    -    | Suffix after the number of jobs                                           |
 | `SPACESHIP_JOBS_AMOUNT_THRESHOLD` |   `1`   | Number of jobs after which job count will be shown                        |
