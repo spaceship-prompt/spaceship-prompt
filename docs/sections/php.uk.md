@@ -12,9 +12,9 @@ This section is displayed only when the current directory is within a PHP projec
 * Upsearch finds a `composer.json` file
 * Current directory contains any `.php` file
 
-## Options
+## Опції
 
-| Variable               |              Default               | Meaning                             |
+| Змінна                 |              Default               | Meaning                             |
 |:---------------------- |:----------------------------------:| ----------------------------------- |
 | `SPACESHIP_PHP_SHOW`   |               `true`               | Show section                        |
 | `SPACESHIP_PHP_ASYNC`  |               `true`               | Render section asynchronously       |
