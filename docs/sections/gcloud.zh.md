@@ -1,9 +1,9 @@
 # Google Cloud Platform `gcloud`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! !!! !!! important "This section is rendered asynchronously by default"
 
-!!! !!! info
-    The [Google Cloud CLI](https://cloud.google.com/sdk/gcloud) is a set of tools to create and manage [Google Cloud](https://cloud.google.com) resources. You can use these tools to perform many common platform tasks from the command line or through scripts and other automation. You can use these tools to perform many common platform tasks from the command line or through scripts and other automation.
+!!! !!! !!! info
+    The [Google Cloud CLI](https://cloud.google.com/sdk/gcloud) is a set of tools to create and manage [Google Cloud](https://cloud.google.com) resources. You can use these tools to perform many common platform tasks from the command line or through scripts and other automation. You can use these tools to perform many common platform tasks from the command line or through scripts and other automation. You can use these tools to perform many common platform tasks from the command line or through scripts and other automation.
 
 The `gcloud` section shows active Google Cloud Platform configuration using `gcloud` active configuration file.
 
