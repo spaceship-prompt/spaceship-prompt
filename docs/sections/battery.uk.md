@@ -19,9 +19,9 @@ Here are possible values:
 |          `true`          | Shown           | Hidden          | Hidden        |
 |        `charged`         | Shown           | Hidden          | Shown         |
 
-## Options
+## Опції
 
-| Variable                               |              Default               | Meaning                                                       |
+| Змінна                                 |              Default               | Meaning                                                       |
 |:-------------------------------------- |:----------------------------------:| ------------------------------------------------------------- |
 | `SPACESHIP_BATTERY_SHOW`               |               `true`               | Show section (`true`, `false`, `always` or `charged`)         |
 | `SPACESHIP_BATTERY_ASYNC`              |               `true`               | Render section asynchronously                                 |
