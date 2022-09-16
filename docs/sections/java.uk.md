@@ -13,9 +13,9 @@ This section is shown only within Java projects, meaning:
 * Upsearch finds `pom.xml`, `build.gradle`, `settings.gradle` files
 * The current directory contains `*.java`, `*.class`, `*.jar` or `*.war` files
 
-## Options
+## Опції
 
-| Variable                |              Default               | Meaning                             |
+| Змінна                  |              Default               | Meaning                             |
 |:----------------------- |:----------------------------------:| ----------------------------------- |
 | `SPACESHIP_JAVA_SHOW`   |               `true`               | Show section                        |
 | `SPACESHIP_JAVA_ASYNC`  |               `true`               | Render section asynchronously       |
