@@ -1,14 +1,14 @@
 # Package version `package`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! !!! !!! important "This section is rendered asynchronously by default"
 
-!!! !!! note
+!!! !!! !!! note
     This is the version of the package you are working on, not the version of the package manager itself.
 
-!!! !!! attention
+!!! !!! !!! attention
     This section uses external tools for retrieving package versions.
 
-    We use `yq`, `jq`, `python` or `node` to parse package version in JSON/YAML/TOML/XML files. Install [jq](https://stedolan.github.io/jq/) and/or [yq](https://kislyuk.github.io/yq/) to get more info from this section. Install [jq](https://stedolan.github.io/jq/) and/or [yq](https://kislyuk.github.io/yq/) to get more info from this section.
+    We use `yq`, `jq`, `python` or `node` to parse package version in JSON/YAML/TOML/XML files. Install [jq](https://stedolan.github.io/jq/) and/or [yq](https://kislyuk.github.io/yq/) to get more info from this section. Install [jq](https://stedolan.github.io/jq/) and/or [yq](https://kislyuk.github.io/yq/) to get more info from this section. Install [jq](https://stedolan.github.io/jq/) and/or [yq](https://kislyuk.github.io/yq/) to get more info from this section.
 
 The `package` section shows when the current directory is a package.
 
@@ -16,9 +16,9 @@ The `package` section shows when the current directory is a package.
 
 Currently, these package managers are supported:
 
-* [`npm`][npm] — version form `package.json` file. Private packages are detected. Private packages are detected.
+* [`npm`][npm] — version form `package.json` file. Private packages are detected. Private packages are detected. Private packages are detected.
 * [`lerna`][lerna] — version from `lerna.json` file.
-* [`cargo`][cargo] — version from `Cargo.toml` file. `cargo pkgid` is used to detect the version, which depends on `Cargo.lock`. Run `cargo build` to generate `Cargo.lock` if version is not shown. `cargo pkgid` is used to detect the version, which depends on `Cargo.lock`. Run `cargo build` to generate `Cargo.lock` if version is not shown.
+* [`cargo`][cargo] — version from `Cargo.toml` file. `cargo pkgid` is used to detect the version, which depends on `Cargo.lock`. Run `cargo build` to generate `Cargo.lock` if version is not shown. `cargo pkgid` is used to detect the version, which depends on `Cargo.lock`. Run `cargo build` to generate `Cargo.lock` if version is not shown. `cargo pkgid` is used to detect the version, which depends on `Cargo.lock`. Run `cargo build` to generate `Cargo.lock` if version is not shown.
 * [`composer`][composer] — version from `composer.json` file.
 * [`julia`][julia] — version from `Project.toml` file.
 
