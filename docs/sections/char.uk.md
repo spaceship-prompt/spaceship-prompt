@@ -12,9 +12,9 @@ By default, Spaceship doesn't change prompt character when executing commands as
 SPACESHIP_CHAR_SYMBOL_ROOT="#"
 ```
 
-## Options
+## Опції
 
-| Variable                          |         Default          | Meaning                                                              |
+| Змінна                            |         Default          | Meaning                                                              |
 |:--------------------------------- |:------------------------:| -------------------------------------------------------------------- |
 | `SPACESHIP_CHAR_PREFIX`           |            ``            | Prefix before prompt character                                       |
 | `SPACESHIP_CHAR_SUFFIX`           |            ``            | Suffix after prompt character                                        |
