@@ -15,8 +15,8 @@ SPACESHIP_JOBS_AMOUNT_THRESHOLD=0
 
 | Змінна                            | Default | Meaning                                                                   |
 |:--------------------------------- |:-------:| ------------------------------------------------------------------------- |
-| `SPACESHIP_JOBS_SHOW`             | `true`  | Show section                                                              |
-| `SPACESHIP_JOBS_PREFIX`           |    -    | Section's prefix                                                          |
+| `SPACESHIP_JOBS_SHOW`             | `true`  | Показати секцію                                                           |
+| `SPACESHIP_JOBS_PREFIX`           |    -    | Префікс секції                                                            |
 | `SPACESHIP_JOBS_SUFFIX`           |   `·`   | Суфікс секції                                                             |
 | `SPACESHIP_JOBS_SYMBOL`           |   `✦`   | Symbol displayed when jobs are hiding                                     |
 | `SPACESHIP_JOBS_COLOR`            | `blue`  | Колір секції                                                              |
