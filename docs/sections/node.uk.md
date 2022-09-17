@@ -9,11 +9,11 @@ The `node` section displays the current version of the Node.js binary. This sect
 
 This section is displayed only when the current directory is within a Node.js project, meaning:
 
-* Upsearch finds a `package.json` file
-* Upsearch finds a `node_modules` folder
-* Contains any other file with `.js` extension
+* Пошук вгору знаходить файл `package.json`
+* Пошук вгору знаходить папку `node_modules`
+* Містить будь-який інший файл з розширенням `.js`
 
-## Setting the default Node.js version
+## Встановлення версії Node.js за замовчуванням
 
 If you want to avoid showing the Node.js section for a specific Node.js version (for example system installed version), use the `SPACESHIP_NODE_DEFAULT_VERSION` environment variable. The section will be hidden if the current version of the Node.js is equal to the one specified in the variable.
 
@@ -23,12 +23,12 @@ SPACESHIP_NODE_DEFAULT_VERSION="18.0.0"
 
 ## Опції
 
-| Змінна                           |              Default               | Meaning                                  |
-|:-------------------------------- |:----------------------------------:| ---------------------------------------- |
-| `SPACESHIP_NODE_SHOW`            |               `true`               | Show section                             |
-| `SPACESHIP_NODE_ASYNC`           |               `true`               | Рендерити секцію асинхронно              |
-| `SPACESHIP_NODE_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                         |
-| `SPACESHIP_NODE_SUFFIX`          | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                            |
-| `SPACESHIP_NODE_SYMBOL`          |                `⬢·`                | Символ, що відображається перед секцією  |
-| `SPACESHIP_NODE_COLOR`           |              `green`               | Колір секції                             |
-| `SPACESHIP_NODE_DEFAULT_VERSION` |                 ``                 | Node.js version to be treated as default |
+| Змінна                           |          За замовчуванням          | Пояснення                                     |
+|:-------------------------------- |:----------------------------------:| --------------------------------------------- |
+| `SPACESHIP_NODE_SHOW`            |               `true`               | Показати секцію                               |
+| `SPACESHIP_NODE_ASYNC`           |               `true`               | Рендерити секцію асинхронно                   |
+| `SPACESHIP_NODE_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Префікс секції                                |
+| `SPACESHIP_NODE_SUFFIX`          | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                 |
+| `SPACESHIP_NODE_SYMBOL`          |                `⬢·`                | Символ, що відображається перед секцією       |
+| `SPACESHIP_NODE_COLOR`           |              `green`               | Колір секції                                  |
+| `SPACESHIP_NODE_DEFAULT_VERSION` |                 ``                 | Версія Node.js, яку слід розглядати як типову |
