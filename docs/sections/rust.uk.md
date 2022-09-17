@@ -25,9 +25,9 @@ SPACESHIP_RUST_VERBOSE_VERSION=true
 
 | Змінна                           |              Default               | Meaning                                 |
 |:-------------------------------- |:----------------------------------:| --------------------------------------- |
-| `SPACESHIP_RUST_SHOW`            |               `true`               | Show section                            |
+| `SPACESHIP_RUST_SHOW`            |               `true`               | Показати секцію                         |
 | `SPACESHIP_RUST_ASYNC`           |               `true`               | Рендерити секцію асинхронно             |
-| `SPACESHIP_RUST_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                        |
+| `SPACESHIP_RUST_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Префікс секції                          |
 | `SPACESHIP_RUST_SUFFIX`          | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
 | `SPACESHIP_RUST_SYMBOL`          |                `🦀·`                | Символ, що відображається перед секцією |
 | `SPACESHIP_RUST_COLOR`           |               `red`                | Колір секції                            |
