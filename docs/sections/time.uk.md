@@ -31,7 +31,7 @@ SPACESHIP_TIME_FORMAT='%D{%H:%M:%S.%.}'
 | Змінна                  |              Default               | Meaning                                   |
 |:----------------------- |:----------------------------------:| ----------------------------------------- |
 | `SPACESHIP_TIME_SHOW`   |              `false`               | Show section (set to `true` for enabling) |
-| `SPACESHIP_TIME_PREFIX` |               `at·`                | Section's prefix                          |
+| `SPACESHIP_TIME_PREFIX` |               `at·`                | Префікс секції                            |
 | `SPACESHIP_TIME_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                             |
 | `SPACESHIP_TIME_COLOR`  |              `yellow`              | Колір секції                              |
 | `SPACESHIP_TIME_FORMAT` |                 -                  | Custom date formatting                    |
