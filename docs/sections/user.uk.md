@@ -26,7 +26,7 @@ The root user is highlighted in `SPACESHIP_USER_COLOR_ROOT` color (red as defaul
 | Змінна                      |              Default               | Meaning                                              |
 |:--------------------------- |:----------------------------------:| ---------------------------------------------------- |
 | `SPACESHIP_USER_SHOW`       |               `true`               | Show section (`true`, `false`, `always` or `needed`) |
-| `SPACESHIP_USER_PREFIX`     |              `with·`               | Section's prefix                                     |
+| `SPACESHIP_USER_PREFIX`     |              `with·`               | Префікс секції                                       |
 | `SPACESHIP_USER_SUFFIX`     | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                        |
 | `SPACESHIP_USER_COLOR`      |              `yellow`              | Колір секції                                         |
 | `SPACESHIP_USER_COLOR_ROOT` |               `red`                | Section's color when user is root                    |
