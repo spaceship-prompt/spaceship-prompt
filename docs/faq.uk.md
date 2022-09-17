@@ -1,4 +1,4 @@
-# Frequently Asked Questions
+# Часті запитання
 
 This page aimed to help you fix the common problems encountered with Spaceship.
 
@@ -20,7 +20,7 @@ If you struggle with something, feel free to ask a question on our Discord serve
 
 Preview shows `spaceship` prompt setup with:
 
-- **Terminal**
+- **Термінал**
     - [iTerm2](https://iterm2.com/) as terminal emulator.
     - [One Dark](https://www.npmjs.com/package/hyperterm-atom-dark) color theme.
     - [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads) with ligatures as primary font (16px size).
