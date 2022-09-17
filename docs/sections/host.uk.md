@@ -28,7 +28,7 @@ SPACESHIP_HOST_SHOW_FULL=true
 |:-------------------------- |:----------------------------------:| ------------------------------------------ |
 | `SPACESHIP_HOST_SHOW`      |               `true`               | Show section (`true`, `false` or `always`) |
 | `SPACESHIP_HOST_SHOW_FULL` |              `false`               | Show full hostname                         |
-| `SPACESHIP_HOST_PREFIX`    |               `at·`                | Section's prefix                           |
+| `SPACESHIP_HOST_PREFIX`    |               `at·`                | Префікс секції                             |
 | `SPACESHIP_HOST_SUFFIX`    | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                              |
 | `SPACESHIP_HOST_COLOR`     |               `blue`               | Колір секції                               |
 | `SPACESHIP_HOST_COLOR_SSH` |              `green`               | Section's color on SSH connection          |
