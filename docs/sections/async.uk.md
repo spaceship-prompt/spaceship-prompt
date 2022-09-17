@@ -1,10 +1,10 @@
 # Async `async`
 
-The `async` section is used as a placeholder for sections that are not yet rendered. This section is displayed only when there are still sections to be rendered.
+Секція `async` використовується як заповнювач для секцій, які ще не представлені. Ця секція відображається лише тоді, коли ще залишаються спкції, які повинні відобразитись згодом.
 
-By default, Spaceship works asynchronously. It displays the prompt immediately while checking the environment, then it updates the prompt with new information.
+За замовчуванням Spaceship працює асинхронно. Він відображає командний рядок відразу, і оновлює його в міру надходження нової інформації.
 
-Optionally, you can enable displaying the number of sections that are being processed via the `SPACESHIP_ASYNC_SHOW_COUNT` environment variable:
+За бажанням ви можете увімкнути показ кількості секцій, які ще обробляються за допомогою опції `SPACESHIP_ASYNC_SHOW_COUNT`:
 
 ```sh title=".zshrc"
 SPACESHIP_ASYNC_SHOW_COUNT=true
@@ -14,9 +14,9 @@ SPACESHIP_ASYNC_SHOW_COUNT=true
 
 | Змінна                       | За замовчуванням | Пояснення                               |
 |:---------------------------- |:----------------:| --------------------------------------- |
-| `SPACESHIP_ASYNC_SHOW`       |      `true`      | Show section                            |
+| `SPACESHIP_ASYNC_SHOW`       |      `true`      | Показати секцію                         |
 | `SPACESHIP_ASYNC_SHOW_COUNT` |     `false`      | Показувати кількість задач              |
-| `SPACESHIP_ASYNC_PREFIX`     |        -         | Section's prefix                        |
+| `SPACESHIP_ASYNC_PREFIX`     |        -         | Префікс секції                          |
 | `SPACESHIP_ASYNC_SUFFIX`     |        -         | Суфікс секції                           |
 | `SPACESHIP_ASYNC_SYMBOL`     |       `…`        | Символ, що відображається перед секцією |
 | `SPACESHIP_ASYNC_COLOR`      |      `gray`      | Колір секції                            |
