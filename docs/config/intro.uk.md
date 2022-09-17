@@ -1,28 +1,28 @@
-# Introduction
+# Вступ
 
-Welcome to Spaceship configuration! Here is a quick guide of how to adjust Spaceship to your personal workflows.
+Ласкаво просимо до конфігурації Spaceship! Ось швидкий посібник по налаштуванню Spaceship для ваших особистих робочих процесів.
 
-## Create a config file
+## Створення файлу конфігурації
 
-To get started with customization, create a configuration file:
+Щоб почати з налаштування, створіть файл конфігурації:
 
 ```zsh
 touch ~/.spaceshiprc.zsh
 ```
 
-… or, if you prefer to keep your configuration within a `~/.config` or `~/.config/spaceship` folders, you can do so, as well:
+… або, якщо ви бажаєте зберегти свою конфігурацію в папках `~/.config` або `~/.config/spaceship`, зробіть ось це:
 
 ```zsh
 mkdir -p ~/.config/spaceship.zsh
 ```
 
-This file will be automatically sourced by Spaceship when it starts up.
+Spaceship автоматично завантажить цей файл при запуску.
 
-## Configure your prompt
+## Налаштуйте ваш командний рядок
 
-The configuration file is a `.zsh` file, so you can use `zsh` syntax to customize Spaceship. You can use loops, conditions, custom functions or even source additional `zsh` files. It's up to you.
+Файл конфігурації є файлом `.zsh`, тому ви можете використовувати `zsh`-синтаксис для налаштування Spaceship. Можна використовувати цикли, умови, користувацькі функції або навіть завантажувати додаткові `zsh` файли. Вирішувати вам.
 
-Here's an example of a configuration file:
+Ось приклад файлу конфігурації:
 
 ```zsh
 # Display time
@@ -43,13 +43,13 @@ spaceship add ember
 spaceship add --before char vi_mode
 ```
 
-You can learn more about available options by reading further documentation.
+Ви можете дізнатися більше про доступні опції, читаючи документацію далі.
 
-[See available options](/config/prompt ""){.md-button}
+[Переглянути доступні опції](/config/prompt ""){.md-button}
 
-## Changing the config location
+## Зміна розташування файлу конфігурації
 
-Optionally, you can change the location of the configuration file by setting the `SPACESHIP_CONFIG_FILE` environment variable.
+Додатково, ви можете змінити розташування файлу конфігурації, встановивши змінну середовища `SPACESHIP_CONFIG_FILE`.
 
 ```zsh
 export SPACESHIP_CONFIG_FILE="$HOME/.dotfiles/path/to/spaceship.zsh"
