@@ -1,10 +1,10 @@
 # Початок роботи
 
-Ласкаво просимо на борт! Let's install Spaceship on your machine, astronaut!
+Ласкаво просимо на борт! Давайте встановимо Spaceship на вашу машину, астронавте!
 
 ## Вимоги
 
-Before we begin, let's make sure you have the following installed:
+Перш ніж ми розпочнемо, переконайтеся, що ви встановили наступне:
 
 - [](http://www.zsh.org/)zsh (v5.2 або новіше) має бути встановлено. Запустіть наступну команду, щоб перевірити вашу версію Zsh:
   ```zsh
@@ -22,10 +22,10 @@ Before we begin, let's make sure you have the following installed:
 === "Вручну"
 
     !!! hint
-        If you're using any plugin manager, like Oh-My-Zsh, antigen, zgen, zplug or other, this might not be the best way to install Spaceship for you.
+        Якщо ви використовуєте будь-який менеджер плагінів, наприклад Oh-My-Zsh, antigen, zgen, zplug чи інший, це можливо не найкращий спосіб встановити Spaceship для вас.
 
-    1. Clone this repo somewhere, for example to `$HOME/.zsh/spaceship`.
-    2. Source Spaceship in your `~/.zshrc`.
+    1. Клонуйте цей репозиторій, наприклад, у `$HOME/.zsh/spaceship`.
+    2. Завантажте Spaceship у вашому `~/.zshrc`.
 
 
     ### Приклад
@@ -35,7 +35,7 @@ Before we begin, let's make sure you have the following installed:
     git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/spaceship"
     ```
 
-    For initializing prompt system add this to your `.zshrc`:
+    Для ініціалізації командного рядка додайте це до вашого `.zshrc`:
 
     ```zsh title=".zshrc"
     source "$HOME/.zsh/spaceship/spaceship.zsh"
@@ -43,14 +43,14 @@ Before we begin, let's make sure you have the following installed:
 
 === "Homebrew"
 
-    Installing Spaceship via Homebrew is a simple command:
+    Встановіть Spaceship через Homebrew простою командою:
 
     ```zsh title="Terminal"
     brew install spaceship
     ```
 
 
-    Add prompt initialization to your `.zshrc`:
+    Додати команду ініціалізації до вашого `.zshrc`:
 
     ```zsh title="Terminal"
     echo "source $(brew --prefix)/opt/spaceship/spaceship.zsh" >>! ~/.zshrc
@@ -66,7 +66,7 @@ Before we begin, let's make sure you have the following installed:
 
 === "oh-my-zsh"
 
-    Clone this repo:
+    Клонуйте репозиторій:
 
     ```zsh title="Terminal"
     git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
@@ -104,14 +104,14 @@ Before we begin, let's make sure you have the following installed:
 
 === "zim"
 
-    Add Spaceship to your `.zimrc`:
+    Додайте Spaceship до свого `.zimrc`:
 
     ```zsh title=".zimrc"
     zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules
     ```
 
 
-    Then install Spaceship:
+    Далі встановіть Spaceship:
 
     ```zsh title="Terminal"
     zimfw install
@@ -119,7 +119,7 @@ Before we begin, let's make sure you have the following installed:
 
 === "antigen"
 
-    Add the following snippet in your `.zshrc`:
+    Додайте такий фрагмент у вашому `.zshrc`:
 
     ```zsh title=".zshrc"
     antigen theme spaceship-prompt/spaceship-prompt
@@ -185,13 +185,13 @@ Before we begin, let's make sure you have the following installed:
 
 ## Вітаємо!
 
-You've made it! You've installed Spaceship on your machine!
+Ви зробили це! Ви встановили Spaceship на вашу машину!
 
-What's next? Spaceship has reasonable defaults, but you might want to adjust them to your needs. Learn how to configure your Spaceship:
+Що далі? Spaceship має помірковані налаштування за замовчуванням, але ви можете налаштувати його під свої потреби. Дізнайтеся, як налаштувати Spaceship:
 
-[Configure Spaceship](/config/intro ""){.md-button.md-button--primary}
+[Налаштувати Spaceship](/config/intro ""){.md-button.md-button--primary}
 
-Additionally, join our community or consider contributing to the project.
+Крім того, приєднайтеся до нашої спільноти або розгляньте можливість зробити внесок у проект.
 
 [:material-hand-heart: Contribute](/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button}
 
