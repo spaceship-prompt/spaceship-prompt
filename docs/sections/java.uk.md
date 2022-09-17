@@ -17,9 +17,9 @@ This section is shown only within Java projects, meaning:
 
 | Змінна                  |              Default               | Meaning                                 |
 |:----------------------- |:----------------------------------:| --------------------------------------- |
-| `SPACESHIP_JAVA_SHOW`   |               `true`               | Show section                            |
+| `SPACESHIP_JAVA_SHOW`   |               `true`               | Показати секцію                         |
 | `SPACESHIP_JAVA_ASYNC`  |               `true`               | Рендерити секцію асинхронно             |
-| `SPACESHIP_JAVA_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                        |
+| `SPACESHIP_JAVA_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Префікс секції                          |
 | `SPACESHIP_JAVA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
 | `SPACESHIP_JAVA_SYMBOL` |                `☕·`                | Символ, що відображається перед секцією |
 | `SPACESHIP_JAVA_COLOR`  |               `cyan`               | Колір секції                            |
