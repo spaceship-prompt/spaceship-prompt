@@ -16,9 +16,9 @@ This section is displayed only when the current directory is within a Python pro
 
 | Змінна                    |              Default               | Meaning                                 |
 |:------------------------- |:----------------------------------:| --------------------------------------- |
-| `SPACESHIP_PYTHON_SHOW`   |               `true`               | Show section                            |
+| `SPACESHIP_PYTHON_SHOW`   |               `true`               | Показати секцію                         |
 | `SPACESHIP_PYTHON_ASYNC`  |               `true`               | Рендерити секцію асинхронно             |
-| `SPACESHIP_PYTHON_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                        |
+| `SPACESHIP_PYTHON_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Префікс секції                          |
 | `SPACESHIP_PYTHON_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
 | `SPACESHIP_PYTHON_SYMBOL` |                `🐍·`                | Символ, що відображається перед секцією |
 | `SPACESHIP_PYTHON_COLOR`  |              `yellow`              | Колір секції                            |
