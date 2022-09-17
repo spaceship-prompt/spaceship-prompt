@@ -11,9 +11,9 @@ The `ibmcloud` section shows the selected IBM Cloud account by looking up with `
 
 | Змінна                      |              Default               | Meaning                                 |
 |:--------------------------- |:----------------------------------:|:--------------------------------------- |
-| `SPACESHIP_IBMCLOUD_SHOW`   |               `true`               | Show section                            |
+| `SPACESHIP_IBMCLOUD_SHOW`   |               `true`               | Показати секцію                         |
 | `SPACESHIP_IBMCLOUD_ASYNC`  |               `true`               | Рендерити секцію асинхронно             |
-| `SPACESHIP_IBMCLOUD_PREFIX` |              `using·`              | Section's prefix                        |
+| `SPACESHIP_IBMCLOUD_PREFIX` |              `using·`              | Префікс секції                          |
 | `SPACESHIP_IBMCLOUD_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
 | `SPACESHIP_IBMCLOUD_SYMBOL` |                `👔·`                | Символ, що відображається перед секцією |
 | `SPACESHIP_IBMCLOUD_COLOR`  |               `039`                | Колір секції                            |
