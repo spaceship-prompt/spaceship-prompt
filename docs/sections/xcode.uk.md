@@ -16,7 +16,7 @@ The local version has more priority than the global one.
 | `SPACESHIP_XCODE_ASYNC`       |               `true`               | Рендерити секцію асинхронно                  |
 | `SPACESHIP_XCODE_SHOW_LOCAL`  |               `true`               | Current local Xcode version based on [xcenv] |
 | `SPACESHIP_XCODE_SHOW_GLOBAL` |              `false`               | Global Xcode version based on [xcenv]        |
-| `SPACESHIP_XCODE_PREFIX`      | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                             |
+| `SPACESHIP_XCODE_PREFIX`      | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Префікс секції                               |
 | `SPACESHIP_XCODE_SUFFIX`      | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                |
 | `SPACESHIP_XCODE_SYMBOL`      |                `🛠·`                | Символ, що відображається перед секцією      |
 | `SPACESHIP_XCODE_COLOR`       |               `blue`               | Колір секції                                 |
