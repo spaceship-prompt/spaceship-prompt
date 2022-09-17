@@ -16,9 +16,9 @@ This section is displayed only when the current directory is within a Ruby proje
 
 | Змінна                  |              Default               | Meaning                                 |
 |:----------------------- |:----------------------------------:| --------------------------------------- |
-| `SPACESHIP_RUBY_SHOW`   |               `true`               | Show section                            |
+| `SPACESHIP_RUBY_SHOW`   |               `true`               | Показати секцію                         |
 | `SPACESHIP_RUBY_ASYNC`  |               `true`               | Render section asynchronously       |   |
-| `SPACESHIP_RUBY_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                        |
+| `SPACESHIP_RUBY_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Префікс секції                          |
 | `SPACESHIP_RUBY_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
 | `SPACESHIP_RUBY_SYMBOL` |                `💎·`                | Символ, що відображається перед секцією |
 | `SPACESHIP_RUBY_COLOR`  |               `red`                | Колір секції                            |
