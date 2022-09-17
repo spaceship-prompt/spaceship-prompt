@@ -26,10 +26,10 @@ Currently, these package managers are supported:
 
 | Змінна                           |              Default               | Meaning                                 |
 |:-------------------------------- |:----------------------------------:| --------------------------------------- |
-| `SPACESHIP_PACKAGE_SHOW`         |               `true`               | Show section                            |
+| `SPACESHIP_PACKAGE_SHOW`         |               `true`               | Показати секцію                         |
 | `SPACESHIP_PACKAGE_ASYNC`        |               `true`               | Рендерити секцію асинхронно             |
 | `SPACESHIP_PACKAGE_SHOW_PRIVATE` |              `false`               | Show when a package is private          |
-| `SPACESHIP_PACKAGE_PREFIX`       |               `is·`                | Section's prefix                        |
+| `SPACESHIP_PACKAGE_PREFIX`       |               `is·`                | Префікс секції                          |
 | `SPACESHIP_PACKAGE_SUFFIX`       | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
 | `SPACESHIP_PACKAGE_SYMBOL`       |                `📦·`                | Символ, що відображається перед секцією |
 | `SPACESHIP_PACKAGE_COLOR`        |               `red`                | Колір секції                            |
