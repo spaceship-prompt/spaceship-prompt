@@ -15,7 +15,7 @@ The `hg` section consists of [`hg_branch`](#hg-branch-hg_branch) and [`hg_status
 | `SPACESHIP_HG_SYMBOL` |                `☿·`                | Символ, що відображається перед секцією |
 | `SPACESHIP_HG_ORDER`  |      `(hg_branch hg_status)`       | Order of hg subsection rendering        |
 
-## Mercurial branch `hg_branch`
+## Mercurial гілка `hg_branch`
 
 The `hg_branch` shows Mercurial bookmarks when available, otherwise shows Mercurial branch information.
 
@@ -29,7 +29,7 @@ The `hg_branch` shows Mercurial bookmarks when available, otherwise shows Mercur
 | `SPACESHIP_HG_BRANCH_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції   |
 | `SPACESHIP_HG_BRANCH_COLOR`  |             `magenta`              | Колір секції    |
 
-## Mercurial status `hg_status`
+## Статус Mercurial `hg_status`
 
 The `hg_status` displays Mercurial status indicators. It is shown only within a dirty Mercurial repository.
 
