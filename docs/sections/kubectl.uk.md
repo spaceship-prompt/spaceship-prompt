@@ -11,9 +11,9 @@ The `kubectl` section consists of [`kubectl_version`](#kubernetes-version-kubect
 
 | Змінна                     |              Default               | Meaning                                 |
 |:-------------------------- |:----------------------------------:| --------------------------------------- |
-| `SPACESHIP_KUBECTL_SHOW`   |              `false`               | Show section                            |
+| `SPACESHIP_KUBECTL_SHOW`   |              `false`               | Показати секцію                         |
 | `SPACESHIP_KUBECTL_ASYNC`  |               `true`               | Рендерити секцію асинхронно             |
-| `SPACESHIP_KUBECTL_PREFIX` |               `at·`                | Section's prefix                        |
+| `SPACESHIP_KUBECTL_PREFIX` |               `at·`                | Префікс секції                          |
 | `SPACESHIP_KUBECTL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
 | `SPACESHIP_KUBECTL_COLOR`  |              `white`               | Section's color of Kubernetes section   |
 | `SPACESHIP_KUBECTL_SYMBOL` |               `☸️··`               | Символ, що відображається перед секцією |
