@@ -25,20 +25,20 @@ Spaceship автоматично завантажить цей файл при �
 Ось приклад файлу конфігурації:
 
 ```zsh
-# Display time
+# Показувати час
 SPACESHIP_TIME_SHOW=true
 
-# Display username always
+# Завжди показувати ім'я користувача
 SPACESHIP_USER_SHOW=always
 
-# Do not truncate path in repos
+# Не скорочувати шлях в репозиторіях
 SPACESHIP_DIR_TRUNC_REPO=false
 
-# Add custom Ember section
+# Додати зовнішню секцію Ember
 # See: https://github.com/spaceship-prompt/spaceship-ember
 spaceship add ember
 
-# Add a custom vi-mode section to the prompt
+# Додати зовнішню секцію vi-mode
 # See: https://github.com/spaceship-prompt/spaceship-vi-mode
 spaceship add --before char vi_mode
 ```
