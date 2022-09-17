@@ -73,28 +73,28 @@
     ```
 
 
-    Symlink `spaceship.zsh-theme` to your oh-my-zsh custom themes directory:
+    Створіть файлове посилання на `spaceship.zsh-theme` у вашому каталозі користувацьких тем oh-my-zsh:
 
     ```zsh title="Terminal"
     ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
     ```
 
 
-    Set `ZSH_THEME="spaceship"` in your `.zshrc`.
+    Встановіть `ZSH_THEME="spaceship"` у вашому `.zshrc`.
 
 === "npm"
 
-    Install Spaceship via npm as you would with any other global package:
+    Встановіть Spaceship через npm, як будь-який інший глобальний пакет:
 
     ``` title="Terminal"
     npm install -g spaceship-prompt
     ```
 
 
-    This command will download Spaceship. It will also ask you to source Spaceship in your `~/.zshrc` file.
+    Ця команда завантажить Spaceship. Вона також попросить вас підключити Spaceship у вашому файлі `~/.zshrc`.
     
-    !!! tip
-        Update Spaceship to new versions as you would any other package.
+    !!! tip:**
+        Ви можете оновлювати Spaceship до нових версій, так як і будь-який інший пакет.
 
 === "prezto"
 
@@ -127,7 +127,7 @@
 
 === "antibody"
 
-    Update your `.zshrc` file with the following line:
+    Додайте у файл `.zshrc` такий рядок:
 
     ```zsh title=".zshrc"
     antibody bundle spaceship-prompt/spaceship-prompt
@@ -135,7 +135,7 @@
 
 === "zinit"
 
-    Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
+    Додайте такий рядок до вашого `.zshrc` у місці, де ви додаєте інші плагіни Zsh:
 
     ```zsh title=".zshrc"
     zinit light spaceship-prompt/spaceship-prompt
@@ -143,7 +143,7 @@
 
 === "zgen"
 
-    Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
+    Додайте такий рядок до вашого `.zshrc` у місці, де ви додаєте інші плагіни Zsh:
 
     ```zsh title=".zshrc"
     zgen load spaceship-prompt/spaceship-prompt spaceship
@@ -151,7 +151,7 @@
 
 === "zplug"
 
-    Use this command in your `.zshrc` to load Spaceship as prompt theme:
+    Використовуйте цю команду в вашому `.zshrc` для завантаження Spaceship в якості теми командного рядка:
 
     ```zsh title=".zshrc"
     zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
@@ -159,7 +159,7 @@
 
 === "sheldon"
 
-    Add the following to your `plugins.toml` file (open it with `sheldon edit`):
+    Додайте наступне у ваш файл `plugins.toml` (відкрийте його за допомогою `sheldon edit`):
 
     ```toml title="plugins.toml"
     [plugins.spaceship]
@@ -167,7 +167,7 @@
     ```
 
 
-    Or run the following to automatically add it:
+    Або запустіть таку команду, щоб додати його автоматично:
 
     ```zsh title="Terminal"
     sheldon add spaceship --github spaceship-prompt/spaceship-prompt
@@ -175,7 +175,7 @@
 
 === "Arch"
 
-    Install the latest master from the AUR package [`spaceship-prompt-git`](https://aur.archlinux.org/packages/spaceship-prompt-git/):
+    Встановіть найновіший master з AUR-пакета [`spaceship-prompt-git`](https://aur.archlinux.org/packages/spaceship-prompt-git/):
 
     ```
     git clone https://aur.archlinux.org/spaceship-prompt-git.git --depth=1
@@ -193,10 +193,10 @@
 
 Крім того, приєднайтеся до нашої спільноти або розгляньте можливість зробити внесок у проект.
 
-[:material-hand-heart: Contribute](/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button}
+[:material-hand-heart: Зробити внесок](/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button}
 
 ## Виникли проблеми?
 
-Find answers on our troubleshooting page or get help by our community. Still struggling? Please, *file an issue*, describe your problem, and we will gladly help you.
+Знайдіть відповіді на нашій сторінці усунення несправностей або отримайте допомогу від нашої спільноти. Не допомогло? Будь ласка, *надішліть нам повідомлення*, опишіть вашу проблему, і ми з радістю допоможемо вам.
 
 [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button} [:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/ ""){.md-button} [:fontawesome-brands-github: Issues](https://github.com/spaceship-prompt/spaceship-prompt/issues ""){.md-button}
