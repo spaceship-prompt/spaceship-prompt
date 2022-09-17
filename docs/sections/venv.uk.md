@@ -17,9 +17,9 @@ SPACESHIP_VENV_GENERIC_NAMES=(virtualenv venv .venv generic-name)
 
 | Змінна                         |              Default               | Meaning                                                          |
 |:------------------------------ |:----------------------------------:| ---------------------------------------------------------------- |
-| `SPACESHIP_VENV_SHOW`          |               `true`               | Show section                                                     |
+| `SPACESHIP_VENV_SHOW`          |               `true`               | Показати секцію                                                  |
 | `SPACESHIP_VENV_ASYNC`         |              `false`               | Рендерити секцію асинхронно                                      |
-| `SPACESHIP_VENV_PREFIX`        | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                                                 |
+| `SPACESHIP_VENV_PREFIX`        | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Префікс секції                                                   |
 | `SPACESHIP_VENV_SUFFIX`        | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                                    |
 | `SPACESHIP_VENV_SYMBOL`        |                `·`                 | Символ, що відображається перед секцією                          |
 | `SPACESHIP_VENV_GENERIC_NAMES` |     `(virtualenv venv .venv)`      | Generic folder names. Parent folder will be used as name instead |
