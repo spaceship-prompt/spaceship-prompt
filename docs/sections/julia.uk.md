@@ -17,9 +17,9 @@ This section is displayed only when:
 
 | Змінна                   |              Default               | Meaning                                 |
 |:------------------------ |:----------------------------------:| --------------------------------------- |
-| `SPACESHIP_JULIA_SHOW`   |               `true`               | Show section                            |
+| `SPACESHIP_JULIA_SHOW`   |               `true`               | Показати секцію                         |
 | `SPACESHIP_JULIA_ASYNC`  |               `true`               | Рендерити секцію асинхронно             |
-| `SPACESHIP_JULIA_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                        |
+| `SPACESHIP_JULIA_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Префікс секції                          |
 | `SPACESHIP_JULIA_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
 | `SPACESHIP_JULIA_SYMBOL` |                `ஃ·`                | Символ, що відображається перед секцією |
 | `SPACESHIP_JULIA_COLOR`  |              `green`               | Колір секції                            |
