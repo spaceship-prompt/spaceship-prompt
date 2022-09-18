@@ -1,4 +1,4 @@
-# Creating a custom section
+# Створення власної секції
 
 This guide aims to help you create your first custom section.
 
