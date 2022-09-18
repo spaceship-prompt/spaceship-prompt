@@ -5,34 +5,34 @@
 !!! info
     [**Kubernetes**](https://kubernetes.io) is an open-source container orchestration system for automating software deployment, scaling, and management.
 
-The `kubectl` section consists of [`kubectl_version`](#kubernetes-version-kubectl_version) and [`kubectl_context`](#kubernetes-context-kubectl_context) subsections. It is shown only when `kubectl` can connect to Kubernetes cluster.
+Секція `kubectl` складається з підсекцій [`kubectl_version`](#kubernetes-version-kubectl_version) та [`kubectl_context`](#kubernetes-context-kubectl_context). Вона відображається тільки коли `kubectl` може підключитись до кластера Kubernetes.
 
 ## Опції
 
-| Змінна                     |              Default               | Meaning                                 |
+| Змінна                     |          За замовчуванням          | Пояснення                               |
 |:-------------------------- |:----------------------------------:| --------------------------------------- |
 | `SPACESHIP_KUBECTL_SHOW`   |              `false`               | Показати секцію                         |
 | `SPACESHIP_KUBECTL_ASYNC`  |               `true`               | Рендерити секцію асинхронно             |
 | `SPACESHIP_KUBECTL_PREFIX` |               `at·`                | Префікс секції                          |
 | `SPACESHIP_KUBECTL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
-| `SPACESHIP_KUBECTL_COLOR`  |              `white`               | Section's color of Kubernetes section   |
+| `SPACESHIP_KUBECTL_COLOR`  |              `white`               | Колір секції Kubernetes                 |
 | `SPACESHIP_KUBECTL_SYMBOL` |               `☸️··`               | Символ, що відображається перед секцією |
 
-## Kubernetes version `kubectl_version`
+## Версія Kubernetes `kubectl_version`
 
-The `kubectl_version` section shows the version of the Kubernetes. It is shown only when `kubectl` binary is available.
+Секція `kubectl_version` показує версію Kubernetes. It is shown only when `kubectl` binary is available.
 
 ### Опції
 
-| Змінна                             |              Default               | Meaning                     |
+| Змінна                             |          За замовчуванням          | Пояснення                   |
 |:---------------------------------- |:----------------------------------:| --------------------------- |
-| `SPACESHIP_KUBECTL_VERSION_SHOW`   |               `true`               | Show subsection             |
+| `SPACESHIP_KUBECTL_VERSION_SHOW`   |               `true`               | Показати підсекцію          |
 | `SPACESHIP_KUBECTL_VERSION_ASYNC`  |               `true`               | Рендерити секцію асинхронно |
-| `SPACESHIP_KUBECTL_VERSION_PREFIX` |                 -                  | Subsection's prefix         |
-| `SPACESHIP_KUBECTL_VERSION_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Subsection's suffix         |
-| `SPACESHIP_KUBECTL_VERSION_COLOR`  |               `cyan`               | Subsection's color          |
+| `SPACESHIP_KUBECTL_VERSION_PREFIX` |                 -                  | Префікс підсекції           |
+| `SPACESHIP_KUBECTL_VERSION_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс підсекції            |
+| `SPACESHIP_KUBECTL_VERSION_COLOR`  |               `cyan`               | Колір підсекції             |
 
-## Kubernetes context `kubectl_context`
+## Контекст Kubernetes `kubectl_context`
 
 The `kubectl_context` section shows an active Kubernetes context, which consists of a cluster name and a namespace name (when working in a non-default namespace).
 
@@ -67,11 +67,11 @@ SPACESHIP_KUBECTL_CONTEXT_COLOR_GROUPS=(
 
 ### Опції
 
-| Змінна                                     |              Default               | Meaning                                       |
-|:------------------------------------------ |:----------------------------------:| --------------------------------------------- |
-| `SPACESHIP_KUBECTL_CONTEXT_SHOW`           |               `true`               | Show subsection                               |
-| `SPACESHIP_KUBECTL_CONTEXT_PREFIX`         |               `at·`                | Subsection's prefix                           |
-| `SPACESHIP_KUBECTL_CONTEXT_SUFFIX`         | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Subsection's suffix                           |
-| `SPACESHIP_KUBECTL_CONTEXT_COLOR`          |               `cyan`               | Subsection's color                            |
-| `SPACESHIP_KUBECTL_CONTEXT_SHOW_NAMESPACE` |               `true`               | Should namespace be also displayed            |
-| `SPACESHIP_KUBECTL_CONTEXT_COLOR_GROUPS`   |                 -                  | _Array_ of pairs of colors and match patterns |
+| Змінна                                     |          За замовчуванням          | Пояснення                        |
+|:------------------------------------------ |:----------------------------------:| -------------------------------- |
+| `SPACESHIP_KUBECTL_CONTEXT_SHOW`           |               `true`               | Показати підсекцію               |
+| `SPACESHIP_KUBECTL_CONTEXT_PREFIX`         |               `at·`                | Префікс підсекції                |
+| `SPACESHIP_KUBECTL_CONTEXT_SUFFIX`         | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс підсекції                 |
+| `SPACESHIP_KUBECTL_CONTEXT_COLOR`          |               `cyan`               | Колір підсекції                  |
+| `SPACESHIP_KUBECTL_CONTEXT_SHOW_NAMESPACE` |               `true`               | Чи слід відображати простір імен |
+| `SPACESHIP_KUBECTL_CONTEXT_COLOR_GROUPS`   |                 -                  | _Масив_ пар кольорів та шаблонів |
