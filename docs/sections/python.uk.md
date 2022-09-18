@@ -5,16 +5,16 @@
 !!! info
     [**Python**](https://www.python.org) is a high-level, interpreted, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation.
 
-The `python` section displays the version of the Python.
+Секція `python` відображає версію Python.
 
-This section is displayed only when the current directory is within a Python project, meaning:
+Ця секція відображається лише тоді, коли поточний каталог знаходиться у Python-проєкті, тобто:
 
-* Upsearch finds a `requirements.txt`, `Pipfile` or `pyproject.toml` file
-* Current directory contains any `.py` file
+* Пошук вгору знаходить файли `requirements.txt`, `Pipfile` або `pyproject.toml`
+* Поточна папка містить будь-який файл `.py`
 
 ## Опції
 
-| Змінна                    |              Default               | Meaning                                 |
+| Змінна                    |          За замовчуванням          | Пояснення                               |
 |:------------------------- |:----------------------------------:| --------------------------------------- |
 | `SPACESHIP_PYTHON_SHOW`   |               `true`               | Показати секцію                         |
 | `SPACESHIP_PYTHON_ASYNC`  |               `true`               | Рендерити секцію асинхронно             |
