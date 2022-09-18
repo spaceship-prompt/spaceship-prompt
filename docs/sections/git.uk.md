@@ -2,18 +2,18 @@
 
 !!! important "За замовчуванням ця секція рендериться асинхронно"
 
-The `git` section consists of [`git_branch`](#git-branch-git_branch) and [`git_status`](#git-status-git_status) subsections.
+Секція `git` складається з підсекцій [`git_branch`](#git-branch-git_branch) та [`git_status`](#git-status-git_status).
 
 ## Опції
 
-| Змінна                 |          За замовчуванням          | Пояснення                                                                                                   |
-|:---------------------- |:----------------------------------:| ----------------------------------------------------------------------------------------------------------- |
-| `SPACESHIP_GIT_SHOW`   |               `true`               | Показати секцію                                                                                             |
-| `SPACESHIP_GIT_ASYNC`  |               `true`               | Рендерити секцію асинхронно                                                                                 |
-| `SPACESHIP_GIT_PREFIX` |               `on·`                | Префікс секції                                                                                              |
-| `SPACESHIP_GIT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                                                                               |
-| `SPACESHIP_GIT_SYMBOL` |                ``                 | Symbol displayed before the section (requires [powerline patched font](https://github.com/powerline/fonts)) |
-| `SPACESHIP_GIT_ORDER`  |     `(git_branch git_status)`      | Послідовність підсекцій git                                                                                 |
+| Змінна                 |          За замовчуванням          | Пояснення                                                                                               |
+|:---------------------- |:----------------------------------:| ------------------------------------------------------------------------------------------------------- |
+| `SPACESHIP_GIT_SHOW`   |               `true`               | Показати секцію                                                                                         |
+| `SPACESHIP_GIT_ASYNC`  |               `true`               | Рендерити секцію асинхронно                                                                             |
+| `SPACESHIP_GIT_PREFIX` |               `on·`                | Префікс секції                                                                                          |
+| `SPACESHIP_GIT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                                                                           |
+| `SPACESHIP_GIT_SYMBOL` |                ``                 | Символ, що відображається перед секцією (вимагає [powerline шрифт](https://github.com/powerline/fonts)) |
+| `SPACESHIP_GIT_ORDER`  |     `(git_branch git_status)`      | Послідовність підсекцій git                                                                             |
 
 ## Git гілка `git_branch`
 
@@ -31,7 +31,7 @@ The `git` section consists of [`git_branch`](#git-branch-git_branch) and [`git_s
 
 ## Git статус `git_status`
 
-The `git_status` subsection displays indicators only when you have a dirty Git repository.
+Підсекція `git_status` відображає індикатори тільки тоді, коли у вас є репозиторій Git.
 
 ### Опції
 
