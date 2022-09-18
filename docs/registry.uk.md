@@ -4,9 +4,9 @@ hide:
   - toc
 ---
 
-# Sections Registry
+# Реєстр Секцій
 
-Here you can find built-in and custom sections. Add new section by [contributing to the registry](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/docs/registry/external.json).
+Тут ви можете знайти вбудовані та користувацькі секції. Додавайте нові секції [роблячи внески у реєстр](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/docs/registry/external.json).
 
 ---
 
@@ -14,7 +14,7 @@ Here you can find built-in and custom sections. Add new section by [contributing
   <input
     id="sections-search"
     class="md-input md-input--stretch"
-    placeholder="Search sections by name, description or type"
+    placeholder="Пошук розділів за назвою, описом або типом"
   >
   <ol id="sections-list">
   </ol>
