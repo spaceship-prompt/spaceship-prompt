@@ -1,4 +1,4 @@
-# Package version `package`
+# Версія пакету `package`
 
 !!! important "За замовчуванням ця секція рендериться асинхронно"
 
@@ -12,9 +12,9 @@
 
 The `package` section shows when the current directory is a package.
 
-## Supported package managers
+## Підтримувані менеджери пакетів
 
-Currently, these package managers are supported:
+Наразі підтримуються ці пакетні менеджери:
 
 * [`npm`][npm] — version form `package.json` file. Private packages are detected.
 * [`lerna`][lerna] — version from `lerna.json` file.
@@ -24,11 +24,11 @@ Currently, these package managers are supported:
 
 ## Опції
 
-| Змінна                           |              Default               | Meaning                                 |
+| Змінна                           |          За замовчуванням          | Пояснення                               |
 |:-------------------------------- |:----------------------------------:| --------------------------------------- |
 | `SPACESHIP_PACKAGE_SHOW`         |               `true`               | Показати секцію                         |
 | `SPACESHIP_PACKAGE_ASYNC`        |               `true`               | Рендерити секцію асинхронно             |
-| `SPACESHIP_PACKAGE_SHOW_PRIVATE` |              `false`               | Show when a package is private          |
+| `SPACESHIP_PACKAGE_SHOW_PRIVATE` |              `false`               | Показувати, коли пакет є приватним      |
 | `SPACESHIP_PACKAGE_PREFIX`       |               `is·`                | Префікс секції                          |
 | `SPACESHIP_PACKAGE_SUFFIX`       | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
 | `SPACESHIP_PACKAGE_SYMBOL`       |                `📦·`                | Символ, що відображається перед секцією |
