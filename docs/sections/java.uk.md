@@ -7,15 +7,15 @@
 
 The `java` section is shown the current version of the Java compiler.
 
-This section is shown only within Java projects, meaning:
+Цей розділ відображається тільки в Java-проектах, а саме:
 
-* `java` compiler is available
-* Upsearch finds `pom.xml`, `build.gradle`, `settings.gradle` files
-* The current directory contains `*.java`, `*.class`, `*.jar` or `*.war` files
+* Доступний `java` компілятор
+* Пошук вгору знаходить файли `pom.xml`, `build.gradle`, `settings.gradle`
+* У поточній теці містяться файли `*.java`, `*.class`, `*.jar` або `*.war`
 
 ## Опції
 
-| Змінна                  |              Default               | Meaning                                 |
+| Змінна                  |          За замовчуванням          | Пояснення                               |
 |:----------------------- |:----------------------------------:| --------------------------------------- |
 | `SPACESHIP_JAVA_SHOW`   |               `true`               | Показати секцію                         |
 | `SPACESHIP_JAVA_ASYNC`  |               `true`               | Рендерити секцію асинхронно             |
