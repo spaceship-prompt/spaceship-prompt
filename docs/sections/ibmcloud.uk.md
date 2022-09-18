@@ -9,7 +9,7 @@ The `ibmcloud` section shows the selected IBM Cloud account by looking up with `
 
 ## Опції
 
-| Змінна                      |              Default               | Meaning                                 |
+| Змінна                      |          За замовчуванням          | Пояснення                               |
 |:--------------------------- |:----------------------------------:|:--------------------------------------- |
 | `SPACESHIP_IBMCLOUD_SHOW`   |               `true`               | Показати секцію                         |
 | `SPACESHIP_IBMCLOUD_ASYNC`  |               `true`               | Рендерити секцію асинхронно             |
