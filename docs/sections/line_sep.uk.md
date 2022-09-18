@@ -1,4 +1,4 @@
-# Line separator `line_sep`
+# Розділювач рядків `line_sep`
 
 The `line_sep` section is used as a line break for the prompt.
 
@@ -33,6 +33,6 @@ spaceship remove line_sep
 
 ## Опції
 
-| Змінна                           | Default | Meaning                |
-|:-------------------------------- |:-------:| ---------------------- |
-| `SPACESHIP_PROMPT_SEPARATE_LINE` | `true`  | Render line separators |
+| Змінна                           | За замовчуванням | Пояснення                      |
+|:-------------------------------- |:----------------:| ------------------------------ |
+| `SPACESHIP_PROMPT_SEPARATE_LINE` |      `true`      | Відображати розділювачі рядків |
