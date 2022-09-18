@@ -9,12 +9,12 @@ The `haskell` section displays the version of the Haskell compiler.
 
 This section is displayed only within Haskell projects, meaning:
 
-* Upsearch finds a `stack.yaml` file.
+* Пошук вгору знаходить файл `stack.yaml`.
 * The current directory contains a file with `.hs` directory.
 
 ## Опції
 
-| Змінна                     |              Default               | Meaning                                 |
+| Змінна                     |          За замовчуванням          | Пояснення                               |
 |:-------------------------- |:----------------------------------:| --------------------------------------- |
 | `SPACESHIP_HASKELL_SHOW`   |               `true`               | Показати секцію                         |
 | `SPACESHIP_HASKELL_ASYNC`  |               `true`               | Рендерити секцію асинхронно             |
