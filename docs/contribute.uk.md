@@ -1,38 +1,38 @@
-# Contribute
+# Зробити внесок
 
-Thanks for visiting this page! It truly means a lot to creators of Spaceship. Here's how you can help with improving this project.
+Дякуємо, що відвідали цю сторінку! Це справді означає багато для творців Spaceship. Нижче ви знайдету інформацію, як ви можете допомогти з покращенням цього проекту.
 
-## Coding
+## Кодування
 
-We are always glad to see contributors of **all skill levels**! Any help is respected and appreciated. If you're looking for an easy way into the project, take one of the issues with **good first issue** label.
+Ми завжди раді бачити учасників **всіх рівнів кваліфікації**! Будь-яка допомога поважається і цінується. Якщо ви шукаєте простого входу у проект, візьміть одну з проблем, що позначена міткою **good first issue**.
 
-[Good First Issues](https://github.com/spaceship-prompt/spaceship-prompt/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22 ""){.md-button} [Contributing Guide](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/CONTRIBUTING.md ""){.md-button}
+[Проблеми з міткою Good First Issues](https://github.com/spaceship-prompt/spaceship-prompt/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22 ""){.md-button} [Як зробити внесок (Contributing Guide)](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/CONTRIBUTING.md ""){.md-button}
 
-## Donating
+## Донати
 
-If you really enjoy this project, you can contribute financially. Any contribution is highly appreciated, even the smallest one. There are several ways to donate:
+Якщо вам дійсно подобається цей проект, ви можете допомогти фінансово. Будь-який внесок дуже цінується, навіть найменший. Є кілька способів пожертвування:
 
-**Recurring donations:**
+**Повторювані пожертвування:**
 
-[:fontawesome-brands-github: Sponsors](https://github.com/sponsors/denysdovhan?frequency=recurring ""){.md-button} [:material-open-source-initiative: Open Collective](https://opencollective.com/spaceship-prompt ""){.md-button} [:fontawesome-brands-patreon: Patreon](https://patreon.com/denysdovhan ""){.md-button}
+[:fontawesome-brands-github: Спонсори](https://github.com/sponsors/denysdovhan?frequency=recurring ""){.md-button} [:material-open-source-initiative: Open Collective](https://opencollective.com/spaceship-prompt ""){.md-button} [:fontawesome-brands-patreon: Patreon](https://patreon.com/denysdovhan ""){.md-button}
 
-**One-time donations:**
+**Одноразові пожертви:**
 
-[:fontawesome-brands-github: Sponsors](https://github.com/sponsors/denysdovhan?frequency=one-time ""){.md-button} [:material-coffee: Buy Me a Coffee](https://buymeacoffee.com/denysdovhan ""){.md-button} [:fontawesome-solid-paw: Monobank Jar](https://send.monobank.ua/jar/2N46sWTaZZ ""){.md-button}
+[:fontawesome-brands-github: Спонсори](https://github.com/sponsors/denysdovhan?frequency=one-time ""){.md-button} [:material-coffee: Buy Me a Coffee](https://buymeacoffee.com/denysdovhan ""){.md-button} [:fontawesome-solid-paw: Банка Монобанку](https://send.monobank.ua/jar/2N46sWTaZZ ""){.md-button}
 
-**Crypto donations:**
+**Криптовалютні пожертви:**
 
 * **:fontawesome-brands-ethereum: Ethereum**: `0x5C9496De5E51D48daf28354DC04d8f9D33955559`
 * **:fontawesome-brands-bitcoin: Bitcoin**: `bc1q5ezjvpgftmx42f9qgdf5lscjz43uh4jf02uvje`
 
-## Translating
+## Переклад
 
-If you are fluent in any other language besides English, we greatly appreciate any help with translating our documentation in other languages. If you would like to help, join the team of translators on our Crowdin:
+Якщо ви володієте будь-якою іншою мовою, окрім англійської, ми високо цінуємо будь-яку допомогу з перекладом нашої документації на інші мови. Якщо ви хотете допомогти, приєднайтеся до команди перекладачів на Crowdin:
 
-[:material-translate: Help Translating](https://translate.spaceship-prompt.sh/ ""){.md-button}
+[:material-translate: Допомогти з перекладом](https://translate.spaceship-prompt.sh/ ""){.md-button}
 
-## Helping the community
+## Приєднуйтеся до спільноти
 
-If you're interested in helping other people, answer questions asked by other users of Spaceship and help to solve their issues.
+Якщо Ви зацікавлені у допомозі іншим людям, відповідайте на питання, поставлені іншими користувачами Spaseship та допомагаєте вирішити їхні проблеми.
 
 [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button} [:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/ ""){.md-button} [:fontawesome-brands-github: Issues](https://github.com/spaceship-prompt/spaceship-prompt/issues ""){.md-button}
