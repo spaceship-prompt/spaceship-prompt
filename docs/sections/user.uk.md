@@ -1,4 +1,4 @@
-# Username `user`
+# Ім’я користувача `user`
 
 The `user` section shows the current user's username. By default, it's displayed only when:
 
@@ -12,24 +12,24 @@ The root user is highlighted in `SPACESHIP_USER_COLOR_ROOT` color (red as defaul
 
 `SPACESHIP_USER_SHOW` defines when to show the `user` section. Ось можливі значення:
 
-| `SPACESHIP_USER_SHOW` | Show on local | Show on remote |
-|:---------------------:|:------------- |:-------------- |
-|        `false`        | Never         | Never          |
-|       `always`        | Always        | Always         |
-|        `true`         | If needed     | Always         |
-|       `needed`        | If needed     | If needed      |
+| `SPACESHIP_USER_SHOW` | Показати локально | Показувати віддалено |
+|:---------------------:|:----------------- |:-------------------- |
+|        `false`        | Ніколи            | Ніколи               |
+|       `always`        | Завжди            | Завжди               |
+|        `true`         | Якщо потрібно     | Завжди               |
+|       `needed`        | Якщо потрібно     | Якщо потрібно        |
 
-*If needed* means the default behavior.
+*Якщо потрібно,* означає поведінку за замовчуванням.
 
 ## Опції
 
-| Змінна                      |              Default               | Meaning                                              |
-|:--------------------------- |:----------------------------------:| ---------------------------------------------------- |
-| `SPACESHIP_USER_SHOW`       |               `true`               | Show section (`true`, `false`, `always` or `needed`) |
-| `SPACESHIP_USER_PREFIX`     |              `with·`               | Префікс секції                                       |
-| `SPACESHIP_USER_SUFFIX`     | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                        |
-| `SPACESHIP_USER_COLOR`      |              `yellow`              | Колір секції                                         |
-| `SPACESHIP_USER_COLOR_ROOT` |               `red`                | Section's color when user is root                    |
+| Змінна                      |          За замовчуванням          | Пояснення                                                  |
+|:--------------------------- |:----------------------------------:| ---------------------------------------------------------- |
+| `SPACESHIP_USER_SHOW`       |               `true`               | Показувати секцію (`true`, `false`, `always` або `needed`) |
+| `SPACESHIP_USER_PREFIX`     |              `with·`               | Префікс секції                                             |
+| `SPACESHIP_USER_SUFFIX`     | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                              |
+| `SPACESHIP_USER_COLOR`      |              `yellow`              | Колір секції                                               |
+| `SPACESHIP_USER_COLOR_ROOT` |               `red`                | Колір секції, якщо користувачем є root                     |
 
 
 
