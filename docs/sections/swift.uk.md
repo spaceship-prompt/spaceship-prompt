@@ -5,13 +5,13 @@
 !!! info
     [**Swift**](https://swift.org) is a general-purpose, multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community.
 
-The `swift` section displays the version of Swift.
+Секція `swift` відображає версію Swift.
 
-The local version has more priority than the global one.
+Локальна версія має більш пріоритетний за глобальну версію.
 
 ## Опції
 
-| Змінна                        |              Default               | Meaning                                         |
+| Змінна                        |          За замовчуванням          | Пояснення                                       |
 |:----------------------------- |:----------------------------------:| ----------------------------------------------- |
 | `SPACESHIP_SWIFT_ASYNC`       |               `true`               | Рендерити секцію асинхронно                     |
 | `SPACESHIP_SWIFT_SHOW_LOCAL`  |               `true`               | Current local Swift version based on [swiftenv] |
