@@ -1,31 +1,31 @@
 # Створення власної секції
 
-This guide aims to help you create your first custom section.
+Ця інструкція спрямована на те, щоб допомогти вам створити свою першу користувацьку секцію.
 
-## Rules for sections
+## Правила для секцій
 
-Here are recommendations to follow when creating a section to maintain Spaceship slick and clean.
+Рекомендації для створення секцій, які допоможуть підтримувати Spaseship швидким та зрозумілим.
 
-### Section should not clutter the prompt
+### Секція не повинна засмічувати командний рядок
 
-Having too much in prompt looks ugly. It's better to keep it to a minimum of necessary information.
+Having too much in prompt looks ugly. Краще притримуватись необхідного мінімуму.
 
-* **Good:** `🚀 v1.2.3`
-* **Bad:** `🚀 spasheship#c3BhY2VzaGlw`
+* **Добре:** `🚀 v1.2.3`
+* **Погано:** `🚀 spasheship#c3BhY2VzaGlw`
 
-### Section should be worth to be aware of
+### Секція має бути вартою того, щоб її бачити
 
-Is value changes quite often, so it needs to be shown in prompt? Would it be useful for other users? Maybe there's a reason to execute a command instead of cluttering prompt.
+Чи достатньо часто змінюється значення, що його постійно треба показувати в командному рядку? Чи це буде корисним для інших користувачів? Можливо, є підстави виконати команду замість засмічення командного рядка.
 
 * **Good:** git status/branch, runtime version via version manager, etc
 * **Bad:** version of language-specific framework, settled projects versions, etc
 
-### Section should be fast
+### Секція повинна бути швидкою
 
-If your section performs any heavy checking, find a way to make it faster. Use async rendering for performing heavy tasks. Section should be:
+Якщо ваш розділ виконає складну перевірку, знайдіть спосіб зробити її швидше. Використовувати асинхронний рендер для виконання важких задач. Секція має бути:
 
-* **Async:** if it executes external commands, perform complex calculations, reading large files
-* **Sync:** if it checks command availability, checks the value of environment variable
+* **Асинхронна:** якщо вона виконує зовнішні команди, виконує складні обчислення, читання великих файлів
+* **Синхронна:** якщо перевіряє доступність команди, перевіряє значення змінної середовища
 
 ### Follow naming convention for options
 
