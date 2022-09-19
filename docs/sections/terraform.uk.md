@@ -11,7 +11,7 @@ This section is only displayed when you have a `terraform` command available in 
 
 ## Опції
 
-| Змінна                       |              Default               | Meaning                                 |
+| Змінна                       |          За замовчуванням          | Пояснення                               |
 |:---------------------------- |:----------------------------------:| --------------------------------------- |
 | `SPACESHIP_TERRAFORM_SHOW`   |               `true`               | Показати секцію                         |
 | `SPACESHIP_TERRAFORM_ASYNC`  |               `true`               | Рендерити секцію асинхронно             |
