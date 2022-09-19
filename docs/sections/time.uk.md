@@ -1,4 +1,4 @@
-# Time `time`
+# Час `time`
 
 !!! warning "Цю секцію приховано за замовчуванням"
 
@@ -12,7 +12,7 @@ Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if you need to show timest
 SPACESHIP_TIME_SHOW=true
 ```
 
-## Date formatting
+## Форматування дати
 
 You can set custom formatting for the timestamps. To use a 12-hour format just toggle `SPACESHIP_TIME_12HOUR` to `true`:
 
@@ -28,11 +28,11 @@ SPACESHIP_TIME_FORMAT='%D{%H:%M:%S.%.}'
 
 ## Опції
 
-| Змінна                  |              Default               | Meaning                                   |
-|:----------------------- |:----------------------------------:| ----------------------------------------- |
-| `SPACESHIP_TIME_SHOW`   |              `false`               | Show section (set to `true` for enabling) |
-| `SPACESHIP_TIME_PREFIX` |               `at·`                | Префікс секції                            |
-| `SPACESHIP_TIME_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                             |
-| `SPACESHIP_TIME_COLOR`  |              `yellow`              | Колір секції                              |
-| `SPACESHIP_TIME_FORMAT` |                 -                  | Custom date formatting                    |
-| `SPACESHIP_TIME_12HR`   |              `false`               | Format time using 12-hour clock (am/pm)   |
+| Змінна                  |          За замовчуванням          | Пояснення                                              |
+|:----------------------- |:----------------------------------:| ------------------------------------------------------ |
+| `SPACESHIP_TIME_SHOW`   |              `false`               | Show section (set to `true` for enabling)              |
+| `SPACESHIP_TIME_PREFIX` |               `at·`                | Префікс секції                                         |
+| `SPACESHIP_TIME_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                          |
+| `SPACESHIP_TIME_COLOR`  |              `yellow`              | Колір секції                                           |
+| `SPACESHIP_TIME_FORMAT` |                 -                  | Власне форматування дати                               |
+| `SPACESHIP_TIME_12HR`   |              `false`               | Формат часу, використовуючи 12-годинний формат (am/pm) |
