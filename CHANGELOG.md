@@ -1,3 +1,10 @@
+## [4.3.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.3.0...v4.3.1) (2022-09-19)
+
+
+### Bug Fixes
+
+* Delete the redundant space for kubectl symbol (iTerm2) ([#1205](https://github.com/spaceship-prompt/spaceship-prompt/issues/1205)) ([8ddbc81](https://github.com/spaceship-prompt/spaceship-prompt/commit/8ddbc8115c714ee82c49101690f5effd45f3a01a))
+
 # [4.3.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.6...v4.3.0) (2022-09-16)
 
 
