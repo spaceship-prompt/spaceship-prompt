@@ -16,7 +16,7 @@ The `kubectl` section consists of [`kubectl_version`](#kubernetes-version-kubect
 | `SPACESHIP_KUBECTL_PREFIX` |               `at·`                | Section's prefix                      |
 | `SPACESHIP_KUBECTL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                      |
 | `SPACESHIP_KUBECTL_COLOR`  |              `white`               | Section's color of Kubernetes section |
-| `SPACESHIP_KUBECTL_SYMBOL` |               `☸️··`               | Symbol displayed before the section   |
+| `SPACESHIP_KUBECTL_SYMBOL` |               `☸️·`               | Symbol displayed before the section   |
 
 ## Kubernetes version `kubectl_version`
 
