@@ -11,9 +11,7 @@ SPACESHIP_KUBECTL_ASYNC="${SPACESHIP_KUBECTL_ASYNC=true}"
 SPACESHIP_KUBECTL_PREFIX="${SPACESHIP_KUBECTL_PREFIX="at "}"
 SPACESHIP_KUBECTL_SUFFIX="${SPACESHIP_KUBECTL_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_KUBECTL_COLOR="${SPACESHIP_KUBECTL_COLOR="white"}"
-# Additional space is added because ☸️ is much bigger than the other symbols
-# See: https://github.com/spaceship-prompt/spaceship-prompt/pull/432
-SPACESHIP_KUBECTL_SYMBOL="${SPACESHIP_KUBECTL_SYMBOL="☸️  "}"
+SPACESHIP_KUBECTL_SYMBOL="${SPACESHIP_KUBECTL_SYMBOL="☸️ "}"
 
 # ------------------------------------------------------------------------------
 # Dependencies
