@@ -5,13 +5,13 @@
 !!! info
     [**Xcode**](https://developer.apple.com/xcode/) is a development environment for iOS, macOS, watchOS, and tvOS.
 
-The `xcode` section displays the version of the Xcode.
+Секція `Xcode` відображає версію Xcode.
 
-The local version has more priority than the global one.
+Локальна версія має більш пріоритетний за глобальну версію.
 
 ## Опції
 
-| Змінна                        |              Default               | Meaning                                      |
+| Змінна                        |          За замовчуванням          | Пояснення                                    |
 |:----------------------------- |:----------------------------------:| -------------------------------------------- |
 | `SPACESHIP_XCODE_ASYNC`       |               `true`               | Рендерити секцію асинхронно                  |
 | `SPACESHIP_XCODE_SHOW_LOCAL`  |               `true`               | Current local Xcode version based on [xcenv] |
