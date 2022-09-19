@@ -5,14 +5,14 @@
 !!! info
     [**Rust**](https://www.rust-lang.org) is a systems programming language that is focused on safety, speed, and concurrency.
 
-The `rust` section displays the version of Rust.
+Секція `rust` відображає версію Rust.
 
-This section is displayed only when the current directory is within a Rust project, meaning:
+Ця секція відображається лише тоді, коли поточний каталог знаходиться у Rust-проєкті, тобто:
 
-* Upsearch finds `Cargo.toml` file
-* The current directory contains any `.rs` file
+* Пошук вгору знаходить файл `Cargo.toml`
+* Поточна папка містить будь-який файл `.rs`
 
-## Displaying verbose version
+## Відображення детальної версії
 
 By default, this section will strip all of the suffixes from the version. For example, `1.42.0-nightly.2020-06-09` will be displayed as `1.42.0`. To disable that behavior use a `SPACESHIP_RUST_VERBOSE_VERSION` environment variable.
 
@@ -23,7 +23,7 @@ SPACESHIP_RUST_VERBOSE_VERSION=true
 
 ## Опції
 
-| Змінна                           |              Default               | Meaning                                 |
+| Змінна                           |          За замовчуванням          | Пояснення                               |
 |:-------------------------------- |:----------------------------------:| --------------------------------------- |
 | `SPACESHIP_RUST_SHOW`            |               `true`               | Показати секцію                         |
 | `SPACESHIP_RUST_ASYNC`           |               `true`               | Рендерити секцію асинхронно             |
