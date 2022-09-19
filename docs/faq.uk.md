@@ -1,119 +1,119 @@
 # Часті запитання
 
-This page aimed to help you fix the common problems encountered with Spaceship.
+Ця сторінка допоможе вам вирішити поширені проблеми, що можуть виникнути при використанні Spaceship.
 
-If you struggle with something, feel free to ask a question on our Discord server or on the GitHub Discussions forum:
+Якщо ви зовсім застрягли, пошукайте допомоги на нашому сервері Discord або форумі GitHub Discussions:
 
 [:fontawesome-brands-discord: Discord][discord]{ .md-button }
 [:fontawesome-brands-github: Discussions][discussions]{ .md-button }
 
-## Why doesn't my prompt look like the preview?
+## Чому мій командний рядок виглядає не так, як на превʼю?
 
 <div class="terminal-demo">
   <script id="asciicast-513451" src="https://asciinema.org/a/513451.js" data-autoplay="true" data-loop="true" data-preload="true" async></script>
   <noscript>
     <object class="asciicast" type="image/svg+xml" data="/assets/images/spaceship-demo.svg">
-      <img src="/assets/images/spaceship-demo.gif" alt="Spaceship demo" />
+      <img src="/assets/images/spaceship-demo.gif" alt="Демо Spaceship" />
     </object>
   </noscript>
 </div>
 
-Preview shows `spaceship` prompt setup with:
+Командний рядок `spaceship` у превʼю показано в наступному середовищі:
 
 - **Термінал**
-    - [iTerm2](https://iterm2.com/) as terminal emulator.
-    - [One Dark](https://www.npmjs.com/package/hyperterm-atom-dark) color theme.
-    - [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads) with ligatures as primary font (16px size).
-- **Shell configuration**
+    - [iTerm2](https://iterm2.com/) в якості емулятору терміналу.
+    - Тема [One Dark](https://www.npmjs.com/package/hyperterm-atom-dark).
+    - [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads) з лігатурами у якості основного шрифту (розмір 16px).
+- **Конфігурація оболонки**
     - [denysdovhan's Dotfiles](https://github.com/denysdovhan/dotfiles)
-    - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) to have commands colorized.
-    - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) to have browser-like autocompletions.
+    - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) для розфарбування команд.
+    - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) для автозаповнення як в браузері.
 
-See [screenshots](https://github.com/spaceship-prompt/spaceship-prompt/wiki/Screenshots) wiki for more color schemes examples.
+Дивіться [скріншоти](https://github.com/spaceship-prompt/spaceship-prompt/wiki/Screenshots) у wiki з прикладами інших кольорових схем.
 
-## How do I get command completion as shown in the demo GIF?
+## Як мені отримати таке ж автозаповнення у демо GIF?
 
-Use [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) to get browser-like command completions based on history and completions.
+Використовуйте [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) щоб отримати автозаповнення команд як в браузері, на основі вашої історії.
 
-## What's the weird symbol before the `git` branch?
+## Що це за дивний символ перед гілкою `git`?
 
-You need to have a Powerline patched font in order to properly display `git` branch symbol.
+Для правильного показу символу гілки `git` у вас має бути встановлено пропатчений Powerline шрифт.
 
-- Install any Powerline compatible font like [Fira Code](https://github.com/tonsky/FiraCode) or [others](https://github.com/powerline/fonts).
-- Configure your terminal emulator to [use that font](https://powerline.readthedocs.io/en/master/troubleshooting/osx.html).
+- Встановіть будь-який Powerline-сумісний шрифт на кшталт [Fira Code](https://github.com/tonsky/FiraCode) або [інший](https://github.com/powerline/fonts).
+- Сконфігуруйте ваш емулятор терміналу на [використання цього шрифту](https://powerline.readthedocs.io/en/master/troubleshooting/osx.html).
 
-## What's the weird character in front of a section?
+## Що за дивний символ перед секцією?
 
-This is not an issue with Spaceship prompt. Spaceship uses Unicode symbols to represent `SPACESHIP_*_SYMBOL` in sections. To solve this problem:
+Ця проблема не стосується безпосередньо командного рядку Spaceship. Spaceship використовує сиволи Unicode для відображення `SPACESHIP_*_SYMBOL` в секціях. Для вирішення проблеми:
 
-- Verify your terminal emulator support Unicode characters with this command:
+- Переконайтесь, що ваш емулятор терміналу підтримує символи Unicode, за допомогою команди:
   ```zsh
   curl -L https://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
-  # or
+  # або
   wget -O - https://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
   ```
-- Configure your terminal emulator to use UTF-8 as character encoding.
-  - `LC_ALL` needs to be [set to a UTF-8 value](https://www.tecmint.com/set-system-locales-in-linux/), like `en_US.UTF-8` or `de_DE.UTF-8`, etc.
-  - You need to install an emoji font. Most systems already have such font installed, but some systems don't (for example Arch Linux). You should install one via your preferred package manager. [noto emoji](https://www.google.com/get/noto/help/emoji) is a popular choice.
+- Сконфігуруйте ваш емулятор терміналу на використання кодування символів UTF-8.
+  - `LC_ALL` мусить мати [значення UTF-8](https://www.tecmint.com/set-system-locales-in-linux/), наприклад `en_US.UTF-8` або `de_DE.UTF-8` тощо.
+  - Вам необхідно встановити шрифт для emoji. Більшість систем вже мають такий шрифт, але не всі (наприклад, Arch Linux). Якщо у вашій системі бракує такого шрифту, встановіть його за допомогою менеджера пакетів. [noto emoji](https://www.google.com/get/noto/help/emoji) – поширений вибір.
   -
 
-In case Unicode symbols aren't supported, you can replace them to those that are compatible with your terminal with `SPACESHIP_*_SYMBOL` options. Check out [Options](/config/intro) page for more information.
+У разі, якщо символи Unicode не підтримуються, ви можете замінити їх на ті, які сумісні з вашим терміналом, за допомогою `SPACEIP_*_SYMBOL` опцій. Дивіться сторінку [Опції](/config/intro).
 
-## Do `spaceship remove <section>` and `SPACESHIP_<SECTION>_SHOW=false` do the same thing?
+## Чи `spaceship remove <section>` та `SPACESHIP_<SECTION>_SHOW=false` роблять одне й те саме?
 
-Both `spaceship remove` and `SPACESHIP_<SECTION>_SHOW=false` commands hide the section from the prompt, but they do this differently.
+Обидві команди, `spaceship remove` та `SPACESHIP_<SECTION>_SHOW=false`, прибирають секцію командного рядка, але роблять це по-різному.
 
-`spaceship remove` command removes the section from `SPACESHIP_[R]PROMPT_ORDER` variable, thus preventing the section from loading and executing.
+Команда `spaceship remove` прибирає секцію зі змінної `SPACESHIP_[R]PROMPT_ORDER`, запобігаючи завантаженню та запуску секції.
 
-`SPACESHIP_<SECTION>_SHOW=false` command doesn't prevent the section from loading and executing. The section will be loaded and then run, though the section itself will decide how to hide itself (usually, the section just skips all the checks and doesn't render anything).
+Команда `SPACESHIP_<SECTION>_SHOW=false` не перешкоджає завантаженню та запуску секції. Секцію буде завантажено та запущено, однак сама секція вирішуватиме як її сховати (зазвичай секція пропускає всі перевірки й нічого не відображає).
 
-tldr: `spaceship remove` forces Spaceship renderer to skip the section and `SPACESHIP_<SECTION>_SHOW=false` tells the section to hide itself.
+tldr: `spaceship remove` змушує Spaceship пропустити секцію, а `SPACESHIP_<SECTION>_SHOW=false` каже секції сховати себе самостійно.
 
-## What the difference between Spaceship and Starship?
+## В чому різниця між Spaceship та Starship?
 
-Both [Starship](https://starship.rs) is a great prompt and have (more or less) feature parity with Spaceship. So what is the difference?
+[Starship](https://starship.rs) це чудовий командний рядок, рівний (більш-менш) у можливостях зі Spaceship. Так у чому ж різниця?
 
-[Starship](https://starship.rs) is written in Rust and comes as a successor of [Spacefish](https://spacefish.matchai.dev/) – a Fish implementation of the Spaceship prompt. It is heavily inspired by Spaceship prompt (they even confirm that on their website). It's also based on Denys Dovhan's ideas of cross-shell prompts that have been implemented in [denysdovhan/robbyrussell-node](https://github.com/denysdovhan/robbyrussell-node) as proof of concept.
+[Starship](https://starship.rs) написаний на Rust і є нащадком [Spacefish](https://spacefish.matchai.dev/) – імплементації Spaceship для Fish. Автори надихалися Spaceship (вони підтверджують це на своєму вебсайті). Він також базується на ідеях Дениса Довганя про кросс-оболонкові командні рядки, прототип реалізації яких наведено в [denysdovhan/robbyrussell-node](https://github.com/denysdovhan/robbyrussell-node).
 
-Starship have advantage in supported shells, it works with roughly any shell. Spaceship is limited to Zsh, but uses most of the capabilities of Zsh.
+Перевага Starship в тому, що він підтримує більшість існуючих оболонок. Spaceship, з іншого боку, працює лише з Zsh, але використовує його можливості на максимум.
 
-Starship perform its checks asynchronously and renders the prompt as soon as it's ready. Spaceship not only performs checks asynchronously, but also renders the prompt right away and updates it as soon as new information comes from asynchronous tasks.
+Starship виконує перевірки асинхронно, відображаючи командний рядок як тільки він буде готовий. Spaceship також виконує перевірки асинхронно, але відображає командний рядок одразу та оновлює його, коли нова інформація надходить від асинхронних задач.
 
-Spaceship considers custom sections as a first-class citizens and has a Registry of custom sections, whereas Starship suggests to use [custom commands](https://starship.rs/config/#custom-commands) for creating custom modules.
+Spaceship вважає користувацькі секції обʼєктами першого класу та має Реєстр користувацьких секцій, а Starship пропонує використовувати [команди](https://starship.rs/config/#custom-commands) для створення користувацьких модулів.
 
-If you use different machines with different shell prompts Starship might be a better choice for you. Spaceship is great if you prefer to use the same Zsh configuration of every machine you use.
+Якщо ви використовуєте різні компʼютери з різними оболонками, Starship може стати кращим вибором. Spaceship більше підійде, якщо у вас одна конфігурація Zsh на всіх машинах.
 
-## What the difference between Spaceship and Powerlevel10k (with Lean style)?
+## В чому різниця між Spaceship та Powerlevel10k (з Lean стилем)?
 
-[Powerlevel10k](https://github.com/romkatv/powerlevel10k) (with Lean mode) is another Zsh prompt that might look very similar to Spaceship.
+[Powerlevel10k](https://github.com/romkatv/powerlevel10k) (з Lean стилем) – ще один командний рядок для Zsh, що дуже нагадує Spaceship.
 
-Both prompts are asynchronous and render the prompt as soon as it's ready. Powerlevel10k takes more monolith approach to prompt with tons of features built in a single prompt. Spaceship, however, takes a more modular approach to prompt with custom sections and more options for customizations.
+Обидва командні рядки асинхронні та відображаються одразу. Powerlevel10k використовує монолітний підхід та має безліч можливостей у єдиному командному рядку. Spaceship, з іншого боку, більш модульний, дозволяє створювати користувацькі секції та надає чмсленні варіанти налаштувань.
 
-On the other hand, Powerlevel10k suggests multiple design presets. Spaceship only supports one preset.
+Powerlevel10k дозволяє мати декілька пресетів дизайну. Spaceship підтримує лише один.
 
-## Some section icons overlap each other?
+## Іконки деяких секцій перекриваються?
 
-![example of icons overlapping](https://user-images.githubusercontent.com/3459374/34945188-1f6398be-fa0b-11e7-9845-a744bc3e148d.png)
+![приклад перекриття значків](https://user-images.githubusercontent.com/3459374/34945188-1f6398be-fa0b-11e7-9845-a744bc3e148d.png)
 
-This issue is related to how your terminal emulator renders Unicode 9 characters. To fix this issue:
+Ця проблема повʼязана з особливостями відображення символів Unicode 9 вашим емулятором терміналу. Для її вирішення:
 
-- Make sure terminal uses _Unicode Version 9 Widths_.
-- Let your terminal render ambiguous-width characters as double-width.
+- Переконайтеся, що термінал використовує налаштування _Unicode Version 9 Widths_.
+- Дозвольте терміналу показувати символи з неоднозначною шириною як символи подвійної ширини.
 
-In _iTerm_ follow these instructions:
+У _iTerm_ дотримуйтеся цих інструкцій:
 
-- Go _iTerm → Preferences… (⌘,) → Profiles → Text_
-- Check _Unicode Version 9 Widths_.
-- Check _Threat ambiguous-width characters as double-width_.
-- Reload terminal's tab.
+- Перейдіть в _iTerm → Preferences… (⌘,) → Profiles → Text_
+- Перевірте налаштування _Unicode Version 9 Widths_.
+- Перевірте налаштування _Threat ambiguous-width characters as double-width_.
+- Перезавантажте вкладку терміналу.
 
-## Still can't find a solution?
+## Все ще не вирішили проблему?
 
-If any of above does not help, please, ask a question on our Discord server or [file an issue][issues], describe your problem, and we will gladly help you.
+Якщо нічого з вищенаведеного не допомогло, будь ласка, поставте питання на нашому Discord сервері або [створіть тему на Github][issues], опишіть вашу проблему, і ми з радістю допоможемо.
 
 [:fontawesome-brands-discord: Discord][discord]{ .md-button }
 [:fontawesome-brands-github: Discussions][discussions]{ .md-button }
-[:fontawesome-brands-github: Open an Issue][issues]{ .md-button }
+[:fontawesome-brands-github: Віктрити питання][issues]{ .md-button }
 
 <!-- References -->
 
