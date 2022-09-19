@@ -16,7 +16,7 @@
 | `SPACESHIP_KUBECTL_PREFIX` |               `at·`                | Префікс секції                          |
 | `SPACESHIP_KUBECTL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
 | `SPACESHIP_KUBECTL_COLOR`  |              `white`               | Колір секції Kubernetes                 |
-| `SPACESHIP_KUBECTL_SYMBOL` |               `☸️··`               | Символ, що відображається перед секцією |
+| `SPACESHIP_KUBECTL_SYMBOL` |               `☸️·`                | Символ, що відображається перед секцією |
 
 ## Версія Kubernetes `kubectl_version`
 
