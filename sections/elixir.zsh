@@ -39,7 +39,7 @@ spaceship_elixir() {
 
   if [[ $elixir_version == "" ]]; then
     spaceship::exists elixir || return
-    elixir_version=$(elixir -v 2>/dev/null | grep "Elixir" --color=never | cut -d ' ' -f 2)
+    elixir_version=$(elixir -v 2>/dev/null | spaceship::grep "Elixir" | cut -d ' ' -f 2)
   fi
 
   [[ $elixir_version == "system" ]] && return
