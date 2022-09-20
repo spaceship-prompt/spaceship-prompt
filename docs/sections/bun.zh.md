@@ -14,7 +14,7 @@ This section is displayed only when the current directory:
 
 ## Options
 
-| Variable               |              Default               | Meaning                             |
+| 字段                     |                 默认                 | 含义                                  |
 |:---------------------- |:----------------------------------:| ----------------------------------- |
 | `SPACESHIP_BUN_SHOW`   |               `true`               | Show section                        |
 | `SPACESHIP_BUN_ASYNC`  |               `true`               | Render section asynchronously       |
