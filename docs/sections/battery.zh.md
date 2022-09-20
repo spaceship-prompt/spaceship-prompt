@@ -21,7 +21,7 @@ Here are possible values:
 
 ## Options
 
-| Variable                               |              Default               | Meaning                                                       |
+| 字段                                     |                 默认                 | 含义                                                            |
 |:-------------------------------------- |:----------------------------------:| ------------------------------------------------------------- |
 | `SPACESHIP_BATTERY_SHOW`               |               `true`               | Show section (`true`, `false`, `always` or `charged`)         |
 | `SPACESHIP_BATTERY_ASYNC`              |               `true`               | Render section asynchronously                                 |
