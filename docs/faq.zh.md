@@ -1,4 +1,4 @@
-# Frequently Asked Questions
+# 常见问题
 
 This page aimed to help you fix the common problems encountered with Spaceship.
 
@@ -7,7 +7,7 @@ If you struggle with something, feel free to ask a question on our Discord serve
 [:fontawesome-brands-discord: Discord][discord]{ .md-button }
 [:fontawesome-brands-github: Discussions][discussions]{ .md-button }
 
-## Why doesn't my prompt look like the preview?
+## 为什么我的提示符看起来不像预览？
 
 <div class="terminal-demo">
   <script id="asciicast-513451" src="https://asciinema.org/a/513451.js" data-autoplay="true" data-loop="true" data-preload="true" async></script>
@@ -18,46 +18,46 @@ If you struggle with something, feel free to ask a question on our Discord serve
   </noscript>
 </div>
 
-Preview shows `spaceship` prompt setup with:
+预览显示 `Spaceship` 提示符设置为：
 
 - **Terminal**
-    - [iTerm2](https://iterm2.com/) as terminal emulator.
+    - [ iTerm2 ](https://iterm2.com/)作为终端仿真器。
     - [One Dark](https://www.npmjs.com/package/hyperterm-atom-dark) color theme.
     - [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads) with ligatures as primary font (16px size).
 - **Shell configuration**
     - [denysdovhan's Dotfiles](https://github.com/denysdovhan/dotfiles)
-    - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) to have commands colorized.
-    - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) to have browser-like autocompletions.
+    - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) 让命令颜色化。
+    - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) 类似浏览器的自动补全。
 
-See [screenshots](https://github.com/spaceship-prompt/spaceship-prompt/wiki/Screenshots) wiki for more color schemes examples.
+查看 [屏幕截图](https://github.com/spaceship-prompt/spaceship-prompt/wiki/Screenshots) 维基以了解更多的配色方案示例。
 
-## How do I get command completion as shown in the demo GIF?
+## 如何实现示例图中自动补全的功能？
 
 Use [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) to get browser-like command completions based on history and completions.
 
 ## What's the weird symbol before the `git` branch?
 
-You need to have a Powerline patched font in order to properly display `git` branch symbol.
+您需要有一个powerline的补丁字体才能正确显示 `git` 分支符号。
 
-- Install any Powerline compatible font like [Fira Code](https://github.com/tonsky/FiraCode) or [others](https://github.com/powerline/fonts).
-- Configure your terminal emulator to [use that font](https://powerline.readthedocs.io/en/master/troubleshooting/osx.html).
+- 安装任何powerline兼容的字体，例如 [Fira Code](https://github.com/tonsky/FiraCode) 或 [其他](https://github.com/powerline/fonts)。
+- 配置您的终端仿真器 [使用那个字体](https://powerline.readthedocs.io/en/master/troubleshooting/osx.html)。
 
-## What's the weird character in front of a section?
+## 模块前面奇怪的字符是什么？
 
-This is not an issue with Spaceship prompt. Spaceship uses Unicode symbols to represent `SPACESHIP_*_SYMBOL` in sections. To solve this problem:
+这并不是Spaceship提示符的问题。 Spaceship在模块中使用 Unicode 符号来代表 `SPACESHIP_*_SYMBOL`。 要解决此问题：
 
-- Verify your terminal emulator support Unicode characters with this command:
+- 使用此命令验证您的终端模拟器支持 Unicode 字符：
   ```zsh
-  curl -L https://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
-  # or
+  curl - L https://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
+  # 或
   wget -O - https://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
   ```
-- Configure your terminal emulator to use UTF-8 as character encoding.
+- 配置您的终端模拟器使用UTF-8作为字符编码。
   - `LC_ALL` needs to be [set to a UTF-8 value](https://www.tecmint.com/set-system-locales-in-linux/), like `en_US.UTF-8` or `de_DE.UTF-8`, etc.
   - You need to install an emoji font. Most systems already have such font installed, but some systems don't (for example Arch Linux). You should install one via your preferred package manager. [noto emoji](https://www.google.com/get/noto/help/emoji) is a popular choice.
   -
 
-In case Unicode symbols aren't supported, you can replace them to those that are compatible with your terminal with `SPACESHIP_*_SYMBOL` options. Check out [Options](/config/intro) page for more information.
+如果不支持 Unicode 符号，您可以用 `SPACESHIP_*_SYMBOL` 选项替换它们与您终端兼容。 查看 [">选项](/config/intro) 页面以获取更多信息。
 
 ## Do `spaceship remove <section>` and `SPACESHIP_<SECTION>_SHOW=false` do the same thing?
 
@@ -91,23 +91,23 @@ Both prompts are asynchronous and render the prompt as soon as it's ready. Power
 
 On the other hand, Powerlevel10k suggests multiple design presets. Spaceship only supports one preset.
 
-## Some section icons overlap each other?
+## 某些模块图标相互重叠？
 
 ![example of icons overlapping](https://user-images.githubusercontent.com/3459374/34945188-1f6398be-fa0b-11e7-9845-a744bc3e148d.png)
 
-This issue is related to how your terminal emulator renders Unicode 9 characters. To fix this issue:
+此问题与您的终端模拟器如何渲染Unicode 9字符有关。 要解决此问题：
 
-- Make sure terminal uses _Unicode Version 9 Widths_.
-- Let your terminal render ambiguous-width characters as double-width.
+- 确保终端使用 _Unicode 版本 9 宽度_。
+- 让您的终端以双宽度渲染不明确的字符。
 
-In _iTerm_ follow these instructions:
+在 _iTerm_ 中，遵循这些指令：
 
-- Go _iTerm → Preferences… (⌘,) → Profiles → Text_
-- Check _Unicode Version 9 Widths_.
-- Check _Threat ambiguous-width characters as double-width_.
-- Reload terminal's tab.
+- 转至 _iTerm → Preferences… (⌘,) → Profiles → Text_
+- 检查 _Unicode 版本 9 宽度_。
+- 检查 _宽度模糊字符是否为双宽度_。
+- 重新装入终端标签页。
 
-## Still can't find a solution?
+## 问题仍未解决
 
 If any of above does not help, please, ask a question on our Discord server or [file an issue][issues], describe your problem, and we will gladly help you.
 
