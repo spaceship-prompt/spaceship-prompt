@@ -1,3 +1,10 @@
+## [4.3.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.3.1...v4.3.2) (2022-09-20)
+
+
+### Bug Fixes
+
+* mark spaceship libs as global ([e0a0926](https://github.com/spaceship-prompt/spaceship-prompt/commit/e0a09267dc61119738da42862f0828f869e248f5))
+
 ## [4.3.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.3.0...v4.3.1) (2022-09-19)
 
 
