@@ -1,28 +1,28 @@
 ---
 template: index.html
-title: Minimalistic, powerful and extremely customizable Zsh prompt
+title: 简洁、强大和极易定制的 Zsh 提示符
 hide:
   - navigation
 hero:
-  title: Minimalistic, powerful and extremely customizable Zsh prompt
-  subtitle: It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
-  install_button: Getting Started
-  source_button: Source Code
+  title: 简洁、强大和极易定制的 Zsh 提示符
+  subtitle: 它将你可能需要的方便工作的一切结合起来，而不会造成不必要的麻烦。 像真正的宇宙飞船一样。
+  install_button: 快速上手
+  source_button: 源代码
 features:
   - 
-    title: Clean and simple
+    title: 清晰而简洁
     image: /assets/images/what-is-needed.svg
-    description: The prompt is not overloaded, it shows only what you need at the moment (current directory, git branch, etc).
+    description: 该提示符不臃肿，它只显示当前您需要的内容 (当前目录，git 分支，等等)。
   - 
-    title: Easy to set up
+    title: 轻松设定
     image: /assets/images/out-of-the-box.svg
-    description: The prompt works right after installation without any additional configuration. install it and use it.
+    description: 提示符在安装后即可正常工作，没有任何附加配置。 安装并使用它。
   - 
-    title: Configurable
+    title: 可配置
     image: /assets/images/configurable.svg
-    description: The prompt is zero-config, but if a customization is needed, it provides an easy-to-use interface for customization.
+    description: 该提示符是零配置的，但如果需要自定义的话，它将提供一个易于自定义的接口。
 companies:
-  title: Used daily by marvelous folks at
+  title: 每天被惊人的民俗使用
   list:
     - 
       name: Wix
@@ -92,7 +92,7 @@ companies:
       logo: https://cdn.svgporn.com/logos/suse.svg
 ---
 
-# Welcome aboard, Astronaut!
+# 欢迎加入，宇航员！
 
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua)
 
@@ -105,7 +105,7 @@ companies:
   </noscript>
 </div>
 
-## Features
+## 特性
 
 **Spaceship** is a superpowered Zsh prompt. Prompt is what you see when you type a command. It can show a lot of useful tips, saving your time and making user experience smooth and pleasant.
 
@@ -121,20 +121,20 @@ Here are some sneak picks of what **Spaceship** can show:
 - A lot of [useful information](/sections)
 - Custom [information of your choice](/advanced/creating-section)
 
-Want more features? Please, [open an issue](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose) or send pull request.
+需要更多功能？ 请 [提出 issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose)，描述你的问题，我们将乐意帮助你。
 
 ## Getting Started
 
-Installing Spaceship is simple and quick. It's configurable and easy to use.
+Installing Spaceship is simple and quick. It's configurable and easy to use. It's configurable and easy to use. 它是可配置的，易于使用。
 
 [Installation](/getting-started ""){.md-button.md-button--primary} [Configuration](/config/intro ""){.md-button}
 
-## Support
+## 支持
 
 Join our community and consider contributing to the project.
 
 [:material-hand-heart: Contribute](/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button} [:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/ ""){.md-button}
 
-## License
+## 许可证
 
 MIT © [Denys Dovhan](http://denysdovhan.com)
