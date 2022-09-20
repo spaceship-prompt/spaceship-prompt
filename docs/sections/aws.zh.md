@@ -9,7 +9,7 @@ If the `AWS_VAULT` variable is not defined, this section will use the [`AWS_PROF
 
 ## Options
 
-| Variable               |              Default               | Meaning                             |
+| 字段                     |                 默认                 | 含义                                  |
 |:---------------------- |:----------------------------------:| ----------------------------------- |
 | `SPACESHIP_AWS_SHOW`   |               `true`               | Show section                        |
 | `SPACESHIP_AWS_PREFIX` |              `using·`              | Section's prefix                    |
