@@ -91,7 +91,7 @@ spaceship_package::julia() {
 
 spaceship_package::maven() {
 
-  local pom_xml=$(spaceship::upsearch pom.xml) || return
+  spaceship::upsearch -s pom.xml || return
 
   local maven_exe=$(spaceship::upsearch mvnw) || (spaceship::exists mvn && maven_exe="mvn") || return
 

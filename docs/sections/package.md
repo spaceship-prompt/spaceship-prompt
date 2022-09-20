@@ -21,7 +21,7 @@ Currently, these package managers are supported:
 * [`cargo`][cargo] — version from `Cargo.toml` file. `cargo pkgid` is used to detect the version, which depends on `Cargo.lock`. Run `cargo build` to generate `Cargo.lock` if version is not shown.
 * [`composer`][composer] — version from `composer.json` file.
 * [`julia`][julia] — version from `Project.toml` file.
-* [`maven`][maven] — version from `pom.xml` file.
+* [`maven`][maven] — version from `mvn` command.
 * [`gradle`][gradle] — version from `gradle` command.
 
 ## Options
