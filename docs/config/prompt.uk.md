@@ -1,22 +1,22 @@
-# Prompt configuration
+# Налаштування командного рядка
 
-This page describes prompt-level options for Spaceship.
+Ця сторінка описує опції командного рядка Spaceship.
 
-## Terminology
+## Термінологія
 
-The prompt consists of **sections**. All sections are combined into a [**prompt order**](#prompt-order).
+Командний рядок складається з **секцій**. Всі секції поєднуються в [**послідовність командного рядка**](#prompt-order).
 
-When the prompt is being rendered, just goes over the prompt order and executes each section. If you want to add a custom section, add it to the order. You can add or remove sections from the prompt order at any time.
+Під час процесу відображення командний рядок проходить по послідовності та викликає кожну секцію. Якщо ви хочете додати власну секцію – додайте її в послідовність. Ви можете додавати чи вилучати секціїї з послідовності командного рядка в будь-який час.
 
-Typically, a section consist of a **prefix**, **symbol**, **content** and **suffix**. The symbol and the content are painted in **color**. Here's an example with a `package` section:
+Типова секція складається з **префіксу**, **символу**, **змісту** та **суфіксу**. Символ та зміст виділяються **кольором**. Ось приклад для секції `package`:
 
 ```
 is 📦 3.16.5
 ```
 
-Above, `is` is a prefix, `📦` is a symbol, `3.16.5` is the content and `` (a space) is the suffix.
+У наведеному вище, `is` є префіксом, `📦` символом, `3.16.5` змістом, а `` (пробіл) суфіксом.
 
-Each part can be configured via corresponding **options**. Options are just environment variables and have this signature `SPACESHIP_<SECTION>_<OPTION>`:
+Кожна складова секції може бути налаштована за допомогою відповідних **опцій**. Опції це звичайні змінні середовища з такою сигнатурою: `SPACESHIP_<SECTION>_<OPTION>`:
 
 ```zsh
 # SPACESHIP_<SECTION>_<OPTION>
@@ -25,55 +25,55 @@ Each part can be configured via corresponding **options**. Options are just envi
   SPACESHIP_PACKAGE_COLOR="green"
 ```
 
-Above `PACKAGE` is a **section** and `PREFIX`, `SUFFIX` and `COLOR` are **options** for prefix, suffix and color correspondingly.
+У прикладі вище `PACKAGE` це **секція**, а `PREFIX`, `SUFFIX` та `COLOR` це **опції** для префіксу, суфіксу та кольору відповідно.
 
-!!! info
-    Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
+!!! інформація
+    Допускається використання [базових кольорів](https://wiki.archlinux.org/index.php/zsh#Colors) або [кольорових кодів](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
 
-## Prompt order
+## Послідовність командного рядка
 
-The **prompt order** is the order in which sections are executed and rendered. You can specify the order of prompt section using `SPACESHIP_PROMPT_ORDER` option.
+**Послідовність командного рядка** визначає порядок, в якому секції виконуються і відображаються. Порядок секцій у командному рядку контролюється опцією `SPACESHIP_PROMPT_ORDER`.
 
-The default prompt order is:
+За замовчуванням, порядок секцій наступний:
 
 ```zsh
 SPACESHIP_PROMPT_ORDER=(
-  time          # Time stampts section
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  git           # Git section (git_branch + git_status)
-  hg            # Mercurial section (hg_branch  + hg_status)
-  package       # Package version
-  node          # Node.js section
-  ruby          # Ruby section
-  python        # Python section
-  elm           # Elm section
-  elixir        # Elixir section
-  xcode         # Xcode section
-  swift         # Swift section
-  golang        # Go section
-  php           # PHP section
-  rust          # Rust section
-  haskell       # Haskell Stack section
-  java          # Java section
-  julia         # Julia section
-  docker        # Docker section
-  aws           # Amazon Web Services section
-  gcloud        # Google Cloud Platform section
-  venv          # virtualenv section
-  conda         # conda virtualenv section
-  dotnet        # .NET section
-  kubectl       # Kubectl context section
-  terraform     # Terraform workspace section
-  ibmcloud      # IBM Cloud section
-  exec_time     # Execution time
-  async         # Async jobs indicator
-  line_sep      # Line break
-  battery       # Battery level and status
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
+  time          # Секція часу
+  user          # Секція імені користувача
+  dir           # Секція поточної директорії
+  host          # Секція імені хоста
+  git           # Секція Git (git_branch + git_status)
+  hg            # Секція Mercurial (hg_branch  + hg_status)
+  package       # Секція пакунку
+  node          # Секція Node.js
+  ruby          # Секція Ruby
+  python        # Секція Python
+  elm           # Секція Elm
+  elixir        # Секція Elixir
+  xcode         # Секція Xcode
+  swift         # Секція Swift
+  golang        # Секція Go
+  php           # Секція PHP
+  rust          # Секція Rust
+  haskell       # Секція Haskell Stack
+  java          # Секція Java
+  julia         # Секція Julia
+  docker        # Секція Docker
+  aws           # Секція Amazon Web Services
+  gcloud        # Секція Google Cloud Platform
+  venv          # Секція virtualenv
+  conda         # Секція conda virtualenv
+  dotnet        # Секція .NET
+  kubectl       # Секція Kubectl context
+  terraform     # Секція Terraform workspace
+  ibmcloud      # Секція IBM Cloud
+  exec_time     # Час виконання
+  async         # Індикатор асинхронних задач
+  line_sep      # Символ нового рядка
+  battery       # Рівень та статус батареї
+  jobs          # Індикатор фонових задач
+  exit_code     # Код виходу
+  char          # Символ командного рядка
 )
 ```
 
