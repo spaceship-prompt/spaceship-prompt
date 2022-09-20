@@ -136,6 +136,8 @@ extra:
     - name: 简体中文
       lang: zh
       link: /zh
+    - name: Help translating
+      link: https://translate.spaceship-prompt.sh
   analytics:
     provider: google
     property: G-0STBM9BNC1
