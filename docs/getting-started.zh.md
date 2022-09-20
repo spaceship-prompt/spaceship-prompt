@@ -1,8 +1,8 @@
-# Getting Started
+# 快速上手
 
-Welcome aboard! Let's install Spaceship on your machine, astronaut!
+欢迎登船！ Let's install Spaceship on your machine, astronaut!
 
-## Requirements
+## 安装要求
 
 Before we begin, let's make sure you have the following installed:
 
@@ -15,11 +15,11 @@ Before we begin, let's make sure you have the following installed:
   echo -e "\xee\x82\xa0" #> 
   ```
 
-## Installing
+## 安装
 
-Now that the requirements are satisfied, you can install Spaceship via any of the following approaches:
+如果满足了这些要求，您可以通过以下任何方式安装 Spaceship：
 
-=== "Manual"
+=== "手动方式"
 
     !!! hint
         If you're using any plugin manager, like Oh-My-Zsh, antigen, zgen, zplug or other, this might not be the best way to install Spaceship for you.
@@ -28,14 +28,14 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     2. Source Spaceship in your `~/.zshrc`.
 
 
-    ### Example
+    ### 示例
 
     ```zsh title="Terminal"
     mkdir -p "$HOME/.zsh"
     git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/spaceship"
     ```
 
-    For initializing prompt system add this to your `.zshrc`:
+    为了初始化命令提示系统，需要将其添加到您的 `.zshrc` 中：
 
     ```zsh title=".zshrc"
     source "$HOME/.zsh/spaceship/spaceship.zsh"
@@ -66,21 +66,21 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 === "oh-my-zsh"
 
-    Clone this repo:
+    克隆此仓库：
 
     ```zsh title="Terminal"
     git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
     ```
 
 
-    Symlink `spaceship.zsh-theme` to your oh-my-zsh custom themes directory:
+    将 `spaceship.zsh-theme` 软链到您 oh-my-zsh 的自定义主题目录：
 
     ```zsh title="Terminal"
     ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
     ```
 
 
-    Set `ZSH_THEME="spaceship"` in your `.zshrc`.
+    在 `.zshrc` 中设置 `ZSH_THEME="spaceship"。
 
 === "npm"
 
@@ -98,9 +98,9 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 === "prezto"
 
-    - Follow [prezto-contrib#usage](https://github.com/belak/prezto-contrib#usage) to clone `prezto-contrib` to the proper location.
-    - Enable the `contrib-prompt` module (before the `prompt` module).
-    - Set `zstyle ':prezto:module:prompt' theme 'spaceship'` in your `.zpreztorc`.
+    - 遵循 [prezto-contrib#usage使用守则](https://github.com/belak/prezto-contrib#usage) 将 `prezto-contrib` 克隆到正确的位置。
+    - 启用 `contrib-prompt` 模块(并且将其放在 `prompt` 模块之前)。
+    - 在您的 `.zpreztorc` 中设置 `zstyle ':prezto:module:prompt' theme 'spaceship'` 。
 
 === "zim"
 
@@ -119,7 +119,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 === "antigen"
 
-    Add the following snippet in your `.zshrc`:
+    将以下代码片段添加到您的 `.zshrc`中:
 
     ```zsh title=".zshrc"
     antigen theme spaceship-prompt/spaceship-prompt
@@ -127,7 +127,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 === "antibody"
 
-    Update your `.zshrc` file with the following line:
+    使用以下行更新您的`.zshc`文件：
 
     ```zsh title=".zshrc"
     antibody bundle spaceship-prompt/spaceship-prompt
@@ -135,7 +135,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 === "zinit"
 
-    Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
+    将以下行添加到 `.zshrc`中您要添加其他 Zsh 插件的地方：
 
     ```zsh title=".zshrc"
     zinit light spaceship-prompt/spaceship-prompt
@@ -143,7 +143,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 === "zgen"
 
-    Add the following line to your `.zshrc` where you're adding your other Zsh plugins:
+    将以下行添加到 `.zshrc`中您要添加其他 Zsh 插件的地方：
 
     ```zsh title=".zshrc"
     zgen load spaceship-prompt/spaceship-prompt spaceship
@@ -151,7 +151,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 === "zplug"
 
-    Use this command in your `.zshrc` to load Spaceship as prompt theme:
+    在你的`.zshrc`中使用此命令加载 Spaceship 以使其作为命令提示系统的主题：
 
     ```zsh title=".zshrc"
     zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
@@ -175,7 +175,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 === "Arch"
 
-    Install the latest master from the AUR package [`spaceship-prompt-git`](https://aur.archlinux.org/packages/spaceship-prompt-git/):
+    从 AUR 软件源安装最近的版本 [`spaceship-prompt-git`](https://aur.archlinux.org/packes/spaceship-prompt-git/):
 
     ```
     git clone https://aur.archlinux.org/spaceship-prompt-git.git --depth=1
@@ -183,11 +183,11 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     makepkg -si
     ```
 
-## Congratulations!
+## 恭喜您！
 
-You've made it! You've installed Spaceship on your machine!
+你已经成功了! 你已经在你的机器上安装了 Spaceship！
 
-What's next? Spaceship has reasonable defaults, but you might want to adjust them to your needs. Learn how to configure your Spaceship:
+下一步是什么？ Spaceship 有合理的默认设置，但您可能想要根据需要调整它们。 Learn how to configure your Spaceship:
 
 [Configure Spaceship](/config/intro ""){.md-button.md-button--primary}
 
@@ -195,8 +195,8 @@ Additionally, join our community or consider contributing to the project.
 
 [:material-hand-heart: Contribute](/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button}
 
-## Having trouble?
+## 遇到问题？
 
-Find answers on our troubleshooting page or get help by our community. Still struggling? Please, *file an issue*, describe your problem, and we will gladly help you.
+Find answers on our troubleshooting page or get help by our community. 仍然困惑？ Please, *file an issue*, describe your problem, and we will gladly help you.
 
 [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button} [:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/ ""){.md-button} [:fontawesome-brands-github: Issues](https://github.com/spaceship-prompt/spaceship-prompt/issues ""){.md-button}
