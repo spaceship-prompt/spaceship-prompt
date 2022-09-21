@@ -22,7 +22,7 @@ SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL="📦 "}"
 SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR="red"}"
 
 if [ -z "$SPACESHIP_PACKAGE_ORDER" ]; then
-  SPACESHIP_PACKAGE_ORDER=(npm lerna cargo composer julia)
+  SPACESHIP_PACKAGE_ORDER=(npm lerna cargo composer julia maven gradle)
 fi
 
 # ------------------------------------------------------------------------------
@@ -87,6 +87,24 @@ spaceship_package::julia() {
   local project_toml=$(spaceship::upsearch Project.toml) || return
 
   spaceship::datafile --toml $project_toml "version"
+}
+
+spaceship_package::maven() {
+
+  spaceship::upsearch -s pom.xml || return
+
+  local maven_exe=$(spaceship::upsearch mvnw) || (spaceship::exists mvn && maven_exe="mvn") || return
+
+  $maven_exe help:evaluate -q -DforceStdout -D"expression=project.version" 2>/dev/null
+}
+
+spaceship_package::gradle() {
+
+  spaceship::upsearch -s settings.gradle settings.gradle.kts || return
+
+  local gradle_exe=$(spaceship::upsearch gradlew) || (spaceship::exists gradle && gradle_exe="gradle") || return
+
+  $gradle_exe properties --no-daemon --console=plain -q 2>/dev/null | grep "^version:" | awk '{printf $2}'
 }
 
 # ------------------------------------------------------------------------------

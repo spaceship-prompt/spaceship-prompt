@@ -1,3 +1,10 @@
+# [4.4.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.3.3...v4.4.0) (2022-09-21)
+
+
+### Features
+
+* make package section to support maven and gradle ([#1209](https://github.com/spaceship-prompt/spaceship-prompt/issues/1209)) ([c8b6ce7](https://github.com/spaceship-prompt/spaceship-prompt/commit/c8b6ce7ade1a3176353d6ba46faa37db7e05e709))
+
 ## [4.3.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.3.2...v4.3.3) (2022-09-21)
 
 
