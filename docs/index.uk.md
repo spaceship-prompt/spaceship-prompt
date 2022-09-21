@@ -9,85 +9,85 @@ hero:
   install_button: Початок роботи
   source_button: Вихідний код
 features:
-  - 
+  -
     title: Охайний та простий
     image: /assets/images/what-is-needed.svg
     description: Командний рядок не перевантажений, а показує тільки те, що вам потрібно в даний момент (поточна директорія, гілка git тощо).
-  - 
+  -
     title: Просто встановлюється
     image: /assets/images/out-of-the-box.svg
     description: Командний рядок працює відразу після встановлення, без додаткової конфігурації. Встановлюйте та користуйтесь.
-  - 
+  -
     title: Легко налаштовується
     image: /assets/images/configurable.svg
     description: Командний рядок не потребує конфігурації, однак надає зрозумілий та простий інтерфейс для налаштувань.
 companies:
   title: Щоденно використовуються дивовижними людьми з
   list:
-    - 
+    -
       name: Wix
       logo: https://cdn.svgporn.com/logos/wix.svg
-    - 
+    -
       name: Google
       logo: https://cdn.svgporn.com/logos/google.svg
-    - 
+    -
       name: Siemens
       logo: https://upload.wikimedia.org/wikipedia/commons/5/5f/Siemens-logo.svg
-    - 
+    -
       name: Microsoft
       logo: https://cdn.svgporn.com/logos/microsoft.svg
-    - 
+    -
       name: Adobe
       logo: https://upload.wikimedia.org/wikipedia/commons/6/6e/Adobe_Corporate_logo.svg
-    - 
+    -
       name: Docker
       logo: https://cdn.svgporn.com/logos/docker.svg
-    - 
+    -
       name: Shopify
       logo: https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg
-    - 
+    -
       name: GitHub
       logo: https://cdn.svgporn.com/logos/github.svg
-    - 
+    -
       name: Red Hat
       logo: https://cdn.svgporn.com/logos/redhat.svg
-    - 
+    -
       name: Amazon Web Services
       logo: https://cdn.svgporn.com/logos/aws.svg
-    - 
+    -
       name: Facebook
       logo: https://cdn.worldvectorlogo.com/logos/facebook-7.svg
-    - 
+    -
       name: npm
       logo: https://cdn.svgporn.com/logos/npm.svg
-    - 
+    -
       name: Unity Technologies
       logo: https://cdn.worldvectorlogo.com/logos/unity-technologies-logo.svg
-    - 
+    -
       name: Angular
       logo: https://cdn.svgporn.com/logos/angular.svg
-    - 
+    -
       name: Mozilla
       logo: https://cdn.svgporn.com/logos/mozilla.svg
-    - 
+    -
       name: Framer
       logo: https://cdn.svgporn.com/logos/framer.svg
-    - 
+    -
       name: Grammarly
       logo: https://cdn.svgporn.com/logos/grammarly.svg
-    - 
+    -
       name: Skyscanner
       logo: https://upload.wikimedia.org/wikipedia/commons/9/94/Skyscanner_Logo_LockupHorizontal_SkyBlue_RGB.svg
-    - 
+    -
       name: Node.js
       logo: https://cdn.svgporn.com/logos/nodejs.svg
-    - 
+    -
       name: Vue Storefront
       logo: https://cdn.worldvectorlogo.com/logos/vue-storefront.svg
-    - 
+    -
       name: Coinbase
       logo: https://cdn.worldvectorlogo.com/logos/coinbase-1.svg
-    - 
+    -
       name: Suse
       logo: https://cdn.svgporn.com/logos/suse.svg
 ---
@@ -127,7 +127,8 @@ companies:
 
 Встановлення Spaceship просте та швидке. Він легко конфігурується і є простим у використанні.
 
-[Встановлення](/getting-started ""){.md-button.md-button--primary} [Конфігурація](/config/intro ""){.md-button}
+[Встановлення](/getting-started){ .md-button  }
+[Конфігурація](/config/intro){ .md-button }
 
 ## Підтримка
 

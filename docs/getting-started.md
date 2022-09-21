@@ -181,7 +181,7 @@ You've made it! You've installed Spaceship on your machine!
 
 What's next? Spaceship has reasonable defaults, but you might want to adjust them to your needs. Learn how to configure your Spaceship:
 
-[Configure Spaceship](/config/intro){ .md-button .md-button--primary }
+[Configure Spaceship](/config/intro){ .md-button }
 
 Additionally, join our community or consider contributing to the project.
 

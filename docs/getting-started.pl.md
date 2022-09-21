@@ -92,7 +92,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 
     This command will download Spaceship. It will also ask you to source Spaceship in your `~/.zshrc` file.
-    
+
     !!! tip
         Update Spaceship to new versions as you would any other package.
 
@@ -189,7 +189,7 @@ You've made it! You've installed Spaceship on your machine!
 
 What's next? Spaceship has reasonable defaults, but you might want to adjust them to your needs. Learn how to configure your Spaceship:
 
-[Configure Spaceship](/config/intro ""){.md-button.md-button--primary}
+[Configure Spaceship](/config/intro ""){.md-button}
 
 Additionally, join our community or consider contributing to the project.
 

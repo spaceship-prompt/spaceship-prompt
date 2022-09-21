@@ -4,7 +4,7 @@ Though Spaceship has multiple sections for various use-cases, sometimes you may 
 
 You can create your own section using [sections API](/api/section) or use existing one from [the Registry](/registry):
 
-[Browse Registry](/registry ""){.md-button.md-button--primary} [Create a custom section](/advanced/creating-section ""){.md-button}
+[Browse Registry](/registry ""){.md-button} [Create a custom section](/advanced/creating-section ""){.md-button}
 
 ## How to install a section
 

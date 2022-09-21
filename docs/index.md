@@ -101,7 +101,7 @@ Want more features? Please, [open an issue](https://github.com/spaceship-prompt/
 
 Installing Spaceship is simple and quick. It's configurable and easy to use.
 
-[Installation](/getting-started){ .md-button .md-button--primary }
+[Installation](/getting-started){ .md-button  }
 [Configuration](/config/intro){ .md-button }
 
 ## Support

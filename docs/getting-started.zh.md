@@ -92,7 +92,7 @@ Before we begin, let's make sure you have the following installed:
 
 
     This command will download Spaceship. It will also ask you to source Spaceship in your `~/.zshrc` file.
-    
+
     !!! tip
         Update Spaceship to new versions as you would any other package.
 
@@ -189,7 +189,7 @@ Before we begin, let's make sure you have the following installed:
 
 下一步是什么？ Spaceship 有合理的默认设置，但您可能想要根据需要调整它们。 Learn how to configure your Spaceship:
 
-[Configure Spaceship](/config/intro ""){.md-button.md-button--primary}
+[Configure Spaceship](/config/intro ""){.md-button}
 
 Additionally, join our community or consider contributing to the project.
 
