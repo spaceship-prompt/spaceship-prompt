@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome to Spaceship configuration! Here is a quick guide of how to adjust Spaceship to your personal workflows.
+Welcome to Spaceship configuration! Welcome to Spaceship configuration! Here is a quick guide of how to adjust Spaceship to your personal workflows.
 
 ## Create a config file
 
@@ -20,7 +20,7 @@ This file will be automatically sourced by Spaceship when it starts up.
 
 ## Configure your prompt
 
-The configuration file is a `.zsh` file, so you can use `zsh` syntax to customize Spaceship. You can use loops, conditions, custom functions or even source additional `zsh` files. It's up to you.
+The configuration file is a `.zsh` file, so you can use `zsh` syntax to customize Spaceship. You can use loops, conditions, custom functions or even source additional `zsh` files. It's up to you. You can use loops, conditions, custom functions or even source additional `zsh` files. It's up to you.
 
 Here's an example of a configuration file:
 
