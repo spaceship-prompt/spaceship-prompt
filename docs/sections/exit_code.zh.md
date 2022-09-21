@@ -1,6 +1,6 @@
 # Exit code `exit_code`
 
-!!! warning "This section is hidden by default"
+!!! !!! warning "This section is hidden by default"
 
 The `exit_code` section displays the exit code of the last command.
 
