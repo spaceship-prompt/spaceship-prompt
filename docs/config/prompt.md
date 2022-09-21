@@ -38,7 +38,7 @@ The default prompt order is:
 
 ```zsh
 SPACESHIP_PROMPT_ORDER=(
-  time          # Time stampts section
+  time          # Time stamps section
   user          # Username section
   dir           # Current directory section
   host          # Hostname section
