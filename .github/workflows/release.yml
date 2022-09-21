@@ -1,8 +1,7 @@
 name: release
 on:
-  push:
-    branches:
-      - master
+  schedule:
+    - cron: '0 12 * * 3' # At 12:00, every Wednesday
   workflow_dispatch:
 
 concurrency:

@@ -1,7 +1,7 @@
 name: deps
 on:
   schedule:
-    - cron: '0 10 * * *' # At 10:00, every day
+    - cron: '0 10 * * 1' # At 10:00, every Monday
 
 jobs:
   zsh-async:
