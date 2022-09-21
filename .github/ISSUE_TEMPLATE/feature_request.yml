@@ -3,19 +3,21 @@ description: I have a suggestion (and might want to implement myself 🙂)!
 labels:
   - proposal
 body:
-  - type: checkboxes
+  - type: markdown
     attributes:
-      label: Suggesting a new section? Consider the following validations.
-      description: >
+      value: |
+        ## Thanks for suggesting a feature!
+
+        We will gradly consider your suggestion. Please, also consider submitting a pull-request.
+
+        ### Suggesting a new section?
+
         Help  us validate your suggestion.
+        Visit our [contributing guidelines](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/CONTRIBUTING.md#sections) and make sure your section:
 
-        Read more information about these points, see our contributing guidelines:
-
-        https://github.com/spaceship-prompt/spaceship-prompt/blob/master/CONTRIBUTING.md#sections
-      options:
-        - label: It will not clutter the prompt
-        - label: It will not slow down the prompt
-        - label: It is worth to be aware of
+        * Will not clutter the prompt
+        * Will not slow down the prompt
+        * Worth to be aware of on every command
 
   - type: textarea
     attributes:
