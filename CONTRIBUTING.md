@@ -87,6 +87,5 @@ A few notes for current and future maintainers of Spaceship:
 - Issues and PRs must be replied in first 24 hours. At least a simple message that we've noticed that issue was reported.
 - Every issue and a PR should have a label.
 - Issues containing questions should be moved to discussions.
-- PRs should be targeted against `next` branch. Periodically, `next` should be merged to `master`, so new changes get released.
 
 _Thanks for reading this contribution guide! Happy hacking!_
