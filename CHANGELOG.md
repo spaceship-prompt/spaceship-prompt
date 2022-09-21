@@ -1,3 +1,10 @@
+## [4.4.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.4.0...v4.4.1) (2022-09-21)
+
+
+### Bug Fixes
+
+* fix grep unknown option: --color ([#1206](https://github.com/spaceship-prompt/spaceship-prompt/issues/1206)) ([540a17a](https://github.com/spaceship-prompt/spaceship-prompt/commit/540a17a37a2199a3faa4987564a6485b63582fef)), closes [#1066](https://github.com/spaceship-prompt/spaceship-prompt/issues/1066)
+
 # [4.4.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.3.3...v4.4.0) (2022-09-21)
 
 
