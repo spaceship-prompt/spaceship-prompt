@@ -27,7 +27,7 @@ is 📦 3.16.5
 
 У прикладі вище `PACKAGE` це **секція**, а `PREFIX`, `SUFFIX` та `COLOR` це **опції** для префіксу, суфіксу та кольору відповідно.
 
-!!! інформація
+!!! info
     Допускається використання [базових кольорів](https://wiki.archlinux.org/index.php/zsh#Colors) або [кольорових кодів](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
 
 ## Послідовність командного рядка
@@ -77,65 +77,65 @@ SPACESHIP_PROMPT_ORDER=(
 )
 ```
 
-You can add or remove sections using `spaceship add` and `spaceship remove` commands, like this:
+Ви можете додавати та видаляти секції за допомогою команд `spaceship add` та `spaceship remove` таким чином:
 
 ```zsh
-# Removes git out of the prompt
+# Видаляє секцію git з командного рядка
 spaceship remove git
 
-# Adds git back to the prompt
+# Додає секцію git до командного рядка
 spaceship add git
 ```
 
-### Right prompt order
+### Послідовність правого командного рядка
 
-You can also add items to the right prompt by specifying them in the `SPACESHIP_RPROMPT_ORDER` option. By default, `SPACESHIP_RPROMPT_ORDER` is an empty array.
+Також ви можете додавати секції праворуч від командного рядка, вказуючи їх у опції `SPACESHIP_RPROMPT_ORDER`. За замовчуванням, `SPACESHIP_RPROMPT_ORDER` – порожній масив.
 
-## Configuring sections
+## Налаштування секцій
 
-You can customize every section of the prompt with section's options. Check out each section's documentation for more information.
+Ви можете налаштовувати кожну секцію командного рядка за допомогою опцій секції. Подивіться документацію секцій для отримання додаткової інформації.
 
-Besides built-in sections, you can add external section to your prompt or build a custom one.
+Крім використання вбудованих секцій, ви можете додавати сторонні секції або створити власні.
 
-[Browse built-in sections](/sections ""){.md-button} [Browse all sections](/registry ""){.md-button}
+[Подивитися вбудовані секції](/sections ""){.md-button} [Подивитися всі секції](/registry ""){.md-button}
 
-## Prompt-level options
+## Налаштування командного рядка
 
-This group of options defines a behavior of prompt and standard parameters for sections displaying.
+Ця група налаштувань визначає поведінку командного рядка і стандартні параметри відображення секцій.
 
-| Змінна                               | Default | Meaning                                          |
-|:------------------------------------ |:-------:| ------------------------------------------------ |
-| `SPACESHIP_PROMPT_ASYNC`             | `true`  | Render prompt asynchronously or not              |
-| `SPACESHIP_PROMPT_ADD_NEWLINE`       | `true`  | Adds a newline character before each prompt line |
-| `SPACESHIP_PROMPT_SEPARATE_LINE`     | `true`  | Make the prompt span across two lines            |
-| `SPACESHIP_PROMPT_FIRST_PREFIX_SHOW` | `false` | Shows a prefix of the first section in prompt    |
-| `SPACESHIP_PROMPT_PREFIXES_SHOW`     | `true`  | Show prefixes before prompt sections or not      |
-| `SPACESHIP_PROMPT_SUFFIXES_SHOW`     | `true`  | Show suffixes before prompt sections or not      |
-| `SPACESHIP_PROMPT_DEFAULT_PREFIX`    | `via·`  | Default prefix for prompt sections               |
-| `SPACESHIP_PROMPT_DEFAULT_SUFFIX`    |   ``    | Default suffix for prompt section                |
+| Змінна                               | За замовчуванням | Пояснення                                         |
+|:------------------------------------ |:----------------:| ------------------------------------------------- |
+| `SPACESHIP_PROMPT_ASYNC`             |      `true`      | Чи відображати командний рядок асинхронно         |
+| `SPACESHIP_PROMPT_ADD_NEWLINE`       |      `true`      | Додає символ нового рядка перед кожним запитом    |
+| `SPACESHIP_PROMPT_SEPARATE_LINE`     |      `true`      | Розтягнути командний рядок на два рядки           |
+| `SPACESHIP_PROMPT_FIRST_PREFIX_SHOW` |     `false`      | Показати префікс першої секції в командному рядку |
+| `SPACESHIP_PROMPT_PREFIXES_SHOW`     |      `true`      | Чи показувати префікси секцій                     |
+| `SPACESHIP_PROMPT_SUFFIXES_SHOW`     |      `true`      | Чи показувати суфікси секцій                      |
+| `SPACESHIP_PROMPT_DEFAULT_PREFIX`    |      `via·`      | Префікс за замовчуванням для секцій               |
+| `SPACESHIP_PROMPT_DEFAULT_SUFFIX`    |        ``        | Суфікс за замовчуванням для секцій                |
 
-Here is a breakdown of these options:
+Трохи більше про ці налаштування:
 
-### Asynchronous rendering
+### Асинхронне відображення
 
-The `SPACESHIP_PROMPT_ASYNC` option defines whether the prompt is rendered asynchronously or not. By default, the prompt is rendered asynchronously.
+Опція `SPACESHIP_PROMPT_ASYNC` визначає, чи має командний рядок відображатися асинхронно, чи ні. За замовчуванням, він відображається асинхронно.
 
-The synchronous sections are displayed immediately. The asynchronous sections are processed in the background and are displayed when the information is ready to be displayed.
+Синхронні секції показуються миттєво. Асинхронні секції обробляються у фоні та показуються коли інформація готова до відображення.
 
-The [`async` section](/sections/async) is used as a placeholder for not yet available asynchronous sections.
+[Cекція `async`](/sections/async) заміняє асинхронні секції, поки вони завантажуються.
 
-### Prompt spacing
+### Відступи командного рядка
 
-Spaceship adds and empty line between each prompt. You can disable this behavior by setting `SPACESHIP_PROMPT_ADD_NEWLINE` to `false`.
+Spaceship додає порожній рядок між запитами. Ви можете вимкнути цю поведінку, змінивши значення опції `SPACESHIP_PROMPT_ADD_NEWLINE` на `false`.
 
-The prompt is also separated by a line break if `SPACESHIP_PROMPT_SEPARATE_LINE` is set to `true`.
+Командний рядок також виділяється новим рядком якщо `SPACESHIP_PROMPT_SEPARATE_LINE` має значення `true`.
 
-### Displaying the first section prefix
+### Відображення префіксу першої секції
 
-Spaceship hides the prefix of the first section in the prompt. You can enable this behavior by setting `SPACESHIP_PROMPT_FIRST_PREFIX_SHOW` to `true`.
+Spaceship приховує префікс першої секції командного рядка. Ви можете увімкнути цю поведінку, встановивши `SPACESHIP_PROMPT_FIRST_PREFIX_SHOW` у `true`.
 
-### Displaying prefixes and suffixes
+### Відображення префіксів та суфіксів
 
-You can disable the displaying of prefixes and suffixes by setting `SPACESHIP_PROMPT_PREFIXES_SHOW` and `SPACESHIP_PROMPT_SUFFIXES_SHOW` to `false`.
+Ви можете вимкнути відображення префіксів та суфіксів, встановивши `SPACESHIP_PROMPT_PREFIXES_SHOW` та `SPACESHIP_PROMPT_SUFFIXES_SHOW` у `false`.
 
-Additionally, you can change the default prefix and suffix by setting `SPACESHIP_PROMPT_DEFAULT_PREFIX` and `SPACESHIP_PROMPT_DEFAULT_SUFFIX`. These options will be used to render prefixes or suffixes unless the corresponding section option is set.
+Додатково ви можете змінити префікс та суфікс за замовчуванням за допомогою опцій `SPACESHIP_PROMPT_DEFAULT_PREFIX` та `SPACESHIP_PROMPT_DEFAULT_SUFFIX`. Ці значення будуть використані для відображення префіксів або суфіксів, якщо не встановлено відповідні опції секції.
