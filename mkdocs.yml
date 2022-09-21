@@ -189,3 +189,27 @@ plugins:
           name: Українська
         zh:
           name: 简体中文
+      nav_translations:
+        de: # TODO: Add German translations
+        pl: # TODO: Add Polish translations
+        uk:
+          Home: Головна
+          Getting Started: Початок роботи
+          Configuration: Конфігурація
+          Introduction: Вступ
+          Prompt configuration: Налаштування командного рядка
+          Loading custom sections: Завантаження власних секцій
+          Built-in Sections: Вбудовані секції
+          Advanced: Розширені можливості
+          Creating a custom section: Створення власної секції
+          Per-directory configuration: Налаштування для кожної директорії
+          API: API
+          Environment: Середовище
+          Sections: Секції
+          General utilities: Загальні утиліти
+          Testing kit: Інструменти тестування
+          Registry: Реєстр
+          FAQ: ЧАПИ
+          Blog: Блог
+          Contribute: Зробити внесок
+        zh: # TODO: Add Chinese translations
