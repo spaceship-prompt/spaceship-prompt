@@ -1,0 +1,24 @@
+name: next
+on:
+  schedule:
+    - cron: '0 12 * * 3' # At 12:00, every Wednesday
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  main:
+    name: Next
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge next -> master
+        uses: devmasx/merge-branch@1.4.0
+        with:
+          type: now
+          from_branch: next
+          target_branch: master
+          github_token: ${{ github.token }}
+
+

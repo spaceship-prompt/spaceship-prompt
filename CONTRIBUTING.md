@@ -41,13 +41,15 @@ When adding a new section to Spaceship, here's a checklist you should follow:
 ## Setup
 
 1. **Fork** this repo (click the _fork_ button)
-2. **Clone** your fork to your working machine (via `git clone`)
-3. **Update submodules** in your fork (via `git submodule update --init --recursive`)
-4. **Make your changes**. Check our [API](https://spaceship-prompt.sh/api) for more information (we suggest you to check out a new branch for changes).
-5. **Test** your code (via `make tests`)
-6. **Add and commit** your contributions
-7. **Push** your changes to your remote fork
-8. **Open a pull-request** to our primary repo
+1. **Clone** your fork to your working machine (via `git clone`)
+1. **Switch to `next` branch** by running `git checkout next`.
+1. **Update submodules** in your fork (via `git submodule update --init --recursive`)
+1. **Make your changes**. Check our [API](https://spaceship-prompt.sh/api) for more information (we suggest you to check out a new branch for changes).
+1. **Test** your code (via `make tests`)
+1. **Add and commit** your contributions
+1. **Push** your changes to your remote fork
+1. **Open a pull-request** to our primary repo and target `next` branch.
+1. **Wait for review**, get your PR reviewed and merged.
 
 ## Testing
 
@@ -85,5 +87,6 @@ A few notes for current and future maintainers of Spaceship:
 - Issues and PRs must be replied in first 24 hours. At least a simple message that we've noticed that issue was reported.
 - Every issue and a PR should have a label.
 - Issues containing questions should be moved to discussions.
+- PRs should be targeted against `next` branch. Periodically, `next` should be merged to `master`, so new changes get released.
 
 _Thanks for reading this contribution guide! Happy hacking!_

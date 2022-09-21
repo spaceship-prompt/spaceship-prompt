@@ -40,7 +40,10 @@ jobs:
   release:
     name: Release
     needs: main
-    if: ${{ github.repository == 'spaceship-prompt/spaceship-prompt' && github.event_name == 'push' }}
+    if: >-
+      ${{ github.repository == 'spaceship-prompt/spaceship-prompt'
+       && github.event_name == 'push'
+       && github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout Repo
