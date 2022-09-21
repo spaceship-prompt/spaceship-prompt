@@ -7,7 +7,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='4.3.2'
+export SPACESHIP_VERSION='4.3.3'
 
 # Determination of Spaceship working directory
 # https://git.io/vdBH7

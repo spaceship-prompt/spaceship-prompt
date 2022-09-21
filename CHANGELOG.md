@@ -1,3 +1,10 @@
+## [4.3.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.3.2...v4.3.3) (2022-09-21)
+
+
+### Bug Fixes
+
+* attempt to fix [#1187](https://github.com/spaceship-prompt/spaceship-prompt/issues/1187) ([9a5d7be](https://github.com/spaceship-prompt/spaceship-prompt/commit/9a5d7beb7dd51b8290b573dbdef4f6ecc908d938))
+
 ## [4.3.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.3.1...v4.3.2) (2022-09-20)
 
 
