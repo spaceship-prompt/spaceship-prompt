@@ -130,6 +130,12 @@ extra:
     - name: English
       lang: en
       link: /en
+    - name: Deutsch
+      lang: de
+      link: /de
+    - name: Polski
+      lang: pl
+      link: /pl
     - name: Українська
       lang: uk
       link: /uk
