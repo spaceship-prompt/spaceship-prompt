@@ -232,3 +232,14 @@ spaceship::datafile() {
   # todo: grep by regexp?
   return 1
 }
+
+# grep with --color=never or not
+# USAGE:
+#   spaceship::grep [options] [pattern] [file ...]
+spaceship::grep() {
+  local GREP_OPTIONS=""
+  if command grep --color=never "" &>/dev/null <<< ""; then
+    GREP_OPTIONS="--color=never"
+  fi
+  command grep $GREP_OPTIONS "$@"
+}
