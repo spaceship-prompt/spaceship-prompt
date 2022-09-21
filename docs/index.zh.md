@@ -9,85 +9,85 @@ hero:
   install_button: 快速上手
   source_button: 源代码
 features:
-  -
+  - 
     title: 清晰而简洁
     image: /assets/images/what-is-needed.svg
     description: 该提示符不臃肿，它只显示当前您需要的内容 (当前目录，git 分支，等等)。
-  -
+  - 
     title: 轻松设定
     image: /assets/images/out-of-the-box.svg
     description: 提示符在安装后即可正常工作，没有任何附加配置。 安装并使用它。
-  -
+  - 
     title: 可配置
     image: /assets/images/configurable.svg
     description: 该提示符是零配置的，但如果需要自定义的话，它将提供一个易于自定义的接口。
 companies:
   title: 每天被惊人的民俗使用
   list:
-    -
+    - 
       name: Wix
       logo: https://cdn.svgporn.com/logos/wix.svg
-    -
+    - 
       name: Google
       logo: https://cdn.svgporn.com/logos/google.svg
-    -
+    - 
       name: Siemens
       logo: https://upload.wikimedia.org/wikipedia/commons/5/5f/Siemens-logo.svg
-    -
+    - 
       name: Microsoft
       logo: https://cdn.svgporn.com/logos/microsoft.svg
-    -
+    - 
       name: Adobe
       logo: https://upload.wikimedia.org/wikipedia/commons/6/6e/Adobe_Corporate_logo.svg
-    -
+    - 
       name: Docker
       logo: https://cdn.svgporn.com/logos/docker.svg
-    -
+    - 
       name: Shopify
       logo: https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg
-    -
+    - 
       name: GitHub
       logo: https://cdn.svgporn.com/logos/github.svg
-    -
+    - 
       name: Red Hat
       logo: https://cdn.svgporn.com/logos/redhat.svg
-    -
+    - 
       name: Amazon Web Services
       logo: https://cdn.svgporn.com/logos/aws.svg
-    -
+    - 
       name: Facebook
       logo: https://cdn.worldvectorlogo.com/logos/facebook-7.svg
-    -
+    - 
       name: npm
       logo: https://cdn.svgporn.com/logos/npm.svg
-    -
+    - 
       name: Unity Technologies
       logo: https://cdn.worldvectorlogo.com/logos/unity-technologies-logo.svg
-    -
+    - 
       name: Angular
       logo: https://cdn.svgporn.com/logos/angular.svg
-    -
+    - 
       name: Mozilla
       logo: https://cdn.svgporn.com/logos/mozilla.svg
-    -
+    - 
       name: Framer
       logo: https://cdn.svgporn.com/logos/framer.svg
-    -
+    - 
       name: Grammarly
       logo: https://cdn.svgporn.com/logos/grammarly.svg
-    -
+    - 
       name: Skyscanner
       logo: https://upload.wikimedia.org/wikipedia/commons/9/94/Skyscanner_Logo_LockupHorizontal_SkyBlue_RGB.svg
-    -
+    - 
       name: Node.js
       logo: https://cdn.svgporn.com/logos/nodejs.svg
-    -
+    - 
       name: Vue Storefront
       logo: https://cdn.worldvectorlogo.com/logos/vue-storefront.svg
-    -
+    - 
       name: Coinbase
       logo: https://cdn.worldvectorlogo.com/logos/coinbase-1.svg
-    -
+    - 
       name: Suse
       logo: https://cdn.svgporn.com/logos/suse.svg
 ---
@@ -127,7 +127,7 @@ Here are some sneak picks of what **Spaceship** can show:
 
 Installing Spaceship is simple and quick. It's configurable and easy to use. It's configurable and easy to use. 它是可配置的，易于使用。
 
-[Installation](/getting-started ""){.md-button} [Configuration](/config/intro ""){.md-button}
+[Installation](/getting-started ""){.md-button.md-button--primary} [Configuration](/config/intro ""){.md-button}
 
 ## 支持
 
