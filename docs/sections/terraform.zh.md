@@ -1,8 +1,8 @@
 # Terraform (`terraform`)
 
-!!! important "This section is rendered asynchronously by default"
+!!! !!! important "This section is rendered asynchronously by default"
 
-!!! info
+!!! !!! info
     [**Terraform**](https://www.terraform.io) is a tool for building, changing, and combining infrastructure safely and efficiently.
 
 The `terraform` section shows Terraform virtual environment.
