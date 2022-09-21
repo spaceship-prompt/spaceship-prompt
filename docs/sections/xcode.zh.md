@@ -1,8 +1,8 @@
 # Xcode `xcode`
 
-!!! important "This section is rendered asynchronously by default"
+!!! !!! important "This section is rendered asynchronously by default"
 
-!!! info
+!!! !!! info
     [**Xcode**](https://developer.apple.com/xcode/) is a development environment for iOS, macOS, watchOS, and tvOS.
 
 The `xcode` section displays the version of the Xcode.
