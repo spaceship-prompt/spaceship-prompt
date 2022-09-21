@@ -37,11 +37,11 @@ oneTimeTearDown() {
 }
 
 tearDown() {
-  unset SPACESHIP_ELM_SHOW
-  unset SPACESHIP_ELM_PREFIX
-  unset SPACESHIP_ELM_SUFFIX
-  unset SPACESHIP_ELM_SYMBOL
-  unset SPACESHIP_ELM_COLOR
+  unset SPACESHIP_BUN_SHOW
+  unset SPACESHIP_BUN_PREFIX
+  unset SPACESHIP_BUN_SUFFIX
+  unset SPACESHIP_BUN_SYMBOL
+  unset SPACESHIP_BUN_COLOR
 }
 
 # ------------------------------------------------------------------------------
@@ -51,20 +51,20 @@ tearDown() {
 test_bun() {
   local no_files_expected=""
   local no_files_actual="$(spaceship::testkit::render_prompt)"
-  assertEquals "should not render without files" "$expected" "$actual"
+  assertEquals "should not render without files" "$no_files_expected" "$no_files_actual"
 
   touch bun.lockb
 
-  local lockb_expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_BUN_COLOR}%}$SPACESHIP_BUN_SYMBOL v0.1.10%{%b%f%}"
+  local lockb_expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_BUN_COLOR}%}${SPACESHIP_BUN_SYMBOL}v0.1.10%{%b%f%}"
   local lockb_actual="$(spaceship::testkit::render_prompt)"
-  assertEquals "should render with bun.lockb" "$expected" "$actual"
+  assertEquals "should render with bun.lockb" "$lockb_expected" "$lockb_actual"
 
   rm bun.lockb
   touch bunfig.toml
 
-  local lockb_expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_BUN_COLOR}$SPACESHIP_BUN_SYMBOL v0.1.10%{%b%f%}"
+  local lockb_expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_BUN_COLOR}%}${SPACESHIP_BUN_SYMBOL}v0.1.10%{%b%f%}"
   local lockb_actual="$(spaceship::testkit::render_prompt)"
-  assertEquals "should render with bunfig.toml" "$expected" "$actual"
+  assertEquals "should render with bunfig.toml" "$lockb_expected" "$lockb_actual"
 }
 
 # ------------------------------------------------------------------------------
