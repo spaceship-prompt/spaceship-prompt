@@ -63,9 +63,6 @@ test_deno_configs() {
   local json_actual="$(spaceship::testkit::render_prompt)"
   assertEquals "should render with deno.json" "$json_expected" "$json_actual"
 
-# %{%B%}via %{%b%}%{%B%F{cyan}%}🦕 v0.25.3%{%b%f%}
-# %{%B%}via %{%b%}%{%B%F{cyan}%}🦕 v1.25.3%{%b%f%}
-
   rm deno.json
   touch deno.jsonc
 

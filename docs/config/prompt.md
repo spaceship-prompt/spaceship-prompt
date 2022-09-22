@@ -46,6 +46,8 @@ SPACESHIP_PROMPT_ORDER=(
   hg            # Mercurial section (hg_branch  + hg_status)
   package       # Package version
   node          # Node.js section
+  bun           # Bun section
+  deno          # Deno section
   ruby          # Ruby section
   python        # Python section
   elm           # Elm section
@@ -58,6 +60,7 @@ SPACESHIP_PROMPT_ORDER=(
   haskell       # Haskell Stack section
   java          # Java section
   julia         # Julia section
+  crystal       # Crystal section
   docker        # Docker section
   aws           # Amazon Web Services section
   gcloud        # Google Cloud Platform section

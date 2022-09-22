@@ -36,6 +36,7 @@ When adding a new section to Spaceship, here's a checklist you should follow:
 - [ ] Add tests for section in `tests` folder.
 - [ ] Add documentation for a section in `docs/sections` folder.
   - [ ] Include a reference for section in `mkdocs.yml` file.
+  - [ ] Include a reference for section in `config/prompt.md` file.
 - [ ] Add a section to the registry in `docs/registry/internal.json`
 
 ## Setup
