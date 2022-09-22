@@ -176,6 +176,12 @@
       "internal": true
     },
     {
+      "name": "crystal",
+      "url": "https://spaceship-prompt.sh/sections/crystal",
+      "description": "The version of the Crystal interpreter.",
+      "internal": true
+    },
+    {
       "name": "kubectl",
       "url": "https://spaceship-prompt.sh/sections/kubectl",
       "description": "The information about Kubernetes cluster.",
