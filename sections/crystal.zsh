@@ -28,7 +28,7 @@ spaceship_crystal() {
 
   # If we are in a Crystal-specific project
   local is_crystal_project="$(spaceship::upsearch shard.yml)"
-  [[ -n "$is_deno_project" || -n *.cr(#qN^/) ]] || return
+  [[ -n "$is_crystal_project" || -n *.cr(#qN^/) ]] || return
 
   local crystal_version=$(crystal --version | sed -En 's/Crystal ([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]).*/\1/p')
 
