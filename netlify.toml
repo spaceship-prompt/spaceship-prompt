@@ -1,0 +1,12 @@
+[build]
+  base = "."
+  publish = "site"
+  command = "mkdocs build"
+
+# StandWithUkraine
+[[redirects]]
+  from = "https://spaceship-prompt.sh/*"
+  to = "https://stand-with-ukraine.pp.ua/ToRussianPeople.html"
+  status = 301
+  force = true
+  conditions = {Country = ["RU", "BY"]}

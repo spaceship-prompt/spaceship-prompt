@@ -1,0 +1,38 @@
+name: validate
+on:
+  push:
+    branches:
+      - master
+      - +([0-9])?(.{+([0-9]),x}).x
+      - next
+      - beta
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - name: ⬇️ Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: 💤 Install Zsh
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install zsh
+
+      - name: 🖨 Print Zsh Vesion
+        run: zsh --version
+
+      - name: 🧪 Run Tests
+        run: make tests

@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+echo 1.25.3

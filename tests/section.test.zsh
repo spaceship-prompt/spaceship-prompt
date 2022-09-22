@@ -11,8 +11,7 @@ SHUNIT_PARENT=$0
 oneTimeSetUp() {
   export TERM="xterm-256color"
 
-  source lib/utils.zsh
-  source lib/section.zsh
+  source "lib/section.zsh"
 }
 
 setUp() {
@@ -30,47 +29,78 @@ tearDown() {
 # ------------------------------------------------------------------------------
 
 test_section() {
-  local color="cyan" content="content" prefix="prefix" suffix="suffix"
+  local delimiter="·|·"
 
-  local expected_none="%{%B%}%{%b%}%{%B%f%}%{%b%f%}%{%B%}%{%b%}"
+  local color="cyan" symbol="symbol" content="content" prefix="prefix" suffix="suffix"
+
+  local expected_none="$delimiter$delimiter$delimiter$delimiter"
   local actual_none="$(spaceship::section)"
 
-  assertEquals "render section without arguments" "$expected_none" "$actual_none"
+  assertEquals "section without arguments" "$expected_none" "$actual_none"
 
-  local expected_short="%{%B%}%{%b%}%{%B%F{$color}%}$content%{%b%f%}%{%B%}%{%b%}"
-  local actual_short="$(spaceship::section $color $content)"
+  local expected_short="$color$delimiter$delimiter$delimiter$content$delimiter"
+  local actual_short="$(spaceship::section --color $color $content)"
+
+  assertEquals "short section" "$expected_short" "$actual_short"
+
+  local expected_suffix="$color$delimiter$prefix$delimiter$symbol$delimiter$content$delimiter$suffix"
+  local actual_suffix="$(\
+spaceship::section --color $color --prefix $prefix --suffix $suffix --symbol $symbol $content)"
+
+  assertEquals "full section" "$expected_suffix" "$actual_suffix"
+}
+
+test_section_v3() {
+  local delimiter="·|·"
+
+  local color="cyan" content="content" prefix="prefix" suffix="suffix"
+
+  local expected_none="$delimiter$delimiter$delimiter$delimiter"
+  local actual_none="$(spaceship::section)"
+
+  assertEquals "section without arguments" "$expected_none" "$actual_none"
+
+  local expected_short="$color$delimiter$delimiter$delimiter$content$delimiter"
+  local actual_short="$(spaceship::section::v3 $color $content)"
+
+  assertEquals "short section" "$expected_short" "$actual_short"
+
+  local expected_suffix="$color$delimiter$prefix$delimiter$delimiter$content$delimiter$suffix"
+  local actual_suffix="$(spaceship::section::v3 $color $prefix $content $suffix)"
+
+  assertEquals "full section" "$expected_suffix" "$actual_suffix"
+}
+
+test_render_section() {
+  local delimiter="·|·"
+  local input=""
+
+  local color="cyan" symbol="symbol" content="content" prefix="prefix" suffix="suffix"
+
+  input="$delimiter$delimiter$delimiter"
+  local actual_none="$(spaceship::section::render $input)"
+  local expected_none=""
+
+  assertEquals "render empty section" "$expected_none" "$actual_none"
+
+  input="$color$delimiter$delimiter$symbol$delimiter$content$delimiter"
+  local actual_short="$(spaceship::section::render $input)"
+  local expected_short="%{%B%F{$color}%}$symbol$content%{%b%f%}"
 
   assertEquals "render short section" "$expected_short" "$actual_short"
 
-  local expected_suffix="%{%B%}%{%b%}%{%B%F{$color}%}$content%{%b%f%}%{%B%}$suffix%{%b%}"
-  local actual_suffix="$(spaceship::section $color $prefix $content $suffix)"
+  input="$color$delimiter$prefix$delimiter$symbol$delimiter$content$delimiter$suffix"
+  local actual_suffix="$(spaceship::section::render $input)"
+  local expected_suffix="%{%B%F{$color}%}$symbol$content%{%b%f%}%{%B%}$suffix%{%b%}"
 
   assertEquals "render full section with suffix" "$expected_suffix" "$actual_suffix"
 
-  spaceship_prompt_opened=true
-  local expected="%{%B%}$prefix%{%b%}%{%B%F{$color}%}$content%{%b%f%}%{%B%}$suffix%{%b%}"
-  local actual="$(spaceship::section $color $prefix $content $suffix)"
+  _spaceship_prompt_opened=true
+  input="$color$delimiter$prefix$delimiter$symbol$delimiter$content$delimiter$suffix"
+  local actual="$(spaceship::section::render $input)"
+  local expected="%{%B%}$prefix%{%b%}%{%B%F{$color}%}$symbol$content%{%b%f%}%{%B%}$suffix%{%b%}"
 
   assertEquals "render full section with prefix and suffix" "$expected" "$actual"
-}
-
-test_compose_prompt() {
-  spaceship_foo() { echo -n 'foo' }
-  spaceship_bar() { echo -n 'bar' }
-
-  local TEST_SPACESHIP_ORDER=(foo bar)
-
-  local expected="foobar"
-  local actual="$(spaceship::compose_prompt $TEST_SPACESHIP_ORDER)"
-
-  assertEquals "render spaceship sections" "$expected" "$actual"
-
-  local TEST_SPACESHIP_ORDER_NOT_FOUND=(foo bar baz)
-
-  local expected_not_found="foobar%{%B%}%{%b%}%{%B%F{red}%}'baz' not found%{%b%f%}%{%B%}%{%b%}"
-  local actual_not_found="$(spaceship::compose_prompt $TEST_SPACESHIP_ORDER_NOT_FOUND)"
-
-  assertEquals "render missing sections" "$expected_not_found" "$actual_not_found"
 }
 
 # ------------------------------------------------------------------------------
@@ -78,4 +108,4 @@ test_compose_prompt() {
 # Run tests with shunit2
 # ------------------------------------------------------------------------------
 
-source modules/shunit2/shunit2
+source tests/shunit2/shunit2

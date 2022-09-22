@@ -9,6 +9,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_JULIA_SHOW="${SPACESHIP_JULIA_SHOW=true}"
+SPACESHIP_JULIA_ASYNC="${SPACESHIP_JULIA_ASYNC=true}"
 SPACESHIP_JULIA_PREFIX="${SPACESHIP_JULIA_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_JULIA_SUFFIX="${SPACESHIP_JULIA_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_JULIA_SYMBOL="${SPACESHIP_JULIA_SYMBOL="ஃ "}"
@@ -23,15 +24,17 @@ spaceship_julia() {
   [[ $SPACESHIP_JULIA_SHOW == false ]] && return
 
   # If there are julia files in current directory
-  [[ -n *.jl(#qN^/) ]] || return
+  local is_julia_project="$(spaceship::upsearch Project.toml JuliaProject.toml Manifest.toml)"
+  [[ -n "$is_julia_project" || -n *.jl(#qN^/) ]] || return
 
   spaceship::exists julia || return
 
-  local julia_version=$(julia --version | grep --color=never -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]')
+  local julia_version=$(julia --version | spaceship::grep -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]')
 
   spaceship::section \
-    "$SPACESHIP_JULIA_COLOR" \
-    "$SPACESHIP_JULIA_PREFIX" \
-    "${SPACESHIP_JULIA_SYMBOL}v${julia_version}" \
-    "$SPACESHIP_JULIA_SUFFIX"
+    --color "$SPACESHIP_JULIA_COLOR" \
+    --prefix "$SPACESHIP_JULIA_PREFIX" \
+    --suffix "$SPACESHIP_JULIA_SUFFIX" \
+    --symbol "$SPACESHIP_JULIA_SYMBOL" \
+    "$julia_version"
 }

@@ -21,8 +21,9 @@ spaceship_exit_code() {
   [[ $SPACESHIP_EXIT_CODE_SHOW == false || $RETVAL == 0 ]] && return
 
   spaceship::section \
-    "$SPACESHIP_EXIT_CODE_COLOR" \
-    "$SPACESHIP_EXIT_CODE_PREFIX" \
-    "${SPACESHIP_EXIT_CODE_SYMBOL}$RETVAL" \
-    "$SPACESHIP_EXIT_CODE_SUFFIX"
+    --color "$SPACESHIP_EXIT_CODE_COLOR" \
+    --prefix "$SPACESHIP_EXIT_CODE_PREFIX" \
+    --suffix "$SPACESHIP_EXIT_CODE_SUFFIX" \
+    --symbol "$SPACESHIP_EXIT_CODE_SYMBOL" \
+    "$RETVAL"
 }

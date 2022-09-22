@@ -13,6 +13,7 @@ SPACESHIP_JOBS_SYMBOL="${SPACESHIP_JOBS_SYMBOL="✦"}"
 SPACESHIP_JOBS_COLOR="${SPACESHIP_JOBS_COLOR="blue"}"
 SPACESHIP_JOBS_AMOUNT_PREFIX="${SPACESHIP_JOBS_AMOUNT_PREFIX=""}"
 SPACESHIP_JOBS_AMOUNT_SUFFIX="${SPACESHIP_JOBS_AMOUNT_SUFFIX=""}"
+SPACESHIP_JOBS_AMOUNT_THRESHOLD="${SPACESHIP_JOBS_AMOUNT_THRESHOLD=1}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -22,19 +23,20 @@ SPACESHIP_JOBS_AMOUNT_SUFFIX="${SPACESHIP_JOBS_AMOUNT_SUFFIX=""}"
 spaceship_jobs() {
   [[ $SPACESHIP_JOBS_SHOW == false ]] && return
 
-  local jobs_amount=$( jobs -d | awk '!/pwd/' | wc -l | tr -d " ")
+  local jobs_amount=${#jobstates}
 
   [[ $jobs_amount -gt 0 ]] || return
 
-  if [[ $jobs_amount -eq 1 ]]; then
+  if [[ $jobs_amount -le $SPACESHIP_JOBS_AMOUNT_THRESHOLD ]]; then
     jobs_amount=''
     SPACESHIP_JOBS_AMOUNT_PREFIX=''
     SPACESHIP_JOBS_AMOUNT_SUFFIX=''
   fi
 
   spaceship::section \
-    "$SPACESHIP_JOBS_COLOR" \
-    "$SPACESHIP_JOBS_PREFIX" \
-    "${SPACESHIP_JOBS_SYMBOL}${SPACESHIP_JOBS_AMOUNT_PREFIX}${jobs_amount}${SPACESHIP_JOBS_AMOUNT_SUFFIX}" \
-    "$SPACESHIP_JOBS_SUFFIX"
+    --color "$SPACESHIP_JOBS_COLOR" \
+    --prefix "$SPACESHIP_JOBS_PREFIX" \
+    --suffix "$SPACESHIP_JOBS_SUFFIX" \
+    --symbol "$SPACESHIP_JOBS_SYMBOL" \
+    "$SPACESHIP_JOBS_AMOUNT_PREFIX$jobs_amount$SPACESHIP_JOBS_AMOUNT_SUFFIX"
 }

@@ -14,6 +14,8 @@ SPACESHIP_DIR_TRUNC="${SPACESHIP_DIR_TRUNC=3}"
 SPACESHIP_DIR_TRUNC_PREFIX="${SPACESHIP_DIR_TRUNC_PREFIX=}"
 SPACESHIP_DIR_TRUNC_REPO="${SPACESHIP_DIR_TRUNC_REPO=true}"
 SPACESHIP_DIR_COLOR="${SPACESHIP_DIR_COLOR="cyan"}"
+SPACESHIP_DIR_LOCK_SYMBOL="${SPACESHIP_DIR_LOCK_SYMBOL=" "}"
+SPACESHIP_DIR_LOCK_COLOR="${SPACESHIP_DIR_LOCK_COLOR="red"}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -27,6 +29,10 @@ spaceship_dir() {
   # Threat repo root as a top-level directory or not
   if [[ $SPACESHIP_DIR_TRUNC_REPO == true ]] && spaceship::is_git; then
     local git_root=$(git rev-parse --show-toplevel)
+
+    if (cygpath --version) >/dev/null 2>/dev/null; then
+      git_root=$(cygpath -u $git_root)
+    fi
 
     # Check if the parent of the $git_root is "/"
     if [[ $git_root:h == / ]]; then
@@ -54,9 +60,15 @@ spaceship_dir() {
     dir="$trunc_prefix%${SPACESHIP_DIR_TRUNC}~"
   fi
 
+  local suffix="$SPACESHIP_DIR_SUFFIX"
+
+  if [[ ! -w . ]]; then
+    suffix="%F{$SPACESHIP_DIR_LOCK_COLOR}${SPACESHIP_DIR_LOCK_SYMBOL}%f${SPACESHIP_DIR_SUFFIX}"
+  fi
+
   spaceship::section \
-    "$SPACESHIP_DIR_COLOR" \
-    "$SPACESHIP_DIR_PREFIX" \
-    "$dir" \
-    "$SPACESHIP_DIR_SUFFIX"
+    --color "$SPACESHIP_DIR_COLOR" \
+    --prefix "$SPACESHIP_DIR_PREFIX" \
+    --suffix "$suffix" \
+    "$dir"
 }
