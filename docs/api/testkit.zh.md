@@ -1,6 +1,6 @@
 # Testing utilities
 
-This set of utilities are aimed to help you to test your custom sections. They are useful to render prompts as string for checking the rendered output.
+This set of utilities are aimed to help you to test your custom sections. They are useful to render prompts as string for checking the rendered output. They are useful to render prompts as string for checking the rendered output.
 
 For example, here's an example of a testing with shunit2:
 
