@@ -20,17 +20,17 @@ If the current directory is write-protected or if the current user doesn't have 
 
 ## Options
 
-| Variable                     |              Default               | Meaning                                                                             |
-|:---------------------------- |:----------------------------------:| ----------------------------------------------------------------------------------- |
-| `SPACESHIP_DIR_SHOW`         |               `true`               | Show section                                                                        |
-| `SPACESHIP_DIR_PREFIX`       |               `in·`                | Section's prefix                                                                    |
-| `SPACESHIP_DIR_SUFFIX`       | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                                                                    |
-| `SPACESHIP_DIR_TRUNC`        |                `3`                 | Number of folders of cwd to show in prompt, 0 to show all                           |
-| `SPACESHIP_DIR_TRUNC_PREFIX` |                 -                  | Prefix before cwd when it's truncated. For example `…/` or `.../`, empty to disable |
-| `SPACESHIP_DIR_TRUNC_REPO`   |               `true`               | While in `git` repo, show only root directory and folders inside it                 |
-| `SPACESHIP_DIR_COLOR`        |               `cyan`               | Section's color                                                                     |
-| `SPACESHIP_DIR_LOCK_SYMBOL`  |              ![·][1]              | The symbol displayed if directory is write-protected                                |
-| `SPACESHIP_DIR_LOCK_COLOR`   |               `red`                | Color for the lock symbol                                                           |
+| Variable                     |              Default               | Meaning                                                                                                                          |
+|:---------------------------- |:----------------------------------:| -------------------------------------------------------------------------------------------------------------------------------- |
+| `SPACESHIP_DIR_SHOW`         |               `true`               | Show section                                                                                                                     |
+| `SPACESHIP_DIR_PREFIX`       |               `in·`                | Section's prefix                                                                                                                 |
+| `SPACESHIP_DIR_SUFFIX`       | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                                                                                                                 |
+| `SPACESHIP_DIR_TRUNC`        |                `3`                 | Number of folders of cwd to show in prompt, 0 to show all                                                                        |
+| `SPACESHIP_DIR_TRUNC_PREFIX` |                 -                  | Prefix before cwd when it's truncated. For example `…/` or `.../`, empty to disable For example `…/` or `.../`, empty to disable |
+| `SPACESHIP_DIR_TRUNC_REPO`   |               `true`               | While in `git` repo, show only root directory and folders inside it                                                              |
+| `SPACESHIP_DIR_COLOR`        |               `cyan`               | Section's color                                                                                                                  |
+| `SPACESHIP_DIR_LOCK_SYMBOL`  |              ![·][1]              | The symbol displayed if directory is write-protected                                                                             |
+| `SPACESHIP_DIR_LOCK_COLOR`   |               `red`                | Color for the lock symbol                                                                                                        |
 
 <!-- References -->
 
