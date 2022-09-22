@@ -30,7 +30,7 @@ spaceship_crystal() {
   local is_crystal_project="$(spaceship::upsearch shard.yml)"
   [[ -n "$is_crystal_project" || -n *.cr(#qN^/) ]] || return
 
-  local crystal_version=$(crystal --version | sed -En 's/Crystal ([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]).*/\1/p')
+  local crystal_version=$(crystal --version | awk '/Crystal*/ {print $2}')
 
   spaceship::section \
     --color "$SPACESHIP_CRYSTAL_COLOR" \
