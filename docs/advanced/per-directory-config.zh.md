@@ -1,12 +1,12 @@
 # Per-directory configuration
 
-Many users asked us how to change Spaceship options only for a specific directory. There are plenty solutions for this. We will show how to do that with a tool called `direnv`.
+Many users asked us how to change Spaceship options only for a specific directory. There are plenty solutions for this. We will show how to do that with a tool called `direnv`. There are plenty solutions for this. We will show how to do that with a tool called `direnv`.
 
-`direnv` is a tool that allows you to manage environment variables for a directory. It is a simple wrapper around `.envrc` files. It can load and unload variables defined in `.envrc` based on current directory. It also works not only with Zsh, but with other popular shells.
+`direnv` is a tool that allows you to manage environment variables for a directory. It is a simple wrapper around `.envrc` files. `direnv` is a tool that allows you to manage environment variables for a directory. It is a simple wrapper around `.envrc` files. It can load and unload variables defined in `.envrc` based on current directory. It also works not only with Zsh, but with other popular shells. It also works not only with Zsh, but with other popular shells.
 
 ## Installing `direnv`
 
-Install `direnv` with the package manager of your choice. Or use a script to install a binary build of `direnv`.
+Install `direnv` with the package manager of your choice. Or use a script to install a binary build of `direnv`. Or use a script to install a binary build of `direnv`.
 
 [Installation guide](https://github.com/direnv/direnv/blob/master/docs/installation.md ""){.md-button}
 
@@ -42,7 +42,7 @@ Here is a live example of how `direnv` works:
 
 ## Alternatives to `direnv`
 
-Besides `direnv` there are many other tools that allow you to manage environment variables for a directory. Here's a list of the most popular of them:
+Besides `direnv` there are many other tools that allow you to manage environment variables for a directory. Here's a list of the most popular of them: Here's a list of the most popular of them:
 
 * [zsh-autoenv](https://github.com/Tarrasch/zsh-autoenv)
 * [asdf-direnv](https://github.com/asdf-community/asdf-direnv)
