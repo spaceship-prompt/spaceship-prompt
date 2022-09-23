@@ -1,3 +1,17 @@
+# [4.5.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.4.0...v4.5.0) (2022-09-23)
+
+
+### Bug Fixes
+
+* **crystal:** Include Crystal in order ([d215797](https://github.com/spaceship-prompt/spaceship-prompt/commit/d215797efc63e081cc6516aac6974a1ece6b255a))
+* fix grep unknown option: --color ([#1206](https://github.com/spaceship-prompt/spaceship-prompt/issues/1206)) ([8a16414](https://github.com/spaceship-prompt/spaceship-prompt/commit/8a16414d78a41e0e11574c55e323bef09835a77b)), closes [#1066](https://github.com/spaceship-prompt/spaceship-prompt/issues/1066)
+
+
+### Features
+
+* **crystal:** Add Crystal section for 4.x ([c72c6c9](https://github.com/spaceship-prompt/spaceship-prompt/commit/c72c6c94f74b0ab1e110c775cfb8ec655b90da0e))
+* **deno:** Add Deno section ([c43f8c5](https://github.com/spaceship-prompt/spaceship-prompt/commit/c43f8c5e4e3886f0ba612c1b347591bcc2b00880))
+
 ## [4.4.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.4.0...v4.4.1) (2022-09-21)
 
 
