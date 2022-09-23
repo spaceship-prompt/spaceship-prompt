@@ -1,6 +1,6 @@
 # Git `git`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! important "This section is rendered asynchronously by default"
 
 The `git` section consists of [`git_branch`](#git-branch-git_branch) and [`git_status`](#git-status-git_status) subsections.
 
