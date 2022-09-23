@@ -1,9 +1,9 @@
 # Python `python`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! important "This section is rendered asynchronously by default"
 
-!!! !!! info
-    [**Python**](https://www.python.org) is a high-level, interpreted, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation. Its design philosophy emphasizes code readability with the use of significant indentation.
+!!! info
+    [**Python**](https://www.python.org) is a high-level, interpreted, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation.
 
 The `python` section displays the version of the Python.
 
