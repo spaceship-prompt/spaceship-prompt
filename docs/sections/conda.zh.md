@@ -1,15 +1,15 @@
 # Conda virtualenv `conda`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! important "This section is rendered asynchronously by default"
 
-!!! !!! info
+!!! info
     [**Conda**](https://conda.io) is an open-source package management system and environment management system for various languages, like Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, Fortran, and more.
 
 The `conda` section shows Conda virtual environment.
 
 This section is only displayed when you have a `conda` command available in your path and a `CONDA_DEFAULT_ENV` environment variable is not empty.
 
-!!! !!! tip
+!!! tip
     Disable the native conda prompt by executing `conda config --set changeps1 False`.
 
 ## Options
