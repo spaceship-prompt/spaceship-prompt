@@ -16,9 +16,9 @@ The `package` section shows when the current directory is a package.
 
 Currently, these package managers are supported:
 
-* [`npm`][npm] — version form `package.json` file. Private packages are detected. Private packages are detected.
+* [`npm`][npm] — version form `package.json` file. Private packages are detected.
 * [`lerna`][lerna] — version from `lerna.json` file.
-* [`cargo`][cargo] — version from `Cargo.toml` file. `cargo pkgid` is used to detect the version, which depends on `Cargo.lock`. Run `cargo build` to generate `Cargo.lock` if version is not shown. `cargo pkgid` is used to detect the version, which depends on `Cargo.lock`. Run `cargo build` to generate `Cargo.lock` if version is not shown.
+* [`cargo`][cargo] — version from `Cargo.toml` file. `cargo pkgid` is used to detect the version, which depends on `Cargo.lock`. Run `cargo build` to generate `Cargo.lock` if version is not shown.
 * [`composer`][composer] — version from `composer.json` file.
 * [`julia`][julia] — version from `Project.toml` file.
 * [`maven`][maven] — version from `mvn` command.
