@@ -17,7 +17,7 @@ This section is displayed only when the current directory is within a Node.js pr
 
 If you want to avoid showing the Node.js section for a specific Node.js version (for example system installed version), use the `SPACESHIP_NODE_DEFAULT_VERSION` environment variable. The section will be hidden if the current version of the Node.js is equal to the one specified in the variable.
 
-```zsh title=".zshrc"
+```zsh title=".spaceshiprc.zsh"
 SPACESHIP_NODE_DEFAULT_VERSION="18.0.0"
 ```
 
