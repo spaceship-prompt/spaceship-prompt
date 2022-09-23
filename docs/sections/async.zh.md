@@ -1,8 +1,8 @@
 # Async `async`
 
-The `async` section is used as a placeholder for sections that are not yet rendered. This section is displayed only when there are still sections to be rendered. This section is displayed only when there are still sections to be rendered.
+The `async` section is used as a placeholder for sections that are not yet rendered. This section is displayed only when there are still sections to be rendered.
 
-By default, Spaceship works asynchronously. By default, Spaceship works asynchronously. It displays the prompt immediately while checking the environment, then it updates the prompt with new information.
+By default, Spaceship works asynchronously. It displays the prompt immediately while checking the environment, then it updates the prompt with new information.
 
 Optionally, you can enable displaying the number of sections that are being processed via the `SPACESHIP_ASYNC_SHOW_COUNT` environment variable:
 
