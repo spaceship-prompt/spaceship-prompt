@@ -1,8 +1,8 @@
 # Julia `julia`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! important "This section is rendered asynchronously by default"
 
-!!! !!! info
+!!! info
     [**Julia**](https://julialang.org) is a high-level, high-performance dynamic programming language for numerical computing.
 
 The `julia` section displays the version of the Julia compiler.
