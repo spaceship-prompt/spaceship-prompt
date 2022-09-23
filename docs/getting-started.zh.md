@@ -197,6 +197,6 @@ Additionally, join our community or consider contributing to the project.
 
 ## 遇到问题？
 
-Find answers on our troubleshooting page or get help by our community. 仍然困惑？ 仍然困惑？ Please, *file an issue*, describe your problem, and we will gladly help you.
+Find answers on our troubleshooting page or get help by our community. 仍然困惑？ Please, *file an issue*, describe your problem, and we will gladly help you.
 
 [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button} [:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/ ""){.md-button} [:fontawesome-brands-github: Issues](https://github.com/spaceship-prompt/spaceship-prompt/issues ""){.md-button}
