@@ -8,21 +8,21 @@ Here are recommendations to follow when creating a section to maintain Spaceship
 
 ### Section should not clutter the prompt
 
-Having too much in prompt looks ugly. It's better to keep it to a minimum of necessary information. It's better to keep it to a minimum of necessary information.
+Having too much in prompt looks ugly. It's better to keep it to a minimum of necessary information.
 
 * **Good:** `🚀 v1.2.3`
 * **Bad:** `🚀 spasheship#c3BhY2VzaGlw`
 
 ### Section should be worth to be aware of
 
-Is value changes quite often, so it needs to be shown in prompt? Would it be useful for other users? Maybe there's a reason to execute a command instead of cluttering prompt. Would it be useful for other users? Maybe there's a reason to execute a command instead of cluttering prompt.
+Is value changes quite often, so it needs to be shown in prompt? Would it be useful for other users? Maybe there's a reason to execute a command instead of cluttering prompt.
 
 * **Good:** git status/branch, runtime version via version manager, etc
 * **Bad:** version of language-specific framework, settled projects versions, etc
 
 ### Section should be fast
 
-If your section performs any heavy checking, find a way to make it faster. Use async rendering for performing heavy tasks. Section should be: Use async rendering for performing heavy tasks. Section should be:
+If your section performs any heavy checking, find a way to make it faster. Use async rendering for performing heavy tasks. Section should be:
 
 * **Async:** if it executes external commands, perform complex calculations, reading large files
 * **Sync:** if it checks command availability, checks the value of environment variable
@@ -50,19 +50,19 @@ The simplest way to create a section is to use a template repo for Spaceship sec
 
 [:fontawesome-brands-github: Use a section template](https://github.com/spaceship-prompt/spaceship-section ""){.md-button}
 
-This boilerplate repo contains a template for a section and its documentation, has configured release and testing workflow. Explore the repo to learn more. Explore the repo to learn more.
+This boilerplate repo contains a template for a section and its documentation, has configured release and testing workflow. Explore the repo to learn more.
 
 Open a [`spaceship-section.plugin.zsh` file](https://github.com/spaceship-prompt/spaceship-section/blob/main/spaceship-section.plugin.zsh) for a custom section example.
 
 ## Typical section breakdown
 
-Below is an example of a typical section for Spaceship. Pay attention to a few crucial moments: Pay attention to a few crucial moments:
+Below is an example of a typical section for Spaceship. Pay attention to a few crucial moments:
 
-- Define options for customization. Define options for customization. Their names should start with `SPACESHIP_`.
-- Every Spaceship section name should start with `spaceship_` (for example `spaceship_node`). This is a convention that is used to identify the section. This is a convention that is used to identify the section.
+- Define options for customization. Their names should start with `SPACESHIP_`.
+- Every Spaceship section name should start with `spaceship_` (for example `spaceship_node`). This is a convention that is used to identify the section.
 - Show section only where it's needed (in directories which contains specific files, when a specific command is available, etc).
 
-Sections are defined by [`spaceship::section` API](/api/section/). Sections are defined by [`spaceship::section` API](/api/section/). You can use [general purpose utilities](/api/utils/) for performing common tasks in a section.
+Sections are defined by [`spaceship::section` API](/api/section/). You can use [general purpose utilities](/api/utils/) for performing common tasks in a section.
 
 Typical section might look like this:
 
