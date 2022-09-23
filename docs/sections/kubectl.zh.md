@@ -1,11 +1,11 @@
 # Kubernetes `kubectl`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! important "This section is rendered asynchronously by default"
 
-!!! !!! info
+!!! info
     [**Kubernetes**](https://kubernetes.io) is an open-source container orchestration system for automating software deployment, scaling, and management.
 
-The `kubectl` section consists of [`kubectl_version`](#kubernetes-version-kubectl_version) and [`kubectl_context`](#kubernetes-context-kubectl_context) subsections. It is shown only when `kubectl` can connect to Kubernetes cluster. It is shown only when `kubectl` can connect to Kubernetes cluster.
+The `kubectl` section consists of [`kubectl_version`](#kubernetes-version-kubectl_version) and [`kubectl_context`](#kubernetes-context-kubectl_context) subsections. It is shown only when `kubectl` can connect to Kubernetes cluster.
 
 ## Options
 
@@ -20,7 +20,7 @@ The `kubectl` section consists of [`kubectl_version`](#kubernetes-version-kubect
 
 ## Kubernetes version `kubectl_version`
 
-The `kubectl_version` section shows the version of the Kubernetes. The `kubectl_version` section shows the version of the Kubernetes. It is shown only when `kubectl` binary is available.
+The `kubectl_version` section shows the version of the Kubernetes. It is shown only when `kubectl` binary is available.
 
 ### Options
 
@@ -36,7 +36,7 @@ The `kubectl_version` section shows the version of the Kubernetes. The `kubectl_
 
 The `kubectl_context` section shows an active Kubernetes context, which consists of a cluster name and a namespace name (when working in a non-default namespace).
 
-!!! !!! tip
+!!! tip
     If your cluster name (and thus context name) is too long, you can give it a shorter name using:
 
     ```zsh
@@ -45,7 +45,7 @@ The `kubectl_context` section shows an active Kubernetes context, which consists
 
 ### Defining color base on current context or namespace
 
-To set the section to a different color based on context or namespace, you can define an array of pair values in which the first value of a pair is a color name to use and the second value is a regular expression pattern to match against the section text (context name and/or namespace). The first matched pattern will determine the color, so list order can be used to prioritize patterns. The first matched pattern will determine the color, so list order can be used to prioritize patterns.
+To set the section to a different color based on context or namespace, you can define an array of pair values in which the first value of a pair is a color name to use and the second value is a regular expression pattern to match against the section text (context name and/or namespace). The first matched pattern will determine the color, so list order can be used to prioritize patterns.
 
 Here is an example:
 
