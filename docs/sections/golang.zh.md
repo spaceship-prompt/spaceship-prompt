@@ -1,8 +1,8 @@
 # Go `golang`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! important "This section is rendered asynchronously by default"
 
-!!! !!! info
+!!! info
     [**Go**](https://go.dev) is a programming language that makes it easy to build simple, reliable, and efficient software.
 
 The `golang` section displays the version of the Go.
@@ -15,7 +15,7 @@ This section is displayed only when the current directory is within a Go project
 
 ## Using development versions of Go
 
-If you are using a development version of `Go`, the version uses git commit hash instead. For example: For example:
+If you are using a development version of `Go`, the version uses git commit hash instead. For example:
 
 * `devel:5efe9a8f11` for development version
 * `v1.11.4` for the release version
