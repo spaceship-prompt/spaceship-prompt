@@ -46,7 +46,7 @@ spaceship_firebase() {
 
     spaceship::section \
       --color "$SPACESHIP_FIREBASE_COLOR" \
-      "$SPACESHIP_FIREBASE_PREFIX" \
+      --prefix "$SPACESHIP_FIREBASE_PREFIX" \
       "${SPACESHIP_FIREBASE_SYMBOL}${current_project}"
   fi
 }
