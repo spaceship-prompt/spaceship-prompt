@@ -4,7 +4,7 @@ The `line_sep` section is used as a line break for the prompt.
 
 ## Adding more line breaks to the prompts
 
-You can add more line breaks to the prompt by adding more `line_sep` sections where you want. You can use `spaceship add` command for that: You can use `spaceship add` command for that:
+You can add more line breaks to the prompt by adding more `line_sep` sections where you want. You can use `spaceship add` command for that:
 
 ```zsh title=".zshrc"
 # Adds a line break after the git section
