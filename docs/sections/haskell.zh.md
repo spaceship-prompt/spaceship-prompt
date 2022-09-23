@@ -1,8 +1,8 @@
 # Haskell `haskell`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! important "This section is rendered asynchronously by default"
 
-!!! !!! info
+!!! info
     [**Haskell**](https://www.haskell.org) is a general-purpose purely functional programming language, with non-strict semantics.
 
 The `haskell` section displays the version of the Haskell compiler.
