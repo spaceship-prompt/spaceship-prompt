@@ -123,7 +123,7 @@ Here are some sneak picks of what **Spaceship** can show:
 
 需要更多功能？ 请 [提出 issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose)，描述你的问题，我们将乐意帮助你。
 
-## Getting Started
+## 快速上手
 
 Installing Spaceship is simple and quick. It's configurable and easy to use. It's configurable and easy to use. 它是可配置的，易于使用。
 
