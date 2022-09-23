@@ -102,6 +102,7 @@ SPACESHIP_PROMPT_DEFAULT_SUFFIX="${SPACESHIP_PROMPT_DEFAULT_SUFFIX=" "}"
 SPACESHIP_LIBS=(
   "lib/utils.zsh"   # General porpuse utils
   "lib/cache.zsh"   # Cache utils
+  "lib/worker.zsh"  # Async worker
   "lib/hooks.zsh"   # Zsh hooks
   "lib/section.zsh" # Section utils
   "lib/core.zsh"    # Core functions for loading and rendering
