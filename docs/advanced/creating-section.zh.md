@@ -29,7 +29,7 @@ If your section performs any heavy checking, find a way to make it faster. Use a
 
 ### Follow naming convention for options
 
-All options of prompt follow a specific pattern so that it is easy to remember: `SPACESHIP_SECTION_<OPTION>[_PROPERTY]`. The rule is simple: when naming new properties, keep unique parts of the name to the end. The rule is simple: when naming new properties, keep unique parts of the name to the end.
+All options of prompt follow a specific pattern so that it is easy to remember: `SPACESHIP_SECTION_<OPTION>[_PROPERTY]`. The rule is simple: when naming new properties, keep unique parts of the name to the end.
 
 * **Good:**
   ```
