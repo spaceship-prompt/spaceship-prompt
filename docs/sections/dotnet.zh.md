@@ -1,8 +1,8 @@
 # .NET `dotnet`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! important "This section is rendered asynchronously by default"
 
-!!! !!! info
+!!! info
     [**.NET**](https://dotnet.microsoft.com/) is a framework including a large class library for building various applications with languages like C#, F#, or Visual Basic.
 
 The `dotnet` section displays the version of the .NET framework installed on the system.
