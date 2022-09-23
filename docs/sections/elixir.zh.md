@@ -1,8 +1,8 @@
 # Elixir `elixir`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! important "This section is rendered asynchronously by default"
 
-!!! !!! info
+!!! info
     [**Elixir**](https://elixir-lang.org) is a dynamic, functional language for building scalable and maintainable applications.
 
 The `elixir` section displays the version of the Elixir.
@@ -14,7 +14,7 @@ This section is displayed only when the current directory:
 
 ## Setting the default Elixir version
 
-If you want to avoid showing the Elixir section for a specific Elixir version (for example system installed version), use the `SPACESHIP_ELIXIR_DEFAULT_VERSION` environment variable. The section will be hidden if the current version of the Elixir is equal to the one specified in the variable. The section will be hidden if the current version of the Elixir is equal to the one specified in the variable.
+If you want to avoid showing the Elixir section for a specific Elixir version (for example system installed version), use the `SPACESHIP_ELIXIR_DEFAULT_VERSION` environment variable. The section will be hidden if the current version of the Elixir is equal to the one specified in the variable.
 
 ```zsh title=".zshrc"
 SPACESHIP_ELIXIR_DEFAULT_VERSION="1.13.4"
