@@ -45,7 +45,7 @@ spaceship_firebase() {
     current_project=$(echo $current_project | awk '{gsub(/[\"]/, "", $1)} {print $1" "}')
 
     spaceship::section \
-      "$SPACESHIP_FIREBASE_COLOR" \
+      --color "$SPACESHIP_FIREBASE_COLOR" \
       "$SPACESHIP_FIREBASE_PREFIX" \
       "${SPACESHIP_FIREBASE_SYMBOL}${current_project}"
   fi
