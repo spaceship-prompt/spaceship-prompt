@@ -4,13 +4,13 @@ Thanks for visiting this page! It truly means a lot to creators of Spaceship. He
 
 ## Coding
 
-We are always glad to see contributors of **all skill levels**! Any help is respected and appreciated. We are always glad to see contributors of **all skill levels**! Any help is respected and appreciated. If you're looking for an easy way into the project, take one of the issues with **good first issue** label.
+We are always glad to see contributors of **all skill levels**! Any help is respected and appreciated. If you're looking for an easy way into the project, take one of the issues with **good first issue** label.
 
 [Good First Issues](https://github.com/spaceship-prompt/spaceship-prompt/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22 ""){.md-button} [Contributing Guide](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/CONTRIBUTING.md ""){.md-button}
 
 ## Donating
 
-If you really enjoy this project, you can contribute financially. Any contribution is highly appreciated, even the smallest one. There are several ways to donate: Any contribution is highly appreciated, even the smallest one. There are several ways to donate:
+If you really enjoy this project, you can contribute financially. Any contribution is highly appreciated, even the smallest one. There are several ways to donate:
 
 **Recurring donations:**
 
@@ -27,7 +27,7 @@ If you really enjoy this project, you can contribute financially. Any contributi
 
 ## Translating
 
-If you are fluent in any other language besides English, we greatly appreciate any help with translating our documentation in other languages. If you are fluent in any other language besides English, we greatly appreciate any help with translating our documentation in other languages. If you would like to help, join the team of translators on our Crowdin:
+If you are fluent in any other language besides English, we greatly appreciate any help with translating our documentation in other languages. If you would like to help, join the team of translators on our Crowdin:
 
 [:material-translate: Help Translating](https://translate.spaceship-prompt.sh/ ""){.md-button}
 
