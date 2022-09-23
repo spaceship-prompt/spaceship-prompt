@@ -1,6 +1,6 @@
 # Execution time `exec_time`
 
-The `exec_time` section displays the execution time of the last command. Will be displayed if it exceeds the set threshold of time (2 seconds by default). Will be displayed if it exceeds the set threshold of time (2 seconds by default).
+The `exec_time` section displays the execution time of the last command. Will be displayed if it exceeds the set threshold of time (2 seconds by default).
 
 ## Defining the threshold
 
@@ -13,7 +13,7 @@ SPACESHIP_EXEC_TIME_ELAPSED=5
 
 ## Defining precision
 
-By default time precision is set to 1 digit after the decimal point. By default time precision is set to 1 digit after the decimal point. You can change it using the `SPACESHIP_EXEC_TIME_PRECISION` option.
+By default time precision is set to 1 digit after the decimal point. You can change it using the `SPACESHIP_EXEC_TIME_PRECISION` option.
 
 ```zsh title=".zshrc"
 # This sents precision to 2 digits
