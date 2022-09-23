@@ -1,8 +1,8 @@
 # Java `java`
 
-!!! !!! important "This section is rendered asynchronously by default"
+!!! important "This section is rendered asynchronously by default"
 
-!!! !!! info
+!!! info
     [**Java**](https://www.java.com) is a class-based, object-oriented programming language
 
 The `java` section is shown the current version of the Java compiler.
