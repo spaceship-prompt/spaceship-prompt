@@ -92,7 +92,7 @@ Before we begin, let's make sure you have the following installed:
 
 
     This command will download Spaceship. It will also ask you to source Spaceship in your `~/.zshrc` file.
-
+    
     !!! tip
         Update Spaceship to new versions as you would any other package.
 

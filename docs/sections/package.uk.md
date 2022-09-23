@@ -21,6 +21,8 @@ The `package` section shows when the current directory is a package.
 * [`cargo`][cargo] — version from `Cargo.toml` file. `cargo pkgid` is used to detect the version, which depends on `Cargo.lock`. Run `cargo build` to generate `Cargo.lock` if version is not shown.
 * [`composer`][composer] — version from `composer.json` file.
 * [`julia`][julia] — version from `Project.toml` file.
+* [`maven`][maven] — version from `mvn` command.
+* [`gradle`][gradle] — version from `gradle` command.
 
 ## Опції
 
@@ -40,3 +42,5 @@ The `package` section shows when the current directory is a package.
 [cargo]: https://crates.io
 [composer]: https://getcomposer.org
 [julia]: https://julialang.org
+[maven]: https://maven.apache.org
+[gradle]: https://gradle.org

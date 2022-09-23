@@ -92,8 +92,8 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
 
 
     This command will download Spaceship. It will also ask you to source Spaceship in your `~/.zshrc` file.
-
-    !!! tip
+    
+    !!! !!! tip
         Update Spaceship to new versions as you would any other package.
 
 === "prezto"

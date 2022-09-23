@@ -1,29 +1,29 @@
-# Loading custom sections
+# Завантаження власних секцій
 
-Though Spaceship has multiple sections for various use-cases, sometimes you may need to install a custom one: for a specific tool or something that you use personally.
+Хоча Spaceship пропонує чисельні вбудовані секції для різноманітних випадків, іноді вам може бути потрібно встановити щось інше: для специфічного інструменту або чогось персонального.
 
-You can create your own section using [sections API](/api/section) or use existing one from [the Registry](/registry):
+Ви можете створити власні секції за допомогою [API секцій](/api/section), або використати існуючу з [Реєстру](/registry):
 
-[Browse Registry](/registry ""){.md-button} [Create a custom section](/advanced/creating-section ""){.md-button}
+[Подивитись Реєстр](/registry ""){.md-button} [Створити власну секцію](/advanced/creating-section ""){.md-button}
 
-## How to install a section
+## Як встановити секцію
 
-It better to follow the installation instructions provided by the section author.
+Найкращій спосіб – слідувати інструкціям, наданим автором секції.
 
-Most of the time, it's enough to just clone the repository locally (for example to `~/.config/spaceship`) and source the section somewhere in [Spaceship config](/config/intro/#create-a-config-file) or directly in `~/.zshrc`.
+В більшості випадків буде достатньо клонувати репозиторій локально (наприклад у `~/.config/spaceship`) та завантажити секцію десь у [конфігурації Spaceship](/config/intro/#create-a-config-file) або напряму в `~/.zshrc`.
 
-## How to add a section to the prompt
+## Як додати секцію в командний рядок
 
-Spaceship CLI provides a command to add a section to the prompt:
+Spaceship CLI має команду для додавання секції в командний рядок:
 
 ```zsh
 spaceship add <section>
 ```
 
-For example, for `ember` section you can use:
+Наприклад, для секції `ember` треба використати:
 
 ```zsh
 spaceship add ember
 ```
 
-You need to add this line somewhere in `~/.zshrc`.
+Вам потрібно додати цей рядок в `~/.zshrc`.
