@@ -36,15 +36,11 @@ jobs:
 
       - name: 🧪 Run Tests
         run: make tests
-
   check:  # This job does nothing and is only used for the branch protection
     if: always()
-
     needs:
       - tests
-
     runs-on: ubuntu-latest
-
     steps:
       - name: Decide whether the needed jobs succeeded or failed
         uses: re-actors/alls-green@release/v1
