@@ -1,6 +1,6 @@
 # 常见问题
 
-This page aimed to help you fix the common problems encountered with Spaceship.
+此页面旨在帮助您修复在使用 Spaceship 时遇到的常见问题。
 
 If you struggle with something, feel free to ask a question on our Discord server or on the GitHub Discussions forum:
 
