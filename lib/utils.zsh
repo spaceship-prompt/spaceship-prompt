@@ -155,11 +155,13 @@ spaceship::upsearch() {
           echo "$filepath"
         fi
         return 0
-      elif [[ -d "$root/.git" || -d "$root/.hg" ]]; then
-        # If we reached the root of repo, return non-zero
-        return 1
       fi
     done
+
+    if [[ -d "$root/.git" || -d "$root/.hg" ]]; then
+      # If we reached the root of repo, return non-zero
+      return 1
+    fi
 
     # Go one level up
     root="${root%/*}"
