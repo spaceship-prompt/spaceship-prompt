@@ -2,7 +2,7 @@
 
 此页面旨在帮助您修复在使用 Spaceship 时遇到的常见问题。
 
-If you struggle with something, feel free to ask a question on our Discord server or on the GitHub Discussions forum:
+如果你被某些问题困住，请随时在我们的 Discord 服务或 GitHub 论坛上提问：
 
 [:fontawesome-brands-discord: Discord][discord]{ .md-button }
 [:fontawesome-brands-github: Discussions][discussions]{ .md-button }
@@ -20,11 +20,11 @@ If you struggle with something, feel free to ask a question on our Discord serve
 
 预览显示 `Spaceship` 提示符设置为：
 
-- **Terminal**
+- **终端**
     - [ iTerm2 ](https://iterm2.com/)作为终端仿真器。
-    - [One Dark](https://www.npmjs.com/package/hyperterm-atom-dark) color theme.
-    - [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads) with ligatures as primary font (16px size).
-- **Shell configuration**
+    - [One Dark](https://www.npmjs.com/package/hyperterm-atom-dark) 颜色主题。
+    - 使用连字的 [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads) 作为主字体 (16px size).
+- **Shell 配置**
     - [denysdovhan's Dotfiles](https://github.com/denysdovhan/dotfiles)
     - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) 让命令颜色化。
     - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) 类似浏览器的自动补全。
@@ -33,9 +33,9 @@ If you struggle with something, feel free to ask a question on our Discord serve
 
 ## 如何实现示例图中自动补全的功能？
 
-Use [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) to get browser-like command completions based on history and completions.
+使用 [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) 获取基于历史记录和补全的类似浏览器的命令补全。
 
-## What's the weird symbol before the `git` branch?
+## `git` 分支前的乱码是什么?
 
 您需要有一个powerline的补丁字体才能正确显示 `git` 分支符号。
 
