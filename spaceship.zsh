@@ -119,7 +119,7 @@ for lib in "${SPACESHIP_LIBS[@]}"; do
 done
 
 # Load and precompile this file
-spaceship::precompile "$0"
+spaceship::precompile "$SPACESHIP_ROOT/$0"
 
 # ------------------------------------------------------------------------------
 # BACKWARD COMPATIBILITY WARNINGS
