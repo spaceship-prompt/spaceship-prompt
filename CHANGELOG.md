@@ -1,3 +1,12 @@
+## [4.5.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.5.0...v4.5.1) (2022-09-30)
+
+
+### Bug Fixes
+
+* **kubectl:** Avoids checking kubectl server version if no context is loaded, stopping potential hangs ([#1246](https://github.com/spaceship-prompt/spaceship-prompt/issues/1246)) ([44819b0](https://github.com/spaceship-prompt/spaceship-prompt/commit/44819b09c3017d0fb42bc22bdcbd05f847b2d915))
+* prepend spaceship root folder to spaceship precompile path ([#1244](https://github.com/spaceship-prompt/spaceship-prompt/issues/1244)) ([6c4623f](https://github.com/spaceship-prompt/spaceship-prompt/commit/6c4623fe9f31ac7b16fb7ebeffaa23b123220ef9))
+* upsearch was exiting when the first file is not found ([#1239](https://github.com/spaceship-prompt/spaceship-prompt/issues/1239)) ([dcfd690](https://github.com/spaceship-prompt/spaceship-prompt/commit/dcfd690f7b7607d05d160b084eb193460e9edf81))
+
 # [4.5.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.4.0...v4.5.0) (2022-09-23)
 
 
