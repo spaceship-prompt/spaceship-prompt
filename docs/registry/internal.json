@@ -164,6 +164,12 @@
       "internal": true
     },
     {
+      "name": "flutter",
+      "url": "https://spaceship-prompt.sh/sections/flutter",
+      "description": "The current version and channel of the Flutter framework.",
+      "internal": true
+    },
+    {
       "name": "jobs",
       "url": "https://spaceship-prompt.sh/sections/jobs",
       "description": "An indicator for jobs running in the background.",
