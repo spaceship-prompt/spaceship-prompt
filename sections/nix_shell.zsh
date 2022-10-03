@@ -24,11 +24,17 @@ spaceship_nixshell() {
 
   [[ -z $IN_NIX_SHELL ]] && return
 
+  if [[ -z $name || $name = "" ]] then
+    display_text="$IN_NIX_SHELL"
+  else
+    display_text="$IN_NIX_SHELL ($name)"
+  fi
+
   # Show prompt section
   spaceship::section \
     --color "$SPACESHIP_NIXSHELL_COLOR" \
     --prefix "$SPACESHIP_NIXSHELL_PREFIX" \
     --suffix "$SPACESHIP_NIXSHELL_SUFFIX" \
     --symbol "$SPACESHIP_NIXSHELL_SYMBOL" \
-    "nix-shell"
+    $display_text
 }
