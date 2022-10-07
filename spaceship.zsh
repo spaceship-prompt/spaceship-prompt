@@ -57,6 +57,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     rust          # Rust section
     haskell       # Haskell Stack section
     java          # Java section
+    dart          # Dart section
     julia         # Julia section
     crystal       # Crystal section
     docker        # Docker section
