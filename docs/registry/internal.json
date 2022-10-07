@@ -164,6 +164,12 @@
       "internal": true
     },
     {
+      "name": "lua",
+      "url": "https://spaceship-prompt.sh/sections/lua",
+      "description": "The current version of the Lua compiler.",
+      "internal": true
+    },
+    {
       "name": "dart",
       "url": "https://spaceship-prompt.sh/sections/dart",
       "description": "The current version of Dart.",
