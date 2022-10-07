@@ -1,4 +1,4 @@
-### Dropbox status (`dropbox`)
+# Dropbox status `dropbox`
 
 Shows the dropbox status using `dropbox-cli`.
 
