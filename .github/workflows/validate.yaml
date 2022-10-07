@@ -36,7 +36,10 @@ jobs:
 
       - name: 🧪 Run Tests
         run: make tests
-  check:  # This job does nothing and is only used for the branch protection
+
+  # This job does nothing and is only used for the branch protection
+  # See: https://github.com/re-actors/alls-green
+  check:
     if: always()
     needs:
       - tests
