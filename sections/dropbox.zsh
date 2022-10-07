@@ -36,8 +36,9 @@ spaceship_dropbox() {
 
   # Display dropbox section
   spaceship::section \
-    "$SPACESHIP_DROPBOX_COLOR" \
-    "$SPACESHIP_DROPBOX_PREFIX" \
-    "$SPACESHIP_DROPBOX_SYMBOL$dropbox_status" \
-    "$SPACESHIP_DROPBOX_SUFFIX"
+    --color "$SPACESHIP_DROPBOX_COLOR" \
+    --prefix "$SPACESHIP_DROPBOX_PREFIX" \
+    --symbol "$SPACESHIP_DROPBOX_SYMBOL" \
+    --suffix "$SPACESHIP_DROPBOX_SUFFIX" \
+    "$dropbox_status"
 }
