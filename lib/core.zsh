@@ -49,7 +49,7 @@ spaceship::core::start() {
 # USAGE:
 #   spaceship::core::async_callback
 spaceship::core::async_callback() {
-  local job="$1" ret="$2" output="$3" exec_time="$4" err="$5" has_next="$6"
+  local job="$1" code="$2" output="$3" exec_time="$4" err="$5" has_next="$6"
   local section="${job#"spaceship_"}" # TODO: Move spaceship_ to a constant
 
   # Notify the worker that the job is done
@@ -79,6 +79,13 @@ spaceship::core::async_callback() {
       ;;
     *)
       # Hanlde regular successfully finished jobs
+
+      # Refresh async section when the last async job has finished
+      if [[ "${#SPACESHIP_JOBS}" -eq 0 ]]; then
+        spaceship::core::refresh_section "async"
+        spaceship::core::render
+      fi
+
       # Skip prompt re-rendering if section is empty
       if [[ "$(spaceship::cache::get $section)" == "$output" ]]; then
         return
@@ -88,12 +95,6 @@ spaceship::core::async_callback() {
       spaceship::cache::set "$section" "$output"
       ;;
   esac
-
-  # Refresh async section when the last async job has finished
-  if [[ "${#SPACESHIP_JOBS}" -eq 0 ]]; then
-    spaceship::core::refresh_section "async"
-    spaceship::core::render
-  fi
 
   if [[ "$has_next" == 0 ]]; then
     spaceship::core::render
