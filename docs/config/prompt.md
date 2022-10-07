@@ -59,6 +59,7 @@ SPACESHIP_PROMPT_ORDER=(
   rust          # Rust section
   haskell       # Haskell Stack section
   java          # Java section
+  lua           # Lua section
   julia         # Julia section
   crystal       # Crystal section
   docker        # Docker section
