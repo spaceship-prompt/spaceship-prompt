@@ -70,6 +70,7 @@ SPACESHIP_PROMPT_ORDER=(
   conda         # conda virtualenv section
   dotnet        # .NET section
   kubectl       # Kubectl context section
+  dropbox       # Dropbox status section
   terraform     # Terraform workspace section
   ibmcloud      # IBM Cloud section
   exec_time     # Execution time
