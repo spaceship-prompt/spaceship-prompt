@@ -1,3 +1,17 @@
+# [4.6.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.5.1...v4.6.0) (2022-10-07)
+
+
+### Bug Fixes
+
+* locale dependent test ([#1253](https://github.com/spaceship-prompt/spaceship-prompt/issues/1253)) ([7477dfb](https://github.com/spaceship-prompt/spaceship-prompt/commit/7477dfb601b7fa41975406c53a4e3969899f0471))
+* problem async section not updating ([b72b54a](https://github.com/spaceship-prompt/spaceship-prompt/commit/b72b54ac2ab2babb829ab5d39565961a8591379e))
+
+
+### Features
+
+* add Dart section ([#1249](https://github.com/spaceship-prompt/spaceship-prompt/issues/1249)) ([f403f2f](https://github.com/spaceship-prompt/spaceship-prompt/commit/f403f2f3f499ee5abb8d8d6b1dac30c5bd8412f1))
+* add Lua section ([#1254](https://github.com/spaceship-prompt/spaceship-prompt/issues/1254)) ([7a3a2e9](https://github.com/spaceship-prompt/spaceship-prompt/commit/7a3a2e94657c90c66c20f7d1627625e851ae9ad6))
+
 ## [4.5.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.5.0...v4.5.1) (2022-09-30)
 
 
