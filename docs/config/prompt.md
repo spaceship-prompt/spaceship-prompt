@@ -60,6 +60,7 @@ SPACESHIP_PROMPT_ORDER=(
   haskell       # Haskell Stack section
   java          # Java section
   lua           # Lua section
+  dart          # Dart section
   julia         # Julia section
   crystal       # Crystal section
   docker        # Docker section

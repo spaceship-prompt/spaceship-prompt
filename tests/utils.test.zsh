@@ -148,6 +148,7 @@ test_deprecated() {
 }
 
 test_displaytime() {
+  local LC_NUMERIC="en_US.UTF-8"
   local expected='14d 6h 56m 7.0s'
   local actual=$(spaceship::displaytime 1234567)
 

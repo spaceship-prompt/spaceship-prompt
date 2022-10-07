@@ -170,6 +170,12 @@
       "internal": true
     },
     {
+      "name": "dart",
+      "url": "https://spaceship-prompt.sh/sections/dart",
+      "description": "The current version of Dart.",
+      "internal": true
+    },
+    {
       "name": "jobs",
       "url": "https://spaceship-prompt.sh/sections/jobs",
       "description": "An indicator for jobs running in the background.",

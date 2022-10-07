@@ -76,6 +76,7 @@ nav:
         - Haskell (haskell): sections/haskell.md
         - Java (java): sections/java.md
         - Lua (lua): sections/lua.md
+        - Dart (dart): sections/dart.md
         - Julia (julia): sections/julia.md
         - Crystal (crystal): sections/crystal.md
         - Docker (docker): sections/docker.md
