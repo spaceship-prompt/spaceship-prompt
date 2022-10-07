@@ -40,6 +40,7 @@ jobs:
   # This job does nothing and is only used for the branch protection
   # See: https://github.com/re-actors/alls-green
   check:
+    name: All green
     if: always()
     needs:
       - tests
