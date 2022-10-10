@@ -24,7 +24,7 @@ spaceship_nixshell() {
 
   [[ -z $IN_NIX_SHELL ]] && return
 
-  if [[ -z $name || $name = "" ]] then
+  if [[ -z $name || $name == "" ]] then
     display_text="$IN_NIX_SHELL"
   else
     display_text="$IN_NIX_SHELL ($name)"
