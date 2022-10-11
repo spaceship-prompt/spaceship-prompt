@@ -96,7 +96,7 @@ spaceship::deprecated() {
   print -P "%B$deprecated%b is deprecated. $message"
 }
 
-# Display seconds in human readable fromat
+# Display seconds in human readable format
 # For that use `strftime` and convert the duration (float) to seconds (integer).
 # USAGE:
 #   spaceship::displaytime <seconds> [precision]

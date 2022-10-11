@@ -33,11 +33,13 @@ When adding a new section to Spaceship, here's a checklist you should follow:
 
 - [ ] Add a section to `sections` folder.
 - [ ] Include a section to prompt order options in `spaceship.zsh` file.
-- [ ] Add tests for section in `tests` folder.
+- [ ] Add tests for section in `tests` folder. You can use [crystal](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/tests/crystal.test.zsh) or [deno](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/tests/deno.test.zsh) tests as examples.
 - [ ] Add documentation for a section in `docs/sections` folder.
   - [ ] Include a reference for section in `mkdocs.yml` file.
   - [ ] Include a reference for section in `config/prompt.md` file.
 - [ ] Add a section to the registry in `docs/registry/internal.json`
+
+> **Note:** Do not add translation files for a section manually. Those should and will be added via Crowdin automatically.
 
 ## Setup
 
