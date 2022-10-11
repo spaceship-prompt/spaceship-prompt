@@ -8,6 +8,9 @@
 #   * Cargo
 #   * Composer
 #   * Julia
+#   * Maven
+#   * Gradle
+#   * Dart (Flutter)
 
 # ------------------------------------------------------------------------------
 # Configuration
@@ -22,7 +25,7 @@ SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL="📦 "}"
 SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR="red"}"
 
 if [ -z "$SPACESHIP_PACKAGE_ORDER" ]; then
-  SPACESHIP_PACKAGE_ORDER=(npm lerna cargo composer julia maven gradle)
+  SPACESHIP_PACKAGE_ORDER=(npm lerna cargo composer julia maven gradle dart)
 fi
 
 # ------------------------------------------------------------------------------
@@ -105,6 +108,14 @@ spaceship_package::gradle() {
   local gradle_exe=$(spaceship::upsearch gradlew) || (spaceship::exists gradle && gradle_exe="gradle") || return
 
   $gradle_exe properties --no-daemon --console=plain -q 2>/dev/null | grep "^version:" | awk '{printf $2}'
+}
+
+spaceship_package::dart() {
+
+  spaceship::exists dart || return
+  local pubspec_file=$(spaceship::upsearch pubspec.yaml pubspec.yml) || return
+
+  spaceship::datafile --yaml $pubspec_file "version"
 }
 
 # ------------------------------------------------------------------------------

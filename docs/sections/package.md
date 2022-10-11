@@ -3,7 +3,9 @@
 !!! important "This section is rendered asynchronously by default"
 
 !!! note
-    This is the version of the package you are working on, not the version of the package manager itself.
+    This is the version of the package you are working with, not the version of 
+    the package manager itself. Many people use the term `project` instead of 
+    `package` and in this context it is the same thing.
 
 !!! attention
     This section uses external tools for retrieving package versions.
@@ -23,6 +25,7 @@ Currently, these package managers are supported:
 * [`julia`][julia] — version from `Project.toml` file.
 * [`maven`][maven] — version from `mvn` command.
 * [`gradle`][gradle] — version from `gradle` command.
+* [`dart`][dart] — version from the `pubspec.yaml` file.
 
 ## Options
 
@@ -44,3 +47,4 @@ Currently, these package managers are supported:
 [julia]: https://julialang.org
 [maven]: https://maven.apache.org
 [gradle]: https://gradle.org
+[dart]: https://dart.dev
