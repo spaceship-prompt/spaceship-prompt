@@ -26,7 +26,7 @@ spaceship_node() {
 
   # Show NODE status only for JS-specific folders
   local is_node_project="$(spaceship::upsearch package.json node_modules)"
-  [[ -n "$is_node_project" || -n *.js(#qN^/) ]] || return
+  [[ -n "$is_node_project" || -n *.js(#qN^/) || -n *.cjs(#qN^/) || -n *.mjs(#qN^/) ]] || return
 
   local node_version
 
