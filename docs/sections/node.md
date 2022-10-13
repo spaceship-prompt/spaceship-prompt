@@ -12,6 +12,7 @@ This section is displayed only when the current directory is within a Node.js pr
 * Upsearch finds a `package.json` file
 * Upsearch finds a `node_modules` folder
 * Upsearch finds a `.nvmrc` file
+* Upsearch finds a `.node-version` file
 * Contains any other file with `.js`, `.cjs` or `.mjs` extension
 
 ## Setting the default Node.js version
