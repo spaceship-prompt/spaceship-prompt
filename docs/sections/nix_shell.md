@@ -1,7 +1,5 @@
 # Nix shell `nix_shell`
 
-!!! important "This section is rendered asynchronously by default"
-
 !!! info
     [**Nix shell**](https://nixos.org/manual/nix/stable/command-ref/nix-shell.html) can be used to provide some kind of virtual environment through the nix-shell command.
 
