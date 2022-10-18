@@ -1,3 +1,11 @@
+## [4.6.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.6.0...v4.6.1) (2022-10-14)
+
+
+### Bug Fixes
+
+* **java:** fix version retrieval when JAVA_TOOL_OPTIONS exist in environment ([#1191](https://github.com/spaceship-prompt/spaceship-prompt/issues/1191)) ([2c3b7df](https://github.com/spaceship-prompt/spaceship-prompt/commit/2c3b7df301fb3e54cc885dbaf9cd987934b7a276))
+* **node:** Add better detection for node context ([#1263](https://github.com/spaceship-prompt/spaceship-prompt/issues/1263)) ([7443d04](https://github.com/spaceship-prompt/spaceship-prompt/commit/7443d046c1f3002b47b242518b322dba4a64d528))
+
 # [4.6.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.5.1...v4.6.0) (2022-10-07)
 
 
