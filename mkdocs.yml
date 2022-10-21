@@ -88,6 +88,7 @@ nav:
         - Kubernetes (kubectl): sections/kubectl.md
         - Terraform (terraform): sections/terraform.md
         - IBM Cloud (ibmcloud): sections/ibmcloud.md
+        - Scala (scala): sections/scala.md
   - Advanced:
       - Creating a custom section: advanced/creating-section.md
       - Per-directory configuration: advanced/per-directory-config.md
