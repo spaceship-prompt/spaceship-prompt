@@ -3,9 +3,7 @@
 !!! important "This section is rendered asynchronously by default"
 
 !!! note
-    This is the version of the package you are working with, not the version of 
-    the package manager itself. Many people use the term `project` instead of 
-    `package` and in this context it is the same thing.
+    This is the version of the package you are working with, not the version of the package manager itself. Many people use the term `project` instead of `package` and in this context it is the same thing.
 
 !!! attention
     This section uses external tools for retrieving package versions.
