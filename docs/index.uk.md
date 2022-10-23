@@ -1,6 +1,6 @@
 ---
 template: index.html
-title: Головна
+title: Мінімалістичний, потужний та надзвичайно гнучкий командний рядок Zsh
 hide:
   - navigation
 hero:
@@ -114,7 +114,7 @@ companies:
 - Розумне ім'я хоста і відображення імені користувача
 - Статуси репозиторіїв (Git та Mercurial підтримуються)
 - Середовища середовища для різних мов (Node.js, Rust, Python, Ruby, Swift, Go, PHP та багато інших)
-- Docker версія, контекст Kubernetes і під'єднана машина
+- Docker версія, контекст Kubernetes і під'єднана машину
 - Версія пакунку (npm, lerna, cargo, редактор та інші)
 - Поточний рівень заряду батареї та її статус
 - Індикатор для задач, що виконуються у фоновому режимі `✦`
@@ -127,17 +127,13 @@ companies:
 
 Встановлення Spaceship просте та швидке. Він легко конфігурується і є простим у використанні.
 
-[Початок роботи](/getting-started){ .md-button .md-button--primary }
-[Конфігурація](/config/intro){ .md-button }
+[Встановлення](/getting-started ""){.md-button.md-button--primary} [Конфігурація](/config/intro ""){.md-button}
 
-## Пов'язані проекти
+## Підтримка
 
 Приєднайтеся до нашої спільноти або спробуйте зробити свій внесок у проєкт.
 
-[:material-hand-heart: Зробити внесок](/contribute){ .md-button }
-[:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt){ .md-button }
-[:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9){ .md-button }
-[:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/){ .md-button }
+[:material-hand-heart: Зробити внесок](/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button} [:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/ ""){.md-button}
 
 ## Ліцензія
 

@@ -96,7 +96,7 @@ spaceship::deprecated() {
   print -P "%B$deprecated%b is deprecated. $message"
 }
 
-# Display seconds in human readable fromat
+# Display seconds in human readable format
 # For that use `strftime` and convert the duration (float) to seconds (integer).
 # USAGE:
 #   spaceship::displaytime <seconds> [precision]
@@ -155,11 +155,13 @@ spaceship::upsearch() {
           echo "$filepath"
         fi
         return 0
-      elif [[ -d "$root/.git" || -d "$root/.hg" ]]; then
-        # If we reached the root of repo, return non-zero
-        return 1
       fi
     done
+
+    if [[ -d "$root/.git" || -d "$root/.hg" ]]; then
+      # If we reached the root of repo, return non-zero
+      return 1
+    fi
 
     # Go one level up
     root="${root%/*}"
@@ -231,4 +233,15 @@ spaceship::datafile() {
 
   # todo: grep by regexp?
   return 1
+}
+
+# grep with --color=never or not
+# USAGE:
+#   spaceship::grep [options] [pattern] [file ...]
+spaceship::grep() {
+  local GREP_OPTIONS=""
+  if command grep --color=never "" &>/dev/null <<< ""; then
+    GREP_OPTIONS="--color=never"
+  fi
+  command grep $GREP_OPTIONS "$@"
 }

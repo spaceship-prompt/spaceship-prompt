@@ -29,7 +29,7 @@ spaceship_julia() {
 
   spaceship::exists julia || return
 
-  local julia_version=$(julia --version | grep --color=never -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]')
+  local julia_version=$(julia --version | spaceship::grep -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]')
 
   spaceship::section \
     --color "$SPACESHIP_JULIA_COLOR" \

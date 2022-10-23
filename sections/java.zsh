@@ -24,7 +24,7 @@ spaceship_java() {
 
   spaceship::exists java || return
 
-  local java_version=$(java -version 2>&1 | head -n 1 | awk -F '"' '{print $2}')
+  local java_version=$(java -version 2>&1 | spaceship::grep version | awk -F '"' '{print $2}')
 
   spaceship::section \
     --color "$SPACESHIP_JAVA_COLOR" \

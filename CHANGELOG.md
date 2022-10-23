@@ -1,3 +1,97 @@
+## [4.6.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.6.0...v4.6.1) (2022-10-14)
+
+
+### Bug Fixes
+
+* **java:** fix version retrieval when JAVA_TOOL_OPTIONS exist in environment ([#1191](https://github.com/spaceship-prompt/spaceship-prompt/issues/1191)) ([2c3b7df](https://github.com/spaceship-prompt/spaceship-prompt/commit/2c3b7df301fb3e54cc885dbaf9cd987934b7a276))
+* **node:** Add better detection for node context ([#1263](https://github.com/spaceship-prompt/spaceship-prompt/issues/1263)) ([7443d04](https://github.com/spaceship-prompt/spaceship-prompt/commit/7443d046c1f3002b47b242518b322dba4a64d528))
+
+# [4.6.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.5.1...v4.6.0) (2022-10-07)
+
+
+### Bug Fixes
+
+* locale dependent test ([#1253](https://github.com/spaceship-prompt/spaceship-prompt/issues/1253)) ([7477dfb](https://github.com/spaceship-prompt/spaceship-prompt/commit/7477dfb601b7fa41975406c53a4e3969899f0471))
+* problem async section not updating ([b72b54a](https://github.com/spaceship-prompt/spaceship-prompt/commit/b72b54ac2ab2babb829ab5d39565961a8591379e))
+
+
+### Features
+
+* add Dart section ([#1249](https://github.com/spaceship-prompt/spaceship-prompt/issues/1249)) ([f403f2f](https://github.com/spaceship-prompt/spaceship-prompt/commit/f403f2f3f499ee5abb8d8d6b1dac30c5bd8412f1))
+* add Lua section ([#1254](https://github.com/spaceship-prompt/spaceship-prompt/issues/1254)) ([7a3a2e9](https://github.com/spaceship-prompt/spaceship-prompt/commit/7a3a2e94657c90c66c20f7d1627625e851ae9ad6))
+
+## [4.5.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.5.0...v4.5.1) (2022-09-30)
+
+
+### Bug Fixes
+
+* **kubectl:** Avoids checking kubectl server version if no context is loaded, stopping potential hangs ([#1246](https://github.com/spaceship-prompt/spaceship-prompt/issues/1246)) ([44819b0](https://github.com/spaceship-prompt/spaceship-prompt/commit/44819b09c3017d0fb42bc22bdcbd05f847b2d915))
+* prepend spaceship root folder to spaceship precompile path ([#1244](https://github.com/spaceship-prompt/spaceship-prompt/issues/1244)) ([6c4623f](https://github.com/spaceship-prompt/spaceship-prompt/commit/6c4623fe9f31ac7b16fb7ebeffaa23b123220ef9))
+* upsearch was exiting when the first file is not found ([#1239](https://github.com/spaceship-prompt/spaceship-prompt/issues/1239)) ([dcfd690](https://github.com/spaceship-prompt/spaceship-prompt/commit/dcfd690f7b7607d05d160b084eb193460e9edf81))
+
+# [4.5.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.4.0...v4.5.0) (2022-09-23)
+
+
+### Bug Fixes
+
+* **crystal:** Include Crystal in order ([d215797](https://github.com/spaceship-prompt/spaceship-prompt/commit/d215797efc63e081cc6516aac6974a1ece6b255a))
+* fix grep unknown option: --color ([#1206](https://github.com/spaceship-prompt/spaceship-prompt/issues/1206)) ([8a16414](https://github.com/spaceship-prompt/spaceship-prompt/commit/8a16414d78a41e0e11574c55e323bef09835a77b)), closes [#1066](https://github.com/spaceship-prompt/spaceship-prompt/issues/1066)
+
+
+### Features
+
+* **crystal:** Add Crystal section for 4.x ([c72c6c9](https://github.com/spaceship-prompt/spaceship-prompt/commit/c72c6c94f74b0ab1e110c775cfb8ec655b90da0e))
+* **deno:** Add Deno section ([c43f8c5](https://github.com/spaceship-prompt/spaceship-prompt/commit/c43f8c5e4e3886f0ba612c1b347591bcc2b00880))
+
+## [4.4.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.4.0...v4.4.1) (2022-09-21)
+
+
+### Bug Fixes
+
+* fix grep unknown option: --color ([#1206](https://github.com/spaceship-prompt/spaceship-prompt/issues/1206)) ([540a17a](https://github.com/spaceship-prompt/spaceship-prompt/commit/540a17a37a2199a3faa4987564a6485b63582fef)), closes [#1066](https://github.com/spaceship-prompt/spaceship-prompt/issues/1066)
+
+# [4.4.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.3.3...v4.4.0) (2022-09-21)
+
+
+### Features
+
+* make package section to support maven and gradle ([#1209](https://github.com/spaceship-prompt/spaceship-prompt/issues/1209)) ([c8b6ce7](https://github.com/spaceship-prompt/spaceship-prompt/commit/c8b6ce7ade1a3176353d6ba46faa37db7e05e709))
+
+## [4.3.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.3.2...v4.3.3) (2022-09-21)
+
+
+### Bug Fixes
+
+* attempt to fix [#1187](https://github.com/spaceship-prompt/spaceship-prompt/issues/1187) ([9a5d7be](https://github.com/spaceship-prompt/spaceship-prompt/commit/9a5d7beb7dd51b8290b573dbdef4f6ecc908d938))
+
+## [4.3.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.3.1...v4.3.2) (2022-09-20)
+
+
+### Bug Fixes
+
+* mark spaceship libs as global ([e0a0926](https://github.com/spaceship-prompt/spaceship-prompt/commit/e0a09267dc61119738da42862f0828f869e248f5))
+
+## [4.3.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.3.0...v4.3.1) (2022-09-19)
+
+
+### Bug Fixes
+
+* Delete the redundant space for kubectl symbol (iTerm2) ([#1205](https://github.com/spaceship-prompt/spaceship-prompt/issues/1205)) ([8ddbc81](https://github.com/spaceship-prompt/spaceship-prompt/commit/8ddbc8115c714ee82c49101690f5effd45f3a01a))
+
+# [4.3.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.6...v4.3.0) (2022-09-16)
+
+
+### Features
+
+* fix package section file path ([71f527b](https://github.com/spaceship-prompt/spaceship-prompt/commit/71f527b68c5464f1283dd878d6481358d67c9741))
+
+## [4.2.6](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.5...v4.2.6) (2022-09-08)
+
+
+### Bug Fixes
+
+* **documentation:** use home variable instead of tilde ([#1189](https://github.com/spaceship-prompt/spaceship-prompt/issues/1189)) ([01e153e](https://github.com/spaceship-prompt/spaceship-prompt/commit/01e153efa56bc7c599fa1711d0291397411a002a))
+
 ## [4.2.5](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.2.4...v4.2.5) (2022-09-05)
 
 

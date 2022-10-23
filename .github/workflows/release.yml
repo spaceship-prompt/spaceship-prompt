@@ -1,46 +1,17 @@
-name: ci
+name: release
 on:
-  push:
-    branches:
-      - master
-      - +([0-9])?(.{+([0-9]),x}).x
-      - next
-      - beta
-  pull_request:
+  schedule:
+    - cron: '0 12 * * 3' # At 12:00, every Wednesday
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  main:
-    name: Tests
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-    steps:
-      - name: ⬇️ Checkout Repo
-        uses: actions/checkout@v3
-        with:
-          submodules: true
-
-      - name: 💤 Install Zsh
-        if: runner.os == 'Linux'
-        run: |
-          sudo apt-get update
-          sudo apt-get install zsh
-
-      - name: 🖨 Print Zsh Vesion
-        run: zsh --version
-
-      - name: 🧪 Run Tests
-        run: make tests
-
   release:
     name: Release
-    needs: main
-    if: ${{ github.repository == 'spaceship-prompt/spaceship-prompt' && github.event_name == 'push' }}
+    if: github.repository_owner == 'spaceship-prompt'
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout Repo

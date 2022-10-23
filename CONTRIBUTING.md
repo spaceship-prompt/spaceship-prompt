@@ -33,21 +33,26 @@ When adding a new section to Spaceship, here's a checklist you should follow:
 
 - [ ] Add a section to `sections` folder.
 - [ ] Include a section to prompt order options in `spaceship.zsh` file.
-- [ ] Add tests for section in `tests` folder.
+- [ ] Add tests for section in `tests` folder. You can use [crystal](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/tests/crystal.test.zsh) or [deno](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/tests/deno.test.zsh) tests as examples.
 - [ ] Add documentation for a section in `docs/sections` folder.
   - [ ] Include a reference for section in `mkdocs.yml` file.
+  - [ ] Include a reference for section in `config/prompt.md` file.
 - [ ] Add a section to the registry in `docs/registry/internal.json`
+
+> **Note:** Do not add translation files for a section manually. Those should and will be added via Crowdin automatically.
 
 ## Setup
 
 1. **Fork** this repo (click the _fork_ button)
-2. **Clone** your fork to your working machine (via `git clone`)
-3. **Update submodules** in your fork (via `git submodule update --init --recursive`)
-4. **Make your changes**. Check our [API](https://spaceship-prompt.sh/api) for more information (we suggest you to check out a new branch for changes).
-5. **Test** your code (via `make tests`)
-6. **Add and commit** your contributions
-7. **Push** your changes to your remote fork
-8. **Open a pull-request** to our primary repo
+1. **Clone** your fork to your working machine (via `git clone`)
+1. **Switch to `next` branch** by running `git checkout next`.
+1. **Update submodules** in your fork (via `git submodule update --init --recursive`)
+1. **Make your changes**. Check our [API](https://spaceship-prompt.sh/api) for more information (we suggest you to check out a new branch for changes).
+1. **Test** your code (via `make tests`)
+1. **Add and commit** your contributions
+1. **Push** your changes to your remote fork
+1. **Open a pull-request** to our primary repo and target `next` branch.
+1. **Wait for review**, get your PR reviewed and merged.
 
 ## Testing
 

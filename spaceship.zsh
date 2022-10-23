@@ -7,7 +7,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='4.2.5'
+export SPACESHIP_VERSION='4.6.1'
 
 # Determination of Spaceship working directory
 # https://git.io/vdBH7
@@ -36,7 +36,7 @@ fi
 
 if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
   SPACESHIP_PROMPT_ORDER=(
-    time          # Time stampts section
+    time          # Time stamps section
     user          # Username section
     dir           # Current directory section
     host          # Hostname section
@@ -45,6 +45,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     package       # Package version
     node          # Node.js section
     bun           # Bun section
+    deno          # Deno section
     ruby          # Ruby section
     python        # Python section
     elm           # Elm section
@@ -56,7 +57,10 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     rust          # Rust section
     haskell       # Haskell Stack section
     java          # Java section
+    lua           # Lua section
+    dart          # Dart section
     julia         # Julia section
+    crystal       # Crystal section
     docker        # Docker section
     aws           # Amazon Web Services section
     gcloud        # Google Cloud Platform section
@@ -97,9 +101,10 @@ SPACESHIP_PROMPT_DEFAULT_SUFFIX="${SPACESHIP_PROMPT_DEFAULT_SUFFIX=" "}"
 # Spaceship utils/hooks/etc
 # ------------------------------------------------------------------------------
 
-typeset -r SPACESHIP_LIBS=(
+SPACESHIP_LIBS=(
   "lib/utils.zsh"   # General porpuse utils
   "lib/cache.zsh"   # Cache utils
+  "lib/worker.zsh"  # Async worker
   "lib/hooks.zsh"   # Zsh hooks
   "lib/section.zsh" # Section utils
   "lib/core.zsh"    # Core functions for loading and rendering
@@ -116,7 +121,7 @@ for lib in "${SPACESHIP_LIBS[@]}"; do
 done
 
 # Load and precompile this file
-spaceship::precompile "$0"
+spaceship::precompile "$SPACESHIP_ROOT/$0"
 
 # ------------------------------------------------------------------------------
 # BACKWARD COMPATIBILITY WARNINGS

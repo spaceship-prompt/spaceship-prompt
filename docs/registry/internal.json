@@ -74,6 +74,12 @@
       "internal": true
     },
     {
+      "name": "deno",
+      "url": "https://spaceship-prompt.sh/sections/deno",
+      "description": "The current version of the Deno.",
+      "internal": true
+    },
+    {
       "name": "exec_time",
       "url": "https://spaceship-prompt.sh/sections/exec_time",
       "description": "The execution time of the last command.",
@@ -158,6 +164,18 @@
       "internal": true
     },
     {
+      "name": "lua",
+      "url": "https://spaceship-prompt.sh/sections/lua",
+      "description": "The current version of the Lua compiler.",
+      "internal": true
+    },
+    {
+      "name": "dart",
+      "url": "https://spaceship-prompt.sh/sections/dart",
+      "description": "The current version of Dart.",
+      "internal": true
+    },
+    {
       "name": "jobs",
       "url": "https://spaceship-prompt.sh/sections/jobs",
       "description": "An indicator for jobs running in the background.",
@@ -167,6 +185,12 @@
       "name": "julia",
       "url": "https://spaceship-prompt.sh/sections/julia",
       "description": "The version of the Julia compiler.",
+      "internal": true
+    },
+    {
+      "name": "crystal",
+      "url": "https://spaceship-prompt.sh/sections/crystal",
+      "description": "The version of the Crystal interpreter.",
       "internal": true
     },
     {

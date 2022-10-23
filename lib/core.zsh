@@ -3,9 +3,6 @@
 # Tools for loading sections, building sections and invoking the renderer
 # ------------------------------------------------------------------------------
 
-# Unique array of async jobs
-typeset -ahU SPACESHIP_JOBS=()
-
 # Loads the sections from files and functions
 # USAGE:
 #   spaceship::core::load_sections
@@ -32,17 +29,14 @@ spaceship::core::load_sections() {
   done
 
   if $load_async; then
-    (( ASYNC_INIT_DONE )) || {
-      builtin source "$SPACESHIP_ROOT/async.zsh"
-      spaceship::precompile "$SPACESHIP_ROOT/async.zsh"
-    }
+    spaceship::worker::load
   fi
 }
 
 # Iterate over sections, start async jobs and store results in cache
 # USAGE:
-#   spaceship::core::build_cache
-spaceship::core::build_cache() {
+#   spaceship::core::start
+spaceship::core::start() {
   # Clear the cache before every render
   spaceship::cache::clear
 
@@ -55,33 +49,52 @@ spaceship::core::build_cache() {
 # USAGE:
 #   spaceship::core::async_callback
 spaceship::core::async_callback() {
-  local job="$1" ret="$2" output="$3" exec_time="$4" err="$5" has_next="$6"
-  local section
+  local job="$1" code="$2" output="$3" exec_time="$4" err="$5" has_next="$6"
+  local section="${job#"spaceship_"}" # TODO: Move spaceship_ to a constant
 
-  # ignore the async evals used to alter worker environment
-  if [[ "${job}" == "[async/eval]" ]] \
-  || [[ "${job}" == ";" ]] \
-  || [[ "${job}" == "[async]" ]]; then
-    # FIXME: Restart the async job if it failed
-    return
-  fi
+  # Notify the worker that the job is done
+  spaceship::worker::callback "$@"
 
-  section="${job#"spaceship_"}" # TODO: Move spaceship_ to a constant
+  case $job in
+    "[async]")
+      # Handle all the errors that could indicate a crashed async worker.
+      # See zsh-async documentation for the definition of the exit codes.
+      if (( code == 2 )) || (( code == 3 )) || (( code == 130 )); then
+        # Our worker died unexpectedly, try to recover immediately.
+        spaceship::worker::init
+        spaceship::core::start
+        return
+      fi
+      ;;
+    "[async/eval]")
+      if (( code )); then
+        # Looks like eval failed, rerun async tasks just in case.
+        spaceship::core::start
+        return
+      fi
+      ;;
+    ";")
+      # Ignore the async evals used to alter worker environment
+      return
+      ;;
+    *)
+      # Hanlde regular successfully finished jobs
 
-  SPACESHIP_JOBS=("${(@)SPACESHIP_JOBS:#${section}}")
+      # Refresh async section when the last async job has finished
+      if [[ "${#SPACESHIP_JOBS}" -eq 0 ]]; then
+        spaceship::core::refresh_section "async"
+        spaceship::core::render
+      fi
 
-  # Refresh async section when the last async job has finished
-  if [[ "${#SPACESHIP_JOBS}" -eq 0 ]]; then
-    spaceship::core::refresh_section "async"
-    spaceship::core::render
-  fi
+      # Skip prompt re-rendering if section is empty
+      if [[ "$(spaceship::cache::get $section)" == "$output" ]]; then
+        return
+      fi
 
-  # Skip prompt re-rendering if section is empty
-  if [[ "$(spaceship::cache::get $section)" == "$output" ]]; then
-    return
-  fi
-
-  spaceship::cache::set "$section" "$output"
+      # Update section cache
+      spaceship::cache::set "$section" "$output"
+      ;;
+  esac
 
   if [[ "$has_next" == 0 ]]; then
     spaceship::core::render
@@ -112,8 +125,7 @@ spaceship::core::refresh_section() {
   fi
 
   if spaceship::is_section_async "$section" && [[ -z $sync ]]; then
-    SPACESHIP_JOBS+=("$section")
-    async_job "spaceship" "spaceship_${section}"
+    spaceship::worker::run "spaceship_$section"
   else
     spaceship::cache::set "$section" "$(spaceship_$section)"
   fi
@@ -150,5 +162,5 @@ spaceship::core::render() {
   # .reset-prompt: bypass the zsh-syntax-highlighting wrapper
   # https://github.com/sorin-ionescu/prezto/issues/1026
   # https://github.com/zsh-users/zsh-autosuggestions/issues/107#issuecomment-183824034
-  zle .reset-prompt && zle -R
+  zle && zle .reset-prompt && zle -R
 }

@@ -38,7 +38,7 @@ The default prompt order is:
 
 ```zsh
 SPACESHIP_PROMPT_ORDER=(
-  time          # Time stampts section
+  time          # Time stamps section
   user          # Username section
   dir           # Current directory section
   host          # Hostname section
@@ -46,6 +46,8 @@ SPACESHIP_PROMPT_ORDER=(
   hg            # Mercurial section (hg_branch  + hg_status)
   package       # Package version
   node          # Node.js section
+  bun           # Bun section
+  deno          # Deno section
   ruby          # Ruby section
   python        # Python section
   elm           # Elm section
@@ -57,7 +59,10 @@ SPACESHIP_PROMPT_ORDER=(
   rust          # Rust section
   haskell       # Haskell Stack section
   java          # Java section
+  lua           # Lua section
+  dart          # Dart section
   julia         # Julia section
+  crystal       # Crystal section
   docker        # Docker section
   aws           # Amazon Web Services section
   gcloud        # Google Cloud Platform section

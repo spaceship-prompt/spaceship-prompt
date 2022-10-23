@@ -169,7 +169,7 @@ zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules
 Then install Spaceship:
 
 ```zsh
-zim install
+zimfw install
 ```
 </details>
 
@@ -263,7 +263,7 @@ git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$H
 For initializing prompt system add this to your `.zshrc`:
 
 ```zsh title=".zshrc"
-source "~/.zsh/spaceship/spaceship.zsh"
+source "$HOME/.zsh/spaceship/spaceship.zsh"
 ```
 </details>
 

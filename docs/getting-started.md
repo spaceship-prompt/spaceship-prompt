@@ -37,7 +37,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     For initializing prompt system add this to your `.zshrc`:
 
     ```zsh title=".zshrc"
-    source "~/.zsh/spaceship/spaceship.zsh"
+    source "$HOME/.zsh/spaceship/spaceship.zsh"
     ```
 
 === "Homebrew"
@@ -107,7 +107,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     Then install Spaceship:
 
     ```zsh title="Terminal"
-    zim install
+    zimfw install
     ```
 
 === "antigen"
@@ -181,7 +181,7 @@ You've made it! You've installed Spaceship on your machine!
 
 What's next? Spaceship has reasonable defaults, but you might want to adjust them to your needs. Learn how to configure your Spaceship:
 
-[Configure Spaceship](/config/intro){ .md-button .md-button--primary }
+[Configure Spaceship](/config/intro){ .md-button }
 
 Additionally, join our community or consider contributing to the project.
 

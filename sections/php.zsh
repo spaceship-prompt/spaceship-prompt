@@ -29,7 +29,7 @@ spaceship_php() {
 
   spaceship::exists php || return
 
-  local php_version=$(php -v 2>&1 | \grep --color=never -oe "^PHP\s*[0-9.]\+" | awk '{print $2}')
+  local php_version=$(php -v 2>&1 | spaceship::grep -oe "^PHP\s*[0-9.]\+" | awk '{print $2}')
 
   spaceship::section \
     --color "$SPACESHIP_PHP_COLOR" \

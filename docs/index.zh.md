@@ -22,7 +22,7 @@ features:
     image: /assets/images/configurable.svg
     description: 该提示符是零配置的，但如果需要自定义的话，它将提供一个易于自定义的接口。
 companies:
-  title: Used daily by marvelous folks at
+  title: 每天被惊人的民俗使用
   list:
     - 
       name: Wix
@@ -121,13 +121,13 @@ Here are some sneak picks of what **Spaceship** can show:
 - A lot of [useful information](/sections)
 - Custom [information of your choice](/advanced/creating-section)
 
-Want more features? Please, [open an issue](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose) or send pull request.
+需要更多功能？ 请 [提出 issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose)，描述你的问题，我们将乐意帮助你。
 
-## Getting Started
+## 快速上手
 
-Installing Spaceship is simple and quick. It's configurable and easy to use.
+Installing Spaceship is simple and quick. It's configurable and easy to use. It's configurable and easy to use. 它是可配置的，易于使用。
 
-[Installation](/getting-started ""){.md-button.md-button--primary} [Configuration](/config/intro ""){.md-button}
+[Installation](/getting-started ""){.md-button} [Configuration](/config/intro ""){.md-button}
 
 ## 支持
 

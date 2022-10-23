@@ -22,7 +22,7 @@ SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL="📦 "}"
 SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR="red"}"
 
 if [ -z "$SPACESHIP_PACKAGE_ORDER" ]; then
-  SPACESHIP_PACKAGE_ORDER=(npm lerna cargo composer julia)
+  SPACESHIP_PACKAGE_ORDER=(npm lerna cargo composer julia maven gradle)
 fi
 
 # ------------------------------------------------------------------------------
@@ -31,10 +31,10 @@ fi
 
 spaceship_package::npm() {
   spaceship::exists npm || return
-  spaceship::upsearch -s package.json || return
+  local package_json=$(spaceship::upsearch package.json) || return
 
-  local package_version="$(spaceship::datafile --json package.json version)"
-  local is_private_package="$(spaceship::datafile --json package.json private)"
+  local package_version="$(spaceship::datafile --json $package_json version)"
+  local is_private_package="$(spaceship::datafile --json $package_json private)"
 
   if [[ "$SPACESHIP_PACKAGE_SHOW_PRIVATE" == false && "$is_private_package" == true ]]; then
     return 0
@@ -52,9 +52,9 @@ spaceship_package::lerna() {
   # Note: lerna does not have to be installed in the global context
   # so checking for lerna binary does not make sense
   spaceship::exists npm || return
-  spaceship::upsearch -s lerna.json || return
+  local lerna_json=$(spaceship::upsearch lerna.json) || return
 
-  local package_version="$(spaceship::datafile --json lerna.json version)"
+  local package_version="$(spaceship::datafile --json $lerna_json version)"
 
   if [[ "$package_version" == "independent" ]]; then
     package_version="($package_version)"
@@ -77,16 +77,34 @@ spaceship_package::cargo() {
 
 spaceship_package::composer() {
   spaceship::exists composer || return
-  spaceship::upsearch -s composer.json || return
+  local composer_json=$(spaceship::upsearch composer.json) || return
 
-  spaceship::datafile --json composer.json "version"
+  spaceship::datafile --json $composer_json "version"
 }
 
 spaceship_package::julia() {
   spaceship::exists julia || return
-  spaceship::upsearch -s Project.toml || return
+  local project_toml=$(spaceship::upsearch Project.toml) || return
 
-  spaceship::datafile --toml Project.toml "version"
+  spaceship::datafile --toml $project_toml "version"
+}
+
+spaceship_package::maven() {
+
+  spaceship::upsearch -s pom.xml || return
+
+  local maven_exe=$(spaceship::upsearch mvnw) || (spaceship::exists mvn && maven_exe="mvn") || return
+
+  $maven_exe help:evaluate -q -DforceStdout -D"expression=project.version" 2>/dev/null
+}
+
+spaceship_package::gradle() {
+
+  spaceship::upsearch -s settings.gradle settings.gradle.kts || return
+
+  local gradle_exe=$(spaceship::upsearch gradlew) || (spaceship::exists gradle && gradle_exe="gradle") || return
+
+  $gradle_exe properties --no-daemon --console=plain -q 2>/dev/null | grep "^version:" | awk '{printf $2}'
 }
 
 # ------------------------------------------------------------------------------

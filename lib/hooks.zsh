@@ -39,18 +39,10 @@ prompt_spaceship_precmd() {
   spaceship_exec_time_stop
 
   # Restarts the async worker, in order to get an update-to-date shell environment
-  if spaceship::is_prompt_async; then
-    SPACESHIP_JOBS=()
-    # restart worker
-    async_stop_worker "spaceship"
-    async_start_worker "spaceship" -n -u
-    # setopt before call register to avoid callback by async_worker_eval
-    async_worker_eval "spaceship" 'setopt extendedglob'
-    async_register_callback "spaceship" "spaceship::core::async_callback"
-  fi
+  spaceship::worker::init
 
   # Start building cache from sections
-  spaceship::core::build_cache
+  spaceship::core::start
 
   # Initiate the first render
   spaceship::populate
@@ -59,9 +51,7 @@ prompt_spaceship_precmd() {
 # A hook right before the command is started executing
 prompt_spaceship_preexec() {
   # Stop running prompt async jobs
-  if spaceship::is_prompt_async; then
-    async_flush_jobs "spaceship"
-  fi
+  spaceship::worker::flush
 
   # Start measuring exec_time right before executing the command
   spaceship_exec_time_start
@@ -69,9 +59,7 @@ prompt_spaceship_preexec() {
 
 # A hook after changing the working directory
 prompt_spaceship_chpwd() {
-  if spaceship::is_prompt_async; then
-    async_worker_eval "spaceship" 'cd' "$PWD"
-  fi
+  spaceship::worker::eval builtin cd -q $PWD
 
   # Restart execution time recording once dir is changed
   spaceship_exec_time_start
