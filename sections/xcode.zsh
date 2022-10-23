@@ -15,6 +15,7 @@ SPACESHIP_XCODE_PREFIX="${SPACESHIP_XCODE_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREF
 SPACESHIP_XCODE_SUFFIX="${SPACESHIP_XCODE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_XCODE_SYMBOL="${SPACESHIP_XCODE_SYMBOL="🛠 "}"
 SPACESHIP_XCODE_COLOR="${SPACESHIP_XCODE_COLOR="blue"}"
+SPACESHIP_XCODE_PROJDIR_ONLY="${SPACESHIP_XCODE_PROJDIR_ONLY=false}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -23,6 +24,11 @@ SPACESHIP_XCODE_COLOR="${SPACESHIP_XCODE_COLOR="blue"}"
 # Show current version of Xcode
 spaceship_xcode() {
   spaceship::exists xcenv || return
+
+  if [[ $SPACEHSHIP_XCODE_PROJDIR_ONLY == true ]] ; then
+    # Find xcode-specific files or return
+    spaceship::upsearch -s *.xcodeproj Package.swift *.xcworkspace *.podspec || return
+  fi
 
   local xcode_path
 
