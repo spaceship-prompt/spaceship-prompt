@@ -22,20 +22,25 @@ SPACESHIP_XCODE_COLOR="${SPACESHIP_XCODE_COLOR="blue"}"
 
 # Show current version of Xcode
 spaceship_xcode() {
-  spaceship::exists xcenv || return
-  
+  spaceship::exists xcode-select || return
+
   # If there are xcode-specific files in current directory
   local is_xcode_project="$(spaceship::upsearch *.xcworkspace *.xcodeproj)"
   [[ -n "$is_xcode_project" ]] || return
 
   local xcode_path
 
-  if [[ $SPACESHIP_XCODE_SHOW_GLOBAL == true ]] ; then
-    xcode_path=$(xcenv version | sed 's/ .*//')
-  elif [[ $SPACESHIP_XCODE_SHOW_LOCAL == true ]] ; then
-    if xcenv version | grep ".xcode-version" > /dev/null; then
+  if spaceship::exists xcenv; then
+    if [[ $SPACESHIP_XCODE_SHOW_GLOBAL == true ]] ; then
       xcode_path=$(xcenv version | sed 's/ .*//')
+    elif [[ $SPACESHIP_XCODE_SHOW_LOCAL == true ]] ; then
+      if xcenv version | grep ".xcode-version" > /dev/null; then
+        xcode_path=$(xcenv version | sed 's/ .*//')
+      fi
     fi
+  else
+    # Get xcode path from xcode-select
+    xcode_path=$(xcode-select -p | cut -d / -f -3)
   fi
 
   if [ -n "${xcode_path}" ]; then
