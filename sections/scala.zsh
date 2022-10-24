@@ -22,7 +22,7 @@ SPACESHIP_SCALA_COLOR="${SPACESHIP_SCALA_COLOR="red"}"
 spaceship_scala() {
   [[ $SPACESHIP_SCALA_SHOW == false ]] && return
 
-  spaceship::exists scala || return
+  spaceship::exists scalac || return
 
   local is_scala_context="$(spaceship::upsearch .scalaenv .sbtenv .metals)"
   [[ -n "$is_scala_context" || -n *.scala(#qN^/) || -n *.sbt(#qN^/) ]] || return

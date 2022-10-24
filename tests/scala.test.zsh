@@ -60,7 +60,7 @@ test_scala_upsearch_file() {
   FILES=( .scalaenv .sbtenv )
   for file in $FILES; do
     touch $file
-    local expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_LUA_COLOR}%}${SPACESHIP_LUA_SYMBOL}v${SCALA_VERSION}%{%b%f%}"
+    local expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_SCALA_COLOR}%}${SPACESHIP_SCALA_SYMBOL}v${SCALA_VERSION}%{%b%f%}"
     local actual="$(spaceship::testkit::render_prompt)"
     assertEquals "should render with file $file" "$expected" "$actual"
     rm $file
@@ -71,7 +71,7 @@ test_scala_upsearch_dir() {
   DIRS=( .metals )
   for dir in $DIRS; do
     mkdir $dir
-    local expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_LUA_COLOR}%}${SPACESHIP_LUA_SYMBOL}v${SCALA_VERSION}%{%b%f%}"
+    local expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_SCALA_COLOR}%}${SPACESHIP_SCALA_SYMBOL}v${SCALA_VERSION}%{%b%f%}"
     local actual="$(spaceship::testkit::render_prompt)"
     assertEquals "should render with dir $dir" "$expected" "$actual"
     rm -rf $dir
@@ -82,7 +82,7 @@ test_scala_file_extension() {
   FILES=( first.scala second.sbt )
   for file in $FILES; do
     touch $file
-    local expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_LUA_COLOR}%}${SPACESHIP_LUA_SYMBOL}v${SCALA_VERSION}%{%b%f%}"
+    local expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_SCALA_COLOR}%}${SPACESHIP_SCALA_SYMBOL}v${SCALA_VERSION}%{%b%f%}"
     local actual="$(spaceship::testkit::render_prompt)"
     assertEquals "should render with extension for file $file" "$expected" "$actual"
     rm $file
