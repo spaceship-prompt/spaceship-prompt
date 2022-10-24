@@ -27,10 +27,10 @@ spaceship_scala() {
   local is_scala_context="$(spaceship::upsearch .scalaenv .sbtenv .metals)"
   [[ -n "$is_scala_context" || -n *.scala(#qN^/) || -n *.sbt(#qN^/) ]] || return
 
-  # pipe version info stdout; won't work otherwise
-  local scala_version=$(scala -version 2>&1 | spaceship::grep -oe "[0-9]\.[0-9]\.[0-9]")
+  # pipe version info into stdout; won't work otherwise
+  local scala_version=$(scalac -version 2>&1 | spaceship::grep -oe "[0-9]\.[0-9]\.[0-9]")
 
-  [[ -z "$scala_version "|| "${scala_version}" == "system" ]] && return
+  [[ -z "$scala_version" || "${scala_version}" == "system" ]] && return
 
   spaceship::section::v4 \
     --color "$SPACESHIP_SCALA_COLOR" \

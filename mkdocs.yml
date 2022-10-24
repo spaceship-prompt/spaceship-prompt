@@ -74,6 +74,7 @@ nav:
         - Python (python): sections/python.md
         - Rust (rust): sections/rust.md
         - Haskell (haskell): sections/haskell.md
+        - Scala (scala): sections/scala.md
         - Java (java): sections/java.md
         - Lua (lua): sections/lua.md
         - Dart (dart): sections/dart.md
@@ -88,7 +89,6 @@ nav:
         - Kubernetes (kubectl): sections/kubectl.md
         - Terraform (terraform): sections/terraform.md
         - IBM Cloud (ibmcloud): sections/ibmcloud.md
-        - Scala (scala): sections/scala.md
   - Advanced:
       - Creating a custom section: advanced/creating-section.md
       - Per-directory configuration: advanced/per-directory-config.md
