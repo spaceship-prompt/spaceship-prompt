@@ -1,22 +1,22 @@
 # Introduction
 
-Welcome to Spaceship configuration! Here is a quick guide of how to adjust Spaceship to your personal workflows.
+Bienvenue dans la configuration de Spaceship ! Here is a quick guide of how to adjust Spaceship to your personal workflows.
 
-## Create a config file
+## Créer un fichier de configuration
 
-To get started with customization, create a configuration file:
+Pour commencer avec la personnalisation, créez un fichier de configuration :
 
 ```zsh
 touch ~/.spaceshiprc.zsh
 ```
 
-… or, if you prefer to keep your configuration within a `~/.config` or `~/.config/spaceship` folders, you can do so, as well:
+… ou, si vous préférez conserver votre configuration dans les dossiers `~/.config` ou `~/.config/spaceship`, vous pouvez également :
 
 ```zsh
 mkdir -p ~/.config/spaceship.zsh
 ```
 
-This file will be automatically sourced by Spaceship when it starts up.
+Le fichier va être sourcé automatiquement par Spaceship quand il démarrera.
 
 ## Configure your prompt
 
