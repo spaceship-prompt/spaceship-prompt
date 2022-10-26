@@ -23,20 +23,23 @@ Currently, these package managers are supported:
 * [`julia`][julia] — version from `Project.toml` file.
 * [`maven`][maven] — version from `mvn` command.
 * [`gradle`][gradle] — version from `gradle` command.
+* [`python`][python] — version from `pyproject.toml`, either in [`setuptools`][setuptools] or [`poetry`][poetry] format.
 
 ## Options
 
-| Variable                         |              Default                | Meaning                             |
-| :------------------------------- | :---------------------------------: | ----------------------------------- |
-| `SPACESHIP_PACKAGE_SHOW`         |               `true`                | Show section                        |
-| `SPACESHIP_PACKAGE_ASYNC`        |               `true`                | Render section asynchronously       |
-| `SPACESHIP_PACKAGE_SHOW_PRIVATE` |               `false`               | Show when a package is private      |
-| `SPACESHIP_PACKAGE_PREFIX`       |               `is·`                 | Section's prefix                    |
-| `SPACESHIP_PACKAGE_SUFFIX`       | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX`  | Section's suffix                    |
-| `SPACESHIP_PACKAGE_SYMBOL`       |               `📦·`                 | Symbol displayed before the section |
-| `SPACESHIP_PACKAGE_COLOR`        |               `red`                 | Section's color                     |
+| Variable                         |              Default               | Meaning                                                             |
+| :------------------------------- | :--------------------------------: | ------------------------------------------------------------------- |
+| `SPACESHIP_PACKAGE_SHOW`         |               `true`               | Show section                                                        |
+| `SPACESHIP_PACKAGE_ASYNC`        |               `true`               | Render section asynchronously                                       |
+| `SPACESHIP_PACKAGE_SHOW_PRIVATE` |              `false`               | Show when a package is private                                      |
+| `SPACESHIP_PACKAGE_PREFIX`       |               `is·`                | Section's prefix                                                    |
+| `SPACESHIP_PACKAGE_SUFFIX`       | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                                                    |
+| `SPACESHIP_PACKAGE_SYMBOL`       |               `📦·`                | Symbol displayed before the section                                 |
+| `SPACESHIP_PACKAGE_COLOR`        |               `red`                | Section's color                                                     |
+| `SPACESHIP_PACKAGE_POETRY`       |              `true`               | Get version from `tool.poetry.version` instead of `project.version` (fallback when the `poetry` location isn't found) |
 
 <!-- References -->
+
 [npm]: https://www.npmjs.com
 [lerna]: https://lerna.io
 [cargo]: https://crates.io
@@ -44,3 +47,6 @@ Currently, these package managers are supported:
 [julia]: https://julialang.org
 [maven]: https://maven.apache.org
 [gradle]: https://gradle.org
+[python]: https://python.org
+[setuptools]: https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+[poetry]: https://python-poetry.org/docs/pyproject/
