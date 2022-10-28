@@ -1,65 +1,65 @@
-# Creating a custom section
+# Créé une section spéciale
 
-This guide aims to help you create your first custom section.
+Ce guide vise à vous aider à créer votre première section personnalisée.
 
-## Rules for sections
+## Règles pour les sections
 
-Here are recommendations to follow when creating a section to maintain Spaceship slick and clean.
+Voici les recommandations à suivre lors de la création d'une section pour maintenir la fluidité et la propreté du vaisseau spatial.
 
-### Section should not clutter the prompt
+### La section ne doit pas encombrer l'invite
 
-Having too much in prompt looks ugly. It's better to keep it to a minimum of necessary information.
+Avoir trop en prompt semble laid. Il est préférable de le limiter au minimum des informations nécessaires.
 
-* **Good:** `🚀 v1.2.3`
-* **Bad:** `🚀 spasheship#c3BhY2VzaGlw`
+* **Bien :** `🚀 v1.2.3`
+* **Mauvais :** `🚀 spasheship#c3BhY2VzaGlw`
 
-### Section should be worth to be aware of
+### La section devrait être utile pour être au courant de
 
-Is value changes quite often, so it needs to be shown in prompt? Would it be useful for other users? Maybe there's a reason to execute a command instead of cluttering prompt.
+Les changements de valeur sont-ils assez fréquents, donc ils doivent être affichés rapidement ? Serait-il utile pour d'autres utilisateurs ? Peut-être qu'il y a une raison d'exécuter une commande au lieu de l'encombrement.
 
-* **Good:** git status/branch, runtime version via version manager, etc
-* **Bad:** version of language-specific framework, settled projects versions, etc
+* **Bon :** git statut/branche, version d'exécution via le gestionnaire de version, etc
+* **Mauvaise :** version du cadre linguistique, des versions de projets réglées, etc
 
-### Section should be fast
+### La section devrait être rapide
 
-If your section performs any heavy checking, find a way to make it faster. Use async rendering for performing heavy tasks. Section should be:
+Si votre section effectue un contrôle minutieux, trouvez un moyen de le rendre plus rapide. Utiliser un rendu asynchrone pour effectuer des tâches lourdes. La section devrait être rapide:
 
-* **Async:** if it executes external commands, perform complex calculations, reading large files
-* **Sync:** if it checks command availability, checks the value of environment variable
+* **Asynchro :** s'il exécute des commandes externes, effectue des calculs complexes, lisant des fichiers volumineux
+* **Synchronisation :** si elle vérifie la disponibilité de la commande, vérifie la valeur de la variable d'environnement
 
-### Follow naming convention for options
+### Suivre la convention de nommage pour les options
 
-All options of prompt follow a specific pattern so that it is easy to remember: `SPACESHIP_SECTION_<OPTION>[_PROPERTY]`. The rule is simple: when naming new properties, keep unique parts of the name to the end.
+Toutes les options de l'invite suivent une pratique spécifique pour qu'il soit facile à retenir : `SPACESHIP_SECTION_<OPTION>[_PROPERTY]`. La règle est simple : lorsque vous nommez de nouvelles propriétés, gardez des parties uniques du nom jusqu'à la fin.
 
-* **Good:**
+* **Bon:**
   ```
     SPACESHIP_GIT_STATUS_COLOR_BEHIND
     SPACESHIP_GIT_STATUS_COLOR_DIVERGED
   ```
-* **Bad:**
+* **Mauvais:**
   ```
     SPACESHIP_GIT_STATUS_BEHIND_COLOR
     SPACESHIP_GIT_STATUS_DIVERGED_COLOR
   ```
 
-  Here, `GIT_STATUS` is *section*, `COLOR` is *option* and `BEHIND` or `DIVERGED` is *property*.
+  Ici, `GIT_STATUS` est *section*, `COLOR` est *option* et `BEHIND` ou `DIVERGÉ` est *propriété*.
 
-## Create a section
+## Créer une section
 
-The simplest way to create a section is to use a template repo for Spaceship section.
+La façon la plus simple de créer une section est d'utiliser un dépôt de template pour la section Spaceship.
 
-[:fontawesome-brands-github: Use a section template](https://github.com/spaceship-prompt/spaceship-section ""){.md-button}
+[:fontawesome-brands-github: Utiliser un modèle de section](https://github.com/spaceship-prompt/spaceship-section ""){.md-button}
 
-This boilerplate repo contains a template for a section and its documentation, has configured release and testing workflow. Explore the repo to learn more.
+Ce dépôt de boilerplate contient un modèle pour une section et sa documentation, a configuré la version et le flux de travail de test. Explorez le dépôt pour en savoir plus.
 
-Open a [`spaceship-section.plugin.zsh` file](https://github.com/spaceship-prompt/spaceship-section/blob/main/spaceship-section.plugin.zsh) for a custom section example.
+Ouvrez un fichier [`spaceship-section.plugin.zsh`](https://github.com/spaceship-prompt/spaceship-section/blob/main/spaceship-section.plugin.zsh) pour un exemple de section personnalisée.
 
-## Typical section breakdown
+## Répartition typique de la section
 
-Below is an example of a typical section for Spaceship. Pay attention to a few crucial moments:
+Voici un exemple de section typique pour le vaisseau spatial. Faites attention à quelques moments cruciaux :
 
-- Define options for customization. Their names should start with `SPACESHIP_`.
-- Every Spaceship section name should start with `spaceship_` (for example `spaceship_node`). This is a convention that is used to identify the section.
+- Définir les options pour la personnalisation. Leurs noms devraient commencer par `SPACESHIP_`.
+- Chaque nom de section de vaisseau spatial doit commencer par `vaisseau spatial_` (par exemple `vaisseau spatial`). This is a convention that is used to identify the section.
 - Show section only where it's needed (in directories which contains specific files, when a specific command is available, etc).
 
 Sections are defined by [`spaceship::section` API](/api/section/). You can use [general purpose utilities](/api/utils/) for performing common tasks in a section.
