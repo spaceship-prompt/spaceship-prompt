@@ -59,18 +59,18 @@ Ouvrez un fichier [`spaceship-section.plugin.zsh`](https://github.com/spaceship-
 Voici un exemple de section typique pour le vaisseau spatial. Faites attention à quelques moments cruciaux :
 
 - Définir les options pour la personnalisation. Leurs noms devraient commencer par `SPACESHIP_`.
-- Chaque nom de section de vaisseau spatial doit commencer par `vaisseau spatial_` (par exemple `vaisseau spatial`). This is a convention that is used to identify the section.
-- Show section only where it's needed (in directories which contains specific files, when a specific command is available, etc).
+- Chaque nom de section de vaisseau spatial doit commencer par `vaisseau spatial_` (par exemple `vaisseau spatial`). Il s'agit d'une convention qui sert à identifier la section.
+- Afficher la section seulement là où elle est nécessaire (dans les répertoires qui contiennent des fichiers spécifiques, quand une commande spécifique est disponible, etc).
 
-Sections are defined by [`spaceship::section` API](/api/section/). You can use [general purpose utilities](/api/utils/) for performing common tasks in a section.
+Les sections sont définies par [`spaceship::section` API](/api/section/). Vous pouvez utiliser des [utilitaires généraux](/api/utils/) pour exécuter des tâches communes dans une section.
 
-Typical section might look like this:
+Une configuration type pourrait ressembler à ceci :
 
 ```zsh
 #
 # Foobar
 #
-# Foobar is a supa-dupa cool tool for making you development easier.
+# Foobar est un outil cool supa-dupa pour vous faciliter le développement.
 # Link: https://www.foobar.xyz
 
 # ------------------------------------------------------------------------------
@@ -90,7 +90,7 @@ SPACESHIP_FOOBAR_COLOR="${SPACESHIP_FOOBAR_COLOR="white"}"
 
 # Show foobar status
 # spaceship_ prefix before section's name is required!
-# Otherwise this section won't be loaded.
+# Sinon cette section ne sera pas chargée.
 spaceship_foobar() {
   # If SPACESHIP_FOOBAR_SHOW is false, don't show foobar section
   [[ $SPACESHIP_FOOBAR_SHOW == false ]] && return
