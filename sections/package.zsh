@@ -21,7 +21,6 @@ SPACESHIP_PACKAGE_PREFIX="${SPACESHIP_PACKAGE_PREFIX="is "}"
 SPACESHIP_PACKAGE_SUFFIX="${SPACESHIP_PACKAGE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL="📦 "}"
 SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR="red"}"
-SPACESHIP_PACKAGE_POETRY="${SPACESHIP_PACKAGE_POETRY=true}"
 
 if [ -z "$SPACESHIP_PACKAGE_ORDER" ]; then
   SPACESHIP_PACKAGE_ORDER=(npm lerna cargo composer julia maven gradle python)
@@ -113,13 +112,9 @@ spaceship_package::python() {
 
   local pyproject_toml=$(spaceship::upsearch pyproject.toml) || return
 
-  if [[ "$SPACESHIP_PACKAGE_USE_POETRY" == false ]]; then
+  spaceship::datafile --toml $project_toml "tool.poetry.version"
+  if [[ $? != 0 ]]; then
     spaceship::datafile --toml $project_toml "project.version"
-  else
-    spaceship::datafile --toml $project_toml "tool.poetry.version"
-    if [[ $? != 0 ]]; then
-      spaceship::datafile --toml $project_toml "project.version"
-    fi
   fi
 }
 
