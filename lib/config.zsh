@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # ------------------------------------------------------------------------------
 # LOAD USER CONFIG
 # Try to load configuration file from pre-defined locations

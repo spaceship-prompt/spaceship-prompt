@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # ------------------------------------------------------------------------------
 # PROMPTS
 # Compose prompts for different prompt variables.
