@@ -7,7 +7,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='4.6.0'
+export SPACESHIP_VERSION='4.6.1'
 
 # Determination of Spaceship working directory
 # https://git.io/vdBH7
@@ -56,6 +56,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     php           # PHP section
     rust          # Rust section
     haskell       # Haskell Stack section
+    scala         # Scala section
     java          # Java section
     lua           # Lua section
     dart          # Dart section

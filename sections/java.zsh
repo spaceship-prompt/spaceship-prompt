@@ -19,7 +19,7 @@ SPACESHIP_JAVA_COLOR="${SPACESHIP_JAVA_COLOR="cyan"}"
 spaceship_java() {
   [[ $SPACESHIP_JAVA_SHOW == false ]] && return
 
-  local is_java_project="$(spaceship::upsearch pom.xml build.gradle settings.gradle)"
+  local is_java_project="$(spaceship::upsearch pom.xml build.gradle settings.gradle build.xml)"
   [[ -n "$is_java_project" || -n *.(java|class|jar|war)(#qN^/) ]] || return
 
   spaceship::exists java || return

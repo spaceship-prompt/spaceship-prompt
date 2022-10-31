@@ -74,6 +74,7 @@ nav:
         - Python (python): sections/python.md
         - Rust (rust): sections/rust.md
         - Haskell (haskell): sections/haskell.md
+        - Scala (scala): sections/scala.md
         - Java (java): sections/java.md
         - Lua (lua): sections/lua.md
         - Dart (dart): sections/dart.md

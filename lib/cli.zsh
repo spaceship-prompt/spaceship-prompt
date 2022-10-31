@@ -27,7 +27,7 @@ _spaceship::cli::urlencore() {
 # ------------------------------------------------------------------------------
 
 _spaceship::cli::help() {
-    cat >&2 <<EOF
+  cat >&2 <<EOF
 Usage: spaceship <command> [options]
 
 Available commands:
@@ -68,7 +68,7 @@ _spaceship::cli::bug-report() {
       if [[ -f "/etc/os-release" || -f "/usr/lib/os-release" || -f "/etc/openwrt_release" ]]; then
         files=("/etc/os-release" "/usr/lib/os-release" "/etc/openwrt_release")
         for file in "${files[@]}"; do
-            source "$file" && break
+          source "$file" && break
         done
         os="${PRETTY_NAME:-${DISTRIB_DESCRIPTION}} ${UBUNTU_CODENAME}"
         [[ -z "${os// }" ]] && os="$(awk '/BLAG/ {print $1; exit}')" "${files[@]}"
@@ -88,23 +88,25 @@ _spaceship::cli::bug-report() {
         fi
       fi
 
+      # @formatter:off
       if [[ "$(< /proc/version)" == *"Microsoft"* ||
         "$kernel_version" == *"Microsoft"* ]]; then
         os="Windows 10"
       fi
+      # @formatter:on
 
       os="${os/NAME=}"
-    ;;
+      ;;
 
     "Darwin")
       os="$(sw_vers -productName) $(sw_vers -productVersion)"
-    ;;
+      ;;
 
     "CYGWIN"* | "MSYS"* | "MINGW"*)
       os="$(wmic os get Caption)"
       os="${os/Caption}"
       os="${os/Microsoft }"
-    ;;
+      ;;
   esac
 
   # Check for popular frameworks
@@ -218,18 +220,18 @@ _spaceship::cli::print() {
   case "$prompt_type" in
     prompt)
       spaceship::prompt
-    ;;
+      ;;
     rprompt)
       spaceship::rprompt
-    ;;
+      ;;
     ps2)
       spaceship::ps2
-    ;;
+      ;;
     *)
       echo "Unknown prompt type: $prompt_type"
       echo "Available types: prompt, rprompt, ps2"
       return 1
-    ;;
+      ;;
   esac
 }
 
@@ -294,9 +296,9 @@ _spaceship() {
       sections+=("${section##spaceship_}")
     done
 
-    case "$words[2]" in
+    case "${words[2]}" in
       add)
-        local -a subcmds=("$sections[@]")
+        local -a subcmds=("${sections[@]}")
 
         subcmds+=("--order: An order to include the section to")
         subcmds+=("-O: An order to include the section to")
@@ -308,23 +310,23 @@ _spaceship() {
         subcmds+=("-B: A section to insert the section before")
 
         _describe 'command' subcmds
-      ;;
+        ;;
       remove)
-        local -a subcmds=("$sections[@]")
+        local -a subcmds=("${sections[@]}")
 
         subcmds+=("--order: An order to include the section to")
         subcmds+=("-O: An order to include the section to")
 
         _describe 'command' subcmds
-      ;;
+        ;;
       print)
-        local -a subcmds=(
-          "--prompt: A prompt to print"
-          "-P: A prompt to print"
-        )
+        local -a subcmds=()
+
+        subcmds+=("--prompt: A prompt to print")
+        subcmds+=("-P: A prompt to print")
 
         _describe 'command' subcmds
-      ;;
+        ;;
     esac
   fi
 

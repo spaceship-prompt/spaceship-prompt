@@ -260,6 +260,12 @@
       "internal": true
     },
     {
+      "name": "scala",
+      "url": "https://spaceship-prompt.sh/sections/scala",
+      "description": "The version of the Scala compiler.",
+      "internal": true
+    },
+    {
       "name": "swift",
       "url": "https://spaceship-prompt.sh/sections/swift",
       "description": "The version of Swift.",

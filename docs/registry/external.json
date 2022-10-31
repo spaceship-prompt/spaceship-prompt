@@ -30,6 +30,11 @@
       "name": "git_user",
       "url": "https://github.com/hexcowboy/spaceship-git-name",
       "description": "The current git user name and email."
+    },
+    {
+      "name": "flutter",
+      "url": "https://github.com/spaceship-prompt/spaceship-flutter",
+      "description": "Flutter section for Spaceship prompt."
     }
   ]
 }
