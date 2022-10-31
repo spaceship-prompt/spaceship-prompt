@@ -23,6 +23,7 @@ Currently, these package managers are supported:
 * [`julia`][julia] — version from `Project.toml` file.
 * [`maven`][maven] — version from `mvn` command.
 * [`gradle`][gradle] — version from `gradle` command.
+* [`python`][python] — version from `pyproject.toml`, either in [`setuptools`][setuptools] or [`poetry`][poetry] format.
 
 ## Options
 
@@ -44,3 +45,6 @@ Currently, these package managers are supported:
 [julia]: https://julialang.org
 [maven]: https://maven.apache.org
 [gradle]: https://gradle.org
+[python]: https://python.org
+[setuptools]: https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+[poetry]: https://python-poetry.org/docs/pyproject/

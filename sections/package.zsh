@@ -8,6 +8,7 @@
 #   * Cargo
 #   * Composer
 #   * Julia
+#   * Python (using pyproject.toml)
 
 # ------------------------------------------------------------------------------
 # Configuration
@@ -22,7 +23,7 @@ SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL="📦 "}"
 SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR="red"}"
 
 if [ -z "$SPACESHIP_PACKAGE_ORDER" ]; then
-  SPACESHIP_PACKAGE_ORDER=(npm lerna cargo composer julia maven gradle)
+  SPACESHIP_PACKAGE_ORDER=(npm lerna cargo composer julia maven gradle python)
 fi
 
 # ------------------------------------------------------------------------------
@@ -105,6 +106,16 @@ spaceship_package::gradle() {
   local gradle_exe=$(spaceship::upsearch gradlew) || (spaceship::exists gradle && gradle_exe="gradle") || return
 
   $gradle_exe properties --no-daemon --console=plain -q 2>/dev/null | grep "^version:" | awk '{printf $2}'
+}
+
+spaceship_package::python() {
+
+  local pyproject_toml=$(spaceship::upsearch pyproject.toml) || return
+
+  spaceship::datafile --toml $project_toml "tool.poetry.version"
+  if [[ $? != 0 ]]; then
+    spaceship::datafile --toml $project_toml "project.version"
+  fi
 }
 
 # ------------------------------------------------------------------------------
