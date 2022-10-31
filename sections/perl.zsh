@@ -25,19 +25,19 @@ SPACESHIP_PERL_COLOR="${SPACESHIP_PERL_COLOR="blue"}"
 spaceship_perl() {
   [[ $SPACESHIP_PERL_SHOW == false ]] && return
 
+  spaceship::exists perl || return
+
   # Show only if perl files or composer.json exist in current directory
   local is_perl_project="$(spaceship::upsearch META.json META.yml META.yaml .perl-version cpanfile)"
-  [[ -n "$is_perl_project" || -n *.pl(#qN^/) ]] || return
-
-  spaceship::exists perl || return
+  [[ -n "$is_perl_project" || -n *.pl(#qN^/) || -n *.pm(#qN^/)  ]] || return
 
   local perl_version=$(perl -v 2>&1 | awk '/This/ {print $9}' | sed -r 's/[(v]+//g;s/[)]//g')
 
   spaceship::section \
-    "$SPACESHIP_PERL_COLOR" \
-    "$SPACESHIP_PERL_PREFIX" \
-    "${SPACESHIP_PERL_SUFFIX}" \
-    "${SPACESHIP_PERL_SYMBOL}" \
-    "v${perl_version}"
+    --color "$SPACESHIP_PERL_COLOR" \
+    --prefix "$SPACESHIP_PERL_PREFIX" \
+    --suffix "$SPACESHIP_PERL_SUFFIX" \
+    --symbol "$SPACESHIP_PERL_SYMBOL" \
+    "v$perl_version"
 
 }
