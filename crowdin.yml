@@ -8,5 +8,6 @@ files:
   - source: /docs/**/*.md
     translation: /docs/%two_letters_code%/**/%original_file_name%
     ignore:
+      - /docs/**/%file_name%.%two_letters_code%.%file_extension%
       - /docs/%two_letters_code%/**/%original_file_name%
       - /docs/blog/**/*
