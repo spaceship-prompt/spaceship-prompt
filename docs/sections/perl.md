@@ -10,7 +10,7 @@ The `perl` section displays the version of the Perl.
 This section is displayed only when the current directory is within a Perl project, meaning:
 
 * Upsearch finds a `META.json`, `META.yml`, `META.yaml`, `.perl-version`, or `cpanfile` file
-* Current directory contains any `.pl` file
+* Current directory contains any `.pl` or `.pm` file
 
 ## Options
 
