@@ -10,6 +10,7 @@
 #   * Julia
 #   * Maven
 #   * Gradle
+#   * Python (using pyproject.toml)
 #   * Dart (Flutter)
 
 # ------------------------------------------------------------------------------
@@ -25,7 +26,7 @@ SPACESHIP_PACKAGE_SYMBOL="${SPACESHIP_PACKAGE_SYMBOL="📦 "}"
 SPACESHIP_PACKAGE_COLOR="${SPACESHIP_PACKAGE_COLOR="red"}"
 
 if [ -z "$SPACESHIP_PACKAGE_ORDER" ]; then
-  SPACESHIP_PACKAGE_ORDER=(npm lerna cargo composer julia maven gradle dart)
+  SPACESHIP_PACKAGE_ORDER=(npm lerna cargo composer julia maven gradle python dart)
 fi
 
 # ------------------------------------------------------------------------------
@@ -112,12 +113,21 @@ spaceship_package::gradle() {
   $gradle_exe properties --no-daemon --console=plain -q 2>/dev/null | grep "^version:" | awk '{printf $2}'
 }
 
+spaceship_package::python() {
+  local pyproject_toml=$(spaceship::upsearch pyproject.toml) || return
+
+  spaceship::datafile --toml $project_toml "tool.poetry.version"
+  if [[ $? != 0 ]]; then
+    spaceship::datafile --toml $project_toml "project.version"
+  fi
+}
+
 spaceship_package::dart() {
   spaceship::exists dart || return
 
   local pubspec_file=$(spaceship::upsearch pubspec.yaml pubspec.yml) || return
 
-  spaceship::datafile --yaml $pubspec_file "version"
+  spaceship::datafile --yaml $pubspec_file "version" 
 }
 
 # ------------------------------------------------------------------------------
