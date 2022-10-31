@@ -55,6 +55,7 @@ SPACESHIP_PROMPT_ORDER=(
   xcode         # Xcode section
   swift         # Swift section
   golang        # Go section
+  perl          # Perl section
   php           # PHP section
   rust          # Rust section
   haskell       # Haskell Stack section
