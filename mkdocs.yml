@@ -89,6 +89,7 @@ nav:
         - Conda virtualenv (conda): sections/conda.md
         - .NET (dotnet): sections/dotnet.md
         - Kubernetes (kubectl): sections/kubectl.md
+        - Dropbox (dropbox): sections/dropbox.md
         - Terraform (terraform): sections/terraform.md
         - IBM Cloud (ibmcloud): sections/ibmcloud.md
         - Nix Shell (nix-shell): sections/nix_shell.md

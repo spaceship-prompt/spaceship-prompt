@@ -56,6 +56,12 @@
       "internal": true
     },
     {
+      "name": "dropbox",
+      "url": "https://spaceship-prompt.sh/sections/dropbox",
+      "description": "Shows the dropbox status using dropbox-cli",
+      "internal": true
+    },
+    {
       "name": "elixir",
       "url": "https://spaceship-prompt.sh/sections/elixir",
       "description": "The current version of the Elixir.",
