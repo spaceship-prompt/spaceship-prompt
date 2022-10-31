@@ -26,7 +26,9 @@ setUp() {
   SPACESHIP_DIR_TRUNC_REPO=true
   SPACESHIP_DIR_COLOR="cyan"
 
-  git config --global init.defaultBranch main
+  command git config --global init.defaultBranch main
+  command git config --global user.email "ci@spaceship-prompt.sh"
+  command git config --global user.name "Spaceship User"
 }
 
 oneTimeTearDown() {
@@ -100,8 +102,8 @@ test_dir_trunc_git() {
   mkdir -p $REPO/dir4/dir5
 
   cd $REPO
-  command git config init.defaultBranch > /dev/null
-  command git init > /dev/null
+  command git config init.defaultBranch >/dev/null
+  command git init >/dev/null
 
   cd $REPO/dir4/dir5
 
