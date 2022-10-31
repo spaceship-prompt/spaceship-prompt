@@ -57,7 +57,7 @@ test_scala_no_files() {
 }
 
 test_scala_upsearch_file() {
-  FILES=( .scalaenv .sbtenv )
+  FILES=(.scalaenv .sbtenv)
   for file in $FILES; do
     touch $file
     local expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_SCALA_COLOR}%}${SPACESHIP_SCALA_SYMBOL}v${SCALA_VERSION}%{%b%f%}"
@@ -68,7 +68,7 @@ test_scala_upsearch_file() {
 }
 
 test_scala_upsearch_dir() {
-  DIRS=( .metals )
+  DIRS=(.metals)
   for dir in $DIRS; do
     mkdir $dir
     local expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_SCALA_COLOR}%}${SPACESHIP_SCALA_SYMBOL}v${SCALA_VERSION}%{%b%f%}"
@@ -79,7 +79,7 @@ test_scala_upsearch_dir() {
 }
 
 test_scala_file_extension() {
-  FILES=( first.scala second.sbt )
+  FILES=(first.scala second.sbt)
   for file in $FILES; do
     touch $file
     local expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_SCALA_COLOR}%}${SPACESHIP_SCALA_SYMBOL}v${SCALA_VERSION}%{%b%f%}"
