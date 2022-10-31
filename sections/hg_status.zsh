@@ -8,6 +8,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_HG_STATUS_SHOW="${SPACESHIP_HG_STATUS_SHOW=true}"
+SPACESHIP_HG_STATUS_ASYNC="${SPACESHIP_HG_STATUS_ASYNC=true}"
 SPACESHIP_HG_STATUS_PREFIX="${SPACESHIP_HG_STATUS_PREFIX=" ["}"
 SPACESHIP_HG_STATUS_SUFFIX="${SPACESHIP_HG_STATUS_SUFFIX="]"}"
 SPACESHIP_HG_STATUS_COLOR="${SPACESHIP_HG_STATUS_COLOR="red"}"
@@ -45,7 +46,7 @@ spaceship_hg_status() {
 
   if [[ -n $hg_status ]]; then
     spaceship::section \
-      "$SPACESHIP_HG_STATUS_COLOR" \
-      "$SPACESHIP_HG_STATUS_PREFIX"$hg_status"$SPACESHIP_HG_STATUS_SUFFIX"
+      --color "$SPACESHIP_HG_STATUS_COLOR" \
+      "$SPACESHIP_HG_STATUS_PREFIX$hg_status$SPACESHIP_HG_STATUS_SUFFIX"
   fi
 }

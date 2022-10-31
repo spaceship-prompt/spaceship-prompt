@@ -22,7 +22,7 @@ SPACESHIP_CHAR_COLOR_SECONDARY="${SPACESHIP_CHAR_COLOR_SECONDARY="yellow"}"
 # Paint $PROMPT_SYMBOL in red if previous command was fail and
 # paint in green if everything was OK.
 spaceship_char() {
-  local 'color' 'char'
+  local color char
 
   if [[ $RETVAL -eq 0 ]]; then
     color="$SPACESHIP_CHAR_COLOR_SUCCESS"
@@ -31,14 +31,14 @@ spaceship_char() {
   fi
 
   if [[ $UID -eq 0 ]]; then
-    char="$SPACESHIP_CHAR_SYMBOL_ROOT"
+    symbol="$SPACESHIP_CHAR_SYMBOL_ROOT"
   else
-    char="$SPACESHIP_CHAR_SYMBOL"
+    symbol="$SPACESHIP_CHAR_SYMBOL"
   fi
 
   spaceship::section \
-    "$color" \
-    "$SPACESHIP_CHAR_PREFIX" \
-    "$char" \
-    "$SPACESHIP_CHAR_SUFFIX"
+    --color "$color" \
+    --prefix "$SPACESHIP_CHAR_PREFIX" \
+    --suffix "$SPACESHIP_CHAR_SUFFIX" \
+    --symbol "$symbol"
 }

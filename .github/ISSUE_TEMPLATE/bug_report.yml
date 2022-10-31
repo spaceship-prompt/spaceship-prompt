@@ -3,18 +3,15 @@ description: If something isn't working as expected 🤔.
 labels:
   - bug
 body:
-  - type: checkboxes
+  - type: markdown
     attributes:
-      label: Is there an existing issue for this?
-      description: >
+      value: |
+        ## Thanks for reporting!
+        
+        You can run `spaceship bug-report` in your terminal to automatically pre-fill and open this form.
+        
         Please search to see if an issue already exists for the bug you encountered.
-
-        Check troubleshooting page for commonly encountered problems: https://spaceship-prompt.sh/troubleshooting
-      options:
-        - label: Yes, I have searched the existing issues
-          required: true
-        - label: Yes, I have checked troubleshooting page
-          required: true
+        Check [FAQ](https://spaceship-prompt.sh/faq) page for commonly encountered problems.
 
   - type: textarea
     attributes:
@@ -57,16 +54,15 @@ body:
       description: >
         Run `zsh --version` to get the version of Spaceship you are using.
 
-  - type: dropdown
+  - type: input
     id: os-system
     validations:
       required: true
     attributes:
       label: What operation system are you running?
-      options:
-        - macOS
-        - Linux
-        - Windows
+      placeholder: macOS, Linux, Windows, etc.
+      description: >
+        Please, type information about your operating system.
 
   - type: input
     id: zsh-framework

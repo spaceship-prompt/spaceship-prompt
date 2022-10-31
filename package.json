@@ -1,18 +1,20 @@
 {
   "name": "spaceship-prompt",
-  "version": "3.16.2",
+  "version": "4.6.1",
   "description": "A Zsh prompt for Astronauts.",
   "files": [
     "lib",
     "scripts",
     "sections",
+    "async.zsh",
     "spaceship.zsh",
-    "spaceship.zsh-theme"
+    "spaceship.zsh-theme",
+    "prompt_spaceship_setup"
   ],
   "scripts": {
-    "postinstall": "./scripts/install.sh",
-    "postuninstall": "./scripts/uninstall.sh",
-    "test": "./scripts/tests.sh"
+    "postinstall": "./scripts/install",
+    "postuninstall": "./scripts/uninstall",
+    "test": "./scripts/tests"
   },
   "repository": {
     "type": "git",
@@ -23,13 +25,22 @@
     "shell",
     "zsh",
     "zsh-theme",
-    "terminal"
+    "terminal",
+    "zshell",
+    "spaceship",
+    "theme",
+    "git",
+    "fast",
+    "minimal"
   ],
-  "author": "Denys Dovhan <denysdovhan@gmail.com> (http://denysdovhan.com/)",
+  "author": {
+    "name": "Denys Dovhan",
+    "email": "denysdovhan@gmail.com",
+    "url": "https://denysdovhan.com/"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/spaceship-prompt/spaceship-prompt/issues"
   },
-  "homepage": "https://github.com/spaceship-prompt/spaceship-prompt#readme",
-  "dependencies": {}
+  "homepage": "https://github.com/spaceship-prompt/spaceship-prompt#readme"
 }

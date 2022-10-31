@@ -15,7 +15,7 @@ oneTimeSetUp() {
   SPACESHIP_PROMPT_ADD_NEWLINE=false
   SPACESHIP_PROMPT_ORDER=(host)
 
-  source spaceship.zsh
+  source "spaceship.zsh"
 }
 
 setUp() {
@@ -49,7 +49,7 @@ tearDown() {
 test_host() {
   SPACESHIP_HOST_SHOW=true
   unset SSH_CONNECTION
-  assertEquals "do not render host by default" "" "$(spaceship_prompt)"
+  assertEquals "do not render host by default" "" "$(spaceship::testkit::render_prompt)"
 }
 
 test_host_show() {
@@ -62,43 +62,43 @@ test_host_show() {
 
   SSH_CONNECTION=''
   SPACESHIP_HOST_SHOW_FULL=false
-  assertEquals "SHOW=true, SSH=false, FULL=false" "" "$(spaceship_prompt)"
+  assertEquals "SHOW=true, SSH=false, FULL=false" "" "$(spaceship::testkit::render_prompt)"
   SPACESHIP_HOST_SHOW_FULL=true
-  assertEquals "SHOW=true, SSH=false, FULL=true" "" "$(spaceship_prompt)"
+  assertEquals "SHOW=true, SSH=false, FULL=true" "" "$(spaceship::testkit::render_prompt)"
 
   SSH_CONNECTION='ssh'
   SPACESHIP_HOST_SHOW_FULL=false
-  assertEquals "SHOW=true, SSH=true, FULL=false" "$expected_ssh" "$(spaceship_prompt)"
+  assertEquals "SHOW=true, SSH=true, FULL=false" "$expected_ssh" "$(spaceship::testkit::render_prompt)"
   SPACESHIP_HOST_SHOW_FULL=true
-  assertEquals "SHOW=true, SSH=true, FULL=true" "$expected_ssh_full" "$(spaceship_prompt)"
+  assertEquals "SHOW=true, SSH=true, FULL=true" "$expected_ssh_full" "$(spaceship::testkit::render_prompt)"
 
   SPACESHIP_HOST_SHOW=always
 
   SSH_CONNECTION='ssh'
   SPACESHIP_HOST_SHOW_FULL=false
-  assertEquals "SHOW=always, SSH=true, FULL=false" "$expected_ssh" "$(spaceship_prompt)"
+  assertEquals "SHOW=always, SSH=true, FULL=false" "$expected_ssh" "$(spaceship::testkit::render_prompt)"
   SPACESHIP_HOST_SHOW_FULL=true
-  assertEquals "SHOW=always, SSH=true, FULL=true" "$expected_ssh_full" "$(spaceship_prompt)"
+  assertEquals "SHOW=always, SSH=true, FULL=true" "$expected_ssh_full" "$(spaceship::testkit::render_prompt)"
 
   SSH_CONNECTION=''
   SPACESHIP_HOST_SHOW_FULL=false
-  assertEquals "SHOW=always, SSH=false, FULL=false" "$expected" "$(spaceship_prompt)"
+  assertEquals "SHOW=always, SSH=false, FULL=false" "$expected" "$(spaceship::testkit::render_prompt)"
   SPACESHIP_HOST_SHOW_FULL=true
-  assertEquals "SHOW=always, SSH=false, FULL=true" "$expected_full" "$(spaceship_prompt)"
+  assertEquals "SHOW=always, SSH=false, FULL=true" "$expected_full" "$(spaceship::testkit::render_prompt)"
 
   SPACESHIP_HOST_SHOW=false
 
   SSH_CONNECTION='ssh'
   SPACESHIP_HOST_SHOW_FULL=false
-  assertEquals "SHOW=false, SSH=true, FULL=false" "" "$(spaceship_prompt)"
+  assertEquals "SHOW=false, SSH=true, FULL=false" "" "$(spaceship::testkit::render_prompt)"
   SPACESHIP_HOST_SHOW_FULL=true
-  assertEquals "SHOW=false, SSH=true, FULL=true" "" "$(spaceship_prompt)"
+  assertEquals "SHOW=false, SSH=true, FULL=true" "" "$(spaceship::testkit::render_prompt)"
 
   SSH_CONNECTION=''
   SPACESHIP_HOST_SHOW_FULL=false
-  assertEquals "SHOW=false, SSH=false, FULL=false" "" "$(spaceship_prompt)"
+  assertEquals "SHOW=false, SSH=false, FULL=false" "" "$(spaceship::testkit::render_prompt)"
   SPACESHIP_HOST_SHOW_FULL=true
-  assertEquals "SHOW=false, SSH=false, FULL=true" "" "$(spaceship_prompt)"
+  assertEquals "SHOW=false, SSH=false, FULL=true" "" "$(spaceship::testkit::render_prompt)"
 
   unset SPACESHIP_HOST_SHOW_FULL
   unset SSH_CONNECTION
@@ -109,7 +109,7 @@ test_host_color() {
   SPACESHIP_HOST_COLOR=blue
 
   local expected="%{%B%}at %{%b%}%{%B%F{$SPACESHIP_HOST_COLOR}%}%m%{%b%f%}%{%B%} %{%b%}"
-  local actual="$(spaceship_prompt)"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render host with custom color" "$expected" "$actual"
 }
@@ -119,8 +119,8 @@ test_host_prefix() {
   SPACESHIP_HOST_PREFIX='prefix'
   SPACESHIP_HOST_SUFFIX=''
 
-  local expected="%{%B%}$SPACESHIP_HOST_PREFIX%{%b%}%{%B%F{blue}%}%m%{%b%f%}%{%B%}$SPACESHIP_HOST_SUFFIX%{%b%}"
-  local actual="$(spaceship_prompt)"
+  local expected="%{%B%}$SPACESHIP_HOST_PREFIX%{%b%}%{%B%F{blue}%}%m%{%b%f%}"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render host with prefix" "$expected" "$actual"
 }
@@ -130,8 +130,8 @@ test_host_suffix() {
   SPACESHIP_HOST_PREFIX=''
   SPACESHIP_HOST_SUFFIX='suffix'
 
-  local expected="%{%B%}$SPACESHIP_HOST_PREFIX%{%b%}%{%B%F{blue}%}%m%{%b%f%}%{%B%}$SPACESHIP_HOST_SUFFIX%{%b%}"
-  local actual="$(spaceship_prompt)"
+  local expected="%{%B%F{blue}%}%m%{%b%f%}%{%B%}$SPACESHIP_HOST_SUFFIX%{%b%}"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render host with suffix" "$expected" "$actual"
 }

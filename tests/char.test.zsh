@@ -15,7 +15,7 @@ oneTimeSetUp() {
   SPACESHIP_PROMPT_ADD_NEWLINE=false
   SPACESHIP_PROMPT_ORDER=(char)
 
-  source spaceship.zsh
+  source "spaceship.zsh"
 }
 
 setUp() {
@@ -48,17 +48,19 @@ tearDown() {
 
 test_char() {
   SPACESHIP_CHAR_COLOR_SUCCESS=blue
-  local expected="%{%B%}%{%b%}%{%B%F{$SPACESHIP_CHAR_COLOR_SUCCESS}%}➜ %{%b%f%}%{%B%}%{%b%}"
-  local actual="$(spaceship_prompt)"
+
+  local expected="%{%B%F{$SPACESHIP_CHAR_COLOR_SUCCESS}%}➜ %{%b%f%}"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render char" "$expected" "$actual"
 }
 
 test_char_failure() {
-  SPACESHIP_CHAR_COLOR_FAILURE=yellow
-  local expected="%{%B%}%{%b%}%{%B%F{$SPACESHIP_CHAR_COLOR_FAILURE}%}➜ %{%b%f%}%{%B%}%{%b%}"
+  SPACESHIP_CHAR_COLOR_FAILURE=yello
+
+  local expected="%{%B%F{$SPACESHIP_CHAR_COLOR_FAILURE}%}➜ %{%b%f%}"
   command false # this command should exit with non-zero code
-  local actual="$(spaceship_prompt)"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render char with failure" "$expected" "$actual"
 }
@@ -66,8 +68,8 @@ test_char_failure() {
 test_char_symbol() {
   SPACESHIP_CHAR_SYMBOL='-> '
 
-  local expected="%{%B%}%{%b%}%{%B%F{green}%}$SPACESHIP_CHAR_SYMBOL%{%b%f%}%{%B%}%{%b%}"
-  local actual="$(spaceship_prompt)"
+  local expected="%{%B%F{green}%}$SPACESHIP_CHAR_SYMBOL%{%b%f%}"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render char with custom symbol" "$expected" "$actual"
 }
@@ -76,8 +78,8 @@ test_char_prefix() {
   SPACESHIP_CHAR_PREFIX='prefix'
   SPACESHIP_CHAR_SUFFIX=''
 
-  local expected="%{%B%}$SPACESHIP_CHAR_PREFIX%{%b%}%{%B%F{green}%}➜ %{%b%f%}%{%B%}$SPACESHIP_CHAR_SUFFIX%{%b%}"
-  local actual="$(spaceship_prompt)"
+  local expected="%{%B%}$SPACESHIP_CHAR_PREFIX%{%b%}%{%B%F{green}%}➜ %{%b%f%}"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render char with prefix" "$expected" "$actual"
 }
@@ -86,8 +88,8 @@ test_char_suffix() {
   SPACESHIP_CHAR_PREFIX=''
   SPACESHIP_CHAR_SUFFIX='suffix'
 
-  local expected="%{%B%}$SPACESHIP_CHAR_PREFIX%{%b%}%{%B%F{green}%}➜ %{%b%f%}%{%B%}$SPACESHIP_CHAR_SUFFIX%{%b%}"
-  local actual="$(spaceship_prompt)"
+  local expected="%{%B%F{green}%}➜ %{%b%f%}%{%B%}$SPACESHIP_CHAR_SUFFIX%{%b%}"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render char with suffix" "$expected" "$actual"
 }

@@ -15,7 +15,7 @@ oneTimeSetUp() {
   SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
   SPACESHIP_PROMPT_ORDER=(user)
 
-  source spaceship.zsh
+  source "spaceship.zsh"
 }
 
 setUp() {
@@ -49,7 +49,7 @@ test_user() {
   USER='tests'
 
   local expected="%{%B%}with %{%b%}%{%B%F{yellow}%}%n%{%b%f%}%{%B%} %{%b%}"
-  local actual="$(spaceship_prompt)"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render user when needed" "$expected" "$actual"
 
@@ -61,27 +61,27 @@ test_user_show() {
 
   SPACESHIP_USER_SHOW=true
   SSH_CONNECTION=''
-  assertEquals "SHOW=true, SSH=false" "" "$(spaceship_prompt)"
+  assertEquals "SHOW=true, SSH=false" "" "$(spaceship::testkit::render_prompt)"
   SSH_CONNECTION='ssh'
-  assertEquals "SHOW=true, SSH=true" "$expected" "$(spaceship_prompt)"
+  assertEquals "SHOW=true, SSH=true" "$expected" "$(spaceship::testkit::render_prompt)"
 
   SPACESHIP_USER_SHOW=always
   SSH_CONNECTION=''
-  assertEquals "SHOW=always, SSH=false" "$expected" "$(spaceship_prompt)"
+  assertEquals "SHOW=always, SSH=false" "$expected" "$(spaceship::testkit::render_prompt)"
   SSH_CONNECTION='ssh'
-  assertEquals "SHOW=always, SSH=true" "$expected" "$(spaceship_prompt)"
+  assertEquals "SHOW=always, SSH=true" "$expected" "$(spaceship::testkit::render_prompt)"
 
   SPACESHIP_USER_SHOW=false
   SSH_CONNECTION=''
-  assertEquals "SHOW=false, SSH=false" "" "$(spaceship_prompt)"
+  assertEquals "SHOW=false, SSH=false" "" "$(spaceship::testkit::render_prompt)"
   SSH_CONNECTION='ssh'
-  assertEquals "SHOW=false, SSH=true" "" "$(spaceship_prompt)"
+  assertEquals "SHOW=false, SSH=true" "" "$(spaceship::testkit::render_prompt)"
 
   SPACESHIP_USER_SHOW=needed
   SSH_CONNECTION=''
-  assertEquals "SHOW=needed, SSH=false" "" "$(spaceship_prompt)"
+  assertEquals "SHOW=needed, SSH=false" "" "$(spaceship::testkit::render_prompt)"
   SSH_CONNECTION='ssh'
-  assertEquals "SHOW=needed, SSH=true" "" "$(spaceship_prompt)"
+  assertEquals "SHOW=needed, SSH=true" "" "$(spaceship::testkit::render_prompt)"
 
   unset SSH_CONNECTION
 }
@@ -91,7 +91,7 @@ test_user_color() {
   SPACESHIP_USER_COLOR=green
 
   local expected="%{%B%}with %{%b%}%{%B%F{$SPACESHIP_USER_COLOR}%}%n%{%b%f%}%{%B%} %{%b%}"
-  local actual="$(spaceship_prompt)"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render user with custom color" "$expected" "$actual"
 }
@@ -101,8 +101,8 @@ test_user_prefix() {
   SPACESHIP_USER_PREFIX='prefix'
   SPACESHIP_USER_SUFFIX=''
 
-  local expected="%{%B%}$SPACESHIP_USER_PREFIX%{%b%}%{%B%F{yellow}%}%n%{%b%f%}%{%B%}$SPACESHIP_USER_SUFFIX%{%b%}"
-  local actual="$(spaceship_prompt)"
+  local expected="%{%B%}$SPACESHIP_USER_PREFIX%{%b%}%{%B%F{yellow}%}%n%{%b%f%}"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render user with prefix" "$expected" "$actual"
 }
@@ -112,8 +112,8 @@ test_user_suffix() {
   SPACESHIP_USER_PREFIX=''
   SPACESHIP_USER_SUFFIX='suffix'
 
-  local expected="%{%B%}$SPACESHIP_USER_PREFIX%{%b%}%{%B%F{yellow}%}%n%{%b%f%}%{%B%}$SPACESHIP_USER_SUFFIX%{%b%}"
-  local actual="$(spaceship_prompt)"
+  local expected="%{%B%F{yellow}%}%n%{%b%f%}%{%B%}$SPACESHIP_USER_SUFFIX%{%b%}"
+  local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "render user with suffix" "$expected" "$actual"
 }

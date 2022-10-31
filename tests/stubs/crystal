@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+echo "Crystal 1.5.1 (2022-09-08)"
+echo
+echo "LLVM: 14.0.6"
+echo "Default target: aarch64-apple-darwin21.6.0"
