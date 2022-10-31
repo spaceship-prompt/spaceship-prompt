@@ -71,6 +71,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     kubectl       # Kubectl context section
     terraform     # Terraform workspace section
     ibmcloud      # IBM Cloud section
+    nix_shell     # Nix shell
     exec_time     # Execution time
     async         # Async jobs indicator
     line_sep      # Line break
