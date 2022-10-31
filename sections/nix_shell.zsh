@@ -20,12 +20,12 @@ SPACESHIP_NIXSHELL_COLOR="${SPACESHIP_NIXSHELL_COLOR="yellow"}"
 # ------------------------------------------------------------------------------
 
 # Shows whether nix-shell environment is active
-spaceship_nixshell() {
+spaceship_nix_shell() {
   [[ $SPACESHIP_NIXSHELL_SHOW == false ]] && return
 
-  [[ -z $IN_NIX_SHELL ]] && return
+  [[ -z "$IN_NIX_SHELL" ]] && return
 
-  if [[ -z $name || $name == "" ]] then
+  if [[ -z "$name" || "$name" == "" ]] then
     display_text="$IN_NIX_SHELL"
   else
     display_text="$IN_NIX_SHELL ($name)"
@@ -37,5 +37,5 @@ spaceship_nixshell() {
     --prefix "$SPACESHIP_NIXSHELL_PREFIX" \
     --suffix "$SPACESHIP_NIXSHELL_SUFFIX" \
     --symbol "$SPACESHIP_NIXSHELL_SYMBOL" \
-    $display_text
+    "$display_text"
 }
