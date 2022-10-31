@@ -15,11 +15,11 @@ This section is displayed only within Scala projects, meaning:
 
 ## Options
 
-| Variable                   |              Default               | Meaning                                                                               |
-| :------------------------- | :--------------------------------: | --------------------------------------------------------------------------------------|
-| `SPACESHIP_SCALA_SHOW`     |               `true`               | Show section                                                                          | 
-| `SPACESHIP_SCALA_ASYNC`    |               `true`               | Render section asynchronously                                                         | 
-| `SPACESHIP_SCALA_PREFIX`   | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                                                                      |
-| `SPACESHIP_SCALA_SUFFIX`   | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                                                                      |
-| `SPACESHIP_SCALA_SYMBOL`   |               `·`                | Symbol displayed before the section (requires [nerd font](https://www.nerdfonts.com/) |
-| `SPACESHIP_SCALA_COLOR`    |               `red`                | Section's color                                                                       | 
+| Variable                   |              Default               | Meaning                              |
+| :------------------------- | :--------------------------------: | ------------------------------------ |
+| `SPACESHIP_SCALA_SHOW`     |               `true`               | Show section                         |
+| `SPACESHIP_SCALA_ASYNC`    |               `true`               | Render section asynchronously        |
+| `SPACESHIP_SCALA_PREFIX`   | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                     |
+| `SPACESHIP_SCALA_SUFFIX`   | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                     |
+| `SPACESHIP_SCALA_SYMBOL`   |               `🆂 `                | Symbol displayed before the section  |
+| `SPACESHIP_SCALA_COLOR`    |               `red`                | Section's color                      |
