@@ -10,7 +10,7 @@ The `java` section is shown the current version of the Java compiler.
 This section is shown only within Java projects, meaning:
 
 * `java` compiler is available
-* Upsearch finds `pom.xml`, `build.gradle`, `settings.gradle` files
+* Upsearch finds `pom.xml`, `build.gradle`, `settings.gradle`, `build.xml` files
 * The current directory contains `*.java`, `*.class`, `*.jar` or `*.war` files
 
 ## Options
