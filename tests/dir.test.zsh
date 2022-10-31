@@ -25,10 +25,6 @@ setUp() {
   SPACESHIP_DIR_TRUNC=3
   SPACESHIP_DIR_TRUNC_REPO=true
   SPACESHIP_DIR_COLOR="cyan"
-
-  command git config --global init.defaultBranch main
-  command git config --global user.email "ci@spaceship-prompt.sh"
-  command git config --global user.name "Spaceship User"
 }
 
 oneTimeTearDown() {
@@ -117,6 +113,10 @@ test_dir_trunc_git_submodule() {
   local FOLDER="$SHUNIT_TMPDIR/dir/trunc_git_submodule"
   local REPO="$FOLDER/dir1/dir2/dir3"
   local SUBMODULE="$FOLDER/dir1/dir2/dir4"
+
+  # Allow adding submodules via file transport
+  # See: https://bugs.launchpad.net/ubuntu/+source/git/+bug/1993586
+  command git config --global protocol.file.allow always
 
   mkdir -p $REPO
   mkdir -p $SUBMODULE
