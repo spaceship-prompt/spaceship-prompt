@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # ------------------------------------------------------------------------------
 # WORKER
 # Spaceship wrapper around zsh-async

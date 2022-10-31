@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # ------------------------------------------------------------------------------
 # SECTION
 # Functions for packing, extracting and rendering sections.

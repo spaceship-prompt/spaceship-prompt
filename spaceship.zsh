@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 #
 # Spaceship ZSH
 #
@@ -57,6 +58,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     php           # PHP section
     rust          # Rust section
     haskell       # Haskell Stack section
+    scala         # Scala section
     java          # Java section
     lua           # Lua section
     dart          # Dart section
@@ -71,6 +73,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     kubectl       # Kubectl context section
     terraform     # Terraform workspace section
     ibmcloud      # IBM Cloud section
+    nix_shell     # Nix shell
     exec_time     # Execution time
     async         # Async jobs indicator
     line_sep      # Line break

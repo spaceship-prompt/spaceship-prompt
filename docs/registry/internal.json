@@ -218,6 +218,12 @@
       "internal": true
     },
     {
+      "name": "nix_shell",
+      "url": "https://spaceship-prompt.sh/sections/nix_shell",
+      "description": "Displays whether the nix shell is pure/impure as well as the shell's name if one was specified.",
+      "internal": true
+    },
+    {
       "name": "node",
       "url": "https://spaceship-prompt.sh/sections/node",
       "description": "The current version of the Node.js binary.",
@@ -257,6 +263,12 @@
       "name": "rust",
       "url": "https://spaceship-prompt.sh/sections/rust",
       "description": "The version of Rust binary.",
+      "internal": true
+    },
+    {
+      "name": "scala",
+      "url": "https://spaceship-prompt.sh/sections/scala",
+      "description": "The version of the Scala compiler.",
       "internal": true
     },
     {

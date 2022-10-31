@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # ------------------------------------------------------------------------------
 # CORE RENDERER
 # Tools for loading sections, building sections and invoking the renderer

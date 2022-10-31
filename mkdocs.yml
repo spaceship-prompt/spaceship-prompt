@@ -64,6 +64,7 @@ nav:
         - Package (package): sections/package.md
         - Node.js (node): sections/node.md
         - Bun (bun): sections/bun.md
+        - Deno (deno): sections/deno.md
         - Ruby (ruby): sections/ruby.md
         - Elm (elm): sections/elm.md
         - Elixir (elixir): sections/elixir.md
@@ -74,6 +75,7 @@ nav:
         - Python (python): sections/python.md
         - Rust (rust): sections/rust.md
         - Haskell (haskell): sections/haskell.md
+        - Scala (scala): sections/scala.md
         - Java (java): sections/java.md
         - Lua (lua): sections/lua.md
         - Dart (dart): sections/dart.md
@@ -88,6 +90,7 @@ nav:
         - Kubernetes (kubectl): sections/kubectl.md
         - Terraform (terraform): sections/terraform.md
         - IBM Cloud (ibmcloud): sections/ibmcloud.md
+        - Nix Shell (nix-shell): sections/nix_shell.md
   - Advanced:
       - Creating a custom section: advanced/creating-section.md
       - Per-directory configuration: advanced/per-directory-config.md
@@ -136,9 +139,9 @@ extra:
     - name: Deutsch
       lang: de
       link: /de
-    - name: Polski
-      lang: pl
-      link: /pl
+    - name: Français
+      lang: fr
+      link: /fr
     - name: Українська
       lang: uk
       link: /uk
@@ -175,7 +178,7 @@ plugins:
       lang:
         - en
         - de
-        - pl
+        - fr
         - uk
         - zh
   - redirects:
@@ -192,15 +195,15 @@ plugins:
           name: English
         de:
           name: Deutsch
-        pl:
-          name: Polska
+        fr:
+          name: Français
         uk:
           name: Українська
         zh:
           name: 简体中文
       nav_translations:
         de: # TODO: Add German translations
-        pl: # TODO: Add Polish translations
+        fr: # TODO: Add French translations
         uk:
           Home: Головна
           Getting Started: Початок роботи
