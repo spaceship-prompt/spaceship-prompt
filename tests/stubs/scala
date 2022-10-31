@@ -1,3 +1,0 @@
-#!/usr/bin/env zsh
-
-printf 'Scala compiler version 3.2.0 -- Copyright 2002-2022, LAMP/EPFL\n'
