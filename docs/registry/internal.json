@@ -56,6 +56,12 @@
       "internal": true
     },
     {
+      "name": "ocaml",
+      "url": "https://spaceship-prompt.sh/sections/ocaml",
+      "description": "The version of the OCaml via ocaml, esy or opam.",
+      "internal": true
+    },
+    {
       "name": "elixir",
       "url": "https://spaceship-prompt.sh/sections/elixir",
       "description": "The current version of the Elixir.",
