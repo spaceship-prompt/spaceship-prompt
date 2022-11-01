@@ -88,7 +88,7 @@ nav:
         - Virtualenv (venv): sections/venv.md
         - Conda virtualenv (conda): sections/conda.md
         - .NET (dotnet): sections/dotnet.md
-        - OCaml: sections/ocaml.md
+        - OCaml (ocaml): sections/ocaml.md
         - Kubernetes (kubectl): sections/kubectl.md
         - Terraform (terraform): sections/terraform.md
         - IBM Cloud (ibmcloud): sections/ibmcloud.md
