@@ -57,7 +57,7 @@ test_lua_no_files() {
 }
 
 test_lua_upsearch_file() {
-  FILES=( .lua-version )
+  FILES=(.lua-version)
   for file in $FILES; do
     touch $file
     local expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_LUA_COLOR}%}${SPACESHIP_LUA_SYMBOL}v${LUA_VERSION}%{%b%f%}"
@@ -68,7 +68,7 @@ test_lua_upsearch_file() {
 }
 
 test_lua_upsearch_dir() {
-  DIRS=( lua )
+  DIRS=(lua)
   for dir in $DIRS; do
     mkdir $dir
     local expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_LUA_COLOR}%}${SPACESHIP_LUA_SYMBOL}v${LUA_VERSION}%{%b%f%}"
@@ -79,7 +79,7 @@ test_lua_upsearch_dir() {
 }
 
 test_lua_file_extension() {
-  FILES=( first.lua second.lua )
+  FILES=(first.lua second.lua)
   for file in $FILES; do
     touch $file
     local expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_LUA_COLOR}%}${SPACESHIP_LUA_SYMBOL}v${LUA_VERSION}%{%b%f%}"

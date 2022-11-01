@@ -56,7 +56,7 @@ test_no_files() {
   assertEquals "should not render without files" "$expected" "$actual"
 }
 
-test_dart_upsearch_file() {
+test_perl_upsearch_file() {
   FILES=(META.json META.yml META.yaml .perl-version cpanfile)
   for file in $FILES; do
     touch $file
@@ -67,7 +67,7 @@ test_dart_upsearch_file() {
   done
 }
 
-test_dart_file_extension() {
+test_perl_file_extension() {
   FILES=(first.pl second.pm)
   for file in $FILES; do
     touch $file
