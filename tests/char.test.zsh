@@ -56,7 +56,7 @@ test_char() {
 }
 
 test_char_failure() {
-  SPACESHIP_CHAR_COLOR_FAILURE=yello
+  SPACESHIP_CHAR_COLOR_FAILURE=yellow
 
   local expected="%{%B%F{$SPACESHIP_CHAR_COLOR_FAILURE}%}➜ %{%b%f%}"
   command false # this command should exit with non-zero code
