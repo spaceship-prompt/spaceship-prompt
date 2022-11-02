@@ -17,6 +17,7 @@ jobs:
       - name: ⬇️ Checkout Repo
         uses: actions/checkout@v3
         with:
+          persist-credentials: false
           submodules: true
 
       - name: 🚀 Release
