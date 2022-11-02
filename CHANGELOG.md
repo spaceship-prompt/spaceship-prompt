@@ -1,3 +1,22 @@
+# [4.7.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.6.1...v4.7.0) (2022-11-02)
+
+
+### Bug Fixes
+
+* add shebangs for every file in the core ([f74df3f](https://github.com/spaceship-prompt/spaceship-prompt/commit/f74df3f6d7bdddeb0b39917a4a5057308e58070b))
+* **docker:** recognize docker in .devcontainer folder (for vscode) ([#1109](https://github.com/spaceship-prompt/spaceship-prompt/issues/1109)) ([a6a8e7d](https://github.com/spaceship-prompt/spaceship-prompt/commit/a6a8e7d4b20674973b4ac8d3084b7c31589a9b92))
+
+
+### Features
+
+* **java:** add support for ant ([#1273](https://github.com/spaceship-prompt/spaceship-prompt/issues/1273)) ([ec7abcd](https://github.com/spaceship-prompt/spaceship-prompt/commit/ec7abcd41e2c430079bf9ba9bac62f690bd7de35))
+* **nix_shell:** Added Nix Shell section ([#1248](https://github.com/spaceship-prompt/spaceship-prompt/issues/1248)) ([b6760b8](https://github.com/spaceship-prompt/spaceship-prompt/commit/b6760b82dfa3ffba1afb828395a1c66da10f0d9a))
+* **ocaml:** Add OCaml section ([#1278](https://github.com/spaceship-prompt/spaceship-prompt/issues/1278)) ([98fb3ee](https://github.com/spaceship-prompt/spaceship-prompt/commit/98fb3ee42922e3aa7898d160ea6c2f55a48981ca))
+* **package:** add Dart to the package section ([#1262](https://github.com/spaceship-prompt/spaceship-prompt/issues/1262)) ([d1668e2](https://github.com/spaceship-prompt/spaceship-prompt/commit/d1668e25a219278f3960b4e1ead4838f8598edd9))
+* **package:** Support pyproject.toml for package section ([#1275](https://github.com/spaceship-prompt/spaceship-prompt/issues/1275)) ([8543506](https://github.com/spaceship-prompt/spaceship-prompt/commit/8543506c4a1895a464121742245935e8867fd217))
+* **perl:** Adding perl section ([#1135](https://github.com/spaceship-prompt/spaceship-prompt/issues/1135)) ([d3c2bf6](https://github.com/spaceship-prompt/spaceship-prompt/commit/d3c2bf6b5fb2e23e40f8a86e1f5fd9da4f9bc321))
+* **scala:** Add new Scala section ([#1269](https://github.com/spaceship-prompt/spaceship-prompt/issues/1269)) ([fffea87](https://github.com/spaceship-prompt/spaceship-prompt/commit/fffea87373c7afbb48c4e2ae4f38ba957eeabf60))
+
 ## [4.6.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.6.0...v4.6.1) (2022-10-14)
 
 
