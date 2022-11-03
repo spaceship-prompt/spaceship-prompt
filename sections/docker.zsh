@@ -9,6 +9,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_DOCKER_SHOW="${SPACESHIP_DOCKER_SHOW=true}"
+SPACESHIP_DOCKER_ASYNC="${SPACESHIP_DOCKER_ASYNC=true}"
 SPACESHIP_DOCKER_PREFIX="${SPACESHIP_DOCKER_PREFIX="on "}"
 SPACESHIP_DOCKER_SUFFIX="${SPACESHIP_DOCKER_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_DOCKER_SYMBOL="${SPACESHIP_DOCKER_SYMBOL="🐳 "}"
@@ -20,6 +21,7 @@ SPACESHIP_DOCKER_VERBOSE="${SPACESHIP_DOCKER_VERBOSE=false}"
 # ------------------------------------------------------------------------------
 
 source "$SPACESHIP_ROOT/sections/docker_context.zsh"
+spaceship::precompile "$SPACESHIP_ROOT/sections/docker_context.zsh"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -53,21 +55,23 @@ spaceship_docker() {
   fi
 
   local docker_context="$(spaceship_docker_context)"
+  local docker_context_section="$(spaceship::section::render $docker_context)"
 
   # Show Docker status only for Docker-specific folders or when connected to external host
-  [[ "$compose_exists" == true || -f Dockerfile || -f docker-compose.yml || -f /.dockerenv || -n $docker_context ]] || return
+  local is_docker_project="$(spaceship::upsearch Dockerfile docker-compose.yml .devcontainer/Dockerfile)"
+  [[ "$compose_exists" == true || -n "$is_docker_project" || -f /.dockerenv || -n $docker_context ]] || return
 
   # if docker daemon isn't running you'll get an error saying it can't connect
   # Note: Declaration and assignment is separated for correctly getting the exit code
-  local 'docker_version'
-  docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
+  local docker_version=$(docker version -f "{{.Server.Version}}" 2>/dev/null)
   [[ $? -ne 0 || -z $docker_version ]] && return
 
   [[ $SPACESHIP_DOCKER_VERBOSE == false ]] && docker_version=${docker_version%-*}
 
   spaceship::section \
-    "$SPACESHIP_DOCKER_COLOR" \
-    "$SPACESHIP_DOCKER_PREFIX" \
-    "${SPACESHIP_DOCKER_SYMBOL}v${docker_version}${docker_context}" \
-    "$SPACESHIP_DOCKER_SUFFIX"
+    --color "$SPACESHIP_DOCKER_COLOR" \
+    --prefix "$SPACESHIP_DOCKER_PREFIX" \
+    --suffix "$SPACESHIP_DOCKER_SUFFIX" \
+    --symbol "$SPACESHIP_DOCKER_SYMBOL" \
+    "v${docker_version}${docker_context_section}"
 }

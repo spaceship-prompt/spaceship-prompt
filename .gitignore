@@ -4,3 +4,6 @@ site
 # Lockfiles
 package-lock.json
 yarn.lock
+
+# Compiled zsh files
+*.zwc

@@ -7,6 +7,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_GIT_STATUS_SHOW="${SPACESHIP_GIT_STATUS_SHOW=true}"
+SPACESHIP_GIT_STATUS_ASYNC="${SPACESHIP_GIT_STATUS_ASYNC=true}"
 SPACESHIP_GIT_STATUS_PREFIX="${SPACESHIP_GIT_STATUS_PREFIX=" ["}"
 SPACESHIP_GIT_STATUS_SUFFIX="${SPACESHIP_GIT_STATUS_SUFFIX="]"}"
 SPACESHIP_GIT_STATUS_COLOR="${SPACESHIP_GIT_STATUS_COLOR="red"}"
@@ -35,7 +36,7 @@ spaceship_git_status() {
 
   spaceship::is_git || return
 
-  local INDEX git_status=""
+  local INDEX git_branch="$vcs_info_msg_0_" git_status=""
 
   INDEX=$(command git status --porcelain -b 2> /dev/null)
 
@@ -87,29 +88,22 @@ spaceship_git_status() {
   fi
 
   # Check whether branch is ahead
-  local is_ahead=false
-  if $(echo "$INDEX" | command grep '^## [^ ]\+ .*ahead' &> /dev/null); then
-    is_ahead=true
-  fi
-
-  # Check whether branch is behind
-  local is_behind=false
-  if $(echo "$INDEX" | command grep '^## [^ ]\+ .*behind' &> /dev/null); then
-    is_behind=true
-  fi
+  local ahead=$(command git rev-list --count ${git_branch}@{upstream}..HEAD 2>/dev/null)
+  local behind=$(command git rev-list --count HEAD..${git_branch}@{upstream} 2>/dev/null)
 
   # Check wheather branch has diverged
-  if [[ "$is_ahead" == true && "$is_behind" == true ]]; then
+  if (( $ahead )) && (( $behind )); then
     git_status="$SPACESHIP_GIT_STATUS_DIVERGED$git_status"
-  else
-    [[ "$is_ahead" == true ]] && git_status="$SPACESHIP_GIT_STATUS_AHEAD$git_status"
-    [[ "$is_behind" == true ]] && git_status="$SPACESHIP_GIT_STATUS_BEHIND$git_status"
+  elif (( $ahead )); then
+    git_status="$SPACESHIP_GIT_STATUS_AHEAD$git_status"
+  elif (( $behind )); then
+    git_status="$SPACESHIP_GIT_STATUS_BEHIND$git_status"
   fi
 
   if [[ -n $git_status ]]; then
     # Status prefixes are colorized
     spaceship::section \
-      "$SPACESHIP_GIT_STATUS_COLOR" \
+      --color "$SPACESHIP_GIT_STATUS_COLOR" \
       "$SPACESHIP_GIT_STATUS_PREFIX$git_status$SPACESHIP_GIT_STATUS_SUFFIX"
   fi
 }

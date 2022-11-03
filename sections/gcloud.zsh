@@ -9,6 +9,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_GCLOUD_SHOW="${SPACESHIP_GCLOUD_SHOW=true}"
+SPACESHIP_GCLOUD_ASYNC="${SPACESHIP_GCLOUD_ASYNC=true}"
 SPACESHIP_GCLOUD_PREFIX="${SPACESHIP_GCLOUD_PREFIX="using "}"
 SPACESHIP_GCLOUD_SUFFIX="${SPACESHIP_GCLOUD_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_GCLOUD_SYMBOL="${SPACESHIP_GCLOUD_SYMBOL="☁️  "}"
@@ -26,34 +27,35 @@ spaceship_gcloud() {
   spaceship::exists gcloud || return
 
   # Set the gcloud config base dir
-  local GCLOUD_DIR=${CLOUDSDK_CONFIG:-"${HOME}/.config/gcloud"}
+  local gcloud_dir=${CLOUDSDK_CONFIG:-"${HOME}/.config/gcloud"}
 
   # Check if there is an active config
-  [[ -f ${GCLOUD_DIR}/active_config ]] || return
+  [[ -f $gcloud_dir/active_config ]] || return
 
   # Check if there is an active config override
   if (( ${+CLOUDSDK_ACTIVE_CONFIG_NAME} )); then
     # Uses the current config from the environment variable
-    local GCLOUD_ACTIVE_CONFIG=${CLOUDSDK_ACTIVE_CONFIG_NAME}
+    local gcloud_active_config=${CLOUDSDK_ACTIVE_CONFIG_NAME}
   else
     # Reads the current config from the file
-    local GCLOUD_ACTIVE_CONFIG=$(head -n1 ${GCLOUD_DIR}/active_config)
+    local gcloud_active_config=$(head -n1 $gcloud_dir/active_config)
   fi
 
   # Check the active config file exists
-  local GCLOUD_ACTIVE_CONFIG_FILE=${GCLOUD_DIR}/configurations/config_${GCLOUD_ACTIVE_CONFIG}
-  [[ -f ${GCLOUD_ACTIVE_CONFIG_FILE} ]] || return
+  local gcloud_active_config_file=$gcloud_dir/configurations/config_$gcloud_active_config
+  [[ -f $gcloud_active_config_file ]] || return
 
   # Reads the current project from the active config file
-  local GCLOUD_ACTIVE_PROJECT=$(sed -n 's/project = \(.*\)/\1/p' ${GCLOUD_ACTIVE_CONFIG_FILE})
+  local gcloud_active_project=$(sed -n 's/project = \(.*\)/\1/p' $gcloud_active_config_file)
 
   # Sets the prompt text to `active-config/active-project`
-  SPACESHIP_GCLOUD_TEXT="${GCLOUD_ACTIVE_CONFIG}/${GCLOUD_ACTIVE_PROJECT}"
+  local gcloud_status="$gcloud_active_config/$gcloud_active_project"
 
   # Show prompt section
   spaceship::section \
-    "$SPACESHIP_GCLOUD_COLOR" \
-    "$SPACESHIP_GCLOUD_PREFIX" \
-    "${SPACESHIP_GCLOUD_SYMBOL}${SPACESHIP_GCLOUD_TEXT}" \
-    "$SPACESHIP_GCLOUD_SUFFIX"
+    --color "$SPACESHIP_GCLOUD_COLOR" \
+    --prefix "$SPACESHIP_GCLOUD_PREFIX" \
+    --suffix "$SPACESHIP_GCLOUD_SUFFIX" \
+    --symbol "$SPACESHIP_GCLOUD_SYMBOL" \
+    "$gcloud_status"
 }

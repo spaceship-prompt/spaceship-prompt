@@ -4,14 +4,15 @@ on:
     types:
       - published
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   main:
     name: Homebrew Bump
     runs-on: ubuntu-latest
     steps:
-      - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.10.0
-
       - name: 🍺 Bump Homebrew Formula
         uses: mislav/bump-homebrew-formula-action@v2.1
         with:

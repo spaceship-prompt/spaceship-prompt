@@ -24,7 +24,7 @@ SPACESHIP_DIR_LOCK_COLOR="${SPACESHIP_DIR_LOCK_COLOR="red"}"
 spaceship_dir() {
   [[ $SPACESHIP_DIR_SHOW == false ]] && return
 
-  local 'dir' 'trunc_prefix'
+  local dir trunc_prefix
 
   # Threat repo root as a top-level directory or not
   if [[ $SPACESHIP_DIR_TRUNC_REPO == true ]] && spaceship::is_git; then
@@ -60,13 +60,15 @@ spaceship_dir() {
     dir="$trunc_prefix%${SPACESHIP_DIR_TRUNC}~"
   fi
 
+  local suffix="$SPACESHIP_DIR_SUFFIX"
+
   if [[ ! -w . ]]; then
-    SPACESHIP_DIR_SUFFIX="%F{$SPACESHIP_DIR_LOCK_COLOR}${SPACESHIP_DIR_LOCK_SYMBOL}%f${SPACESHIP_DIR_SUFFIX}"
+    suffix="%F{$SPACESHIP_DIR_LOCK_COLOR}${SPACESHIP_DIR_LOCK_SYMBOL}%f${SPACESHIP_DIR_SUFFIX}"
   fi
 
   spaceship::section \
-    "$SPACESHIP_DIR_COLOR" \
-    "$SPACESHIP_DIR_PREFIX" \
-    "$dir" \
-    "$SPACESHIP_DIR_SUFFIX"
+    --color "$SPACESHIP_DIR_COLOR" \
+    --prefix "$SPACESHIP_DIR_PREFIX" \
+    --suffix "$suffix" \
+    "$dir"
 }

@@ -9,6 +9,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_AWS_SHOW="${SPACESHIP_AWS_SHOW=true}"
+SPACESHIP_AWS_ASYNC="${SPACESHIP_AWS_ASYNC=false}"
 SPACESHIP_AWS_PREFIX="${SPACESHIP_AWS_PREFIX="using "}"
 SPACESHIP_AWS_SUFFIX="${SPACESHIP_AWS_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_AWS_SYMBOL="${SPACESHIP_AWS_SYMBOL="☁️ "}"
@@ -29,8 +30,9 @@ spaceship_aws() {
 
   # Show prompt section
   spaceship::section \
-    "$SPACESHIP_AWS_COLOR" \
-    "$SPACESHIP_AWS_PREFIX" \
-    "${SPACESHIP_AWS_SYMBOL}${profile}" \
-    "$SPACESHIP_AWS_SUFFIX"
+    --color "$SPACESHIP_AWS_COLOR" \
+    --prefix "$SPACESHIP_AWS_PREFIX" \
+    --suffix "$SPACESHIP_AWS_SUFFIX" \
+    --symbol "$SPACESHIP_AWS_SYMBOL" \
+    "$profile"
 }

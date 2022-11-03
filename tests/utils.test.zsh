@@ -11,7 +11,7 @@ SHUNIT_PARENT=$0
 oneTimeSetUp() {
   export TERM="xterm-256color"
 
-  source lib/utils.zsh
+  source "lib/utils.zsh"
 }
 
 # ------------------------------------------------------------------------------
@@ -76,6 +76,59 @@ test_is_hg() {
   fi
 }
 
+test_is_section_async() {
+  SPACESHIP_PROMPT_ASYNC=true
+
+  # Test when section is async
+  SPACESHIP_FOO_ASYNC=true
+  assertTrue "should return sync flag" '$(spaceship::is_section_async foo)'
+
+  # Test when section is not async
+  SPACESHIP_FOO_ASYNC=false
+  assertFalse "should not return sync flag" '$(spaceship::is_section_async foo)'
+
+  # Should use the default value
+  SPACESHIP_PROMPT_ASYNC=false
+  SPACESHIP_FOO_ASYNC=true
+  assertFalse "should use global sync flag" '$(spaceship::is_section_async foo)'
+  SPACESHIP_PROMPT_ASYNC=true
+
+  # System sections should not be async
+  SPACESHIP_USER_ASYNC=true
+  assertFalse "user section should be always false" '$(spaceship::is_section_async user)'
+  SPACESHIP_DIR_ASYNC=true
+  assertFalse "dir section should be always false" '$(spaceship::is_section_async dir)'
+  SPACESHIP_HOST_ASYNC=true
+  assertFalse "host section should be always false" '$(spaceship::is_section_async host)'
+  SPACESHIP_EXEC_TIME_ASYNC=true
+  assertFalse "exec_time section should be always false" '$(spaceship::is_section_async exec_time)'
+  SPACESHIP_ASYNC_ASYNC=true
+  assertFalse "async section should be always false" '$(spaceship::is_section_async async)'
+  SPACESHIP_LINE_SEP_ASYNC=true
+  assertFalse "line_sep section should be always false" '$(spaceship::is_section_async line_sep)'
+  SPACESHIP_JOBS_ASYNC=true
+  assertFalse "jobs section should be always false" '$(spaceship::is_section_async jobs)'
+  SPACESHIP_EXIT_CODE_ASYNC=true
+  assertFalse "exit_code section should be always false" '$(spaceship::is_section_async exit_code)'
+  SPACESHIP_CHAR_ASYNC=true
+  assertFalse "char section should be always false" '$(spaceship::is_section_async char)'
+}
+
+test_is_prompt_async() {
+  SPACESHIP_PROMPT_ASYNC=true
+  ASYNC_INIT_DONE=1
+
+  assertTrue "should be true when prompt is async" '$(spaceship::is_prompt_async)'
+
+  SPACESHIP_PROMPT_ASYNC=false
+  ASYNC_INIT_DONE=1
+  assertFalse "should be false when prompt is sync" '$(spaceship::is_prompt_async)'
+
+  SPACESHIP_PROMPT_ASYNC=true
+  ASYNC_INIT_DONE=0
+  assertFalse "should be false when async is not loaded" '$(spaceship::is_prompt_async)'
+}
+
 test_deprecated() {
   SPACESHIP_TEST='deprecated'
   local e_expected="%{%B%}SPACESHIP_TEST%{%b%} is deprecated.%{ %}"
@@ -95,7 +148,8 @@ test_deprecated() {
 }
 
 test_displaytime() {
-  local expected='14d 6h 56m 7s'
+  local LC_NUMERIC="en_US.UTF-8"
+  local expected='14d 6h 56m 7.0s'
   local actual=$(spaceship::displaytime 1234567)
 
   assertEquals "$expected" "$actual"

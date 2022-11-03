@@ -4,13 +4,14 @@
 # .NET Framework is a software framework developed by Microsoft.
 # It includes a large class library and provides language interoperability
 # across several programming languages.
-# Link: https://www.microsoft.com/net
+# Link: https://dotnet.microsoft.com
 
 # ------------------------------------------------------------------------------
 # Configuration
 # ------------------------------------------------------------------------------
 
 SPACESHIP_DOTNET_SHOW="${SPACESHIP_DOTNET_SHOW=true}"
+SPACESHIP_DOTNET_ASYNC="${SPACESHIP_DOTNET_ASYNC=true}"
 SPACESHIP_DOTNET_PREFIX="${SPACESHIP_DOTNET_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_DOTNET_SUFFIX="${SPACESHIP_DOTNET_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_DOTNET_SYMBOL="${SPACESHIP_DOTNET_SYMBOL=".NET "}"
@@ -24,7 +25,8 @@ SPACESHIP_DOTNET_COLOR="${SPACESHIP_DOTNET_COLOR="128"}"
 spaceship_dotnet() {
   [[ $SPACESHIP_DOTNET_SHOW == false ]] && return
 
-  [[ -f project.json || -f global.json || -f paket.dependencies || -n *.(cs|fs|x)proj(#qN^/) || -n *.sln(#qN^/) ]] || return
+  local is_dotnet_project="$(spaceship::upsearch project.json global.json paket.dependencies)"
+  [[ -n "$is_dotnet_project" || -n *.(cs|fs|x)proj(#qN^/) || -n *.sln(#qN^/) ]] || return
 
   spaceship::exists dotnet || return
 
@@ -38,8 +40,9 @@ spaceship_dotnet() {
   [[ $? -eq 0 ]] || return
 
   spaceship::section \
-    "$SPACESHIP_DOTNET_COLOR" \
-    "$SPACESHIP_DOTNET_PREFIX" \
-    "${SPACESHIP_DOTNET_SYMBOL}${dotnet_version}" \
-    "$SPACESHIP_DOTNET_SUFFIX"
+    --color "$SPACESHIP_DOTNET_COLOR" \
+    --prefix "$SPACESHIP_DOTNET_PREFIX" \
+    --suffix "$SPACESHIP_DOTNET_SUFFIX" \
+    --symbol "$SPACESHIP_DOTNET_SYMBOL" \
+    "$dotnet_version"
 }

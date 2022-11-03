@@ -1,0 +1,47 @@
+name: deps
+on:
+  schedule:
+    - cron: '0 10 * * 1' # At 10:00, every Monday
+
+jobs:
+  zsh-async:
+    name: Update zsh-async
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: 👀 Check zsh-async Releases
+        id: zsh-async
+        run: |
+          echo ::set-output name=release_tag::$(curl -sL https://api.github.com/repos/mafredri/zsh-async/releases/latest | jq -r  ".tag_name")
+          echo ::set-output name=current_tag::$(grep '# version:' ./lib/async.zsh | cut -d':' -f2 | xargs)
+
+      - name: 📦 Update zsh-async
+        if: steps.zsh-async.outputs.current_tag != steps.zsh-async.outputs.release_tag
+        env:
+          RELEASE_TAG: ${{ steps.zsh-async.outputs.release_tag }}
+        run: |
+          # Download the release
+          curl -sL -o $RELEASE_TAG https://api.github.com/repos/mafredri/zsh-async/tarball/$RELEASE_TAG
+
+          # Extract a async.zsh file from the release
+          tar -xzvf $RELEASE_TAG --strip-components=1 $(tar -tzf $RELEASE_TAG | head -1 | cut -f1 -d"/")/async.zsh
+
+          # Remove archive
+          rm $RELEASE_TAG
+
+      - name: ↩️ Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: |
+            build(zsh-async): Update zsh-async to ${{ steps.zsh-async.outputs.release_tag }}
+          title: |
+            build(zsh-async): Update zsh-async to ${{ steps.zsh-async.outputs.release_tag }}
+          body: |
+            Updates [zsh-async][1] to ${{ steps.zsh-async.outputs.release_tag }}
+
+            [1]: https://github.com/mafredri/zsh-async
+          labels: async, dependencies
+          branch: zsh-async-bump
+          delete-branch: true
