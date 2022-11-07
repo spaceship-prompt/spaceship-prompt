@@ -310,7 +310,13 @@
     {
       "name": "xcode",
       "url": "https://spaceship-prompt.sh/sections/xcode",
-      "description": "the version of the Xcode environment.",
+      "description": "The version of the Xcode environment.",
+      "internal": true
+    },
+    {
+      "name": "docker_compose",
+      "url": "https://spaceship-prompt.sh/sections/docker_compose",
+      "description": "Docker Compose services statuses.",
       "internal": true
     }
   ]

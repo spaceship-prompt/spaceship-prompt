@@ -83,6 +83,7 @@ nav:
         - Julia (julia): sections/julia.md
         - Crystal (crystal): sections/crystal.md
         - Docker (docker): sections/docker.md
+        - Docker Compose (docker_compose): sections/docker_compose.md
         - Amazon Web Services (aws): sections/aws.md
         - Google Cloud Platform (gcloud): sections/gcloud.md
         - Virtualenv (venv): sections/venv.md
