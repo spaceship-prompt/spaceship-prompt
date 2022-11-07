@@ -1,5 +1,5 @@
 #
-# Haskell Stack
+# Haskell
 #
 # An advanced, purely functional programming language.
 # Link: https://www.haskell.org/
@@ -25,12 +25,18 @@ spaceship_haskell() {
 
   # If there are stack files in the context
   local is_haskell_project=$(spaceship::upsearch stack.yaml)
-  [[ -n "$is_haskell_project" || -n *.hs(#qN^/) ]] || return
+  [[ -n "$is_haskell_project" || -n *.hs(#qN^/) || -n *.cabal(#qN) ]] || return
 
-  # The command is stack, so do not change this to haskell.
-  spaceship::exists stack || return
+  local haskell_version
 
-  local haskell_version=$(stack ghc -- --numeric-version --no-install-ghc)
+  # Extracting Haskell version
+  if spaceship::exists cabal; then
+    haskell_version=$(ghc -- --numeric-version --no-install-ghc)
+  elif spaceship::exists stack; then
+    haskell_version=$(stack ghc -- --numeric-version --no-install-ghc)
+  else
+    return
+  fi
 
   spaceship::section \
     --color "$SPACESHIP_HASKELL_COLOR" \
