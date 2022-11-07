@@ -1,3 +1,15 @@
+# [4.8.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.7.0...v4.8.0) (2022-11-03)
+
+
+### Bug Fixes
+
+* detect root via version variable ([#1280](https://github.com/spaceship-prompt/spaceship-prompt/issues/1280)) ([111c6f1](https://github.com/spaceship-prompt/spaceship-prompt/commit/111c6f160c4376001d5469f8e8771ee89ea4158a)), closes [#1140](https://github.com/spaceship-prompt/spaceship-prompt/issues/1140) [#1140](https://github.com/spaceship-prompt/spaceship-prompt/issues/1140)
+
+
+### Features
+
+* **char:** Add different symbol according to returned value ([#673](https://github.com/spaceship-prompt/spaceship-prompt/issues/673)) ([ac31311](https://github.com/spaceship-prompt/spaceship-prompt/commit/ac313114c3da78d4ceb2b9b6a35822f764880e37)), closes [#1109](https://github.com/spaceship-prompt/spaceship-prompt/issues/1109) [#1273](https://github.com/spaceship-prompt/spaceship-prompt/issues/1273) [#1248](https://github.com/spaceship-prompt/spaceship-prompt/issues/1248) [#1278](https://github.com/spaceship-prompt/spaceship-prompt/issues/1278) [#1262](https://github.com/spaceship-prompt/spaceship-prompt/issues/1262) [#1275](https://github.com/spaceship-prompt/spaceship-prompt/issues/1275) [#1135](https://github.com/spaceship-prompt/spaceship-prompt/issues/1135) [#1269](https://github.com/spaceship-prompt/spaceship-prompt/issues/1269)
+
 # [4.7.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.6.1...v4.7.0) (2022-11-02)
 
 
