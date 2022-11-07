@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+echo '     Name                   Command                  State                       Ports'
+echo '---------------------------------------------------------------------------------------------------------'
+echo 'adminer          entrypoint.sh docker-php-e ...   Up             0.0.0.0:8080->8080/tcp,:::8080->8080/tcp'
+echo 'db               docker-entrypoint.sh mariadbd    Exit 255       3306/tcp'
+echo 'watchtower       /watchtower                      Paused         8080/tcp'
+
