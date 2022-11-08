@@ -86,6 +86,7 @@ We use Crowdin to translate the documentation. Please do not edit the translatio
 A few notes for current and future maintainers of Spaceship:
 
 - The version, changelog and release notes are generated automatically based on commit history.
+- This repository adheres to [semver](https://semver.org/), using [conventional commits](https://www.conventionalcommits.org/) via [semantic-release](https://github.com/semantic-release/semantic-release).
 - Issues and PRs must be replied in first 24 hours. At least a simple message that we've noticed that issue was reported.
 - Every issue and a PR should have a label.
 - Issues containing questions should be moved to discussions.
