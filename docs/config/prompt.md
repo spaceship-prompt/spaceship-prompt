@@ -75,6 +75,7 @@ SPACESHIP_PROMPT_ORDER=(
   ocaml          # OCaml section
   kubectl        # Kubectl context section
   terraform      # Terraform workspace section
+  pulumi         # Pulumi stack section
   ibmcloud       # IBM Cloud section
   exec_time      # Execution time
   async          # Async jobs indicator
