@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+echo 'This is perl 5, version 30, subversion 3 (v5.30.3) built for darwin-thread-multi-2level'

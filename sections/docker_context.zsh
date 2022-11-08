@@ -8,6 +8,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_DOCKER_CONTEXT_SHOW="${SPACESHIP_DOCKER_CONTEXT_SHOW=true}"
+SPACESHIP_DOCKER_CONTEXT_ASYNC="${SPACESHIP_DOCKER_CONTEXT_ASYNC=true}"
 SPACESHIP_DOCKER_CONTEXT_PREFIX="${SPACESHIP_DOCKER_CONTEXT_PREFIX=" ("}"
 SPACESHIP_DOCKER_CONTEXT_SUFFIX="${SPACESHIP_DOCKER_CONTEXT_SUFFIX=")"}"
 
@@ -33,12 +34,15 @@ spaceship_docker_context() {
     # Docker contexts can be set using either the DOCKER_CONTEXT environment variable
     # or the `docker context use` command. `docker context ls` will show the selected
     # context in both cases. But we are not interested in the local "default" context.
-    docker_remote_context=$(docker context ls --format '{{if .Current}}{{if ne .Name "default"}}{{.Name}}{{end}}{{end}}' 2>/dev/null | tr -d '\n')
+    docker_remote_context=$(docker context ls --format '{{if .Current}}{{if and (ne .Name "default") (ne .Name "desktop-linux") (ne .Name "colima")}}{{.Name}}{{end}}{{end}}' 2>/dev/null)
+    [[ $? -ne 0 ]] && return
+
+    docker_remote_context=$(echo $docker_remote_context | tr -d '\n')
   fi
 
   [[ -z $docker_remote_context ]] && return
 
   spaceship::section \
-    "$SPACESHIP_DOCKER_COLOR" \
+    --color "$SPACESHIP_DOCKER_COLOR" \
     "$SPACESHIP_DOCKER_CONTEXT_PREFIX${docker_remote_context}$SPACESHIP_DOCKER_CONTEXT_SUFFIX"
 }

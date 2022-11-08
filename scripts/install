@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+#
+# Author: Denys Dovhan, denysdovhan.com
+# https://github.com/spaceship-prompt/spaceship-prompt
+
+# Stop on errors
+
+echo
+echo "1. Add the following to your \`.zshrc\`:"
+echo "    source $PWD/spaceship.zsh"
+echo "2. Or check out the readme on how to do it manually: "
+echo "    https://spaceship-prompt.sh/getting-started"
