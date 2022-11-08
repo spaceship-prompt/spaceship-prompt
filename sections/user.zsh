@@ -33,7 +33,7 @@ spaceship_user() {
   || [[ $UID == 0 ]] \
   || [[ $SPACESHIP_USER_SHOW == true && -n $SSH_CONNECTION ]]
   then
-    local 'user_color'
+    local user_color
 
     if [[ $USER == 'root' ]]; then
       user_color=$SPACESHIP_USER_COLOR_ROOT
@@ -42,9 +42,9 @@ spaceship_user() {
     fi
 
     spaceship::section \
-      "$user_color" \
-      "$SPACESHIP_USER_PREFIX" \
-      '%n' \
-      "$SPACESHIP_USER_SUFFIX"
+      --color "$user_color" \
+      --prefix "$SPACESHIP_USER_PREFIX" \
+      --suffix "$SPACESHIP_USER_SUFFIX" \
+      '%n'
   fi
 }

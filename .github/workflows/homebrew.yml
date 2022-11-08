@@ -1,0 +1,21 @@
+name: homebrew
+on:
+  release:
+    types:
+      - published
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  main:
+    name: Homebrew Bump
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🍺 Bump Homebrew Formula
+        uses: mislav/bump-homebrew-formula-action@v2.1
+        with:
+          formula-name: spaceship
+        env:
+          COMMITTER_TOKEN: ${{ secrets.GH_TOKEN }}

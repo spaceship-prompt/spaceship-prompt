@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🙏 Support Question
+    url: https://github.com/spaceship-prompt/spaceship-prompt/discussions/new?category=q-a
+    about: Please ask and answer questions here.
+  - name: 👾 Join Discord
+    url: https://discord.gg/Q3SaC2Bt3n
+    about: Join our discord server to be in touch with the community. Get help, discuss new features, have fun.

@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+#
+# Author: Denys Dovhan, denysdovhan.com
+# https://github.com/spaceship-prompt/spaceship-prompt
+
+# Stop on errors
+set -e
+
+echo "Remove spaceship prompt initialization from ~/.zshrc:"
+echo "    source $PWD/spaceship.zsh"
