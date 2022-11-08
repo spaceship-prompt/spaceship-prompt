@@ -77,7 +77,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     ocaml          # OCaml section
     kubectl        # Kubectl context section
     terraform      # Terraform workspace section
-    pulumi         # Pulumi stack config
+    pulumi         # Pulumi stack section
     ibmcloud       # IBM Cloud section
     nix_shell      # Nix shell
     exec_time      # Execution time

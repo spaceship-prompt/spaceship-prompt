@@ -318,6 +318,12 @@
       "url": "https://spaceship-prompt.sh/sections/docker_compose",
       "description": "Docker Compose services statuses.",
       "internal": true
+    },
+    {
+      "name": "pulumi",
+      "url": "https://spaceship-prompt.sh/sections/pulumi",
+      "description": "The current Pulumi stack.",
+      "internal": true
     }
   ]
 }
