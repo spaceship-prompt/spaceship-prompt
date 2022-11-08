@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+echo "ansible [core 2.13.5]"
+echo "  config file = None"
+echo "  configured module search path = ['path/to/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']"
+echo "  ansible python module location = /opt/homebrew/Cellar/ansible/6.5.0/libexec/lib/python3.10/site-packages/ansible"
+echo "  ansible collection location = path/to/.ansible/collections:/usr/share/ansible/collections"
+echo "  executable location = /opt/homebrew/bin/ansible"
+echo "  python version = 3.10.8 (main, Oct 13 2022, 09:48:40) [Clang 14.0.0 (clang-1400.0.29.102)]"
+echo "  jinja version = 3.1.2"
+echo "  libyaml = True"

@@ -324,6 +324,12 @@
       "url": "https://spaceship-prompt.sh/sections/pulumi",
       "description": "The current Pulumi stack.",
       "internal": true
+    },
+    {
+      "name": "ansible",
+      "url": "https://spaceship-prompt.sh/sections/ansible",
+      "description": "The current Ansible version.",
+      "internal": true
     }
   ]
 }
