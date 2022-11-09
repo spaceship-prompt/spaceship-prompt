@@ -5,6 +5,14 @@
 
 The `sudo` section shows an indicator when user has cached passwordless permissions. This section is only displayed when you have a `sudo` command available.
 
+## Displaying the section
+
+Set `SPACESHIP_SUDO_SHOW` to `true` in your `.spaceshiprc.zsh`, if you need to show timestamps:
+
+```zsh title=".spaceshiprc.zsh"
+SPACESHIP_SUDO_SHOW=true
+```
+
 ## Options
 
 | Variable                |              Default               | Meaning                             |
