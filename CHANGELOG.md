@@ -1,3 +1,10 @@
+## [4.9.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.9.0...v4.9.1) (2022-11-09)
+
+
+### Bug Fixes
+
+* **upsearch:** find warning for maxdepth ([8f961b6](https://github.com/spaceship-prompt/spaceship-prompt/commit/8f961b609904f979f309377da6bccde105b21534))
+
 # [4.9.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.8.0...v4.9.0) (2022-11-09)
 
 
