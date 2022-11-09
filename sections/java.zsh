@@ -19,12 +19,18 @@ SPACESHIP_JAVA_COLOR="${SPACESHIP_JAVA_COLOR="cyan"}"
 spaceship_java() {
   [[ $SPACESHIP_JAVA_SHOW == false ]] && return
 
+  # Check if java binary exists
+  spaceship::exists java || return
+
+  # Detect java project
   local is_java_project="$(spaceship::upsearch pom.xml build.gradle settings.gradle build.xml)"
   [[ -n "$is_java_project" || -n *.(java|class|jar|war)(#qN^/) ]] || return
 
-  spaceship::exists java || return
-
+  # Extract java version
   local java_version=$(java -version 2>&1 | spaceship::grep version | awk -F '"' '{print $2}')
+
+  # Check if java version is not empty
+  [[ -z "$java_version" ]] && return
 
   spaceship::section \
     --color "$SPACESHIP_JAVA_COLOR" \
