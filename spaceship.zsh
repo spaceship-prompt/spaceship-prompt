@@ -82,6 +82,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     pulumi         # Pulumi stack section
     ibmcloud       # IBM Cloud section
     nix_shell      # Nix shell
+    gnu_screen     # GNU Screen section
     exec_time      # Execution time
     async          # Async jobs indicator
     line_sep       # Line break
