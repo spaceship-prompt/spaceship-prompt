@@ -151,7 +151,7 @@ spaceship::upsearch() {
   while [ "$root" ]; do
     # For every file as an argument
     for file in "${files[@]}"; do
-      local filepath="$(find $root -maxdepth 1 -name $file -print -quit)"
+      local filepath="$(find $root -maxdepth 1 -name $file -print -quit 2>/dev/null)"
       if [[ -n "$filepath" ]]; then
         [[ -z "$silent" ]] && echo "$filepath"
         return 0
