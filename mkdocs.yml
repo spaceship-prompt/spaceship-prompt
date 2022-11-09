@@ -48,9 +48,9 @@ nav:
       - Loading custom sections: config/loading-sections.md
       - Built-in Sections:
         - sections/index.md
-        - AWS (aws): sections/aws.md
         - Ansible (Ansible): sections/ansible.md
         - Async (async): sections/async.md
+        - AWS (aws): sections/aws.md
         - Battery (battery): sections/battery.md
         - Bun (bun): sections/bun.md
         - Conda (conda): sections/conda.md
@@ -90,6 +90,7 @@ nav:
         - Ruby (ruby): sections/ruby.md
         - Rust (rust): sections/rust.md
         - Scala (scala): sections/scala.md
+        - Sudo (sudo): sections/sudo.md
         - Swift (swift): sections/swift.md
         - Terraform (terraform): sections/terraform.md
         - Time (time): sections/time.md
