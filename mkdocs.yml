@@ -1,0 +1,232 @@
+site_name: Spaceship
+site_author: Spaceship Team
+site_url: https://spaceship-prompt.sh
+site_description: Minimalistic, powerful and extremely customizable Zsh prompt
+
+copyright: "Copyright &copy; 2021 Denys Dovhan"
+
+repo_url: https://github.com/spaceship-prompt/spaceship-prompt
+repo_name: spaceship-prompt
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  logo: //spaceship-prompt.github.io/brand/spaceship-no-letters.svg
+  icon:
+    repo: fontawesome/brands/github
+  favicon: assets/favicon.ico
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - search.highlight
+    - toc.integrate
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Configuration:
+      - Introduction: config/intro.md
+      - Prompt configuration: config/prompt.md
+      - Loading custom sections: config/loading-sections.md
+      - Built-in Sections:
+        - sections/index.md
+        - Prompt character (char): sections/char.md
+        - Time (time): sections/time.md
+        - Username (user): sections/user.md
+        - Hostname (host): sections/host.md
+        - Directory (dir): sections/dir.md
+        - Line separator (line_sep): sections/line_sep.md
+        - Async (async): sections/async.md
+        - Battery (battery): sections/battery.md
+        - Execution time (exec_time): sections/exec_time.md
+        - Exit code (exit_code): sections/exit_code.md
+        - Jobs (jobs): sections/jobs.md
+        - Git (git): sections/git.md
+        - Mercurial (hg): sections/hg.md
+        - Package (package): sections/package.md
+        - Node.js (node): sections/node.md
+        - Bun (bun): sections/bun.md
+        - Deno (deno): sections/deno.md
+        - Ruby (ruby): sections/ruby.md
+        - Elm (elm): sections/elm.md
+        - Elixir (elixir): sections/elixir.md
+        - Xcode (xcode): sections/xcode.md
+        - Swift (swift): sections/swift.md
+        - Go (golang): sections/golang.md
+        - Perl (perl): sections/perl.md
+        - PHP (php): sections/php.md
+        - Python (python): sections/python.md
+        - Rust (rust): sections/rust.md
+        - Haskell (haskell): sections/haskell.md
+        - Scala (scala): sections/scala.md
+        - Java (java): sections/java.md
+        - Lua (lua): sections/lua.md
+        - Dart (dart): sections/dart.md
+        - Julia (julia): sections/julia.md
+        - Crystal (crystal): sections/crystal.md
+        - Docker (docker): sections/docker.md
+        - Docker Compose (docker_compose): sections/docker_compose.md
+        - Amazon Web Services (aws): sections/aws.md
+        - Google Cloud Platform (gcloud): sections/gcloud.md
+        - Virtualenv (venv): sections/venv.md
+        - Conda virtualenv (conda): sections/conda.md
+        - .NET (dotnet): sections/dotnet.md
+        - OCaml (ocaml): sections/ocaml.md
+        - Kubernetes (kubectl): sections/kubectl.md
+        - Ansible (Ansible): sections/ansible.md
+        - Terraform (terraform): sections/terraform.md
+        - Pulumi (pulumi): sections/pulumi.md
+        - IBM Cloud (ibmcloud): sections/ibmcloud.md
+        - Nix Shell (nix-shell): sections/nix_shell.md
+  - Advanced:
+      - Creating a custom section: advanced/creating-section.md
+      - Per-directory configuration: advanced/per-directory-config.md
+      - API:
+        - Environment: api/environment.md
+        - Sections: api/section.md
+        - General utilities: api/utils.md
+        - Testing kit: api/testkit.md
+  - Registry: registry.md
+  - FAQ: faq.md
+  - Blog:
+      - blog/index.md
+      - 2022:
+        - Announcing Spaceship v4 — the faster, the better: blog/2022-spaceship-v4.md
+      - 2018:
+        - Meet Spaceship v3.0!: blog/2018-spaceship-v3.md
+      - 2017:
+        - A big update of spaceship-zsh-theme: blog/2017-spaceship-v2.md
+  - Contribute: contribute.md
+
+markdown_extensions:
+  - meta
+  - md_in_html
+  - def_list
+  - toc:
+      permalink: true
+  - attr_list
+  - tables
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+extra:
+  alternate:
+    - name: English
+      lang: en
+      link: /en
+    - name: Deutsch
+      lang: de
+      link: /de
+    - name: Français
+      lang: fr
+      link: /fr
+    - name: Українська
+      lang: uk
+      link: /uk
+    - name: 简体中文
+      lang: zh
+      link: /zh
+    - name: Help translating
+      link: https://translate.spaceship-prompt.sh
+  analytics:
+    provider: google
+    property: G-0STBM9BNC1
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/spaceship-prompt/spaceship-prompt
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/SpaceshipPrompt
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/NTQWz8Dyt9
+
+extra_css:
+  - assets/styles/themes.css
+  - assets/styles/embed.css
+  - assets/styles/hero.css
+  - assets/styles/companies.css
+  - assets/styles/announce.css
+  - assets/styles/registry.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js
+  - assets/scripts/registry.js
+
+plugins:
+  - search:
+      lang:
+        - en
+        - de
+        - fr
+        - uk
+        - zh
+  - redirects:
+      redirect_maps:
+        options.md: config/intro.md
+        api.md: api/environment.md
+        troubleshooting.md: faq.md
+  - i18n:
+      default_language: en
+      # Default behavior doesn't display language switcher for non-English pages
+      material_alternate: false
+      languages:
+        en:
+          name: English
+        de:
+          name: Deutsch
+        fr:
+          name: Français
+        uk:
+          name: Українська
+        zh:
+          name: 简体中文
+      nav_translations:
+        de: # TODO: Add German translations
+        fr: # TODO: Add French translations
+        uk:
+          Home: Головна
+          Getting Started: Початок роботи
+          Configuration: Конфігурація
+          Introduction: Вступ
+          Prompt configuration: Налаштування командного рядка
+          Loading custom sections: Завантаження власних секцій
+          Built-in Sections: Вбудовані секції
+          Advanced: Розширені можливості
+          Creating a custom section: Створення власної секції
+          Per-directory configuration: Налаштування для кожної директорії
+          API: API
+          Environment: Середовище
+          Sections: Секції
+          General utilities: Загальні утиліти
+          Testing kit: Інструменти тестування
+          Registry: Реєстр
+          FAQ: ЧАПИ
+          Blog: Блог
+          Contribute: Зробити внесок
+        zh: # TODO: Add Chinese translations

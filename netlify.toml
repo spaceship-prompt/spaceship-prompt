@@ -1,0 +1,13 @@
+[build]
+  base = "."
+  publish = "site"
+  command = "mkdocs build"
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF docs mkdocs.yml requirements.txt netlify.toml crowdin.yml"
+
+# StandWithUkraine
+[[redirects]]
+  from = "https://spaceship-prompt.sh/*"
+  to = "https://stand-with-ukraine.pp.ua/ToRussianPeople.html"
+  status = 301
+  force = true
+  conditions = {Country = ["RU", "BY"]}

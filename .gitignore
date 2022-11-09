@@ -1,6 +1,9 @@
 node_modules
-_book
+site
 
 # Lockfiles
 package-lock.json
 yarn.lock
+
+# Compiled zsh files
+*.zwc

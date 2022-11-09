@@ -1,0 +1,62 @@
+{% extends "main.html" %}
+<!--  -->
+{% block hero %}
+<section class="hero-container">
+  <div class="md-grid md-typeset">
+    <div class="mdx-hero">
+      <div class="mdx-hero__image">
+        <img
+          src="//spaceship-prompt.github.io/brand/spaceship-letters-outlined.svg"
+          alt=""
+          width="75%"
+          draggable="false"
+        />
+      </div>
+      <div class="mdx-hero__content">
+        <h1>{{ page.meta.hero.title }}</h1>
+        <p>{{ page.meta.hero.subtitle }}</p>
+        <a
+          href="{{ page.next_page.url | url }}"
+          title="{{ page.next_page.title | e }}"
+          class="md-button md-button--primary"
+        >
+          {{ page.meta.hero.install_button }}
+        </a>
+        <a
+          href="{{ '//github.com/spaceship-prompt/spaceship-prompt' | url }}"
+          title="Source code of Spaceship"
+          class="md-button"
+          >{{ page.meta.hero.source_button }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="companies-container">
+  <div class="md-grid md-typeset">
+    <h4 class="companies-title">{{ page.meta.companies.title }}</h4>
+  </div>
+  <div class="companies">
+    <div class="companies-slider">
+      {% for company in page.meta.companies.list %}
+        <span class="company">
+          <img src="{{ company.logo }}" alt="{{ company.name }}" />
+        </span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+<!-- Content -->
+{% block content %}
+<div class="mdx-features">
+  {% for feature in page.meta.features %}
+  <div>
+    <img src="{{ feature.image }}" alt="Clean and simple" />
+    <h2>{{ feature.title }}</h2>
+    <p>{{ feature.description }}</p>
+  </div>
+  {% endfor %}
+</div>
+{{ super() }}
+{% endblock %}
