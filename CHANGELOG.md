@@ -1,3 +1,13 @@
+# [4.9.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.8.0...v4.9.0) (2022-11-09)
+
+
+### Features
+
+* **ansible:** Add Ansible section ([#1283](https://github.com/spaceship-prompt/spaceship-prompt/issues/1283)) ([30c7e6c](https://github.com/spaceship-prompt/spaceship-prompt/commit/30c7e6c53d3a25c673b1599bbf7f0fdf2f71c16e))
+* **docker_compose:** Add docker_compose section ([#1282](https://github.com/spaceship-prompt/spaceship-prompt/issues/1282)) ([f883f31](https://github.com/spaceship-prompt/spaceship-prompt/commit/f883f3115ce225ed52664706dbb3c38a0a7cdecb))
+* **haskell:** Add Cabal support ([b253370](https://github.com/spaceship-prompt/spaceship-prompt/commit/b253370edd35b144cbfcfcdecac6cb6d8ce0f032))
+* **pulumi:** Add pulumi ([#834](https://github.com/spaceship-prompt/spaceship-prompt/issues/834)) ([1ab9162](https://github.com/spaceship-prompt/spaceship-prompt/commit/1ab9162f84ad54e109047ed14f900d53db8432bd))
+
 # [4.8.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.7.0...v4.8.0) (2022-11-03)
 
 
