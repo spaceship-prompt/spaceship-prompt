@@ -1,7 +1,7 @@
 # GNU Screen `gnu_screen`
 
 !!! info
-    [**Nix shell**](https://nixos.org/manual/nix/stable/command-ref/nix-shell.html) can be used to provide some kind of virtual environment through the nix-shell command.
+    [**GNU Screen**](https://www.gnu.org/software/screen/) GNU Screen is a full-screen window manager that multiplexes a physical terminal between several processes, typically interactive shells.
 
 The `gnu_screen` displays active GNU Screen session.
 
