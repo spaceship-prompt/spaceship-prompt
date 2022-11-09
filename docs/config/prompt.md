@@ -73,6 +73,7 @@ SPACESHIP_PROMPT_ORDER=(
   conda          # conda virtualenv section
   dotnet         # .NET section
   ocaml          # OCaml section
+  vlang          # V section
   kubectl        # Kubectl context section
   ansible        # Ansible section
   terraform      # Terraform workspace section
