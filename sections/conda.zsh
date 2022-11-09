@@ -9,6 +9,7 @@
 # ------------------------------------------------------------------------------
 
 SPACESHIP_CONDA_SHOW="${SPACESHIP_CONDA_SHOW=true}"
+SPACESHIP_CONDA_ASYNC="${SPACESHIP_CONDA_ASYNC=false}"
 SPACESHIP_CONDA_PREFIX="${SPACESHIP_CONDA_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_CONDA_SUFFIX="${SPACESHIP_CONDA_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_CONDA_SYMBOL="${SPACESHIP_CONDA_SYMBOL="🅒 "}"
@@ -32,10 +33,10 @@ spaceship_conda() {
     conda_env=${CONDA_DEFAULT_ENV:t}
   fi
 
-
   spaceship::section \
-    "$SPACESHIP_CONDA_COLOR" \
-    "$SPACESHIP_CONDA_PREFIX" \
-    "${SPACESHIP_CONDA_SYMBOL}${conda_env}" \
-    "$SPACESHIP_CONDA_SUFFIX"
+    --color "$SPACESHIP_CONDA_COLOR" \
+    --prefix "$SPACESHIP_CONDA_PREFIX" \
+    --suffix "$SPACESHIP_CONDA_SUFFIX" \
+    --symbol "$SPACESHIP_CONDA_SYMBOL" \
+    "$conda_env"
 }
