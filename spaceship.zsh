@@ -88,6 +88,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     battery        # Battery level and status
     jobs           # Background jobs indicator
     exit_code      # Exit code section
+    sudo           # Sudo indicator
     char           # Prompt character
   )
 fi
