@@ -90,6 +90,7 @@ nav:
         - Conda virtualenv (conda): sections/conda.md
         - .NET (dotnet): sections/dotnet.md
         - OCaml (ocaml): sections/ocaml.md
+        - v (ocaml): sections/vlang.md
         - Kubernetes (kubectl): sections/kubectl.md
         - Ansible (Ansible): sections/ansible.md
         - Terraform (terraform): sections/terraform.md
