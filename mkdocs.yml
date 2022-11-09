@@ -66,6 +66,7 @@ nav:
         - Execution time (exec_time): sections/exec_time.md
         - Exit code (exit_code): sections/exit_code.md
         - Git (git): sections/git.md
+        - GNU Screen (gnu_screen): sections/gnu_screen.md
         - Go (golang): sections/golang.md
         - Google Cloud (gcloud): sections/gcloud.md
         - Haskell (haskell): sections/haskell.md
