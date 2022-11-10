@@ -23,7 +23,8 @@ spaceship_java() {
   spaceship::exists java || return
 
   # Detect java project
-  local is_java_project="$(spaceship::upsearch pom.xml build.gradle* settings.gradle* build.xml)"
+  local java_project_globs=('pom.xml' 'build.gradle*' 'settings.gradle*' 'build.xml')
+  local is_java_project="$(spaceship::upsearch $java_project_globs)"
   [[ -n "$is_java_project" || -n *.(java|class|jar|war)(#qN^/) ]] || return
 
   # Extract java version

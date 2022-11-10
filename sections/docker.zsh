@@ -50,7 +50,8 @@ spaceship_docker() {
   local docker_context_section="$(spaceship::section::render $docker_context)"
 
   # Show Docker status only for Docker-specific folders or when connected to external host
-  local is_docker_project="$(spaceship::upsearch Dockerfile .devcontainer/Dockerfile docker-compose.y*ml)"
+  local docker_project_globs=('Dockerfile' '.devcontainer/Dockerfile' 'docker-compose.y*ml')
+  local is_docker_project="$(spaceship::upsearch Dockerfile $docker_project_globs)"
   [[ -n "$is_docker_project" || -f /.dockerenv || -n "$docker_context" ]] || return
 
   # if docker daemon isn't running you'll get an error saying it can't connect
