@@ -23,15 +23,17 @@ spaceship::section() {
 
   local color="${color_[2]}" prefix="${prefix_[2]}" suffix="${suffix_[2]}" symbol="${symbol_[2]}"
   local content="$@"
-  local result=()
+  local tuple=()
 
-  result+=("$color")
-  result+=("$prefix")
-  result+=("$symbol")
-  result+=("$content")
-  result+=("$suffix")
+  tuple+=("(")
+  tuple+=("$color")
+  tuple+=("$prefix")
+  tuple+=("$suffix")
+  tuple+=("$symbol")
+  tuple+=("$content")
+  tuple+=(")")
 
-  echo -n "${(j:·|·:)result}"
+  echo -n "${(j:·|·:)tuple}"
 }
 
 # Versioned version of spaceship::section.
@@ -68,14 +70,16 @@ spaceship::section::render() {
 
   section_data=("${(@s:·|·:)tuple}")
 
-  local color="" prefix="" content="" suffix=""
+  local opener="" color="" prefix="" content="" suffix="" closer=""
 
-  color="${section_data[1]}"
+  opener="${section_data[1]}"
+  color="${section_data[2]}"
   color="%F{$color}"
-  prefix="${section_data[2]}"
-  symbol="${section_data[3]}"
-  content="${section_data[4]}"
-  suffix="${section_data[5]}"
+  prefix="${section_data[3]}"
+  suffix="${section_data[4]}"
+  symbol="${section_data[5]}"
+  content="${section_data[6]}"
+  closer="${section_data[7]}"
 
   if [[ -z "$content" && -z "$symbol" ]]; then
     return
