@@ -1,3 +1,21 @@
+# [4.10.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.9.1...v4.10.0) (2022-11-10)
+
+
+### Bug Fixes
+
+* **java:** Added support gradle kotlin dsl ([#1289](https://github.com/spaceship-prompt/spaceship-prompt/issues/1289)) ([5b186d6](https://github.com/spaceship-prompt/spaceship-prompt/commit/5b186d68b3aae757ad6b9c0e660619d24c2f19c9))
+* **java:** detect empty java version ([178ffc9](https://github.com/spaceship-prompt/spaceship-prompt/commit/178ffc94455270a476c19f3c5149b1c8fc7bd4fd))
+* **sudo:** Sudo should be hidden by default ([36a5852](https://github.com/spaceship-prompt/spaceship-prompt/commit/36a585267f67c3466abaaeaec30148720b45cdfd))
+* **upsearch:** find complains about -name. Fix [#1286](https://github.com/spaceship-prompt/spaceship-prompt/issues/1286) ([5e8b7c0](https://github.com/spaceship-prompt/spaceship-prompt/commit/5e8b7c0a575ee2d333596c1ed933726bd838c591))
+* **upsearch:** Prevent globs from expanding to early ([b10e093](https://github.com/spaceship-prompt/spaceship-prompt/commit/b10e093cad17691b8d32fca80ecbd8633cfc02bc))
+
+
+### Features
+
+* **gnu_screen:** Add Screen session section to prompt ([#1062](https://github.com/spaceship-prompt/spaceship-prompt/issues/1062)) ([f996381](https://github.com/spaceship-prompt/spaceship-prompt/commit/f996381929a37c5f6c72f032b92c2287e083de74))
+* **sudo:** Add sudo section ([49ce387](https://github.com/spaceship-prompt/spaceship-prompt/commit/49ce387ad2e38a321ae6e3365bb79d549258786a))
+* **vlang:** Add V Section ([#877](https://github.com/spaceship-prompt/spaceship-prompt/issues/877)) ([9399e09](https://github.com/spaceship-prompt/spaceship-prompt/commit/9399e099269fb3376d8b6d4f0a4bc819068f5cdc))
+
 ## [4.9.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.9.0...v4.9.1) (2022-11-09)
 
 
