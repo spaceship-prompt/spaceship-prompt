@@ -1,3 +1,10 @@
+## [4.10.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.10.0...v4.10.1) (2022-11-12)
+
+
+### Bug Fixes
+
+* **section:** Fix newline characters in section suffix. ([e585e9d](https://github.com/spaceship-prompt/spaceship-prompt/commit/e585e9d0954efcd241ee8cbc6efcd7aff4fae56c)), closes [#1267](https://github.com/spaceship-prompt/spaceship-prompt/issues/1267)
+
 # [4.10.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.9.1...v4.10.0) (2022-11-10)
 
 
