@@ -330,6 +330,12 @@
       "url": "https://spaceship-prompt.sh/sections/ansible",
       "description": "The current Ansible version.",
       "internal": true
+    },
+    {
+      "name": "kotlin",
+      "url": "https://spaceship-prompt.sh/sections/kotlin",
+      "description": "The current version of the Kotlin compiler.",
+      "internal": true
     }
   ]
 }
