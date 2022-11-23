@@ -27,10 +27,10 @@ spaceship_kotlin() {
   [[ -n *.kt(#qN^/) || *.kts(#qN^/) ]] || return
 
   # Extract kotlin version
-  local kotlin_version=$(kotlinc -version 2>&1 | spaceship::grep -oE '(\d+.)+\d+' | head -n 1)
+  local kotlin_version=$(kotlinc -version 2>&1 | spaceship::grep -oE '([0-9]+\.)([0-9]+\.)?([0-9]+)' | head -n 1)
   [[ -z "$kotlin_version" ]] && return
 
-  spaceship::section::v4 \
+  spaceship::section \
     --color "$SPACESHIP_KOTLIN_COLOR" \
     --prefix "$SPACESHIP_KOTLIN_PREFIX" \
     --suffix "$SPACESHIP_KOTLIN_SUFFIX" \
