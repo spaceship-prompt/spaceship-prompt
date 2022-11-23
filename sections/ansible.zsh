@@ -41,7 +41,7 @@ spaceship_ansible() {
   [[ -n "$ansible_configs" || -n "$detected_playbooks" ]] || return
 
   # Retrieve ansible version
-  local ansible_version=$(ansible --version | head -1 | spaceship::grep -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]')
+  local ansible_version=$(ansible --version | head -1 | spaceship::grep -oE '([0-9]+\.)([0-9]+\.)?([0-9]+)')
 
   # Display ansible section
   spaceship::section \
