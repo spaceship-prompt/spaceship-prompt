@@ -21,9 +21,10 @@ SPACESHIP_KOTLIN_COLOR="${SPACESHIP_KOTLIN_COLOR="magenta"}"
 
 spaceship_kotlin() {
   [[ $SPACESHIP_KOTLIN_SHOW == false ]] && return
+
   spaceship::exists kotlinc || return
 
-  [[ -n *.(kt|kts)(#qN^/) ]] || return
+  [[ -n *.kt(#qN^/) || *.kts(#qN^/) ]] || return
 
   # Extract kotlin version
   local kotlin_version=$(kotlinc -version 2>&1 | spaceship::grep -oE '(\d+.)+\d+' | head -n 1)
