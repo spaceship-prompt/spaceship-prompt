@@ -35,6 +35,11 @@
       "name": "flutter",
       "url": "https://github.com/spaceship-prompt/spaceship-flutter",
       "description": "Flutter section for Spaceship prompt."
+    },
+    {
+      "name": "zig",
+      "url": "https://github.com/leap0x7b/spaceship-zig",
+      "description": "Zig section for Spaceship prompt."
     }
   ]
 }
