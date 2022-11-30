@@ -1,3 +1,17 @@
+# [4.11.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.10.1...v4.11.0) (2022-11-30)
+
+
+### Bug Fixes
+
+* improve version extraction ([23801f8](https://github.com/spaceship-prompt/spaceship-prompt/commit/23801f85b8d62b30a2bdd19608d16d7e8fb77963))
+* **kotlin:** Check for extensions separately ([f631ae4](https://github.com/spaceship-prompt/spaceship-prompt/commit/f631ae4e178137b21fecdf1724703c6228f828bc))
+* **kotlin:** Fix Kotlin version extraction ([a1681b4](https://github.com/spaceship-prompt/spaceship-prompt/commit/a1681b40ab4bf7409ab9251cc5c45ae2339107c2))
+
+
+### Features
+
+* **kotlin:** Added Kotlin section ([#1292](https://github.com/spaceship-prompt/spaceship-prompt/issues/1292)) ([592324b](https://github.com/spaceship-prompt/spaceship-prompt/commit/592324b7a0b75f12cb3754f5fcfd3d8816708d16))
+
 ## [4.10.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.10.0...v4.10.1) (2022-11-12)
 
 
