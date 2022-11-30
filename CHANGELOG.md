@@ -1,3 +1,10 @@
+## [4.11.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.11.0...v4.11.1) (2022-11-30)
+
+
+### Bug Fixes
+
+* **async:** Fix missing section warning when async is excluded from prompt ([0a18cb5](https://github.com/spaceship-prompt/spaceship-prompt/commit/0a18cb504f5202acf96ac2cd259c689471a3f7ab))
+
 # [4.11.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.10.1...v4.11.0) (2022-11-30)
 
 
