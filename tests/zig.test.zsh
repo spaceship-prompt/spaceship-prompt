@@ -48,7 +48,7 @@ test_mocked_version() {
   touch $SHUNIT_TMPDIR/build.zig
 
   local prefix="%{%B%}$SPACESHIP_ZIG_PREFIX%{%b%}"
-  local content="%{%B%F{$SPACESHIP_ZIG_COLOR}%}$SPACESHIP_ZIG_SYMBOL$mocked_version%{%b%f%}"
+  local content="%{%B%F{$SPACESHIP_ZIG_COLOR}%}$SPACESHIP_ZIG_SYMBOL0.10.0%{%b%f%}"
   local suffix="%{%B%}$SPACESHIP_ZIG_SUFFIX%{%b%}"
 
   local expected="$prefix$content$suffix"
