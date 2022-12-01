@@ -75,6 +75,7 @@ SPACESHIP_PROMPT_ORDER=(
   dotnet         # .NET section
   ocaml          # OCaml section
   vlang          # V section
+  zig            # Zig section
   kubectl        # Kubectl context section
   ansible        # Ansible section
   terraform      # Terraform workspace section
