@@ -75,6 +75,7 @@ nav:
         - Java (java): sections/java.md
         - Jobs (jobs): sections/jobs.md
         - Julia (julia): sections/julia.md
+        - Kotlin (kotlin): sections/kotlin.md
         - Kubernetes (kubectl): sections/kubectl.md
         - Line separator (line_sep): sections/line_sep.md
         - Lua (lua): sections/lua.md
