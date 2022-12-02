@@ -100,6 +100,7 @@ nav:
         - v (ocaml): sections/vlang.md
         - Virtualenv (venv): sections/venv.md
         - Xcode (xcode): sections/xcode.md
+        - Zig (zig): sections/zig.md
   - Advanced:
       - Creating a custom section: advanced/creating-section.md
       - Per-directory configuration: advanced/per-directory-config.md
