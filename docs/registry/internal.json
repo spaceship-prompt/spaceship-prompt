@@ -348,6 +348,12 @@
       "url": "https://spaceship-prompt.sh/sections/purescript",
       "description": "The current PureScript version.",
       "internal": true
+    },
+    {
+      "name": "erlang",
+      "url": "https://spaceship-prompt.sh/sections/erlang",
+      "description": "The current Erlang version.",
+      "internal": true
     }
   ]
 }
