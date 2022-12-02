@@ -46,7 +46,7 @@ test_erlang_no_files() {
 }
 
 test_erlang_files() {
-  FILES=(rebar.config elang.mk)
+  FILES=(rebar.config erlang.mk)
   for file in $FILES; do
     touch $file
     local expected=(
