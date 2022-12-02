@@ -19,9 +19,6 @@ SPACESHIP_ZIG_COLOR="${SPACESHIP_ZIG_COLOR="yellow"}"
 # Section
 # ------------------------------------------------------------------------------
 
-# Show zig status
-# spaceship_ prefix before section's name is required!
-# Otherwise this section won't be loaded.
 spaceship_zig() {
   # If SPACESHIP_ZIG_SHOW is false, don't show zig section
   [[ $SPACESHIP_ZIG_SHOW == false ]] && return
