@@ -342,6 +342,12 @@
       "url": "https://spaceship-prompt.sh/sections/zig",
       "description": "The current Zig version.",
       "internal": true
+    },
+    {
+      "name": "purescript",
+      "url": "https://spaceship-prompt.sh/sections/purescript",
+      "description": "The current PureScript version.",
+      "internal": true
     }
   ]
 }
