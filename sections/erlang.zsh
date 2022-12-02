@@ -13,7 +13,7 @@ SPACESHIP_ERLANG_SHOW="${SPACESHIP_ERLANG_SHOW=true}"
 SPACESHIP_ERLANG_ASYNC="${SPACESHIP_ERLANG_ASYNC=true}"
 SPACESHIP_ERLANG_PREFIX="${SPACESHIP_ERLANG_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_ERLANG_SUFFIX="${SPACESHIP_ERLANG_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_ERLANG_SYMBOL="${SPACESHIP_ERLANG_SYMBOL="𝐞 "}"
+SPACESHIP_ERLANG_SYMBOL="${SPACESHIP_ERLANG_SYMBOL="e "}"
 SPACESHIP_ERLANG_COLOR="${SPACESHIP_ERLANG_COLOR="red"}"
 
 # ------------------------------------------------------------------------------
@@ -27,7 +27,7 @@ spaceship_erlang() {
   spaceship::exists erl || return
 
   # Show only within projects
-  spaceship::upsearch -s rebar.config elang.mk || return
+  spaceship::upsearch -s rebar.config erlang.mk || return
 
   # Extract version from erlang
   local erl_version="$(erl -noshell -eval 'io:fwrite("~s\n", [erlang:system_info(otp_release)]).' -s erlang halt)"
