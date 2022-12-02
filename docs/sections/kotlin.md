@@ -5,12 +5,12 @@
 !!! info
     [**Kotlin**](https://kotlinlang.org/) is a modern, concise and safe programming language.
 
-The `kotlin` section displays the version of the Scala Kotlin `kotlinc -version`.
+The `kotlin` section displays the version of the Kotlin compiler `kotlinc -version`.
 
 This section is displayed only within Kotlin projects, meaning:
 
-* Contains any source files with `*.kt` extension
-* Contains any scripts with `*.kts` extensions
+* Contains any source file with `*.kt` extension
+* Contains any scripts file with `*.kts` extension
 
 ## Options
 
