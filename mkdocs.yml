@@ -63,6 +63,7 @@ nav:
         - Dotnet (dotnet): sections/dotnet.md
         - Elixir (elixir): sections/elixir.md
         - Elm (elm): sections/elm.md
+        - Erlang (erlang): sections/erlang.md
         - Execution time (exec_time): sections/exec_time.md
         - Exit code (exit_code): sections/exit_code.md
         - Git (git): sections/git.md
