@@ -17,6 +17,8 @@ oneTimeSetUp() {
   export TERM="xterm-256color"
   export PATH=$PWD/tests/stubs:$PATH
 
+  ZIG_VERSION="0.10.0"
+
   SPACESHIP_PROMPT_ASYNC=false
   SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
   SPACESHIP_PROMPT_ADD_NEWLINE=false
@@ -36,28 +38,44 @@ oneTimeTearDown() {
 # TEST CASES
 # ------------------------------------------------------------------------------
 
-test_no_files() {
+test_zig_no_files() {
   local expected=""
   local actual="$(spaceship::testkit::render_prompt)"
 
   assertEquals "do not render if there are no files" "$expected" "$actual"
 }
 
-test_mocked_version() {
-  # Prepare the environment
-  touch $SHUNIT_TMPDIR/build.zig
+test_zig_files() {
+  touch build.zig
 
-  local prefix="%{%B%}$SPACESHIP_ZIG_PREFIX%{%b%}"
-  local content="%{%B%F{$SPACESHIP_ZIG_COLOR}%}$SPACESHIP_ZIG_SYMBOL0.10.0%{%b%f%}"
-  local suffix="%{%B%}$SPACESHIP_ZIG_SUFFIX%{%b%}"
-
-  local expected="$prefix$content$suffix"
+  local expected=(
+    "%{%B%}$SPACESHIP_ZIG_PREFIX%{%b%}"
+    "%{%B%F{$SPACESHIP_ZIG_COLOR}%}"
+    "$SPACESHIP_ZIG_SYMBOL"
+    "v$ZIG_VERSION"
+    "%{%b%f%}"
+    "%{%B%}$SPACESHIP_ZIG_SUFFIX%{%b%}"
+  )
   local actual="$(spaceship::testkit::render_prompt)"
 
-  assertEquals "render mocked version" "$expected" "$actual"
+  assertEquals "render with build.zig" "${(j::)expected}" "$actual"
 }
 
-# TODO: add more tests
+test_zig_extensions() {
+  touch file.zig
+
+  local expected=(
+    "%{%B%}$SPACESHIP_ZIG_PREFIX%{%b%}"
+    "%{%B%F{$SPACESHIP_ZIG_COLOR}%}"
+    "$SPACESHIP_ZIG_SYMBOL"
+    "v$ZIG_VERSION"
+    "%{%b%f%}"
+    "%{%B%}$SPACESHIP_ZIG_SUFFIX%{%b%}"
+  )
+  local actual="$(spaceship::testkit::render_prompt)"
+
+  assertEquals "render with file.zig" "${(j::)expected}" "$actual"
+}
 
 # ------------------------------------------------------------------------------
 # SHUNIT2
