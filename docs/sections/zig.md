@@ -5,7 +5,7 @@
 !!! info
     [**Zig**](https://www.ziglang.org/) is a general-purpose programming language and toolchain for maintaining robust, optimal and reusable software.
 
-The `Zig` section shows Zig version.
+The `zig` section shows Zig version.
 
 This section is only displayed when you have a `zig` command available and:
 

@@ -88,6 +88,7 @@ nav:
         - PHP (php): sections/php.md
         - Prompt character (char): sections/char.md
         - Pulumi (pulumi): sections/pulumi.md
+        - PureScript (purescript): sections/purescript.md
         - Python (python): sections/python.md
         - Ruby (ruby): sections/ruby.md
         - Rust (rust): sections/rust.md
