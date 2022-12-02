@@ -31,22 +31,16 @@ spaceship_zig() {
 
   # Show zig section only when there are zig-specific files in current
   # working directory.
-
-  # spaceship::upsearch utility helps finding files up in the directory tree.
   local is_zig_context="$(spaceship::upsearch build.zig)"
-  # Here glob qualifiers are used to check if files with specific extension are
-  # present in directory. Read more about them here:
-  # http://zsh.sourceforge.net/Doc/Release/Expansion.html
   [[ -n "$is_zig_context" || -n *.zig(#qN^/) ]] || return
 
   local zig_version="$(zig version)"
 
   # Display zig section
-  # spaceship::section utility composes sections. Flags are optional
-  spaceship::section::v4 \
+  spaceship::section \
     --color "$SPACESHIP_ZIG_COLOR" \
     --prefix "$SPACESHIP_ZIG_PREFIX" \
     --suffix "$SPACESHIP_ZIG_SUFFIX" \
     --symbol "$SPACESHIP_ZIG_SYMBOL" \
-    "$zig_version"
+    "v$zig_version"
 }
