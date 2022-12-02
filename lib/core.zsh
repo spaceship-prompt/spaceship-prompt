@@ -84,7 +84,12 @@ spaceship::core::async_callback() {
 
       # Refresh async section when the last async job has finished
       if [[ "${#SPACESHIP_JOBS}" -eq 0 ]]; then
-        spaceship::core::refresh_section "async"
+        # Refresh async section only when it's included in the prompt
+        # See: https://github.com/spaceship-prompt/spaceship-prompt/issues/1303
+        if spaceship::includes SPACESHIP_PROMPT_ORDER "async" \
+        || spaceship::includes SPACESHIP_RPROMPT_ORDER "async"; then
+          spaceship::core::refresh_section "async"
+        fi
         spaceship::core::render
       fi
 
