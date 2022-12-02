@@ -336,6 +336,12 @@
       "url": "https://spaceship-prompt.sh/sections/ansible",
       "description": "The current Ansible version.",
       "internal": true
+    },
+    {
+      "name": "zig",
+      "url": "https://spaceship-prompt.sh/sections/zig",
+      "description": "The current Zig version.",
+      "internal": true
     }
   ]
 }
