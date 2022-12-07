@@ -1,3 +1,12 @@
+# [4.12.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.11.1...v4.12.0) (2022-12-07)
+
+
+### Features
+
+* **erlang:** Add Erlang section ([#1308](https://github.com/spaceship-prompt/spaceship-prompt/issues/1308)) ([fd49455](https://github.com/spaceship-prompt/spaceship-prompt/commit/fd4945598d700560bffbc0d910441cedbb682bcd))
+* **prescript:** Add PureScript section ([#1307](https://github.com/spaceship-prompt/spaceship-prompt/issues/1307)) ([018aa8c](https://github.com/spaceship-prompt/spaceship-prompt/commit/018aa8c1bc174432d37219576767bdfd6b22bc39))
+* **zig:** Add Zig section ([#1301](https://github.com/spaceship-prompt/spaceship-prompt/issues/1301)) ([0b5e668](https://github.com/spaceship-prompt/spaceship-prompt/commit/0b5e668626e2aa5e645634e3c2e3c3e3ecf3fb9f))
+
 ## [4.11.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.11.0...v4.11.1) (2022-11-30)
 
 
