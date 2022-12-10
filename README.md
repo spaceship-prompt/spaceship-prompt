@@ -246,6 +246,7 @@ makepkg -si
 ```
 
 or using `yay`:
+
 ```
 yay -S spaceship-prompt
 ```
