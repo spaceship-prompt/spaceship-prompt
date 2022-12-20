@@ -34,32 +34,25 @@ spaceship_docker() {
   spaceship::exists docker || return
 
   # Better support for docker environment vars: https://docs.docker.com/compose/reference/envvars/
-  local compose_exists=false
   if [[ -n "$COMPOSE_FILE" ]]; then
+    local compose_path
     # Use COMPOSE_PATH_SEPARATOR or colon as default
     local separator=${COMPOSE_PATH_SEPARATOR:-":"}
-
-    # COMPOSE_FILE may have several filenames separated by colon, test all of them
+    # COMPOSE_FILE may have several filenames separated by colon, upsearch all of them
     local filenames=("${(@ps/$separator/)COMPOSE_FILE}")
-
-    for filename in $filenames; do
-      if [[ ! -f $filename ]]; then
-        compose_exists=false
-        break
-      fi
-      compose_exists=true
-    done
+    local compose_path="$(spaceship::upsearch -s $filenames)"
 
     # Must return if COMPOSE_FILE is present but invalid
-    [[ "$compose_exists" == false ]] && return
+    [[ -n "$compose_path" ]] || return
   fi
 
   local docker_context="$(spaceship_docker_context)"
   local docker_context_section="$(spaceship::section::render $docker_context)"
 
   # Show Docker status only for Docker-specific folders or when connected to external host
-  local is_docker_project="$(spaceship::upsearch Dockerfile docker-compose.yml)"
-  [[ "$compose_exists" == true || -n "$is_docker_project" || -f /.dockerenv || -n $docker_context ]] || return
+  local docker_project_globs=('Dockerfile' '.devcontainer/Dockerfile' 'docker-compose.y*ml')
+  local is_docker_project="$(spaceship::upsearch Dockerfile $docker_project_globs)"
+  [[ -n "$is_docker_project" || -f /.dockerenv || -n "$docker_context" ]] || return
 
   # if docker daemon isn't running you'll get an error saying it can't connect
   # Note: Declaration and assignment is separated for correctly getting the exit code

@@ -23,3 +23,7 @@
 
   --md-typeset-a-color: var(--md-accent-fg-color);
 }
+
+[data-md-color-scheme="slate"] .md-button {
+  color: var(--md-accent-fg-color);
+}

@@ -17,10 +17,11 @@ jobs:
       - name: ⬇️ Checkout Repo
         uses: actions/checkout@v3
         with:
+          persist-credentials: false
           submodules: true
 
       - name: 🚀 Release
-        uses: cycjimmy/semantic-release-action@v2
+        uses: cycjimmy/semantic-release-action@v3
         id: semantic
         with:
           extra_plugins: |

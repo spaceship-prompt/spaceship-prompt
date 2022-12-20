@@ -7,7 +7,7 @@
 Якщо ви не задоволені стандартним порогом 2 секунд, ви можете визначити його за допомогою опції `SPACESHIP_EXEC_TIME_ELAPSED`.
 
 ```zsh title=".zshrc"
-# This sets threshold to 5 seconds
+# Встановимо поріг у 5 секунд
 SPACESHIP_EXEC_TIME_ELAPSED=5
 ```
 
@@ -16,7 +16,7 @@ SPACESHIP_EXEC_TIME_ELAPSED=5
 За замовчуванням точність часу встановлюється на 1 цифру після коми. Ви можете змінити його за допомогою опції `SPACESHIP_EXEC_TIME_PRECISION`.
 
 ```zsh title=".zshrc"
-# This sents precision to 2 digits
+# Встановимо точність у два знаки
 SPACESHIP_EXEC_TIME_PRECISION=2
 ```
 
@@ -28,5 +28,5 @@ SPACESHIP_EXEC_TIME_PRECISION=2
 | `SPACESHIP_EXEC_TIME_PREFIX`    |              `took·`               | Префікс секції                                                   |
 | `SPACESHIP_EXEC_TIME_SUFFIX`    | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                                    |
 | `SPACESHIP_EXEC_TIME_COLOR`     |              `yellow`              | Колір секції                                                     |
-| `SPACESHIP_EXEC_TIME_ELAPSED`   |                `2`                 | The minimum number of seconds for showing execution time section |
-| `SPACESHIP_EXEC_TIME_PRECISION` |                `1`                 | Number of digits to use in the fractional part of the time value |
+| `SPACESHIP_EXEC_TIME_ELAPSED`   |                `2`                 | Мінімальна кількість в секундах для показу секції часу виконання |
+| `SPACESHIP_EXEC_TIME_PRECISION` |                `1`                 | Кількість знаків, які використовуються в дробовій частині часу   |

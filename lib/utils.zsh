@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # ------------------------------------------------------------------------------
 # UTILS
 # Utils for common used actions
@@ -16,6 +18,16 @@ spaceship::exists() {
 #   spaceship::defined <function>
 spaceship::defined() {
   typeset -f + "$1" &> /dev/null
+}
+
+# Check if array includes and item
+# USAGE:
+#  spaceship::includes <array_name> <item>
+spaceship::includes() {
+  local array_name="$1" item="$2"
+  local array=("${(@P)array_name}")
+
+  (( $array[(Ie)$item] ))
 }
 
 # Precompile zsh file to ZWC (zsh word code)
@@ -65,7 +77,7 @@ spaceship::is_section_async() {
   )
 
   # Some sections must be always sync
-  if (( $sync_sections[(Ie)$section] )); then
+  if spaceship::includes sync_sections "$section"; then
     return 1
   fi
 
@@ -149,11 +161,13 @@ spaceship::upsearch() {
   while [ "$root" ]; do
     # For every file as an argument
     for file in "${files[@]}"; do
-      local filepath="$root/$file"
-      if [[ -e "$filepath" ]]; then
-        if [[ -z "$silent" ]]; then
-          echo "$filepath"
-        fi
+      local find_match="$(find $root -maxdepth 1 -name $file -print -quit 2>/dev/null)"
+      local filename="$root/$file"
+      if [[ -n "$find_match" ]]; then
+        [[ -z "$silent" ]] && echo "$find_match"
+        return 0
+      elif [[ -e "$filename" ]]; then
+        [[ -z "$silent" ]] && echo "$filename"
         return 0
       fi
     done

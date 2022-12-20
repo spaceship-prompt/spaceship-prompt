@@ -57,8 +57,8 @@
     ```
 
 
-    !!! tip
-        You can also add the following to your [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage) to bundle Spaceship along with your other software:
+    !!! tip "Порада"
+        Ви також можете додати наступне до вашого [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage) для встановлення Spaceship разом з іншим програмним забезпеченням:
 
         ```ruby title="Brewfile"
         brew "spaceship"
@@ -93,14 +93,14 @@
 
     Ця команда завантажить Spaceship. Вона також попросить вас підключити Spaceship у вашому файлі `~/.zshrc`.
     
-    !!! tip:**
+    !!! tip
         Ви можете оновлювати Spaceship до нових версій, так як і будь-який інший пакет.
 
 === "prezto"
 
-    - Follow [prezto-contrib#usage](https://github.com/belak/prezto-contrib#usage) to clone `prezto-contrib` to the proper location.
-    - Enable the `contrib-prompt` module (before the `prompt` module).
-    - Set `zstyle ':prezto:module:prompt' theme 'spaceship'` in your `.zpreztorc`.
+    - Виконуйте настанови [prezto-contrib#usage](https://github.com/belak/prezto-contrib#usage) для клонування `prezto-contrib` у відповідне місце.
+    - Увімкніть модуль `contrib-prompt` (перед модулем `prompt`).
+    - Додайте `zstyle ':prezto:module:prompt' theme 'spaceship'` до вашого `.zpreztorc`.
 
 === "zim"
 
@@ -143,7 +143,7 @@
 
 === "zgen"
 
-    Додайте такий рядок до вашого `.zshrc` у місці, де ви додаєте інші плагіни Zsh:
+    Додайте наступний рядок до вашого `.zshrc` у місці, де ви додаєте інші плагіни Zsh:
 
     ```zsh title=".zshrc"
     zgen load spaceship-prompt/spaceship-prompt spaceship
@@ -175,13 +175,23 @@
 
 === "Arch"
 
-    Встановіть найновіший master з AUR-пакета [`spaceship-prompt-git`](https://aur.archlinux.org/packages/spaceship-prompt-git/):
+    Встановіть найсвіжіший випуск з AUR пакунка [spaceship-prompt](https://aur.archlinux.org/packages/spaceship-prompt/):
 
     ```
-    git clone https://aur.archlinux.org/spaceship-prompt-git.git --depth=1
-    cd spaceship-prompt-git
+    git clone https://aur.archlinux.org/spaceship-prompt.git
+    cd spaceship-prompt
     makepkg -si
     ```
+
+
+    або використовуючи `yay`:
+
+    ```
+    yay -S spaceship-prompt
+    ```
+
+
+    Зверніть також увагу на пакунок [spaceship-prompt-git](https://aur.archlinux.org/packages/spaceship-prompt-git/) в git який потребує підтримки.
 
 ## Вітаємо!
 
@@ -189,11 +199,11 @@
 
 Що далі? Spaceship має помірковані налаштування за замовчуванням, але ви можете налаштувати його під свої потреби. Дізнайтеся, як налаштувати Spaceship:
 
-[Налаштувати Spaceship](/config/intro ""){.md-button}
+[Налаштувати Spaceship](/uk/config/intro ""){.md-button}
 
 Крім того, приєднайтеся до нашої спільноти або розгляньте можливість зробити внесок у проект.
 
-[:material-hand-heart: Зробити внесок](/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button}
+[:material-hand-heart: Зробити внесок](/uk/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button}
 
 ## Виникли проблеми?
 

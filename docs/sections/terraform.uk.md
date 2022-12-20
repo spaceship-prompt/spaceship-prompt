@@ -1,13 +1,13 @@
 # Terraform (`terraform`)
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
-    [**Terraform**](https://www.terraform.io) is a tool for building, changing, and combining infrastructure safely and efficiently.
+!!! info "Інформація"
+    [**Terraform**](https://www.terraform.io) – це інструмент для безпечного й ефективного створення, зміни та об’єднання інфраструктури.
 
-The `terraform` section shows Terraform virtual environment.
+Секція `terraform` показує інформацію про віртуальне середовище Terraform.
 
-This section is only displayed when you have a `terraform` command available in your path and upsearch finds a `.terraform/environment` file.
+Ця секція показується лише коли у вас команда `terraform` доступна у змінній оточення Path і пошук знаходить файл `.terraform/environment`.
 
 ## Опції
 

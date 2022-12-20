@@ -1,11 +1,11 @@
 # Ruby `ruby`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
-    [**Ruby**](https://www.ruby-lang.org) is a dynamic, reflective, object-oriented, general-purpose programming language.
+!!! info "Інформація"
+    [**Ruby**](https://www.ruby-lang.org) — це динамічна, рефлексивна, об’єктноорієнтована мова програмування загального призначення.
 
-Секція `ruby` відображає версію Ruby. This section supports [rvm-prompt](https://rvm.io/workflow/prompt), [chruby](https://github.com/postmodern/chruby), [rbenv](https://github.com/rbenv/rbenv) and [asdf](https://asdf-vm.com) version managers.
+Секція `ruby` відображає версію Ruby. Секція підтримує менеджери керування версіями [rvm-prompt](https://rvm.io/workflow/prompt), [chruby](https://github.com/postmodern/chruby), [rbenv](https://github.com/rbenv/rbenv) та [asdf](https://asdf-vm.com).
 
 Ця секція відображається лише тоді, коли поточний каталог знаходиться у Ruby-проєкті, тобто:
 

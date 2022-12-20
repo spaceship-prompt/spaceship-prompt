@@ -12,7 +12,7 @@ oneTimeSetUp() {
   export TERM="xterm-256color"
   export PATH=$PWD/tests/stubs:$PATH
 
-  DENO_VERSION="$($PWD/tests/stubs/deno)"
+  DENO_VERSION="1.27.0"
 
   SPACESHIP_PROMPT_ASYNC=false
   SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
@@ -57,44 +57,25 @@ test_deno_no_files() {
 }
 
 test_deno_configs() {
-  touch deno.json
-
-  local json_expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_DENO_COLOR}%}${SPACESHIP_DENO_SYMBOL}v$DENO_VERSION%{%b%f%}"
-  local json_actual="$(spaceship::testkit::render_prompt)"
-  assertEquals "should render with deno.json" "$json_expected" "$json_actual"
-
-  rm deno.json
-  touch deno.jsonc
-
-  local jsonc_expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_DENO_COLOR}%}${SPACESHIP_DENO_SYMBOL}v$DENO_VERSION%{%b%f%}"
-  local jsonc_actual="$(spaceship::testkit::render_prompt)"
-  assertEquals "should render with deno.jsonc" "$jsonc_expected" "$jsonc_actual"
+  FILES=(deno.json deno.jsonc)
+  for file in $FILES; do
+    touch $file
+    local expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_DENO_COLOR}%}${SPACESHIP_DENO_SYMBOL}v$DENO_VERSION%{%b%f%}"
+    local actual="$(spaceship::testkit::render_prompt)"
+    assertEquals "should render with $file" "$expected" "$actual"
+    rm $file
+  done
 }
 
 test_deno_files() {
-  touch mod.ts
-  local mod_expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_DENO_COLOR}%}${SPACESHIP_DENO_SYMBOL}v${DENO_VERSION}%{%b%f%}"
-  local mod_actual="$(spaceship::testkit::render_prompt)"
-  assertEquals "should render with mod.ts" "$mod_expected" "$mod_actual"
-  rm mod.ts
-
-  touch dep.ts
-  local dep_expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_DENO_COLOR}%}${SPACESHIP_DENO_SYMBOL}v${DENO_VERSION}%{%b%f%}"
-  local dep_actual="$(spaceship::testkit::render_prompt)"
-  assertEquals "should render with dep.ts" "$dep_expected" "$dep_actual"
-  rm dep.ts
-
-  touch main.ts
-  local main_expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_DENO_COLOR}%}${SPACESHIP_DENO_SYMBOL}v${DENO_VERSION}%{%b%f%}"
-  local main_actual="$(spaceship::testkit::render_prompt)"
-  assertEquals "should render with main.ts" "$main_expected" "$main_actual"
-  rm main.ts
-
-  touch cli.ts
-  local cli_expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_DENO_COLOR}%}${SPACESHIP_DENO_SYMBOL}v${DENO_VERSION}%{%b%f%}"
-  local cli_actual="$(spaceship::testkit::render_prompt)"
-  assertEquals "should render with cli.ts" "$cli_expected" "$cli_actual"
-  rm cli.ts
+  FILES=(mod.ts dep.ts main.ts cli.ts)
+  for file in $FILES; do
+    touch $file
+    local expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_DENO_COLOR}%}${SPACESHIP_DENO_SYMBOL}v${DENO_VERSION}%{%b%f%}"
+    local actual="$(spaceship::testkit::render_prompt)"
+    assertEquals "should render with $file" "$expected" "$actual"
+    rm $file
+  done
 }
 
 # ------------------------------------------------------------------------------

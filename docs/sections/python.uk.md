@@ -1,9 +1,9 @@
 # Python `python`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
-    [**Python**](https://www.python.org) is a high-level, interpreted, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation.
+!!! info "Інформація"
+    [**Python**](https://www.python.org) – це високорівнева інтерпретована мова програмування загального призначення. Її філософія підкреслює читабельність коду за допомогою відступів.
 
 Секція `python` відображає версію Python.
 

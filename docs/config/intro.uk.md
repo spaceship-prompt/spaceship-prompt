@@ -45,12 +45,12 @@ spaceship add --before char vi_mode
 
 Ви можете дізнатися більше про доступні опції, читаючи документацію далі.
 
-[Переглянути доступні опції](/config/prompt ""){.md-button}
+[Переглянути доступні опції](/uk/config/prompt ""){.md-button}
 
 ## Зміна розташування файлу конфігурації
 
-Додатково, ви можете змінити розташування файлу конфігурації, встановивши змінну середовища `SPACESHIP_CONFIG_FILE`.
+Додатково, ви можете змінити розташування файлу конфігурації у змінній середовища `SPACESHIP_CONFIG_FILE`.
 
 ```zsh
-export SPACESHIP_CONFIG_FILE="$HOME/.dotfiles/path/to/spaceship.zsh"
+export SPACESHIP_CONFIG="$HOME/.dotfiles/path/to/spaceship.zsh"
 ```

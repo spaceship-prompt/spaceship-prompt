@@ -14,6 +14,12 @@
       "internal": true
     },
     {
+      "name": "azure",
+      "url": "https://spaceship-prompt.sh/sections/azure",
+      "description": "The current Azure subscription.",
+      "internal": true
+    },
+    {
       "name": "battery",
       "url": "https://spaceship-prompt.sh/sections/battery",
       "description": "The battery section shows the current battery level and its status.",
@@ -53,6 +59,12 @@
       "name": "dotnet",
       "url": "https://spaceship-prompt.sh/sections/dotnet",
       "description": "The version of the .NET framework installed on the system.",
+      "internal": true
+    },
+    {
+      "name": "ocaml",
+      "url": "https://spaceship-prompt.sh/sections/ocaml",
+      "description": "The version of the OCaml via ocaml, esy or opam.",
       "internal": true
     },
     {
@@ -218,6 +230,12 @@
       "internal": true
     },
     {
+      "name": "nix_shell",
+      "url": "https://spaceship-prompt.sh/sections/nix_shell",
+      "description": "Displays whether the nix shell is pure/impure as well as the shell's name if one was specified.",
+      "internal": true
+    },
+    {
       "name": "node",
       "url": "https://spaceship-prompt.sh/sections/node",
       "description": "The current version of the Node.js binary.",
@@ -227,6 +245,12 @@
       "name": "package",
       "url": "https://spaceship-prompt.sh/sections/package",
       "description": "The version of the package when the current directory is a package.",
+      "internal": true
+    },
+    {
+      "name": "perl",
+      "url": "https://spaceship-prompt.sh/sections/perl",
+      "description": "The version of the Perl binary.",
       "internal": true
     },
     {
@@ -251,6 +275,18 @@
       "name": "rust",
       "url": "https://spaceship-prompt.sh/sections/rust",
       "description": "The version of Rust binary.",
+      "internal": true
+    },
+    {
+      "name": "scala",
+      "url": "https://spaceship-prompt.sh/sections/scala",
+      "description": "The version of the Scala compiler.",
+      "internal": true
+    },
+    {
+      "name": "kotlin",
+      "url": "https://spaceship-prompt.sh/sections/kotlin",
+      "description": "The version of the Kotlin compiler.",
       "internal": true
     },
     {
@@ -286,7 +322,43 @@
     {
       "name": "xcode",
       "url": "https://spaceship-prompt.sh/sections/xcode",
-      "description": "the version of the Xcode environment.",
+      "description": "The version of the Xcode environment.",
+      "internal": true
+    },
+    {
+      "name": "docker_compose",
+      "url": "https://spaceship-prompt.sh/sections/docker_compose",
+      "description": "Docker Compose services statuses.",
+      "internal": true
+    },
+    {
+      "name": "pulumi",
+      "url": "https://spaceship-prompt.sh/sections/pulumi",
+      "description": "The current Pulumi stack.",
+      "internal": true
+    },
+    {
+      "name": "ansible",
+      "url": "https://spaceship-prompt.sh/sections/ansible",
+      "description": "The current Ansible version.",
+      "internal": true
+    },
+    {
+      "name": "zig",
+      "url": "https://spaceship-prompt.sh/sections/zig",
+      "description": "The current Zig version.",
+      "internal": true
+    },
+    {
+      "name": "purescript",
+      "url": "https://spaceship-prompt.sh/sections/purescript",
+      "description": "The current PureScript version.",
+      "internal": true
+    },
+    {
+      "name": "erlang",
+      "url": "https://spaceship-prompt.sh/sections/erlang",
+      "description": "The current Erlang version.",
       "internal": true
     }
   ]

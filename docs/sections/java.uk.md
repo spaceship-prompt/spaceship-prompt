@@ -1,19 +1,19 @@
 # Java `java`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
-    [**Java**](https://www.java.com) is a class-based, object-oriented programming language
+!!! info "Інформація"
+    [**Java**](https://www.java.com) — обʼєктноорієнтована мова програмування загального призначення
 
-The `java` section is shown the current version of the Java compiler.
+Секція `java` показує поточну версію компілятора Java.
 
 Цей розділ відображається тільки в Java-проектах, а саме:
 
 * Доступний `java` компілятор
-* Пошук вгору знаходить файли `pom.xml`, `build.gradle`, `settings.gradle`
+* Пошук вгору знаходить файли `pom.xml`, `build.gradle`, `settings.gradle`, `build.xml`
 * У поточній теці містяться файли `*.java`, `*.class`, `*.jar` або `*.war`
 
-## Опції
+## Параметри
 
 | Змінна                  |          За замовчуванням          | Пояснення                               |
 |:----------------------- |:----------------------------------:| --------------------------------------- |

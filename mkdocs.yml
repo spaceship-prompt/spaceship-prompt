@@ -48,46 +48,62 @@ nav:
       - Loading custom sections: config/loading-sections.md
       - Built-in Sections:
         - sections/index.md
-        - Prompt character (char): sections/char.md
-        - Time (time): sections/time.md
-        - Username (user): sections/user.md
-        - Hostname (host): sections/host.md
-        - Directory (dir): sections/dir.md
-        - Line separator (line_sep): sections/line_sep.md
+        - Ansible (Ansible): sections/ansible.md
         - Async (async): sections/async.md
+        - AWS (aws): sections/aws.md
+        - Azure (azure): sections/azure.md
         - Battery (battery): sections/battery.md
+        - Bun (bun): sections/bun.md
+        - Conda (conda): sections/conda.md
+        - Crystal (crystal): sections/crystal.md
+        - Dart (dart): sections/dart.md
+        - Deno (deno): sections/deno.md
+        - Directory (dir): sections/dir.md
+        - Docker (docker): sections/docker.md
+        - Docker Compose (docker_compose): sections/docker_compose.md
+        - Dotnet (dotnet): sections/dotnet.md
+        - Elixir (elixir): sections/elixir.md
+        - Elm (elm): sections/elm.md
+        - Erlang (erlang): sections/erlang.md
         - Execution time (exec_time): sections/exec_time.md
         - Exit code (exit_code): sections/exit_code.md
-        - Jobs (jobs): sections/jobs.md
         - Git (git): sections/git.md
-        - Mercurial (hg): sections/hg.md
-        - Package (package): sections/package.md
-        - Node.js (node): sections/node.md
-        - Bun (bun): sections/bun.md
-        - Ruby (ruby): sections/ruby.md
-        - Elm (elm): sections/elm.md
-        - Elixir (elixir): sections/elixir.md
-        - Xcode (xcode): sections/xcode.md
-        - Swift (swift): sections/swift.md
+        - GNU Screen (gnu_screen): sections/gnu_screen.md
         - Go (golang): sections/golang.md
-        - PHP (php): sections/php.md
-        - Python (python): sections/python.md
-        - Rust (rust): sections/rust.md
+        - Google Cloud (gcloud): sections/gcloud.md
         - Haskell (haskell): sections/haskell.md
-        - Java (java): sections/java.md
-        - Lua (lua): sections/lua.md
-        - Dart (dart): sections/dart.md
-        - Julia (julia): sections/julia.md
-        - Crystal (crystal): sections/crystal.md
-        - Docker (docker): sections/docker.md
-        - Amazon Web Services (aws): sections/aws.md
-        - Google Cloud Platform (gcloud): sections/gcloud.md
-        - Virtualenv (venv): sections/venv.md
-        - Conda virtualenv (conda): sections/conda.md
-        - .NET (dotnet): sections/dotnet.md
-        - Kubernetes (kubectl): sections/kubectl.md
-        - Terraform (terraform): sections/terraform.md
+        - Hostname (host): sections/host.md
         - IBM Cloud (ibmcloud): sections/ibmcloud.md
+        - Java (java): sections/java.md
+        - Jobs (jobs): sections/jobs.md
+        - Julia (julia): sections/julia.md
+        - Kotlin (kotlin): sections/kotlin.md
+        - Kubernetes (kubectl): sections/kubectl.md
+        - Line separator (line_sep): sections/line_sep.md
+        - Lua (lua): sections/lua.md
+        - Mercurial (hg): sections/hg.md
+        - Nix Shell (nix-shell): sections/nix_shell.md
+        - Node.js (node): sections/node.md
+        - OCaml (ocaml): sections/ocaml.md
+        - Package (package): sections/package.md
+        - Perl (perl): sections/perl.md
+        - PHP (php): sections/php.md
+        - Prompt character (char): sections/char.md
+        - Pulumi (pulumi): sections/pulumi.md
+        - PureScript (purescript): sections/purescript.md
+        - Python (python): sections/python.md
+        - Ruby (ruby): sections/ruby.md
+        - Rust (rust): sections/rust.md
+        - Scala (scala): sections/scala.md
+        - Sudo (sudo): sections/sudo.md
+        - Swift (swift): sections/swift.md
+        - Terraform (terraform): sections/terraform.md
+        - Time (time): sections/time.md
+        - Username (user): sections/user.md
+        - v (vlang): sections/vlang.md
+        - Virtualenv (venv): sections/venv.md
+        - Xcode (xcode): sections/xcode.md
+        - Zig (zig): sections/zig.md
   - Advanced:
       - Creating a custom section: advanced/creating-section.md
       - Per-directory configuration: advanced/per-directory-config.md
@@ -114,6 +130,9 @@ markdown_extensions:
   - def_list
   - toc:
       permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: none 
   - attr_list
   - tables
   - pymdownx.tabbed:
@@ -136,9 +155,9 @@ extra:
     - name: Deutsch
       lang: de
       link: /de
-    - name: Polski
-      lang: pl
-      link: /pl
+    - name: Français
+      lang: fr
+      link: /fr
     - name: Українська
       lang: uk
       link: /uk
@@ -175,7 +194,7 @@ plugins:
       lang:
         - en
         - de
-        - pl
+        - fr
         - uk
         - zh
   - redirects:
@@ -192,15 +211,15 @@ plugins:
           name: English
         de:
           name: Deutsch
-        pl:
-          name: Polska
+        fr:
+          name: Français
         uk:
           name: Українська
         zh:
           name: 简体中文
       nav_translations:
         de: # TODO: Add German translations
-        pl: # TODO: Add Polish translations
+        fr: # TODO: Add French translations
         uk:
           Home: Головна
           Getting Started: Початок роботи

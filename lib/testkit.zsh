@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # ------------------------------------------------------------------------------
 # TESTKIT
 # Functions commonly used for testing
