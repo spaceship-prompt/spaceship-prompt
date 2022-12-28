@@ -51,6 +51,7 @@ nav:
         - Ansible (Ansible): sections/ansible.md
         - Async (async): sections/async.md
         - AWS (aws): sections/aws.md
+        - Azure (az): sections/az.md
         - Battery (battery): sections/battery.md
         - Bun (bun): sections/bun.md
         - Conda (conda): sections/conda.md
