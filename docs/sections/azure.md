@@ -1,5 +1,7 @@
 # Azure `azure`
 
+!!! important "This section is rendered asynchronously by default"
+
 !!! info
     [**Azure**](https://azure.com) is a cloud platform from Microsoft, providing on-demand compute and storage resources and APIs to individuals, companies and governments.
 
