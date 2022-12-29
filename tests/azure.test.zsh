@@ -15,18 +15,12 @@ oneTimeSetUp() {
   SPACESHIP_PROMPT_ASYNC=false
   SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
   SPACESHIP_PROMPT_ADD_NEWLINE=false
-  SPACESHIP_PROMPT_ORDER=(az)
+  SPACESHIP_PROMPT_ORDER=(azure)
 
   source "spaceship.zsh"
 }
 
 setUp() {
-  SPACESHIP_AZ_SHOW="true"
-  SPACESHIP_AZ_PREFIX="using "
-  SPACESHIP_AZ_SUFFIX=""
-  SPACESHIP_AZ_SYMBOL="☁️  "
-  SPACESHIP_AZ_COLOR="039"
-
   cd $SHUNIT_TMPDIR
 }
 
@@ -37,11 +31,7 @@ oneTimeTearDown() {
 }
 
 tearDown() {
-  unset SPACESHIP_AZ_SHOW
-  unset SPACESHIP_AZ_PREFIX
-  unset SPACESHIP_AZ_SUFFIX
-  unset SPACESHIP_AZ_SYMBOL
-  unset SPACESHIP_AZ_COLOR
+  # nope
 }
 
 # ------------------------------------------------------------------------------
@@ -57,7 +47,8 @@ test_az_not_exists() {
 }
 
 test_az_subscription() {
-  local az_expected="%{%B%}using %{%b%}%{%B%F{$SPACESHIP_AZ_COLOR}%}${SPACESHIP_AZ_SYMBOL}my-az-subscription%{%b%f%}"
+  local az_account="my-az-subscription"
+  local az_expected="%{%B%}using %{%b%}%{%B%F{$SPACESHIP_AZURE_COLOR}%}${SPACESHIP_AZURE_SYMBOL}$az_account%{%b%f%}%{%B%} %{%b%}"
   local az_actual="$(spaceship::testkit::render_prompt)"
   assertEquals "should render with subscription name" "$az_expected" "$az_actual"
 }

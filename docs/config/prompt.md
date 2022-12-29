@@ -70,7 +70,7 @@ SPACESHIP_PROMPT_ORDER=(
   docker_compose # Docker section
   aws            # Amazon Web Services section
   gcloud         # Google Cloud Platform section
-  az             # Azure section
+  azure          # Azure section
   venv           # virtualenv section
   conda          # conda virtualenv section
   dotnet         # .NET section

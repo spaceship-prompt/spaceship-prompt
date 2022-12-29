@@ -14,8 +14,8 @@
       "internal": true
     },
     {
-      "name": "az",
-      "url": "https://spaceship-prompt.sh/sections/az",
+      "name": "azure",
+      "url": "https://spaceship-prompt.sh/sections/azure",
       "description": "The current Azure subscription.",
       "internal": true
     },
