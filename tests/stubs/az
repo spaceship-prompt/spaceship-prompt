@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+echo "my-az-subscription"

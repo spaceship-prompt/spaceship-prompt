@@ -14,6 +14,12 @@
       "internal": true
     },
     {
+      "name": "azure",
+      "url": "https://spaceship-prompt.sh/sections/azure",
+      "description": "The current Azure subscription.",
+      "internal": true
+    },
+    {
       "name": "battery",
       "url": "https://spaceship-prompt.sh/sections/battery",
       "description": "The battery section shows the current battery level and its status.",
