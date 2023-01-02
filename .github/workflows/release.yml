@@ -34,7 +34,3 @@ jobs:
           # See: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#triggering-new-workflows-using-a-personal-access-token
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          # GIT_AUTHOR_NAME: Denys Dovhan
-          # GIT_AUTHOR_EMAIL: denysdovhan@gmail.com
-          # GIT_COMMITTER_NAME: Denys Dovhan
-          # GIT_COMMITTER_EMAIL: denysdovhan@gmail.com

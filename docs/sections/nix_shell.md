@@ -11,9 +11,9 @@ This section is displayed only when nix-shell is active.
 
 | Variable                    |              Default               | Meaning                             |
 | :-------------------------- | :--------------------------------: | ----------------------------------- |
-| `SPACESHIP_NIXSHELL_SHOW`   |               `true`               | Show section                        |
-| `SPACESHIP_NIXSHELL_ASYNC`  |               `false`              | Render section asynchronously       |
-| `SPACESHIP_NIXSHELL_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                    |
-| `SPACESHIP_NIXSHELL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                    |
-| `SPACESHIP_NIXSHELL_SYMBOL` |               `❄ `                 | Symbol displayed before the section |
-| `SPACESHIP_NIXSHELL_COLOR`  |               `yellow`             | Section's color                     |
+| `SPACESHIP_NIX_SHELL_SHOW`   |               `true`               | Show section                        |
+| `SPACESHIP_NIX_SHELL_ASYNC`  |               `false`              | Render section asynchronously       |
+| `SPACESHIP_NIX_SHELL_PREFIX` | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Section's prefix                    |
+| `SPACESHIP_NIX_SHELL_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                    |
+| `SPACESHIP_NIX_SHELL_SYMBOL` |               `❄ `                 | Symbol displayed before the section |
+| `SPACESHIP_NIX_SHELL_COLOR`  |               `yellow`             | Section's color                     |

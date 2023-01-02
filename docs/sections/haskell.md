@@ -10,7 +10,7 @@ The `haskell` section displays the version of the Haskell compiler.
 This section is displayed only within Haskell projects, meaning:
 
 * Upsearch finds a `stack.yaml` file.
-* The current directory contains a file with `.hs` directory.
+* The current directory contains a file with `.hs` or `.cabal` files.
 
 ## Options
 

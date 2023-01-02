@@ -8,16 +8,19 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='4.7.0'
+export SPACESHIP_VERSION='4.12.0'
 
-# Determination of Spaceship working directory
-# https://git.io/vdBH7
-if [[ -z "$SPACESHIP_ROOT" ]]; then
+# Set SPACESHIP_ROOT if it isn't defined yet or if the directory does
+# not exist anymore (e.g. after an update to a newer version)
+# See https://github.com/spaceship-prompt/spaceship-prompt/pull/1280
+if [[ -z "$SPACESHIP_ROOT" || ! -d "$SPACESHIP_ROOT" ]]; then
+  # Determination of Spaceship working directory
+  # https://git.io/vdBH7
   if [[ "${(%):-%N}" == '(eval)' ]]; then
     if [[ "$0" == '-antigen-load' ]] && [[ -r "${PWD}/spaceship.zsh" ]]; then
       # Antigen uses eval to load things so it can change the plugin (!!)
       # https://github.com/zsh-users/antigen/issues/581
-      export -r SPACESHIP_ROOT=$PWD
+      export -r SPACESHIP_ROOT="$PWD"
     else
       print -P "%F{red}You must set SPACESHIP_ROOT to work from within an (eval).%f"
       return 1
@@ -26,7 +29,7 @@ if [[ -z "$SPACESHIP_ROOT" ]]; then
     # Get the path to file this code is executing in; then
     # get the absolute path and strip the filename.
     # See https://stackoverflow.com/a/28336473/108857
-    export -r SPACESHIP_ROOT=${${(%):-%x}:A:h}
+    export -r SPACESHIP_ROOT="${${(%):-%x}:A:h}"
   fi
 fi
 
@@ -37,51 +40,62 @@ fi
 
 if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
   SPACESHIP_PROMPT_ORDER=(
-    time          # Time stamps section
-    user          # Username section
-    dir           # Current directory section
-    host          # Hostname section
-    git           # Git section (git_branch + git_status)
-    hg            # Mercurial section (hg_branch  + hg_status)
-    package       # Package version
-    node          # Node.js section
-    bun           # Bun section
-    deno          # Deno section
-    ruby          # Ruby section
-    python        # Python section
-    elm           # Elm section
-    elixir        # Elixir section
-    xcode         # Xcode section
-    swift         # Swift section
-    golang        # Go section
-    perl          # Perl section
-    php           # PHP section
-    rust          # Rust section
-    haskell       # Haskell Stack section
-    scala         # Scala section
-    java          # Java section
-    lua           # Lua section
-    dart          # Dart section
-    julia         # Julia section
-    crystal       # Crystal section
-    docker        # Docker section
-    aws           # Amazon Web Services section
-    gcloud        # Google Cloud Platform section
-    venv          # virtualenv section
-    conda         # conda virtualenv section
-    dotnet        # .NET section
-    ocaml         # OCaml section
-    kubectl       # Kubectl context section
-    terraform     # Terraform workspace section
-    ibmcloud      # IBM Cloud section
-    nix_shell     # Nix shell
-    exec_time     # Execution time
-    async         # Async jobs indicator
-    line_sep      # Line break
-    battery       # Battery level and status
-    jobs          # Background jobs indicator
-    exit_code     # Exit code section
-    char          # Prompt character
+    time           # Time stamps section
+    user           # Username section
+    dir            # Current directory section
+    host           # Hostname section
+    git            # Git section (git_branch + git_status)
+    hg             # Mercurial section (hg_branch  + hg_status)
+    package        # Package version
+    node           # Node.js section
+    bun            # Bun section
+    deno           # Deno section
+    ruby           # Ruby section
+    python         # Python section
+    elm            # Elm section
+    elixir         # Elixir section
+    xcode          # Xcode section
+    swift          # Swift section
+    golang         # Go section
+    perl           # Perl section
+    php            # PHP section
+    rust           # Rust section
+    haskell        # Haskell Stack section
+    scala          # Scala section
+    kotlin         # Kotlin section
+    java           # Java section
+    lua            # Lua section
+    dart           # Dart section
+    julia          # Julia section
+    crystal        # Crystal section
+    docker         # Docker section
+    docker_compose # Docker section
+    aws            # Amazon Web Services section
+    gcloud         # Google Cloud Platform section
+    azure          # Azure section
+    venv           # virtualenv section
+    conda          # conda virtualenv section
+    dotnet         # .NET section
+    ocaml          # OCaml section
+    vlang          # V section
+    zig            # Zig section
+    purescript     # PureScript section
+    erlang         # Erlang section
+    kubectl        # Kubectl context section
+    ansible        # Ansible section
+    terraform      # Terraform workspace section
+    pulumi         # Pulumi stack section
+    ibmcloud       # IBM Cloud section
+    nix_shell      # Nix shell
+    gnu_screen     # GNU Screen section
+    exec_time      # Execution time
+    async          # Async jobs indicator
+    line_sep       # Line break
+    battery        # Battery level and status
+    jobs           # Background jobs indicator
+    exit_code      # Exit code section
+    sudo           # Sudo indicator
+    char           # Prompt character
   )
 fi
 

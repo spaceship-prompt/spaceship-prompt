@@ -14,6 +14,12 @@
       "internal": true
     },
     {
+      "name": "azure",
+      "url": "https://spaceship-prompt.sh/sections/azure",
+      "description": "The current Azure subscription.",
+      "internal": true
+    },
+    {
       "name": "battery",
       "url": "https://spaceship-prompt.sh/sections/battery",
       "description": "The battery section shows the current battery level and its status.",
@@ -278,6 +284,12 @@
       "internal": true
     },
     {
+      "name": "kotlin",
+      "url": "https://spaceship-prompt.sh/sections/kotlin",
+      "description": "The version of the Kotlin compiler.",
+      "internal": true
+    },
+    {
       "name": "swift",
       "url": "https://spaceship-prompt.sh/sections/swift",
       "description": "The version of Swift.",
@@ -310,7 +322,43 @@
     {
       "name": "xcode",
       "url": "https://spaceship-prompt.sh/sections/xcode",
-      "description": "the version of the Xcode environment.",
+      "description": "The version of the Xcode environment.",
+      "internal": true
+    },
+    {
+      "name": "docker_compose",
+      "url": "https://spaceship-prompt.sh/sections/docker_compose",
+      "description": "Docker Compose services statuses.",
+      "internal": true
+    },
+    {
+      "name": "pulumi",
+      "url": "https://spaceship-prompt.sh/sections/pulumi",
+      "description": "The current Pulumi stack.",
+      "internal": true
+    },
+    {
+      "name": "ansible",
+      "url": "https://spaceship-prompt.sh/sections/ansible",
+      "description": "The current Ansible version.",
+      "internal": true
+    },
+    {
+      "name": "zig",
+      "url": "https://spaceship-prompt.sh/sections/zig",
+      "description": "The current Zig version.",
+      "internal": true
+    },
+    {
+      "name": "purescript",
+      "url": "https://spaceship-prompt.sh/sections/purescript",
+      "description": "The current PureScript version.",
+      "internal": true
+    },
+    {
+      "name": "erlang",
+      "url": "https://spaceship-prompt.sh/sections/erlang",
+      "description": "The current Erlang version.",
       "internal": true
     }
   ]

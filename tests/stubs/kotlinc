@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+echo 'info: kotlinc-jvm 1.7.21 (JRE 17.0.5+8)'

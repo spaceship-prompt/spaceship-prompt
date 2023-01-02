@@ -49,8 +49,8 @@ You can learn more about available options by reading further documentation.
 
 ## Changing the config location
 
-Optionally, you can change the location of the configuration file by setting the `SPACESHIP_CONFIG_FILE` environment variable.
+Optionally, you can change the location of the configuration file by setting the `SPACESHIP_CONFIG` environment variable.
 
 ```zsh
-export SPACESHIP_CONFIG_FILE="$HOME/.dotfiles/path/to/spaceship.zsh"
+export SPACESHIP_CONFIG="$HOME/.dotfiles/path/to/spaceship.zsh"
 ```

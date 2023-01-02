@@ -53,7 +53,7 @@ tearDown() {
 test_lua_no_files() {
   local expected=""
   local actual="$(spaceship::testkit::render_prompt)"
-  assertEquals "should not render without files" "$expected" "$nactual"
+  assertEquals "should not render without files" "$expected" "$actual"
 }
 
 test_lua_upsearch_file() {

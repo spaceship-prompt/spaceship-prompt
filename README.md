@@ -236,13 +236,22 @@ sheldon add spaceship --github spaceship-prompt/spaceship-prompt
 
 <details>
 <summary>Arch</summary>
-Install the latest master from the AUR package [`spaceship-prompt-git`](https://aur.archlinux.org/packages/spaceship-prompt-git/):
+
+Install the latest release from the AUR package [spaceship-prompt](https://aur.archlinux.org/packages/spaceship-prompt/):
 
 ```
-git clone https://aur.archlinux.org/spaceship-prompt-git.git --depth=1
-cd spaceship-prompt-git
+git clone https://aur.archlinux.org/spaceship-prompt.git
+cd spaceship-prompt
 makepkg -si
 ```
+
+or using `yay`:
+
+```
+yay -S spaceship-prompt
+```
+
+Also there is an unmaintained git package [spaceship-prompt-git](https://aur.archlinux.org/packages/spaceship-prompt-git/).
 </details>
 
 <details>

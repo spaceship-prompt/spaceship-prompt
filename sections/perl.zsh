@@ -28,7 +28,7 @@ spaceship_perl() {
   spaceship::exists perl || return
 
   # Show only if perl files or composer.json exist in current directory
-  local is_perl_project="$(spaceship::upsearch META.json META.yml META.yaml .perl-version cpanfile)"
+  local is_perl_project="$(spaceship::upsearch META.{json,yml,yaml} .perl-version cpanfile)"
   [[ -n "$is_perl_project" || -n *.pl(#qN^/) || -n *.pm(#qN^/)  ]] || return
 
   local perl_version=$(perl -v 2>&1 | awk '/This/ {print $9}' | sed -r 's/[(v]+//g;s/[)]//g')

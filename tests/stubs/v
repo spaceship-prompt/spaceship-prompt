@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+echo 'V 0.2.4 b72a2de'
