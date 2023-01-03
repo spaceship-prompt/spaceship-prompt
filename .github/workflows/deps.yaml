@@ -14,8 +14,8 @@ jobs:
       - name: 👀 Check zsh-async Releases
         id: zsh-async
         run: |
-          echo ::set-output name=release_tag::$(curl -sL https://api.github.com/repos/mafredri/zsh-async/releases/latest | jq -r  ".tag_name")
-          echo ::set-output name=current_tag::$(grep '# version:' ./lib/async.zsh | cut -d':' -f2 | xargs)
+          echo release_tag=$(curl -sL https://api.github.com/repos/mafredri/zsh-async/releases/latest | jq -r  ".tag_name") >> $GITHUB_OUTPUT
+          echo current_tag=$(grep '# version:' ./lib/async.zsh | cut -d':' -f2 | xargs) >> $GITHUB_OUTPUT
 
       - name: 📦 Update zsh-async
         if: steps.zsh-async.outputs.current_tag != steps.zsh-async.outputs.release_tag
