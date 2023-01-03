@@ -35,6 +35,16 @@
       "name": "flutter",
       "url": "https://github.com/spaceship-prompt/spaceship-flutter",
       "description": "Flutter section for Spaceship prompt."
+    },
+    {
+      "name": "debian-chroot",
+      "url": "https://github.com/pipoprods/spaceship-debian-chroot",
+      "description": "A $debian_chroot section for Spaceship prompt"
+    },
+    {
+      "name": "taskwarrior",
+      "url": "https://github.com/pipoprods/spaceship-taskwarrior",
+      "description": "A TaskWarrior section for Spaceship prompt"
     }
   ]
 }
