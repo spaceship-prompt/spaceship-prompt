@@ -45,6 +45,16 @@
       "name": "taskwarrior",
       "url": "https://github.com/pipoprods/spaceship-taskwarrior",
       "description": "A TaskWarrior section for Spaceship prompt"
+    },
+    {
+      "name": "react",
+      "url": "https://github.com/spaceship-prompt/spaceship-react",
+      "description": "React section for Spaceship prompt"
+    },
+    {
+      "name": "vue",
+      "url": "https://github.com/spaceship-prompt/spaceship-vue",
+      "description": "Vue.js section for Spaceship prompt"
     }
   ]
 }
