@@ -98,4 +98,18 @@ test_maven_upsearch_files() {
   done
 }
 
+test_non_parseble_pom() {
+  local output="[ERROR] Some problems were encountered while processing the POMs: [FATAL] Non-parseable POM"
+  mvn() { printf ${output}; exit 1; }
+  local expected=""
+
+  FILES=( pom.xml )
+  for file in $FILES; do
+    touch $file
+    local actual="$(spaceship::testkit::render_prompt)"
+    assertEquals "should render with $file" "$expected" "$actual"
+    rm $file
+  done
+}
+
 source tests/shunit2/shunit2
