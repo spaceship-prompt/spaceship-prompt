@@ -61,11 +61,12 @@ test_maven_exe_mvnw() {
   local mocked_version="2.1.0-SNAPSHOT"
   local expected="${prefix}${mocked_version}${suffix}"
   echo "printf ${mocked_version}" >> ./mvnw && chmod +x ./mvnw
-  touch pom.xml
+  local file="pom.xml"
+  touch $file
 
   actual="$(spaceship::testkit::render_prompt)"
   assertEquals "should render with $file" "$expected" "$actual"
-  rm pom.xml
+  rm $file
   rm mvnw
 }
 
@@ -75,11 +76,12 @@ test_maven_exe_mvn() {
   local mocked_version="2.1.0-SNAPSHOT"
   local expected="${prefix}${mocked_version}${suffix}"
   local mvn() { printf ${mocked_version} }
-  touch pom.xml
+  local file="pom.xml"
+  touch $file
 
   actual="$(spaceship::testkit::render_prompt)"
   assertEquals "should render with $file" "$expected" "$actual"
-  rm pom.xml
+  rm $file
 }
 
 test_maven_no_files() {
@@ -94,6 +96,20 @@ test_maven_upsearch_files() {
   local mocked_version="2.1.0-SNAPSHOT"
   local mvn() { printf ${mocked_version} }
   local expected="${prefix}${mocked_version}${suffix}"
+
+  FILES=( pom.xml )
+  for file in $FILES; do
+    touch $file
+    local actual="$(spaceship::testkit::render_prompt)"
+    assertEquals "should render with $file" "$expected" "$actual"
+    rm $file
+  done
+}
+
+test_non_parseble_pom() {
+  local output="[ERROR] Some problems were encountered while processing the POMs: [FATAL] Non-parseable POM"
+  mvn() { printf ${output}; exit 1; }
+  local expected="" # empty string
 
   FILES=( pom.xml )
   for file in $FILES; do

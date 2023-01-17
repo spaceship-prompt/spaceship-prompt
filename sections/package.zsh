@@ -106,7 +106,10 @@ spaceship_package::maven() {
   fi
   [[ -z $maven_exe ]] && return
 
-  $maven_exe help:evaluate -q -DforceStdout -D"expression=project.version" 2>/dev/null
+  local version
+  version=$($maven_exe help:evaluate -q -DforceStdout -Dexpression=project.version 2>/dev/null)
+  [[ $? != 0 ]] && return
+  echo "${version}"
 }
 
 spaceship_package::gradle() {
