@@ -219,6 +219,15 @@ zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:th
 </details>
 
 <details>
+<summary>zap</summary>
+Using the [:zap: Zap](https://www.zapzsh.org/) minimal zsh plugin manager, add the following to your `.zshrc`
+
+```zsh
+plug "spaceship-prompt/spaceship-prompt"
+```
+</details>
+
+<details>
 <summary>sheldon</summary>
 Add the following to your `plugins.toml` file (open it with `sheldon edit`):
 
