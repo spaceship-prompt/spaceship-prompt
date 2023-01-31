@@ -87,7 +87,7 @@ SPACESHIP_KUBECTL_CONTEXT_PRETTIFY_CONTEXT=prettify_kubectl_context
 | Variable                                       |              Default               | Meaning                                           |
 | :--------------------------------------------- | :--------------------------------: | ------------------------------------------------- |
 | `SPACESHIP_KUBECTL_CONTEXT_SHOW`               |               `true`               | Show subsection                                   |
-| `SPACESHIP_KUBECTL_CONTEXT_PREFIX`             |               `at·`                | Subsection's prefix                               |
+| `SPACESHIP_KUBECTL_CONTEXT_PREFIX`             |                 -                  | Subsection's prefix                               |
 | `SPACESHIP_KUBECTL_CONTEXT_SUFFIX`             | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Subsection's suffix                               |
 | `SPACESHIP_KUBECTL_CONTEXT_COLOR`              |               `cyan`               | Subsection's color                                |
 | `SPACESHIP_KUBECTL_CONTEXT_SHOW_NAMESPACE`     |               `true`               | Should namespace be also displayed                |
