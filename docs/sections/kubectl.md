@@ -65,13 +65,32 @@ SPACESHIP_KUBECTL_CONTEXT_COLOR_GROUPS=(
 )
 ```
 
+### Prettifying the displayed context and namespace
+
+You can furthermore alter the displayed context and namespace in functions of your own. To do so, write functions that accept the raw value in `$1` and echo the prettified version, and supply their names in the `SPACESHIP_KUBECTL_CONTEXT_PRETTIFY_CONTEXT` and `SPACESHIP_KUBECTL_CONTEXT_PRETTIFY_NAMESPACE` options, respectively.
+
+For instance, you would make production clusters stand out with:
+
+```zsh title=".zshrc"
+prettify_kubectl_context() {
+  local name="$1"
+  [[ $name = (#b)prod-(*) ]] && name="$match[1]$emoji[smiling_imp]"
+  echo $name
+}
+SPACESHIP_KUBECTL_CONTEXT_PRETTIFY_CONTEXT=prettify_kubectl_context
+```
+
+(This assumes that you have Oh My Zsh's `$emoji[]` loaded, for readability.)
+
 ### Options
 
-| Variable                                   |              Default               | Meaning                                       |
-| :----------------------------------------- | :--------------------------------: | --------------------------------------------- |
-| `SPACESHIP_KUBECTL_CONTEXT_SHOW`           |               `true`               | Show subsection                               |
-| `SPACESHIP_KUBECTL_CONTEXT_PREFIX`         |               `at·`                | Subsection's prefix                           |
-| `SPACESHIP_KUBECTL_CONTEXT_SUFFIX`         | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Subsection's suffix                           |
-| `SPACESHIP_KUBECTL_CONTEXT_COLOR`          |               `cyan`               | Subsection's color                            |
-| `SPACESHIP_KUBECTL_CONTEXT_SHOW_NAMESPACE` |               `true`               | Should namespace be also displayed            |
-| `SPACESHIP_KUBECTL_CONTEXT_COLOR_GROUPS`   |                 -                  | _Array_ of pairs of colors and match patterns |
+| Variable                                       |              Default               | Meaning                                           |
+| :--------------------------------------------- | :--------------------------------: | ------------------------------------------------- |
+| `SPACESHIP_KUBECTL_CONTEXT_SHOW`               |               `true`               | Show subsection                                   |
+| `SPACESHIP_KUBECTL_CONTEXT_PREFIX`             |               `at·`                | Subsection's prefix                               |
+| `SPACESHIP_KUBECTL_CONTEXT_SUFFIX`             | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Subsection's suffix                               |
+| `SPACESHIP_KUBECTL_CONTEXT_COLOR`              |               `cyan`               | Subsection's color                                |
+| `SPACESHIP_KUBECTL_CONTEXT_SHOW_NAMESPACE`     |               `true`               | Should namespace be also displayed                |
+| `SPACESHIP_KUBECTL_CONTEXT_COLOR_GROUPS`       |                 -                  | _Array_ of pairs of colors and match patterns     |
+| `SPACESHIP_KUBECTL_CONTEXT_PRETTIFY_CONTEXT`   |                 -                  | Name of function to alter the displayed context   |
+| `SPACESHIP_KUBECTL_CONTEXT_PRETTIFY_NAMESPACE` |                 -                  | Name of function to alter the displayed namespace |
