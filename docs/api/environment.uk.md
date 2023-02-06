@@ -1,14 +1,14 @@
-# Environment
+# Середовище
 
-Spaceship uses `SPACESHIP_` prefix for variables and `spaceship::` prefix for a function to avoid conflicts with global environment. All section, including custom ones, are being required to use `spaceship_` prefix before their name to load properly.
+Spaceship використовує префікс `SPACESHIP_` для змінних та `spaceship::` для функцій, щоб уникати конфліктів з глобальним оточенням. Всі секції, включаючи власні секції користувачів, мають використовувати префікс ` spaceship_` на початку їх назв для правильного завантаження.
 
-## Prompt variables
+## Змінні командного рядка
 
 ### `SPACESHIP_VERSION`
 
-An environment variable that defines the version of currently running Spaceship prompt version. Can be used for issue reporting or debugging purposes.
+Змінна середовища, яка визначає версію запущеної версії командного рядка Spaceship. Може використовуватися для надсилання звітів про проблеми або налагодження.
 
-Accessible to any program or script running in a current shell session.
+Доступна для будь-якої програми або скрипту, що працює в поточній сесії оболонки.
 
 ```zsh
 echo $SPACESHIP_VERSION
@@ -19,11 +19,11 @@ echo $SPACESHIP_VERSION
 
 <!-- prettier-ignore -->
 !!! danger
-    This variable is read only. Changing the value may cause the damage to Spaceship installation!
+    Ця змінна доступна тільки для читання. Змінна значення може призвести для пошкодження встановлення Spaceship!
 
-An environment variable that defines the path to Spaceship prompt installation. Spaceship uses this variable for resolving path to sections and utils.
+Змінна середовища, яка визначає шлях до місця встановлення командного рядка Spaceship. Spaceship використовує цю змінну для визначення шляху до секцій та утиліт.
 
-Accessible to any program or script running in a current shell session.
+Доступна для будь-якої програми або скрипту, що працює в поточній сесії оболонки.
 
 ```zsh
 echo $SPACESHIP_ROOT
@@ -32,9 +32,9 @@ echo $SPACESHIP_ROOT
 
 ### `SPACESHIP_CONFIG_PATH`
 
-An array of path to configuration files. Spaceship will look for configuration file in the order of the array. The first file that exists will be used.
+Масив зі шляхами до файлів налаштувань. Spaceship буде шукати файли налаштувань в порядку елементів масиву. Буде використано перший файл, який існує.
 
-The default locations are:
+Типові місця:
 
 ```zsh
 $HOME/.spaceshiprc
@@ -48,51 +48,51 @@ $XDG_CONFIG_DIRS/spaceship.zsh
 
 ### `SPACESHIP_CONFIG`
 
-A variable storing the path to the configuration file. Usually, this variable stores one of the paths from the [`SPACESHIP_CONFIG_PATH`](#spaceship_config_path) array.
+Змінна, яка зберігає шлях до файлу налаштувань. Зазвичай ця змінна містить один зі шляхів з масиву [`SPACESHIP_CONFIG_PATH`](#spaceship_config_path).
 
-You can specify custom path to the configuration file by setting the `SPACESHIP_CONFIG_FILE` environment variable, for example:
+Ви можете вказати власний шлях до файлу налаштувань, вказавши його у змінній `SPACESHIP_CONFIG_FILE`, наприклад:
 
 ```zsh title="$HOME/.zshrc"
 export SPACESHIP_CONFIG_FILE="$HOME/.dotfiles/path/to/spaceship.zsh"
 ```
 
-The variable is empty when no configuration file is found.
+Змінна міститиме пусте значення, якщо файл налаштувань відсутній, або не знайдений.
 
 ### `SPACESHIP_CACHE`
 
 !!! danger
-    This variable should be used only for reading. Changing the value may cause the incorrect behavior of Spaceship prompt.
+    Змінна має використовуватись тільки для читання. Зміна значення може спричинити некоректну поведінку командного рядка Spaceship.
 
-An associative array that stores the cached values of the sections. The cache stores data between renders and is cleared on every prompt.
+Асоційований масив, який зберігає кешовані значення секцій. Кеш зберігає дані між візуалізаціями та очищається після кожного запиту.
 
-The cache should not be manipulated directly.
+Кешем не варто маніпулювати безпосередньо.
 
 ### `SPACESHIP_JOBS`
 
 !!! danger
-    This variable should be used only for reading. Changing the value may cause the incorrect behavior of Spaceship prompt.
+    Змінна має використовуватись тільки для читання. Зміна значення може спричинити некоректну поведінку командного рядка Spaceship.
 
-An array of currently processing asynchronous sections. Can be used to check what asynchronous sections are being rendered.
+Масив зараз обробляє асинхронні секції. Може бути використовуватись для перевірки того, які асинхронні секції показуються.
 
-The section name is added to the array when the asynchronous section is being rendered. Upon completion of the asynchronouse job, the name is removed from the array.
+Назва секції додається до масиву під час показу асинхронної секції. Після завершення асинхронної роботи назва вилучається з масиву.
 
-## Asynchronous runtime
+## Асинхронне середовище виконання
 
-Spaceship uses [`zsh-async`](https://github.com/mafredri/zsh-async) library to perform asynchronous tasks. This library comes along with Spaceship and is regularly updated to the latest version.
+Spaceship використовує [`zsh-async`](https://github.com/mafredri/zsh-async) бібліотеку для виконання асинхронних завдань. Ця бібліотека постачається разом з Spaceship та регулярно оновлюється до найсвіжішої версії.
 
-`zsh-async` is loaded automatically when Spaceship loads sections, when all of these conditions are true:
+`zsh-async` завантажується автоматично, коли Spaceship завантажується, коли всі ці умови є істиною:
 
-1. Asynchronous rendering is turned on (see [Asynchronous rendering](/config/prompt/#asynchronous-rendering))
-2. There's at least one section that is rendered asynchronously.
-3. `zsh-async` was not loaded before.
+1. Асинхронний показ увімкнено (див. [Асинхронний показ](/config/prompt/#asynchronous-rendering))
+2. Існує щонайменше одна секція, що показується асинхронно.
+3. `zsh-async` не було завантажено до цього.
 
-Otherwise, Spaceship will skip the loading of `zsh-async`.
+В іншому випадку Spaceship пропустить завантаження `zsh-async`.
 
-### Loading `zsh-async` manually
+### Завантаження `zsh-async` вручну
 
-If you plan on using `zsh-async` for purposes other than just rendering Spaceship, it's recommended to load it explicitly, before loading Spaceship.
+Якщо ви плануєте використовувати `zsh-async` для цілей, окрім як показ Spaceship, рекомендується завантажити її явним чином, перед завантаженням Spaceship.
 
-Here's an example of how to load `zsh-async` manually:
+Ось приклад того, як завантажити `zsh-async` вручну:
 
 === "antigen"
 
