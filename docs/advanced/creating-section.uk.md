@@ -8,69 +8,69 @@
 
 ### Секція не повинна засмічувати командний рядок
 
-Having too much in prompt looks ugly. Краще притримуватись необхідного мінімуму.
+Having too much in prompt looks ugly. Краще дотримуватися необхідного мінімуму.
 
 * **Добре:** `🚀 v1.2.3`
 * **Погано:** `🚀 spasheship#c3BhY2VzaGlw`
 
-### Секція має бути вартою того, щоб її бачити
+### Секція має бути вартою того, щоби бути присутньою
 
 Чи достатньо часто змінюється значення, що його постійно треба показувати в командному рядку? Чи це буде корисним для інших користувачів? Можливо, є підстави виконати команду замість засмічення командного рядка.
 
-* **Good:** git status/branch, runtime version via version manager, etc
-* **Bad:** version of language-specific framework, settled projects versions, etc
+* **Добре:** стан/гілка git, версія оточення в пакетному менеджері, й т.д.
+* **Погано:** версія фреймворку, постійна версія проєкту, тощо
 
 ### Секція повинна бути швидкою
 
-Якщо ваш розділ виконає складну перевірку, знайдіть спосіб зробити її швидше. Використовувати асинхронний рендер для виконання важких задач. Секція має бути:
+Якщо ваша секція виконає складну перевірку, знайдіть спосіб зробити її швидше. Використовуйте асинхронний показ для виконання важких задач. Секція має бути:
 
 * **Асинхронна:** якщо вона виконує зовнішні команди, виконує складні обчислення, читання великих файлів
 * **Синхронна:** якщо перевіряє доступність команди, перевіряє значення змінної середовища
 
-### Follow naming convention for options
+### Дотримуйтесь правил іменування параметрів
 
-All options of prompt follow a specific pattern so that it is easy to remember: `SPACESHIP_SECTION_<OPTION>[_PROPERTY]`. The rule is simple: when naming new properties, keep unique parts of the name to the end.
+Всі параметри командного рядка слідують певному шаблону, так що легко запам'ятати: `SPACESHIP_SECTION_<OPTION>[_PROPERTY]`. Правило просте: під час іменування нових властивостей, зберігайте унікальні частини назв у кінці.
 
-* **Good:**
+* **Добре:**
   ```
     SPACESHIP_GIT_STATUS_COLOR_BEHIND
     SPACESHIP_GIT_STATUS_COLOR_DIVERGED
   ```
-* **Bad:**
+* **Погано:**
   ```
     SPACESHIP_GIT_STATUS_BEHIND_COLOR
     SPACESHIP_GIT_STATUS_DIVERGED_COLOR
   ```
 
-  Here, `GIT_STATUS` is *section*, `COLOR` is *option* and `BEHIND` or `DIVERGED` is *property*.
+  Тут, `GIT_STATUS` це *секція*, `COLOR` — *опція* і `BEHIND ` або `DIVERGED` є *властивістю*.
 
-## Create a section
+## Створення секції
 
-The simplest way to create a section is to use a template repo for Spaceship section.
+Найпростіший спосіб створити секцію — використати шаблон репозиторію для секції Spaceship.
 
-[:fontawesome-brands-github: Use a section template](https://github.com/spaceship-prompt/spaceship-section ""){.md-button}
+[:fontawesome-brands-github: Скористатись шаблоном](https://github.com/spaceship-prompt/spaceship-section ""){.md-button}
 
-This boilerplate repo contains a template for a section and its documentation, has configured release and testing workflow. Explore the repo to learn more.
+Репозиторій з секціями містить шаблон для створення власних секцій та документацію, має налаштовані процеси тестування та підготовки випусків. Ознайомтесь з репозиторієм, щоб дізнатись більше.
 
-Open a [`spaceship-section.plugin.zsh` file](https://github.com/spaceship-prompt/spaceship-section/blob/main/spaceship-section.plugin.zsh) for a custom section example.
+Відкрийте [`spaceship-section.plugin.zsh` файл](https://github.com/spaceship-prompt/spaceship-section/blob/main/spaceship-section.plugin.zsh), як приклад для створення власної секції.
 
-## Typical section breakdown
+## Типовий розподіл секцій
 
-Below is an example of a typical section for Spaceship. Pay attention to a few crucial moments:
+Нижче наведено приклад типової секції Spaceship. Звертайте увагу на кілька важливих моментів:
 
-- Define options for customization. Their names should start with `SPACESHIP_`.
-- Every Spaceship section name should start with `spaceship_` (for example `spaceship_node`). This is a convention that is used to identify the section.
-- Show section only where it's needed (in directories which contains specific files, when a specific command is available, etc).
+- Визначте параметри для налаштування. Їх назви повинні починатися з `SPACESHIP_`.
+- Назва кожної секції Spaceship має починатись з `spaceship_` (наприклад `spaceship_node`). Це домовленість, що використовується для ідентифікації секції.
+- Секція має показуватись тільки за потреби (у теці, що містить потрібні файли, коли виконується потрібна команда тощо).
 
-Sections are defined by [`spaceship::section` API](/api/section/). You can use [general purpose utilities](/api/utils/) for performing common tasks in a section.
+Секції визначаються [API – `spaceship::section`](/api/section/). Ви можете використовувати [утиліт загального призначення](/api/utils/) для виконання загальних завдань у секції.
 
-Typical section might look like this:
+Секція повинна мати подібний вигляд:
 
 ```zsh
 #
 # Foobar
 #
-# Foobar is a supa-dupa cool tool for making you development easier.
+# Foobar – це класний інструмент, який полегшує розробку.
 # Link: https://www.foobar.xyz
 
 # ------------------------------------------------------------------------------
@@ -88,33 +88,33 @@ SPACESHIP_FOOBAR_COLOR="${SPACESHIP_FOOBAR_COLOR="white"}"
 # Section
 # ------------------------------------------------------------------------------
 
-# Show foobar status
-# spaceship_ prefix before section's name is required!
-# Otherwise this section won't be loaded.
+# Показати статус foobar
+# префікс spaceship_ на початку назви секції є обовʼязковим!
+# Інакше, секцію не буде завантажено.
 spaceship_foobar() {
-  # If SPACESHIP_FOOBAR_SHOW is false, don't show foobar section
+  # Якщо SPACESHIP_FOOBAR_SHOW дорівнює false, не показувати секцію foobar
   [[ $SPACESHIP_FOOBAR_SHOW == false ]] && return
 
-  # Check if foobar command is available for execution
+  # Перевірте, чи доступна для виконання команда foobar
   spaceship::exists foobar || return
 
-  # Show foobar section only when there are foobar-specific files in current
-  # working directory.
+  # Показати секцію foobar тільки якщо потрібні для foobar файли знаходяться
+  # в поточній робочій теці.
 
-  # spaceship::upsearch utility helps finding files up in the directory tree.
+  # утиліта spaceship::upsearch допомагає шукати файли вгору по дереву тек.
   local is_foobar_context="$(spaceship::upsearch foobar.conf)"
-  # Here glob qualifiers are used to check if files with specific extension are
-  # present in directory. Read more about them here:
+  # Тут використовуються глобальні кваліфікатори для перевірки наявності файлів
+  #  із певним розширенням в теці. Дізнайтесь про це тут:
   # http://zsh.sourceforge.net/Doc/Release/Expansion.html
   [[ -n "$is_foobar_context" || -n *.foo(#qN^/) || -n *.bar(#qN^/) ]] || return
 
   local foobar_version="$(foobar --version)"
 
-  # Check if tool version is correct
+  # Перевірте, чи правильна версія інструменту
   [[ $tool_version == "system" ]] && return
 
-  # Display foobar section
-  # spaceship::section utility composes sections. Flags are optional
+  # Показати секцію foobar
+  # утиліта spaceship::section складає секції. Флаги є опціональними
   spaceship::section::v4 \
     --color "$SPACESHIP_FOOBAR_COLOR" \
     --prefix "$SPACESHIP_FOOBAR_PREFIX" \
@@ -124,12 +124,12 @@ spaceship_foobar() {
 }
 ```
 
-Take a look at [Contribution guidelines](//github.com/spaceship-prompt/spaceship-prompt/blob/master/CONTRIBUTING.md) for further information.
+Перегляньте [Правила участі](//github.com/spaceship-prompt/spaceship-prompt/blob/master/CONTRIBUTING.md) для отримання додаткової інформації.
 
-## Share your section with others
+## Поділіться вашою секцією з іншими
 
-The next step is to share your section with the community.
+Наступний крок — поділитися секцією зі спільнотою.
 
-Open a discussion topic on our Discussion forum:
+Відкрити тему обговорення на нашому форумі Discussion:
 
-[Add to Registry](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/docs/registry/external.json ""){.md-button} [Share on forum](https://github.com/spaceship-prompt/spaceship-prompt/discussions/new?category=show-and-tell&title=Section%20for%20[tool] ""){.md-button}
+[Додати в реєстр](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/docs/registry/external.json ""){.md-button} [Поділитись на форумі](https://github.com/spaceship-prompt/spaceship-prompt/discussions/new?category=show-and-tell&title=Section%20for%20[tool] ""){.md-button}
