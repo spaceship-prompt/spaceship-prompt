@@ -51,6 +51,7 @@ nav:
         - Ansible (Ansible): sections/ansible.md
         - Async (async): sections/async.md
         - AWS (aws): sections/aws.md
+        - Azure (azure): sections/azure.md
         - Battery (battery): sections/battery.md
         - Bun (bun): sections/bun.md
         - Conda (conda): sections/conda.md
@@ -63,6 +64,7 @@ nav:
         - Dotnet (dotnet): sections/dotnet.md
         - Elixir (elixir): sections/elixir.md
         - Elm (elm): sections/elm.md
+        - Erlang (erlang): sections/erlang.md
         - Execution time (exec_time): sections/exec_time.md
         - Exit code (exit_code): sections/exit_code.md
         - Git (git): sections/git.md
@@ -75,6 +77,7 @@ nav:
         - Java (java): sections/java.md
         - Jobs (jobs): sections/jobs.md
         - Julia (julia): sections/julia.md
+        - Kotlin (kotlin): sections/kotlin.md
         - Kubernetes (kubectl): sections/kubectl.md
         - Line separator (line_sep): sections/line_sep.md
         - Lua (lua): sections/lua.md
@@ -87,6 +90,7 @@ nav:
         - PHP (php): sections/php.md
         - Prompt character (char): sections/char.md
         - Pulumi (pulumi): sections/pulumi.md
+        - PureScript (purescript): sections/purescript.md
         - Python (python): sections/python.md
         - Ruby (ruby): sections/ruby.md
         - Rust (rust): sections/rust.md
@@ -99,6 +103,7 @@ nav:
         - v (ocaml): sections/vlang.md
         - Virtualenv (venv): sections/venv.md
         - Xcode (xcode): sections/xcode.md
+        - Zig (zig): sections/zig.md
   - Advanced:
       - Creating a custom section: advanced/creating-section.md
       - Per-directory configuration: advanced/per-directory-config.md

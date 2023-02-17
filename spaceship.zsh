@@ -8,7 +8,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='4.10.0'
+export SPACESHIP_VERSION='4.13.1'
 
 # Set SPACESHIP_ROOT if it isn't defined yet or if the directory does
 # not exist anymore (e.g. after an update to a newer version)
@@ -62,6 +62,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     rust           # Rust section
     haskell        # Haskell Stack section
     scala          # Scala section
+    kotlin         # Kotlin section
     java           # Java section
     lua            # Lua section
     dart           # Dart section
@@ -71,11 +72,15 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     docker_compose # Docker section
     aws            # Amazon Web Services section
     gcloud         # Google Cloud Platform section
+    azure          # Azure section
     venv           # virtualenv section
     conda          # conda virtualenv section
     dotnet         # .NET section
     ocaml          # OCaml section
     vlang          # V section
+    zig            # Zig section
+    purescript     # PureScript section
+    erlang         # Erlang section
     kubectl        # Kubectl context section
     ansible        # Ansible section
     terraform      # Terraform workspace section

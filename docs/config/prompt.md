@@ -60,6 +60,7 @@ SPACESHIP_PROMPT_ORDER=(
   rust           # Rust section
   haskell        # Haskell Stack section
   scala          # Scala section
+  kotlin         # Kotlin section
   java           # Java section
   lua            # Lua section
   dart           # Dart section
@@ -69,11 +70,15 @@ SPACESHIP_PROMPT_ORDER=(
   docker_compose # Docker section
   aws            # Amazon Web Services section
   gcloud         # Google Cloud Platform section
+  azure          # Azure section
   venv           # virtualenv section
   conda          # conda virtualenv section
   dotnet         # .NET section
   ocaml          # OCaml section
   vlang          # V section
+  zig            # Zig section
+  purescript     # PureScript section
+  erlang         # Erlang section
   kubectl        # Kubectl context section
   ansible        # Ansible section
   terraform      # Terraform workspace section

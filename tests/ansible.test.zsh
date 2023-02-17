@@ -81,7 +81,8 @@ test_ansible_playbooks() {
       "%{%B%}$SPACESHIP_ANSIBLE_PREFIX%{%b%}"
       "%{%B%F{$SPACESHIP_ANSIBLE_COLOR}%}"
       "${SPACESHIP_ANSIBLE_SYMBOL}"
-      "v$ANSIBLE_VERSION%{%b%f%}"
+      "v$ANSIBLE_VERSION"
+      "%{%b%f%}"
     )
     local actual="$(spaceship::testkit::render_prompt)"
     assertEquals "should render with $file" "${(j::)expected}" "$actual"

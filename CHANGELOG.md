@@ -1,3 +1,59 @@
+## [4.13.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.0...v4.13.1) (2023-01-04)
+
+
+### Bug Fixes
+
+* **upsearch:** Add additional check for filename ([55027a1](https://github.com/spaceship-prompt/spaceship-prompt/commit/55027a1c445534ca7c18814f89d7d521f38f4ef3))
+
+# [4.13.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.12.0...v4.13.0) (2023-01-04)
+
+
+### Bug Fixes
+
+* **scala:** Scala version detection ([#1315](https://github.com/spaceship-prompt/spaceship-prompt/issues/1315)) ([f21184b](https://github.com/spaceship-prompt/spaceship-prompt/commit/f21184b28567e5b5f4ff00e269fc1eb17c74c55f))
+
+
+### Features
+
+* **az:** Add Azure section ([#411](https://github.com/spaceship-prompt/spaceship-prompt/issues/411)) ([5e5a2e2](https://github.com/spaceship-prompt/spaceship-prompt/commit/5e5a2e2da136fdf3d98da3ec867c2ab4e29ba995))
+
+# [4.12.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.11.1...v4.12.0) (2022-12-07)
+
+
+### Features
+
+* **erlang:** Add Erlang section ([#1308](https://github.com/spaceship-prompt/spaceship-prompt/issues/1308)) ([fd49455](https://github.com/spaceship-prompt/spaceship-prompt/commit/fd4945598d700560bffbc0d910441cedbb682bcd))
+* **prescript:** Add PureScript section ([#1307](https://github.com/spaceship-prompt/spaceship-prompt/issues/1307)) ([018aa8c](https://github.com/spaceship-prompt/spaceship-prompt/commit/018aa8c1bc174432d37219576767bdfd6b22bc39))
+* **zig:** Add Zig section ([#1301](https://github.com/spaceship-prompt/spaceship-prompt/issues/1301)) ([0b5e668](https://github.com/spaceship-prompt/spaceship-prompt/commit/0b5e668626e2aa5e645634e3c2e3c3e3ecf3fb9f))
+
+## [4.11.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.11.0...v4.11.1) (2022-11-30)
+
+
+### Bug Fixes
+
+* **async:** Fix missing section warning when async is excluded from prompt ([0a18cb5](https://github.com/spaceship-prompt/spaceship-prompt/commit/0a18cb504f5202acf96ac2cd259c689471a3f7ab))
+
+# [4.11.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.10.1...v4.11.0) (2022-11-30)
+
+
+### Bug Fixes
+
+* improve version extraction ([23801f8](https://github.com/spaceship-prompt/spaceship-prompt/commit/23801f85b8d62b30a2bdd19608d16d7e8fb77963))
+* **kotlin:** Check for extensions separately ([f631ae4](https://github.com/spaceship-prompt/spaceship-prompt/commit/f631ae4e178137b21fecdf1724703c6228f828bc))
+* **kotlin:** Fix Kotlin version extraction ([a1681b4](https://github.com/spaceship-prompt/spaceship-prompt/commit/a1681b40ab4bf7409ab9251cc5c45ae2339107c2))
+
+
+### Features
+
+* **kotlin:** Added Kotlin section ([#1292](https://github.com/spaceship-prompt/spaceship-prompt/issues/1292)) ([592324b](https://github.com/spaceship-prompt/spaceship-prompt/commit/592324b7a0b75f12cb3754f5fcfd3d8816708d16))
+
+## [4.10.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.10.0...v4.10.1) (2022-11-12)
+
+
+### Bug Fixes
+
+* **section:** Fix newline characters in section suffix. ([e585e9d](https://github.com/spaceship-prompt/spaceship-prompt/commit/e585e9d0954efcd241ee8cbc6efcd7aff4fae56c)), closes [#1267](https://github.com/spaceship-prompt/spaceship-prompt/issues/1267)
+
 # [4.10.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.9.1...v4.10.0) (2022-11-10)
 
 
