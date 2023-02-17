@@ -2,13 +2,13 @@
 
 !!! important "За замовчуванням ця секція рендериться асинхронно"
 
-The `battery` section shows the current battery level and its status.
+Секція `battery` показує поточний стан батареї та рівень заряду.
 
-By default, the `battery` section is shown only if the battery level is below `SPACESHIP_BATTERY_THRESHOLD` (10% by default).
+Типово, секція `battery` показується тільки якщо рівень заряду нижчий ніж `SPACESHIP_BATTERY_THRESHOLD` (типово 10%).
 
-## Controlling when to show the `battery` section
+## Керування показом секції `battery`
 
-You may want to show the `battery` section all the time or only when it's fully charged or discharged. It's easy to control when to show the `battery` section by setting the `SPACESHIP_BATTERY_SHOW` option.
+Ви можете показувати секцію `battery` постійно або коли батарею повністю заряджено, чи розряджено. Доволі легко контролювати, коли показати секцію ` battery`, скориставшись параметром `SPACESHIP_BATTERY_SHOW`.
 
 Ось можливі значення:
 
@@ -19,16 +19,16 @@ You may want to show the `battery` section all the time or only when it's fully 
 |          `true`          | Показано     | Приховано   | Приховано          |
 |        `charged`         | Показано     | Приховано   | Показано           |
 
-## Опції
+## Параметри
 
-| Змінна                                 |          За замовчуванням          | Пояснення                                                     |
-|:-------------------------------------- |:----------------------------------:| ------------------------------------------------------------- |
-| `SPACESHIP_BATTERY_SHOW`               |               `true`               | Показувати секцію (`true`, `false`, `always` або `charged`)   |
-| `SPACESHIP_BATTERY_ASYNC`              |               `true`               | Рендерити секцію асинхронно                                   |
-| `SPACESHIP_BATTERY_PREFIX`             |                 ``                 | Префікс підсекції                                             |
-| `SPACESHIP_BATTERY_SUFFIX`             | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                                 |
-| `SPACESHIP_BATTERY_SYMBOL_CHARGING`    |                `⇡`                 | Symbol displayed before the section if battery is charging    |
-| `SPACESHIP_BATTERY_SYMBOL_DISCHARGING` |                `⇣`                 | Symbol displayed before the section if battery is discharging |
-| `SPACESHIP_BATTERY_SYMBOL_FULL`        |                `•`                 | Symbol displayed before the section if battery is full        |
-| `SPACESHIP_BATTERY_THRESHOLD`          |                 10                 | Battery level below which battery section will be shown       |
+| Змінна                                 |          За замовчуванням          | Пояснення                                                                |
+|:-------------------------------------- |:----------------------------------:| ------------------------------------------------------------------------ |
+| `SPACESHIP_BATTERY_SHOW`               |               `true`               | Показувати секцію (`true`, `false`, `always` або `charged`)              |
+| `SPACESHIP_BATTERY_ASYNC`              |               `true`               | Рендерити секцію асинхронно                                              |
+| `SPACESHIP_BATTERY_PREFIX`             |                 ``                 | Префікс підсекції                                                        |
+| `SPACESHIP_BATTERY_SUFFIX`             | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                                            |
+| `SPACESHIP_BATTERY_SYMBOL_CHARGING`    |                `⇡`                 | Символ, що показується на початку секції під час заряджання батареї      |
+| `SPACESHIP_BATTERY_SYMBOL_DISCHARGING` |                `⇣`                 | Символ, який показується на початку секції, коли батарея розряджається   |
+| `SPACESHIP_BATTERY_SYMBOL_FULL`        |                `•`                 | Символ, що показується на початку секції, коли батарея заряджена на 100% |
+| `SPACESHIP_BATTERY_THRESHOLD`          |                 10                 | Рівень заряду батареї, нижче якого секцію буде показано                  |
 

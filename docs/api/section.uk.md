@@ -1,41 +1,41 @@
-# Sections
+# Секції
 
-Sections are defined using `spaceship::section` function. This section takes the content of the section parameters for displaying, like prefix, suffix, color and symbol for the section. These values will be used for displaying the section.
+Секції визначаються за допомогою функції `spaceship::section`. Секція отримує значення параметрів для показу, такі як префікс, суфікс, колір та символ. Ці значення будуть використані для показу секції.
 
-The `spaceship::section` is used to pack the section data into a data tuple. This data tuple is stored in the cache. During the rendering process, the data tuple for each section is being rendered into a section via `spaceship::section::render` function.
+`spaceship::section` використовується для упаковування даних секції в кортеж даних. Цей кортеж даних зберігається в кеші. Під час процесу обробки, кортеж для кожної секції перетворюється в секцію за допомогою функції `spaceship::section::render`.
 
 ## `spaceship::section`
 
 !!! tip
-    For creating a custom section, prefer using the [`spaceship::section::v4` function](#spaceshipsectionv4). The versioned function will ensure compatibility with new versions of Spaceship.
+    Для створення власної секції бажано використовувати функцію [`spaceship::section::v4` function](#spaceshipsectionv4). Функція з зазначенням версії забезпечить сумісність з новими версіями Spaceship.
 
-This is the main function for defining a section. This takes section parameters and its content and transforms it into a data tuple.
+Це основна функція для створення секції. Вона зчитує параметри секції і її вміст і перетворює їх на кортежі даних.
 
 ``` title="Signature"
 spaceship::section [--color color] [--prefix prefix] [--suffix suffix] [--symbol symbol] <content>
 ```
 
-It takes a single argument `content` which is the content of the section. Additionally, the function takes the following optional parameters:
+Вона бере один аргумент `content`, який є контентом секції. Крім того, функція приймає наступні додаткові параметри:
 
-* `--color` — color for displaying the `content`. Can be any of [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
-* `--prefix` — prefix before `content`. Usually, it's the value of `SPACESHIP_<SECTION>_PREFIX`.
-* `--symbol` — the symbol of the section. Can be any valid value or result of command execution. Will be rendered before the content.
-* `--suffix` — suffix after `content`. Usually, it's the value of `SPACESHIP_<SECTION>_SUFFIX`.
+* `--color` — колір для показу `вмісту`. Може бути [назвою кольору](https://wiki.archlinux.org/index.php/zsh#Colors) чи [кодом кольору](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
+* `--prefix` — префікс перед `content`. Зазвичай це значення `SPACESHIP_<SECTION>_PREFIX`.
+* `--symbol` — символ секції. Може бути будь-яким допустимим значенням або результатом виконання команд. Буде додано перед змістом.
+* `--suffix` — суфікс після `content`. Зазвичай це значення `SPACESHIP_<SECTION>_SUFFIX`.
 
-The order of the parameters is not important. All of them are default to empty strings.
+Порядок параметрів не важливий. Типово всі вони є порожніми рядками.
 
 !!! help
-    The `content`, `--prefix`, `--suffix` and `--symbol` can contain escapes to set additional foreground color, background color and other visual effects.
+   `content`, `--prefix`, `--suffix` та `--symbol` можуть містити esc-послідовності для встановлення додаткових кольорів фону, написів та інших візуальних ефектів.
 
-    Read more about escapes in [13 Prompt Expansion](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html) section of Zsh documentation.
+    Детальніше про esc-послідовності в [13 Prompt Expansion](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html) розділі документації Zsh.
 
 ## `spaceship::section::v4`
 
-This is an alias of `spaceship::section` function. It's the versioned function for creating a custom section.
+Це псевдонім функції `spaceship:section`. Це функція з версією для створення власної секції.
 
-The signature of this function is the same as for `spaceship::section` function.
+Підпис цієї функції такий самий, як і для функції `spaceship::section`.
 
-Here is an example usage:
+Приклад використання:
 
 ```zsh
 local content="value"
@@ -51,49 +51,49 @@ spaceship::section::v4 \
 ## `spaceship::section::v3`
 
 !!! warning
-    This function is introduced for compatibility with Spaceship v3 sections. It's recommended to use the [`spaceship::section::v4` function](#spaceshipsectionv4) instead.
+    ця функція введена для сумісності з секціями Spachip v3. Натомість рекомендується використовувати функцію [`spaceship::section::v4`](#spaceshipsectionv4).
 
-This is a replacement for the `spaceship::section` function used in Spaceship v3. Use it for backward compatibility only.
+Це замінник для функції `spaceship::section`, що використовувався в Spaceship v3. Використовуйте його для зворотної сумісності.
 
 ``` title="Signature"
 spaceship::section <color> [prefix] <content> [suffix]
 ```
 
-The `spaceship::section:v3` relies on the following arguments order:
+`spaceship::section:v3` покладається на наступний порядок аргументів:
 
-1. `color` _Required_ — color for displaying the `content`. Can be any of [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
-2. `prefix` _Optional_ — prefix before `content`. Usually, it's the value of `SPACESHIP_<SECTION>_PREFIX`.
-3. `content` _Required_ — the content of the section. Can be any valid value or result of command execution.
-4. `suffix` _Optional_ — suffix after `content`. Usually, it's the value of `SPACESHIP_<SECTION>_SUFFIX`.
+1. `color` _Обовʼязково_ — колір для показу `content`. Може бути [назвою кольору](https://wiki.archlinux.org/index.php/zsh#Colors) чи [кодом кольору](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
+2. `prefix` _Опціонально_ — префікс перед `content`. Зазвичай це значення `SPACESHIP_<SECTION>_PREFIX`.
+3. `content` _Обовʼязково_ — вміст секції. Може бути будь-яким допустимим значенням або результатом виконання команд.
+4. `suffix` _Опціонально_ — суфікс після `content`. Зазвичай це значення `SPACESHIP_<SECTION>_SUFFIX`.
 
-Here is a simple example:
+Ось простий приклад:
 
 ```zsh
-# Display prompt section with prefix and suffix
-# Backslash is used to escape line ending
+# Показ секції з префіксом та суфіксом
+# Зворотна коса риска використовується для екранування кінця рядка
 spaceship::section \
   "$SPACESHIP_SECTION_COLOR" \
   "$SPACESHIP_SECTION_PREFIX" \
   "$SPACESHIP_SECTION_SYMBOL$section_content" \
   "$SPACESHIP_SECTION_SUFFIX"
 
-# Display prompt section without prefix and suffix
+# Показ секції без префікса та суфікса
 spaceship::section "$color" "$SPACESHIP_CHAR_SYMBOL"
 ```
 
 ## `spaceship::section::render`
 
-This function renders the section from the data tuple provided by [`spaceship::section`](#spaceshipsection).
+Ця функція обробляє секцію з кортежу даних отриманих з [`spaceship::section`](#spaceshipsection).
 
 ``` title="Signature"
 spaceship::render section <data>
 ```
 
-If `SPACESHIP_PROMPT_PREFIXES_SHOW` is `false` or if the section is not the first in the prompt, then prefix will be omitted.
+Якщо `SPACESHIP_PROMPT_PREFIXES_SHOW` є `false` або якщо секція не є першою у запиті, то префікс буде пропущений.
 
-If `SPACESHIP_PROMPT_SUFFIXES_SHOW` is `false`, then suffix will be omitted.
+Якщо `SPACESHIP_PROMPT_SUFFIXES_SHOW` є `false`, тоді суфікс буде пропущено.
 
-The `data` is a result of the `spaceship::section` function. For example:
+`data` є результатом функції `spaceship::section`. Наприклад:
 
 ```zsh
 local color="red" content="value"
@@ -103,4 +103,4 @@ spaceship::section::render "$(spaceship::section --color "$color" "$content")"
 ```
 
 !!! tip
-    You can use for rendering subsections within complex sections. See the sources of [`git`](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/sections/git.zsh) or [`docker`](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/sections/docker.zsh) sections for an example.
+    Можна використовувати обробку підсекцій у складних секціях. Наприклад, подивіться сирці секцій [`git`](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/sections/git.zsh) або [`docker`](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/sections/docker.zsh).

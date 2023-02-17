@@ -58,7 +58,7 @@
 
 
     !!! tip
-        You can also add the following to your [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage) to bundle Spaceship along with your other software:
+        Ви також можете додати наступне до вашого [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage) для встановлення Spaceship разом з іншим програмним забезпеченням:
 
         ```ruby title="Brewfile"
         brew "spaceship"
@@ -98,9 +98,9 @@
 
 === "prezto"
 
-    - Follow [prezto-contrib#usage](https://github.com/belak/prezto-contrib#usage) to clone `prezto-contrib` to the proper location.
-    - Enable the `contrib-prompt` module (before the `prompt` module).
-    - Set `zstyle ':prezto:module:prompt' theme 'spaceship'` in your `.zpreztorc`.
+    - Виконуйте настанови [prezto-contrib#usage](https://github.com/belak/prezto-contrib#usage) для клонування `prezto-contrib` у відповідне місце.
+    - Увімкніть модуль `contrib-prompt` (перед модулем `prompt`).
+    - Додайте `zstyle ':prezto:module:prompt' theme 'spaceship'` до вашого `.zpreztorc`.
 
 === "zim"
 
@@ -143,7 +143,7 @@
 
 === "zgen"
 
-    Додайте такий рядок до вашого `.zshrc` у місці, де ви додаєте інші плагіни Zsh:
+    Додайте наступний рядок до вашого `.zshrc` у місці, де ви додаєте інші плагіни Zsh:
 
     ```zsh title=".zshrc"
     zgen load spaceship-prompt/spaceship-prompt spaceship
@@ -175,12 +175,23 @@
 
 === "Arch"
 
-    Встановіть найновіший master з AUR-пакета [`spaceship-prompt-git`](https://aur.archlinux.org/packages/spaceship-prompt-git/):
+    Встановіть найсвіжіший випуск з AUR пакунка [spaceship-prompt](https://aur.archlinux.org/packages/spaceship-prompt/):
 
     ```
-    git clone https://aur.archlinux.org/spaceship-prompt-git.git --depth=1
-    cd spaceship-prompt-git
+    git clone https://aur.archlinux.org/spaceship-prompt.git
+    cd spaceship-prompt
     makepkg -si
+    ```
+
+
+    або використовуючи `yay`:
+
+    ```
+    yay -S spaceship-prompt
+    ```
+
+
+    Також існує пакунок [spaceship-prompt-git](https://aur.archlinux.org/packages/spaceship-prompt-git/) в git без підтримки.
     ```
 
 ## Вітаємо!
