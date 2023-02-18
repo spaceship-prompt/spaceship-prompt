@@ -1,15 +1,15 @@
-# Testing utilities
+# Інструменти тестування
 
-This set of utilities are aimed to help you to test your custom sections. They are useful to render prompts as string for checking the rendered output.
+Цей набір утиліті має на меті допомогти вам перевірити ваші власні секції. Вони корисні для відтворення командного рядка у вигляді тексту для перевірки відтвореного виводу.
 
-For example, here's an example of a testing with shunit2:
+Наприклад, ось приклад тестування з Shunit2:
 
 ```zsh
-# Required for shunit2 to run correctly
+# Необхідно для правильної роботи shunit2
 setopt shwordsplit
 SHUNIT_PARENT=$0
 
-# Setup shunit2 hook
+# Налаштування гачків shunit2
 oneTimeSetUp() {
   export TERM="xterm-256color"
 
@@ -20,18 +20,18 @@ oneTimeSetUp() {
   source "spaceship.zsh"
 }
 
-# Clean-up shunit2 hook
+# Очищення гачків shunit2
 oneTimeTearDown() {
   unset SPACESHIP_PROMPT_FIRST_PREFIX_SHOW
   unset SPACESHIP_PROMPT_ADD_NEWLINE
   unset SPACESHIP_PROMPT_ORDER
 }
 
-# Test case
+# Перевірка
 test_char() {
   SPACESHIP_CHAR_COLOR_SUCCESS=blue
 
-  # Here we render the prompt as a string
+  # Тут ми візуалізуємо підказку як рядок
   local actual="$(spaceship::testkit::render_prompt)"
   local expected="%{%B%F{$SPACESHIP_CHAR_COLOR_SUCCESS}%}➜ %{%b%f%}"
 
@@ -43,7 +43,7 @@ source tests/shunit2/shunit2
 
 ## `spaceship::testkit::render_prompt`
 
-Renders the value of `PROMPT` variable and prints it as a string.
+Обробляє значення змінної `PROMPT` і виводить його як рядок.
 
 ``` title="Signature"
 spaceship::testkit::render_prompt
@@ -51,7 +51,7 @@ spaceship::testkit::render_prompt
 
 ## `spaceship::testkit::render_rprompt`
 
-Renders the value of `RPROMPT` variable and prints it as a string.
+Обробляє значення змінної `RPROMPT` і виводить його як рядок.
 
 ``` title="Signature"
 spaceship::testkit::render_rprompt
@@ -59,7 +59,7 @@ spaceship::testkit::render_rprompt
 
 ## `spaceship::testkit::render_ps2`
 
-Renders the value of `PS2` variable and prints it as a string.
+Обробляє значення змінної `PS2` і виводить його як рядок.
 
 ``` title="Signature"
 spaceship::testkit::render_ps2

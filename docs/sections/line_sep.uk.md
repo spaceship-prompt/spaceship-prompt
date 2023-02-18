@@ -1,31 +1,31 @@
 # Розділювач рядків `line_sep`
 
-The `line_sep` section is used as a line break for the prompt.
+Секція `line_sep` використовується як розділювач рядків у командному рядку.
 
-## Adding more line breaks to the prompts
+## Додавання додаткових розривів рядків в командний рядок
 
-You can add more line breaks to the prompt by adding more `line_sep` sections where you want. You can use `spaceship add` command for that:
+Ви можете додати більше розривів рядків до командного рядка, додавши більше секцій `line_sep`, там де вам потрібно. Для цього можна скористатись командою `spaceship add`:
 
 ```zsh title=".zshrc"
-# Adds a line break after the git section
+# Додає рядок розриву після секції git
 spaceship add --after git line_sep
 
-# Adds a line break before the char section
+# Додає рядок розриву перед секцією char
 spaceship add --before char line_sep
 ```
 
-## Disabling line separator
+## Вимкнення роздільника рядків
 
-You can avoid line breaks by setting `SPACESHIP_PROMPT_SEPARATE_LINE` to `false`.
+Ви можете уникнути додавання розділювача рядків встановивши `SPACESHIP_PROMPT_SEPARATE_LINE` в `false`.
 
 ```zsh title=".zshrc"
-# Avoids rendering of the line_sep
+# Уникає обробки line_sep
 SPACESHIP_PROMPT_SEPARATE_LINE=false
 ```
 
-## Removing `line_sep` from the prompt
+## Видалення `line_sep` командного рядка
 
-You can remove `line_sep` from the prompt entirely like this:
+Ви можете видалити `line_sep` з командного рядка цілком наступним чином:
 
 ```zsh title=".zshrc"
 spaceship remove line_sep

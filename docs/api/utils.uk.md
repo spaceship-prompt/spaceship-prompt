@@ -1,6 +1,6 @@
-# General utilities
+# Загальні утиліти
 
-Below you can find a list of general purpose utilities.
+Тут ви можете ознайомитись з утилітами загального призначення.
 
 ## `spaceship::exists`
 
@@ -8,21 +8,21 @@ Below you can find a list of general purpose utilities.
 spaceship::exists <command>
 ```
 
-This command validates that given program is available for execution. It checks for PATH binaries, functions, and builtins. It returns zero exit code if a `command` exists and non-zero code otherwise.
+Ця команда перевіряє, що вказана програма доступна в системі. Вона зчитує змінну PATH та шукає двійкові файли та функції. Вона повертає нульовий код виходу, якщо `command` існує і ненульовий код в іншому випадку.
 
-You can use this utility to check if some program is installed and perform actions conditionally. For example, you can either return an error and exit or continue script's execution. For example:
+Ви можете використовувати цю утиліту, щоб перевірити, чи встановлено якусь програму, і виконувати дії на підставі якихось умов. Наприклад, ви можете повернути помилку та вийти або продовжити виконання сценарію. Наприклад:
 
 ```zsh
-# Check multiple commands for existing
+# Перевірте наявність кількох команд
 if spaceship::exists nvm; then
-  # extract nvm version
+  # отримати версію nvm
 elif spaceship::exists node; then
-  # extract node version
+  # отримати версію node
 else
   return
 fi
 
-# Do nothing if docker is not installed
+# Нічого не робити якщо docker не встановлено
 spaceship::exists docker || return
 ```
 
@@ -32,90 +32,90 @@ spaceship::exists docker || return
 spaceship::defined <function>
 ```
 
-The same as [`spaceship::exists`](#spaceshipexists), but for functions. It returns zero exit code if a `function` has been defined previously and non-zero if `function` hasn't.
+Те саме, що і [`spaceship::exists`](#spaceshipexists), але для функцій. Вона повертає нульовий код виходу, якщо `function` існує і ненульовий код в іншому випадку.
 
-You can use this utility to check if a user has previously defined a function or not. For example:
+Ви можете використовувати цю утиліту для перевірки, чи раніше користувач визначив функцію, чи ні. Наприклад:
 
 ```zsh
-# Check if section has been defined
+# Перевірте, чи секцію визначено
 if spaceship::defined spaceship_section; then
   spaceship_section
 else
-  # section is not found
+  # секцію не знайдено
 fi
 ```
 
 ## `spaceship::is_git`
 
-This utility returns zero exit code if a current working directory is a Git repository and non-zero if it's not. For example:
+Ця утиліта повертає нульовий код виходу, якщо поточна робоча тека є репозиторієм Git, і відмінним від нуля, якщо це не так. Наприклад:
 
 ```zsh
-# Return if current directory is not a git repository
+# Вихід якщо поточна тека не є репозиторієм git
 spaceship::is_git || return
 ```
 
 ## `spaceship::is_hg`
 
-The same as [`spaceship::is_git`](#spaceshipisgit), but for Mercurial repositories. This utility returns zero exit code if a current working directory is a Mercurial repository and non-zero if it's not.
+Те саме, що і [`spaceship::is_git`](#spaceshipisgit), але для репозиторіїв Mercurial. Ця утиліта повертає нульовий код виходу, якщо поточна робоча тека є репозиторієм Mercurial, і відмінним від нуля, якщо це не так.
 
 ```zsh
-# Return if current directory is not a Mercurial repository
+# Вихід якщо поточна тека не є репозиторієм Mercurial
 spaceship::is_hg || return
 ```
 
 ## `spaceship::is_section_async`
 
-Checks if a section is asynchronous or not by checking `SPACESHIP_<SECTION>_ASYNC` option. This utility returns zero exit code if a section is asynchronous and non-zero if it's not.
+Перевіряє, чи є секція є асинхронною, чи ні шляхом перевірки параметра `SPACESHIP_<SECTION>_ASYNC`. Ця утиліта повертає нульовий код виходу, якщо секція є асинхронною, і відмінним від нуля, якщо це не так.
 
-If `SPACESHIP_PROMPT_ASYNC` is set to `false`, then all sections are considered to be synchronous.
+Якщо `SPACESHIP_PROMPT_ASYNC` встановлено у `false`, тоді всі секції вважаються синхронними.
 
 ``` title="Signature"
 spaceship::is_section_async <section>
 ```
 
-1. `section` _Required_ — a section to be checked.
+1. `section` _Обовʼязково_ — секція, яку потрібно перевірити.
 
-Some sections are always synchronous, not matter what, to ensure correct work of the prompt. Those are: `user`, `dir`, `host`, `exec_time`, `async`, `line_sep`, `jobs`, `exit_code` and `char`.
+Деякі секції завжди синхронні, незважаючи ні на що, щоб забезпечити коректну роботу командного рядка. Це: `user`, `dir`, `host`, `exec_time`, `async`, `line_sep`, `jobs`, `exit_code` та `char`.
 
 ## `spaceship::is_prompt_async`
 
-Checks if the prompt works in asynchronous mode or not. This utility returns zero exit code if the prompt works in asynchronous mode and non-zero if it's not.
+Перевіряє, чи командний рядок працює в асинхронному режимі. Ця утиліта повертає нульовий код виходу, якщо командний рядок працює в асинхроннім режимі, і відмінним від нуля, якщо це не так.
 
-Check if `SPACESHIP_PROMPT_ASYNC` is set to `true` and [`zsh-async` is loaded](/api/environment/#asynchronous-runtime).
+Перевіряє, чи `SPACESHIP_PROMPT_ASYNC` встановлено у `true` і [`zsh-async` завантажується](/api/environment/#asynchronous-runtime).
 
 ## `spaceship::deprecated`
 
-This utility checks if `option` variable is set and if it is, prints the `message`. The `message` supports escapes to set foreground color, background color and other visual effects.
+Ця утиліта перевіряє, чи `option` встановлено і якщо так, виводить `message`. `message` підтримує esc-послідовності для встановлення кольору тексту, фону та інших візуальних ефектів.
 
 ``` title="Signature"
 spaceship::deprecated <option> [message]
 ```
 
-1. `option` _Required_ — the name of a deprecated variable. If this variable is set (contains any value), then `"%B$deprecated%b is deprecated.` will be printed. `%B` and `%b` is escapes to set the bold style for text.
-2. `message` _Optional_ — a string for additional deprecation message. Can contain prompt expansions.
+1. `option` _Обовʼязково_ — назва застарілою змінної. Якщо ця змінна встановлена (містить будь-яке значення), то буде надруковано `"%B$deprecated%b is deprecated.`. `%B` і `%b` використовуються, щоб встановити жирний стиль тексту.
+2. `message` _опціонально_ — додатковий текст, що додається до повідомлення. Може містити розширення командного рядка.
 
-Read more about escapes in [Prompt Expansion](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html) section of Zsh documentation.
+Детальніше про esc-послідовності в розділі [Prompt Expansion](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html) документації Zsh.
 
-Here's an example of usage:
+Приклад використання:
 
 ```zsh
-# Check if SPACESHIP_BATTERY_ALWAYS_SHOW is set
+# Перевірка чи встановлено SPACESHIP_BATTERY_ALWAYS_SHOW
 spaceship::deprecated SPACESHIP_BATTERY_ALWAYS_SHOW "Use %BSPACESHIP_BATTERY_SHOW='always'%b instead."
 #> SPACESHIP_BATTERY_ALWAYS_SHOW is deprecated. Use SPACESHIP_BATTERY_SHOW='always' instead.
 ```
 
 ## `spaceship::displaytime`
 
-This utility converts `seconds` into a human-readable format. It splits `seconds` into days (`d`), hours (`h`), minutes (`m`) and seconds (`s`).
+Ця утиліта перетворює `seconds` на зрозумілий формат часу. Вона розділяє `seconds` на дні (`d`), години (`h`), хвилини (`m`) та секунди (`s`).
 
 ``` title="Signature"
 spaceship::displaytime <seconds> [precision]
 ```
 
-1. `seconds` _Required_ — seconds for conversion into the readable format.
-1. `precision` _Optional_ — precision of the output. Default value is `1`.
+1. `seconds` _Обовʼязково_ — секунди для перетворення у більш зрозумілий формат.
+1. `precision` _Опціонально_ — точність виводу. Стандартне значення — `1`.
 
-The usage example looks like this:
+Приклад використання виглядає наступним чином:
 
 ```zsh
 spaceship::displaytime 123456
@@ -127,17 +127,17 @@ paceship::displaytime 123.45 2
 
 ## `spaceship::union`
 
-A utility for performing a union (intersection) of arrays. It lists the contents found in two or more arrays.
+Утиліта для виконання об'єднання (перетину) масивів. Вона містить список вмісту, знайденого у двох або більше масивах.
 
-Spaceship uses this utility internally for resolution of sections that need to be sourced.
+Spaceship використовує цю утиліту внутрішньо для обробки секцій розділів, які потрібно знайти.
 
 ``` title="Signature"
 spaceship::union <arr1[ arr2[ ...]]>
 ```
 
-1. `arr...` — a list of arrays.
+1. `arr...` — перелік масивів.
 
-Here is an example:
+Розгляньмо приклад:
 
 ```zsh
 arr1=('a' 'b' 'c')
@@ -149,51 +149,51 @@ spaceship::union $arr1 $arr2 $arr3
 
 ## `spaceship::upsearch`
 
-Performs an upward search for a specific file or directory. Returns the path of the first found file or directory. Goes upwards up to the repository or system root directory. Useful for understanding the context of a current directory.
+Виконує пошук вгору по конкретному файлу або теці. Повертає шлях першого знайденого файлу або теки. Рухається в бік кореня репозиторію або файлової системи. Корисно для розуміння контексту поточної теки.
 
 ``` title="Signature"
 spaceship::upsearch [--silent] <paths...>
 ```
 
-1. `paths...` _Required_ — a list of paths to search.
-2. `--silent` or `-s` _Optional_ — if set, then the utility will return zero exit code, if at least one of `paths` is found and non-zero, if not.
+1. `paths...` _Обовʼязково_ — перелік шляхів для пошуку.
+2. `--silent` або `-s` _Опціонально_ — якщо встановлено, утиліта поверне нульовий код виходу, якщо принаймні один із `шляхів` знайдено, і відмінний від нуля, якщо ні.
 
-This can be used for detecting project context or finding a specific file upwards.
+Це може бути використано для визначення контексту проєкту або пошуку конкретного файлу вгорі.
 
 ```zsh
-# Understanding the project context
+# Розуміння контексту проєкту
 spaceship::upsearch -s package.json node_modules && echo "Node project detected."
 
-# Finding a specific file upwards
+# Пошук конкретного файлу вгорі
 spaceship::upsearch package.json
 #> /path/to/project/package.json
 ```
 
 ## `spaceship::datafile`
 
-This utility queries data files for a specific key. It returns the value of the key. Exits with non-zero code when the file type is unknown, data cannot be read, or the key is not found.
+Ця утиліта запитує файли даних для отримання певного ключа. Вона повертає значення цього ключа. Виходить з ненульовим кодом, коли тип файлу невідомий, дані не можна прочитати або ключ не знайдено.
 
 ``` title="Signature"
 spaceship::datafile --<type> <file> [key]
 ```
 
-1. `--type` _Required_ — a type of the data file. Can be `json`, `yaml`, `toml` or `xml`.
-2. `file` _Required_ — a path to the data file.
-3. `key` _Optional_ — a key to query within a data file.
+1. `--type` _Обовʼязково_ — тип файлу даних. Може бути `json`, `yaml`, `toml` або `xml`.
+2. `file` _Обовʼязково_ — шлях до файлу даних.
+3. `key` _Опціонально_ — ключ, значення якого потрібно отримати з файлу.
 
-You can use this utility to query data from a data file:
+Ви можете використовувати цю утиліту для запиту даних з файлів:
 
 ```zsh
 spaceship::datafile --json package.json "author.name"
 #> "John Doe"
 ```
 
-It needs the following tools for reading data files:
+Потрібні такі інструменти для читання файлів даних:
 
-* JSON — [`jq`](https://stedolan.github.io/jq/), [`yq`](https://mikefarah.gitbook.io/yq/) or [`python-yq`](https://kislyuk.github.io/yq/), [`python`](https://www.python.org/), [`node`](https://nodejs.org/)
-* YAML — [`yq`](https://mikefarah.gitbook.io/yq/) or [`python-yq`](https://kislyuk.github.io/yq/), [`python`](https://www.python.org/)
-* TOML — `tomlq` (comes with [`python-yq`](https://kislyuk.github.io/yq/))
-* XML — `xq` (comes with [`python-yq`](https://kislyuk.github.io/yq/))
+* JSON — [`jq`](https://stedolan.github.io/jq/), [`yq`](https://mikefarah.gitbook.io/yq/) або [`python-yq`](https://kislyuk.github.io/yq/), [`python`](https://www.python.org/), [`node`](https://nodejs.org/)
+* YAML — [`yq`](https://mikefarah.gitbook.io/yq/) або [`python-yq`](https://kislyuk.github.io/yq/), [`python`](https://www.python.org/)
+* TOML — `tomlq` (постачається з [`python-yq`](https://kislyuk.github.io/yq/))
+* XML — `xq` (постачається з [`python-yq`](https://kislyuk.github.io/yq/))
 
 !!! tip
-    The most universal solution for reading data files is to use [`python-yq`](https://kislyuk.github.io/yq/).
+    Найбільш універсальним рішенням для читання файлів даних є використання [`python-yq`](https://kislyuk.github.io/yq/).

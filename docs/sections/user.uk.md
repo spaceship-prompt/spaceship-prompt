@@ -1,16 +1,16 @@
 # Ім’я користувача `user`
 
-The `user` section shows the current user's username. By default, it's displayed only when:
+Секція `user` показує імʼя поточного користувача. Типово, воно показується якщо:
 
-* the machine is connected via SSH (`$SSH_CONNECTION` is not empty)
-* username is not the same as `$LOGNAME`
-* username is a root user
+* машина підключена через SSH (`$SSH_CONNECTION` не пусте)
+* імʼя користувача не збігається з `$LOGNAME`
+* користувач має права root
 
-The root user is highlighted in `SPACESHIP_USER_COLOR_ROOT` color (red as default).
+Користувач root підсвічується кольором з `SPACESHIP_USER_COLOR_ROOT` (типове значення — red).
 
-## Controlling when to show the `user` section
+## Керування показом секції `user`
 
-`SPACESHIP_USER_SHOW` defines when to show the `user` section. Ось можливі значення:
+`SPACESHIP_USER_SHOW` визначає, коли показувати секцію `user`. Ось можливі значення:
 
 | `SPACESHIP_USER_SHOW` | Показати локально | Показувати віддалено |
 |:---------------------:|:----------------- |:-------------------- |
