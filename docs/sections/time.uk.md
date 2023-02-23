@@ -1,12 +1,12 @@
 # Час `time`
 
-!!! warning "Цю секцію приховано за замовчуванням"
+!!! warning "Стандартно ця секція є прихованою"
 
-The `time` section displays the timestamp of the prompt.
+Секція `time` показує час в командному рядку.
 
 ## Відображення секції
 
-Set `SPACESHIP_TIME_SHOW` to `true` in your `.zshrc`, if you need to show timestamps:
+Встановить `SPACESHIP_TIME_SHOW` в `true` у вашому `.zshrc`, якщо вам потрібно показувати час:
 
 ```zsh title=".zshrc"
 SPACESHIP_TIME_SHOW=true
@@ -14,13 +14,13 @@ SPACESHIP_TIME_SHOW=true
 
 ## Форматування дати
 
-You can set custom formatting for the timestamps. To use a 12-hour format just toggle `SPACESHIP_TIME_12HOUR` to `true`:
+Ви можете обрати власний формат для показу часу. Для використання 12-годинного формату просто перемкніть `SPACESHIP_TIME_12HOUR` на `true`:
 
 ```zsh title=".zshrc"
 SPACESHIP_TIME_12HR=true
 ```
 
-Additionally, you can set virtually any formatting supported by [ZSH date formats](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Date-and-time) for the timestamps using `SPACESHIP_TIME_FORMAT`:
+Додатково ви можете встановити практично будь-яке форматування, підтримуване у [форматах дати ZSH](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Date-and-time) для позначок часу з використанням `SPACESHIP_TIME_FORMAT`:
 
 ```zsh title=".zshrc"
 SPACESHIP_TIME_FORMAT='%D{%H:%M:%S.%.}'
@@ -30,7 +30,7 @@ SPACESHIP_TIME_FORMAT='%D{%H:%M:%S.%.}'
 
 | Змінна                  |          За замовчуванням          | Пояснення                                              |
 |:----------------------- |:----------------------------------:| ------------------------------------------------------ |
-| `SPACESHIP_TIME_SHOW`   |              `false`               | Show section (set to `true` for enabling)              |
+| `SPACESHIP_TIME_SHOW`   |              `false`               | Показувати секцію (для показу встановіть `true`)       |
 | `SPACESHIP_TIME_PREFIX` |               `at·`                | Префікс секції                                         |
 | `SPACESHIP_TIME_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                          |
 | `SPACESHIP_TIME_COLOR`  |              `yellow`              | Колір секції                                           |
