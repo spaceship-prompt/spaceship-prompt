@@ -1,11 +1,11 @@
 # Amazon Web Services (AWS) `aws`
 
 !!! info
-    [**Amazon Web Services (AWS)**](https://aws.amazon.com) provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis.
+    [**Amazon Web Services (AWS)**](https://aws.amazon.com) надає хмарну обчислювальну платформу та API для фізичних осіб, компаній та урядових установ на платній основі, встановлюючи плату спираючись на використані ресурси платформи.
 
-The `aws` section shows the current AWS profile using the [`AWS_VAULT`](https://github.com/99designs/aws-vault) environment variable.
+Секція `aws` показує поточний профіль AWS використовуючи змінну оточення [`AWS_VAULT`](https://github.com/99designs/aws-vault).
 
-If the `AWS_VAULT` variable is not defined, this section will use the [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html) environment variable.
+Якщо змінну `AWS_VAULT` не визначено, ця секція буде використовувати змінну середовища [`AWS_PROFILE`](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html).
 
 ## Опції
 
