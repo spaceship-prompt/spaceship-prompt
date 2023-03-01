@@ -6,13 +6,13 @@
 
 ## Відображення секції
 
-Set `SPACESHIP_EXIT_CODE_SHOW` to `true` in your `.zshrc`, if you need to show the exit code of the last command.
+Встановіть `SPACESHIP_EXIT_CODE_SHOW` у `true` у вашому `.zshrc`, якщо вам потрібно показати код завершення виконання попередньої команди.
 
 ```zsh title=".zshrc"
 SPACESHIP_EXIT_CODE_SHOW=true
 ```
 
-## Опції
+## Параметри
 
 | Змінна                       | За замовчуванням | Пояснення                               |
 |:---------------------------- |:----------------:| --------------------------------------- |

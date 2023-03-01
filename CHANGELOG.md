@@ -1,3 +1,10 @@
+## [4.13.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.1...v4.13.2) (2023-03-01)
+
+
+### Bug Fixes
+
+* **pulumi:** Pulumi section should match on the currently selected stack ([#1331](https://github.com/spaceship-prompt/spaceship-prompt/issues/1331)) ([67bba80](https://github.com/spaceship-prompt/spaceship-prompt/commit/67bba805d5232d719db20190a84633a64f4496b9))
+
 ## [4.13.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.0...v4.13.1) (2023-01-04)
 
 

@@ -1,48 +1,48 @@
-# Per-directory configuration
+# Налаштування для конкретної теки
 
-Many users asked us how to change Spaceship options only for a specific directory. There are plenty solutions for this. We will show how to do that with a tool called `direnv`.
+Нас багато запитували, як змінити налаштування Spaceship для конкретної теки. Для цього існує багато способів. Ми покажемо як це зробити за допомогою інструменту, що називається `direnv`.
 
-`direnv` is a tool that allows you to manage environment variables for a directory. It is a simple wrapper around `.envrc` files. It can load and unload variables defined in `.envrc` based on current directory. It also works not only with Zsh, but with other popular shells.
+`direnv` є інструментом, який дозволяє керувати змінними середовища для теки. Це проста обгортка для файлів `.envrc`. Він може підключати та відключати змінні, визначені в `.envrc` на основі поточної теки. Також він працює не тільки з Zsh, але і з іншими популярними оболонками.
 
-## Installing `direnv`
+## Встановлення `direnv`
 
-Install `direnv` with the package manager of your choice. Or use a script to install a binary build of `direnv`.
+Встановіть `direnv` за допомогою менеджера пакунків на ваш вибір. Або скористайтеся скриптом для встановлення бінарної збірки `direnv`.
 
-[Installation guide](https://github.com/direnv/direnv/blob/master/docs/installation.md ""){.md-button}
+[Інструкції зі встановлення](https://github.com/direnv/direnv/blob/master/docs/installation.md ""){.md-button}
 
-After successful installation of `direnv` you need to hook it to your shell.
+Після успішного встановлення `direnv` вам необхідно додати його до вашої оболонки.
 
-## Hooking `direnv` into Zsh
+## Підключення `direnv` до Zsh
 
-Add the following line somewhere at the end of your `.zshrc` file:
+Додайте наступний рядок десь в кінці файлу `.zshrc`:
 
 ```zsh title=".zhrc"
 eval "$(direnv hook zsh)"
 ```
 
-## Setting per-directory environment variables
+## Встановлення змінних середовища для конкретної теки
 
-As soon as you've installed `direnv` and hooked it to the Zsh, you can set environment variables for any directory in a `.envrc` file within that directory.
+Щойно ви встановили `direnv` і підключили його до Zsh, ви можете встановити змінні середовища для будь-якої теки у файлі `.envrc` в цій теці.
 
 ```zsh title=".envrc"
 export SPACESHIP_USER_SHOW='always'
 ```
 
-After that you need explicitly grant permissions to source `.envrc` files in the directory.
+Після цього вам потрібно явним чином надати дозвіл на використання файлів `.envrc` в теці.
 
 ```
 direnv allow /path/to/directory
 ```
 
-Here is a live example of how `direnv` works:
+Ось приклад роботи `direnv`:
 
 <div class="terminal-demo">
   <script id="asciicast-l6jOkth3csJQGkJRGV8A6DLl0" src="https://asciinema.org/a/l6jOkth3csJQGkJRGV8A6DLl0.js" data-autoplay="true" data-loop="true" data-preload="true" async></script>
 </div>
 
-## Alternatives to `direnv`
+## Альтернативи `direnv`
 
-Besides `direnv` there are many other tools that allow you to manage environment variables for a directory. Here's a list of the most popular of them:
+Крім `direnv` є багато інших інструментів, які дозволяють керувати змінними середовища для тек. Ось список найбільш популярних:
 
 * [zsh-autoenv](https://github.com/Tarrasch/zsh-autoenv)
 * [asdf-direnv](https://github.com/asdf-community/asdf-direnv)

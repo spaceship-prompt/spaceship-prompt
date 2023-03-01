@@ -1,15 +1,15 @@
 # Docker `docker`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "Типово ця секція обробляється асинхронно"
 
 !!! info
-    [**Docker**](https://docker.com) is a set of the platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers.
+    [**Docker**](https://docker.com) є набором продуктів платформи як послуги (PaaS), які використовують віртуалізацію на рівні ОС, для розгортання програмного забезпечення з так пакунків – контейнерів.
 
-The `docker` displays the version of Docker and the current [Docker context via `docker_context` subsection](#docker-context-docker_context).
+Секція `docker` показує версію Docker та поточний [Docker-контекст у підсекції `docker_context`](#docker-context-docker_context).
 
-This section is shown only in the projects containing a `Dockerfile`, `docker-compose.yml`, or another file (s) specified with `COMPOSE_FILE`. The environment variable `COMPOSE_PATH_SEPARATOR` is supported too. For more information see [Compose CLI environment variables](https://docs.docker.com/compose/reference/envvars/).
+Ця секція показується тільки в проєктах, що містять `Dockerfile`, `docker-compose.yml`, або інші файлі визначені в `COMPOSE_FILE`. Підтримується також змінна оточення `COMPOSE_PATH_SEPARATOR`. Для отримання додаткової інформації дивіться [змінні середовища Compose CLI](https://docs.docker.com/compose/reference/envvars/).
 
-## Опції
+## Параметри
 
 | Змінна                     |          За замовчуванням          | Пояснення                               |
 |:-------------------------- |:----------------------------------:| --------------------------------------- |
@@ -23,9 +23,9 @@ This section is shown only in the projects containing a `Dockerfile`, `docker-co
 
 ## Контекст Docker `docker_context`
 
-`docker_context` - це дочірня секція для `docker`. This section is not included in the prompt, but it's executed within the `docker` section.
+`docker_context` - це дочірня секція для `docker`. Ця секція не включається до командного рядка, але вона виконується всередині секції `docker`.
 
-This section will display the current remote Docker context using one of the following methods:
+Ця секція буде показувати поточний контекст віддаленого Docker, використовуючи один з наступних методів:
 
 1. `DOCKER_MACHINE_NAME` змінної середовища
 2. `DOCKER_HOST` змінна середовища
@@ -33,19 +33,19 @@ This section will display the current remote Docker context using one of the fol
 
 ## Показувати `docker_context` без `docker`
 
-You can replace `docker` with `docker_context` section if you don't want to see the Docker version.
+Ви можете замінити `docker` на `docker_context`, якщо не хочете бачити версію Docker.
 
 ```zsh title=".zshrc"
-# Setting prefix and suffix for docker_context section
+# Встановленя префікса та суфікса для секуції docker_context
 SPACESHIP_DOCKER_CONTEXT_PREFIX="on "
 SPACESHIP_DOCKER_CONTEXT_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
 
-# Replacing docker with docker_context
+# Заміна docker на docker_context
 spaceship remove docker
 spaceship add docker_context
 ```
 
-### Опції
+### Параметри
 
 | Змінна                            | За замовчуванням | Пояснення                   |
 |:--------------------------------- |:----------------:| --------------------------- |

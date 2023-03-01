@@ -55,6 +55,11 @@
       "name": "vue",
       "url": "https://github.com/spaceship-prompt/spaceship-vue",
       "description": "Vue.js section for Spaceship prompt"
+    },
+    {
+      "name": "current-netns",
+      "url": "https://github.com/noraj/spaceship-current-netns",
+      "description": "Current network namespace Spaceship Section"
     }
   ]
 }

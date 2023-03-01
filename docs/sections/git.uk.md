@@ -1,6 +1,6 @@
 # Git `git`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "Типово ця секція обробляється асинхронно"
 
 Секція `git` складається з підсекцій [`git_branch`](#git-branch-git_branch) та [`git_status`](#git-status-git_status).
 
@@ -35,20 +35,20 @@
 
 ### Опції
 
-| Змінна                           | За замовчуванням | Пояснення                                                    |
-|:-------------------------------- |:----------------:| ------------------------------------------------------------ |
-| `SPACESHIP_GIT_STATUS_SHOW`      |      `true`      | Показати секцію                                              |
-| `SPACESHIP_GIT_STATUS_ASYNC`     |      `true`      | Рендерити секцію асинхронно                                  |
-| `SPACESHIP_GIT_STATUS_PREFIX`    |       `·[`       | Префіксперед підсекцією Git-статусу                          |
-| `SPACESHIP_GIT_STATUS_SUFFIX`    |       `]`        | Suffix after Git status subsection                           |
-| `SPACESHIP_GIT_STATUS_COLOR`     |      `red`       | Color of Git status subsection                               |
-| `SPACESHIP_GIT_STATUS_UNTRACKED` |       `?`        | Indicator for untracked changes                              |
-| `SPACESHIP_GIT_STATUS_ADDED`     |       `+`        | Indicator for added changes                                  |
-| `SPACESHIP_GIT_STATUS_MODIFIED`  |       `!`        | Indicator for unstaged files                                 |
-| `SPACESHIP_GIT_STATUS_RENAMED`   |       `»`        | Indicator for renamed files                                  |
-| `SPACESHIP_GIT_STATUS_DELETED`   |       `✘`        | Індикатор видалених файлів                                   |
-| `SPACESHIP_GIT_STATUS_STASHED`   |       `$`        | Indicator for stashed changes                                |
-| `SPACESHIP_GIT_STATUS_UNMERGED`  |       `=`        | Indicator for unmerged changes                               |
-| `SPACESHIP_GIT_STATUS_AHEAD`     |       `⇡`        | Indicator for unpushed changes (ahead of remote branch)      |
-| `SPACESHIP_GIT_STATUS_BEHIND`    |       `⇣`        | Indicator for unpulled changes (behind of remote branch)     |
-| `SPACESHIP_GIT_STATUS_DIVERGED`  |       `⇕`        | Indicator for diverged changes (diverged with remote branch) |
+| Змінна                           | За замовчуванням | Пояснення                                                                             |
+|:-------------------------------- |:----------------:| ------------------------------------------------------------------------------------- |
+| `SPACESHIP_GIT_STATUS_SHOW`      |      `true`      | Показати секцію                                                                       |
+| `SPACESHIP_GIT_STATUS_ASYNC`     |      `true`      | Рендерити секцію асинхронно                                                           |
+| `SPACESHIP_GIT_STATUS_PREFIX`    |       `·[`       | Префіксперед підсекцією Git-статусу                                                   |
+| `SPACESHIP_GIT_STATUS_SUFFIX`    |       `]`        | Суфікс після підсекції статусу Git                                                    |
+| `SPACESHIP_GIT_STATUS_COLOR`     |      `red`       | Колір підсекції статусу Git                                                           |
+| `SPACESHIP_GIT_STATUS_UNTRACKED` |       `?`        | Індикатор невідстежуваних змін                                                        |
+| `SPACESHIP_GIT_STATUS_ADDED`     |       `+`        | Індикатор внесених змін                                                               |
+| `SPACESHIP_GIT_STATUS_MODIFIED`  |       `!`        | Індикатор файлів поза індексом                                                        |
+| `SPACESHIP_GIT_STATUS_RENAMED`   |       `»`        | Індикатор перейменованих файлів                                                       |
+| `SPACESHIP_GIT_STATUS_DELETED`   |       `✘`        | Індикатор видалених файлів                                                            |
+| `SPACESHIP_GIT_STATUS_STASHED`   |       `$`        | Індикатор змін, що були приховані                                                     |
+| `SPACESHIP_GIT_STATUS_UNMERGED`  |       `=`        | Індикатор змін, що не були злиті з основною гілкою                                    |
+| `SPACESHIP_GIT_STATUS_AHEAD`     |       `⇡`        | Індикатор ненадісланих змін (гілка містить зміни відсутні у віддаленій гілці)         |
+| `SPACESHIP_GIT_STATUS_BEHIND`    |       `⇣`        | Індикатор неотриманих змін (гілка не містить зміни, які відбулись у віддаленій гілці) |
+| `SPACESHIP_GIT_STATUS_DIVERGED`  |       `⇕`        | Індикатор розбіжних змін (розбіжних із віддаленою гілкою)                             |

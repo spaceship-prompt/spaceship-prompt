@@ -1,14 +1,14 @@
 # Директорія `dir`
 
-The `dir` section displays the current working directory.
+Секція `dir` показує поточну робочу теку.
 
-The directory is always shown and truncated to the value of `SPACESHIP_DIR_TRUNC` (3 levels by default).
+Тека завжди показується у скороченому вигляді використовуючи `SPACESHIP_DIR_TRUNC` (до 3 рівнів).
 
 ## Всередині репозиторіїв
 
-While you are in a repository, it shows only the root directory of the repository and folders inside it.
+Поки ви перебуваєте в репозиторії, показується тільки коренева тека репозиторію і теки всередині нього.
 
-If you don't like this behavior, you can disable it by setting `SPACESHIP_DIR_TRUNC_REPO` to `false`:
+Якщо вам не подобається така поведінка, ви можете вимкнути її, встановивши `SPACESHIP_DIR_TRUNC_REPO` у `false`:
 
 ```zsh title=".zshrc"
 SPACESHIP_DIR_TRUNC_REPO=false
@@ -16,21 +16,21 @@ SPACESHIP_DIR_TRUNC_REPO=false
 
 ## Всередині каталогів, захищених від запису
 
-If the current directory is write-protected or if the current user doesn't have write permissions, a padlock (by default) is displayed as a suffix.
+Якщо поточна тека захищена від запису або поточний користувач не має дозволу на запис, (типово) показується замок в суфіксі.
 
 ## Опції
 
-| Змінна                       |          За замовчуванням          | Пояснення                                                                           |
-|:---------------------------- |:----------------------------------:| ----------------------------------------------------------------------------------- |
-| `SPACESHIP_DIR_SHOW`         |               `true`               | Показати секцію                                                                     |
-| `SPACESHIP_DIR_PREFIX`       |               `in·`                | Префікс секції                                                                      |
-| `SPACESHIP_DIR_SUFFIX`       | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                                                       |
-| `SPACESHIP_DIR_TRUNC`        |                `3`                 | Number of folders of cwd to show in prompt, 0 to show all                           |
-| `SPACESHIP_DIR_TRUNC_PREFIX` |                 -                  | Prefix before cwd when it's truncated. For example `…/` or `.../`, empty to disable |
-| `SPACESHIP_DIR_TRUNC_REPO`   |               `true`               | While in `git` repo, show only root directory and folders inside it                 |
-| `SPACESHIP_DIR_COLOR`        |               `cyan`               | Колір секції                                                                        |
-| `SPACESHIP_DIR_LOCK_SYMBOL`  |              ![·][1]              | The symbol displayed if directory is write-protected                                |
-| `SPACESHIP_DIR_LOCK_COLOR`   |               `red`                | Color for the lock symbol                                                           |
+| Змінна                       |          За замовчуванням          | Пояснення                                                                               |
+|:---------------------------- |:----------------------------------:| --------------------------------------------------------------------------------------- |
+| `SPACESHIP_DIR_SHOW`         |               `true`               | Показати секцію                                                                         |
+| `SPACESHIP_DIR_PREFIX`       |               `in·`                | Префікс секції                                                                          |
+| `SPACESHIP_DIR_SUFFIX`       | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                                                           |
+| `SPACESHIP_DIR_TRUNC`        |                `3`                 | Кількість тек cwd, що показуються в командному рядку, 0 для показу всіх                 |
+| `SPACESHIP_DIR_TRUNC_PREFIX` |                 -                  | Префікс до cwd під час обрізання. Наприклад, `…/` або `.../`, порожнє, щоб вимкнути     |
+| `SPACESHIP_DIR_TRUNC_REPO`   |               `true`               | Під час знаходження в `git` репозиторії, показати тільки кореневу теку і теки всередині |
+| `SPACESHIP_DIR_COLOR`        |               `cyan`               | Колір секції                                                                            |
+| `SPACESHIP_DIR_LOCK_SYMBOL`  |              ![·][1]              | Символ, що показується, якщо теку захищено від запису                                   |
+| `SPACESHIP_DIR_LOCK_COLOR`   |               `red`                | Колір символу блокування                                                                |
 
 <!-- References -->
 

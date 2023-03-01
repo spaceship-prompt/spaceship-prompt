@@ -1,13 +1,13 @@
 # Завдання `jobs`
 
-The `jobs` section shows only when there are running jobs in the background.
+Секція `jobs` показується лише тоді, коли є активні завдання у фоновому режимі.
 
 ## Встановлення порогу при якому відображається кількість завдань
 
-The `SPACESHIP_JOBS_AMOUNT_THRESHOLD` environment variable defines the threshold after which the number of running jobs will be shown.
+Змінна `SPACESHIP_JOBS_AMOUNT_THRESHOLD` визначає поріг, після якого буде показано кількість запущених завдань.
 
 ```zsh title=".zshrc"
-# The job count will be displayed even there is a single background job
+# Кількість завдань буде показано навіть коли в фоні лише одне завдання
 SPACESHIP_JOBS_AMOUNT_THRESHOLD=0
 ```
 
@@ -20,6 +20,6 @@ SPACESHIP_JOBS_AMOUNT_THRESHOLD=0
 | `SPACESHIP_JOBS_SUFFIX`           |       `·`        | Суфікс секції                                                             |
 | `SPACESHIP_JOBS_SYMBOL`           |       `✦`        | Символ, що відображається, коли завдання приховуються                     |
 | `SPACESHIP_JOBS_COLOR`            |      `blue`      | Колір секції                                                              |
-| `SPACESHIP_JOBS_AMOUNT_PREFIX`    |        -         | Prefix before the number of jobs (between jobs indicator and jobs amount) |
-| `SPACESHIP_JOBS_AMOUNT_SUFFIX`    |        -         | Suffix after the number of jobs                                           |
+| `SPACESHIP_JOBS_AMOUNT_PREFIX`    |        -         | Префікс перед кількістю завдань (між індикатором завдань та їх кількістю) |
+| `SPACESHIP_JOBS_AMOUNT_SUFFIX`    |        -         | Суфікс після кількості завдань                                            |
 | `SPACESHIP_JOBS_AMOUNT_THRESHOLD` |       `1`        | Кількість завдань, після яких кількість завдань буде показана             |
