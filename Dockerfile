@@ -1,7 +1,7 @@
 FROM frapsoft/zsh
 
 # Installing utils
-RUN apk add --update --no-cache git curl python3 py3-pip
+RUN apk add --update --no-cache git curl python3 py-pip
 
 # Change workdir to root's home
 WORKDIR /root
