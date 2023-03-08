@@ -1,3 +1,10 @@
+## [4.13.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.2...v4.13.3) (2023-03-08)
+
+
+### Bug Fixes
+
+* **docker:** Fix missing py3-pip ([9857239](https://github.com/spaceship-prompt/spaceship-prompt/commit/9857239b1dbcc0b82181db3d6ea92c8795448c0e))
+
 ## [4.13.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.1...v4.13.2) (2023-03-01)
 
 
