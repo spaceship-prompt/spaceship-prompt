@@ -8,7 +8,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='4.13.2'
+export SPACESHIP_VERSION='4.13.3'
 
 # Set SPACESHIP_ROOT if it isn't defined yet or if the directory does
 # not exist anymore (e.g. after an update to a newer version)
