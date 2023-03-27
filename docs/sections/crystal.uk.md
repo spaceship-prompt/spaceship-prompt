@@ -1,20 +1,20 @@
 # Crystal `crystal`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "Типово ця секція обробляється асинхронно"
 
 !!! info
-    [**Crystal**](https://www.crystal-lang.org) is a general-purpose, object-oriented programming language.
+    [**Crystal**](https://www.crystal-lang.org) — обʼєктноорієнтована мова програмування загального призначення.
 
-The `crystal` section displays the Crystal version.
+Секція `crystal` показує версію Crystal.
 
-Ця секція відображається лише тоді, коли поточна директорія:
+Ця секція показується лише тоді, коли поточна тека:
 
-* Upsearch finds `shard.yaml` file
-* Current directory contains any file with `.cr` extension
+* Пошуком вгору знаходиться файл `shard.yaml`
+* Поточна тека містить будь-який файл з розширенням `.cr`
 
 ## Опції
 
-| Змінна                     |          За замовчуванням          | Пояснення                               |
+| Змінна                     |               Типово               | Опис                                    |
 |:-------------------------- |:----------------------------------:| --------------------------------------- |
 | `SPACESHIP_CRYSTAL_SHOW`   |               `true`               | Показати секцію                         |
 | `SPACESHIP_CRYSTAL_ASYNC`  |               `true`               | Рендерити секцію асинхронно             |
