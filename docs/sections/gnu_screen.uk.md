@@ -1,6 +1,6 @@
 # GNU Screen `gnu_screen`
 
-!!! info
+!!! info "Інформація"
     [**GNU Screen**](https://www.gnu.org/software/screen/) GNU Screen — повноекранний віконний менеджер, який підтримує обмін сигналами між фізичним терміналом та різними процесами, зазвичай інтерактивними оболонками.
 
 `gnu_screen` показує активні сесії GNU Screen.
