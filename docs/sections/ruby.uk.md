@@ -2,7 +2,7 @@
 
 !!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
+!!! info "Інформація"
     [**Ruby**](https://www.ruby-lang.org) — це динамічна, рефлексивна, об’єктноорієнтована мова програмування загального призначення.
 
 Секція `ruby` відображає версію Ruby. Секція підтримує менеджери керування версіями [rvm-prompt](https://rvm.io/workflow/prompt), [chruby](https://github.com/postmodern/chruby), [rbenv](https://github.com/rbenv/rbenv) та [asdf](https://asdf-vm.com).
