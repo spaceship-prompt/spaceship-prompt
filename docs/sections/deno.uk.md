@@ -2,7 +2,7 @@
 
 !!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
+!!! info "Інформація"
     [**Deno**](https://deno.land) — захищене середовище для запуску JavaScript і TypeScript.
 
 Секція `deno` показує версію Deno.
