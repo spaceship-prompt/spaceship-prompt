@@ -57,7 +57,7 @@
     ```
 
 
-    !!! tip
+    !!! tip "Порада"
         Ви також можете додати наступне до вашого [`Brewfile`](https://github.com/Homebrew/homebrew-bundle#usage) для встановлення Spaceship разом з іншим програмним забезпеченням:
 
         ```ruby title="Brewfile"

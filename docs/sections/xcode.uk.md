@@ -2,7 +2,7 @@
 
 !!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
+!!! info "Інформація"
     [**Xcode**](https://developer.apple.com/xcode/) є середовищем розробки для iOS, macOS, watchOS і tvOS.
 
 Секція `Xcode` відображає версію Xcode.
