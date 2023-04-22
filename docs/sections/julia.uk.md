@@ -1,17 +1,17 @@
 # Julia `julia`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
-    [**Julia**](https://julialang.org) is a high-level, high-performance dynamic programming language for numerical computing.
+!!! info "Інформація"
+    [**Julia**](https://julialang.org) — високорівнева, динамічна мова програмування для числових обчислень.
 
-The `julia` section displays the version of the Julia compiler.
+Секція `julia` показує версію компілятора Julia.
 
-This section is displayed only when:
+Ця секція показується лише тоді, коли:
 
-* `julia` compiler is available.
-* The current directory contains `.jl` files.
-* The upsearch finds a `Project.toml`, `JuliaProject.toml` or `Manifest.toml` file.
+* Компілятор `julia` в наявності.
+* Поточна тека містить файли `.jl`.
+* За результатами пошуку знайдено файли `Project.toml`, `JuliaProject.toml` або `Manifest.toml`.
 
 ## Опції
 

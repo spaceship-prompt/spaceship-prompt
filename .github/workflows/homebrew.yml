@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🍺 Bump Homebrew Formula
-        uses: mislav/bump-homebrew-formula-action@v2.1
+        uses: mislav/bump-homebrew-formula-action@v2.2
         with:
           formula-name: spaceship
         env:

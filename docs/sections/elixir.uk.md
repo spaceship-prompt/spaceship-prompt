@@ -1,9 +1,9 @@
 # Elixir `elixir`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
-    [**Elixir**](https://elixir-lang.org) is a dynamic, functional language for building scalable and maintainable applications.
+!!! info "Інформація"
+    [**Elixir**](https://elixir-lang.org) — динамічна, функціональна мова програмування для створення масштабованих, добре підтримуваних застосунків.
 
 Секція `elixir` відображає версію Elixir.
 
@@ -14,13 +14,13 @@
 
 ## Встановлення версії Elixir за замовчуванням
 
-If you want to avoid showing the Elixir section for a specific Elixir version (for example system installed version), use the `SPACESHIP_ELIXIR_DEFAULT_VERSION` environment variable. The section will be hidden if the current version of the Elixir is equal to the one specified in the variable.
+Якщо ви бажаєте уникнути показу секції Elexir для певних версій (наприклад, версії встановленої разом з системою), використовуйте змінну `SPACESHIP_ELIXIR_DEFAULT_VERSION`. Секцію буде приховано, якщо поточна версія Elixir збігається зі значенням змінної.
 
 ```zsh title=".zshrc"
 SPACESHIP_ELIXIR_DEFAULT_VERSION="1.13.4"
 ```
 
-## Опції
+## Параметри
 
 | Змінна                             |          За замовчуванням          | Пояснення                               |
 |:---------------------------------- |:----------------------------------:| --------------------------------------- |

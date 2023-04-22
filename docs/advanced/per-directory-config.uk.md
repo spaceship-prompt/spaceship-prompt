@@ -42,7 +42,7 @@ direnv allow /path/to/directory
 
 ## Альтернативи `direnv`
 
-Крім `direnv` є багато інших інструментів, які дозволяють керувати змінними середовища для тек. Ось список найбільш популярні:
+Крім `direnv` є багато інших інструментів, які дозволяють керувати змінними середовища для тек. Ось список найбільш популярних:
 
 * [zsh-autoenv](https://github.com/Tarrasch/zsh-autoenv)
 * [asdf-direnv](https://github.com/asdf-community/asdf-direnv)

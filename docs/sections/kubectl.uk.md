@@ -1,9 +1,9 @@
 # Kubernetes `kubectl`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
-    [**Kubernetes**](https://kubernetes.io) is an open-source container orchestration system for automating software deployment, scaling, and management.
+!!! info "Інформація"
+    [**Kubernetes**](https://kubernetes.io) – система з відкритими сирцями керування контейнерами для автоматизації розгортання, масштабування та керування програмним забезпеченням.
 
 Секція `kubectl` складається з підсекцій [`kubectl_version`](#kubernetes-version-kubectl_version) та [`kubectl_context`](#kubernetes-context-kubectl_context). Вона відображається тільки коли `kubectl` може підключитись до кластера Kubernetes.
 
@@ -20,9 +20,9 @@
 
 ## Версія Kubernetes `kubectl_version`
 
-Секція `kubectl_version` показує версію Kubernetes. It is shown only when `kubectl` binary is available.
+Секція `kubectl_version` показує версію Kubernetes. Вона показується лише за наявності `kubectl`.
 
-### Опції
+### Параметри
 
 | Змінна                             |          За замовчуванням          | Пояснення                   |
 |:---------------------------------- |:----------------------------------:| --------------------------- |
@@ -34,33 +34,33 @@
 
 ## Контекст Kubernetes `kubectl_context`
 
-The `kubectl_context` section shows an active Kubernetes context, which consists of a cluster name and a namespace name (when working in a non-default namespace).
+Секція `kubectl_context` показує активний контекст Kubernetes, який складається з імені кластера та назви простору імен (коли ви працюєте не в стандартному просторі імен).
 
-!!! tip
-    If your cluster name (and thus context name) is too long, you can give it a shorter name using:
+!!! tip "Порада"
+    Якщо назва вашого кластера (і, отже, назва контексту) задовга, ви можете дати йому коротшу назву за допомогою:
 
     ```zsh
     kubectl config rename-context very_long_context_name name
     ```
 
-### Defining color base on current context or namespace
+### Визначення кольору на основі поточного контексту або простору імен
 
-To set the section to a different color based on context or namespace, you can define an array of pair values in which the first value of a pair is a color name to use and the second value is a regular expression pattern to match against the section text (context name and/or namespace). The first matched pattern will determine the color, so list order can be used to prioritize patterns.
+Щоб встановити для розділу інший колір залежно від контексту чи простору імен, ви можете визначити масив парних значень, у якому перше значення пари – це назва, а друге значення – це регулярний вираз для порівняння з текстом секції (назва контексту та/або простір імен). Перший збіг визначатиме колір, отже розташовуйте вирази відповідно до їх пріоритету.
 
-Here is an example:
+Розгляньмо приклад:
 
 ```zsh title=".zshrc"
 SPACESHIP_KUBECTL_CONTEXT_COLOR_GROUPS=(
-  # red if namespace is "kube-system"
+  # red якщо простір імен – "kube-system"
   red    '\(kube-system)$'
 
-  # else, green if "dev-01" is anywhere in the context or namespace
+  # інакше, green, якщо "dev-01" є або в контексті або в просторі імен
   green  dev-01
 
-  # else, red if context name ends with ".k8s.local" _and_ namespace is "system"
+  # або, red, якщо назва контексту закінчується на ".k8s.local" _та_ простір імен — "system"
   red    '\.k8s\.local \(system)$'
 
-  # else, yellow if the entire content is "test-" followed by digits, and no namespace is displayed
+  # інакше, yellow, якщо в контексті є збіг зі словом "test-" після якого йдуть цифри та простір імен не показується
   yellow '^test-[0-9]+$'
 )
 ```

@@ -1,6 +1,6 @@
 # Virtualenv `venv`
 
-!!! info
+!!! info "Інформація"
     [**virtualenv**](https://virtualenv.pypa.io) є інструментом для створення ізольованого середовища Python.
 
 Секція `venv` показує назву віртуального середовища.

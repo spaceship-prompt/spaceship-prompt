@@ -127,7 +127,7 @@ companies:
 
 Встановлення Spaceship просте та швидке. Він легко конфігурується і є простим у використанні.
 
-[Встановлення](/uk/getting-started ""){.md-button.md-button--primary} [Конфігурація](/uk/config/intro ""){.md-button}
+[Встановлення](/getting-started ""){.md-button} [Конфігурація](/config/intro ""){.md-button}
 
 ## Підтримка
 
