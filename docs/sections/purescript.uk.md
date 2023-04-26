@@ -2,7 +2,7 @@
 
 !!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
+!!! info "Інформація"
     [**PureScript**](https://www.purescript.org) — це функціональна мова програмування, що компілюється в JavaScript
 
 Секція `purescript` показує версію PureScript.

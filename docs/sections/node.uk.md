@@ -2,7 +2,7 @@
 
 !!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
+!!! info "Інформація"
     [**Node.js**](https://nodejs.org) — це середовище виконання JavaScript, створене поверх рушія JavaScript V8 Chrome.
 
 Секція `node` показує версію поточного рушія Node.js. Ця секція працює з менеджерами керування версіями: [nvm](https://github.com/nvm-sh/nvm), [nodenv](https://github.com/nodenv/nodenv), [fnm](https://github.com/Schniz/fnm) або використовує `node -v`, якщо жоден з них не встановлено.

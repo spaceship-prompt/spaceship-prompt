@@ -195,5 +195,5 @@ spaceship::datafile --json package.json "author.name"
 * TOML — `tomlq` (постачається з [`python-yq`](https://kislyuk.github.io/yq/))
 * XML — `xq` (постачається з [`python-yq`](https://kislyuk.github.io/yq/))
 
-!!! tip
+!!! tip "Порада"
     Найбільш універсальним рішенням для читання файлів даних є використання [`python-yq`](https://kislyuk.github.io/yq/).

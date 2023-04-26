@@ -6,7 +6,7 @@
 
 ## `spaceship::section`
 
-!!! tip
+!!! tip "Порада"
     Для створення власної секції бажано використовувати функцію [`spaceship::section::v4` function](#spaceshipsectionv4). Функція з зазначенням версії забезпечить сумісність з новими версіями Spaceship.
 
 Це основна функція для створення секції. Вона зчитує параметри секції і її вміст і перетворює їх на кортежі даних.
@@ -24,7 +24,7 @@ spaceship::section [--color color] [--prefix prefix] [--suffix suffix] [--symbol
 
 Порядок параметрів не важливий. Типово всі вони є порожніми рядками.
 
-!!! help
+!!! help "Довідка"
    `content`, `--prefix`, `--suffix` та `--symbol` можуть містити esc-послідовності для встановлення додаткових кольорів фону, написів та інших візуальних ефектів.
 
     Детальніше про esc-послідовності в [13 Prompt Expansion](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html) розділі документації Zsh.
@@ -50,8 +50,8 @@ spaceship::section::v4 \
 
 ## `spaceship::section::v3`
 
-!!! warning
-    ця функція введена для сумісності з секціями Spachip v3. Натомість рекомендується використовувати функцію [`spaceship::section::v4`](#spaceshipsectionv4).
+!!! warning "Попередження"
+    Ця функція введена для сумісності з секціями Spachip v3. Натомість рекомендується використовувати функцію [`spaceship::section::v4`](#spaceshipsectionv4).
 
 Це замінник для функції `spaceship::section`, що використовувався в Spaceship v3. Використовуйте його для зворотної сумісності.
 
@@ -102,5 +102,5 @@ spaceship::section::render "$(spaceship::section --color "$color" "$content")"
 #> %{%B%F{red}%}value%{%b%f%}
 ```
 
-!!! tip
+!!! tip "Порада"
     Можна використовувати обробку підсекцій у складних секціях. Наприклад, подивіться сирці секцій [`git`](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/sections/git.zsh) або [`docker`](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/sections/docker.zsh).
