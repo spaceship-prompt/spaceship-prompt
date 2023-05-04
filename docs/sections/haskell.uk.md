@@ -1,16 +1,16 @@
 # Haskell `haskell`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
-    [**Haskell**](https://www.haskell.org) is a general-purpose purely functional programming language, with non-strict semantics.
+!!! info "Інформація"
+    [**Haskell**](https://www.haskell.org) — це функціональна мова програмування загального призначення з нестрогою семантикою.
 
-The `haskell` section displays the version of the Haskell compiler.
+Секція `haskell` показує версію компілятора Haskell.
 
-This section is displayed only within Haskell projects, meaning:
+Ця секція показується лише в проєктах Haskell, а саме, коли:
 
 * Пошук вгору знаходить файл `stack.yaml`.
-* The current directory contains a file with `.hs` directory.
+* Поточна тека містить файли `.hs` або `.cabal`.
 
 ## Опції
 

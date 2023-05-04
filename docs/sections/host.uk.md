@@ -1,24 +1,24 @@
 # Ім’я хоста `host`
 
-The `host` section displays the hostname of the current machine.
+Секція `хост` показує назву хосту поточного компʼютера.
 
-By default, it's displayed only when the machine is connected via SSH (`$SSH_CONNECTION` is not empty).
+Стандартно, секція показується лише коли машина підключена через SSH (значення `$SSH_CONNECTION` не порожнє).
 
 ## Завжди показувати ім'я хоста
 
-If you want the hostname to be always displayed, set the `SPACESHIP_HOST_SHOW` option to `always`.
+Якщо ви хочете, щоб назва хосту завжди показувалась, встановіть значення параметра `SPACESHIP_HOST_SHOW` в `always`.
 
 ```zsh title=".zshrc"
-# This sets host to be always displayed
+# Це дозволяє завжди показувати назву хосту
 SPACESHIP_HOST_SHOW="always"
 ```
 
 ## Відображення повного хоста
 
-By default, the hostname is displayed in a short form (`%m`). If you want to see the full information (`%M`), set the `SPACESHIP_HOST_SHOW_FULL` option to `true`.
+Стандартно, назва хосту показується у скороченій формі (`%m`). Якщо ви хочете побачити всю інформацію (`%M`), встановіть параметр `SPACESHIP_HOST_SHOW_FULL` в `true`.
 
 ```zsh title=".zshrc"
-# This displays the full information about the hostname
+# Це показує повну інформацію про хост
 SPACESHIP_HOST_SHOW_FULL=true
 ```
 

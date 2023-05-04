@@ -2,12 +2,12 @@
 
 !!! important "За замовчуванням ця секція рендериться асинхронно"
 
-!!! info
-    The [Google Cloud CLI](https://cloud.google.com/sdk/gcloud) is a set of tools to create and manage [Google Cloud](https://cloud.google.com) resources. You can use these tools to perform many common platform tasks from the command line or through scripts and other automation.
+!!! info "Інформація"
+   [Google Cloud CLI](https://cloud.google.com/sdk/gcloud) — є набором інструментів для створення та керування ресурсами [Google Cloud](https://cloud.google.com). Ви можете використовувати ці інструменти в командному рядку для виконання багатьох загальних завдань для роботи з платформою або через сценарії та інші варіанти автоматизації.
 
 Розділ `gcloud` показує активну конфігурацію Google Cloud Platform за допомогою активного файлу конфігурації `gcloud`.
 
-## Опції
+## Параметри
 
 | Змінна                    |          За замовчуванням          | Пояснення                               |
 |:------------------------- |:----------------------------------:| --------------------------------------- |
