@@ -1,3 +1,36 @@
+## [4.13.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.2...v4.13.3) (2023-03-08)
+
+
+### Bug Fixes
+
+* **docker:** Fix missing py3-pip ([9857239](https://github.com/spaceship-prompt/spaceship-prompt/commit/9857239b1dbcc0b82181db3d6ea92c8795448c0e))
+
+## [4.13.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.1...v4.13.2) (2023-03-01)
+
+
+### Bug Fixes
+
+* **pulumi:** Pulumi section should match on the currently selected stack ([#1331](https://github.com/spaceship-prompt/spaceship-prompt/issues/1331)) ([67bba80](https://github.com/spaceship-prompt/spaceship-prompt/commit/67bba805d5232d719db20190a84633a64f4496b9))
+
+## [4.13.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.0...v4.13.1) (2023-01-04)
+
+
+### Bug Fixes
+
+* **upsearch:** Add additional check for filename ([55027a1](https://github.com/spaceship-prompt/spaceship-prompt/commit/55027a1c445534ca7c18814f89d7d521f38f4ef3))
+
+# [4.13.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.12.0...v4.13.0) (2023-01-04)
+
+
+### Bug Fixes
+
+* **scala:** Scala version detection ([#1315](https://github.com/spaceship-prompt/spaceship-prompt/issues/1315)) ([f21184b](https://github.com/spaceship-prompt/spaceship-prompt/commit/f21184b28567e5b5f4ff00e269fc1eb17c74c55f))
+
+
+### Features
+
+* **az:** Add Azure section ([#411](https://github.com/spaceship-prompt/spaceship-prompt/issues/411)) ([5e5a2e2](https://github.com/spaceship-prompt/spaceship-prompt/commit/5e5a2e2da136fdf3d98da3ec867c2ab4e29ba995))
+
 # [4.12.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.11.1...v4.12.0) (2022-12-07)
 
 

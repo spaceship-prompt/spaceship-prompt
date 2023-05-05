@@ -1,29 +1,29 @@
 # Node.js `node`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
-    [**Node.js**](https://nodejs.org) is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+!!! info "Інформація"
+    [**Node.js**](https://nodejs.org) — це середовище виконання JavaScript, створене поверх рушія JavaScript V8 Chrome.
 
-The `node` section displays the current version of the Node.js binary. This section supports [nvm](https://github.com/nvm-sh/nvm), [nodenv](https://github.com/nodenv/nodenv), [fnm](https://github.com/Schniz/fnm) version managers or uses `node -v` if non of the above is installed.
+Секція `node` показує версію поточного рушія Node.js. Ця секція працює з менеджерами керування версіями: [nvm](https://github.com/nvm-sh/nvm), [nodenv](https://github.com/nodenv/nodenv), [fnm](https://github.com/Schniz/fnm) або використовує `node -v`, якщо жоден з них не встановлено.
 
-This section is displayed only when the current directory is within a Node.js project, meaning:
+Ця секція показується лише тоді, коли поточна тека знаходиться в межах проєкту Node.js, тобто:
 
 * Пошук вгору знаходить файл `package.json`
 * Пошук вгору знаходить папку `node_modules`
-* Upsearch finds a `.nvmrc` file
-* Upsearch finds a `.node-version` file
-* Contains any other file with `.js`, `.cjs` or `.mjs` extension
+* Пошук вгору знаходить файл `.nvmrc`
+* Пошук вгору знаходить файл `.node-version`
+* Тека містить файли з розширеннями `.js`, `.cjs` або `.mjs`
 
 ## Встановлення версії Node.js за замовчуванням
 
-If you want to avoid showing the Node.js section for a specific Node.js version (for example system installed version), use the `SPACESHIP_NODE_DEFAULT_VERSION` environment variable. The section will be hidden if the current version of the Node.js is equal to the one specified in the variable.
+Якщо ви бажаєте уникнути показу секції Node.js для певних версій (наприклад, версії встановленої разом з системою), використовуйте змінну `SPACESHIP_NODE_DEFAULT_VERSION`. Секцію буде приховано, якщо поточна версія Node.js збігається зі значенням змінної.
 
 ```zsh title=".spaceshiprc.zsh"
 SPACESHIP_NODE_DEFAULT_VERSION="18.0.0"
 ```
 
-## Опції
+## Параметри
 
 | Змінна                           |          За замовчуванням          | Пояснення                                     |
 |:-------------------------------- |:----------------------------------:| --------------------------------------------- |

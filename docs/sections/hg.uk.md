@@ -1,6 +1,6 @@
 # Mercurial `hg`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "Типово ця секція обробляється асинхронно"
 
 Секція `hg` складається з підсекцій [`hg_branch`](#hg-branch-hg_branch) та [`hg_status`](#hg-status-hg_status). Він відображається лише в Mercurial-репозитаріях.
 
@@ -35,14 +35,14 @@
 
 ### Опції
 
-| Змінна                          | За замовчуванням | Пояснення                       |
-|:------------------------------- |:----------------:| ------------------------------- |
-| `SPACESHIP_HG_STATUS_SHOW`      |      `true`      | Показати підсекцію              |
-| `SPACESHIP_HG_STATUS_ASYNC`     |      `true`      | Показати підсекцію              |
-| `SPACESHIP_HG_STATUS_PREFIX`    |       `[`        | Префікс секції                  |
-| `SPACESHIP_HG_STATUS_SUFFIX`    |       `]`        | Суфікс секції                   |
-| `SPACESHIP_HG_STATUS_COLOR`     |      `red`       | Колір секції                    |
-| `SPACESHIP_HG_STATUS_UNTRACKED` |       `?`        | Indicator for untracked changes |
-| `SPACESHIP_HG_STATUS_ADDED`     |       `+`        | Indicator for added changes     |
-| `SPACESHIP_HG_STATUS_MODIFIED`  |       `!`        | Indicator for unstaged files    |
-| `SPACESHIP_HG_STATUS_DELETED`   |       `✘`        | Індикатор видалених файлів      |
+| Змінна                          | За замовчуванням | Пояснення                      |
+|:------------------------------- |:----------------:| ------------------------------ |
+| `SPACESHIP_HG_STATUS_SHOW`      |      `true`      | Показати підсекцію             |
+| `SPACESHIP_HG_STATUS_ASYNC`     |      `true`      | Показати підсекцію             |
+| `SPACESHIP_HG_STATUS_PREFIX`    |       `[`        | Префікс секції                 |
+| `SPACESHIP_HG_STATUS_SUFFIX`    |       `]`        | Суфікс секції                  |
+| `SPACESHIP_HG_STATUS_COLOR`     |      `red`       | Колір секції                   |
+| `SPACESHIP_HG_STATUS_UNTRACKED` |       `?`        | Індикатор невідстежуваних змін |
+| `SPACESHIP_HG_STATUS_ADDED`     |       `+`        | Індикатор внесених змін        |
+| `SPACESHIP_HG_STATUS_MODIFIED`  |       `!`        | Індикатор файлів поза індексом |
+| `SPACESHIP_HG_STATUS_DELETED`   |       `✘`        | Індикатор видалених файлів     |

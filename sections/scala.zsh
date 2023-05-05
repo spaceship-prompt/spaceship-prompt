@@ -28,7 +28,7 @@ spaceship_scala() {
   [[ -n "$is_scala_context" || -n *.scala(#qN^/) || -n *.sbt(#qN^/) ]] || return
 
   # pipe version info into stdout; won't work otherwise
-  local scala_version=$(scalac -version 2>&1 | spaceship::grep -oe "[0-9]\.[0-9]\.[0-9]")
+  local scala_version=$(scalac -version 2>&1 | spaceship::grep -Eo "[0-9]+\.[0-9]+\.[0-9]+")
 
   [[ -z "$scala_version" || "${scala_version}" == "system" ]] && return
 

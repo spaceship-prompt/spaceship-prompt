@@ -14,5 +14,5 @@ The `az` section uses the [Azure CLI](https://learn.microsoft.com/en-us/cli/azur
 | `SPACESHIP_AZURE_SHOW`    |               `true`               | Show section                        |
 | `SPACESHIP_AZURE_PREFIX`  |              `using `              | Section's prefix                    |
 | `SPACESHIP_AZURE_SUFFIX`  | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                    |
-| `SPACESHIP_AZURE_SYMBOL`  |               `☁️  `                | Symbol displayed before the section |
+| `SPACESHIP_AZURE_SYMBOL`  |               `☁️ `                | Symbol displayed before the section |
 | `SPACESHIP_AZURE_COLOR`   |               `039`                | Section's color                     |

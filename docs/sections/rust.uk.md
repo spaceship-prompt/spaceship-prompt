@@ -1,9 +1,9 @@
 # Rust `rust`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
-    [**Rust**](https://www.rust-lang.org) is a systems programming language that is focused on safety, speed, and concurrency.
+!!! info "Інформація"
+    [**Rust**](https://www.rust-lang.org) – це мова системного програмування, яка зосереджена на безпеці, швидкості та паралелізмі.
 
 Секція `rust` відображає версію Rust.
 
@@ -14,21 +14,21 @@
 
 ## Відображення детальної версії
 
-By default, this section will strip all of the suffixes from the version. For example, `1.42.0-nightly.2020-06-09` will be displayed as `1.42.0`. To disable that behavior use a `SPACESHIP_RUST_VERBOSE_VERSION` environment variable.
+Типово ця секція прибиратиме все суфікси з номера версії. Наприклад, `1.42.0-nightly.2020-06-09` буде показуватись як `1.42.0`. Для вимкнення такої поведінки використовуйте змінну середовища `SPACESHIP_RUST_VERBOSE_VERSION`.
 
 ```zsh title=".zshrc"
-# Display verbose version
+# Докладний показ версії
 SPACESHIP_RUST_VERBOSE_VERSION=true
 ```
 
 ## Опції
 
-| Змінна                           |          За замовчуванням          | Пояснення                               |
-|:-------------------------------- |:----------------------------------:| --------------------------------------- |
-| `SPACESHIP_RUST_SHOW`            |               `true`               | Показати секцію                         |
-| `SPACESHIP_RUST_ASYNC`           |               `true`               | Рендерити секцію асинхронно             |
-| `SPACESHIP_RUST_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Префікс секції                          |
-| `SPACESHIP_RUST_SUFFIX`          | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                           |
-| `SPACESHIP_RUST_SYMBOL`          |                `🦀·`                | Символ, що відображається перед секцією |
-| `SPACESHIP_RUST_COLOR`           |               `red`                | Колір секції                            |
-| `SPACESHIP_RUST_VERBOSE_VERSION` |              `false`               | Show what branch is being used, if any. |
+| Змінна                           |          За замовчуванням          | Пояснення                                        |
+|:-------------------------------- |:----------------------------------:| ------------------------------------------------ |
+| `SPACESHIP_RUST_SHOW`            |               `true`               | Показати секцію                                  |
+| `SPACESHIP_RUST_ASYNC`           |               `true`               | Рендерити секцію асинхронно                      |
+| `SPACESHIP_RUST_PREFIX`          | `$SPACESHIP_PROMPT_DEFAULT_PREFIX` | Префікс секції                                   |
+| `SPACESHIP_RUST_SUFFIX`          | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Суфікс секції                                    |
+| `SPACESHIP_RUST_SYMBOL`          |                `🦀·`                | Символ, що відображається перед секцією          |
+| `SPACESHIP_RUST_COLOR`           |               `red`                | Колір секції                                     |
+| `SPACESHIP_RUST_VERBOSE_VERSION` |              `false`               | Показує яка гілка використовується, якщо такі є. |

@@ -2,25 +2,25 @@
 
 !!! important "За замовчуванням ця секція рендериться асинхронно"
 
-!!! info
-    [**Go**](https://go.dev) is a programming language that makes it easy to build simple, reliable, and efficient software.
+!!! info "Інформація"
+    [**Go**](https://go.dev) — мова програмування, що дозволяє створювати просте, надійне та ефективне програмне забезпечення.
 
 Секція `golang` відображає версію Go.
 
 Ця секція відображається лише тоді, коли поточний каталог знаходиться у Go-проєкті, тобто:
 
-* Upsearch finds a `go.mod`, `Gopkg.toml`, `Gopkg.lock`, `glide.yaml` file or `Godeps` folder
+* Пошук вгору знаходить файли `go.mod`, `Gopkg.toml`, `Gopkg.lock`, `glide.yaml` або теку `Godeps`
 * Містить будь-який інший файл з розширенням `.go`
-* The current directory is in the Go workspace defined in `$GOPATH`
+* Поточна тека визначення в змінній оточення GO — `$GOPATH`
 
 ## Використання розробницьких версій Go
 
-If you are using a development version of `Go`, the version uses git commit hash instead. For example:
+Якщо ви використовуєте версію `Go`, що перебуває в стані розробки, замість номера версії буде показуватись хеш коміту git. Наприклад:
 
-* `devel:5efe9a8f11` for development version
-* `v1.11.4` for the release version
+* `devel:5efe9a8f11` для версії в стані розробки
+* `v1.11.4` для версії, що була випущена
 
-## Опції
+## Параметри
 
 | Змінна                    |          За замовчуванням          | Пояснення                               |
 |:------------------------- |:----------------------------------:| --------------------------------------- |

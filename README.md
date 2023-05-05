@@ -18,7 +18,7 @@
   </a>
 
   <a href="https://github.com/spaceship-prompt/spaceship-prompt/actions">
-    <img src="https://img.shields.io/github/workflow/status/spaceship-prompt/spaceship-prompt/ci?style=flat-square"
+    <img src="https://img.shields.io/github/actions/workflow/status/spaceship-prompt/spaceship-prompt/validate.yaml?style=flat-square"
       alt="GitHub Workflow Status" />
   </a>
 

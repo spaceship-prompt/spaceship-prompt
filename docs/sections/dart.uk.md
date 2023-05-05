@@ -1,16 +1,16 @@
 # Dart `dart`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
-    [**Dart**](https://dart.dev/) is a client-optimized language for fast apps on any platform
+!!! info "Інформація"
+    [**Dart**](https://dart.dev/) є оптимізованою мовою для створення швидких застосунків для будь-якої платформи
 
-The `dart` section displays the current version of Dart.
+Секція `dart` показує поточну версію Dart.
 
-This section is displayed only when the current directory is within a Dart project, meaning:
+Ця секція показується лише тоді, коли поточна тека є текою проєкту Dart, тобто:
 
-* Upsearch finds a `pubspec.yaml`, `pubspec.yml`, `pubspec.lock` file or `dart_tool` folder
-* Contains any other file with `.dart` extension
+* Пошуком вгору знаходиться файл `pubspec.yaml`, `pubspec.yml`, `pubspec.lock` або тека `dart_tool`
+* Містить будь-який інший файл з розширенням `.dart`
 
 ## Опції
 

@@ -1,11 +1,11 @@
 # IBM Cloud `ibmcloud`
 
-!!! important "За замовчуванням ця секція рендериться асинхронно"
+!!! important "Типово ця секція обробляється асинхронно"
 
-!!! info
-    [**IMB Cloud**](https://www.ibm.com/cloud) is a set of cloud computing services for business offered by the information technology company IBM.
+!!! info "Інформація"
+    [**IMB Cloud**](https://www.ibm.com/cloud) — набір хмарних обчислювальних послуг для бізнесу, що пропонується компанією IBM.
 
-The `ibmcloud` section shows the selected IBM Cloud account by looking up with `ibmcloud target`. Displayed only when the [`ibmcloud`](https://www.ibm.com/cloud/cli) CLI is available.
+Секція `ibmcloud` показує обраний обліковий запис IBM Cloud звіряючись з `ibmcloud target`. Секція показується лише за наявності [`ibmcloud`](https://www.ibm.com/cloud/cli) CLI.
 
 ## Опції
 
