@@ -15,7 +15,7 @@ spaceship::prompt() {
 
   # Allow iTerm integration to work
   if [[ "${ITERM_SHELL_INTEGRATION_INSTALLED:-}" == "Yes" ]]; then
-    prompt="%{$(iterm2_prompt_mark)%}${prompt}%{$(iterm2_prompt_end)$}"
+    prompt="%{$(iterm2_prompt_mark)%}${prompt}%{$(iterm2_prompt_end)%}"
   fi
 
   # Should it add a new line before the prompt?
