@@ -1,3 +1,10 @@
+## [4.13.4](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.3...v4.13.4) (2023-05-10)
+
+
+### Bug Fixes
+
+* **iterm2:** Call iterm2_prompt_end so that ⌘-k does not clear the first line in the prompt. ([#1319](https://github.com/spaceship-prompt/spaceship-prompt/issues/1319)) ([ef65357](https://github.com/spaceship-prompt/spaceship-prompt/commit/ef653576934dcc3a5a152ece7fdd3f85c586d6c5))
+
 ## [4.13.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.2...v4.13.3) (2023-03-08)
 
 
