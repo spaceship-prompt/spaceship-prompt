@@ -1,4 +1,4 @@
-# OCaml (`deno`)
+# OCaml (`ocaml`)
 
 !!! important "This section is rendered asynchronously by default"
 

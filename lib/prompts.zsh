@@ -15,7 +15,7 @@ spaceship::prompt() {
 
   # Allow iTerm integration to work
   if [[ "${ITERM_SHELL_INTEGRATION_INSTALLED:-}" == "Yes" ]]; then
-    prompt="%{$(iterm2_prompt_mark)%}${prompt}"
+    prompt="%{$(iterm2_prompt_mark)%}${prompt}%{$(iterm2_prompt_end)%}"
   fi
 
   # Should it add a new line before the prompt?
@@ -30,6 +30,8 @@ spaceship::prompt() {
 # RPROMPT
 # Optional (right) prompt
 spaceship::rprompt() {
+  _spaceship_rprompt_opened="$SPACESHIP_RPROMPT_FIRST_PREFIX_SHOW"
+
   # Compose prompt from the order
   local rprompt="$(spaceship::core::compose_order $SPACESHIP_RPROMPT_ORDER)"
 
@@ -55,7 +57,6 @@ spaceship::ps2() {
   local ps2="$(spaceship::section --color "$SPACESHIP_CHAR_COLOR_SECONDARY" "$char")"
   spaceship::section::render "$ps2"
 }
-
 
 # Render the prompt. Compose variables using prompt functoins.
 # USAGE:
