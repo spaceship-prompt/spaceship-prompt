@@ -1,3 +1,10 @@
+## [4.13.5](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.4...v4.13.5) (2023-05-12)
+
+
+### Bug Fixes
+
+* **prompt:** prompt typo - not escaping the } ([#1349](https://github.com/spaceship-prompt/spaceship-prompt/issues/1349)) ([211b281](https://github.com/spaceship-prompt/spaceship-prompt/commit/211b281d6ce142bdbdaf251ddb9ef26a79f3e6aa))
+
 ## [4.13.4](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.3...v4.13.4) (2023-05-10)
 
 
