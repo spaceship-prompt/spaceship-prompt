@@ -182,7 +182,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     ```
 
     Also there is an unmaintained git package [spaceship-prompt-git](https://aur.archlinux.org/packages/spaceship-prompt-git/).
-    ```
+    
 
 ## Congratulations!
 
