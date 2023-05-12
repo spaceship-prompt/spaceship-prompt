@@ -85,7 +85,7 @@ spaceship::section::render() {
     return
   fi
 
-  if [[ "$_spaceship_prompt_opened" == true ]] \
+  if [[ "$_spaceship_prompt_opened" == true || "$_spaceship_rprompt_opened" == true ]] \
   && [[ "$SPACESHIP_PROMPT_PREFIXES_SHOW" == true ]] \
   && [[ -n "$prefix" ]]; then
     result+="%{%B%}" # set bold
@@ -94,6 +94,7 @@ spaceship::section::render() {
   fi
 
   _spaceship_prompt_opened=true
+  _spaceship_rprompt_opened=true
 
   # TODO: Decouple symbol and context when formatting will be introduced
   result+="%{%B$color%}"    # set color

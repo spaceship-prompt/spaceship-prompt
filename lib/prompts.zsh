@@ -30,8 +30,8 @@ spaceship::prompt() {
 # RPROMPT
 # Optional (right) prompt
 spaceship::rprompt() {
-  _spaceship_prompt_opened="$SPACESHIP_PROMPT_FIRST_PREFIX_SHOW"
-  
+  _spaceship_rprompt_opened="$SPACESHIP_RPROMPT_FIRST_PREFIX_SHOW"
+
   # Compose prompt from the order
   local rprompt="$(spaceship::core::compose_order $SPACESHIP_RPROMPT_ORDER)"
 
