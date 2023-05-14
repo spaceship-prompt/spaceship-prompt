@@ -191,8 +191,8 @@
     ```
 
 
-    Також існує пакунок [spaceship-prompt-git](https://aur.archlinux.org/packages/spaceship-prompt-git/) в git без підтримки.
-    ```
+    Зверніть також увагу на пакунок [spaceship-prompt-git](https://aur.archlinux.org/packages/spaceship-prompt-git/) в git який потребує підтримки.
+
 
 ## Вітаємо!
 
