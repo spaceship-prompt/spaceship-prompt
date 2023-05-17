@@ -1,3 +1,16 @@
+# [4.14.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.5...v4.14.0) (2023-05-17)
+
+
+### Bug Fixes
+
+* control right prompt first prefix display ([79377ed](https://github.com/spaceship-prompt/spaceship-prompt/commit/79377ed247dab33dc0029a5233ccad03ae80ce61))
+* **rprompt:** Missing the first prefix of first section in right prompt order ([bc3d2c0](https://github.com/spaceship-prompt/spaceship-prompt/commit/bc3d2c043c872a68a5e1f66f235989fbe0e074da))
+
+
+### Features
+
+* **prompt:** Add SPACESHIP_RPROMPT_FIRST_PREFIX_SHOW ([42f1d8d](https://github.com/spaceship-prompt/spaceship-prompt/commit/42f1d8df13c2467d72ad37cc3393a248511de632))
+
 ## [4.13.5](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.4...v4.13.5) (2023-05-12)
 
 
