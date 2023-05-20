@@ -100,7 +100,7 @@ nav:
         - Terraform (terraform): sections/terraform.md
         - Time (time): sections/time.md
         - Username (user): sections/user.md
-        - v (ocaml): sections/vlang.md
+        - v (vlang): sections/vlang.md
         - Virtualenv (venv): sections/venv.md
         - Xcode (xcode): sections/xcode.md
         - Zig (zig): sections/zig.md
@@ -130,6 +130,9 @@ markdown_extensions:
   - def_list
   - toc:
       permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: none 
   - attr_list
   - tables
   - pymdownx.tabbed:

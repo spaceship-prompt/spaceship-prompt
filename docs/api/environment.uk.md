@@ -82,7 +82,7 @@ Spaceship використовує [`zsh-async`](https://github.com/mafredri/zsh
 
 `zsh-async` завантажується автоматично, коли Spaceship завантажується, коли всі ці умови є істиною:
 
-1. Асинхронний показ увімкнено (див. [Асинхронний показ](/config/prompt/#asynchronous-rendering))
+1. Асинхронний показ увімкнено (див. [Асинхронний показ](/uk/config/prompt/#asynchronous-rendering))
 2. Існує щонайменше одна секція, що показується асинхронно.
 3. `zsh-async` не було завантажено до цього.
 

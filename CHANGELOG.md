@@ -1,3 +1,30 @@
+# [4.14.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.5...v4.14.0) (2023-05-17)
+
+
+### Bug Fixes
+
+* control right prompt first prefix display ([79377ed](https://github.com/spaceship-prompt/spaceship-prompt/commit/79377ed247dab33dc0029a5233ccad03ae80ce61))
+* **rprompt:** Missing the first prefix of first section in right prompt order ([bc3d2c0](https://github.com/spaceship-prompt/spaceship-prompt/commit/bc3d2c043c872a68a5e1f66f235989fbe0e074da))
+
+
+### Features
+
+* **prompt:** Add SPACESHIP_RPROMPT_FIRST_PREFIX_SHOW ([42f1d8d](https://github.com/spaceship-prompt/spaceship-prompt/commit/42f1d8df13c2467d72ad37cc3393a248511de632))
+
+## [4.13.5](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.4...v4.13.5) (2023-05-12)
+
+
+### Bug Fixes
+
+* **prompt:** prompt typo - not escaping the } ([#1349](https://github.com/spaceship-prompt/spaceship-prompt/issues/1349)) ([211b281](https://github.com/spaceship-prompt/spaceship-prompt/commit/211b281d6ce142bdbdaf251ddb9ef26a79f3e6aa))
+
+## [4.13.4](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.3...v4.13.4) (2023-05-10)
+
+
+### Bug Fixes
+
+* **iterm2:** Call iterm2_prompt_end so that ⌘-k does not clear the first line in the prompt. ([#1319](https://github.com/spaceship-prompt/spaceship-prompt/issues/1319)) ([ef65357](https://github.com/spaceship-prompt/spaceship-prompt/commit/ef653576934dcc3a5a152ece7fdd3f85c586d6c5))
+
 ## [4.13.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.2...v4.13.3) (2023-03-08)
 
 
