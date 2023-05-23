@@ -116,10 +116,7 @@ spaceship_package::gradle() {
 spaceship_package::python() {
   local pyproject_toml=$(spaceship::upsearch pyproject.toml) || return
 
-  spaceship::datafile --toml $project_toml "tool.poetry.version"
-  if [[ $? != 0 ]]; then
-    spaceship::datafile --toml $project_toml "project.version"
-  fi
+  spaceship::datafile --toml "$pyproject_toml" "project.version" "tool.poetry.version"
 }
 
 spaceship_package::dart() {
@@ -127,7 +124,7 @@ spaceship_package::dart() {
 
   local pubspec_file=$(spaceship::upsearch pubspec.yaml pubspec.yml) || return
 
-  spaceship::datafile --yaml $pubspec_file "version" 
+  spaceship::datafile --yaml $pubspec_file "version"
 }
 
 # ------------------------------------------------------------------------------
