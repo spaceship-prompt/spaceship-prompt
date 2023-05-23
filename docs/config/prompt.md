@@ -28,7 +28,7 @@ Each part can be configured via corresponding **options**. Options are just envi
 Above `PACKAGE` is a **section** and `PREFIX`, `SUFFIX` and `COLOR` are **options** for prefix, suffix and color correspondingly.
 
 !!! info
-    Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
+Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
 
 ## Prompt order
 
@@ -124,16 +124,17 @@ Besides built-in sections, you can add external section to your prompt or build 
 
 This group of options defines a behavior of prompt and standard parameters for sections displaying.
 
-| Variable                             | Default | Meaning                                          |
-| :----------------------------------- | :-----: | ------------------------------------------------ |
-| `SPACESHIP_PROMPT_ASYNC`             | `true`  | Render prompt asynchronously or not              |
-| `SPACESHIP_PROMPT_ADD_NEWLINE`       | `true`  | Adds a newline character before each prompt line |
-| `SPACESHIP_PROMPT_SEPARATE_LINE`     | `true`  | Make the prompt span across two lines            |
-| `SPACESHIP_PROMPT_FIRST_PREFIX_SHOW` | `false` | Shows a prefix of the first section in prompt    |
-| `SPACESHIP_PROMPT_PREFIXES_SHOW`     | `true`  | Show prefixes before prompt sections or not      |
-| `SPACESHIP_PROMPT_SUFFIXES_SHOW`     | `true`  | Show suffixes before prompt sections or not      |
-| `SPACESHIP_PROMPT_DEFAULT_PREFIX`    | `via·`  | Default prefix for prompt sections               |
-| `SPACESHIP_PROMPT_DEFAULT_SUFFIX`    |   ` `   | Default suffix for prompt section                |
+| Variable                              | Default | Meaning                                             |
+| :------------------------------------ | :-----: | --------------------------------------------------- |
+| `SPACESHIP_PROMPT_ASYNC`              | `true`  | Render prompt asynchronously or not                 |
+| `SPACESHIP_PROMPT_ADD_NEWLINE`        | `true`  | Adds a newline character before each prompt line    |
+| `SPACESHIP_PROMPT_SEPARATE_LINE`      | `true`  | Make the prompt span across two lines               |
+| `SPACESHIP_PROMPT_FIRST_PREFIX_SHOW`  | `false` | Shows a prefix of the first section in prompt       |
+| `SPACESHIP_RPROMPT_FIRST_PREFIX_SHOW` | `false` | Shows a prefix of the first section in right prompt |
+| `SPACESHIP_PROMPT_PREFIXES_SHOW`      | `true`  | Show prefixes before prompt sections or not         |
+| `SPACESHIP_PROMPT_SUFFIXES_SHOW`      | `true`  | Show suffixes before prompt sections or not         |
+| `SPACESHIP_PROMPT_DEFAULT_PREFIX`     | `via·`  | Default prefix for prompt sections                  |
+| `SPACESHIP_PROMPT_DEFAULT_SUFFIX`     |   ` `   | Default suffix for prompt section                   |
 
 Here is a breakdown of these options:
 
