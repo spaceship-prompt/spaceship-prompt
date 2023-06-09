@@ -28,9 +28,10 @@ spaceship_terraform() {
   spaceship::exists terraform || return
 
   # Show Terraform Workspaces when exists
-  spaceship::upsearch .terraform/environment || return
+  local terraform_dir="$(spaceship::upsearch .terraform)"
+  [[ -z $terraform_dir ]] && return
 
-  local terraform_workspace=$(<.terraform/environment)
+  local terraform_workspace=$(<"${terraform_dir}/environment")
   [[ -z $terraform_workspace ]] && return
 
   spaceship::section \

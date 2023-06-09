@@ -21,7 +21,7 @@ oneTimeSetUp() {
 }
 
 setUp() {
-  SPACESHIP_TERRAFORM_SHOW="true"  # TODO: upsearch fails
+  SPACESHIP_TERRAFORM_SHOW="true"
   SPACESHIP_TERRAFORM_ASYNC="false"
   SPACESHIP_TERRAFORM_PREFIX="pre"
   SPACESHIP_TERRAFORM_SUFFIX="suf"
@@ -65,9 +65,10 @@ test_terraform_files() {
     "${SPACESHIP_TERRAFORM_SYMBOL}"
     "env"
     "%{%b%f%}"
+    "%{%B%}$SPACESHIP_TERRAFORM_SUFFIX%{%b%}"
   )
   local actual="$(spaceship::testkit::render_prompt)"
-  assertEquals "should render" "${expected}" "$actual"
+  assertEquals "should render" "${(j::)expected}" "$actual"
   rm -fr .terraform
 }
 
