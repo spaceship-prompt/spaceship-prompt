@@ -21,7 +21,7 @@ spaceship_haxe() {
   # Check if haxe binary exists
   spaceship::exists haxe || return
 
-  #Detect haxe project
+  # Detect haxe project
   local haxe_project_globs=('project.xml','Project.xml','application.xml','haxelib.json','hxformat.json','.haxerc')
   local is_haxe_project="$(spaceship::upsearch $haxe_project_globs)"
   [[ -n $is_haxe_project || -n *.(hxml|hx)(#qN^/) ]] || return
