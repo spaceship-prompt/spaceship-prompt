@@ -4,6 +4,9 @@
 # Haxe is an open source high-level strictly-typed programming language with a fast optimizing cross-compiler.
 # Link: https://haxe.org
 
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
 
 SPACESHIP_HAXE_SHOW="${SPACESHIP_HAXE_SHOW=true}"
 SPACESHIP_HAXE_ASYNC="${SPACESHIP_HAXE_ASYNC=true}"
@@ -13,7 +16,9 @@ SPACESHIP_HAXE_SYMBOL="${SPACESHIP_HAXE_SYMBOL="⌘ "}" # couldn't find unicode 
 SPACESHIP_HAXE_COLOR="166" # haxe's orange color
 SPACESHIP_HAXE_VERBOSE="${SPACESHIP_HAXE_VERBOSE=false}"
 
-
+# ------------------------------------------------------------------------------
+# Section
+# ------------------------------------------------------------------------------
 
 spaceship_haxe() {
   [[ $SPACESHIP_HAXE_SHOW == false ]] && return
