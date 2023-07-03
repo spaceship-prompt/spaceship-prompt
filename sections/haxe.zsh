@@ -31,10 +31,10 @@ spaceship_haxe() {
   local is_haxe_project="$(spaceship::upsearch $haxe_project_globs)"
   [[ -n $is_haxe_project || -n *.(hxml|hx)(#qN^/) ]] || return
 
-  # Extract haxe cersion
+  # Extract haxe version
   local haxe_version="$(haxe --version 2>/dev/null)"
 
-  # Check if haxe verdion is empty
+  # Check if haxe version is empty
   [[ $? -ne 0 || -z $haxe_version ]] && return
 
   [[ $SPACESHIP_HAXE_VERBOSE == false ]] && haxe_version=${haxe_version%-*}
