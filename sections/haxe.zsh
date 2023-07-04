@@ -14,7 +14,7 @@ SPACESHIP_HAXE_PREFIX="${SPACESHIP_HAXE_PREFIX="with "}"
 SPACESHIP_HAXE_SUFFIX="${SPACESHIP_HAXE_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_HAXE_SYMBOL="${SPACESHIP_HAXE_SYMBOL="⌘ "}" # couldn't find unicode colored char for haxe
 SPACESHIP_HAXE_COLOR="166" # haxe's orange color
-SPACESHIP_HAXE_VERBOSE="${SPACESHIP_HAXE_VERBOSE=false}"
+# SPACESHIP_HAXE_VERBOSE="${SPACESHIP_HAXE_VERBOSE=false}" # haxe --version is verbose by default to just give the version number like only `4.3.1`
 
 # ------------------------------------------------------------------------------
 # Section
@@ -34,10 +34,10 @@ spaceship_haxe() {
   # Extract haxe version
   local haxe_version="$(haxe --version 2>/dev/null)"
 
-  # Check if haxe version is empty
+  # Check if haxe_version is empty
   [[ $? -ne 0 || -z $haxe_version ]] && return
 
-  [[ $SPACESHIP_HAXE_VERBOSE == false ]] && haxe_version=${haxe_version%-*}
+  # [[ $SPACESHIP_HAXE_VERBOSE == false ]] && haxe_version=${haxe_version%-*}
 
   spaceship::section \
     --color  "$SPACESHIP_HAXE_COLOR" \
