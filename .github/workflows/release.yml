@@ -25,7 +25,7 @@ jobs:
         id: semantic
         with:
           extra_plugins: |
-            @google/semantic-release-replace-plugin
+            semantic-release-replace-plugin
             @semantic-release/changelog
             @semantic-release/git
             semantic-release-license
