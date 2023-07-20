@@ -14,11 +14,12 @@ This section is displayed only when:
 
 ## Options
 
-| Variable             |              Default               | Meaning                             |
-| :------------------- | :--------------------------------: | ----------------------------------- |
-| `SPACESHIP_R_SHOW`   |               `true`               | Show section                        |
-| `SPACESHIP_R_ASYNC`  |               `true`               | Render section asynchronously       |
-| `SPACESHIP_R_PREFIX` |               `with`               | Section's prefix                    |
-| `SPACESHIP_R_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                    |
-| `SPACESHIP_R_SYMBOL` |                `📊`                | Symbol displayed before the section |
-| `SPACESHIP_R_COLOR`  |               `blue`               | Section's color                     |
+| Variable              |              Default               | Meaning                                    |
+| :-------------------- | :--------------------------------: | ------------------------------------------ |
+| `SPACESHIP_R_SHOW`    |               `true`               | Show section                               |
+| `SPACESHIP_R_ASYNC`   |               `true`               | Render section asynchronously              |
+| `SPACESHIP_R_PREFIX`  |               `with`               | Section's prefix                           |
+| `SPACESHIP_R_SUFFIX`  | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                           |
+| `SPACESHIP_R_SYMBOL`  |                `📊`                | Symbol displayed before the section        |
+| `SPACESHIP_R_COLOR`   |               `blue`               | Section's color                            |
+| `SPACESHIP_R_VERBOSE` |              `false`               | Show additional information (version name) |
