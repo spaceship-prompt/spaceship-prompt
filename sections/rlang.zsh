@@ -8,20 +8,20 @@
 # Configuration
 # ------------------------------------------------------------------------------
 
-SPACESHIP_R_SHOW="${SPACESHIP_R_SHOW=true}"
-SPACESHIP_R_ASYNC="${SPACESHIP_R_ASYNC=true}"
-SPACESHIP_R_PREFIX="${SPACESHIP_R_PREFIX="with "}"
-SPACESHIP_R_SUFFIX="${SPACESHIP_R_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_HAXE_SYMBOL="${SPACESHIP_R_SYMBOL="📊 "}"
-SPACESHIP_R_COLOR="blue" 
-SPACESHIP_R_VERBOSE="${SPACESHIP_R_VERBOSE=false}" 
+SPACESHIP_RLANG_SHOW="${SPACESHIP_RLANG_SHOW=true}"
+SPACESHIP_RLANG_ASYNC="${SPACESHIP_RLANG_ASYNC=true}"
+SPACESHIP_RLANG_PREFIX="${SPACESHIP_RLANG_PREFIX="with "}"
+SPACESHIP_RLANG_SUFFIX="${SPACESHIP_RLANG_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_RLANG_SYMBOL="${SPACESHIP_RLANG_SYMBOL="📊 "}"
+SPACESHIP_RLANG_COLOR="blue" 
+SPACESHIP_RLANG_VERBOSE="${SPACESHIP_RLANG_VERBOSE=false}" 
 
 # ------------------------------------------------------------------------------
 # Section
 # ------------------------------------------------------------------------------
 
-spaceship_R() {
-  [[ $SPACESHIP_R_SHOW == false ]] && return
+spaceship_rlang() {
+  [[ $SPACESHIP_RLANG_SHOW == false ]] && return
 
   # Check if R binary exists
   spaceship::exists R || return
@@ -43,10 +43,10 @@ spaceship_R() {
 
 
   spaceship::section \
-    --color  "$SPACESHIP_R_COLOR" \
-    --prefix "$SPACESHIP_R_PREFIX" \
-    --suffix "$SPACESHIP_R_SUFFIX" \
-    --symbol "$SPACESHIP_R_SYMBOL" \
+    --color  "$SPACESHIP_RLANG_COLOR" \
+    --prefix "$SPACESHIP_RLANG_PREFIX" \
+    --suffix "$SPACESHIP_RLANG_SUFFIX" \
+    --symbol "$SPACESHIP_RLANG_SYMBOL" \
     "$R_version"
 
 }
