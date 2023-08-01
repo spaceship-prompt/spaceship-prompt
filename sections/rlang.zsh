@@ -39,7 +39,7 @@ spaceship_rlang() {
   [[ $? -ne 0 || -z $R_version ]] && return
 
   # Verbose output
-  [[ $SPACESHIP_R_VERBOSE == false ]] && R_version=$(echo $R_version | cut -d ' ' -f 1)
+  [[ $SPACESHIP_RLANG_VERBOSE == false ]] && R_version=$(echo $R_version | cut -d ' ' -f 1)
 
 
   spaceship::section \
