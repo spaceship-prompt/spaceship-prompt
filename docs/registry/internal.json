@@ -242,6 +242,12 @@
       "internal": true
     },
     {
+      "name": "rlang",
+      "url": "https://spaceship-prompt.sh/sections/rlang",
+      "description": "The current version of R",
+      "internal": true
+    },
+    {
       "name": "package",
       "url": "https://spaceship-prompt.sh/sections/package",
       "description": "The version of the package when the current directory is a package.",
