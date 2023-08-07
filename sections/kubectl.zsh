@@ -31,6 +31,8 @@ spaceship::precompile "$SPACESHIP_ROOT/sections/kubectl_context.zsh"
 #   spaceship_kubectl_version
 #   spaceship_kubectl_context
 spaceship_kubectl() {
+  local kubectl_info=""
+
   [[ $SPACESHIP_KUBECTL_SHOW == false ]] && return
 
   local kubectl_version="$(spaceship_kubectl_version)"
@@ -41,10 +43,16 @@ spaceship_kubectl() {
   local kubectl_version_section="$(spaceship::section::render $kubectl_version)"
   local kubectl_context_section="$(spaceship::section::render $kubectl_context)"
 
+  if [[ $kubectl_version_section == "" ]]; then # Fixes spacing issue if kubectl version is set to not show
+    kubectl_info="${kubectl_version_section} ${kubectl_context_section}"
+  else
+    kubectl_info="${kubectl_version_section}${kubectl_context_section}"
+  fi
+
   spaceship::section \
     --color "$SPACESHIP_KUBECTL_COLOR" \
     --prefix "$SPACESHIP_KUBECTL_PREFIX" \
     --suffix "$SPACESHIP_KUBECTL_SUFFIX" \
     --symbol "$SPACESHIP_KUBECTL_SYMBOL" \
-    "${kubectl_version_section}${kubectl_context_section}"
+    "${kubectl_info}"
 }
