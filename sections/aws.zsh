@@ -43,10 +43,7 @@ spaceship_aws() {
   fi
 
   if [[ $SPACESHIP_AWS_ACCOUNT_NUMBER_SHOW == true ]] || [[ $SPACESHIP_AWS_ACCOUNT_ROLE_SHOW == true ]] || [[ $SPACESHIP_AWS_ACCOUNT_SESSION_SHOW == true ]]; then
-    local caller_identity=""
-    if [[ -z $profile ]] || [[ "$profile" == "default" ]]; then
-      caller_identity=$(aws sts get-caller-identity --query "Arn" --output text || "error")
-    fi
+    local caller_identity=$(aws sts get-caller-identity --query "Arn" --output text || "error")
   fi
 
   if [[ $SPACESHIP_AWS_ACCOUNT_ALIAS_SHOW == true ]]; then
