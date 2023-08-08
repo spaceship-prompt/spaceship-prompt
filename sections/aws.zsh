@@ -33,7 +33,7 @@ spaceship_aws() {
 
   if [[ $SPACESHIP_AWS_PROFILE_SHOW == true ]]; then
     # Get currently set profile from export or assume default
-    local profile=$(export | grep AWS_PROFILE | awk -F "=" '{print $2}' || "default")
+    local profile=$(export | grep "AWS_PROFILE=" | awk -F "=" '{print $2}' || "default")
     # If cistom profile is not set or is default
     if [[ -z $profile ]] || [[ "$profile" == "default" ]]; then
       aws_info="${aws_info}"
