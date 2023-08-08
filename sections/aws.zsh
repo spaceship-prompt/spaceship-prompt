@@ -51,12 +51,11 @@ spaceship_aws() {
     if [[ -z $account_alias ]] || [[ "$account_alias" == "error" ]]; then
       aws_info="${aws_info}"
     else
-      if [[ $SPACESHIP_AWS_PROFILE_SHOW == true ]] && ( [[ -z $profile ]] || [[ "$profile" == "error" ]]); then
+      if [[ $SPACESHIP_AWS_PROFILE_SHOW == false ]] || ( [[ -z $profile ]] || [[ "$profile" == "error" ]]); then
         aws_info="${aws_info} ${account_alias}"
       else
         aws_info="${aws_info}:${account_alias}"
       fi
-      
     fi
   fi
   if [[ $SPACESHIP_AWS_ACCOUNT_NUMBER_SHOW == true ]]; then
