@@ -31,7 +31,6 @@ theme:
   features:
     - navigation.sections
     - navigation.indexes
-    - navigation.instant
     - navigation.tracking
     - navigation.tabs
     - navigation.tabs.sticky
@@ -132,7 +131,7 @@ markdown_extensions:
       permalink: true
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
-          case: none 
+          case: none
   - attr_list
   - tables
   - pymdownx.tabbed:
@@ -151,21 +150,22 @@ extra:
   alternate:
     - name: English
       lang: en
-      link: /en
+      link: /en/
     - name: Deutsch
       lang: de
-      link: /de
+      link: /de/
     - name: Français
       lang: fr
-      link: /fr
+      link: /fr/
     - name: Українська
       lang: uk
-      link: /uk
+      link: /uk/
     - name: 简体中文
       lang: zh
-      link: /zh
+      link: /zh/
     - name: Help translating
-      link: https://translate.spaceship-prompt.sh
+      lang: null
+      link: https://translate.spaceship-prompt.sh/
   analytics:
     provider: google
     property: G-0STBM9BNC1
@@ -203,41 +203,43 @@ plugins:
         api.md: api/environment.md
         troubleshooting.md: faq.md
   - i18n:
-      default_language: en
-      # Default behavior doesn't display language switcher for non-English pages
-      material_alternate: false
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_search: true
       languages:
-        en:
+        - locale: en
           name: English
-        de:
+          build: true
+          default: true
+        - locale: de
           name: Deutsch
-        fr:
+          build: true
+        - locale: fr
           name: Français
-        uk:
+          build: true
+        - locale: uk
           name: Українська
-        zh:
+          build: true
+          nav_translations:
+            API: API
+            Advanced: Розширені можливості
+            Blog: Блог
+            Built-in Sections: Вбудовані секції
+            Configuration: Конфігурація
+            Contribute: Зробити внесок
+            Creating a custom section: Створення власної секції
+            Environment: Середовище
+            FAQ: ЧАПИ
+            General utilities: Загальні утиліти
+            Getting Started: Початок роботи
+            Home: Головна
+            Introduction: Вступ
+            Loading custom sections: Завантаження власних секцій
+            Per-directory configuration: Налаштування для кожної директорії
+            Prompt configuration: Налаштування командного рядка
+            Registry: Реєстр
+            Sections: Секції
+            Testing kit: Інструменти тестування
+        - locale: zh
           name: 简体中文
-      nav_translations:
-        de: # TODO: Add German translations
-        fr: # TODO: Add French translations
-        uk:
-          Home: Головна
-          Getting Started: Початок роботи
-          Configuration: Конфігурація
-          Introduction: Вступ
-          Prompt configuration: Налаштування командного рядка
-          Loading custom sections: Завантаження власних секцій
-          Built-in Sections: Вбудовані секції
-          Advanced: Розширені можливості
-          Creating a custom section: Створення власної секції
-          Per-directory configuration: Налаштування для кожної директорії
-          API: API
-          Environment: Середовище
-          Sections: Секції
-          General utilities: Загальні утиліти
-          Testing kit: Інструменти тестування
-          Registry: Реєстр
-          FAQ: ЧАПИ
-          Blog: Блог
-          Contribute: Зробити внесок
-        zh: # TODO: Add Chinese translations
+          build: true
