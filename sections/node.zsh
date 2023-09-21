@@ -43,7 +43,7 @@ spaceship_node() {
   fi
 
   # Get only the version
-  node_version=$(echo "$node_version" | grep -o 'v[0-9.]*' | head -n 1)
+  node_version=$(echo "$node_version" | spaceship::grep -oE 'v[0-9.]*' | head -n 1)
 
   # Do not show system or default versions
   [[ $node_version == "system" || $node_version == "node" ]] && return
