@@ -102,7 +102,7 @@ You can customize every section of the prompt with section's options. Check out 
 
 Besides built-in sections, you can add external section to your prompt or build a custom one.
 
-[Browse built-in sections](/sections ""){.md-button} [Browse all sections](/registry ""){.md-button}
+[Browse built-in sections](../sections/index.md){.md-button} [Browse all sections](../registry.md){.md-button}
 
 ## Prompt-level options
 
@@ -127,7 +127,7 @@ The `SPACESHIP_PROMPT_ASYNC` option defines whether the prompt is rendered async
 
 The synchronous sections are displayed immediately. The asynchronous sections are processed in the background and are displayed when the information is ready to be displayed.
 
-The [`async` section](/sections/async) is used as a placeholder for not yet available asynchronous sections.
+The [`async` section](../sections/async.md) is used as a placeholder for not yet available asynchronous sections.
 
 ### Prompt spacing
 

@@ -92,7 +92,7 @@ Here are some sneak picks of what **Spaceship** can show:
 - Package version (npm, lerna, cargo, composer and others)
 - Battery level and status
 - Indicator for jobs in the background `✦`
-- A lot of [useful information](/sections)
+- A lot of [useful information](/sections/index.md)
 - Custom [information of your choice](/advanced/creating-section)
 
 Want more features? Please, [open an issue](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose) or send pull request.
