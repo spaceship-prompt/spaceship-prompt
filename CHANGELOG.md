@@ -1,3 +1,10 @@
+## [4.14.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.14.0...v4.14.1) (2023-09-21)
+
+
+### Bug Fixes
+
+* resolve build error for mkdocs-static-i18n ([47c45b3](https://github.com/spaceship-prompt/spaceship-prompt/commit/47c45b347a5c568ecc39d177c73a79c1463e7705))
+
 # [4.14.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.13.5...v4.14.0) (2023-05-17)
 
 
