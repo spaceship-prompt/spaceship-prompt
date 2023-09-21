@@ -2,9 +2,9 @@
 
 Though Spaceship has multiple sections for various use-cases, sometimes you may need to install a custom one: for a specific tool or something that you use personally.
 
-You can create your own section using [sections API](/api/section) or use existing one from [the Registry](/registry):
+You can create your own section using [sections API](/api/section) or use existing one from [the Registry](../registry.md):
 
-[Browse Registry](/registry){ .md-button  }
+[Browse Registry](../registry.md){ .md-button  }
 [Create a custom section](/advanced/creating-section){ .md-button }
 
 ## How to install a section

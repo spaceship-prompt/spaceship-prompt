@@ -60,7 +60,7 @@ Here's how it works:
   <script id="asciicast-514494" src="https://asciinema.org/a/514494.js" data-autoplay="true" data-loop="true" data-preload="true" async></script>
 </div>
 
-As you see above, only the directory and prompt character are displayed immediately. The rest of the prompt (`git` and `package` sections) are rendered asynchronously and thus added later. A [`…` placeholder](/sections/async) for upcoming information is displayed while the computation is in progress.
+As you see above, only the directory and prompt character are displayed immediately. The rest of the prompt (`git` and `package` sections) are rendered asynchronously and thus added later. A [`…` placeholder](/sections/async.md) for upcoming information is displayed while the computation is in progress.
 
 If you're fast enough you can even type the following command, before the prompt is fully rendered.
 
@@ -74,7 +74,7 @@ Kudos to [@laggardkernel](https://github.com/laggardkernel) who laid the groundw
 
 ### Registry for sections
 
-This release also introduces [the Spaceship Registry](/registry). It's a registry of all sections that are available for Spaceship.
+This release also introduces [the Spaceship Registry](../registry.md). It's a registry of all sections that are available for Spaceship.
 
 ![Spaceship Registry](https://user-images.githubusercontent.com/3459374/187728583-0a7b3fdb-2a6d-41bb-ae1d-378b8e4db660.png)
 
