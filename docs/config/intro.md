@@ -13,7 +13,8 @@ touch ~/.spaceshiprc.zsh
 … or, if you prefer to keep your configuration within a `~/.config` or `~/.config/spaceship` folders, you can do so, as well:
 
 ```zsh
-mkdir -p ~/.config/spaceship.zsh
+mkdir -p ~/.config
+touch ~/.config/spaceship.zsh
 ```
 
 This file will be automatically sourced by Spaceship when it starts up.

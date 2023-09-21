@@ -13,7 +13,8 @@ touch ~/.spaceshiprc.zsh
 … або, якщо ви бажаєте зберегти свою конфігурацію в папках `~/.config` або `~/.config/spaceship`, зробіть ось це:
 
 ```zsh
-mkdir -p ~/.config/spaceship.zsh
+mkdir -p ~/.config
+touch ~/.config/spaceship.zsh
 ```
 
 Spaceship автоматично завантажить цей файл при запуску.
