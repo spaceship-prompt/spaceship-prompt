@@ -81,7 +81,7 @@ spaceship::is_section_async <section>
 
 Перевіряє, чи командний рядок працює в асинхронному режимі. Ця утиліта повертає нульовий код виходу, якщо командний рядок працює в асинхроннім режимі, і відмінним від нуля, якщо це не так.
 
-Перевіряє, чи `SPACESHIP_PROMPT_ASYNC` встановлено у `true` і [`zsh-async` завантажується](/uk/api/environment/#asynchronous-runtime).
+Перевіряє, чи `SPACESHIP_PROMPT_ASYNC` встановлено у `true` і [`zsh-async` завантажується](/api/environment/#asynchronous-runtime).
 
 ## `spaceship::deprecated`
 
