@@ -93,7 +93,7 @@
 
     Ця команда завантажить Spaceship. Вона також попросить вас підключити Spaceship у вашому файлі `~/.zshrc`.
     
-    !!! tip
+    !!! tip:**
         Ви можете оновлювати Spaceship до нових версій, так як і будь-який інший пакет.
 
 === "prezto"
@@ -193,17 +193,18 @@
 
     Зверніть також увагу на пакунок [spaceship-prompt-git](https://aur.archlinux.org/packages/spaceship-prompt-git/) в git який потребує підтримки.
 
+
 ## Вітаємо!
 
 Ви зробили це! Ви встановили Spaceship на вашу машину!
 
 Що далі? Spaceship має помірковані налаштування за замовчуванням, але ви можете налаштувати його під свої потреби. Дізнайтеся, як налаштувати Spaceship:
 
-[Налаштувати Spaceship](/uk/config/intro ""){.md-button}
+[Налаштувати Spaceship](/config/intro ""){.md-button}
 
 Крім того, приєднайтеся до нашої спільноти або розгляньте можливість зробити внесок у проект.
 
-[:material-hand-heart: Зробити внесок](/uk/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button}
+[:material-hand-heart: Зробити внесок](/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button}
 
 ## Виникли проблеми?
 
