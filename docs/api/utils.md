@@ -171,10 +171,13 @@ spaceship::upsearch package.json
 
 ## `spaceship::extract`
 
+!!! note
+    This utility has an alias `spaceship::datafile`
+
 This utility queries data files for a specific key. It returns the value of the key. Exits with non-zero code when the file type is unknown, data cannot be read, or the key is not found.
 
 ``` title="Signature"
-spaceship::extract --<type> <file> [key]
+spaceship::extract --<type> <file> [...keys]
 ```
 
 1. `--type` _Required_ — a type of the data file. Can be `json`, `yaml`, `toml` or `xml`.
