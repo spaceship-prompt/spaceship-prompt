@@ -109,7 +109,7 @@ Installing Spaceship is simple and quick. It's configurable and easy to use.
 Join our community and consider contributing to the project.
 
 [:material-hand-heart: Contribute](/contribute){ .md-button }
-[:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt){ .md-button }
+[:fontawesome-brands-twitter: Twitter](https://twitter.com/SpaceshipPrompt){ .md-button }
 [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9){ .md-button }
 [:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/){ .md-button }
 
