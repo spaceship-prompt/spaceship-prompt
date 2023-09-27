@@ -135,7 +135,7 @@ What else can you do with `spaceship` CLI?
 ### Other improvements
 
 * **Source files of the Spaceship are now getting automatically compiled to ZWC with [`zcompile`](https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-_002e).** ZWC or Zsh Word Code is a special format of compiled Zsh scripts. It helps Zsh skip the reading and parsing of the script and get straight to executing. This results in a significant performance boost.
-* **Improved `package` section.** Now it supports `composer` and `julia`. Package version resolution got smarter and faster thanks to the new `spaceship::datafile` utility.
+* **Improved `package` section.** Now it supports `composer` and `julia`. Package version resolution got smarter and faster thanks to the new `spaceship::extract` utility.
 * **`git` and `hg` orders are now configurable.** You can use `spaceship add --order git` to change the order of `git` section or add custom subsection to it.
 * **Upsearching files.** Now when Spaceship looks for a file, it will search for it in the current directory and all parent directories up to the repository root. This will help maintaining the context of you current environment.
 * **Added checks for minimal zsh version.** Now, if you are running an outdated version of Zsh, you will get a message.

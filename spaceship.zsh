@@ -123,6 +123,7 @@ SPACESHIP_PROMPT_DEFAULT_SUFFIX="${SPACESHIP_PROMPT_DEFAULT_SUFFIX=" "}"
 
 SPACESHIP_LIBS=(
   "lib/utils.zsh"   # General porpuse utils
+  "lib/extract.zsh" # Data extraction utils
   "lib/cache.zsh"   # Cache utils
   "lib/worker.zsh"  # Async worker
   "lib/hooks.zsh"   # Zsh hooks
