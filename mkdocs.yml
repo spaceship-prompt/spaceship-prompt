@@ -150,7 +150,7 @@ extra:
   alternate:
     - name: English
       lang: en
-      link: /en/
+      link: .
     - name: Deutsch
       lang: de
       link: /de/
