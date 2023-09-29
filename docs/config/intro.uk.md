@@ -13,7 +13,8 @@ touch ~/.spaceshiprc.zsh
 … або, якщо ви бажаєте зберегти свою конфігурацію в папках `~/.config` або `~/.config/spaceship`, зробіть ось це:
 
 ```zsh
-mkdir -p ~/.config/spaceship.zsh
+mkdir -p ~/.config
+touch ~/.config/spaceship.zsh
 ```
 
 Spaceship автоматично завантажить цей файл при запуску.
@@ -45,7 +46,7 @@ spaceship add --before char vi_mode
 
 Ви можете дізнатися більше про доступні опції, читаючи документацію далі.
 
-[Переглянути доступні опції](/uk/config/prompt ""){.md-button}
+[Переглянути доступні опції](/config/prompt ""){.md-button}
 
 ## Зміна розташування файлу конфігурації
 

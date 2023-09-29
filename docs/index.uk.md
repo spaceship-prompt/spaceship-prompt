@@ -12,7 +12,7 @@ features:
   - 
     title: Охайний та простий
     image: /assets/images/what-is-needed.svg
-    description: Командний рядок не перевантажений, а показує тільки те, що вам потрібно в цей момент (поточна тека, гілка git тощо).
+    description: Командний рядок не перевантажений, а показує тільки те, що вам потрібно в даний момент (поточна директорія, гілка git тощо).
   - 
     title: Просто встановлюється
     image: /assets/images/out-of-the-box.svg
@@ -107,33 +107,33 @@ companies:
 
 ## Можливості
 
-**Spaceship** — це надпотужний командний рядок для Zsh. Командний рядок — це те, що ви бачите у терміналі, перед командою, яку вводите. Він може показувати багато корисних речей, що допоможуть вам заощадити час та зробити роботу в консолі легкою та приємною.
+**Spaceship** — це надпотужний командний рядок для Zsh. Командний рядок — це те, що ви бачите у терміналі, перед командою, яку вводите. Він може показувати багато корисних порад, заощаджуючи час та роблячи користування легким та приємним.
 
 Ось деякі цікаві штуки, які **Spaceship** вміє показувати:
 
-- Зручний показ імені хоста та імені користувача
+- Розумне ім'я хоста і відображення імені користувача
 - Статуси репозиторіїв (Git та Mercurial підтримуються)
-- Оточення для різних мов (Node.js, Rust, Python, Ruby, Swift, Go, PHP та багато інших)
-- Версію Docker, контекст Kubernetes та підʼєднану машину
-- Версію пакунка (npm, lerna, cargo, composer та інші)
+- Середовища середовища для різних мов (Node.js, Rust, Python, Ruby, Swift, Go, PHP та багато інших)
+- Docker версія, контекст Kubernetes і під'єднана машину
+- Версія пакунку (npm, lerna, cargo, редактор та інші)
 - Поточний рівень заряду батареї та її статус
 - Індикатор для задач, що виконуються у фоновому режимі `✦`
-- Багато [корисної інформації](/uk/sections)
-- Додаткову [інформацію на ваш вибір](/uk/advanced/creating-section)
+- Багато [корисної інформації](/sections/index.md)
+- Додатково [інформація на ваш вибір](/advanced/creating-section)
 
-Бажаєте більше можливостей? Будь ласка, [створіть запит](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose) або надішліть пул-реквест.
+Бажаєте більше можливостей? Будь ласка, [відкрийте задачу](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose) або надішліть пул-реквест.
 
 ## Початок роботи
 
 Встановлення Spaceship просте та швидке. Він легко конфігурується і є простим у використанні.
 
-[Встановлення](/uk/getting-started ""){.md-button} [Конфігурація](/uk/config/intro ""){.md-button}
+[Встановлення](/getting-started ""){.md-button} [Конфігурація](/config/intro ""){.md-button}
 
 ## Підтримка
 
-Приєднуйтесь до нашої спільноти або спробуйте зробити свій внесок у проєкт.
+Приєднайтеся до нашої спільноти або спробуйте зробити свій внесок у проєкт.
 
-[:material-hand-heart: Зробити внесок](/uk/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button} [:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/ ""){.md-button}
+[:material-hand-heart: Зробити внесок](/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button} [:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/ ""){.md-button}
 
 ## Ліцензія
 

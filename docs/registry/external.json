@@ -2,6 +2,11 @@
   "$schema": "./schema.json",
   "sections": [
     {
+      "name": "arch",
+      "url": "https://github.com/windwhinny/spaceship-arch",
+      "description": "The arch section for Spaceship prompt shows if current shell running in x86 env."
+    },
+    {
       "name": "vi_mode",
       "url": "https://github.com/spaceship-prompt/spaceship-vi-mode",
       "description": "Vi-mode section for Spaceship prompt."
