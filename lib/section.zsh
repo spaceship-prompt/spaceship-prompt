@@ -33,6 +33,7 @@ spaceship::section() {
   tuple+=("$content")
   tuple+=(")")
 
+  echo -n "${(j:·|·:)tuple}" >> ~/tmp/section.out
   echo -n "${(j:·|·:)tuple}"
 }
 
@@ -88,9 +89,15 @@ spaceship::section::render() {
   if [[ "$_spaceship_prompt_opened" == true || "$_spaceship_rprompt_opened" == true ]] \
   && [[ "$SPACESHIP_PROMPT_PREFIXES_SHOW" == true ]] \
   && [[ -n "$prefix" ]]; then
-    result+="%{%B%}" # set bold
+    if [[ "$SPACESHIP_PROMPT_COLORFUL_PREFIXES" == true ]]; then
+        result+="%{%B$color%}"  # set color
+    fi
+    result+="%{%B%}"            # set bold
     result+="$prefix"
-    result+="%{%b%}" # unset bold
+    result+="%{%b%}"            # unset bold
+    if [[ "$SPACESHIP_PROMPT_COLORFUL_PREFIXES" == true ]]; then
+        result+="%{%b%f%}"      # unset color
+    fi
   fi
 
   _spaceship_prompt_opened=true
@@ -103,9 +110,15 @@ spaceship::section::render() {
 
   if [[ "$SPACESHIP_PROMPT_SUFFIXES_SHOW" == true ]] \
   && [[ -n "$suffix" ]]; then
-    result+="%{%B%}" # reset bold, if it was diabled before
+    if [[ "$SPACESHIP_PROMPT_COLORFUL_SUFFIXES" == true ]]; then
+        result+="%{%B$color%}"  # set color
+    fi
+    result+="%{%B%}"            # reset bold, if it was diabled before
     result+="$suffix"
-    result+="%{%b%}" # unset bold
+    result+="%{%b%}"            # unset bold
+    if [[ "$SPACESHIP_PROMPT_COLORFUL_SUFFIXES" == true ]]; then
+        result+="%{%b%f%}"      # unset color
+    fi
   fi
 
   echo -n "$result"
