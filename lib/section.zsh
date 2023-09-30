@@ -33,7 +33,6 @@ spaceship::section() {
   tuple+=("$content")
   tuple+=(")")
 
-  echo -n "${(j:·|·:)tuple}" >> ~/tmp/section.out
   echo -n "${(j:·|·:)tuple}"
 }
 
