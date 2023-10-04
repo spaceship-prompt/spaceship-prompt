@@ -1,3 +1,10 @@
+# [4.15.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.14.1...v4.15.0) (2023-10-04)
+
+
+### Features
+
+* **extract:** Introduce extract instead of datafile ([6f7c101](https://github.com/spaceship-prompt/spaceship-prompt/commit/6f7c1017cbd253f90392514017642408fa6ed43b))
+
 ## [4.14.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.14.0...v4.14.1) (2023-09-21)
 
 
