@@ -127,7 +127,7 @@ The `SPACESHIP_PROMPT_ASYNC` option defines whether the prompt is rendered async
 
 The synchronous sections are displayed immediately. The asynchronous sections are processed in the background and are displayed when the information is ready to be displayed.
 
-The [`async` section](/sections/async) is used as a placeholder for not yet available asynchronous sections.
+The [`async` section](/sections/async.md) is used as a placeholder for not yet available asynchronous sections.
 
 ### Prompt spacing
 

@@ -8,7 +8,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='4.14.0'
+export SPACESHIP_VERSION='4.15.0'
 
 # Set SPACESHIP_ROOT if it isn't defined yet or if the directory does
 # not exist anymore (e.g. after an update to a newer version)
@@ -123,6 +123,7 @@ SPACESHIP_PROMPT_DEFAULT_SUFFIX="${SPACESHIP_PROMPT_DEFAULT_SUFFIX=" "}"
 
 SPACESHIP_LIBS=(
   "lib/utils.zsh"   # General porpuse utils
+  "lib/extract.zsh" # Data extraction utils
   "lib/cache.zsh"   # Cache utils
   "lib/worker.zsh"  # Async worker
   "lib/hooks.zsh"   # Zsh hooks
