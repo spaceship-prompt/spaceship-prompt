@@ -81,7 +81,7 @@ spaceship::is_section_async <section>
 
 Перевіряє, чи командний рядок працює в асинхронному режимі. Ця утиліта повертає нульовий код виходу, якщо командний рядок працює в асинхроннім режимі, і відмінним від нуля, якщо це не так.
 
-Перевіряє, чи `SPACESHIP_PROMPT_ASYNC` встановлено у `true` і [`zsh-async` завантажується](/uk/api/environment/#asynchronous-runtime).
+Перевіряє, чи `SPACESHIP_PROMPT_ASYNC` встановлено у `true` і [`zsh-async` завантажується](/api/environment/#asynchronous-runtime).
 
 ## `spaceship::deprecated`
 
@@ -169,12 +169,12 @@ spaceship::upsearch package.json
 #> /path/to/project/package.json
 ```
 
-## `spaceship::datafile`
+## `spaceship::extract`
 
 Ця утиліта запитує файли даних для отримання певного ключа. Вона повертає значення цього ключа. Виходить з ненульовим кодом, коли тип файлу невідомий, дані не можна прочитати або ключ не знайдено.
 
 ``` title="Signature"
-spaceship::datafile --<type> <file> [key]
+spaceship::extract --<type> <file> [key]
 ```
 
 1. `--type` _Обовʼязково_ — тип файлу даних. Може бути `json`, `yaml`, `toml` або `xml`.
@@ -184,7 +184,7 @@ spaceship::datafile --<type> <file> [key]
 Ви можете використовувати цю утиліту для запиту даних з файлів:
 
 ```zsh
-spaceship::datafile --json package.json "author.name"
+spaceship::extract --json package.json "author.name"
 #> "John Doe"
 ```
 

@@ -283,7 +283,7 @@ Spaceship works well out of the box, but you can customize almost everything if 
 - [**⚙️ Configuration**](https://spaceship-prompt.sh/config/intro) — Tweak section's behavior with tons of options.
 - [**😎 Advanced Usage**](https://spaceship-prompt.sh/advanced/creating-section) — Learn how to create a custom section, benefit of per-directory configuration and more.
 
-Additionally, join our community in [Discord](https://discord.gg/NTQWz8Dyt9) and follow our [Twitter](https//twitter.com/SpaceshipPrompt) for updates.
+Additionally, join our community in [Discord](https://discord.gg/NTQWz8Dyt9) and follow our [Twitter](https://twitter.com/SpaceshipPrompt) for updates.
 
 ## 🫶 Contributing
 
