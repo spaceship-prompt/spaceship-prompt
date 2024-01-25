@@ -44,12 +44,12 @@ When adding a new section to Spaceship, here's a checklist you should follow:
 ## Setup
 
 1. **Fork** this repo (click the _fork_ button)
-1. **Clone** your fork to your working machine (via `git clone`)
+1. **Clone** your fork to your working machine (via `git clone`) and **cd** into directory.
 1. **Update submodules** in your fork (via `git submodule update --init --recursive`)
 1. **Make your changes**. Check our [API](https://spaceship-prompt.sh/api) for more information (we suggest you to check out a new branch for changes).
 1. **Test** your code (via `make tests`)
 1. **Add and commit** your contributions
-1. **Push** your changes to your remote fork
+1. **Push** your changes to your remote fork by doing (**git push**)
 1. **Open a pull-request** to our primary repo and target `master` branch.
 1. **Wait for review**, get your PR reviewed and merged.
 

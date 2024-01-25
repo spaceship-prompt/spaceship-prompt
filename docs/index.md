@@ -92,7 +92,7 @@ Here are some sneak picks of what **Spaceship** can show:
 - Package version (npm, lerna, cargo, composer and others)
 - Battery level and status
 - Indicator for jobs in the background `✦`
-- A lot of [useful information](/sections)
+- A lot of [useful information](/sections/index.md)
 - Custom [information of your choice](/advanced/creating-section)
 
 Want more features? Please, [open an issue](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose) or send pull request.
@@ -109,7 +109,7 @@ Installing Spaceship is simple and quick. It's configurable and easy to use.
 Join our community and consider contributing to the project.
 
 [:material-hand-heart: Contribute](/contribute){ .md-button }
-[:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt){ .md-button }
+[:fontawesome-brands-twitter: Twitter](https://twitter.com/SpaceshipPrompt){ .md-button }
 [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9){ .md-button }
 [:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/){ .md-button }
 

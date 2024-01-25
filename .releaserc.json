@@ -10,7 +10,7 @@
         "path": "LICENSE.md"
       }
     }],
-    ["@google/semantic-release-replace-plugin", {
+    ["semantic-release-replace-plugin", {
       "replacements": [{
         "files": ["spaceship.zsh"],
         "from": "export SPACESHIP_VERSION='.*'",
