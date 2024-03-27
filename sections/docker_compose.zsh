@@ -37,7 +37,7 @@ spaceship_docker_compose() {
   spaceship::exists docker-compose || return
   spaceship::upsearch -s 'docker-compose.y*ml' || return
 
-  local containers="$(docker-compose ps 2>/dev/null | tail -n+2)"
+  local containers="$(docker-compose ps -a 2>/dev/null | tail -n+2)"
   [[ -n "$containers" ]] || return
 
   local statuses=""
