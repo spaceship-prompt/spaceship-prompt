@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+echo "NAME  LAST UPDATE  RESOURCE COUNT  URL"
+echo "dev*  2 weeks ago  0               https://app.pulumi.com/ORG/REPO/dev"
+echo "prod  1 day ago    178             https://app.pulumi.com/ORG/REPO/prod"
+echo "stag  1 day ago    183             https://app.pulumi.com/ORG/REPO/stag"
