@@ -169,12 +169,12 @@ spaceship::upsearch package.json
 #> /path/to/project/package.json
 ```
 
-## `spaceship::datafile`
+## `spaceship::extract`
 
 This utility queries data files for a specific key. It returns the value of the key. Exits with non-zero code when the file type is unknown, data cannot be read, or the key is not found.
 
 ``` title="Signature"
-spaceship::datafile --<type> <file> [key]
+spaceship::extract --<type> <file> [key]
 ```
 
 1. `--type` _Required_ — a type of the data file. Can be `json`, `yaml`, `toml` or `xml`.
@@ -184,7 +184,7 @@ spaceship::datafile --<type> <file> [key]
 You can use this utility to query data from a data file:
 
 ```zsh
-spaceship::datafile --json package.json "author.name"
+spaceship::extract --json package.json "author.name"
 #> "John Doe"
 ```
 

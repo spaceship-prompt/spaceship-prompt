@@ -60,7 +60,7 @@ Here's how it works:
   <script id="asciicast-514494" src="https://asciinema.org/a/514494.js" data-autoplay="true" data-loop="true" data-preload="true" async></script>
 </div>
 
-As you see above, only the directory and prompt character are displayed immediately. The rest of the prompt (`git` and `package` sections) are rendered asynchronously and thus added later. A [`…` placeholder](/sections/async) for upcoming information is displayed while the computation is in progress.
+As you see above, only the directory and prompt character are displayed immediately. The rest of the prompt (`git` and `package` sections) are rendered asynchronously and thus added later. A [`…` placeholder](/sections/async.md) for upcoming information is displayed while the computation is in progress.
 
 If you're fast enough you can even type the following command, before the prompt is fully rendered.
 
@@ -74,7 +74,7 @@ Kudos to [@laggardkernel](https://github.com/laggardkernel) who laid the groundw
 
 ### Registry for sections
 
-This release also introduces [the Spaceship Registry](/registry). It's a registry of all sections that are available for Spaceship.
+This release also introduces [the Spaceship Registry](../registry.md). It's a registry of all sections that are available for Spaceship.
 
 ![Spaceship Registry](https://user-images.githubusercontent.com/3459374/187728583-0a7b3fdb-2a6d-41bb-ae1d-378b8e4db660.png)
 
@@ -135,7 +135,7 @@ What else can you do with `spaceship` CLI?
 ### Other improvements
 
 * **Source files of the Spaceship are now getting automatically compiled to ZWC with [`zcompile`](https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html#index-_002e).** ZWC or Zsh Word Code is a special format of compiled Zsh scripts. It helps Zsh skip the reading and parsing of the script and get straight to executing. This results in a significant performance boost.
-* **Improved `package` section.** Now it supports `composer` and `julia`. Package version resolution got smarter and faster thanks to the new `spaceship::datafile` utility.
+* **Improved `package` section.** Now it supports `composer` and `julia`. Package version resolution got smarter and faster thanks to the new `spaceship::extract` utility.
 * **`git` and `hg` orders are now configurable.** You can use `spaceship add --order git` to change the order of `git` section or add custom subsection to it.
 * **Upsearching files.** Now when Spaceship looks for a file, it will search for it in the current directory and all parent directories up to the repository root. This will help maintaining the context of you current environment.
 * **Added checks for minimal zsh version.** Now, if you are running an outdated version of Zsh, you will get a message.
