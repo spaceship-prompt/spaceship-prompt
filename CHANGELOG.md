@@ -1,3 +1,17 @@
+## [4.15.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.15.0...v4.15.1) (2024-03-27)
+
+
+### Bug Fixes
+
+* **pulumi:** Improve search for Pulumi.yml and Pulumi.yaml to prevent 'not found' message; Add tests for Pulumi section ([#1417](https://github.com/spaceship-prompt/spaceship-prompt/issues/1417)) ([134d979](https://github.com/spaceship-prompt/spaceship-prompt/commit/134d97984900285db2c2ec0c992f4d82b74d5e17))
+
+# [4.15.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.14.1...v4.15.0) (2023-10-04)
+
+
+### Features
+
+* **extract:** Introduce extract instead of datafile ([6f7c101](https://github.com/spaceship-prompt/spaceship-prompt/commit/6f7c1017cbd253f90392514017642408fa6ed43b))
+
 ## [4.14.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.14.0...v4.14.1) (2023-09-21)
 
 
