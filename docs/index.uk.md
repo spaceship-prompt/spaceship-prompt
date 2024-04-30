@@ -133,7 +133,7 @@ companies:
 
 Приєднайтеся до нашої спільноти або спробуйте зробити свій внесок у проєкт.
 
-[:material-hand-heart: Зробити внесок](/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button} [:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/ ""){.md-button}
+[:material-hand-heart: Долучитись](/contribute ""){.md-button} [:fontawesome-brands-twitter: Twitter](https://twitter.com/SpaceshipPrompt ""){.md-button} [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9 ""){.md-button} [:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/ ""){.md-button}
 
 ## Ліцензія
 
