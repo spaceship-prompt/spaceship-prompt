@@ -1,3 +1,10 @@
+## [4.15.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.15.1...v4.15.2) (2024-05-01)
+
+
+### Bug Fixes
+
+* **docker-compose:** include stopped containers ([#1422](https://github.com/spaceship-prompt/spaceship-prompt/issues/1422)) ([be2f603](https://github.com/spaceship-prompt/spaceship-prompt/commit/be2f6034d712c19db6ab810459c17b371ec6eb35))
+
 ## [4.15.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.15.0...v4.15.1) (2024-03-27)
 
 
