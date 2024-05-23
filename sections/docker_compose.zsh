@@ -43,7 +43,7 @@ spaceship_docker_compose() {
   local statuses=""
 
   while IFS= read -r line; do
-    local letter_position=$(echo $line | awk 'match($0,"_"){print RSTART}')
+    local letter_position=$(echo $line | awk 'match($0,"_|-"){print RSTART}')
     local letter=$(echo ${line:$letter:1} | tr '[:lower:]' '[:upper:]')
     local color=""
     [[ -z "$letter" ]] && continue
