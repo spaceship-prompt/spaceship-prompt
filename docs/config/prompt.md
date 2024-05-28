@@ -148,7 +148,7 @@ The [`async` section](/sections/async.md) is used as a placeholder for not yet a
 
 ### Prompt spacing
 
-Spaceship adds and empty line between each prompt. You can disable this behavior by setting `SPACESHIP_PROMPT_ADD_NEWLINE` to `false`.
+Spaceship adds an empty line between each prompt. You can disable this behavior by setting `SPACESHIP_PROMPT_ADD_NEWLINE` to `false`.
 
 The prompt is also separated by a line break if `SPACESHIP_PROMPT_SEPARATE_LINE` is set to `true`.
 
