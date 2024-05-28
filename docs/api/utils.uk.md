@@ -171,10 +171,13 @@ spaceship::upsearch package.json
 
 ## `spaceship::extract`
 
+!!! note
+    Псевдонім цієї утиліти – `spaceship::datafile`
+
 Ця утиліта запитує файли даних для отримання певного ключа. Вона повертає значення цього ключа. Виходить з ненульовим кодом, коли тип файлу невідомий, дані не можна прочитати або ключ не знайдено.
 
 ``` title="Signature"
-spaceship::extract --<type> <file> [key]
+spaceship::extract --<type> <file> [...keys]
 ```
 
 1. `--type` _Обовʼязково_ — тип файлу даних. Може бути `json`, `yaml`, `toml` або `xml`.
