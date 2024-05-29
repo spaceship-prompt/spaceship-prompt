@@ -1,3 +1,10 @@
+## [4.15.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.15.2...v4.15.3) (2024-05-29)
+
+
+### Bug Fixes
+
+* **kubectl:** --short arg in kubectl cmd does not exist in later versions ([#1429](https://github.com/spaceship-prompt/spaceship-prompt/issues/1429)) ([96d2523](https://github.com/spaceship-prompt/spaceship-prompt/commit/96d2523e6657524ba061401529d7f501a09cd65a))
+
 ## [4.15.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.15.1...v4.15.2) (2024-05-01)
 
 
