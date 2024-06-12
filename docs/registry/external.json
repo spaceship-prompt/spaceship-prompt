@@ -2,6 +2,11 @@
   "$schema": "./schema.json",
   "sections": [
     {
+      "name": "ip",
+      "url": "https://github.com/TheArqsz/spaceship-ip",
+      "description": "A section for Spaceship prompt to show your current IP address."
+    },
+    {
       "name": "arch",
       "url": "https://github.com/windwhinny/spaceship-arch",
       "description": "The arch section for Spaceship prompt shows if current shell running in x86 env."
