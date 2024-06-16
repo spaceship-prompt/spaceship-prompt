@@ -91,6 +91,7 @@ nav:
         - Pulumi (pulumi): sections/pulumi.md
         - PureScript (purescript): sections/purescript.md
         - Python (python): sections/python.md
+        - Red (red): sections/red.md
         - Ruby (ruby): sections/ruby.md
         - Rust (rust): sections/rust.md
         - Scala (scala): sections/scala.md
