@@ -1,3 +1,16 @@
+# [4.16.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.15.3...v4.16.0) (2024-06-19)
+
+
+### Bug Fixes
+
+* **kubectl:** version output redirect ([#1437](https://github.com/spaceship-prompt/spaceship-prompt/issues/1437)) ([9373ed2](https://github.com/spaceship-prompt/spaceship-prompt/commit/9373ed2764309cc55dca648d3c4baf2aa5e99dce))
+
+
+### Features
+
+* add git_commit with git commit short hash ([#1438](https://github.com/spaceship-prompt/spaceship-prompt/issues/1438)) ([46edb9f](https://github.com/spaceship-prompt/spaceship-prompt/commit/46edb9f865831be3c0e656fbc654655256f03961)), closes [#741](https://github.com/spaceship-prompt/spaceship-prompt/issues/741) [#741](https://github.com/spaceship-prompt/spaceship-prompt/issues/741)
+* **red:** Add Red Section ([#1439](https://github.com/spaceship-prompt/spaceship-prompt/issues/1439)) ([e567f8a](https://github.com/spaceship-prompt/spaceship-prompt/commit/e567f8ade2d6ee30bd78b84e441b4d151893a598))
+
 ## [4.15.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.15.2...v4.15.3) (2024-05-29)
 
 
