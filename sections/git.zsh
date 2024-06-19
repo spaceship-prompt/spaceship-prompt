@@ -13,7 +13,7 @@ SPACESHIP_GIT_SUFFIX="${SPACESHIP_GIT_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}
 SPACESHIP_GIT_SYMBOL="${SPACESHIP_GIT_SYMBOL=" "}"
 
 if [ -z "$SPACESHIP_GIT_ORDER" ]; then
-  SPACESHIP_GIT_ORDER=(git_branch git_status)
+  SPACESHIP_GIT_ORDER=(git_branch git_status git_commit)
 fi
 
 # ------------------------------------------------------------------------------
@@ -22,9 +22,11 @@ fi
 
 source "$SPACESHIP_ROOT/sections/git_branch.zsh"
 source "$SPACESHIP_ROOT/sections/git_status.zsh"
+source "$SPACESHIP_ROOT/sections/git_commit.zsh"
 
 spaceship::precompile "$SPACESHIP_ROOT/sections/git_branch.zsh"
 spaceship::precompile "$SPACESHIP_ROOT/sections/git_status.zsh"
+spaceship::precompile "$SPACESHIP_ROOT/sections/git_commit.zsh"
 
 # ------------------------------------------------------------------------------
 # Section

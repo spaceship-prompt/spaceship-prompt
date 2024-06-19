@@ -128,6 +128,12 @@
       "internal": true
     },
     {
+      "name": "git_commit",
+      "url": "https://spaceship-prompt.sh/sections/git/#git-commit-git_commit",
+      "description": "The current Git commit hash.",
+      "internal": true
+    },
+    {
       "name": "golang",
       "url": "https://spaceship-prompt.sh/sections/golang",
       "description": "The version of the Go.",
