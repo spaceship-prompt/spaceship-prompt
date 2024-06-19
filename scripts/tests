@@ -52,6 +52,11 @@ header() {
 main() {
   for test in $TESTS; do
     header "Run $test..."
+    if [[ ! -x "$test" ]]; then
+      header $red "Test $test is not executable!"
+      EXIT_CODE=1
+      continue
+    fi
     ( eval zsh $test 2>&1 )
     local exitcode="$?"
     [ "$exitcode" != "0" ] && EXIT_CODE=$exitcode
