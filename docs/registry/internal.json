@@ -266,6 +266,12 @@
       "internal": true
     },
     {
+      "name": "red",
+      "url": "https://spaceship-prompt.sh/sections/red",
+      "description": "The version of the Red binary.",
+      "internal": true
+    },
+    {
       "name": "ruby",
       "url": "https://spaceship-prompt.sh/sections/ruby",
       "description": "The version of Ruby binary.",

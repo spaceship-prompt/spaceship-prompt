@@ -52,6 +52,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     deno           # Deno section
     ruby           # Ruby section
     python         # Python section
+    red            # Red section
     elm            # Elm section
     elixir         # Elixir section
     xcode          # Xcode section
