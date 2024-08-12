@@ -2,7 +2,7 @@
 
 !!! important "Типово ця секція обробляється асинхронно"
 
-Секція `git` складається з підсекцій [`git_branch`](#git-branch-git_branch) та [`git_status`](#git-status-git_status).
+Секція `git` складається з підсекцій [`git_branch`](#git-branch-git_branch), [`git_status`](#git-status-git_status) та [`git_commit`](#git-commit-git_commit).
 
 ## Опції
 
@@ -52,3 +52,18 @@
 | `SPACESHIP_GIT_STATUS_AHEAD`     |       `⇡`        | Індикатор ненадісланих змін (гілка містить зміни відсутні у віддаленій гілці)         |
 | `SPACESHIP_GIT_STATUS_BEHIND`    |       `⇣`        | Індикатор неотриманих змін (гілка не містить зміни, які відбулись у віддаленій гілці) |
 | `SPACESHIP_GIT_STATUS_DIVERGED`  |       `⇕`        | Індикатор розбіжних змін (розбіжних із віддаленою гілкою)                             |
+
+## Git commit `git_commit`
+
+Секція `git_commit` показує поточний хеш коміту в Git-репозиторії.
+
+### Параметри
+
+| Змінна                        |  Типово  | Опис                                     |
+|:----------------------------- |:--------:| ---------------------------------------- |
+| `SPACESHIP_GIT_COMMIT_SHOW`   | `false`  | Показати секцію                          |
+| `SPACESHIP_GIT_COMMIT_ASYNC`  |  `true`  | Обробляти секцію асинхронно              |
+| `SPACESHIP_GIT_COMMIT_PREFIX` |    ``    | Префікс секції                           |
+| `SPACESHIP_GIT_COMMIT_SUFFIX` |   ``   | Суфікс секції                            |
+| `SPACESHIP_GIT_COMMIT_SYMBOL` |   `#`    | Символ, що показується на початку секції |
+| `SPACESHIP_GIT_COMMIT_COLOR`  | `yellow` | Колір секції                             |
