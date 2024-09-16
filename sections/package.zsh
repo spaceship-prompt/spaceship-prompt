@@ -100,9 +100,16 @@ spaceship_package::julia() {
 spaceship_package::maven() {
   spaceship::upsearch -s pom.xml || return
 
-  local maven_exe=$(spaceship::upsearch mvnw) || (spaceship::exists mvn && maven_exe="mvn") || return
+  local maven_exe=$(spaceship::upsearch mvnw)
+  if [[ -z $maven_exe ]] && spaceship::exists mvn; then
+      maven_exe="mvn"
+  fi
+  [[ -z $maven_exe ]] && return
 
-  $maven_exe help:evaluate -q -DforceStdout -D"expression=project.version" 2>/dev/null
+  local version
+  version=$($maven_exe help:evaluate -q -DforceStdout -Dexpression=project.version 2>/dev/null)
+  [[ $? != 0 ]] && return
+  echo "${version}"
 }
 
 spaceship_package::gradle() {
