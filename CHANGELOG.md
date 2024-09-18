@@ -1,3 +1,10 @@
+## [4.16.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.16.0...v4.16.1) (2024-09-18)
+
+
+### Bug Fixes
+
+* **maven:** Fix package maven ([#1320](https://github.com/spaceship-prompt/spaceship-prompt/issues/1320)) ([b7cba0c](https://github.com/spaceship-prompt/spaceship-prompt/commit/b7cba0c92b5a44b83f9e5811586ac8dad498c998))
+
 # [4.16.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.15.3...v4.16.0) (2024-06-19)
 
 
