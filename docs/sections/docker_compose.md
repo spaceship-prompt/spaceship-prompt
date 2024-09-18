@@ -7,7 +7,7 @@
 
 The `docker_compose` module shows the current status of running Docker container.
 
-This section is shown only in the projects containing `docker-compose.yml` or `docker-compose.yaml` files.
+This section is shown only in the projects containing `docker-compose.yml`, `docker-compose.yaml`, `compose.yml` or `compose.yaml` files.
 
 It shows indicators for each of the running containers marked by the first letter of the container name. Indicator will be displayed:
 

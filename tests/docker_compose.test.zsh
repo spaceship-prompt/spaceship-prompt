@@ -61,7 +61,7 @@ test_docker_compose_no_files() {
 }
 
 test_docker_compose_configs() {
-  FILES=(docker-compose.yml docker-compose.yaml)
+  FILES=(docker-compose.yml docker-compose.yaml compose.yml compose.yaml)
   for file in $FILES; do
     touch $file
     local expected=(
