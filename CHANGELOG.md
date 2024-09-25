@@ -1,3 +1,10 @@
+## [4.16.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.16.1...v4.16.2) (2024-09-25)
+
+
+### Bug Fixes
+
+* **docker-compose:** add 'compose.y*ml' to upsearch ([#1455](https://github.com/spaceship-prompt/spaceship-prompt/issues/1455)) ([f030908](https://github.com/spaceship-prompt/spaceship-prompt/commit/f03090839478e8d93025ad49492a044725ea3a53)), closes [#1450](https://github.com/spaceship-prompt/spaceship-prompt/issues/1450)
+
 ## [4.16.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.16.0...v4.16.1) (2024-09-18)
 
 
