@@ -134,6 +134,12 @@
       "internal": true
     },
     {
+      "name": "gleam",
+      "url": "https://spaceship-prompt.sh/sections/gleam",
+      "description": "The current version of Gleam.",
+      "internal": true
+    },
+    {
       "name": "golang",
       "url": "https://spaceship-prompt.sh/sections/golang",
       "description": "The version of the Go.",
