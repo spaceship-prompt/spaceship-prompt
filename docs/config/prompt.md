@@ -94,6 +94,7 @@ SPACESHIP_PROMPT_ORDER=(
   exit_code      # Exit code section
   sudo           # Sudo indicator
   char           # Prompt character
+  gleam          # Gleam section
 )
 ```
 

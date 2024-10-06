@@ -46,82 +46,83 @@ nav:
       - Prompt configuration: config/prompt.md
       - Loading custom sections: config/loading-sections.md
       - Built-in Sections:
-        - sections/index.md
-        - Ansible (Ansible): sections/ansible.md
-        - Async (async): sections/async.md
-        - AWS (aws): sections/aws.md
-        - Azure (azure): sections/azure.md
-        - Battery (battery): sections/battery.md
-        - Bun (bun): sections/bun.md
-        - Conda (conda): sections/conda.md
-        - Crystal (crystal): sections/crystal.md
-        - Dart (dart): sections/dart.md
-        - Deno (deno): sections/deno.md
-        - Directory (dir): sections/dir.md
-        - Docker (docker): sections/docker.md
-        - Docker Compose (docker_compose): sections/docker_compose.md
-        - Dotnet (dotnet): sections/dotnet.md
-        - Elixir (elixir): sections/elixir.md
-        - Elm (elm): sections/elm.md
-        - Erlang (erlang): sections/erlang.md
-        - Execution time (exec_time): sections/exec_time.md
-        - Exit code (exit_code): sections/exit_code.md
-        - Git (git): sections/git.md
-        - GNU Screen (gnu_screen): sections/gnu_screen.md
-        - Go (golang): sections/golang.md
-        - Google Cloud (gcloud): sections/gcloud.md
-        - Haskell (haskell): sections/haskell.md
-        - Hostname (host): sections/host.md
-        - IBM Cloud (ibmcloud): sections/ibmcloud.md
-        - Java (java): sections/java.md
-        - Jobs (jobs): sections/jobs.md
-        - Julia (julia): sections/julia.md
-        - Kotlin (kotlin): sections/kotlin.md
-        - Kubernetes (kubectl): sections/kubectl.md
-        - Line separator (line_sep): sections/line_sep.md
-        - Lua (lua): sections/lua.md
-        - Mercurial (hg): sections/hg.md
-        - Nix Shell (nix-shell): sections/nix_shell.md
-        - Node.js (node): sections/node.md
-        - OCaml (ocaml): sections/ocaml.md
-        - Package (package): sections/package.md
-        - Perl (perl): sections/perl.md
-        - PHP (php): sections/php.md
-        - Prompt character (char): sections/char.md
-        - Pulumi (pulumi): sections/pulumi.md
-        - PureScript (purescript): sections/purescript.md
-        - Python (python): sections/python.md
-        - Red (red): sections/red.md
-        - Ruby (ruby): sections/ruby.md
-        - Rust (rust): sections/rust.md
-        - Scala (scala): sections/scala.md
-        - Sudo (sudo): sections/sudo.md
-        - Swift (swift): sections/swift.md
-        - Terraform (terraform): sections/terraform.md
-        - Time (time): sections/time.md
-        - Username (user): sections/user.md
-        - v (vlang): sections/vlang.md
-        - Virtualenv (venv): sections/venv.md
-        - Xcode (xcode): sections/xcode.md
-        - Zig (zig): sections/zig.md
+          - sections/index.md
+          - Ansible (Ansible): sections/ansible.md
+          - Async (async): sections/async.md
+          - AWS (aws): sections/aws.md
+          - Azure (azure): sections/azure.md
+          - Battery (battery): sections/battery.md
+          - Bun (bun): sections/bun.md
+          - Conda (conda): sections/conda.md
+          - Crystal (crystal): sections/crystal.md
+          - Dart (dart): sections/dart.md
+          - Deno (deno): sections/deno.md
+          - Directory (dir): sections/dir.md
+          - Docker (docker): sections/docker.md
+          - Docker Compose (docker_compose): sections/docker_compose.md
+          - Dotnet (dotnet): sections/dotnet.md
+          - Elixir (elixir): sections/elixir.md
+          - Elm (elm): sections/elm.md
+          - Erlang (erlang): sections/erlang.md
+          - Execution time (exec_time): sections/exec_time.md
+          - Exit code (exit_code): sections/exit_code.md
+          - Git (git): sections/git.md
+          - Gleam (gleam): sections/gleam.md
+          - GNU Screen (gnu_screen): sections/gnu_screen.md
+          - Go (golang): sections/golang.md
+          - Google Cloud (gcloud): sections/gcloud.md
+          - Haskell (haskell): sections/haskell.md
+          - Hostname (host): sections/host.md
+          - IBM Cloud (ibmcloud): sections/ibmcloud.md
+          - Java (java): sections/java.md
+          - Jobs (jobs): sections/jobs.md
+          - Julia (julia): sections/julia.md
+          - Kotlin (kotlin): sections/kotlin.md
+          - Kubernetes (kubectl): sections/kubectl.md
+          - Line separator (line_sep): sections/line_sep.md
+          - Lua (lua): sections/lua.md
+          - Mercurial (hg): sections/hg.md
+          - Nix Shell (nix-shell): sections/nix_shell.md
+          - Node.js (node): sections/node.md
+          - OCaml (ocaml): sections/ocaml.md
+          - Package (package): sections/package.md
+          - Perl (perl): sections/perl.md
+          - PHP (php): sections/php.md
+          - Prompt character (char): sections/char.md
+          - Pulumi (pulumi): sections/pulumi.md
+          - PureScript (purescript): sections/purescript.md
+          - Python (python): sections/python.md
+          - Red (red): sections/red.md
+          - Ruby (ruby): sections/ruby.md
+          - Rust (rust): sections/rust.md
+          - Scala (scala): sections/scala.md
+          - Sudo (sudo): sections/sudo.md
+          - Swift (swift): sections/swift.md
+          - Terraform (terraform): sections/terraform.md
+          - Time (time): sections/time.md
+          - Username (user): sections/user.md
+          - v (vlang): sections/vlang.md
+          - Virtualenv (venv): sections/venv.md
+          - Xcode (xcode): sections/xcode.md
+          - Zig (zig): sections/zig.md
   - Advanced:
       - Creating a custom section: advanced/creating-section.md
       - Per-directory configuration: advanced/per-directory-config.md
       - API:
-        - Environment: api/environment.md
-        - Sections: api/section.md
-        - General utilities: api/utils.md
-        - Testing kit: api/testkit.md
+          - Environment: api/environment.md
+          - Sections: api/section.md
+          - General utilities: api/utils.md
+          - Testing kit: api/testkit.md
   - Registry: registry.md
   - FAQ: faq.md
   - Blog:
       - blog/index.md
       - 2022:
-        - Announcing Spaceship v4 — the faster, the better: blog/2022-spaceship-v4.md
+          - Announcing Spaceship v4 — the faster, the better: blog/2022-spaceship-v4.md
       - 2018:
-        - Meet Spaceship v3.0!: blog/2018-spaceship-v3.md
+          - Meet Spaceship v3.0!: blog/2018-spaceship-v3.md
       - 2017:
-        - A big update of spaceship-zsh-theme: blog/2017-spaceship-v2.md
+          - A big update of spaceship-zsh-theme: blog/2017-spaceship-v2.md
   - Contribute: contribute.md
 
 markdown_extensions:
@@ -225,6 +226,6 @@ plugins:
         - locale: zh
           name: 简体中文
           build: true
-        - locale: "null" 
+        - locale: "null"
           name: Help translating
           fixed_link: https://translate.spaceship-prompt.sh/
