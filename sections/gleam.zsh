@@ -13,7 +13,6 @@ SPACESHIP_GLEAM_ASYNC="${SPACESHIP_GLEAM_ASYNC=true}"
 SPACESHIP_GLEAM_PREFIX="${SPACESHIP_GLEAM_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_GLEAM_SUFFIX="${SPACESHIP_GLEAM_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_GLEAM_SYMBOL="${SPACESHIP_GLEAM_SYMBOL="⭐ "}"
-SPACESHIP_GLEAM_DEFAULT_VERSION="${SPACESHIP_GLEAM_DEFAULT_VERSION=""}"
 SPACESHIP_GLEAM_COLOR="${SPACESHIP_GLEAM_COLOR="#ff87df"}"
 
 # ------------------------------------------------------------------------------
@@ -33,7 +32,7 @@ spaceship_gleam() {
 
   local gleam_version="$(gleam --version 2>/dev/null | awk '{print $2}')"
 
-  [[ $gleam_version == "$SPACESHIP_GLEAM_DEFAULT_VERSION" ]] && return
+  [[ $gleam_version == "system" ]] && return
 
   spaceship::section::v4 \
     --color "$SPACESHIP_GLEAM_COLOR" \
