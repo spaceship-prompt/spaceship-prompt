@@ -97,6 +97,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     exit_code      # Exit code section
     sudo           # Sudo indicator
     char           # Prompt character
+    gleam          # Gleam section
   )
 fi
 
