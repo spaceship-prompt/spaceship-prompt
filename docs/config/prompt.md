@@ -79,6 +79,7 @@ SPACESHIP_PROMPT_ORDER=(
   zig            # Zig section
   purescript     # PureScript section
   erlang         # Erlang section
+  gleam          # Gleam section
   kubectl        # Kubectl context section
   ansible        # Ansible section
   terraform      # Terraform workspace section
@@ -94,7 +95,6 @@ SPACESHIP_PROMPT_ORDER=(
   exit_code      # Exit code section
   sudo           # Sudo indicator
   char           # Prompt character
-  gleam          # Gleam section
 )
 ```
 
