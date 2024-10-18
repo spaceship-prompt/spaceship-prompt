@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+echo 'gleam 1.5.1'
