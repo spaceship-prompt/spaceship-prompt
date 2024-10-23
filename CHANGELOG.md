@@ -1,3 +1,10 @@
+# [4.17.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.16.2...v4.17.0) (2024-10-23)
+
+
+### Features
+
+* **gleam:** Add section for Gleam programming language ([#1459](https://github.com/spaceship-prompt/spaceship-prompt/issues/1459)) ([6555d9b](https://github.com/spaceship-prompt/spaceship-prompt/commit/6555d9bed9a53ed8694b5e211e5dad8ccc8b4cb4))
+
 ## [4.16.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.16.1...v4.16.2) (2024-09-25)
 
 
