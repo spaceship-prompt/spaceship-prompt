@@ -5,7 +5,7 @@
 !!! info
     [**Ruby**](https://www.ruby-lang.org) is a dynamic, reflective, object-oriented, general-purpose programming language.
 
-The `ruby` section displays the version of Ruby. This section supports [rvm-prompt](https://rvm.io/workflow/prompt), [chruby](https://github.com/postmodern/chruby), [rbenv](https://github.com/rbenv/rbenv) and [asdf](https://asdf-vm.com) version managers.
+The `ruby` section displays the version of Ruby. This section supports [rvm-prompt](https://rvm.io/workflow/prompt), [chruby](https://github.com/postmodern/chruby), [rbenv](https://github.com/rbenv/rbenv), [mise-en-place](https://mise.jdx.dev/), and [asdf](https://asdf-vm.com) version managers.
 
 This section is displayed only when the current directory is within a Ruby project, meaning:
 
