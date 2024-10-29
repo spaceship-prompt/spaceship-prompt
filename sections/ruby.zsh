@@ -30,11 +30,13 @@ spaceship_ruby() {
   local ruby_version
 
   if spaceship::exists rvm-prompt; then
-    ruby_version=$(rvm-prompt i v g)
+    ruby_version=$(rvm-prompt i v g 2>/dev/null)
   elif spaceship::exists chruby; then
-    ruby_version=$(chruby | sed -n -e 's/ \* //p')
+    ruby_version=$(chruby 2>/dev/null | sed -n -e 's/ \* //p')
   elif spaceship::exists rbenv; then
-    ruby_version=$(rbenv version-name)
+    ruby_version=$(rbenv version-name 2>/dev/null)
+  elif spaceship::exists mise; then
+    ruby_version=$(mise current ruby 2>/dev/null)
   elif spaceship::exists asdf; then
     local asdf_output
     if asdf_output=$(asdf current --no-header ruby 2>/dev/null) && [[ -n "$asdf_output" ]]; then
