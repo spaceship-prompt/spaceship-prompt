@@ -332,6 +332,12 @@
       "internal": true
     },
     {
+      "name": "uv",
+      "url": "https://spaceship-prompt.sh/sections/uv",
+      "description": "The uv package manager.",
+      "internal": true
+    },
+    {
       "name": "venv",
       "url": "https://spaceship-prompt.sh/sections/venv",
       "description": "The current Virtualenv name.",
