@@ -1,4 +1,4 @@
-# uv (uv)
+# uv-managed virtualenv (uv)
 
 !!! important "This section is rendered asynchronously by default"
 
