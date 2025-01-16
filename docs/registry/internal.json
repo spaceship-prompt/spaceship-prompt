@@ -334,7 +334,7 @@
     {
       "name": "uv",
       "url": "https://spaceship-prompt.sh/sections/uv",
-      "description": "The uv package manager.",
+      "description": "The uv workflow tool.",
       "internal": true
     },
     {
