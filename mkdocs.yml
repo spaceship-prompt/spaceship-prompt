@@ -101,7 +101,7 @@ nav:
         - Terraform (terraform): sections/terraform.md
         - Time (time): sections/time.md
         - Username (user): sections/user.md
-        - uv (uv): sections/uv.md
+        - uv-managed virtualenv (uv): sections/uv.md
         - v (vlang): sections/vlang.md
         - Virtualenv (venv): sections/venv.md
         - Xcode (xcode): sections/xcode.md
