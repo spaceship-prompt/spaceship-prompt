@@ -3,7 +3,7 @@
 !!! important "This section is rendered asynchronously by default"
 
 !!! info
-    [**uv**](https://docs.astral.sh/uv/) is an extremely fast Python package and project manager, written in Rust.
+    [**uv**](https://docs.astral.sh/uv/) is a workflow tool, written in Rust.
 
 The `uv` section displays the version of the Python inside the `.venv` environment created by `uv` at the root of the project.
 
