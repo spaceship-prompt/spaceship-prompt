@@ -210,7 +210,6 @@ If you really enjoy this project, you can contribute financially. Any contributi
 
 [:fontawesome-brands-github: Sponsors](https://github.com/sponsors/denysdovhan?frequency=one-time){ .md-button }
 [:material-coffee: Buy Me a Coffee](https://buymeacoffee.com/denysdovhan){ .md-button }
-[:fontawesome-solid-paw: Monobank Jar](https://send.monobank.ua/jar/2N46sWTaZZ){ .md-button }
 
 **Crypto donations:**
 
