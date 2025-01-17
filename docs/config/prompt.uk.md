@@ -38,62 +38,63 @@ is 📦 3.16.5
 
 ```zsh
 SPACESHIP_PROMPT_ORDER=(
-  time           # Time stamps section
-  user           # Username section
-  dir            # Current directory section
-  host           # Hostname section
-  git            # Git section (git_branch + git_status)
-  hg             # Mercurial section (hg_branch  + hg_status)
-  package        # Package version
-  node           # Node.js section
-  bun            # Bun section
-  deno           # Deno section
-  ruby           # Ruby section
-  python         # Python section
-  elm            # Elm section
-  elixir         # Elixir section
-  xcode          # Xcode section
-  swift          # Swift section
-  golang         # Go section
-  perl           # Perl section
-  php            # PHP section
-  rust           # Rust section
-  haskell        # Haskell Stack section
-  scala          # Scala section
-  kotlin         # Kotlin section
-  java           # Java section
-  lua            # Lua section
-  dart           # Dart section
-  julia          # Julia section
-  crystal        # Crystal section
-  docker         # Docker section
-  docker_compose # Docker section
-  aws            # Amazon Web Services section
-  gcloud         # Google Cloud Platform section
-  azure          # Azure section
-  venv           # virtualenv section
-  conda          # conda virtualenv section
-  dotnet         # .NET section
-  ocaml          # OCaml section
-  vlang          # V section
-  zig            # Zig section
-  purescript     # PureScript section
-  erlang         # Erlang section
-  kubectl        # Kubectl context section
-  ansible        # Ansible section
-  terraform      # Terraform workspace section
-  pulumi         # Pulumi stack section
-  ibmcloud       # IBM Cloud section
-  nix_shell      # Nix shell
-  gnu_screen     # GNU Screen section
-  exec_time      # Execution time
-  async          # Async jobs indicator
-  line_sep       # Line break
-  battery        # Battery level and status
-  jobs           # Background jobs indicator
-  exit_code      # Exit code section
-  sudo           # Sudo indicator
-  char           # Prompt character
+  time # Секція міток часу
+  user # Секція імені користувача
+  dir # Секція поточного каталогу
+  host # Секція імені хоста
+  git # Секція Git (git_branch + git_status)
+  hg # Секція Mercurial (hg_branch + hg_status)
+  package # Версія пакета
+  node # Секція Node.js
+  bun # Секція Bun
+  deno # Секція Deno
+  ruby # Секція Ruby
+  python # Секція Python
+  elm # Секція Elm
+  elixir # Секція Elixir
+  xcode # Секція Xcode
+  swift # Секція Swift
+  golang # Секція Go
+  perl # Секція Perl
+  php # Секція PHP
+  rust # Секція Rust
+  haskell # Секція стеку Haskell
+  scala # Секція Scala
+  kotlin # Секція Kotlin
+  java # Секція Java
+  lua # Секція Lua
+  dart # Секція Dart
+  julia # Секція Julia
+  crystal # Секція Crystal
+  docker # Секція Docker
+  docker_compose # Секція Docker
+  aws # Секція Amazon Web Services
+  gcloud # Секція Google Cloud Platform
+  azure # Секція Azure
+  venv # Секція virtualenv
+  conda # Секція conda virtualenv
+  dotnet # Секція .NET
+  ocaml # Секція OCaml
+  vlang # Секція V
+  zig # Секція Zig
+  purescript # Секція PureScript
+  erlang # Секція Erlang
+  gleam # Секція Gleam
+  kubectl # Секція контексту Kubectl
+  ansible # Секція Ansible
+  terraform # Секція робочого простору Terraform
+  pulumi # Секція стеку Pulumi
+  ibmcloud # Секція IBM Cloud
+  nix_shell # Оболонка Nix
+  gnu_screen # Секція GNU Screen
+  exec_time # Час виконання
+  async # Індикатор асинхронних завдань
+  line_sep # Переведення рядка
+  battery # Рівень та стан заряду батареї
+  jobs # Індикатор фонових завдань
+  exit_code # Секція коду виходу
+  sudo # Індикатор sudo
+  char # Символ підказки
 )
 ```
 
