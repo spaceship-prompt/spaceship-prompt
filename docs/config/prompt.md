@@ -73,6 +73,7 @@ SPACESHIP_PROMPT_ORDER=(
   azure          # Azure section
   venv           # virtualenv section
   conda          # conda virtualenv section
+  uv             # uv section
   dotnet         # .NET section
   ocaml          # OCaml section
   vlang          # V section

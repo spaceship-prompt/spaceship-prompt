@@ -76,6 +76,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     azure          # Azure section
     venv           # virtualenv section
     conda          # conda virtualenv section
+    uv             # uv virtualenv section
     dotnet         # .NET section
     ocaml          # OCaml section
     vlang          # V section

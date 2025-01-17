@@ -101,6 +101,7 @@ nav:
         - Terraform (terraform): sections/terraform.md
         - Time (time): sections/time.md
         - Username (user): sections/user.md
+        - uv-managed virtualenv (uv): sections/uv.md
         - v (vlang): sections/vlang.md
         - Virtualenv (venv): sections/venv.md
         - Xcode (xcode): sections/xcode.md
@@ -226,6 +227,6 @@ plugins:
         - locale: zh
           name: 简体中文
           build: true
-        - locale: "null" 
+        - locale: "null"
           name: Help translating
           fixed_link: https://translate.spaceship-prompt.sh/
