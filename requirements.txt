@@ -1,4 +1,4 @@
 mkdocs
-mkdocs-material>=8.x
+mkdocs-material>=8.0.0
 mkdocs-static-i18n>=1.0.0
-mkdocs-redirects>=1.x
+mkdocs-redirects>=1.0.0
