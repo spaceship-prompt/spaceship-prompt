@@ -304,7 +304,6 @@ If you really enjoy this project, you can contribute financially. Any contributi
 * **One-time donations**:
   * [GitHub Sponsors](https://github.com/sponsors/denysdovhan?frequency=one-time)
   * [Buy Me A Coffee](https://buymeacoffee.com/denysdovhan)
-  * [Monobank Jar](https://send.monobank.ua/jar/2N46sWTaZZ)
 * **Crypto donations**:
   * Ethereum: `0x5C9496De5E51D48daf28354DC04d8f9D33955559`
   * Bitcoin: `bc1q5ezjvpgftmx42f9qgdf5lscjz43uh4jf02uvje`
