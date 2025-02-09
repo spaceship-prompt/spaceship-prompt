@@ -34,7 +34,7 @@ spaceship_elixir() {
   elif spaceship::exists exenv; then
     elixir_version=$(exenv version-name)
   elif spaceship::exists asdf; then
-    elixir_version=${$(asdf current elixir)[2]}
+    elixir_version=${$(asdf current --no-header elixir)[2]}
   fi
 
   if [[ $elixir_version == "" ]]; then
