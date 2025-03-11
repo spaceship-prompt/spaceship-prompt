@@ -24,7 +24,7 @@ spaceship_bun() {
   [[ $SPACESHIP_BUN_SHOW == false ]] && return
 
   # Find Bun-specific files or return
-  spaceship::upsearch -s bun.lockb bunfig.toml || return
+  spaceship::upsearch -s bun.lockb bun.lock bunfig.toml || return
 
   # Find Bun binary
   spaceship::exists bun || return
