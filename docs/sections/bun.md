@@ -10,6 +10,7 @@ The `bun` section displays the Bun version.
 This section is displayed only when the current directory:
 
 * Upsearch finds `bun.lockb` file
+* Upsearch finds `bun.lock` file
 * Upsearch finds `bunfig.toml` file
 
 ## Options
