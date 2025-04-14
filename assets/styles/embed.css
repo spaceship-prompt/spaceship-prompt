@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'FiraCode Nerd Font';
+  src: url("/assets/FiraCodeNerd.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+code {
+  font-family: 'FiraCode Nerd Font', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  overflow-wrap: break-word;
+}
+
+.terminal-demo {
+  display: flex;
+  justify-content: center;
+}
+
+.terminal-demo .asciicast {
+  width: 80%;
+}
+
+.twitter-tweet {
+  margin: 0 auto;
+}
