@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Вступ" class="md-skip">
+        <a href="#Introduction" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -708,27 +708,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Створення-файлу-конфігурації" class="md-nav__link">
+  <a href="#Create-a-config-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Створення файлу конфігурації
+      Create a config file
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Налаштуйте-ваш-командний-рядок" class="md-nav__link">
+  <a href="#Configure-your-prompt" class="md-nav__link">
     <span class="md-ellipsis">
-      Налаштуйте ваш командний рядок
+      Configure your prompt
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Зміна-розташування-файлу-конфігурації" class="md-nav__link">
+  <a href="#Changing-the-config-location" class="md-nav__link">
     <span class="md-ellipsis">
-      Зміна розташування файлу конфігурації
+      Changing the config location
     </span>
   </a>
   
@@ -2987,41 +2987,41 @@
   
 
 
-<h1 id="Вступ">Вступ<a class="headerlink" href="#Вступ" title="Permanent link">&para;</a></h1>
-<p>Ласкаво просимо до конфігурації Spaceship! Ось швидкий посібник по налаштуванню Spaceship для ваших особистих робочих процесів.</p>
-<h2 id="Створення-файлу-конфігурації">Створення файлу конфігурації<a class="headerlink" href="#Створення-файлу-конфігурації" title="Permanent link">&para;</a></h2>
-<p>Щоб почати з налаштування, створіть файл конфігурації:</p>
+<h1 id="Introduction">Introduction<a class="headerlink" href="#Introduction" title="Permanent link">&para;</a></h1>
+<p>Welcome to Spaceship configuration! Here is a quick guide of how to adjust Spaceship to your personal workflows.</p>
+<h2 id="Create-a-config-file">Create a config file<a class="headerlink" href="#Create-a-config-file" title="Permanent link">&para;</a></h2>
+<p>To get started with customization, create a configuration file:</p>
 <div class="highlight"><pre><span></span><code>touch<span class="w"> </span>~/.spaceshiprc.zsh
 </code></pre></div>
-<p>… або, якщо ви бажаєте зберегти свою конфігурацію в папках <code>~/.config</code> або <code>~/.config/spaceship</code>, зробіть ось це:</p>
+<p>… or, if you prefer to keep your configuration within a <code>~/.config</code> or <code>~/.config/spaceship</code> folders, you can do so, as well:</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.config
 touch<span class="w"> </span>~/.config/spaceship.zsh
 </code></pre></div>
-<p>Spaceship автоматично завантажить цей файл при запуску.</p>
-<h2 id="Налаштуйте-ваш-командний-рядок">Налаштуйте ваш командний рядок<a class="headerlink" href="#Налаштуйте-ваш-командний-рядок" title="Permanent link">&para;</a></h2>
-<p>Файл конфігурації є файлом <code>.zsh</code>, тому ви можете використовувати <code>zsh</code>-синтаксис для налаштування Spaceship. Можна використовувати цикли, умови, користувацькі функції або навіть завантажувати додаткові <code>zsh</code> файли. Вирішувати вам.</p>
-<p>Ось приклад файлу конфігурації:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Показувати час</span>
+<p>This file will be automatically sourced by Spaceship when it starts up.</p>
+<h2 id="Configure-your-prompt">Configure your prompt<a class="headerlink" href="#Configure-your-prompt" title="Permanent link">&para;</a></h2>
+<p>The configuration file is a <code>.zsh</code> file, so you can use <code>zsh</code> syntax to customize Spaceship. You can use loops, conditions, custom functions or even source additional <code>zsh</code> files. It's up to you.</p>
+<p>Here's an example of a configuration file:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Display time</span>
 <span class="nv">SPACESHIP_TIME_SHOW</span><span class="o">=</span><span class="nb">true</span>
 
-<span class="c1"># Завжди показувати ім&#39;я користувача</span>
+<span class="c1"># Display username always</span>
 <span class="nv">SPACESHIP_USER_SHOW</span><span class="o">=</span>always
 
-<span class="c1"># Не скорочувати шлях в репозиторіях</span>
+<span class="c1"># Do not truncate path in repos</span>
 <span class="nv">SPACESHIP_DIR_TRUNC_REPO</span><span class="o">=</span><span class="nb">false</span>
 
-<span class="c1"># Додати зовнішню секцію Ember</span>
+<span class="c1"># Add custom Ember section</span>
 <span class="c1"># See: https://github.com/spaceship-prompt/spaceship-ember</span>
 spaceship<span class="w"> </span>add<span class="w"> </span>ember
 
-<span class="c1"># Додати зовнішню секцію vi-mode</span>
+<span class="c1"># Add a custom vi-mode section to the prompt</span>
 <span class="c1"># See: https://github.com/spaceship-prompt/spaceship-vi-mode</span>
 spaceship<span class="w"> </span>add<span class="w"> </span>--before<span class="w"> </span>char<span class="w"> </span>vi_mode
 </code></pre></div>
-<p>Ви можете дізнатися більше про доступні опції, читаючи документацію далі.</p>
-<p><a class="md-button" href="/config/prompt" title="">Переглянути доступні опції</a></p>
-<h2 id="Зміна-розташування-файлу-конфігурації">Зміна розташування файлу конфігурації<a class="headerlink" href="#Зміна-розташування-файлу-конфігурації" title="Permanent link">&para;</a></h2>
-<p>Додатково, ви можете змінити розташування файлу конфігурації у змінній середовища <code>SPACESHIP_CONFIG_FILE</code>.</p>
+<p>You can learn more about available options by reading further documentation.</p>
+<p><a class="md-button" href="../prompt/">See available options</a></p>
+<h2 id="Changing-the-config-location">Changing the config location<a class="headerlink" href="#Changing-the-config-location" title="Permanent link">&para;</a></h2>
+<p>Optionally, you can change the location of the configuration file by setting the <code>SPACESHIP_CONFIG</code> environment variable.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SPACESHIP_CONFIG</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.dotfiles/path/to/spaceship.zsh&quot;</span>
 </code></pre></div>
 

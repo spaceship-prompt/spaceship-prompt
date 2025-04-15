@@ -3113,7 +3113,7 @@ spaceship::is_hg<span class="w"> </span><span class="o">||</span><span class="w"
 <p>Some sections are always synchronous, not matter what, to ensure correct work of the prompt. Those are: <code>user</code>, <code>dir</code>, <code>host</code>, <code>exec_time</code>, <code>async</code>, <code>line_sep</code>, <code>jobs</code>, <code>exit_code</code> and <code>char</code>.</p>
 <h2 id="spaceshipis_prompt_async"><code>spaceship::is_prompt_async</code><a class="headerlink" href="#spaceshipis_prompt_async" title="Permanent link">&para;</a></h2>
 <p>Checks if the prompt works in asynchronous mode or not. This utility returns zero exit code if the prompt works in asynchronous mode and non-zero if it's not.</p>
-<p>Check if <code>SPACESHIP_PROMPT_ASYNC</code> is set to <code>true</code> and <a href="/api/environment/#asynchronous-runtime"><code>zsh-async</code> is loaded</a>.</p>
+<p>Check if <code>SPACESHIP_PROMPT_ASYNC</code> is set to <code>true</code> and <a href="#spaceshipis_section_async"><code>zsh-async</code> is loaded</a>.</p>
 <h2 id="spaceshipdeprecated"><code>spaceship::deprecated</code><a class="headerlink" href="#spaceshipdeprecated" title="Permanent link">&para;</a></h2>
 <p>This utility checks if <code>option</code> variable is set and if it is, prints the <code>message</code>. The <code>message</code> supports escapes to set foreground color, background color and other visual effects.</p>
 <div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::deprecated &lt;option&gt; [message]
@@ -3175,8 +3175,12 @@ spaceship::upsearch<span class="w"> </span>package.json
 <span class="c1">#&gt; /path/to/project/package.json</span>
 </code></pre></div>
 <h2 id="spaceshipextract"><code>spaceship::extract</code><a class="headerlink" href="#spaceshipextract" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This utility has an alias <code>spaceship::datafile</code></p>
+</div>
 <p>This utility queries data files for a specific key. It returns the value of the key. Exits with non-zero code when the file type is unknown, data cannot be read, or the key is not found.</p>
-<div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::extract --&lt;type&gt; &lt;file&gt; [key]
+<div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::extract --&lt;type&gt; &lt;file&gt; [...keys]
 </code></pre></div>
 <ol>
 <li><code>--type</code> <em>Required</em> — a type of the data file. Can be <code>json</code>, <code>yaml</code>, <code>toml</code> or <code>xml</code>.</li>

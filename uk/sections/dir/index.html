@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Директорія-dir" class="md-skip">
+        <a href="#Directory-dir" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -1188,27 +1188,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Всередині-репозиторіїв" class="md-nav__link">
+  <a href="#Inside-the-repositories" class="md-nav__link">
     <span class="md-ellipsis">
-      Всередині репозиторіїв
+      Inside the repositories
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Всередині-каталогів-захищених-від-запису" class="md-nav__link">
+  <a href="#Inside-the-write-protected-directories" class="md-nav__link">
     <span class="md-ellipsis">
-      Всередині каталогів, захищених від запису
+      Inside the write-protected directories
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Параметри" class="md-nav__link">
+  <a href="#Options" class="md-nav__link">
     <span class="md-ellipsis">
-      Параметри
+      Options
     </span>
   </a>
   
@@ -2989,70 +2989,70 @@
   
 
 
-<h1 id="Директорія-dir">Директорія <code>dir</code><a class="headerlink" href="#Директорія-dir" title="Permanent link">&para;</a></h1>
-<p>Секція <code>dir</code> показує поточну робочу теку.</p>
-<p>Тека завжди показується у скороченому вигляді використовуючи <code>SPACESHIP_DIR_TRUNC</code> (до 3 рівнів).</p>
-<h2 id="Всередині-репозиторіїв">Всередині репозиторіїв<a class="headerlink" href="#Всередині-репозиторіїв" title="Permanent link">&para;</a></h2>
-<p>Поки ви перебуваєте в репозиторії, показується тільки коренева тека репозиторію і теки всередині нього.</p>
-<p>Якщо вам не подобається така поведінка, ви можете вимкнути її, встановивши <code>SPACESHIP_DIR_TRUNC_REPO</code> у <code>false</code>:</p>
+<h1 id="Directory-dir">Directory <code>dir</code><a class="headerlink" href="#Directory-dir" title="Permanent link">&para;</a></h1>
+<p>The <code>dir</code> section displays the current working directory.</p>
+<p>The directory is always shown and truncated to the value of <code>SPACESHIP_DIR_TRUNC</code> (3 levels by default).</p>
+<h2 id="Inside-the-repositories">Inside the repositories<a class="headerlink" href="#Inside-the-repositories" title="Permanent link">&para;</a></h2>
+<p>While you are in a repository, it shows only the root directory of the repository and folders inside it.</p>
+<p>If you don't like this behavior, you can disable it by setting <code>SPACESHIP_DIR_TRUNC_REPO</code> to <code>false</code>:</p>
 <div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="nv">SPACESHIP_DIR_TRUNC_REPO</span><span class="o">=</span><span class="nb">false</span>
 </code></pre></div>
-<h2 id="Всередині-каталогів-захищених-від-запису">Всередині каталогів, захищених від запису<a class="headerlink" href="#Всередині-каталогів-захищених-від-запису" title="Permanent link">&para;</a></h2>
-<p>Якщо поточна тека захищена від запису або поточний користувач не має дозволу на запис, (типово) показується замок в суфіксі.</p>
-<h2 id="Параметри">Параметри<a class="headerlink" href="#Параметри" title="Permanent link">&para;</a></h2>
+<h2 id="Inside-the-write-protected-directories">Inside the write-protected directories<a class="headerlink" href="#Inside-the-write-protected-directories" title="Permanent link">&para;</a></h2>
+<p>If the current directory is write-protected or if the current user doesn't have write permissions, a padlock (by default) is displayed as a suffix.</p>
+<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Змінна</th>
-<th style="text-align: center;">За замовчуванням</th>
-<th>Пояснення</th>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: center;">Default</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DIR_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Показати секцію</td>
+<td>Show section</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DIR_PREFIX</code></td>
 <td style="text-align: center;"><code>in·</code></td>
-<td>Префікс секції</td>
+<td>Section's prefix</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DIR_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Суфікс секції</td>
+<td>Section's suffix</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DIR_TRUNC</code></td>
 <td style="text-align: center;"><code>3</code></td>
-<td>Кількість тек cwd, що показуються в командному рядку, 0 для показу всіх</td>
+<td>Number of folders of cwd to show in prompt, 0 to show all</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DIR_TRUNC_PREFIX</code></td>
 <td style="text-align: center;">-</td>
-<td>Префікс до cwd під час обрізання. Наприклад, <code>…/</code> або <code>.../</code>, порожнє, щоб вимкнути</td>
+<td>Prefix before cwd when it's truncated. For example <code>…/</code> or <code>.../</code>, empty to disable</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DIR_TRUNC_REPO</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Під час знаходження в <code>git</code> репозиторії, показати тільки кореневу теку і теки всередині</td>
+<td>While in <code>git</code> repo, show only root directory and folders inside it</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DIR_COLOR</code></td>
 <td style="text-align: center;"><code>cyan</code></td>
-<td>Колір секції</td>
+<td>Section's color</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DIR_LOCK_SYMBOL</code></td>
 <td style="text-align: center;"><img alt="·" src="https://user-images.githubusercontent.com/10276208/46248218-4af95d80-c434-11e8-8e25-595d792503f1.png" /></td>
-<td>Символ, що показується, якщо теку захищено від запису</td>
+<td>The symbol displayed if directory is write-protected</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DIR_LOCK_COLOR</code></td>
 <td style="text-align: center;"><code>red</code></td>
-<td>Колір символу блокування</td>
+<td>Color for the lock symbol</td>
 </tr>
 </tbody>
 </table>

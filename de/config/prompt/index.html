@@ -3061,7 +3061,7 @@
 <p>Typically, a section consist of a <strong>prefix</strong>, <strong>symbol</strong>, <strong>content</strong> and <strong>suffix</strong>. The symbol and the content are painted in <strong>color</strong>. Here's an example with a <code>package</code> section:</p>
 <div class="highlight"><pre><span></span><code>is 📦 3.16.5
 </code></pre></div>
-<p>Above, <code>is</code> is a prefix, <code>📦</code> is a symbol, <code>3.16.5</code> is the content and `` (a space) is the suffix.</p>
+<p>Above, <code>is</code> is a prefix, <code>📦</code> is a symbol, <code>3.16.5</code> is the content and <code></code> (a space) is the suffix.</p>
 <p>Each part can be configured via corresponding <strong>options</strong>. Options are just environment variables and have this signature <code>SPACESHIP_&lt;SECTION&gt;_&lt;OPTION&gt;</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># SPACESHIP_&lt;SECTION&gt;_&lt;OPTION&gt;</span>
 <span class="w">  </span><span class="nv">SPACESHIP_PACKAGE_PREFIX</span><span class="o">=</span><span class="s2">&quot;via·&quot;</span>
@@ -3077,47 +3077,64 @@
 <p>The <strong>prompt order</strong> is the order in which sections are executed and rendered. You can specify the order of prompt section using <code>SPACESHIP_PROMPT_ORDER</code> option.</p>
 <p>The default prompt order is:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">SPACESHIP_PROMPT_ORDER</span><span class="o">=(</span>
-<span class="w">  </span><span class="nb">time</span><span class="w">          </span><span class="c1"># Time stamps section</span>
-<span class="w">  </span>user<span class="w">          </span><span class="c1"># Username section</span>
-<span class="w">  </span>dir<span class="w">           </span><span class="c1"># Current directory section</span>
-<span class="w">  </span>host<span class="w">          </span><span class="c1"># Hostname section</span>
-<span class="w">  </span>git<span class="w">           </span><span class="c1"># Git section (git_branch + git_status)</span>
-<span class="w">  </span>hg<span class="w">            </span><span class="c1"># Mercurial section (hg_branch  + hg_status)</span>
-<span class="w">  </span>package<span class="w">       </span><span class="c1"># Package version</span>
-<span class="w">  </span>node<span class="w">          </span><span class="c1"># Node.js section</span>
-<span class="w">  </span>bun<span class="w">           </span><span class="c1"># Bun section</span>
-<span class="w">  </span>deno<span class="w">          </span><span class="c1"># Deno section</span>
-<span class="w">  </span>ruby<span class="w">          </span><span class="c1"># Ruby section</span>
-<span class="w">  </span>python<span class="w">        </span><span class="c1"># Python section</span>
-<span class="w">  </span>elm<span class="w">           </span><span class="c1"># Elm section</span>
-<span class="w">  </span>elixir<span class="w">        </span><span class="c1"># Elixir section</span>
-<span class="w">  </span>xcode<span class="w">         </span><span class="c1"># Xcode section</span>
-<span class="w">  </span>swift<span class="w">         </span><span class="c1"># Swift section</span>
-<span class="w">  </span>golang<span class="w">        </span><span class="c1"># Go section</span>
-<span class="w">  </span>php<span class="w">           </span><span class="c1"># PHP section</span>
-<span class="w">  </span>rust<span class="w">          </span><span class="c1"># Rust section</span>
-<span class="w">  </span>haskell<span class="w">       </span><span class="c1"># Haskell Stack section</span>
-<span class="w">  </span>java<span class="w">          </span><span class="c1"># Java section</span>
-<span class="w">  </span>lua<span class="w">           </span><span class="c1"># Lua section</span>
-<span class="w">  </span>dart<span class="w">          </span><span class="c1"># Dart section</span>
-<span class="w">  </span>julia<span class="w">         </span><span class="c1"># Julia section</span>
-<span class="w">  </span>crystal<span class="w">       </span><span class="c1"># Crystal section</span>
-<span class="w">  </span>docker<span class="w">        </span><span class="c1"># Docker section</span>
-<span class="w">  </span>aws<span class="w">           </span><span class="c1"># Amazon Web Services section</span>
-<span class="w">  </span>gcloud<span class="w">        </span><span class="c1"># Google Cloud Platform section</span>
-<span class="w">  </span>venv<span class="w">          </span><span class="c1"># virtualenv section</span>
-<span class="w">  </span>conda<span class="w">         </span><span class="c1"># conda virtualenv section</span>
-<span class="w">  </span>dotnet<span class="w">        </span><span class="c1"># .NET section</span>
-<span class="w">  </span>kubectl<span class="w">       </span><span class="c1"># Kubectl context section</span>
-<span class="w">  </span>terraform<span class="w">     </span><span class="c1"># Terraform workspace section</span>
-<span class="w">  </span>ibmcloud<span class="w">      </span><span class="c1"># IBM Cloud section</span>
-<span class="w">  </span>exec_time<span class="w">     </span><span class="c1"># Execution time</span>
-<span class="w">  </span>async<span class="w">         </span><span class="c1"># Async jobs indicator</span>
-<span class="w">  </span>line_sep<span class="w">      </span><span class="c1"># Line break</span>
-<span class="w">  </span>battery<span class="w">       </span><span class="c1"># Battery level and status</span>
-<span class="w">  </span><span class="nb">jobs</span><span class="w">          </span><span class="c1"># Background jobs indicator</span>
-<span class="w">  </span>exit_code<span class="w">     </span><span class="c1"># Exit code section</span>
-<span class="w">  </span>char<span class="w">          </span><span class="c1"># Prompt character</span>
+<span class="w">  </span><span class="nb">time</span><span class="w">           </span><span class="c1"># Time stamps section</span>
+<span class="w">  </span>user<span class="w">           </span><span class="c1"># Username section</span>
+<span class="w">  </span>dir<span class="w">            </span><span class="c1"># Current directory section</span>
+<span class="w">  </span>host<span class="w">           </span><span class="c1"># Hostname section</span>
+<span class="w">  </span>git<span class="w">            </span><span class="c1"># Git section (git_branch + git_status)</span>
+<span class="w">  </span>hg<span class="w">             </span><span class="c1"># Mercurial section (hg_branch  + hg_status)</span>
+<span class="w">  </span>package<span class="w">        </span><span class="c1"># Package version</span>
+<span class="w">  </span>node<span class="w">           </span><span class="c1"># Node.js section</span>
+<span class="w">  </span>bun<span class="w">            </span><span class="c1"># Bun section</span>
+<span class="w">  </span>deno<span class="w">           </span><span class="c1"># Deno section</span>
+<span class="w">  </span>ruby<span class="w">           </span><span class="c1"># Ruby section</span>
+<span class="w">  </span>python<span class="w">         </span><span class="c1"># Python section</span>
+<span class="w">  </span>elm<span class="w">            </span><span class="c1"># Elm section</span>
+<span class="w">  </span>elixir<span class="w">         </span><span class="c1"># Elixir section</span>
+<span class="w">  </span>xcode<span class="w">          </span><span class="c1"># Xcode section</span>
+<span class="w">  </span>swift<span class="w">          </span><span class="c1"># Swift section</span>
+<span class="w">  </span>golang<span class="w">         </span><span class="c1"># Go section</span>
+<span class="w">  </span>perl<span class="w">           </span><span class="c1"># Perl section</span>
+<span class="w">  </span>php<span class="w">            </span><span class="c1"># PHP section</span>
+<span class="w">  </span>rust<span class="w">           </span><span class="c1"># Rust section</span>
+<span class="w">  </span>haskell<span class="w">        </span><span class="c1"># Haskell Stack section</span>
+<span class="w">  </span>scala<span class="w">          </span><span class="c1"># Scala section</span>
+<span class="w">  </span>kotlin<span class="w">         </span><span class="c1"># Kotlin section</span>
+<span class="w">  </span>java<span class="w">           </span><span class="c1"># Java section</span>
+<span class="w">  </span>lua<span class="w">            </span><span class="c1"># Lua section</span>
+<span class="w">  </span>dart<span class="w">           </span><span class="c1"># Dart section</span>
+<span class="w">  </span>julia<span class="w">          </span><span class="c1"># Julia section</span>
+<span class="w">  </span>crystal<span class="w">        </span><span class="c1"># Crystal section</span>
+<span class="w">  </span>docker<span class="w">         </span><span class="c1"># Docker section</span>
+<span class="w">  </span>docker_compose<span class="w"> </span><span class="c1"># Docker section</span>
+<span class="w">  </span>aws<span class="w">            </span><span class="c1"># Amazon Web Services section</span>
+<span class="w">  </span>gcloud<span class="w">         </span><span class="c1"># Google Cloud Platform section</span>
+<span class="w">  </span>azure<span class="w">          </span><span class="c1"># Azure section</span>
+<span class="w">  </span>venv<span class="w">           </span><span class="c1"># virtualenv section</span>
+<span class="w">  </span>conda<span class="w">          </span><span class="c1"># conda virtualenv section</span>
+<span class="w">  </span>uv<span class="w">             </span><span class="c1"># uv section</span>
+<span class="w">  </span>dotnet<span class="w">         </span><span class="c1"># .NET section</span>
+<span class="w">  </span>ocaml<span class="w">          </span><span class="c1"># OCaml section</span>
+<span class="w">  </span>vlang<span class="w">          </span><span class="c1"># V section</span>
+<span class="w">  </span>zig<span class="w">            </span><span class="c1"># Zig section</span>
+<span class="w">  </span>purescript<span class="w">     </span><span class="c1"># PureScript section</span>
+<span class="w">  </span>erlang<span class="w">         </span><span class="c1"># Erlang section</span>
+<span class="w">  </span>gleam<span class="w">          </span><span class="c1"># Gleam section</span>
+<span class="w">  </span>kubectl<span class="w">        </span><span class="c1"># Kubectl context section</span>
+<span class="w">  </span>ansible<span class="w">        </span><span class="c1"># Ansible section</span>
+<span class="w">  </span>terraform<span class="w">      </span><span class="c1"># Terraform workspace section</span>
+<span class="w">  </span>pulumi<span class="w">         </span><span class="c1"># Pulumi stack section</span>
+<span class="w">  </span>ibmcloud<span class="w">       </span><span class="c1"># IBM Cloud section</span>
+<span class="w">  </span>nix_shell<span class="w">      </span><span class="c1"># Nix shell</span>
+<span class="w">  </span>gnu_screen<span class="w">     </span><span class="c1"># GNU Screen section</span>
+<span class="w">  </span>exec_time<span class="w">      </span><span class="c1"># Execution time</span>
+<span class="w">  </span>async<span class="w">          </span><span class="c1"># Async jobs indicator</span>
+<span class="w">  </span>line_sep<span class="w">       </span><span class="c1"># Line break</span>
+<span class="w">  </span>battery<span class="w">        </span><span class="c1"># Battery level and status</span>
+<span class="w">  </span><span class="nb">jobs</span><span class="w">           </span><span class="c1"># Background jobs indicator</span>
+<span class="w">  </span>exit_code<span class="w">      </span><span class="c1"># Exit code section</span>
+<span class="w">  </span>sudo<span class="w">           </span><span class="c1"># Sudo indicator</span>
+<span class="w">  </span>char<span class="w">           </span><span class="c1"># Prompt character</span>
 <span class="o">)</span>
 </code></pre></div>
 <p>You can add or remove sections using <code>spaceship add</code> and <code>spaceship remove</code> commands, like this:</p>
@@ -3132,7 +3149,8 @@ spaceship<span class="w"> </span>add<span class="w"> </span>git
 <h2 id="Configuring-sections">Configuring sections<a class="headerlink" href="#Configuring-sections" title="Permanent link">&para;</a></h2>
 <p>You can customize every section of the prompt with section's options. Check out each section's documentation for more information.</p>
 <p>Besides built-in sections, you can add external section to your prompt or build a custom one.</p>
-<p><a class="md-button" href="/sections" title="">Browse built-in sections</a> <a class="md-button" href="/registry" title="">Browse all sections</a></p>
+<p><a class="md-button" href="../../sections/">Browse built-in sections</a>
+<a class="md-button" href="../../registry/">Browse all sections</a></p>
 <h2 id="Prompt-level-options">Prompt-level options<a class="headerlink" href="#Prompt-level-options" title="Permanent link">&para;</a></h2>
 <p>This group of options defines a behavior of prompt and standard parameters for sections displaying.</p>
 <table>
@@ -3165,6 +3183,11 @@ spaceship<span class="w"> </span>add<span class="w"> </span>git
 <td>Shows a prefix of the first section in prompt</td>
 </tr>
 <tr>
+<td style="text-align: left;"><code>SPACESHIP_RPROMPT_FIRST_PREFIX_SHOW</code></td>
+<td style="text-align: center;"><code>false</code></td>
+<td>Shows a prefix of the first section in right prompt</td>
+</tr>
+<tr>
 <td style="text-align: left;"><code>SPACESHIP_PROMPT_PREFIXES_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
 <td>Show prefixes before prompt sections or not</td>
@@ -3181,7 +3204,7 @@ spaceship<span class="w"> </span>add<span class="w"> </span>git
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td style="text-align: center;">``</td>
+<td style="text-align: center;"><code></code></td>
 <td>Default suffix for prompt section</td>
 </tr>
 </tbody>
@@ -3190,9 +3213,9 @@ spaceship<span class="w"> </span>add<span class="w"> </span>git
 <h3 id="Asynchronous-rendering">Asynchronous rendering<a class="headerlink" href="#Asynchronous-rendering" title="Permanent link">&para;</a></h3>
 <p>The <code>SPACESHIP_PROMPT_ASYNC</code> option defines whether the prompt is rendered asynchronously or not. By default, the prompt is rendered asynchronously.</p>
 <p>The synchronous sections are displayed immediately. The asynchronous sections are processed in the background and are displayed when the information is ready to be displayed.</p>
-<p>The <a href="/sections/async.md"><code>async</code> section</a> is used as a placeholder for not yet available asynchronous sections.</p>
+<p>The <a href="../../sections/async/"><code>async</code> section</a> is used as a placeholder for not yet available asynchronous sections.</p>
 <h3 id="Prompt-spacing">Prompt spacing<a class="headerlink" href="#Prompt-spacing" title="Permanent link">&para;</a></h3>
-<p>Spaceship adds and empty line between each prompt. You can disable this behavior by setting <code>SPACESHIP_PROMPT_ADD_NEWLINE</code> to <code>false</code>.</p>
+<p>Spaceship adds an empty line between each prompt. You can disable this behavior by setting <code>SPACESHIP_PROMPT_ADD_NEWLINE</code> to <code>false</code>.</p>
 <p>The prompt is also separated by a line break if <code>SPACESHIP_PROMPT_SEPARATE_LINE</code> is set to <code>true</code>.</p>
 <h3 id="Displaying-the-first-section-prefix">Displaying the first section prefix<a class="headerlink" href="#Displaying-the-first-section-prefix" title="Permanent link">&para;</a></h3>
 <p>Spaceship hides the prefix of the first section in the prompt. You can enable this behavior by setting <code>SPACESHIP_PROMPT_FIRST_PREFIX_SHOW</code> to <code>true</code>.</p>

@@ -1451,6 +1451,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#Git-commit-git_commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git commit git_commit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git commit git_commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Options_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3023,7 +3047,7 @@
 <div class="admonition important">
 <p class="admonition-title">This section is rendered asynchronously by default</p>
 </div>
-<p>The <code>git</code> section consists of <a href="#git-branch-git_branch"><code>git_branch</code></a> and <a href="#git-status-git_status"><code>git_status</code></a> subsections.</p>
+<p>The <code>git</code> section consists of <a href="#git-branch-git_branch"><code>git_branch</code></a> and <a href="#git-status-git_status"><code>git_status</code></a> and <a href="#git-commit-git_commit"><code>git_commit</code></a> subsections.</p>
 <h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -3095,7 +3119,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_BRANCH_SUFFIX</code></td>
-<td style="text-align: center;">``</td>
+<td style="text-align: center;"><code></code></td>
 <td>Section's suffix</td>
 </tr>
 <tr>
@@ -3191,6 +3215,50 @@
 <td style="text-align: left;"><code>SPACESHIP_GIT_STATUS_DIVERGED</code></td>
 <td style="text-align: center;"><code>⇕</code></td>
 <td>Indicator for diverged changes (diverged with remote branch)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Git-commit-git_commit">Git commit <code>git_commit</code><a class="headerlink" href="#Git-commit-git_commit" title="Permanent link">&para;</a></h2>
+<p>The <code>git_commit</code> section displays the current commit hash of the Git repository.</p>
+<h3 id="Options_3">Options<a class="headerlink" href="#Options_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: center;">Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>SPACESHIP_GIT_COMMIT_SHOW</code></td>
+<td style="text-align: center;"><code>false</code></td>
+<td>Show section</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SPACESHIP_GIT_COMMIT_ASYNC</code></td>
+<td style="text-align: center;"><code>true</code></td>
+<td>Render section asynchronously</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SPACESHIP_GIT_COMMIT_PREFIX</code></td>
+<td style="text-align: center;"><code></code></td>
+<td>Section's prefix</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SPACESHIP_GIT_COMMIT_SUFFIX</code></td>
+<td style="text-align: center;">``</td>
+<td>Section's suffix</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SPACESHIP_GIT_COMMIT_SYMBOL</code></td>
+<td style="text-align: center;"><code>#</code></td>
+<td>Symbol displayed before the section</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SPACESHIP_GIT_COMMIT_COLOR</code></td>
+<td style="text-align: center;"><code>yellow</code></td>
+<td>Section's color</td>
 </tr>
 </tbody>
 </table>

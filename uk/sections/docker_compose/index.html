@@ -1234,9 +1234,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Параметри" class="md-nav__link">
+  <a href="#Options" class="md-nav__link">
     <span class="md-ellipsis">
-      Параметри
+      Options
     </span>
   </a>
   
@@ -2973,39 +2973,39 @@
 
 <h1 id="Docker-Compose-docker_compose">Docker Compose <code>docker_compose</code><a class="headerlink" href="#Docker-Compose-docker_compose" title="Permanent link">&para;</a></h1>
 <div class="admonition important">
-<p class="admonition-title">Типово ця секція обробляється асинхронно</p>
+<p class="admonition-title">This section is rendered asynchronously by default</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title">Інформація</p>
-<p><a href="https://docs.docker.com/compose/"><strong>Docker Compose</strong></a> — інструмент для опису та запуску багатоконтейнерних застосунків.</p>
+<p class="admonition-title">Info</p>
+<p><a href="https://docs.docker.com/compose/"><strong>Docker Compose</strong></a> is a tool for defining and running multi-container Docker applications.</p>
 </div>
-<p>Модуль <code>docker_compose</code> показує поточний статус запущеного контейнера Docker.</p>
-<p>Ця секція показується тільки в проєктах, що містять файли <code>docker-compose.yml</code> або <code>docker-compose.yaml</code>.</p>
-<p>Секція показує індикатор для кожного запущеного контейнера, що складається з першої літери назви контейнера. Індикатор буде показаний:</p>
+<p>The <code>docker_compose</code> module shows the current status of running Docker container.</p>
+<p>This section is shown only in the projects containing <code>docker-compose.yml</code>, <code>docker-compose.yaml</code>, <code>compose.yml</code> or <code>compose.yaml</code> files.</p>
+<p>It shows indicators for each of the running containers marked by the first letter of the container name. Indicator will be displayed:</p>
 <ul>
-<li><code>green</code> – якщо контейнер запущено</li>
-<li><code>yellow</code> – якщо контейнер призупинено</li>
-<li><code>red</code> – якщо контейнер зупинено або в ньому виникла помилка</li>
+<li><code>green</code> if the container is running</li>
+<li><code>yellow</code> if the container is paused</li>
+<li><code>red</code> if the container is stopped or errored</li>
 </ul>
-<h2 id="Параметри">Параметри<a class="headerlink" href="#Параметри" title="Permanent link">&para;</a></h2>
+<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Змінна</th>
-<th style="text-align: center;">Типово</th>
-<th>Опис</th>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: center;">Default</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DOCKER_COMPOSE_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Показати секцію</td>
+<td>Show section</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DOCKER_COMPOSE_ASYNC</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Обробляти секцію асинхронно</td>
+<td>Render section asynchronously</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DOCKER_COMPOSE_PREFIX</code></td>
@@ -3015,32 +3015,32 @@
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DOCKER_COMPOSE_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Суфікс секції</td>
+<td>Section's suffix</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DOCKER_COMPOSE_SYMBOL</code></td>
 <td style="text-align: center;"><code>🐙</code></td>
-<td>Символ, що показується на початку секції</td>
+<td>Symbol displayed before the section</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DOCKER_COMPOSE_COLOR</code></td>
 <td style="text-align: center;"><code>cyan</code></td>
-<td>Колір секції</td>
+<td>Section's color</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DOCKER_COMPOSE_COLOR_UP</code></td>
 <td style="text-align: center;"><code>green</code></td>
-<td>Колір для запущених контейнерів</td>
+<td>Color for running containers</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DOCKER_COMPOSE_COLOR_DOWN</code></td>
 <td style="text-align: center;"><code>red</code></td>
-<td>Колір для зупинених контейнерів</td>
+<td>Color for stopped containers</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DOCKER_COMPOSE_COLOR_PAUSED</code></td>
 <td style="text-align: center;"><code>yellow</code></td>
-<td>Колір для призупинених контейнерів</td>
+<td>Color for paused containers</td>
 </tr>
 </tbody>
 </table>

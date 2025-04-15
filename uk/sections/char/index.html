@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Символ-char" class="md-skip">
+        <a href="#Char-char" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -1901,18 +1901,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Зміна-символу-командного-рядка-для-root" class="md-nav__link">
+  <a href="#Changing-prompt-character-for-the-root-user" class="md-nav__link">
     <span class="md-ellipsis">
-      Зміна символу командного рядка для root
+      Changing prompt character for the root user
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Опції" class="md-nav__link">
+  <a href="#Options" class="md-nav__link">
     <span class="md-ellipsis">
-      Опції
+      Options
     </span>
   </a>
   
@@ -2980,47 +2980,47 @@
   
 
 
-<h1 id="Символ-char">Символ <code>char</code><a class="headerlink" href="#Символ-char" title="Permanent link">&para;</a></h1>
-<p><code>char</code> є секцією, що відповідає за показ символу командного рядка. Типово, Spaceship використовує <code>➜</code> для індикації командного рядка.</p>
-<p>Коли попередня команда була успішно виконана, символ командного рядка підсвічується зеленим (<code>SPACESHIP_CHAR_COLOR_SUCCESS</code>). В іншому випадку, якщо попередня команда завершується з ненульовим кодом, символ командного рядка — червоний (<code>SPACESHIP_CHAR_COLOR_FAILURE</code>).</p>
-<h2 id="Зміна-символу-командного-рядка-для-root">Зміна символу командного рядка для root<a class="headerlink" href="#Зміна-символу-командного-рядка-для-root" title="Permanent link">&para;</a></h2>
-<p>Типово, Spaceship не змінює символ командного рядка, коли команди виконуються від імені root. Ви можете встановити власний символ для командного рядка за допомогою параметра <code>SPACESHIP_CHAR_SYMBOL_ROOT</code>.</p>
+<h1 id="Char-char">Char <code>char</code><a class="headerlink" href="#Char-char" title="Permanent link">&para;</a></h1>
+<p><code>char</code> is a section responsible for rendering a prompt character. By default, Spaceship uses <code>➜</code> as a prompt character.</p>
+<p>When the previous command was executed successfully, the prompt character is green (<code>SPACESHIP_CHAR_COLOR_SUCCESS</code>). Otherwise, if the previous command exited with non-zero code, the prompt character is red (<code>SPACESHIP_CHAR_COLOR_FAILURE</code>).</p>
+<h2 id="Changing-prompt-character-for-the-root-user">Changing prompt character for the root user<a class="headerlink" href="#Changing-prompt-character-for-the-root-user" title="Permanent link">&para;</a></h2>
+<p>By default, Spaceship doesn't change prompt character when executing commands as a root user. You can change the custom root prompt by setting a <code>SPACESHIP_CHAR_SYMBOL_ROOT</code> option.</p>
 <div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="nv">SPACESHIP_CHAR_SYMBOL_ROOT</span><span class="o">=</span><span class="s2">&quot;#&quot;</span>
 </code></pre></div>
-<h2 id="Опції">Опції<a class="headerlink" href="#Опції" title="Permanent link">&para;</a></h2>
+<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Змінна</th>
-<th style="text-align: center;">За замовчуванням</th>
-<th>Пояснення</th>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: center;">Default</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_CHAR_PREFIX</code></td>
-<td style="text-align: center;">``</td>
-<td>Префікс перед символом командного рядка</td>
+<td style="text-align: center;"><code></code></td>
+<td>Prefix before prompt character</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_CHAR_SUFFIX</code></td>
-<td style="text-align: center;">``</td>
-<td>Суфікс після символу командного рядка</td>
+<td style="text-align: center;"><code></code></td>
+<td>Suffix after prompt character</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_CHAR_SYMBOL</code></td>
 <td style="text-align: center;"><code>➜</code></td>
-<td>Символ командного рядка, що показуватиметься перед кожною командою</td>
+<td>Prompt character to be shown before any command</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_CHAR_SYMBOL_SUCCESS</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_CHAR_SYMBOL</code></td>
-<td>Символ командного рядка, що показуватиметься після успішного виконання команди</td>
+<td>Prompt character to be shown after successful command</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_CHAR_SYMBOL_FAILURE</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_CHAR_SYMBOL</code></td>
-<td>Символ командного рядка, що показуватиметься після виконання команди з помилкою</td>
+<td>Prompt character to be shown after failed command</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_CHAR_SYMBOL_ROOT</code></td>
@@ -3030,22 +3030,22 @@
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_CHAR_SYMBOL_SECONDARY</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_CHAR_SYMBOL</code></td>
-<td>Другий символ командного рядка, що буде показуватись для незавершених команд</td>
+<td>Secondary prompt character to be shown for incomplete commands</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_CHAR_COLOR_SUCCESS</code></td>
 <td style="text-align: center;"><code>green</code></td>
-<td>Колір символу командного рядка, коли остання команда успішно завершується</td>
+<td>Color of prompt character if last command completes successfully</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_CHAR_COLOR_FAILURE</code></td>
 <td style="text-align: center;"><code>red</code></td>
-<td>Колір символу рядка, якщо остання команда повертає ненульовий код</td>
+<td>Color of prompt character if last command returns non-zero exit-code</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_CHAR_COLOR_SECONDARY</code></td>
 <td style="text-align: center;"><code>yellow</code></td>
-<td>Колір другого символу командного рядка</td>
+<td>Color of secondary prompt character</td>
 </tr>
 </tbody>
 </table>

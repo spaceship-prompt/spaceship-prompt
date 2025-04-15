@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Версія-пакету-package" class="md-skip">
+        <a href="#Package-version-package" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -1832,18 +1832,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Підтримувані-менеджери-пакетів" class="md-nav__link">
+  <a href="#Supported-package-managers" class="md-nav__link">
     <span class="md-ellipsis">
-      Підтримувані менеджери пакетів
+      Supported package managers
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Опції" class="md-nav__link">
+  <a href="#Options" class="md-nav__link">
     <span class="md-ellipsis">
-      Опції
+      Options
     </span>
   </a>
   
@@ -2980,77 +2980,77 @@
   
 
 
-<h1 id="Версія-пакету-package">Версія пакету <code>package</code><a class="headerlink" href="#Версія-пакету-package" title="Permanent link">&para;</a></h1>
+<h1 id="Package-version-package">Package version <code>package</code><a class="headerlink" href="#Package-version-package" title="Permanent link">&para;</a></h1>
 <div class="admonition important">
-<p class="admonition-title">Типово ця секція обробляється асинхронно</p>
+<p class="admonition-title">This section is rendered asynchronously by default</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Це версія пакета, з яким ви працюєте, а не версія менеджера пакетів. Багато людей використовують натомість термін <code>project</code> замість <code>package</code>, але в цьому контексті це теж саме.</p>
+<p>This is the version of the package you are working with, not the version of the package manager itself. Many people use the term <code>project</code> instead of <code>package</code> and in this context it is the same thing.</p>
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>У цій секції використовуються зовнішні інструменти для визначення версій пакетів.</p>
-<p><code>yq</code>, <code>jq</code>, <code>python</code> або <code>node</code> використовуються для аналізу версії пакетів у файлах JSON/YAML/TOML/XML. Встановіть <a href="https://stedolan.github.io/jq/">jq</a> та/або <a href="https://kislyuk.github.io/yq/">yq</a>, щоб отримати більше інформації в цій секції.</p>
+<p>This section uses external tools for retrieving package versions.</p>
+<p>We use <code>yq</code>, <code>jq</code>, <code>python</code> or <code>node</code> to parse package version in JSON/YAML/TOML/XML files. Install <a href="https://stedolan.github.io/jq/">jq</a> and/or <a href="https://kislyuk.github.io/yq/">yq</a> to get more info from this section.</p>
 </div>
-<p>Секція <code>package</code> показується, якщо поточна тека містить пакет.</p>
-<h2 id="Підтримувані-менеджери-пакетів">Підтримувані менеджери пакетів<a class="headerlink" href="#Підтримувані-менеджери-пакетів" title="Permanent link">&para;</a></h2>
-<p>Наразі підтримуються ці пакетні менеджери:</p>
+<p>The <code>package</code> section shows when the current directory is a package.</p>
+<h2 id="Supported-package-managers">Supported package managers<a class="headerlink" href="#Supported-package-managers" title="Permanent link">&para;</a></h2>
+<p>Currently, these package managers are supported:</p>
 <ul>
-<li><a href="https://www.npmjs.com"><code>npm</code></a> — версія отримується з файлу <code>package.json</code>. Також показується версія приватних (неопублікованих в репозиторії npm пакетів).</li>
-<li><a href="https://lerna.io"><code>lerna</code></a> — версія отримується з файлу <code>lerna.json</code>.</li>
-<li><a href="https://crates.io"><code>cargo</code></a> — версія отримується з файлу <code>Cargo.toml</code>. <code>cargo pkgid</code> використовується для визначення версії, яка залежить від <code>Cargo.lock</code>. Запустіть <code>cargo build</code>, щоб створити <code>Cargo.lock</code>, якщо версія не показується.</li>
-<li><a href="https://getcomposer.org"><code>composer</code></a> — версія отримується з файлу <code>composer.json</code>.</li>
-<li><a href="https://julialang.org"><code>julia</code></a> — версія отримується з файлу <code>Project.toml</code>.</li>
-<li><a href="https://maven.apache.org"><code>Maven</code></a> — версія отримується з команди <code>mvn</code>.</li>
-<li><a href="https://gradle.org"><code>gradle</code></a> — версія отримується з команди <code>gradle</code>.</li>
-<li><a href="https://python.org"><code>python</code></a> — версія отримується з <code>pyproject.toml</code>, або в форматі <a href="https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html"><code>setuptools</code></a>, або — <a href="https://python-poetry.org/docs/pyproject/"><code>poetry</code></a>.</li>
-<li><a href="https://dart.dev"><code>dart</code></a> — версія отримується з файлу <code>pubspec.yaml</code>.</li>
+<li><a href="https://www.npmjs.com"><code>npm</code></a> — version form <code>package.json</code> file. Private packages are detected.</li>
+<li><a href="https://lerna.io"><code>lerna</code></a> — version from <code>lerna.json</code> file.</li>
+<li><a href="https://crates.io"><code>cargo</code></a> — version from <code>Cargo.toml</code> file. <code>cargo pkgid</code> is used to detect the version, which depends on <code>Cargo.lock</code>. Run <code>cargo build</code> to generate <code>Cargo.lock</code> if version is not shown.</li>
+<li><a href="https://getcomposer.org"><code>composer</code></a> — version from <code>composer.json</code> file.</li>
+<li><a href="https://julialang.org"><code>julia</code></a> — version from <code>Project.toml</code> file.</li>
+<li><a href="https://maven.apache.org"><code>maven</code></a> — version from <code>mvn</code> command.</li>
+<li><a href="https://gradle.org"><code>gradle</code></a> — version from <code>gradle</code> command.</li>
+<li><a href="https://python.org"><code>python</code></a> — version from <code>pyproject.toml</code>, either in <a href="https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html"><code>setuptools</code></a> or <a href="https://python-poetry.org/docs/pyproject/"><code>poetry</code></a> format.</li>
+<li><a href="https://dart.dev"><code>dart</code></a> — version from the <code>pubspec.yaml</code> file.</li>
 </ul>
-<h2 id="Опції">Опції<a class="headerlink" href="#Опції" title="Permanent link">&para;</a></h2>
+<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Змінна</th>
-<th style="text-align: center;">За замовчуванням</th>
-<th>Пояснення</th>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: center;">Default</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PACKAGE_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Показати секцію</td>
+<td>Show section</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PACKAGE_ASYNC</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Рендерити секцію асинхронно</td>
+<td>Render section asynchronously</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PACKAGE_SHOW_PRIVATE</code></td>
 <td style="text-align: center;"><code>false</code></td>
-<td>Показувати, коли пакет є приватним</td>
+<td>Show when a package is private</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PACKAGE_PREFIX</code></td>
 <td style="text-align: center;"><code>is·</code></td>
-<td>Префікс секції</td>
+<td>Section's prefix</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PACKAGE_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Суфікс секції</td>
+<td>Section's suffix</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PACKAGE_SYMBOL</code></td>
 <td style="text-align: center;"><code>📦·</code></td>
-<td>Символ, що відображається перед секцією</td>
+<td>Symbol displayed before the section</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PACKAGE_COLOR</code></td>
 <td style="text-align: center;"><code>red</code></td>
-<td>Колір секції</td>
+<td>Section's color</td>
 </tr>
 </tbody>
 </table>

@@ -1165,18 +1165,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Налаштування-стандартної-версії-Deno" class="md-nav__link">
+  <a href="#Settings-the-default-Deno-version" class="md-nav__link">
     <span class="md-ellipsis">
-      Налаштування стандартної версії Deno
+      Settings the default Deno version
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Опції" class="md-nav__link">
+  <a href="#Options" class="md-nav__link">
     <span class="md-ellipsis">
-      Опції
+      Options
     </span>
   </a>
   
@@ -2982,66 +2982,66 @@
 
 <h1 id="Deno-deno">Deno (<code>deno</code>)<a class="headerlink" href="#Deno-deno" title="Permanent link">&para;</a></h1>
 <div class="admonition important">
-<p class="admonition-title">Типово ця секція обробляється асинхронно</p>
+<p class="admonition-title">This section is rendered asynchronously by default</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title">Інформація</p>
-<p><a href="https://deno.land"><strong>Deno</strong></a> — захищене середовище для запуску JavaScript і TypeScript.</p>
+<p class="admonition-title">Info</p>
+<p><a href="https://deno.land"><strong>Deno</strong></a> is a secure runtime for JavaScript and TypeScript.</p>
 </div>
-<p>Секція <code>deno</code> показує версію Deno.</p>
-<p>Ця секція показується лише тоді, коли:</p>
+<p>The <code>deno</code> section displays the Deno version.</p>
+<p>This section is displayed only when:</p>
 <ul>
-<li>Пошук вгору знаходить файл <code>deno.json</code> або <code>deno.jsonc</code></li>
-<li>Поточна тека містить файли <code>deps.ts</code>, <code>mod.ts</code>, <code>main.ts</code> або <code>cli.ts</code>.</li>
+<li>Upsearch finds <code>deno.json</code> or <code>deno.jsonc</code> file</li>
+<li>Current directory contains <code>deps.ts</code>, <code>mod.ts</code>, <code>main.ts</code> or <code>cli.ts</code> files.</li>
 </ul>
-<h2 id="Налаштування-стандартної-версії-Deno">Налаштування стандартної версії Deno<a class="headerlink" href="#Налаштування-стандартної-версії-Deno" title="Permanent link">&para;</a></h2>
-<p>Якщо ви вкажете у <code>SPACESHIP_DENO_DEFAULT_VERSION</code> стандартну версію Deno, а поточна версія на платформі збігається з <code>SPACESHIP_DEFAULT_VERSION</code>, тоді Deno</p>
+<h2 id="Settings-the-default-Deno-version">Settings the default Deno version<a class="headerlink" href="#Settings-the-default-Deno-version" title="Permanent link">&para;</a></h2>
+<p>If you set <code>SPACESHIP_DENO_DEFAULT_VERSION</code> to the default Deno version and your current version is the same as <code>SPACESHIP_DENO_DEFAULT_VERSION</code>, then Deno</p>
 <div class="highlight"><span class="filename">.spaceshiprc.zsh</span><pre><span></span><code><span class="nv">SPACESHIP_DENO_DEFAULT_VERSION</span><span class="o">=</span><span class="s2">&quot;1.25.3&quot;</span>
 </code></pre></div>
-<h2 id="Опції">Опції<a class="headerlink" href="#Опції" title="Permanent link">&para;</a></h2>
+<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Змінна</th>
-<th style="text-align: center;">За замовчуванням</th>
-<th>Пояснення</th>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: center;">Default</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DENO_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Показати секцію</td>
+<td>Show section</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DENO_ASYNC</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Рендерити секцію асинхронно</td>
+<td>Render section asynchronously</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DENO_PREFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_PREFIX</code></td>
-<td>Префікс секції</td>
+<td>Section's prefix</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DENO_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Суфікс секції</td>
+<td>Section's suffix</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DENO_SYMBOL</code></td>
 <td style="text-align: center;"><code>🦕·</code></td>
-<td>Символ, що показується на початку секції</td>
+<td>Symbol displayed before the section</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DENO_DEFAULT_VERSION</code></td>
-<td style="text-align: center;">``</td>
-<td>Версія Deno, що вважатиметься стандартною</td>
+<td style="text-align: center;"><code></code></td>
+<td>Deno version to be treated as default</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_DENO_COLOR</code></td>
 <td style="text-align: center;"><code>cyan</code></td>
-<td>Колір секції</td>
+<td>Section's color</td>
 </tr>
 </tbody>
 </table>

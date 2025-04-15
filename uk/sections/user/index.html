@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Імя-користувача-user" class="md-skip">
+        <a href="#Username-user" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -2177,18 +2177,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Керування-показом-секції-user" class="md-nav__link">
+  <a href="#Controlling-when-to-show-the-user-section" class="md-nav__link">
     <span class="md-ellipsis">
-      Керування показом секції user
+      Controlling when to show the user section
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Параметри" class="md-nav__link">
+  <a href="#Options" class="md-nav__link">
     <span class="md-ellipsis">
-      Параметри
+      Options
     </span>
   </a>
   
@@ -2980,82 +2980,82 @@
   
 
 
-<h1 id="Імя-користувача-user">Ім’я користувача <code>user</code><a class="headerlink" href="#Імя-користувача-user" title="Permanent link">&para;</a></h1>
-<p>Секція <code>user</code> показує імʼя поточного користувача. Типово, воно показується якщо:</p>
+<h1 id="Username-user">Username <code>user</code><a class="headerlink" href="#Username-user" title="Permanent link">&para;</a></h1>
+<p>The <code>user</code> section shows the current user's username. By default, it's displayed only when:</p>
 <ul>
-<li>машина підключена через SSH (<code>$SSH_CONNECTION</code> не пусте)</li>
-<li>імʼя користувача не збігається з <code>$LOGNAME</code></li>
-<li>користувач має права root</li>
+<li>the machine is connected via SSH (<code>$SSH_CONNECTION</code> is not empty)</li>
+<li>username is not the same as <code>$LOGNAME</code></li>
+<li>username is a root user</li>
 </ul>
-<p>Користувач root підсвічується кольором з <code>SPACESHIP_USER_COLOR_ROOT</code> (типове значення — red).</p>
-<h2 id="Керування-показом-секції-user">Керування показом секції <code>user</code><a class="headerlink" href="#Керування-показом-секції-user" title="Permanent link">&para;</a></h2>
-<p><code>SPACESHIP_USER_SHOW</code> визначає, коли показувати секцію <code>user</code>. Ось можливі значення:</p>
+<p>The root user is highlighted in <code>SPACESHIP_USER_COLOR_ROOT</code> color (red as default).</p>
+<h2 id="Controlling-when-to-show-the-user-section">Controlling when to show the <code>user</code> section<a class="headerlink" href="#Controlling-when-to-show-the-user-section" title="Permanent link">&para;</a></h2>
+<p><code>SPACESHIP_USER_SHOW</code> defines when to show the <code>user</code> section. Here are possible values:</p>
 <table>
 <thead>
 <tr>
 <th style="text-align: center;"><code>SPACESHIP_USER_SHOW</code></th>
-<th style="text-align: left;">Показати локально</th>
-<th style="text-align: left;">Показувати віддалено</th>
+<th style="text-align: left;">Show on local</th>
+<th style="text-align: left;">Show on remote</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: center;"><code>false</code></td>
-<td style="text-align: left;">Ніколи</td>
-<td style="text-align: left;">Ніколи</td>
+<td style="text-align: left;">Never</td>
+<td style="text-align: left;">Never</td>
 </tr>
 <tr>
 <td style="text-align: center;"><code>always</code></td>
-<td style="text-align: left;">Завжди</td>
-<td style="text-align: left;">Завжди</td>
+<td style="text-align: left;">Always</td>
+<td style="text-align: left;">Always</td>
 </tr>
 <tr>
 <td style="text-align: center;"><code>true</code></td>
-<td style="text-align: left;">Якщо потрібно</td>
-<td style="text-align: left;">Завжди</td>
+<td style="text-align: left;">If needed</td>
+<td style="text-align: left;">Always</td>
 </tr>
 <tr>
 <td style="text-align: center;"><code>needed</code></td>
-<td style="text-align: left;">Якщо потрібно</td>
-<td style="text-align: left;">Якщо потрібно</td>
+<td style="text-align: left;">If needed</td>
+<td style="text-align: left;">If needed</td>
 </tr>
 </tbody>
 </table>
-<p><em>Якщо потрібно,</em> означає поведінку за замовчуванням.</p>
-<h2 id="Параметри">Параметри<a class="headerlink" href="#Параметри" title="Permanent link">&para;</a></h2>
+<p><em>If needed</em> means the default behavior.</p>
+<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Змінна</th>
-<th style="text-align: center;">За замовчуванням</th>
-<th>Пояснення</th>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: center;">Default</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_USER_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Показувати секцію (<code>true</code>, <code>false</code>, <code>always</code> або <code>needed</code>)</td>
+<td>Show section (<code>true</code>, <code>false</code>, <code>always</code> or <code>needed</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_USER_PREFIX</code></td>
 <td style="text-align: center;"><code>with·</code></td>
-<td>Префікс секції</td>
+<td>Section's prefix</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_USER_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Суфікс секції</td>
+<td>Section's suffix</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_USER_COLOR</code></td>
 <td style="text-align: center;"><code>yellow</code></td>
-<td>Колір секції</td>
+<td>Section's color</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_USER_COLOR_ROOT</code></td>
 <td style="text-align: center;"><code>red</code></td>
-<td>Колір секції, якщо користувачем є root</td>
+<td>Section's color when user is root</td>
 </tr>
 </tbody>
 </table>

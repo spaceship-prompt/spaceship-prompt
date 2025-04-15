@@ -1280,18 +1280,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Встановлення-версії-Elixir-за-замовчуванням" class="md-nav__link">
+  <a href="#Setting-the-default-Elixir-version" class="md-nav__link">
     <span class="md-ellipsis">
-      Встановлення версії Elixir за замовчуванням
+      Setting the default Elixir version
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Параметри" class="md-nav__link">
+  <a href="#Options" class="md-nav__link">
     <span class="md-ellipsis">
-      Параметри
+      Options
     </span>
   </a>
   
@@ -2982,66 +2982,66 @@
 
 <h1 id="Elixir-elixir">Elixir <code>elixir</code><a class="headerlink" href="#Elixir-elixir" title="Permanent link">&para;</a></h1>
 <div class="admonition important">
-<p class="admonition-title">Типово ця секція обробляється асинхронно</p>
+<p class="admonition-title">This section is rendered asynchronously by default</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title">Інформація</p>
-<p><a href="https://elixir-lang.org"><strong>Elixir</strong></a> — динамічна, функціональна мова програмування для створення масштабованих, добре підтримуваних застосунків.</p>
+<p class="admonition-title">Info</p>
+<p><a href="https://elixir-lang.org"><strong>Elixir</strong></a> is a dynamic, functional language for building scalable and maintainable applications.</p>
 </div>
-<p>Секція <code>elixir</code> відображає версію Elixir.</p>
-<p>Ця секція відображається лише тоді, коли поточна директорія:</p>
+<p>The <code>elixir</code> section displays the version of the Elixir.</p>
+<p>This section is displayed only when the current directory:</p>
 <ul>
-<li>Містить файл <code>mix.exs</code></li>
-<li>Містить будь-який інший файл з розширенням <code>.ex</code> або <code>.exs</code></li>
+<li>Contains a <code>mix.exs</code> file</li>
+<li>Contains any other file with <code>.ex</code> or <code>.exs</code> extension</li>
 </ul>
-<h2 id="Встановлення-версії-Elixir-за-замовчуванням">Встановлення версії Elixir за замовчуванням<a class="headerlink" href="#Встановлення-версії-Elixir-за-замовчуванням" title="Permanent link">&para;</a></h2>
-<p>Якщо ви бажаєте уникнути показу секції Elexir для певних версій (наприклад, версії встановленої разом з системою), використовуйте змінну <code>SPACESHIP_ELIXIR_DEFAULT_VERSION</code>. Секцію буде приховано, якщо поточна версія Elixir збігається зі значенням змінної.</p>
+<h2 id="Setting-the-default-Elixir-version">Setting the default Elixir version<a class="headerlink" href="#Setting-the-default-Elixir-version" title="Permanent link">&para;</a></h2>
+<p>If you want to avoid showing the Elixir section for a specific Elixir version (for example system installed version), use the <code>SPACESHIP_ELIXIR_DEFAULT_VERSION</code> environment variable. The section will be hidden if the current version of the Elixir is equal to the one specified in the variable.</p>
 <div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="nv">SPACESHIP_ELIXIR_DEFAULT_VERSION</span><span class="o">=</span><span class="s2">&quot;1.13.4&quot;</span>
 </code></pre></div>
-<h2 id="Параметри">Параметри<a class="headerlink" href="#Параметри" title="Permanent link">&para;</a></h2>
+<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Змінна</th>
-<th style="text-align: center;">За замовчуванням</th>
-<th>Пояснення</th>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: center;">Default</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_ELIXIR_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Показати секцію</td>
+<td>Show section</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_ELIXIR_ASYNC</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Рендерити секцію асинхронно</td>
+<td>Render section asynchronously</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_ELIXIR_PREFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_PREFIX</code></td>
-<td>Префікс секції</td>
+<td>Section's prefix</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_ELIXIR_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Суфікс секції</td>
+<td>Section's suffix</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_ELIXIR_DEFAULT_VERSION</code></td>
 <td style="text-align: center;">-</td>
-<td>Версія Elixir, яку слід вважати типовою</td>
+<td>Elixir version to be treated as default</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_ELIXIR_SYMBOL</code></td>
 <td style="text-align: center;"><code>💧·</code></td>
-<td>Символ перед секцією</td>
+<td>Symbol before the section</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_ELIXIR_COLOR</code></td>
 <td style="text-align: center;"><code>magenta</code></td>
-<td>Колір секції</td>
+<td>Section's color</td>
 </tr>
 </tbody>
 </table>

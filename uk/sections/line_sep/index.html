@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Розділювач-рядків-line_sep" class="md-skip">
+        <a href="#Line-separator-line_sep" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -1694,36 +1694,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Додавання-додаткових-розривів-рядків-в-командний-рядок" class="md-nav__link">
+  <a href="#Adding-more-line-breaks-to-the-prompts" class="md-nav__link">
     <span class="md-ellipsis">
-      Додавання додаткових розривів рядків в командний рядок
+      Adding more line breaks to the prompts
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Вимкнення-роздільника-рядків" class="md-nav__link">
+  <a href="#Disabling-line-separator" class="md-nav__link">
     <span class="md-ellipsis">
-      Вимкнення роздільника рядків
+      Disabling line separator
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Видалення-line_sep-командного-рядка" class="md-nav__link">
+  <a href="#Removing-line_sep-from-the-prompt" class="md-nav__link">
     <span class="md-ellipsis">
-      Видалення line_sep командного рядка
+      Removing line_sep from the prompt
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Опції" class="md-nav__link">
+  <a href="#Options" class="md-nav__link">
     <span class="md-ellipsis">
-      Опції
+      Options
     </span>
   </a>
   
@@ -2998,39 +2998,39 @@
   
 
 
-<h1 id="Розділювач-рядків-line_sep">Розділювач рядків <code>line_sep</code><a class="headerlink" href="#Розділювач-рядків-line_sep" title="Permanent link">&para;</a></h1>
-<p>Секція <code>line_sep</code> використовується як розділювач рядків у командному рядку.</p>
-<h2 id="Додавання-додаткових-розривів-рядків-в-командний-рядок">Додавання додаткових розривів рядків в командний рядок<a class="headerlink" href="#Додавання-додаткових-розривів-рядків-в-командний-рядок" title="Permanent link">&para;</a></h2>
-<p>Ви можете додати більше розривів рядків до командного рядка, додавши більше секцій <code>line_sep</code>, там де вам потрібно. Для цього можна скористатись командою <code>spaceship add</code>:</p>
-<div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="c1"># Додає рядок розриву після секції git</span>
+<h1 id="Line-separator-line_sep">Line separator <code>line_sep</code><a class="headerlink" href="#Line-separator-line_sep" title="Permanent link">&para;</a></h1>
+<p>The <code>line_sep</code> section is used as a line break for the prompt.</p>
+<h2 id="Adding-more-line-breaks-to-the-prompts">Adding more line breaks to the prompts<a class="headerlink" href="#Adding-more-line-breaks-to-the-prompts" title="Permanent link">&para;</a></h2>
+<p>You can add more line breaks to the prompt by adding more <code>line_sep</code> sections where you want. You can use <code>spaceship add</code> command for that:</p>
+<div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="c1"># Adds a line break after the git section</span>
 spaceship<span class="w"> </span>add<span class="w"> </span>--after<span class="w"> </span>git<span class="w"> </span>line_sep
 
-<span class="c1"># Додає рядок розриву перед секцією char</span>
+<span class="c1"># Adds a line break before the char section</span>
 spaceship<span class="w"> </span>add<span class="w"> </span>--before<span class="w"> </span>char<span class="w"> </span>line_sep
 </code></pre></div>
-<h2 id="Вимкнення-роздільника-рядків">Вимкнення роздільника рядків<a class="headerlink" href="#Вимкнення-роздільника-рядків" title="Permanent link">&para;</a></h2>
-<p>Ви можете уникнути додавання розділювача рядків встановивши <code>SPACESHIP_PROMPT_SEPARATE_LINE</code> в <code>false</code>.</p>
-<div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="c1"># Уникає обробки line_sep</span>
+<h2 id="Disabling-line-separator">Disabling line separator<a class="headerlink" href="#Disabling-line-separator" title="Permanent link">&para;</a></h2>
+<p>You can avoid line breaks by setting <code>SPACESHIP_PROMPT_SEPARATE_LINE</code> to <code>false</code>.</p>
+<div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="c1"># Avoids rendering of the line_sep</span>
 <span class="nv">SPACESHIP_PROMPT_SEPARATE_LINE</span><span class="o">=</span><span class="nb">false</span>
 </code></pre></div>
-<h2 id="Видалення-line_sep-командного-рядка">Видалення <code>line_sep</code> командного рядка<a class="headerlink" href="#Видалення-line_sep-командного-рядка" title="Permanent link">&para;</a></h2>
-<p>Ви можете видалити <code>line_sep</code> з командного рядка цілком наступним чином:</p>
+<h2 id="Removing-line_sep-from-the-prompt">Removing <code>line_sep</code> from the prompt<a class="headerlink" href="#Removing-line_sep-from-the-prompt" title="Permanent link">&para;</a></h2>
+<p>You can remove <code>line_sep</code> from the prompt entirely like this:</p>
 <div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code>spaceship<span class="w"> </span>remove<span class="w"> </span>line_sep
 </code></pre></div>
-<h2 id="Опції">Опції<a class="headerlink" href="#Опції" title="Permanent link">&para;</a></h2>
+<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Змінна</th>
-<th style="text-align: center;">За замовчуванням</th>
-<th>Пояснення</th>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: center;">Default</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PROMPT_SEPARATE_LINE</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Відображати розділювачі рядків</td>
+<td>Render line separators</td>
 </tr>
 </tbody>
 </table>

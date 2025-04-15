@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Інструменти-тестування" class="md-skip">
+        <a href="#Testing-utilities" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -2989,14 +2989,14 @@
   
 
 
-<h1 id="Інструменти-тестування">Інструменти тестування<a class="headerlink" href="#Інструменти-тестування" title="Permanent link">&para;</a></h1>
-<p>Цей набір утиліті має на меті допомогти вам перевірити ваші власні секції. Вони корисні для відтворення командного рядка у вигляді тексту для перевірки відтвореного виводу.</p>
-<p>Наприклад, ось приклад тестування з Shunit2:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Необхідно для правильної роботи shunit2</span>
+<h1 id="Testing-utilities">Testing utilities<a class="headerlink" href="#Testing-utilities" title="Permanent link">&para;</a></h1>
+<p>This set of utilities are aimed to help you to test your custom sections. They are useful to render prompts as string for checking the rendered output.</p>
+<p>For example, here's an example of a testing with shunit2:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Required for shunit2 to run correctly</span>
 setopt<span class="w"> </span>shwordsplit
 <span class="nv">SHUNIT_PARENT</span><span class="o">=</span><span class="nv">$0</span>
 
-<span class="c1"># Налаштування гачків shunit2</span>
+<span class="c1"># Setup shunit2 hook</span>
 oneTimeSetUp<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">TERM</span><span class="o">=</span><span class="s2">&quot;xterm-256color&quot;</span>
 
@@ -3007,18 +3007,18 @@ oneTimeSetUp<span class="o">()</span><span class="w"> </span><span class="o">{</
 <span class="w">  </span><span class="nb">source</span><span class="w"> </span><span class="s2">&quot;spaceship.zsh&quot;</span>
 <span class="o">}</span>
 
-<span class="c1"># Очищення гачків shunit2</span>
+<span class="c1"># Clean-up shunit2 hook</span>
 oneTimeTearDown<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <span class="w">  </span><span class="nb">unset</span><span class="w"> </span>SPACESHIP_PROMPT_FIRST_PREFIX_SHOW
 <span class="w">  </span><span class="nb">unset</span><span class="w"> </span>SPACESHIP_PROMPT_ADD_NEWLINE
 <span class="w">  </span><span class="nb">unset</span><span class="w"> </span>SPACESHIP_PROMPT_ORDER
 <span class="o">}</span>
 
-<span class="c1"># Перевірка</span>
+<span class="c1"># Test case</span>
 test_char<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <span class="w">  </span><span class="nv">SPACESHIP_CHAR_COLOR_SUCCESS</span><span class="o">=</span>blue
 
-<span class="w">  </span><span class="c1"># Тут ми візуалізуємо підказку як рядок</span>
+<span class="w">  </span><span class="c1"># Here we render the prompt as a string</span>
 <span class="w">  </span><span class="nb">local</span><span class="w"> </span><span class="nv">actual</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>spaceship::testkit::render_prompt<span class="k">)</span><span class="s2">&quot;</span>
 <span class="w">  </span><span class="nb">local</span><span class="w"> </span><span class="nv">expected</span><span class="o">=</span><span class="s2">&quot;%{%B%F{</span><span class="nv">$SPACESHIP_CHAR_COLOR_SUCCESS</span><span class="s2">}%}➜ %{%b%f%}&quot;</span>
 
@@ -3028,15 +3028,15 @@ test_char<span class="o">()</span><span class="w"> </span><span class="o">{</spa
 <span class="nb">source</span><span class="w"> </span>tests/shunit2/shunit2
 </code></pre></div>
 <h2 id="spaceshiptestkitrender_prompt"><code>spaceship::testkit::render_prompt</code><a class="headerlink" href="#spaceshiptestkitrender_prompt" title="Permanent link">&para;</a></h2>
-<p>Обробляє значення змінної <code>PROMPT</code> і виводить його як рядок.</p>
+<p>Renders the value of <code>PROMPT</code> variable and prints it as a string.</p>
 <div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::testkit::render_prompt
 </code></pre></div>
 <h2 id="spaceshiptestkitrender_rprompt"><code>spaceship::testkit::render_rprompt</code><a class="headerlink" href="#spaceshiptestkitrender_rprompt" title="Permanent link">&para;</a></h2>
-<p>Обробляє значення змінної <code>RPROMPT</code> і виводить його як рядок.</p>
+<p>Renders the value of <code>RPROMPT</code> variable and prints it as a string.</p>
 <div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::testkit::render_rprompt
 </code></pre></div>
 <h2 id="spaceshiptestkitrender_ps2"><code>spaceship::testkit::render_ps2</code><a class="headerlink" href="#spaceshiptestkitrender_ps2" title="Permanent link">&para;</a></h2>
-<p>Обробляє значення змінної <code>PS2</code> і виводить його як рядок.</p>
+<p>Renders the value of <code>PS2</code> variable and prints it as a string.</p>
 <div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::testkit::render_ps2
 </code></pre></div>
 

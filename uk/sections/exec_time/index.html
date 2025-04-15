@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Час-виконання-exec_time" class="md-skip">
+        <a href="#Execution-time-exec_time" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -1349,27 +1349,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Встановлення-порогу" class="md-nav__link">
+  <a href="#Defining-the-threshold" class="md-nav__link">
     <span class="md-ellipsis">
-      Встановлення порогу
+      Defining the threshold
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Встановлення-точності" class="md-nav__link">
+  <a href="#Defining-precision" class="md-nav__link">
     <span class="md-ellipsis">
-      Встановлення точності
+      Defining precision
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Опції" class="md-nav__link">
+  <a href="#Options" class="md-nav__link">
     <span class="md-ellipsis">
-      Опції
+      Options
     </span>
   </a>
   
@@ -2989,57 +2989,57 @@
   
 
 
-<h1 id="Час-виконання-exec_time">Час виконання <code>exec_time</code><a class="headerlink" href="#Час-виконання-exec_time" title="Permanent link">&para;</a></h1>
-<p>Секція <code>exec_time</code> відображає час виконання останньої команди. Відображається, якщо він перевищує встановлений поріг часу (2 секунди за замовчуванням).</p>
-<h2 id="Встановлення-порогу">Встановлення порогу<a class="headerlink" href="#Встановлення-порогу" title="Permanent link">&para;</a></h2>
-<p>Якщо ви не задоволені стандартним порогом 2 секунд, ви можете визначити його за допомогою опції <code>SPACESHIP_EXEC_TIME_ELAPSED</code>.</p>
-<div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="c1"># Встановимо поріг у 5 секунд</span>
+<h1 id="Execution-time-exec_time">Execution time <code>exec_time</code><a class="headerlink" href="#Execution-time-exec_time" title="Permanent link">&para;</a></h1>
+<p>The <code>exec_time</code> section displays the execution time of the last command. Will be displayed if it exceeds the set threshold of time (2 seconds by default).</p>
+<h2 id="Defining-the-threshold">Defining the threshold<a class="headerlink" href="#Defining-the-threshold" title="Permanent link">&para;</a></h2>
+<p>If you are not satisfied with the default threshold of 2 seconds, you can define it using the <code>SPACESHIP_EXEC_TIME_ELAPSED</code> option.</p>
+<div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="c1"># This sets threshold to 5 seconds</span>
 <span class="nv">SPACESHIP_EXEC_TIME_ELAPSED</span><span class="o">=</span><span class="m">5</span>
 </code></pre></div>
-<h2 id="Встановлення-точності">Встановлення точності<a class="headerlink" href="#Встановлення-точності" title="Permanent link">&para;</a></h2>
-<p>За замовчуванням точність часу встановлюється на 1 цифру після коми. Ви можете змінити його за допомогою опції <code>SPACESHIP_EXEC_TIME_PRECISION</code>.</p>
-<div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="c1"># Встановимо точність у два знаки</span>
+<h2 id="Defining-precision">Defining precision<a class="headerlink" href="#Defining-precision" title="Permanent link">&para;</a></h2>
+<p>By default time precision is set to 1 digit after the decimal point. You can change it using the <code>SPACESHIP_EXEC_TIME_PRECISION</code> option.</p>
+<div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="c1"># This sents precision to 2 digits</span>
 <span class="nv">SPACESHIP_EXEC_TIME_PRECISION</span><span class="o">=</span><span class="m">2</span>
 </code></pre></div>
-<h2 id="Опції">Опції<a class="headerlink" href="#Опції" title="Permanent link">&para;</a></h2>
+<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Змінна</th>
-<th style="text-align: center;">За замовчуванням</th>
-<th>Пояснення</th>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: center;">Default</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_EXEC_TIME_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Показати секцію</td>
+<td>Show section</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_EXEC_TIME_PREFIX</code></td>
 <td style="text-align: center;"><code>took·</code></td>
-<td>Префікс секції</td>
+<td>Section's prefix</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_EXEC_TIME_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Суфікс секції</td>
+<td>Section's suffix</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_EXEC_TIME_COLOR</code></td>
 <td style="text-align: center;"><code>yellow</code></td>
-<td>Колір секції</td>
+<td>Section's color</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_EXEC_TIME_ELAPSED</code></td>
 <td style="text-align: center;"><code>2</code></td>
-<td>Мінімальна кількість в секундах для показу секції часу виконання</td>
+<td>The minimum number of seconds for showing execution time section</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_EXEC_TIME_PRECISION</code></td>
 <td style="text-align: center;"><code>1</code></td>
-<td>Кількість знаків, які використовуються в дробовій частині часу</td>
+<td>Number of digits to use in the fractional part of the time value</td>
 </tr>
 </tbody>
 </table>

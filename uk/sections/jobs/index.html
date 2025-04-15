@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Завдання-jobs" class="md-skip">
+        <a href="#Jobs-jobs" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -1602,18 +1602,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Встановлення-порогу-при-якому-відображається-кількість-завдань" class="md-nav__link">
+  <a href="#Set-the-threshold-after-which-the-job-count-is-shown" class="md-nav__link">
     <span class="md-ellipsis">
-      Встановлення порогу при якому відображається кількість завдань
+      Set the threshold after which the job count is shown
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Опції" class="md-nav__link">
+  <a href="#Options" class="md-nav__link">
     <span class="md-ellipsis">
-      Опції
+      Options
     </span>
   </a>
   
@@ -2980,62 +2980,62 @@
   
 
 
-<h1 id="Завдання-jobs">Завдання <code>jobs</code><a class="headerlink" href="#Завдання-jobs" title="Permanent link">&para;</a></h1>
-<p>Секція <code>jobs</code> показується лише тоді, коли є активні завдання у фоновому режимі.</p>
-<h2 id="Встановлення-порогу-при-якому-відображається-кількість-завдань">Встановлення порогу при якому відображається кількість завдань<a class="headerlink" href="#Встановлення-порогу-при-якому-відображається-кількість-завдань" title="Permanent link">&para;</a></h2>
-<p>Змінна <code>SPACESHIP_JOBS_AMOUNT_THRESHOLD</code> визначає поріг, після якого буде показано кількість запущених завдань.</p>
-<div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="c1"># Кількість завдань буде показано навіть коли в фоні лише одне завдання</span>
+<h1 id="Jobs-jobs">Jobs <code>jobs</code><a class="headerlink" href="#Jobs-jobs" title="Permanent link">&para;</a></h1>
+<p>The <code>jobs</code> section shows only when there are running jobs in the background.</p>
+<h2 id="Set-the-threshold-after-which-the-job-count-is-shown">Set the threshold after which the job count is shown<a class="headerlink" href="#Set-the-threshold-after-which-the-job-count-is-shown" title="Permanent link">&para;</a></h2>
+<p>The <code>SPACESHIP_JOBS_AMOUNT_THRESHOLD</code> environment variable defines the threshold after which the number of running jobs will be shown.</p>
+<div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="c1"># The job count will be displayed even there is a single background job</span>
 <span class="nv">SPACESHIP_JOBS_AMOUNT_THRESHOLD</span><span class="o">=</span><span class="m">0</span>
 </code></pre></div>
-<h2 id="Опції">Опції<a class="headerlink" href="#Опції" title="Permanent link">&para;</a></h2>
+<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Змінна</th>
-<th style="text-align: center;">За замовчуванням</th>
-<th>Пояснення</th>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: center;">Default</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_JOBS_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Показати секцію</td>
+<td>Show section</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_JOBS_PREFIX</code></td>
 <td style="text-align: center;">-</td>
-<td>Префікс секції</td>
+<td>Section's prefix</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_JOBS_SUFFIX</code></td>
 <td style="text-align: center;"><code>·</code></td>
-<td>Суфікс секції</td>
+<td>Section's suffix</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_JOBS_SYMBOL</code></td>
 <td style="text-align: center;"><code>✦</code></td>
-<td>Символ, що відображається, коли завдання приховуються</td>
+<td>Symbol displayed when jobs are hiding</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_JOBS_COLOR</code></td>
 <td style="text-align: center;"><code>blue</code></td>
-<td>Колір секції</td>
+<td>Section's color</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_JOBS_AMOUNT_PREFIX</code></td>
 <td style="text-align: center;">-</td>
-<td>Префікс перед кількістю завдань (між індикатором завдань та їх кількістю)</td>
+<td>Prefix before the number of jobs (between jobs indicator and jobs amount)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_JOBS_AMOUNT_SUFFIX</code></td>
 <td style="text-align: center;">-</td>
-<td>Суфікс після кількості завдань</td>
+<td>Suffix after the number of jobs</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_JOBS_AMOUNT_THRESHOLD</code></td>
 <td style="text-align: center;"><code>1</code></td>
-<td>Кількість завдань, після яких кількість завдань буде показана</td>
+<td>Number of jobs after which job count will be shown</td>
 </tr>
 </tbody>
 </table>

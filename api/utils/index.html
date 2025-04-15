@@ -3113,7 +3113,7 @@ spaceship::is_hg<span class="w"> </span><span class="o">||</span><span class="w"
 <p>Some sections are always synchronous, not matter what, to ensure correct work of the prompt. Those are: <code>user</code>, <code>dir</code>, <code>host</code>, <code>exec_time</code>, <code>async</code>, <code>line_sep</code>, <code>jobs</code>, <code>exit_code</code> and <code>char</code>.</p>
 <h2 id="spaceshipis_prompt_async"><code>spaceship::is_prompt_async</code><a class="headerlink" href="#spaceshipis_prompt_async" title="Permanent link">&para;</a></h2>
 <p>Checks if the prompt works in asynchronous mode or not. This utility returns zero exit code if the prompt works in asynchronous mode and non-zero if it's not.</p>
-<p>Check if <code>SPACESHIP_PROMPT_ASYNC</code> is set to <code>true</code> and <a href="/api/environment/#asynchronous-runtime"><code>zsh-async</code> is loaded</a>.</p>
+<p>Check if <code>SPACESHIP_PROMPT_ASYNC</code> is set to <code>true</code> and <a href="#spaceshipis_section_async"><code>zsh-async</code> is loaded</a>.</p>
 <h2 id="spaceshipdeprecated"><code>spaceship::deprecated</code><a class="headerlink" href="#spaceshipdeprecated" title="Permanent link">&para;</a></h2>
 <p>This utility checks if <code>option</code> variable is set and if it is, prints the <code>message</code>. The <code>message</code> supports escapes to set foreground color, background color and other visual effects.</p>
 <div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::deprecated &lt;option&gt; [message]

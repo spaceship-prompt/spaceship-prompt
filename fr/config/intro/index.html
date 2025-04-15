@@ -708,9 +708,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Créer-un-fichier-de-configuration" class="md-nav__link">
+  <a href="#Create-a-config-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Créer un fichier de configuration
+      Create a config file
     </span>
   </a>
   
@@ -2988,16 +2988,16 @@
 
 
 <h1 id="Introduction">Introduction<a class="headerlink" href="#Introduction" title="Permanent link">&para;</a></h1>
-<p>Bienvenue dans la configuration de Spaceship ! Here is a quick guide of how to adjust Spaceship to your personal workflows.</p>
-<h2 id="Créer-un-fichier-de-configuration">Créer un fichier de configuration<a class="headerlink" href="#Créer-un-fichier-de-configuration" title="Permanent link">&para;</a></h2>
-<p>Pour commencer avec la personnalisation, créez un fichier de configuration :</p>
+<p>Welcome to Spaceship configuration! Here is a quick guide of how to adjust Spaceship to your personal workflows.</p>
+<h2 id="Create-a-config-file">Create a config file<a class="headerlink" href="#Create-a-config-file" title="Permanent link">&para;</a></h2>
+<p>To get started with customization, create a configuration file:</p>
 <div class="highlight"><pre><span></span><code>touch<span class="w"> </span>~/.spaceshiprc.zsh
 </code></pre></div>
-<p>… ou, si vous préférez conserver votre configuration dans les dossiers <code>~/.config</code> ou <code>~/.config/spaceship</code>, vous pouvez également :</p>
+<p>… or, if you prefer to keep your configuration within a <code>~/.config</code> or <code>~/.config/spaceship</code> folders, you can do so, as well:</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.config
 touch<span class="w"> </span>~/.config/spaceship.zsh
 </code></pre></div>
-<p>Le fichier va être sourcé automatiquement par Spaceship quand il démarrera.</p>
+<p>This file will be automatically sourced by Spaceship when it starts up.</p>
 <h2 id="Configure-your-prompt">Configure your prompt<a class="headerlink" href="#Configure-your-prompt" title="Permanent link">&para;</a></h2>
 <p>The configuration file is a <code>.zsh</code> file, so you can use <code>zsh</code> syntax to customize Spaceship. You can use loops, conditions, custom functions or even source additional <code>zsh</code> files. It's up to you.</p>
 <p>Here's an example of a configuration file:</p>
@@ -3019,10 +3019,10 @@ spaceship<span class="w"> </span>add<span class="w"> </span>ember
 spaceship<span class="w"> </span>add<span class="w"> </span>--before<span class="w"> </span>char<span class="w"> </span>vi_mode
 </code></pre></div>
 <p>You can learn more about available options by reading further documentation.</p>
-<p><a class="md-button" href="/config/prompt" title="">See available options</a></p>
+<p><a class="md-button" href="../prompt/">See available options</a></p>
 <h2 id="Changing-the-config-location">Changing the config location<a class="headerlink" href="#Changing-the-config-location" title="Permanent link">&para;</a></h2>
-<p>Optionally, you can change the location of the configuration file by setting the <code>SPACESHIP_CONFIG_FILE</code> environment variable.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SPACESHIP_CONFIG_FILE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.dotfiles/path/to/spaceship.zsh&quot;</span>
+<p>Optionally, you can change the location of the configuration file by setting the <code>SPACESHIP_CONFIG</code> environment variable.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SPACESHIP_CONFIG</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.dotfiles/path/to/spaceship.zsh&quot;</span>
 </code></pre></div>
 
 
