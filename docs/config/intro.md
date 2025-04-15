@@ -46,7 +46,7 @@ spaceship add --before char vi_mode
 
 You can learn more about available options by reading further documentation.
 
-[See available options](/config/prompt){ .md-button }
+[See available options](prompt.md){ .md-button }
 
 ## Changing the config location
 

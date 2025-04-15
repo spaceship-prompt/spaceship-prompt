@@ -104,7 +104,7 @@ Check out our website at:
 
 There was also a lot of petite, but still important changes:
 
-* Thanks to [Rolf Koenders](undefined) Spaceship now [truncates directory name in repositories](https://github.com/denysdovhan/spaceship-prompt/pull/169).
+* Thanks to [Rolf Koenders](https://github.com/RolfKoenders) Spaceship now [truncates directory name in repositories](https://github.com/denysdovhan/spaceship-prompt/pull/169).
 * Now Spaceship has more options for displaying sections: always, needed and charged (for battery section).
 * We [removed LS_COLORS](https://github.com/denysdovhan/spaceship-prompt/pull/273) configuration from Spaceship since it doesn’t seem to be a part of prompt.
 * [char is now a separate section](https://github.com/denysdovhan/spaceship-prompt/pull/115) that can be configurable as any other.
@@ -122,7 +122,7 @@ It’s always interesting to see more statistic, so totally a [pull-request #148
 * ➕ 3,220 additions
 * ➖ 2,250 deletions
 * ✅ 34 closed issues in milestone
-* 👨‍💻 +1 team member (welcome [Maxim Baz](undefined) 👋🏻)
+* 👨‍💻 +1 team member (welcome [Maxim Baz](https://github.com/maximbaz) 👋🏻)
 
 ## Plans for future
 

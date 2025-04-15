@@ -82,7 +82,7 @@ Spaceship uses [`zsh-async`](https://github.com/mafredri/zsh-async) library to p
 
 `zsh-async` is loaded automatically when Spaceship loads sections, when all of these conditions are true:
 
-1. Asynchronous rendering is turned on (see [Asynchronous rendering](/config/prompt/#asynchronous-rendering))
+1. Asynchronous rendering is turned on (see [Asynchronous rendering](#asynchronous-rendering))
 2. There's at least one section that is rendered asynchronously.
 3. `zsh-async` was not loaded before.
 

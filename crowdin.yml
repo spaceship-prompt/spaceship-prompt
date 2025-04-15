@@ -6,7 +6,7 @@ commit_message: 'docs(i18n): New translations for %original_file_name% (%languag
 append_commit_message: false
 files:
   - source: /docs/**/*.md
-    translation: /docs/**/%file_name%.%two_letters_code%.%file_extension%
     ignore:
-      - /docs/**/%file_name%.%two_letters_code%.%file_extension%
-      - /docs/blog/**/*
+      - /docs/%locale%  # translated files
+      - /docs/blog/**/* # blog posts
+    translation: /docs/%two_letters_code%/**/%original_file_name%

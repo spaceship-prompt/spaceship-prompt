@@ -57,7 +57,7 @@ This is not an issue with Spaceship prompt. Spaceship uses Unicode symbols to re
   - You need to install an emoji font. Most systems already have such font installed, but some systems don't (for example Arch Linux). You should install one via your preferred package manager. [noto emoji](https://www.google.com/get/noto/help/emoji) is a popular choice.
   -
 
-In case Unicode symbols aren't supported, you can replace them to those that are compatible with your terminal with `SPACESHIP_*_SYMBOL` options. Check out [Options](/config/intro) page for more information.
+In case Unicode symbols aren't supported, you can replace them to those that are compatible with your terminal with `SPACESHIP_*_SYMBOL` options. Check out [Options](config/intro.md) page for more information.
 
 ## Do `spaceship remove <section>` and `SPACESHIP_<SECTION>_SHOW=false` do the same thing?
 

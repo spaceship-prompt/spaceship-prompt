@@ -187,9 +187,8 @@ plugins:
         api.md: api/environment.md
         troubleshooting.md: faq.md
   - i18n:
-      docs_structure: suffix
+      docs_structure: folder
       fallback_to_default: true
-      reconfigure_search: true
       languages:
         - locale: en
           name: English

@@ -62,7 +62,7 @@ Below is an example of a typical section for Spaceship. Pay attention to a few c
 - Every Spaceship section name should start with `spaceship_` (for example `spaceship_node`). This is a convention that is used to identify the section.
 - Show section only where it's needed (in directories which contains specific files, when a specific command is available, etc).
 
-Sections are defined by [`spaceship::section` API](/api/section/). You can use [general purpose utilities](/api/utils/) for performing common tasks in a section.
+Sections are defined by [`spaceship::section` API](../api/section.md). You can use [general purpose utilities](../api/utils.md) for performing common tasks in a section.
 
 Typical section might look like this:
 

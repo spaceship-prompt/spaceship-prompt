@@ -81,7 +81,7 @@ Some sections are always synchronous, not matter what, to ensure correct work of
 
 Checks if the prompt works in asynchronous mode or not. This utility returns zero exit code if the prompt works in asynchronous mode and non-zero if it's not.
 
-Check if `SPACESHIP_PROMPT_ASYNC` is set to `true` and [`zsh-async` is loaded](/api/environment/#asynchronous-runtime).
+Check if `SPACESHIP_PROMPT_ASYNC` is set to `true` and [`zsh-async` is loaded](#spaceshipis_section_async).
 
 ## `spaceship::deprecated`
 

@@ -25,7 +25,7 @@ search:
 This is a major release, bringing many new features and smaller improvements. We've dramatically improved performance, improved API, made configuration easier and refactored dozens of parts of the codebase. Let's see what's new in Spaceship v4.
 
 [:octicons-arrow-right-24: Continue reading][spaceship-v4]
-[spaceship-v4]: /blog/2022-spaceship-v4
+[spaceship-v4]: 2022-spaceship-v4.md
 
 ## [Meet Spaceship ZSH v3.0!][spaceship-v3]
 
@@ -46,7 +46,7 @@ This is a major release, bringing many new features and smaller improvements. We
 Spaceship is a minimalistic, powerful and extremely customizable Zsh. Today we’re announcing the third major release of Spaceship prompt — one of the most powerful Zsh prompts ever.
 
 [:octicons-arrow-right-24: Continue reading][spaceship-v3]
-[spaceship-v3]: /blog/2018-spaceship-v3
+[spaceship-v3]: 2018-spaceship-v3.md
 
 ## [A big update of spaceship-zsh-theme][spaceship-v2]
 
@@ -67,7 +67,7 @@ Spaceship is a minimalistic, powerful and extremely customizable Zsh. Today we�
 I’ve been working on big PR for spaceship-zsh-theme last few weeks. This is the biggest update of Spaceship ever, there are a lot of changes (breaking changes too), prompt is almost completely rewritten, so I decided to write a note which should be a summary of my efforts.
 
 [:octicons-arrow-right-24: Continue reading][spaceship-v2]
-[spaceship-v2]: /blog/2017-spaceship-v2
+[spaceship-v2]: 2017-spaceship-v2.md
 
 <!-- Common References -->
 

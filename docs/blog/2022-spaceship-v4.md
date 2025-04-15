@@ -48,7 +48,7 @@ This release comes with tons of bigger and smaller improvements. Let's take a cl
 
 ### Asynchronous rendering
 
-The biggest feature of this release is [**asynchronous rendering**](/config/prompt/). We know you've been waiting for this for long.
+The biggest feature of this release is [**asynchronous rendering**](../config/prompt.md). We know you've been waiting for this for long.
 
 Spaceship has a lot of sections and even [more have been contributed](https://github.com/spaceship-prompt/spaceship-prompt/pulls?q=is%3Apr+is%3Aopen+label%3Anew-feature). The more section is added, the more computation is needed to render the prompt. For a user it means you have to wait longer to be able to type the next command. Not anymore.
 
@@ -60,7 +60,7 @@ Here's how it works:
   <script id="asciicast-514494" src="https://asciinema.org/a/514494.js" data-autoplay="true" data-loop="true" data-preload="true" async></script>
 </div>
 
-As you see above, only the directory and prompt character are displayed immediately. The rest of the prompt (`git` and `package` sections) are rendered asynchronously and thus added later. A [`…` placeholder](/sections/async.md) for upcoming information is displayed while the computation is in progress.
+As you see above, only the directory and prompt character are displayed immediately. The rest of the prompt (`git` and `package` sections) are rendered asynchronously and thus added later. A [`…` placeholder](../sections/async.md) for upcoming information is displayed while the computation is in progress.
 
 If you're fast enough you can even type the following command, before the prompt is fully rendered.
 
@@ -82,7 +82,7 @@ It will dramatically simplify exploring new sections. Now you can browse all the
 
 Additionally, if you are developing a custom section for Spaceship you might want to check out our section development guide and a template repository:
 
-[Create a custom section](/advanced/creating-section){ .md-button}
+[Create a custom section](../advanced/creating-section.md){ .md-button}
 [:fontawesome-brands-github: Use a section template](https://github.com/spaceship-prompt/spaceship-section){ .md-button }
 
 ### Easier configuration
@@ -140,7 +140,7 @@ What else can you do with `spaceship` CLI?
 * **Upsearching files.** Now when Spaceship looks for a file, it will search for it in the current directory and all parent directories up to the repository root. This will help maintaining the context of you current environment.
 * **Added checks for minimal zsh version.** Now, if you are running an outdated version of Zsh, you will get a message.
 * **Spaceship Docker image.** You can now use [Spaceship Docker image](https://github.com/spaceship-prompt/spaceship-prompt/pkgs/container/spaceship-prompt) to test Spaceship in a clean environment. It's also used to run tests in CI.
-* **Spaceship Testkit.** If you are developing a custom section you can now use [Spaceship Testkit](/api/testkit/) for performing common testing tasks.
+* **Spaceship Testkit.** If you are developing a custom section you can now use [Spaceship Testkit](../api/testkit.md) for performing common testing tasks.
 * [**And many more!**](TODO: link to changelog)
 
 ### Breaking Changes
@@ -193,7 +193,7 @@ The development of such release takes time and effort. We gladly accept any help
 
 You can contribute to the project by taking simple tasks marked by **good first issue** label, helping to translate the documentation or by helping people who are having issues with Spaceship.
 
-[:material-open-source-initiative: How to Contribute](/contribute){ .md-button }
+[:material-open-source-initiative: How to Contribute](../contribute.md){ .md-button }
 [:material-translate: Help Translating](https://translate.spaceship-prompt.sh/){ .md-button }
 
 ### Financial support
