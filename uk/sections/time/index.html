@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Time-time" class="md-skip">
+        <a href="#Час-time" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -2154,27 +2154,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Displaying-the-section" class="md-nav__link">
+  <a href="#Відображення-секції" class="md-nav__link">
     <span class="md-ellipsis">
-      Displaying the section
+      Відображення секції
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Date-formatting" class="md-nav__link">
+  <a href="#Форматування-дати" class="md-nav__link">
     <span class="md-ellipsis">
-      Date formatting
+      Форматування дати
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Options" class="md-nav__link">
+  <a href="#Опції" class="md-nav__link">
     <span class="md-ellipsis">
-      Options
+      Опції
     </span>
   </a>
   
@@ -2989,61 +2989,61 @@
   
 
 
-<h1 id="Time-time">Time <code>time</code><a class="headerlink" href="#Time-time" title="Permanent link">&para;</a></h1>
+<h1 id="Час-time">Час <code>time</code><a class="headerlink" href="#Час-time" title="Permanent link">&para;</a></h1>
 <div class="admonition warning">
-<p class="admonition-title">This section is hidden by default</p>
+<p class="admonition-title">Типово ця секція є прихованою</p>
 </div>
-<p>The <code>time</code> section displays the timestamp of the prompt.</p>
-<h2 id="Displaying-the-section">Displaying the section<a class="headerlink" href="#Displaying-the-section" title="Permanent link">&para;</a></h2>
-<p>Set <code>SPACESHIP_TIME_SHOW</code> to <code>true</code> in your <code>.zshrc</code>, if you need to show timestamps:</p>
+<p>Секція <code>time</code> показує час в командному рядку.</p>
+<h2 id="Відображення-секції">Відображення секції<a class="headerlink" href="#Відображення-секції" title="Permanent link">&para;</a></h2>
+<p>Встановить <code>SPACESHIP_TIME_SHOW</code> в <code>true</code> у вашому <code>.zshrc</code>, якщо вам потрібно показувати час:</p>
 <div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="nv">SPACESHIP_TIME_SHOW</span><span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
-<h2 id="Date-formatting">Date formatting<a class="headerlink" href="#Date-formatting" title="Permanent link">&para;</a></h2>
-<p>You can set custom formatting for the timestamps. To use a 12-hour format just toggle <code>SPACESHIP_TIME_12HOUR</code> to <code>true</code>:</p>
+<h2 id="Форматування-дати">Форматування дати<a class="headerlink" href="#Форматування-дати" title="Permanent link">&para;</a></h2>
+<p>Ви можете обрати власний формат для показу часу. Для використання 12-годинного формату просто перемкніть <code>SPACESHIP_TIME_12HOUR</code> на <code>true</code>:</p>
 <div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="nv">SPACESHIP_TIME_12HR</span><span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
-<p>Additionally, you can set virtually any formatting supported by <a href="http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Date-and-time">ZSH date formats</a> for the timestamps using <code>SPACESHIP_TIME_FORMAT</code>:</p>
+<p>Додатково ви можете встановити практично будь-яке форматування, підтримуване у <a href="http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Date-and-time">форматах дати ZSH</a> для позначок часу з використанням <code>SPACESHIP_TIME_FORMAT</code>:</p>
 <div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="nv">SPACESHIP_TIME_FORMAT</span><span class="o">=</span><span class="s1">&#39;%D{%H:%M:%S.%.}&#39;</span>
 </code></pre></div>
-<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
+<h2 id="Опції">Опції<a class="headerlink" href="#Опції" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
-<th>Meaning</th>
+<th style="text-align: left;">Змінна</th>
+<th style="text-align: center;">За замовчуванням</th>
+<th>Пояснення</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_TIME_SHOW</code></td>
 <td style="text-align: center;"><code>false</code></td>
-<td>Show section (set to <code>true</code> for enabling)</td>
+<td>Показувати секцію (для показу встановіть <code>true</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_TIME_PREFIX</code></td>
 <td style="text-align: center;"><code>at·</code></td>
-<td>Section's prefix</td>
+<td>Префікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_TIME_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Section's suffix</td>
+<td>Суфікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_TIME_COLOR</code></td>
 <td style="text-align: center;"><code>yellow</code></td>
-<td>Section's color</td>
+<td>Колір секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_TIME_FORMAT</code></td>
 <td style="text-align: center;">-</td>
-<td>Custom date formatting</td>
+<td>Власне форматування дати</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_TIME_12HR</code></td>
 <td style="text-align: center;"><code>false</code></td>
-<td>Format time using 12-hour clock (am/pm)</td>
+<td>Формат часу, використовуючи 12-годинний формат (am/pm)</td>
 </tr>
 </tbody>
 </table>

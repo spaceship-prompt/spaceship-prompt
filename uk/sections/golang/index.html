@@ -1464,18 +1464,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Using-development-versions-of-Go" class="md-nav__link">
+  <a href="#Використання-розробницьких-версій-Go" class="md-nav__link">
     <span class="md-ellipsis">
-      Using development versions of Go
+      Використання розробницьких версій Go
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Options" class="md-nav__link">
+  <a href="#Параметри" class="md-nav__link">
     <span class="md-ellipsis">
-      Options
+      Параметри
     </span>
   </a>
   
@@ -2982,64 +2982,64 @@
 
 <h1 id="Go-golang">Go <code>golang</code><a class="headerlink" href="#Go-golang" title="Permanent link">&para;</a></h1>
 <div class="admonition important">
-<p class="admonition-title">This section is rendered asynchronously by default</p>
+<p class="admonition-title">За замовчуванням ця секція рендериться асинхронно</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title">Info</p>
-<p><a href="https://go.dev"><strong>Go</strong></a> is a programming language that makes it easy to build simple, reliable, and efficient software.</p>
+<p class="admonition-title">Інформація</p>
+<p><a href="https://go.dev"><strong>Go</strong></a> — мова програмування, що дозволяє створювати просте, надійне та ефективне програмне забезпечення.</p>
 </div>
-<p>The <code>golang</code> section displays the version of the Go.</p>
-<p>This section is displayed only when the current directory is within a Go project, meaning:</p>
+<p>Секція <code>golang</code> відображає версію Go.</p>
+<p>Ця секція відображається лише тоді, коли поточний каталог знаходиться у Go-проєкті, тобто:</p>
 <ul>
-<li>Upsearch finds a <code>go.mod</code>, <code>Gopkg.toml</code>, <code>Gopkg.lock</code>, <code>glide.yaml</code> file or <code>Godeps</code> folder</li>
-<li>Contains any other file with <code>.go</code> extension</li>
-<li>The current directory is in the Go workspace defined in <code>$GOPATH</code></li>
+<li>Пошук вгору знаходить файли <code>go.mod</code>, <code>Gopkg.toml</code>, <code>Gopkg.lock</code>, <code>glide.yaml</code> або теку <code>Godeps</code></li>
+<li>Містить будь-який інший файл з розширенням <code>.go</code></li>
+<li>Поточна тека визначення в змінній оточення GO — <code>$GOPATH</code></li>
 </ul>
-<h2 id="Using-development-versions-of-Go">Using development versions of Go<a class="headerlink" href="#Using-development-versions-of-Go" title="Permanent link">&para;</a></h2>
-<p>If you are using a development version of <code>Go</code>, the version uses git commit hash instead. For example:</p>
+<h2 id="Використання-розробницьких-версій-Go">Використання розробницьких версій Go<a class="headerlink" href="#Використання-розробницьких-версій-Go" title="Permanent link">&para;</a></h2>
+<p>Якщо ви використовуєте версію <code>Go</code>, що перебуває в стані розробки, замість номера версії буде показуватись хеш коміту git. Наприклад:</p>
 <ul>
-<li><code>devel:5efe9a8f11</code> for development version</li>
-<li><code>v1.11.4</code> for the release version</li>
+<li><code>devel:5efe9a8f11</code> для версії в стані розробки</li>
+<li><code>v1.11.4</code> для версії, що була випущена</li>
 </ul>
-<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
+<h2 id="Параметри">Параметри<a class="headerlink" href="#Параметри" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
-<th>Meaning</th>
+<th style="text-align: left;">Змінна</th>
+<th style="text-align: center;">За замовчуванням</th>
+<th>Пояснення</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GOLANG_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Show section</td>
+<td>Показати секцію</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GOLANG_ASYNC</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Render section asynchronously</td>
+<td>Рендерити секцію асинхронно</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GOLANG_PREFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_PREFIX</code></td>
-<td>Section's prefix</td>
+<td>Префікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GOLANG_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Section's suffix</td>
+<td>Суфікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GOLANG_SYMBOL</code></td>
 <td style="text-align: center;"><code>🐹·</code></td>
-<td>Symbol displayed before the section</td>
+<td>Символ, що відображається перед секцією</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GOLANG_COLOR</code></td>
 <td style="text-align: center;"><code>cyan</code></td>
-<td>Section's color</td>
+<td>Колір секції</td>
 </tr>
 </tbody>
 </table>

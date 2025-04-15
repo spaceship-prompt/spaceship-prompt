@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Battery-battery" class="md-skip">
+        <a href="#Батарея-battery" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -1050,18 +1050,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Controlling-when-to-show-the-battery-section" class="md-nav__link">
+  <a href="#Керування-показом-секції-battery" class="md-nav__link">
     <span class="md-ellipsis">
-      Controlling when to show the battery section
+      Керування показом секції battery
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Options" class="md-nav__link">
+  <a href="#Параметри" class="md-nav__link">
     <span class="md-ellipsis">
-      Options
+      Параметри
     </span>
   </a>
   
@@ -2980,100 +2980,100 @@
   
 
 
-<h1 id="Battery-battery">Battery <code>battery</code><a class="headerlink" href="#Battery-battery" title="Permanent link">&para;</a></h1>
+<h1 id="Батарея-battery">Батарея <code>battery</code><a class="headerlink" href="#Батарея-battery" title="Permanent link">&para;</a></h1>
 <div class="admonition important">
-<p class="admonition-title">This section is rendered asynchronously by default</p>
+<p class="admonition-title">За замовчуванням ця секція рендериться асинхронно</p>
 </div>
-<p>The <code>battery</code> section shows the current battery level and its status.</p>
-<p>By default, the <code>battery</code> section is shown only if the battery level is below <code>SPACESHIP_BATTERY_THRESHOLD</code> (10% by default).</p>
-<h2 id="Controlling-when-to-show-the-battery-section">Controlling when to show the <code>battery</code> section<a class="headerlink" href="#Controlling-when-to-show-the-battery-section" title="Permanent link">&para;</a></h2>
-<p>You may want to show the <code>battery</code> section all the time or only when it's fully charged or discharged. It's easy to control when to show the <code>battery</code> section by setting the <code>SPACESHIP_BATTERY_SHOW</code> option.</p>
-<p>Here are possible values:</p>
+<p>Секція <code>battery</code> показує поточний стан батареї та рівень заряду.</p>
+<p>Типово, секція <code>battery</code> показується тільки якщо рівень заряду нижчий ніж <code>SPACESHIP_BATTERY_THRESHOLD</code> (типово 10%).</p>
+<h2 id="Керування-показом-секції-battery">Керування показом секції <code>battery</code><a class="headerlink" href="#Керування-показом-секції-battery" title="Permanent link">&para;</a></h2>
+<p>Ви можете показувати секцію <code>battery</code> постійно або коли батарею повністю заряджено, чи розряджено. Доволі легко контролювати, коли показати секцію <code>battery</code>, скориставшись параметром <code>SPACESHIP_BATTERY_SHOW</code>.</p>
+<p>Ось можливі значення:</p>
 <table>
 <thead>
 <tr>
 <th style="text-align: center;"><code>SPACESHIP_BATTERY_SHOW</code></th>
-<th style="text-align: left;">Below threshold</th>
-<th style="text-align: left;">Above threshold</th>
-<th style="text-align: left;">Fully charged</th>
+<th style="text-align: left;">Нижче порогу</th>
+<th style="text-align: left;">Вище порогу</th>
+<th style="text-align: left;">Повністю заряджена</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: center;"><code>false</code></td>
-<td style="text-align: left;">Hidden</td>
-<td style="text-align: left;">Hidden</td>
-<td style="text-align: left;">Hidden</td>
+<td style="text-align: left;">Приховано</td>
+<td style="text-align: left;">Приховано</td>
+<td style="text-align: left;">Приховано</td>
 </tr>
 <tr>
 <td style="text-align: center;"><code>always</code></td>
-<td style="text-align: left;">Shown</td>
-<td style="text-align: left;">Shown</td>
-<td style="text-align: left;">Shown</td>
+<td style="text-align: left;">Показано</td>
+<td style="text-align: left;">Показано</td>
+<td style="text-align: left;">Показано</td>
 </tr>
 <tr>
 <td style="text-align: center;"><code>true</code></td>
-<td style="text-align: left;">Shown</td>
-<td style="text-align: left;">Hidden</td>
-<td style="text-align: left;">Hidden</td>
+<td style="text-align: left;">Показано</td>
+<td style="text-align: left;">Приховано</td>
+<td style="text-align: left;">Приховано</td>
 </tr>
 <tr>
 <td style="text-align: center;"><code>charged</code></td>
-<td style="text-align: left;">Shown</td>
-<td style="text-align: left;">Hidden</td>
-<td style="text-align: left;">Shown</td>
+<td style="text-align: left;">Показано</td>
+<td style="text-align: left;">Приховано</td>
+<td style="text-align: left;">Показано</td>
 </tr>
 </tbody>
 </table>
-<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
+<h2 id="Параметри">Параметри<a class="headerlink" href="#Параметри" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
-<th>Meaning</th>
+<th style="text-align: left;">Змінна</th>
+<th style="text-align: center;">За замовчуванням</th>
+<th>Пояснення</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_BATTERY_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Show section (<code>true</code>, <code>false</code>, <code>always</code> or <code>charged</code>)</td>
+<td>Показувати секцію (<code>true</code>, <code>false</code>, <code>always</code> або <code>charged</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_BATTERY_ASYNC</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Render section asynchronously</td>
+<td>Рендерити секцію асинхронно</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_BATTERY_PREFIX</code></td>
-<td style="text-align: center;"><code></code></td>
-<td>Section's prefix</td>
+<td style="text-align: center;">``</td>
+<td>Префікс підсекції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_BATTERY_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Section's suffix</td>
+<td>Суфікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_BATTERY_SYMBOL_CHARGING</code></td>
 <td style="text-align: center;"><code>⇡</code></td>
-<td>Symbol displayed before the section if battery is charging</td>
+<td>Символ, що показується на початку секції під час заряджання батареї</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_BATTERY_SYMBOL_DISCHARGING</code></td>
 <td style="text-align: center;"><code>⇣</code></td>
-<td>Symbol displayed before the section if battery is discharging</td>
+<td>Символ, який показується на початку секції, коли батарея розряджається</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_BATTERY_SYMBOL_FULL</code></td>
 <td style="text-align: center;"><code>•</code></td>
-<td>Symbol displayed before the section if battery is full</td>
+<td>Символ, що показується на початку секції, коли батарея заряджена на 100%</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_BATTERY_THRESHOLD</code></td>
 <td style="text-align: center;">10</td>
-<td>Battery level below which battery section will be shown</td>
+<td>Рівень заряду батареї, нижче якого секцію буде показано</td>
 </tr>
 </tbody>
 </table>

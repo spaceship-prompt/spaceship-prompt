@@ -1395,28 +1395,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Options" class="md-nav__link">
+  <a href="#Опції" class="md-nav__link">
     <span class="md-ellipsis">
-      Options
+      Опції
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Git-branch-git_branch" class="md-nav__link">
+  <a href="#Git-гілка-git_branch" class="md-nav__link">
     <span class="md-ellipsis">
-      Git branch git_branch
+      Git гілка git_branch
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Git branch git_branch">
+    <nav class="md-nav" aria-label="Git гілка git_branch">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#Options_1" class="md-nav__link">
+  <a href="#Опції_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Options
+      Опції
     </span>
   </a>
   
@@ -1428,19 +1428,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#Git-status-git_status" class="md-nav__link">
+  <a href="#Git-статус-git_status" class="md-nav__link">
     <span class="md-ellipsis">
-      Git status git_status
+      Git статус git_status
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Git status git_status">
+    <nav class="md-nav" aria-label="Git статус git_status">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#Options_2" class="md-nav__link">
+  <a href="#Опції_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Options
+      Опції
     </span>
   </a>
   
@@ -1462,9 +1462,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#Options_3" class="md-nav__link">
+  <a href="#Параметри" class="md-nav__link">
     <span class="md-ellipsis">
-      Options
+      Параметри
     </span>
   </a>
   
@@ -3045,220 +3045,220 @@
 
 <h1 id="Git-git">Git <code>git</code><a class="headerlink" href="#Git-git" title="Permanent link">&para;</a></h1>
 <div class="admonition important">
-<p class="admonition-title">This section is rendered asynchronously by default</p>
+<p class="admonition-title">Типово ця секція обробляється асинхронно</p>
 </div>
-<p>The <code>git</code> section consists of <a href="#git-branch-git_branch"><code>git_branch</code></a> and <a href="#git-status-git_status"><code>git_status</code></a> and <a href="#git-commit-git_commit"><code>git_commit</code></a> subsections.</p>
-<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
+<p>Секція <code>git</code> складається з підсекцій <a href="#git-branch-git_branch"><code>git_branch</code></a>, <a href="#git-status-git_status"><code>git_status</code></a> та <a href="#git-commit-git_commit"><code>git_commit</code></a>.</p>
+<h2 id="Опції">Опції<a class="headerlink" href="#Опції" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
-<th>Meaning</th>
+<th style="text-align: left;">Змінна</th>
+<th style="text-align: center;">За замовчуванням</th>
+<th>Пояснення</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Show section</td>
+<td>Показати секцію</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_ASYNC</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Render section asynchronously</td>
+<td>Рендерити секцію асинхронно</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_PREFIX</code></td>
 <td style="text-align: center;"><code>on·</code></td>
-<td>Section's prefix</td>
+<td>Префікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Section's suffix</td>
+<td>Суфікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_SYMBOL</code></td>
 <td style="text-align: center;"><code></code></td>
-<td>Symbol displayed before the section (requires <a href="https://github.com/powerline/fonts">powerline patched font</a>)</td>
+<td>Символ, що відображається перед секцією (вимагає <a href="https://github.com/powerline/fonts">powerline шрифт</a>)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_ORDER</code></td>
 <td style="text-align: center;"><code>(git_branch git_status)</code></td>
-<td>Order of git subsection rendering</td>
+<td>Послідовність підсекцій git</td>
 </tr>
 </tbody>
 </table>
-<h2 id="Git-branch-git_branch">Git branch <code>git_branch</code><a class="headerlink" href="#Git-branch-git_branch" title="Permanent link">&para;</a></h2>
-<p>The <code>git_branch</code> section displays the current branch of the Git repository.</p>
-<h3 id="Options_1">Options<a class="headerlink" href="#Options_1" title="Permanent link">&para;</a></h3>
+<h2 id="Git-гілка-git_branch">Git гілка <code>git_branch</code><a class="headerlink" href="#Git-гілка-git_branch" title="Permanent link">&para;</a></h2>
+<p>Секція <code>git_branch</code> відображає поточну гілку Git-репозиторію.</p>
+<h3 id="Опції_1">Опції<a class="headerlink" href="#Опції_1" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
-<th>Meaning</th>
+<th style="text-align: left;">Змінна</th>
+<th style="text-align: center;">За замовчуванням</th>
+<th>Пояснення</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_BRANCH_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Show section</td>
+<td>Показати секцію</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_BRANCH_ASYNC</code></td>
 <td style="text-align: center;"><code>false</code></td>
-<td>Render section asynchronously</td>
+<td>Рендерити секцію асинхронно</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_BRANCH_PREFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_GIT_SYMBOL</code></td>
-<td>Section's prefix</td>
+<td>Префікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_BRANCH_SUFFIX</code></td>
-<td style="text-align: center;"><code></code></td>
-<td>Section's suffix</td>
+<td style="text-align: center;">``</td>
+<td>Суфікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_BRANCH_COLOR</code></td>
 <td style="text-align: center;"><code>magenta</code></td>
-<td>Section's color</td>
+<td>Колір секції</td>
 </tr>
 </tbody>
 </table>
-<h2 id="Git-status-git_status">Git status <code>git_status</code><a class="headerlink" href="#Git-status-git_status" title="Permanent link">&para;</a></h2>
-<p>The <code>git_status</code> subsection displays indicators only when you have a dirty Git repository.</p>
-<h3 id="Options_2">Options<a class="headerlink" href="#Options_2" title="Permanent link">&para;</a></h3>
+<h2 id="Git-статус-git_status">Git статус <code>git_status</code><a class="headerlink" href="#Git-статус-git_status" title="Permanent link">&para;</a></h2>
+<p>Підсекція <code>git_status</code> відображає індикатори тільки тоді, коли у вас є репозиторій Git.</p>
+<h3 id="Опції_2">Опції<a class="headerlink" href="#Опції_2" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
-<th>Meaning</th>
+<th style="text-align: left;">Змінна</th>
+<th style="text-align: center;">За замовчуванням</th>
+<th>Пояснення</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_STATUS_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Show section</td>
+<td>Показати секцію</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_STATUS_ASYNC</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Render section asynchronously</td>
+<td>Рендерити секцію асинхронно</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_STATUS_PREFIX</code></td>
 <td style="text-align: center;"><code>·[</code></td>
-<td>Prefix before Git status subsection</td>
+<td>Префіксперед підсекцією Git-статусу</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_STATUS_SUFFIX</code></td>
 <td style="text-align: center;"><code>]</code></td>
-<td>Suffix after Git status subsection</td>
+<td>Суфікс після підсекції статусу Git</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_STATUS_COLOR</code></td>
 <td style="text-align: center;"><code>red</code></td>
-<td>Color of Git status subsection</td>
+<td>Колір підсекції статусу Git</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_STATUS_UNTRACKED</code></td>
 <td style="text-align: center;"><code>?</code></td>
-<td>Indicator for untracked changes</td>
+<td>Індикатор невідстежуваних змін</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_STATUS_ADDED</code></td>
 <td style="text-align: center;"><code>+</code></td>
-<td>Indicator for added changes</td>
+<td>Індикатор внесених змін</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_STATUS_MODIFIED</code></td>
 <td style="text-align: center;"><code>!</code></td>
-<td>Indicator for unstaged files</td>
+<td>Індикатор файлів поза індексом</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_STATUS_RENAMED</code></td>
 <td style="text-align: center;"><code>»</code></td>
-<td>Indicator for renamed files</td>
+<td>Індикатор перейменованих файлів</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_STATUS_DELETED</code></td>
 <td style="text-align: center;"><code>✘</code></td>
-<td>Indicator for deleted files</td>
+<td>Індикатор видалених файлів</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_STATUS_STASHED</code></td>
 <td style="text-align: center;"><code>$</code></td>
-<td>Indicator for stashed changes</td>
+<td>Індикатор змін, що були приховані</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_STATUS_UNMERGED</code></td>
 <td style="text-align: center;"><code>=</code></td>
-<td>Indicator for unmerged changes</td>
+<td>Індикатор змін, що не були злиті з основною гілкою</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_STATUS_AHEAD</code></td>
 <td style="text-align: center;"><code>⇡</code></td>
-<td>Indicator for unpushed changes (ahead of remote branch)</td>
+<td>Індикатор ненадісланих змін (гілка містить зміни відсутні у віддаленій гілці)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_STATUS_BEHIND</code></td>
 <td style="text-align: center;"><code>⇣</code></td>
-<td>Indicator for unpulled changes (behind of remote branch)</td>
+<td>Індикатор неотриманих змін (гілка не містить зміни, які відбулись у віддаленій гілці)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_STATUS_DIVERGED</code></td>
 <td style="text-align: center;"><code>⇕</code></td>
-<td>Indicator for diverged changes (diverged with remote branch)</td>
+<td>Індикатор розбіжних змін (розбіжних із віддаленою гілкою)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="Git-commit-git_commit">Git commit <code>git_commit</code><a class="headerlink" href="#Git-commit-git_commit" title="Permanent link">&para;</a></h2>
-<p>The <code>git_commit</code> section displays the current commit hash of the Git repository.</p>
-<h3 id="Options_3">Options<a class="headerlink" href="#Options_3" title="Permanent link">&para;</a></h3>
+<p>Секція <code>git_commit</code> показує поточний хеш коміту в Git-репозиторії.</p>
+<h3 id="Параметри">Параметри<a class="headerlink" href="#Параметри" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
-<th>Meaning</th>
+<th style="text-align: left;">Змінна</th>
+<th style="text-align: center;">Типово</th>
+<th>Опис</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_COMMIT_SHOW</code></td>
 <td style="text-align: center;"><code>false</code></td>
-<td>Show section</td>
+<td>Показати секцію</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_COMMIT_ASYNC</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Render section asynchronously</td>
+<td>Обробляти секцію асинхронно</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_COMMIT_PREFIX</code></td>
-<td style="text-align: center;"><code></code></td>
-<td>Section's prefix</td>
+<td style="text-align: center;">``</td>
+<td>Префікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_COMMIT_SUFFIX</code></td>
 <td style="text-align: center;">``</td>
-<td>Section's suffix</td>
+<td>Суфікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_COMMIT_SYMBOL</code></td>
 <td style="text-align: center;"><code>#</code></td>
-<td>Symbol displayed before the section</td>
+<td>Символ, що показується на початку секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_GIT_COMMIT_COLOR</code></td>
 <td style="text-align: center;"><code>yellow</code></td>
-<td>Section's color</td>
+<td>Колір секції</td>
 </tr>
 </tbody>
 </table>

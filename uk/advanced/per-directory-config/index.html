@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Per-directory-configuration" class="md-skip">
+        <a href="#Налаштування-для-конкретної-теки" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -2399,36 +2399,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Installing-direnv" class="md-nav__link">
+  <a href="#Встановлення-direnv" class="md-nav__link">
     <span class="md-ellipsis">
-      Installing direnv
+      Встановлення direnv
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Hooking-direnv-into-Zsh" class="md-nav__link">
+  <a href="#Підключення-direnv-до-Zsh" class="md-nav__link">
     <span class="md-ellipsis">
-      Hooking direnv into Zsh
+      Підключення direnv до Zsh
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Setting-per-directory-environment-variables" class="md-nav__link">
+  <a href="#Встановлення-змінних-середовища-для-конкретної-теки" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting per-directory environment variables
+      Встановлення змінних середовища для конкретної теки
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Alternatives-to-direnv" class="md-nav__link">
+  <a href="#Альтернативи-direnv" class="md-nav__link">
     <span class="md-ellipsis">
-      Alternatives to direnv
+      Альтернативи direnv
     </span>
   </a>
   
@@ -2996,31 +2996,31 @@
   
 
 
-<h1 id="Per-directory-configuration">Per-directory configuration<a class="headerlink" href="#Per-directory-configuration" title="Permanent link">&para;</a></h1>
-<p>Many users asked us how to change Spaceship options only for a specific directory. There are plenty solutions for this. We will show how to do that with a tool called <code>direnv</code>.</p>
-<p><code>direnv</code> is a tool that allows you to manage environment variables for a directory. It is a simple wrapper around <code>.envrc</code> files. It can load and unload variables defined in <code>.envrc</code> based on current directory. It also works not only with Zsh, but with other popular shells.</p>
-<h2 id="Installing-direnv">Installing <code>direnv</code><a class="headerlink" href="#Installing-direnv" title="Permanent link">&para;</a></h2>
-<p>Install <code>direnv</code> with the package manager of your choice. Or use a script to install a binary build of <code>direnv</code>.</p>
-<p><a class="md-button" href="https://github.com/direnv/direnv/blob/master/docs/installation.md">Installation guide</a></p>
-<p>After successful installation of <code>direnv</code> you need to hook it to your shell.</p>
-<h2 id="Hooking-direnv-into-Zsh">Hooking <code>direnv</code> into Zsh<a class="headerlink" href="#Hooking-direnv-into-Zsh" title="Permanent link">&para;</a></h2>
-<p>Add the following line somewhere at the end of your <code>.zshrc</code> file:</p>
+<h1 id="Налаштування-для-конкретної-теки">Налаштування для конкретної теки<a class="headerlink" href="#Налаштування-для-конкретної-теки" title="Permanent link">&para;</a></h1>
+<p>Нас багато запитували, як змінити налаштування Spaceship для конкретної теки. Для цього існує багато способів. Ми покажемо як це зробити за допомогою інструменту, що називається <code>direnv</code>.</p>
+<p><code>direnv</code> є інструментом, який дозволяє керувати змінними середовища для теки. Це проста обгортка для файлів <code>.envrc</code>. Він може підключати та відключати змінні, визначені в <code>.envrc</code> на основі поточної теки. Також він працює не тільки з Zsh, але і з іншими популярними оболонками.</p>
+<h2 id="Встановлення-direnv">Встановлення <code>direnv</code><a class="headerlink" href="#Встановлення-direnv" title="Permanent link">&para;</a></h2>
+<p>Встановіть <code>direnv</code> за допомогою менеджера пакунків на ваш вибір. Або скористайтеся скриптом для встановлення бінарної збірки <code>direnv</code>.</p>
+<p><a class="md-button" href="https://github.com/direnv/direnv/blob/master/docs/installation.md" title="">Інструкції зі встановлення</a></p>
+<p>Після успішного встановлення <code>direnv</code> вам необхідно додати його до вашої оболонки.</p>
+<h2 id="Підключення-direnv-до-Zsh">Підключення <code>direnv</code> до Zsh<a class="headerlink" href="#Підключення-direnv-до-Zsh" title="Permanent link">&para;</a></h2>
+<p>Додайте наступний рядок десь в кінці файлу <code>.zshrc</code>:</p>
 <div class="highlight"><span class="filename">.zhrc</span><pre><span></span><code><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>direnv<span class="w"> </span>hook<span class="w"> </span>zsh<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div>
-<h2 id="Setting-per-directory-environment-variables">Setting per-directory environment variables<a class="headerlink" href="#Setting-per-directory-environment-variables" title="Permanent link">&para;</a></h2>
-<p>As soon as you've installed <code>direnv</code> and hooked it to the Zsh, you can set environment variables for any directory in a <code>.envrc</code> file within that directory.</p>
+<h2 id="Встановлення-змінних-середовища-для-конкретної-теки">Встановлення змінних середовища для конкретної теки<a class="headerlink" href="#Встановлення-змінних-середовища-для-конкретної-теки" title="Permanent link">&para;</a></h2>
+<p>Щойно ви встановили <code>direnv</code> і підключили його до Zsh, ви можете встановити змінні середовища для будь-якої теки у файлі <code>.envrc</code> в цій теці.</p>
 <div class="highlight"><span class="filename">.envrc</span><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SPACESHIP_USER_SHOW</span><span class="o">=</span><span class="s1">&#39;always&#39;</span>
 </code></pre></div>
-<p>After that you need explicitly grant permissions to source <code>.envrc</code> files in the directory.</p>
+<p>Після цього вам потрібно явним чином надати дозвіл на використання файлів <code>.envrc</code> в теці.</p>
 <div class="highlight"><pre><span></span><code>direnv allow /path/to/directory
 </code></pre></div>
-<p>Here is a live example of how <code>direnv</code> works:</p>
+<p>Ось приклад роботи <code>direnv</code>:</p>
 <div class="terminal-demo">
   <script id="asciicast-l6jOkth3csJQGkJRGV8A6DLl0" src="https://asciinema.org/a/l6jOkth3csJQGkJRGV8A6DLl0.js" data-autoplay="true" data-loop="true" data-preload="true" async></script>
 </div>
 
-<h2 id="Alternatives-to-direnv">Alternatives to <code>direnv</code><a class="headerlink" href="#Alternatives-to-direnv" title="Permanent link">&para;</a></h2>
-<p>Besides <code>direnv</code> there are many other tools that allow you to manage environment variables for a directory. Here's a list of the most popular of them:</p>
+<h2 id="Альтернативи-direnv">Альтернативи <code>direnv</code><a class="headerlink" href="#Альтернативи-direnv" title="Permanent link">&para;</a></h2>
+<p>Крім <code>direnv</code> є багато інших інструментів, які дозволяють керувати змінними середовища для тек. Ось список найбільш популярних:</p>
 <ul>
 <li><a href="https://github.com/Tarrasch/zsh-autoenv">zsh-autoenv</a></li>
 <li><a href="https://github.com/asdf-community/asdf-direnv">asdf-direnv</a></li>

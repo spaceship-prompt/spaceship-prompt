@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Hostname-host" class="md-skip">
+        <a href="#Імя-хоста-host" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -1533,27 +1533,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Always-displaying-hostname" class="md-nav__link">
+  <a href="#Завжди-показувати-імя-хоста" class="md-nav__link">
     <span class="md-ellipsis">
-      Always displaying hostname
+      Завжди показувати ім'я хоста
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Displaying-full-hostname" class="md-nav__link">
+  <a href="#Відображення-повного-хоста" class="md-nav__link">
     <span class="md-ellipsis">
-      Displaying full hostname
+      Відображення повного хоста
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Options" class="md-nav__link">
+  <a href="#Опції" class="md-nav__link">
     <span class="md-ellipsis">
-      Options
+      Опції
     </span>
   </a>
   
@@ -2989,58 +2989,58 @@
   
 
 
-<h1 id="Hostname-host">Hostname <code>host</code><a class="headerlink" href="#Hostname-host" title="Permanent link">&para;</a></h1>
-<p>The <code>host</code> section displays the hostname of the current machine.</p>
-<p>By default, it's displayed only when the machine is connected via SSH (<code>$SSH_CONNECTION</code> is not empty).</p>
-<h2 id="Always-displaying-hostname">Always displaying hostname<a class="headerlink" href="#Always-displaying-hostname" title="Permanent link">&para;</a></h2>
-<p>If you want the hostname to be always displayed, set the <code>SPACESHIP_HOST_SHOW</code> option to <code>always</code>.</p>
-<div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="c1"># This sets host to be always displayed</span>
+<h1 id="Імя-хоста-host">Ім’я хоста <code>host</code><a class="headerlink" href="#Імя-хоста-host" title="Permanent link">&para;</a></h1>
+<p>Секція <code>хост</code> показує назву хосту поточного компʼютера.</p>
+<p>Стандартно, секція показується лише коли машина підключена через SSH (значення <code>$SSH_CONNECTION</code> не порожнє).</p>
+<h2 id="Завжди-показувати-імя-хоста">Завжди показувати ім'я хоста<a class="headerlink" href="#Завжди-показувати-імя-хоста" title="Permanent link">&para;</a></h2>
+<p>Якщо ви хочете, щоб назва хосту завжди показувалась, встановіть значення параметра <code>SPACESHIP_HOST_SHOW</code> в <code>always</code>.</p>
+<div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="c1"># Це дозволяє завжди показувати назву хосту</span>
 <span class="nv">SPACESHIP_HOST_SHOW</span><span class="o">=</span><span class="s2">&quot;always&quot;</span>
 </code></pre></div>
-<h2 id="Displaying-full-hostname">Displaying full hostname<a class="headerlink" href="#Displaying-full-hostname" title="Permanent link">&para;</a></h2>
-<p>By default, the hostname is displayed in a short form (<code>%m</code>). If you want to see the full information (<code>%M</code>), set the <code>SPACESHIP_HOST_SHOW_FULL</code> option to <code>true</code>.</p>
-<div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="c1"># This displays the full information about the hostname</span>
+<h2 id="Відображення-повного-хоста">Відображення повного хоста<a class="headerlink" href="#Відображення-повного-хоста" title="Permanent link">&para;</a></h2>
+<p>Стандартно, назва хосту показується у скороченій формі (<code>%m</code>). Якщо ви хочете побачити всю інформацію (<code>%M</code>), встановіть параметр <code>SPACESHIP_HOST_SHOW_FULL</code> в <code>true</code>.</p>
+<div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="c1"># Це показує повну інформацію про хост</span>
 <span class="nv">SPACESHIP_HOST_SHOW_FULL</span><span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
-<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
+<h2 id="Опції">Опції<a class="headerlink" href="#Опції" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
-<th>Meaning</th>
+<th style="text-align: left;">Змінна</th>
+<th style="text-align: center;">За замовчуванням</th>
+<th>Пояснення</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_HOST_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Show section (<code>true</code>, <code>false</code> or <code>always</code>)</td>
+<td>Показувати секцію (<code>true</code>, <code>false</code> або <code>always</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_HOST_SHOW_FULL</code></td>
 <td style="text-align: center;"><code>false</code></td>
-<td>Show full hostname</td>
+<td>Показувати повне ім'я хоста</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_HOST_PREFIX</code></td>
 <td style="text-align: center;"><code>at·</code></td>
-<td>Section's prefix</td>
+<td>Префікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_HOST_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Section's suffix</td>
+<td>Суфікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_HOST_COLOR</code></td>
 <td style="text-align: center;"><code>blue</code></td>
-<td>Section's color</td>
+<td>Колір секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_HOST_COLOR_SSH</code></td>
 <td style="text-align: center;"><code>green</code></td>
-<td>Section's color on SSH connection</td>
+<td>Колір секції при підключенні SSH</td>
 </tr>
 </tbody>
 </table>

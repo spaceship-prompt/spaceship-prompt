@@ -1671,28 +1671,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Options" class="md-nav__link">
+  <a href="#Опції" class="md-nav__link">
     <span class="md-ellipsis">
-      Options
+      Опції
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Kubernetes-version-kubectl_version" class="md-nav__link">
+  <a href="#Версія-Kubernetes-kubectl_version" class="md-nav__link">
     <span class="md-ellipsis">
-      Kubernetes version kubectl_version
+      Версія Kubernetes kubectl_version
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Kubernetes version kubectl_version">
+    <nav class="md-nav" aria-label="Версія Kubernetes kubectl_version">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#Options_1" class="md-nav__link">
+  <a href="#Параметри" class="md-nav__link">
     <span class="md-ellipsis">
-      Options
+      Параметри
     </span>
   </a>
   
@@ -1704,28 +1704,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#Kubernetes-context-kubectl_context" class="md-nav__link">
+  <a href="#Контекст-Kubernetes-kubectl_context" class="md-nav__link">
     <span class="md-ellipsis">
-      Kubernetes context kubectl_context
+      Контекст Kubernetes kubectl_context
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Kubernetes context kubectl_context">
+    <nav class="md-nav" aria-label="Контекст Kubernetes kubectl_context">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#Defining-color-base-on-current-context-or-namespace" class="md-nav__link">
+  <a href="#Визначення-кольору-на-основі-поточного-контексту-або-простору-імен" class="md-nav__link">
     <span class="md-ellipsis">
-      Defining color base on current context or namespace
+      Визначення кольору на основі поточного контексту або простору імен
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#Options_2" class="md-nav__link">
+  <a href="#Опції_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Options
+      Опції
     </span>
   </a>
   
@@ -3030,158 +3030,158 @@
 
 <h1 id="Kubernetes-kubectl">Kubernetes <code>kubectl</code><a class="headerlink" href="#Kubernetes-kubectl" title="Permanent link">&para;</a></h1>
 <div class="admonition important">
-<p class="admonition-title">This section is rendered asynchronously by default</p>
+<p class="admonition-title">Типово ця секція обробляється асинхронно</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title">Info</p>
-<p><a href="https://kubernetes.io"><strong>Kubernetes</strong></a> is an open-source container orchestration system for automating software deployment, scaling, and management.</p>
+<p class="admonition-title">Інформація</p>
+<p><a href="https://kubernetes.io"><strong>Kubernetes</strong></a> – система з відкритими сирцями керування контейнерами для автоматизації розгортання, масштабування та керування програмним забезпеченням.</p>
 </div>
-<p>The <code>kubectl</code> section consists of <a href="#kubernetes-version-kubectl_version"><code>kubectl_version</code></a> and <a href="#kubernetes-context-kubectl_context"><code>kubectl_context</code></a> subsections. It is shown only when <code>kubectl</code> can connect to Kubernetes cluster.</p>
-<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
+<p>Секція <code>kubectl</code> складається з підсекцій <a href="#kubernetes-version-kubectl_version"><code>kubectl_version</code></a> та <a href="#kubernetes-context-kubectl_context"><code>kubectl_context</code></a>. Вона відображається тільки коли <code>kubectl</code> може підключитись до кластера Kubernetes.</p>
+<h2 id="Опції">Опції<a class="headerlink" href="#Опції" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
-<th>Meaning</th>
+<th style="text-align: left;">Змінна</th>
+<th style="text-align: center;">За замовчуванням</th>
+<th>Пояснення</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_SHOW</code></td>
 <td style="text-align: center;"><code>false</code></td>
-<td>Show section</td>
+<td>Показати секцію</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_ASYNC</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Render section asynchronously</td>
+<td>Рендерити секцію асинхронно</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_PREFIX</code></td>
 <td style="text-align: center;"><code>at·</code></td>
-<td>Section's prefix</td>
+<td>Префікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Section's suffix</td>
+<td>Суфікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_COLOR</code></td>
 <td style="text-align: center;"><code>white</code></td>
-<td>Section's color of Kubernetes section</td>
+<td>Колір секції Kubernetes</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_SYMBOL</code></td>
 <td style="text-align: center;"><code>☸️·</code></td>
-<td>Symbol displayed before the section</td>
+<td>Символ, що відображається перед секцією</td>
 </tr>
 </tbody>
 </table>
-<h2 id="Kubernetes-version-kubectl_version">Kubernetes version <code>kubectl_version</code><a class="headerlink" href="#Kubernetes-version-kubectl_version" title="Permanent link">&para;</a></h2>
-<p>The <code>kubectl_version</code> section shows the version of the Kubernetes. It is shown only when <code>kubectl</code> binary is available.</p>
-<h3 id="Options_1">Options<a class="headerlink" href="#Options_1" title="Permanent link">&para;</a></h3>
+<h2 id="Версія-Kubernetes-kubectl_version">Версія Kubernetes <code>kubectl_version</code><a class="headerlink" href="#Версія-Kubernetes-kubectl_version" title="Permanent link">&para;</a></h2>
+<p>Секція <code>kubectl_version</code> показує версію Kubernetes. Вона показується лише за наявності <code>kubectl</code>.</p>
+<h3 id="Параметри">Параметри<a class="headerlink" href="#Параметри" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
-<th>Meaning</th>
+<th style="text-align: left;">Змінна</th>
+<th style="text-align: center;">За замовчуванням</th>
+<th>Пояснення</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_VERSION_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Show subsection</td>
+<td>Показати підсекцію</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_VERSION_ASYNC</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Render section asynchronously</td>
+<td>Рендерити секцію асинхронно</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_VERSION_PREFIX</code></td>
 <td style="text-align: center;">-</td>
-<td>Subsection's prefix</td>
+<td>Префікс підсекції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_VERSION_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Subsection's suffix</td>
+<td>Суфікс підсекції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_VERSION_COLOR</code></td>
 <td style="text-align: center;"><code>cyan</code></td>
-<td>Subsection's color</td>
+<td>Колір підсекції</td>
 </tr>
 </tbody>
 </table>
-<h2 id="Kubernetes-context-kubectl_context">Kubernetes context <code>kubectl_context</code><a class="headerlink" href="#Kubernetes-context-kubectl_context" title="Permanent link">&para;</a></h2>
-<p>The <code>kubectl_context</code> section shows an active Kubernetes context, which consists of a cluster name and a namespace name (when working in a non-default namespace).</p>
+<h2 id="Контекст-Kubernetes-kubectl_context">Контекст Kubernetes <code>kubectl_context</code><a class="headerlink" href="#Контекст-Kubernetes-kubectl_context" title="Permanent link">&para;</a></h2>
+<p>Секція <code>kubectl_context</code> показує активний контекст Kubernetes, який складається з імені кластера та назви простору імен (коли ви працюєте не в стандартному просторі імен).</p>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If your cluster name (and thus context name) is too long, you can give it a shorter name using:</p>
+<p class="admonition-title">Порада</p>
+<p>Якщо назва вашого кластера (і, отже, назва контексту) задовга, ви можете дати йому коротшу назву за допомогою:</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>config<span class="w"> </span>rename-context<span class="w"> </span>very_long_context_name<span class="w"> </span>name
 </code></pre></div>
 </div>
-<h3 id="Defining-color-base-on-current-context-or-namespace">Defining color base on current context or namespace<a class="headerlink" href="#Defining-color-base-on-current-context-or-namespace" title="Permanent link">&para;</a></h3>
-<p>To set the section to a different color based on context or namespace, you can define an array of pair values in which the first value of a pair is a color name to use and the second value is a regular expression pattern to match against the section text (context name and/or namespace). The first matched pattern will determine the color, so list order can be used to prioritize patterns.</p>
-<p>Here is an example:</p>
+<h3 id="Визначення-кольору-на-основі-поточного-контексту-або-простору-імен">Визначення кольору на основі поточного контексту або простору імен<a class="headerlink" href="#Визначення-кольору-на-основі-поточного-контексту-або-простору-імен" title="Permanent link">&para;</a></h3>
+<p>Щоб встановити для розділу інший колір залежно від контексту чи простору імен, ви можете визначити масив парних значень, у якому перше значення пари – це назва, а друге значення – це регулярний вираз для порівняння з текстом секції (назва контексту та/або простір імен). Перший збіг визначатиме колір, отже розташовуйте вирази відповідно до їх пріоритету.</p>
+<p>Розгляньмо приклад:</p>
 <div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="nv">SPACESHIP_KUBECTL_CONTEXT_COLOR_GROUPS</span><span class="o">=(</span>
-<span class="w">  </span><span class="c1"># red if namespace is &quot;kube-system&quot;</span>
+<span class="w">  </span><span class="c1"># red якщо простір імен – &quot;kube-system&quot;</span>
 <span class="w">  </span>red<span class="w">    </span><span class="s1">&#39;\(kube-system)$&#39;</span>
 
-<span class="w">  </span><span class="c1"># else, green if &quot;dev-01&quot; is anywhere in the context or namespace</span>
+<span class="w">  </span><span class="c1"># інакше, green, якщо &quot;dev-01&quot; є або в контексті або в просторі імен</span>
 <span class="w">  </span>green<span class="w">  </span>dev-01
 
-<span class="w">  </span><span class="c1"># else, red if context name ends with &quot;.k8s.local&quot; _and_ namespace is &quot;system&quot;</span>
+<span class="w">  </span><span class="c1"># або, red, якщо назва контексту закінчується на &quot;.k8s.local&quot; _та_ простір імен — &quot;system&quot;</span>
 <span class="w">  </span>red<span class="w">    </span><span class="s1">&#39;\.k8s\.local \(system)$&#39;</span>
 
-<span class="w">  </span><span class="c1"># else, yellow if the entire content is &quot;test-&quot; followed by digits, and no namespace is displayed</span>
+<span class="w">  </span><span class="c1"># інакше, yellow, якщо в контексті є збіг зі словом &quot;test-&quot; після якого йдуть цифри та простір імен не показується</span>
 <span class="w">  </span>yellow<span class="w"> </span><span class="s1">&#39;^test-[0-9]+$&#39;</span>
 <span class="o">)</span>
 </code></pre></div>
-<h3 id="Options_2">Options<a class="headerlink" href="#Options_2" title="Permanent link">&para;</a></h3>
+<h3 id="Опції_1">Опції<a class="headerlink" href="#Опції_1" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
-<th>Meaning</th>
+<th style="text-align: left;">Змінна</th>
+<th style="text-align: center;">За замовчуванням</th>
+<th>Пояснення</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_CONTEXT_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Show subsection</td>
+<td>Показати підсекцію</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_CONTEXT_PREFIX</code></td>
 <td style="text-align: center;"><code>at·</code></td>
-<td>Subsection's prefix</td>
+<td>Префікс підсекції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_CONTEXT_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Subsection's suffix</td>
+<td>Суфікс підсекції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_CONTEXT_COLOR</code></td>
 <td style="text-align: center;"><code>cyan</code></td>
-<td>Subsection's color</td>
+<td>Колір підсекції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_CONTEXT_SHOW_NAMESPACE</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Should namespace be also displayed</td>
+<td>Чи слід відображати простір імен</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_KUBECTL_CONTEXT_COLOR_GROUPS</code></td>
 <td style="text-align: center;">-</td>
-<td><em>Array</em> of pairs of colors and match patterns</td>
+<td><em>Масив</em> пар кольорів та шаблонів</td>
 </tr>
 </tbody>
 </table>

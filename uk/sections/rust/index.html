@@ -2039,18 +2039,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Displaying-verbose-version" class="md-nav__link">
+  <a href="#Відображення-детальної-версії" class="md-nav__link">
     <span class="md-ellipsis">
-      Displaying verbose version
+      Відображення детальної версії
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Options" class="md-nav__link">
+  <a href="#Опції" class="md-nav__link">
     <span class="md-ellipsis">
-      Options
+      Опції
     </span>
   </a>
   
@@ -2982,67 +2982,67 @@
 
 <h1 id="Rust-rust">Rust <code>rust</code><a class="headerlink" href="#Rust-rust" title="Permanent link">&para;</a></h1>
 <div class="admonition important">
-<p class="admonition-title">This section is rendered asynchronously by default</p>
+<p class="admonition-title">Типово ця секція обробляється асинхронно</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title">Info</p>
-<p><a href="https://www.rust-lang.org"><strong>Rust</strong></a> is a systems programming language that is focused on safety, speed, and concurrency.</p>
+<p class="admonition-title">Інформація</p>
+<p><a href="https://www.rust-lang.org"><strong>Rust</strong></a> – це мова системного програмування, яка зосереджена на безпеці, швидкості та паралелізмі.</p>
 </div>
-<p>The <code>rust</code> section displays the version of Rust.</p>
-<p>This section is displayed only when the current directory is within a Rust project, meaning:</p>
+<p>Секція <code>rust</code> відображає версію Rust.</p>
+<p>Ця секція відображається лише тоді, коли поточний каталог знаходиться у Rust-проєкті, тобто:</p>
 <ul>
-<li>Upsearch finds <code>Cargo.toml</code> file</li>
-<li>The current directory contains any <code>.rs</code> file</li>
+<li>Пошук вгору знаходить файл <code>Cargo.toml</code></li>
+<li>Поточна папка містить будь-який файл <code>.rs</code></li>
 </ul>
-<h2 id="Displaying-verbose-version">Displaying verbose version<a class="headerlink" href="#Displaying-verbose-version" title="Permanent link">&para;</a></h2>
-<p>By default, this section will strip all of the suffixes from the version. For example, <code>1.42.0-nightly.2020-06-09</code> will be displayed as <code>1.42.0</code>. To disable that behavior use a <code>SPACESHIP_RUST_VERBOSE_VERSION</code> environment variable.</p>
-<div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="c1"># Display verbose version</span>
+<h2 id="Відображення-детальної-версії">Відображення детальної версії<a class="headerlink" href="#Відображення-детальної-версії" title="Permanent link">&para;</a></h2>
+<p>Типово ця секція прибиратиме все суфікси з номера версії. Наприклад, <code>1.42.0-nightly.2020-06-09</code> буде показуватись як <code>1.42.0</code>. Для вимкнення такої поведінки використовуйте змінну середовища <code>SPACESHIP_RUST_VERBOSE_VERSION</code>.</p>
+<div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="c1"># Докладний показ версії</span>
 <span class="nv">SPACESHIP_RUST_VERBOSE_VERSION</span><span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
-<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
+<h2 id="Опції">Опції<a class="headerlink" href="#Опції" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
-<th>Meaning</th>
+<th style="text-align: left;">Змінна</th>
+<th style="text-align: center;">За замовчуванням</th>
+<th>Пояснення</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_RUST_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Show section</td>
+<td>Показати секцію</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_RUST_ASYNC</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Render section asynchronously</td>
+<td>Рендерити секцію асинхронно</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_RUST_PREFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_PREFIX</code></td>
-<td>Section's prefix</td>
+<td>Префікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_RUST_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Section's suffix</td>
+<td>Суфікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_RUST_SYMBOL</code></td>
 <td style="text-align: center;"><code>🦀·</code></td>
-<td>Symbol displayed before the section</td>
+<td>Символ, що відображається перед секцією</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_RUST_COLOR</code></td>
 <td style="text-align: center;"><code>red</code></td>
-<td>Section's color</td>
+<td>Колір секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_RUST_VERBOSE_VERSION</code></td>
 <td style="text-align: center;"><code>false</code></td>
-<td>Show what branch is being used, if any.</td>
+<td>Показує яка гілка використовується, якщо такі є.</td>
 </tr>
 </tbody>
 </table>

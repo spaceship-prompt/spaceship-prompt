@@ -1786,18 +1786,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Setting-the-default-Nodejs-version" class="md-nav__link">
+  <a href="#Встановлення-версії-Nodejs-за-замовчуванням" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting the default Node.js version
+      Встановлення версії Node.js за замовчуванням
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Options" class="md-nav__link">
+  <a href="#Параметри" class="md-nav__link">
     <span class="md-ellipsis">
-      Options
+      Параметри
     </span>
   </a>
   
@@ -2982,69 +2982,69 @@
 
 <h1 id="Nodejs-node">Node.js <code>node</code><a class="headerlink" href="#Nodejs-node" title="Permanent link">&para;</a></h1>
 <div class="admonition important">
-<p class="admonition-title">This section is rendered asynchronously by default</p>
+<p class="admonition-title">Типово ця секція обробляється асинхронно</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title">Info</p>
-<p><a href="https://nodejs.org"><strong>Node.js</strong></a> is a JavaScript runtime built on Chrome's V8 JavaScript engine.</p>
+<p class="admonition-title">Інформація</p>
+<p><a href="https://nodejs.org"><strong>Node.js</strong></a> — це середовище виконання JavaScript, створене поверх рушія JavaScript V8 Chrome.</p>
 </div>
-<p>The <code>node</code> section displays the current version of the Node.js binary. This section supports <a href="https://github.com/nvm-sh/nvm">nvm</a>, <a href="https://github.com/nodenv/nodenv">nodenv</a>, <a href="https://github.com/Schniz/fnm">fnm</a> version managers or uses <code>node -v</code> if non of the above is installed.</p>
-<p>This section is displayed only when the current directory is within a Node.js project, meaning:</p>
+<p>Секція <code>node</code> показує версію поточного рушія Node.js. Ця секція працює з менеджерами керування версіями: <a href="https://github.com/nvm-sh/nvm">nvm</a>, <a href="https://github.com/nodenv/nodenv">nodenv</a>, <a href="https://github.com/Schniz/fnm">fnm</a> або використовує <code>node -v</code>, якщо жоден з них не встановлено.</p>
+<p>Ця секція показується лише тоді, коли поточна тека знаходиться в межах проєкту Node.js, тобто:</p>
 <ul>
-<li>Upsearch finds a <code>package.json</code> file</li>
-<li>Upsearch finds a <code>node_modules</code> folder</li>
-<li>Upsearch finds a <code>.nvmrc</code> file</li>
-<li>Upsearch finds a <code>.node-version</code> file</li>
-<li>Contains any other file with <code>.js</code>, <code>.cjs</code> or <code>.mjs</code> extension</li>
+<li>Пошук вгору знаходить файл <code>package.json</code></li>
+<li>Пошук вгору знаходить папку <code>node_modules</code></li>
+<li>Пошук вгору знаходить файл <code>.nvmrc</code></li>
+<li>Пошук вгору знаходить файл <code>.node-version</code></li>
+<li>Тека містить файли з розширеннями <code>.js</code>, <code>.cjs</code> або <code>.mjs</code></li>
 </ul>
-<h2 id="Setting-the-default-Nodejs-version">Setting the default Node.js version<a class="headerlink" href="#Setting-the-default-Nodejs-version" title="Permanent link">&para;</a></h2>
-<p>If you want to avoid showing the Node.js section for a specific Node.js version (for example system installed version), use the <code>SPACESHIP_NODE_DEFAULT_VERSION</code> environment variable. The section will be hidden if the current version of the Node.js is equal to the one specified in the variable.</p>
+<h2 id="Встановлення-версії-Nodejs-за-замовчуванням">Встановлення версії Node.js за замовчуванням<a class="headerlink" href="#Встановлення-версії-Nodejs-за-замовчуванням" title="Permanent link">&para;</a></h2>
+<p>Якщо ви бажаєте уникнути показу секції Node.js для певних версій (наприклад, версії встановленої разом з системою), використовуйте змінну <code>SPACESHIP_NODE_DEFAULT_VERSION</code>. Секцію буде приховано, якщо поточна версія Node.js збігається зі значенням змінної.</p>
 <div class="highlight"><span class="filename">.spaceshiprc.zsh</span><pre><span></span><code><span class="nv">SPACESHIP_NODE_DEFAULT_VERSION</span><span class="o">=</span><span class="s2">&quot;18.0.0&quot;</span>
 </code></pre></div>
-<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
+<h2 id="Параметри">Параметри<a class="headerlink" href="#Параметри" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
-<th>Meaning</th>
+<th style="text-align: left;">Змінна</th>
+<th style="text-align: center;">За замовчуванням</th>
+<th>Пояснення</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_NODE_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Show section</td>
+<td>Показати секцію</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_NODE_ASYNC</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Render section asynchronously</td>
+<td>Рендерити секцію асинхронно</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_NODE_PREFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_PREFIX</code></td>
-<td>Section's prefix</td>
+<td>Префікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_NODE_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Section's suffix</td>
+<td>Суфікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_NODE_SYMBOL</code></td>
 <td style="text-align: center;"><code>⬢·</code></td>
-<td>Symbol displayed before the section</td>
+<td>Символ, що відображається перед секцією</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_NODE_COLOR</code></td>
 <td style="text-align: center;"><code>green</code></td>
-<td>Section's color</td>
+<td>Колір секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_NODE_DEFAULT_VERSION</code></td>
-<td style="text-align: center;"><code></code></td>
-<td>Node.js version to be treated as default</td>
+<td style="text-align: center;">``</td>
+<td>Версія Node.js, яку слід розглядати як типову</td>
 </tr>
 </tbody>
 </table>

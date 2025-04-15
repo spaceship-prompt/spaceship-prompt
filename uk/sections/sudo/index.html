@@ -2085,18 +2085,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Displaying-the-section" class="md-nav__link">
+  <a href="#Показ-секції" class="md-nav__link">
     <span class="md-ellipsis">
-      Displaying the section
+      Показ секції
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Options" class="md-nav__link">
+  <a href="#Параметри" class="md-nav__link">
     <span class="md-ellipsis">
-      Options
+      Параметри
     </span>
   </a>
   
@@ -2982,48 +2982,48 @@
 
 <h1 id="Sudo-sudo">Sudo (<code>sudo</code>)<a class="headerlink" href="#Sudo-sudo" title="Permanent link">&para;</a></h1>
 <div class="admonition info">
-<p class="admonition-title">Info</p>
-<p><a href="https://www.sudo.ws"><strong>Sudo</strong></a> is a tool that allows a system administrator to delegate authority to users or groups.</p>
+<p class="admonition-title">Інформація</p>
+<p><a href="https://www.sudo.ws"><strong>Sudo</strong></a> — це інструмент, який дозволяє системному адміністратору делегувати повноваження користувачам або групам.</p>
 </div>
-<p>The <code>sudo</code> section shows an indicator when user has cached passwordless permissions. This section is only displayed when you have a <code>sudo</code> command available.</p>
-<h2 id="Displaying-the-section">Displaying the section<a class="headerlink" href="#Displaying-the-section" title="Permanent link">&para;</a></h2>
-<p>Set <code>SPACESHIP_SUDO_SHOW</code> to <code>true</code> in your <code>.spaceshiprc.zsh</code>, if you need to show timestamps:</p>
+<p>Секція <code>sudo</code> показує індикатор, коли користувач отримав безпарольний доступ. Ця секція показується лише за доступності команди <code>sudo</code> у вашій системі.</p>
+<h2 id="Показ-секції">Показ секції<a class="headerlink" href="#Показ-секції" title="Permanent link">&para;</a></h2>
+<p>Встановіть <code>SPACESHIP_SUDO_SHOW</code> у <code>true</code> у вашому <code>.spaceshiprc.zsh</code>, якщо вам потрібно показати, що у вас є доступ через sudo:</p>
 <div class="highlight"><span class="filename">.spaceshiprc.zsh</span><pre><span></span><code><span class="nv">SPACESHIP_SUDO_SHOW</span><span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
-<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
+<h2 id="Параметри">Параметри<a class="headerlink" href="#Параметри" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
-<th>Meaning</th>
+<th style="text-align: left;">Змінна</th>
+<th style="text-align: center;">Типово</th>
+<th>Пояснення</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_SUDO_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Show section</td>
+<td>Показати секцію</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_SUDO_PREFIX</code></td>
 <td style="text-align: center;">-</td>
-<td>Section's prefix</td>
+<td>Префікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_SUDO_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Section's suffix</td>
+<td>Суфікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_SUDO_SYMBOL</code></td>
 <td style="text-align: center;"><code>↯</code></td>
-<td>Symbol displayed as an indicator</td>
+<td>Символ, що відображається як індикатор</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_SUDO_COLOR</code></td>
 <td style="text-align: center;"><code>yellow</code></td>
-<td>Section's color</td>
+<td>Колір секції</td>
 </tr>
 </tbody>
 </table>

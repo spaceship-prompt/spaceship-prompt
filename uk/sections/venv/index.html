@@ -2246,18 +2246,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Configuring-generic-names" class="md-nav__link">
+  <a href="#Налаштування-загальних-назв" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuring generic names
+      Налаштування загальних назв
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Options" class="md-nav__link">
+  <a href="#Опції" class="md-nav__link">
     <span class="md-ellipsis">
-      Options
+      Опції
     </span>
   </a>
   
@@ -2982,58 +2982,58 @@
 
 <h1 id="Virtualenv-venv">Virtualenv <code>venv</code><a class="headerlink" href="#Virtualenv-venv" title="Permanent link">&para;</a></h1>
 <div class="admonition info">
-<p class="admonition-title">Info</p>
-<p><a href="https://virtualenv.pypa.io"><strong>virtualenv</strong></a> is a tool to create isolated Python environments.</p>
+<p class="admonition-title">Інформація</p>
+<p><a href="https://virtualenv.pypa.io"><strong>virtualenv</strong></a> є інструментом для створення ізольованого середовища Python.</p>
 </div>
-<p>The <code>venv</code> section shows the current virtualenv name.</p>
-<h2 id="Configuring-generic-names">Configuring generic names<a class="headerlink" href="#Configuring-generic-names" title="Permanent link">&para;</a></h2>
-<p>For better readability, you can configure the generic names for your virtualenvs. If the virtualenv folder is in <code>SPACESHIP_VENV_GENERIC_NAMES</code> <em>array</em>, than use its parent directory as its name instead.</p>
+<p>Секція <code>venv</code> показує назву віртуального середовища.</p>
+<h2 id="Налаштування-загальних-назв">Налаштування загальних назв<a class="headerlink" href="#Налаштування-загальних-назв" title="Permanent link">&para;</a></h2>
+<p>Для кращої зручності, можна налаштувати загальні імена для ваших віртуальних середовищ. Якщо тека virtualenv в <em>масиві</em> <code>SPACESHIP_VENV_GENERIC_NAMES</code>, натомість використовуйте її батьківську теку як назву.</p>
 <div class="highlight"><span class="filename">.zshrc</span><pre><span></span><code><span class="nv">SPACESHIP_VENV_GENERIC_NAMES</span><span class="o">=(</span>virtualenv<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w"> </span>generic-name<span class="o">)</span>
 </code></pre></div>
-<h2 id="Options">Options<a class="headerlink" href="#Options" title="Permanent link">&para;</a></h2>
+<h2 id="Опції">Опції<a class="headerlink" href="#Опції" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
-<th>Meaning</th>
+<th style="text-align: left;">Змінна</th>
+<th style="text-align: center;">За замовчуванням</th>
+<th>Пояснення</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_VENV_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Show section</td>
+<td>Показати секцію</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_VENV_ASYNC</code></td>
 <td style="text-align: center;"><code>false</code></td>
-<td>Render section asynchronously</td>
+<td>Рендерити секцію асинхронно</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_VENV_PREFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_PREFIX</code></td>
-<td>Section's prefix</td>
+<td>Префікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_VENV_SUFFIX</code></td>
 <td style="text-align: center;"><code>$SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td>Section's suffix</td>
+<td>Суфікс секції</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_VENV_SYMBOL</code></td>
 <td style="text-align: center;"><code>·</code></td>
-<td>Symbol displayed before the section</td>
+<td>Символ, що відображається перед секцією</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_VENV_GENERIC_NAMES</code></td>
 <td style="text-align: center;"><code>(virtualenv venv .venv)</code></td>
-<td>Generic folder names. Parent folder will be used as name instead</td>
+<td>Звичайні назви тек. Батьківська тека буде використовуватися як назва</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_VENV_COLOR</code></td>
 <td style="text-align: center;"><code>blue</code></td>
-<td>Section's color</td>
+<td>Колір секції</td>
 </tr>
 </tbody>
 </table>

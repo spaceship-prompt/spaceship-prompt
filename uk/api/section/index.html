@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Sections" class="md-skip">
+        <a href="#Секції" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -2998,34 +2998,35 @@
   
 
 
-<h1 id="Sections">Sections<a class="headerlink" href="#Sections" title="Permanent link">&para;</a></h1>
-<p>Sections are defined using <code>spaceship::section</code> function. This section takes the content of the section parameters for displaying, like prefix, suffix, color and symbol for the section. These values will be used for displaying the section.</p>
-<p>The <code>spaceship::section</code> is used to pack the section data into a data tuple. This data tuple is stored in the cache. During the rendering process, the data tuple for each section is being rendered into a section via <code>spaceship::section::render</code> function.</p>
+<h1 id="Секції">Секції<a class="headerlink" href="#Секції" title="Permanent link">&para;</a></h1>
+<p>Секції визначаються за допомогою функції <code>spaceship::section</code>. Секція отримує значення параметрів для показу, такі як префікс, суфікс, колір та символ. Ці значення будуть використані для показу секції.</p>
+<p><code>spaceship::section</code> використовується для упаковування даних секції в кортеж даних. Цей кортеж даних зберігається в кеші. Під час процесу обробки, кортеж для кожної секції перетворюється в секцію за допомогою функції <code>spaceship::section::render</code>.</p>
 <h2 id="spaceshipsection"><code>spaceship::section</code><a class="headerlink" href="#spaceshipsection" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>For creating a custom section, prefer using the <a href="#spaceshipsectionv4"><code>spaceship::section::v4</code> function</a>. The versioned function will ensure compatibility with new versions of Spaceship.</p>
+<p class="admonition-title">Порада</p>
+<p>Для створення власної секції бажано використовувати функцію <a href="#spaceshipsectionv4"><code>spaceship::section::v4</code> function</a>. Функція з зазначенням версії забезпечить сумісність з новими версіями Spaceship.</p>
 </div>
-<p>This is the main function for defining a section. This takes section parameters and its content and transforms it into a data tuple.</p>
+<p>Це основна функція для створення секції. Вона зчитує параметри секції і її вміст і перетворює їх на кортежі даних.</p>
 <div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::section [--color color] [--prefix prefix] [--suffix suffix] [--symbol symbol] &lt;content&gt;
 </code></pre></div>
-<p>It takes a single argument <code>content</code> which is the content of the section. Additionally, the function takes the following optional parameters:</p>
+<p>Вона бере один аргумент <code>content</code>, який є контентом секції. Крім того, функція приймає наступні додаткові параметри:</p>
 <ul>
-<li><code>--color</code> — color for displaying the <code>content</code>. Can be any of <a href="https://wiki.archlinux.org/index.php/zsh#Colors">basic colors</a> or <a href="https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg">color codes</a>.</li>
-<li><code>--prefix</code> — prefix before <code>content</code>. Usually, it's the value of <code>SPACESHIP_&lt;SECTION&gt;_PREFIX</code>.</li>
-<li><code>--symbol</code> — the symbol of the section. Can be any valid value or result of command execution. Will be rendered before the content.</li>
-<li><code>--suffix</code> — suffix after <code>content</code>. Usually, it's the value of <code>SPACESHIP_&lt;SECTION&gt;_SUFFIX</code>.</li>
+<li><code>--color</code> — колір для показу <code>вмісту</code>. Може бути <a href="https://wiki.archlinux.org/index.php/zsh#Colors">назвою кольору</a> чи <a href="https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg">кодом кольору</a>.</li>
+<li><code>--prefix</code> — префікс перед <code>content</code>. Зазвичай це значення <code>SPACESHIP_&lt;SECTION&gt;_PREFIX</code>.</li>
+<li><code>--symbol</code> — символ секції. Може бути будь-яким допустимим значенням або результатом виконання команд. Буде додано перед змістом.</li>
+<li><code>--suffix</code> — суфікс після <code>content</code>. Зазвичай це значення <code>SPACESHIP_&lt;SECTION&gt;_SUFFIX</code>.</li>
 </ul>
-<p>The order of the parameters is not important. All of them are default to empty strings.</p>
+<p>Порядок параметрів не важливий. Типово всі вони є порожніми рядками.</p>
 <div class="admonition help">
-<p class="admonition-title">Help</p>
-<p>The <code>content</code>, <code>--prefix</code>, <code>--suffix</code> and <code>--symbol</code> can contain escapes to set additional foreground color, background color and other visual effects.</p>
-<p>Read more about escapes in <a href="http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html">13 Prompt Expansion</a> section of Zsh documentation.</p>
+<p class="admonition-title">Довідка</p>
 </div>
+<p><code>content</code>, <code>--prefix</code>, <code>--suffix</code> та <code>--symbol</code> можуть містити esc-послідовності для встановлення додаткових кольорів фону, написів та інших візуальних ефектів.</p>
+<div class="highlight"><pre><span></span><code>Детальніше про esc-послідовності в [13 Prompt Expansion](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html) розділі документації Zsh.
+</code></pre></div>
 <h2 id="spaceshipsectionv4"><code>spaceship::section::v4</code><a class="headerlink" href="#spaceshipsectionv4" title="Permanent link">&para;</a></h2>
-<p>This is an alias of <code>spaceship::section</code> function. It's the versioned function for creating a custom section.</p>
-<p>The signature of this function is the same as for <code>spaceship::section</code> function.</p>
-<p>Here is an example usage:</p>
+<p>Це псевдонім функції <code>spaceship:section</code>. Це функція з версією для створення власної секції.</p>
+<p>Підпис цієї функції такий самий, як і для функції <code>spaceship::section</code>.</p>
+<p>Приклад використання:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">local</span><span class="w"> </span><span class="nv">content</span><span class="o">=</span><span class="s2">&quot;value&quot;</span>
 
 spaceship::section::v4<span class="w"> </span><span class="se">\</span>
@@ -3037,46 +3038,46 @@ spaceship::section::v4<span class="w"> </span><span class="se">\</span>
 </code></pre></div>
 <h2 id="spaceshipsectionv3"><code>spaceship::section::v3</code><a class="headerlink" href="#spaceshipsectionv3" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This function is introduced for compatibility with Spaceship v3 sections. It's recommended to use the <a href="#spaceshipsectionv4"><code>spaceship::section::v4</code> function</a> instead.</p>
+<p class="admonition-title">Попередження</p>
+<p>Ця функція введена для сумісності з секціями Spachip v3. Натомість рекомендується використовувати функцію <a href="#spaceshipsectionv4"><code>spaceship::section::v4</code></a>.</p>
 </div>
-<p>This is a replacement for the <code>spaceship::section</code> function used in Spaceship v3. Use it for backward compatibility only.</p>
+<p>Це замінник для функції <code>spaceship::section</code>, що використовувався в Spaceship v3. Використовуйте його для зворотної сумісності.</p>
 <div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::section &lt;color&gt; [prefix] &lt;content&gt; [suffix]
 </code></pre></div>
-<p>The <code>spaceship::section:v3</code> relies on the following arguments order:</p>
+<p><code>spaceship::section:v3</code> покладається на наступний порядок аргументів:</p>
 <ol>
-<li><code>color</code> <em>Required</em> — color for displaying the <code>content</code>. Can be any of <a href="https://wiki.archlinux.org/index.php/zsh#Colors">basic colors</a> or <a href="https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg">color codes</a>.</li>
-<li><code>prefix</code> <em>Optional</em> — prefix before <code>content</code>. Usually, it's the value of <code>SPACESHIP_&lt;SECTION&gt;_PREFIX</code>.</li>
-<li><code>content</code> <em>Required</em> — the content of the section. Can be any valid value or result of command execution.</li>
-<li><code>suffix</code> <em>Optional</em> — suffix after <code>content</code>. Usually, it's the value of <code>SPACESHIP_&lt;SECTION&gt;_SUFFIX</code>.</li>
+<li><code>color</code> <em>Обовʼязково</em> — колір для показу <code>content</code>. Може бути <a href="https://wiki.archlinux.org/index.php/zsh#Colors">назвою кольору</a> чи <a href="https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg">кодом кольору</a>.</li>
+<li><code>prefix</code> <em>Опціонально</em> — префікс перед <code>content</code>. Зазвичай це значення <code>SPACESHIP_&lt;SECTION&gt;_PREFIX</code>.</li>
+<li><code>content</code> <em>Обовʼязково</em> — вміст секції. Може бути будь-яким допустимим значенням або результатом виконання команд.</li>
+<li><code>suffix</code> <em>Опціонально</em> — суфікс після <code>content</code>. Зазвичай це значення <code>SPACESHIP_&lt;SECTION&gt;_SUFFIX</code>.</li>
 </ol>
-<p>Here is a simple example:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Display prompt section with prefix and suffix</span>
-<span class="c1"># Backslash is used to escape line ending</span>
+<p>Ось простий приклад:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Показ секції з префіксом та суфіксом</span>
+<span class="c1"># Зворотна коса риска використовується для екранування кінця рядка</span>
 spaceship::section<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s2">&quot;</span><span class="nv">$SPACESHIP_SECTION_COLOR</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s2">&quot;</span><span class="nv">$SPACESHIP_SECTION_PREFIX</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s2">&quot;</span><span class="nv">$SPACESHIP_SECTION_SYMBOL$section_content</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s2">&quot;</span><span class="nv">$SPACESHIP_SECTION_SUFFIX</span><span class="s2">&quot;</span>
 
-<span class="c1"># Display prompt section without prefix and suffix</span>
+<span class="c1"># Показ секції без префікса та суфікса</span>
 spaceship::section<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$color</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SPACESHIP_CHAR_SYMBOL</span><span class="s2">&quot;</span>
 </code></pre></div>
 <h2 id="spaceshipsectionrender"><code>spaceship::section::render</code><a class="headerlink" href="#spaceshipsectionrender" title="Permanent link">&para;</a></h2>
-<p>This function renders the section from the data tuple provided by <a href="#spaceshipsection"><code>spaceship::section</code></a>.</p>
+<p>Ця функція обробляє секцію з кортежу даних отриманих з <a href="#spaceshipsection"><code>spaceship::section</code></a>.</p>
 <div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::render section &lt;data&gt;
 </code></pre></div>
-<p>If <code>SPACESHIP_PROMPT_PREFIXES_SHOW</code> is <code>false</code> or if the section is not the first in the prompt, then prefix will be omitted.</p>
-<p>If <code>SPACESHIP_PROMPT_SUFFIXES_SHOW</code> is <code>false</code>, then suffix will be omitted.</p>
-<p>The <code>data</code> is a result of the <code>spaceship::section</code> function. For example:</p>
+<p>Якщо <code>SPACESHIP_PROMPT_PREFIXES_SHOW</code> є <code>false</code> або якщо секція не є першою у запиті, то префікс буде пропущений.</p>
+<p>Якщо <code>SPACESHIP_PROMPT_SUFFIXES_SHOW</code> є <code>false</code>, тоді суфікс буде пропущено.</p>
+<p><code>data</code> є результатом функції <code>spaceship::section</code>. Наприклад:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">local</span><span class="w"> </span><span class="nv">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="w"> </span><span class="nv">content</span><span class="o">=</span><span class="s2">&quot;value&quot;</span>
 
 spaceship::section::render<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>spaceship::section<span class="w"> </span>--color<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$color</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$content</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
 <span class="c1">#&gt; %{%B%F{red}%}value%{%b%f%}</span>
 </code></pre></div>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can use for rendering subsections within complex sections. See the sources of <a href="https://github.com/spaceship-prompt/spaceship-prompt/blob/master/sections/git.zsh"><code>git</code></a> or <a href="https://github.com/spaceship-prompt/spaceship-prompt/blob/master/sections/docker.zsh"><code>docker</code></a> sections for an example.</p>
+<p class="admonition-title">Порада</p>
+<p>Можна використовувати обробку підсекцій у складних секціях. Наприклад, подивіться сирці секцій <a href="https://github.com/spaceship-prompt/spaceship-prompt/blob/master/sections/git.zsh"><code>git</code></a> або <a href="https://github.com/spaceship-prompt/spaceship-prompt/blob/master/sections/docker.zsh"><code>docker</code></a>.</p>
 </div>
 
 
