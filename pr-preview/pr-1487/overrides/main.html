@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+<!-- Meta tags -->
+{% block extrahead %}
+
+<!-- Determine title -->
+{% set title = config.site_name %}
+<!-- prettier-ignore -->
+{% if page and page.title and not page.is_homepage %}
+{% set title = config.site_name ~ " - " ~ page.title | striptags %}
+{% endif %}
+
+{% set image = 'https://repository-images.githubusercontent.com/50726688/27cc9680-b8db-11eb-8937-546bbfacc378' %}
+
+<!-- Open graph meta tags -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ title }}" />
+<meta property="og:description" content="{{ config.site_description }}" />
+<meta property="og:url" content="{{ page.canonical_url }}" />
+<meta property="og:image" content="{{ image }}" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1080" />
+<meta property="og:image:height" content="568" />
+
+<!-- Twitter meta tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@SpaceshipZSH" />
+<meta name="twitter:creator" content="@SpaceshipZSH" />
+<meta name="twitter:title" content="{{ title }}" />
+<meta name="twitter:description" content="{{ config.site_description }}" />
+<meta name="twitter:image" content="{{ image }}" />
+{% endblock %}
+
+<!-- Additional copyright -->
+{% set extracopyright %}
+<!-- -->
+and powered by <a href="https://www.netlify.com">Netlify</a>.
+<!-- -->
+{% endset %}
+
+<!-- Announcement bar -->
+{% block announce %}
+<a class="announce" href="https://stand-with-ukraine.pp.ua">
+  🇺🇦
+  Russia has invaded Ukraine and already killed thousands of civilians.
+  Please, <strong class="hashtag">#StandWithUkraine</strong> against the Russian regime.
+</a>
+{% endblock %}
+
+<!-- Self-hosted Analytics -->
+<!-- prettier-ignore -->
+{% block analytics %}
+{{ super() }}
+<script
+  async
+  defer
+  data-website-id="c057793b-4874-4c83-bd68-68e8ed2527ce"
+  src="https://analytics.denysdovhan.com/umami.js"
+></script>
+{% endblock %}

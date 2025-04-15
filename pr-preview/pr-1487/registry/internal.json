@@ -1,0 +1,389 @@
+{
+  "$schema": "./schema.json",
+  "sections": [
+    {
+      "name": "async",
+      "url": "https://spaceship-prompt.sh/sections/async",
+      "description": "An indicator for active Spaceship asynchronous jobs.",
+      "internal": true
+    },
+    {
+      "name": "aws",
+      "url": "https://spaceship-prompt.sh/sections/aws",
+      "description": "Amazon Web Services (AWS) shows the current AWS profile.",
+      "internal": true
+    },
+    {
+      "name": "azure",
+      "url": "https://spaceship-prompt.sh/sections/azure",
+      "description": "The current Azure subscription.",
+      "internal": true
+    },
+    {
+      "name": "battery",
+      "url": "https://spaceship-prompt.sh/sections/battery",
+      "description": "The battery section shows the current battery level and its status.",
+      "internal": true
+    },
+    {
+      "name": "char",
+      "url": "https://spaceship-prompt.sh/sections/char",
+      "description": "A section responsible for rendering a prompt character.",
+      "internal": true
+    },
+    {
+      "name": "conda",
+      "url": "https://spaceship-prompt.sh/sections/conda",
+      "description": "The Conda virtual environment.",
+      "internal": true
+    },
+    {
+      "name": "dir",
+      "url": "https://spaceship-prompt.sh/sections/dir",
+      "description": "The current working directory.",
+      "internal": true
+    },
+    {
+      "name": "docker",
+      "url": "https://spaceship-prompt.sh/sections/docker",
+      "description": "The current version of Docker.",
+      "internal": true
+    },
+    {
+      "name": "docker_context",
+      "url": "https://spaceship-prompt.sh/sections/docker/#docker-context-docker_context",
+      "description": "The current remote Docker context",
+      "internal": true
+    },
+    {
+      "name": "dotnet",
+      "url": "https://spaceship-prompt.sh/sections/dotnet",
+      "description": "The version of the .NET framework installed on the system.",
+      "internal": true
+    },
+    {
+      "name": "ocaml",
+      "url": "https://spaceship-prompt.sh/sections/ocaml",
+      "description": "The version of the OCaml via ocaml, esy or opam.",
+      "internal": true
+    },
+    {
+      "name": "elixir",
+      "url": "https://spaceship-prompt.sh/sections/elixir",
+      "description": "The current version of the Elixir.",
+      "internal": true
+    },
+    {
+      "name": "elm",
+      "url": "https://spaceship-prompt.sh/sections/elm",
+      "description": "The current version of the Elm.",
+      "internal": true
+    },
+    {
+      "name": "bun",
+      "url": "https://spaceship-prompt.sh/sections/bun",
+      "description": "The current version of the Bun.",
+      "internal": true
+    },
+    {
+      "name": "deno",
+      "url": "https://spaceship-prompt.sh/sections/deno",
+      "description": "The current version of the Deno.",
+      "internal": true
+    },
+    {
+      "name": "exec_time",
+      "url": "https://spaceship-prompt.sh/sections/exec_time",
+      "description": "The execution time of the last command.",
+      "internal": true
+    },
+    {
+      "name": "exit_code",
+      "url": "https://spaceship-prompt.sh/sections/exit_code",
+      "description": "The exit code of the previous command.",
+      "internal": true
+    },
+    {
+      "name": "gcloud",
+      "url": "https://spaceship-prompt.sh/sections/gcloud",
+      "description": "An active Google Cloud Platform configuration.",
+      "internal": true
+    },
+    {
+      "name": "git",
+      "url": "https://spaceship-prompt.sh/sections/git",
+      "description": "The information about the current Git repository.",
+      "internal": true
+    },
+    {
+      "name": "git_branch",
+      "url": "https://spaceship-prompt.sh/sections/git/#git-branch-git_branch",
+      "description": "The current Git branch.",
+      "internal": true
+    },
+    {
+      "name": "git_status",
+      "url": "https://spaceship-prompt.sh/sections/git/#git-status-git_status",
+      "description": "The status of the Git repository.",
+      "internal": true
+    },
+    {
+      "name": "git_commit",
+      "url": "https://spaceship-prompt.sh/sections/git/#git-commit-git_commit",
+      "description": "The current Git commit hash.",
+      "internal": true
+    },
+    {
+      "name": "gleam",
+      "url": "https://spaceship-prompt.sh/sections/gleam",
+      "description": "The current version of Gleam.",
+      "internal": true
+    },
+    {
+      "name": "golang",
+      "url": "https://spaceship-prompt.sh/sections/golang",
+      "description": "The version of the Go.",
+      "internal": true
+    },
+    {
+      "name": "haskell",
+      "url": "https://spaceship-prompt.sh/sections/haskell",
+      "description": "The version of the Haskell compiler.",
+      "internal": true
+    },
+    {
+      "name": "hg",
+      "url": "https://spaceship-prompt.sh/sections/hg",
+      "description": "The information about the current Mercurial repository.",
+      "internal": true
+    },
+    {
+      "name": "hg_branch",
+      "url": "https://spaceship-prompt.sh/sections/hg/#mercurial-branch-hg_branch",
+      "description": "The current Mercurial bookmark or branch information.",
+      "internal": true
+    },
+    {
+      "name": "hg_status",
+      "url": "https://spaceship-prompt.sh/sections/hg/#mercurial-status-hg_status",
+      "description": "The status of the Mercurial repository.",
+      "internal": true
+    },
+    {
+      "name": "host",
+      "url": "https://spaceship-prompt.sh/sections/host",
+      "description": "The hostname of the current machine.",
+      "internal": true
+    },
+    {
+      "name": "ibmcloud",
+      "url": "https://spaceship-prompt.sh/sections/ibmcloud",
+      "description": "The selected IBM Cloud account.",
+      "internal": true
+    },
+    {
+      "name": "java",
+      "url": "https://spaceship-prompt.sh/sections/java",
+      "description": "The current version of the Java compiler.",
+      "internal": true
+    },
+    {
+      "name": "lua",
+      "url": "https://spaceship-prompt.sh/sections/lua",
+      "description": "The current version of the Lua compiler.",
+      "internal": true
+    },
+    {
+      "name": "dart",
+      "url": "https://spaceship-prompt.sh/sections/dart",
+      "description": "The current version of Dart.",
+      "internal": true
+    },
+    {
+      "name": "jobs",
+      "url": "https://spaceship-prompt.sh/sections/jobs",
+      "description": "An indicator for jobs running in the background.",
+      "internal": true
+    },
+    {
+      "name": "julia",
+      "url": "https://spaceship-prompt.sh/sections/julia",
+      "description": "The version of the Julia compiler.",
+      "internal": true
+    },
+    {
+      "name": "crystal",
+      "url": "https://spaceship-prompt.sh/sections/crystal",
+      "description": "The version of the Crystal interpreter.",
+      "internal": true
+    },
+    {
+      "name": "kubectl",
+      "url": "https://spaceship-prompt.sh/sections/kubectl",
+      "description": "The information about Kubernetes cluster.",
+      "internal": true
+    },
+    {
+      "name": "kubectl_context",
+      "url": "https://spaceship-prompt.sh/sections/kubectl/#kubernetes-context-kubectl_context",
+      "description": "An active Kubernetes context (cluster name and namespace).",
+      "internal": true
+    },
+    {
+      "name": "kubectl_version",
+      "url": "https://spaceship-prompt.sh/sections/kubectl/#kubernetes-version-kubectl_version",
+      "description": "The version of the Kubernetes.",
+      "internal": true
+    },
+    {
+      "name": "line_sep",
+      "url": "https://spaceship-prompt.sh/sections/line_sep",
+      "description": "A section is used as a line break for the prompt.",
+      "internal": true
+    },
+    {
+      "name": "nix_shell",
+      "url": "https://spaceship-prompt.sh/sections/nix_shell",
+      "description": "Displays whether the nix shell is pure/impure as well as the shell's name if one was specified.",
+      "internal": true
+    },
+    {
+      "name": "node",
+      "url": "https://spaceship-prompt.sh/sections/node",
+      "description": "The current version of the Node.js binary.",
+      "internal": true
+    },
+    {
+      "name": "package",
+      "url": "https://spaceship-prompt.sh/sections/package",
+      "description": "The version of the package when the current directory is a package.",
+      "internal": true
+    },
+    {
+      "name": "perl",
+      "url": "https://spaceship-prompt.sh/sections/perl",
+      "description": "The version of the Perl binary.",
+      "internal": true
+    },
+    {
+      "name": "php",
+      "url": "https://spaceship-prompt.sh/sections/php",
+      "description": "The version of the PHP binary.",
+      "internal": true
+    },
+    {
+      "name": "python",
+      "url": "https://spaceship-prompt.sh/sections/python",
+      "description": "The version of the Python binary.",
+      "internal": true
+    },
+    {
+      "name": "red",
+      "url": "https://spaceship-prompt.sh/sections/red",
+      "description": "The version of the Red binary.",
+      "internal": true
+    },
+    {
+      "name": "ruby",
+      "url": "https://spaceship-prompt.sh/sections/ruby",
+      "description": "The version of Ruby binary.",
+      "internal": true
+    },
+    {
+      "name": "rust",
+      "url": "https://spaceship-prompt.sh/sections/rust",
+      "description": "The version of Rust binary.",
+      "internal": true
+    },
+    {
+      "name": "scala",
+      "url": "https://spaceship-prompt.sh/sections/scala",
+      "description": "The version of the Scala compiler.",
+      "internal": true
+    },
+    {
+      "name": "kotlin",
+      "url": "https://spaceship-prompt.sh/sections/kotlin",
+      "description": "The version of the Kotlin compiler.",
+      "internal": true
+    },
+    {
+      "name": "swift",
+      "url": "https://spaceship-prompt.sh/sections/swift",
+      "description": "The version of Swift.",
+      "internal": true
+    },
+    {
+      "name": "terraform",
+      "url": "https://spaceship-prompt.sh/sections/terraform",
+      "description": "A Terraform virtual environment.",
+      "internal": true
+    },
+    {
+      "name": "time",
+      "url": "https://spaceship-prompt.sh/sections/time",
+      "description": "The timestamp of the prompt.",
+      "internal": true
+    },
+    {
+      "name": "user",
+      "url": "https://spaceship-prompt.sh/sections/user",
+      "description": "The current user's username.",
+      "internal": true
+    },
+    {
+      "name": "uv",
+      "url": "https://spaceship-prompt.sh/sections/uv",
+      "description": "The uv workflow tool.",
+      "internal": true
+    },
+    {
+      "name": "venv",
+      "url": "https://spaceship-prompt.sh/sections/venv",
+      "description": "The current Virtualenv name.",
+      "internal": true
+    },
+    {
+      "name": "xcode",
+      "url": "https://spaceship-prompt.sh/sections/xcode",
+      "description": "The version of the Xcode environment.",
+      "internal": true
+    },
+    {
+      "name": "docker_compose",
+      "url": "https://spaceship-prompt.sh/sections/docker_compose",
+      "description": "Docker Compose services statuses.",
+      "internal": true
+    },
+    {
+      "name": "pulumi",
+      "url": "https://spaceship-prompt.sh/sections/pulumi",
+      "description": "The current Pulumi stack.",
+      "internal": true
+    },
+    {
+      "name": "ansible",
+      "url": "https://spaceship-prompt.sh/sections/ansible",
+      "description": "The current Ansible version.",
+      "internal": true
+    },
+    {
+      "name": "zig",
+      "url": "https://spaceship-prompt.sh/sections/zig",
+      "description": "The current Zig version.",
+      "internal": true
+    },
+    {
+      "name": "purescript",
+      "url": "https://spaceship-prompt.sh/sections/purescript",
+      "description": "The current PureScript version.",
+      "internal": true
+    },
+    {
+      "name": "erlang",
+      "url": "https://spaceship-prompt.sh/sections/erlang",
+      "description": "The current Erlang version.",
+      "internal": true
+    }
+  ]
+}
