@@ -1,3 +1,20 @@
+# [4.18.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.17.0...v4.18.0) (2025-04-16)
+
+
+### Bug Fixes
+
+* add no-header tag to asdf prompt ([#1474](https://github.com/spaceship-prompt/spaceship-prompt/issues/1474)) ([d018f02](https://github.com/spaceship-prompt/spaceship-prompt/commit/d018f0219bccb3e2222b50fc9b2cadfba85ec821))
+* add paths to trigger workflow on changes to docs and mkdocs.yml ([53fd85b](https://github.com/spaceship-prompt/spaceship-prompt/commit/53fd85bab0262ef670913acfdd0bf7c1eb53061f))
+* ensure script stops on errors by adding set -e ([fed2add](https://github.com/spaceship-prompt/spaceship-prompt/commit/fed2add1f3b91406cbac84fb063f64f1c179e5a8))
+* update bun.zsh to include bun.lock in upsearch ([#1478](https://github.com/spaceship-prompt/spaceship-prompt/issues/1478)) ([40a9a50](https://github.com/spaceship-prompt/spaceship-prompt/commit/40a9a50f6d1b0e7918c51f9e136e140f47bcdca5))
+* update emoji extensions in mkdocs.yml and bump mkdocs-material version in requirements.txt ([a07272a](https://github.com/spaceship-prompt/spaceship-prompt/commit/a07272a40a286b725a360e4ac6f6f1908f9a3024))
+* update FUNDING.yml to format GitHub usernames and add additional funding links ([ce39b36](https://github.com/spaceship-prompt/spaceship-prompt/commit/ce39b36b140eb1eaa2b0aadd2fb31b45d9f2d72d))
+
+
+### Features
+
+* add VSCode settings to exclude .zwc files ([beb1b65](https://github.com/spaceship-prompt/spaceship-prompt/commit/beb1b651b5b6e0cf4436dee8c03630539ecdf5bf))
+
 # [4.17.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.16.2...v4.17.0) (2024-10-23)
 
 
