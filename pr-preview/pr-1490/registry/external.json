@@ -1,0 +1,75 @@
+{
+  "$schema": "./schema.json",
+  "sections": [
+    {
+      "name": "ip",
+      "url": "https://github.com/TheArqsz/spaceship-ip",
+      "description": "A section for Spaceship prompt to show your current IP address."
+    },
+    {
+      "name": "arch",
+      "url": "https://github.com/windwhinny/spaceship-arch",
+      "description": "The arch section for Spaceship prompt shows if current shell running in x86 env."
+    },
+    {
+      "name": "vi_mode",
+      "url": "https://github.com/spaceship-prompt/spaceship-vi-mode",
+      "description": "Vi-mode section for Spaceship prompt."
+    },
+    {
+      "name": "ember",
+      "url": "https://github.com/spaceship-prompt/spaceship-ember",
+      "description": "Ember.js section for Spaceship prompt."
+    },
+    {
+      "name": "maven",
+      "url": "https://github.com/spaceship-prompt/spaceship-maven",
+      "description": "Maven section for Spaceship prompt."
+    },
+    {
+      "name": "gradle",
+      "url": "https://github.com/spaceship-prompt/spaceship-gradle",
+      "description": "Gradle section for Spaceship prompt."
+    },
+    {
+      "name": "ccloud",
+      "url": "https://github.com/rspurgeon/ccloud_spaceship",
+      "description": "Confluent Cloud status for Spaceship prompt."
+    },
+    {
+      "name": "git_user",
+      "url": "https://github.com/hexcowboy/spaceship-git-name",
+      "description": "The current git user name and email."
+    },
+    {
+      "name": "flutter",
+      "url": "https://github.com/spaceship-prompt/spaceship-flutter",
+      "description": "Flutter section for Spaceship prompt."
+    },
+    {
+      "name": "debian-chroot",
+      "url": "https://github.com/pipoprods/spaceship-debian-chroot",
+      "description": "A $debian_chroot section for Spaceship prompt"
+    },
+    {
+      "name": "taskwarrior",
+      "url": "https://github.com/pipoprods/spaceship-taskwarrior",
+      "description": "A TaskWarrior section for Spaceship prompt"
+    },
+    {
+      "name": "react",
+      "url": "https://github.com/spaceship-prompt/spaceship-react",
+      "description": "React section for Spaceship prompt"
+    },
+    {
+      "name": "vue",
+      "url": "https://github.com/spaceship-prompt/spaceship-vue",
+      "description": "Vue.js section for Spaceship prompt"
+    },
+    {
+      "name": "current-netns",
+      "url": "https://github.com/noraj/spaceship-current-netns",
+      "description": "Current network namespace Spaceship Section"
+    }
+  ]
+}
