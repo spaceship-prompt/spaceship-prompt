@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Environment" class="md-skip">
+        <a href="#Середовище" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -2480,13 +2480,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Prompt-variables" class="md-nav__link">
+  <a href="#Змінні-командного-рядка" class="md-nav__link">
     <span class="md-ellipsis">
-      Prompt variables
+      Змінні командного рядка
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Prompt variables">
+    <nav class="md-nav" aria-label="Змінні командного рядка">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2549,19 +2549,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#Asynchronous-runtime" class="md-nav__link">
+  <a href="#Асинхронне-середовище-виконання" class="md-nav__link">
     <span class="md-ellipsis">
-      Asynchronous runtime
+      Асинхронне середовище виконання
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Asynchronous runtime">
+    <nav class="md-nav" aria-label="Асинхронне середовище виконання">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#Loading-zsh-async-manually" class="md-nav__link">
+  <a href="#Завантаження-zsh-async-вручну" class="md-nav__link">
     <span class="md-ellipsis">
-      Loading zsh-async manually
+      Завантаження zsh-async вручну
     </span>
   </a>
   
@@ -3055,29 +3055,29 @@
   
 
 
-<h1 id="Environment">Environment<a class="headerlink" href="#Environment" title="Permanent link">&para;</a></h1>
-<p>Spaceship uses <code>SPACESHIP_</code> prefix for variables and <code>spaceship::</code> prefix for a function to avoid conflicts with global environment. All section, including custom ones, are being required to use <code>spaceship_</code> prefix before their name to load properly.</p>
-<h2 id="Prompt-variables">Prompt variables<a class="headerlink" href="#Prompt-variables" title="Permanent link">&para;</a></h2>
+<h1 id="Середовище">Середовище<a class="headerlink" href="#Середовище" title="Permanent link">&para;</a></h1>
+<p>Spaceship використовує префікс <code>SPACESHIP_</code> для змінних та <code>spaceship::</code> для функцій, щоб уникати конфліктів з глобальним оточенням. Всі секції, включаючи власні секції користувачів, мають використовувати префікс <code>spaceship_</code> на початку їх назв для правильного завантаження.</p>
+<h2 id="Змінні-командного-рядка">Змінні командного рядка<a class="headerlink" href="#Змінні-командного-рядка" title="Permanent link">&para;</a></h2>
 <h3 id="SPACESHIP_VERSION"><code>SPACESHIP_VERSION</code><a class="headerlink" href="#SPACESHIP_VERSION" title="Permanent link">&para;</a></h3>
-<p>An environment variable that defines the version of currently running Spaceship prompt version. Can be used for issue reporting or debugging purposes.</p>
-<p>Accessible to any program or script running in a current shell session.</p>
+<p>Змінна середовища, яка визначає версію запущеної версії командного рядка Spaceship. Може використовуватися для надсилання звітів про проблеми або налагодження.</p>
+<p>Доступна для будь-якої програми або скрипту, що працює в поточній сесії оболонки.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$SPACESHIP_VERSION</span>
 <span class="c1">#&gt; 3.0.0</span>
 </code></pre></div>
 <h3 id="SPACESHIP_ROOT"><code>SPACESHIP_ROOT</code><a class="headerlink" href="#SPACESHIP_ROOT" title="Permanent link">&para;</a></h3>
 <!-- prettier-ignore -->
 <div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>This variable is read only. Changing the value may cause the damage to Spaceship installation!</p>
+<p class="admonition-title">Обережно</p>
+<p>Ця змінна доступна тільки для читання. Змінна значення може призвести для пошкодження встановлення Spaceship!</p>
 </div>
-<p>An environment variable that defines the path to Spaceship prompt installation. Spaceship uses this variable for resolving path to sections and utils.</p>
-<p>Accessible to any program or script running in a current shell session.</p>
+<p>Змінна середовища, яка визначає шлях до місця встановлення командного рядка Spaceship. Spaceship використовує цю змінну для визначення шляху до секцій та утиліт.</p>
+<p>Доступна для будь-якої програми або скрипту, що працює в поточній сесії оболонки.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$SPACESHIP_ROOT</span>
 <span class="c1">#&gt; /path/to/spaceship-prompt</span>
 </code></pre></div>
 <h3 id="SPACESHIP_CONFIG_PATH"><code>SPACESHIP_CONFIG_PATH</code><a class="headerlink" href="#SPACESHIP_CONFIG_PATH" title="Permanent link">&para;</a></h3>
-<p>An array of path to configuration files. Spaceship will look for configuration file in the order of the array. The first file that exists will be used.</p>
-<p>The default locations are:</p>
+<p>Масив зі шляхами до файлів налаштувань. Spaceship буде шукати файли налаштувань в порядку елементів масиву. Буде використано перший файл, який існує.</p>
+<p>Типові місця:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$HOME</span>/.spaceshiprc
 <span class="nv">$HOME</span>/.spaceshiprc.zsh
 <span class="nv">$HOME</span>/.config/spaceship.zsh
@@ -3087,37 +3087,37 @@
 <span class="nv">$XDG_CONFIG_DIRS</span>/spaceship.zsh
 </code></pre></div>
 <h3 id="SPACESHIP_CONFIG"><code>SPACESHIP_CONFIG</code><a class="headerlink" href="#SPACESHIP_CONFIG" title="Permanent link">&para;</a></h3>
-<p>A variable storing the path to the configuration file. Usually, this variable stores one of the paths from the <a href="#spaceship_config_path"><code>SPACESHIP_CONFIG_PATH</code></a> array.</p>
-<p>You can specify custom path to the configuration file by setting the <code>SPACESHIP_CONFIG_FILE</code> environment variable, for example:</p>
+<p>Змінна, яка зберігає шлях до файлу налаштувань. Зазвичай ця змінна містить один зі шляхів з масиву <a href="#spaceship_config_path"><code>SPACESHIP_CONFIG_PATH</code></a>.</p>
+<p>Ви можете вказати власний шлях до файлу налаштувань, вказавши його у змінній <code>SPACESHIP_CONFIG_FILE</code>, наприклад:</p>
 <div class="highlight"><span class="filename">$HOME/.zshrc</span><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SPACESHIP_CONFIG_FILE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.dotfiles/path/to/spaceship.zsh&quot;</span>
 </code></pre></div>
-<p>The variable is empty when no configuration file is found.</p>
+<p>Змінна міститиме пусте значення, якщо файл налаштувань відсутній, або не знайдений.</p>
 <h3 id="SPACESHIP_CACHE"><code>SPACESHIP_CACHE</code><a class="headerlink" href="#SPACESHIP_CACHE" title="Permanent link">&para;</a></h3>
 <div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>This variable should be used only for reading. Changing the value may cause the incorrect behavior of Spaceship prompt.</p>
+<p class="admonition-title">Обережно</p>
+<p>Змінна має використовуватись тільки для читання. Зміна значення може спричинити некоректну поведінку командного рядка Spaceship.</p>
 </div>
-<p>An associative array that stores the cached values of the sections. The cache stores data between renders and is cleared on every prompt.</p>
-<p>The cache should not be manipulated directly.</p>
+<p>Асоційований масив, який зберігає кешовані значення секцій. Кеш зберігає дані між візуалізаціями та очищається після кожного запиту.</p>
+<p>Кешем не варто маніпулювати безпосередньо.</p>
 <h3 id="SPACESHIP_JOBS"><code>SPACESHIP_JOBS</code><a class="headerlink" href="#SPACESHIP_JOBS" title="Permanent link">&para;</a></h3>
 <div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>This variable should be used only for reading. Changing the value may cause the incorrect behavior of Spaceship prompt.</p>
+<p class="admonition-title">Обережно</p>
+<p>Змінна має використовуватись тільки для читання. Зміна значення може спричинити некоректну поведінку командного рядка Spaceship.</p>
 </div>
-<p>An array of currently processing asynchronous sections. Can be used to check what asynchronous sections are being rendered.</p>
-<p>The section name is added to the array when the asynchronous section is being rendered. Upon completion of the asynchronouse job, the name is removed from the array.</p>
-<h2 id="Asynchronous-runtime">Asynchronous runtime<a class="headerlink" href="#Asynchronous-runtime" title="Permanent link">&para;</a></h2>
-<p>Spaceship uses <a href="https://github.com/mafredri/zsh-async"><code>zsh-async</code></a> library to perform asynchronous tasks. This library comes along with Spaceship and is regularly updated to the latest version.</p>
-<p><code>zsh-async</code> is loaded automatically when Spaceship loads sections, when all of these conditions are true:</p>
+<p>Масив зараз обробляє асинхронні секції. Може бути використовуватись для перевірки того, які асинхронні секції показуються.</p>
+<p>Назва секції додається до масиву під час показу асинхронної секції. Після завершення асинхронної роботи назва вилучається з масиву.</p>
+<h2 id="Асинхронне-середовище-виконання">Асинхронне середовище виконання<a class="headerlink" href="#Асинхронне-середовище-виконання" title="Permanent link">&para;</a></h2>
+<p>Spaceship використовує <a href="https://github.com/mafredri/zsh-async"><code>zsh-async</code></a> бібліотеку для виконання асинхронних завдань. Ця бібліотека постачається разом з Spaceship та регулярно оновлюється до найсвіжішої версії.</p>
+<p><code>zsh-async</code> завантажується автоматично, коли Spaceship завантажується, коли всі ці умови є істиною:</p>
 <ol>
-<li>Asynchronous rendering is turned on (see <a href="#asynchronous-rendering">Asynchronous rendering</a>)</li>
-<li>There's at least one section that is rendered asynchronously.</li>
-<li><code>zsh-async</code> was not loaded before.</li>
+<li>Асинхронний показ увімкнено (див. <a href="#asynchronous-rendering">Асинхронний показ</a>)</li>
+<li>Існує щонайменше одна секція, що показується асинхронно.</li>
+<li><code>zsh-async</code> не було завантажено до цього.</li>
 </ol>
-<p>Otherwise, Spaceship will skip the loading of <code>zsh-async</code>.</p>
-<h3 id="Loading-zsh-async-manually">Loading <code>zsh-async</code> manually<a class="headerlink" href="#Loading-zsh-async-manually" title="Permanent link">&para;</a></h3>
-<p>If you plan on using <code>zsh-async</code> for purposes other than just rendering Spaceship, it's recommended to load it explicitly, before loading Spaceship.</p>
-<p>Here's an example of how to load <code>zsh-async</code> manually:</p>
+<p>В іншому випадку Spaceship пропустить завантаження <code>zsh-async</code>.</p>
+<h3 id="Завантаження-zsh-async-вручну">Завантаження <code>zsh-async</code> вручну<a class="headerlink" href="#Завантаження-zsh-async-вручну" title="Permanent link">&para;</a></h3>
+<p>Якщо ви плануєте використовувати <code>zsh-async</code> для цілей, окрім як показ Spaceship, рекомендується завантажити її явним чином, перед завантаженням Spaceship.</p>
+<p>Ось приклад того, як завантажити <code>zsh-async</code> вручну:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">antigen</label><label for="__tabbed_1_2">antibody</label><label for="__tabbed_1_3">zinit</label><label for="__tabbed_1_4">zgen</label><label for="__tabbed_1_5">zplug</label><label for="__tabbed_1_6">sheldon</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
