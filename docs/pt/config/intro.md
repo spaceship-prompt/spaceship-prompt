@@ -26,14 +26,11 @@ O ficheiro de configuração é um ficheiro `.zsh`, então podemos usar a sintax
 Eis um exemplo de um ficheiro de configuração:
 
 ```zsh
-# Exibir a data e hora
 SPACESHIP_TIME_SHOW=true
 
-# Exibir sempre o nome do utilizador
-SPACESHIP_USER_SHOW=always
+# Exibir sempre o nome do utilizador SPACESHIP_USER_SHOW=always
 
-# Não truncar o caminho nos repositórios
-SPACESHIP_DIR_TRUNC_REPO=false
+# Não truncar o caminho nos repositórios SPACESHIP_DIR_TRUNC_REPO=false
 
 # Adicionar secção personalizada da Ember
 # Consultar: https://github.com/spaceship-prompt/spaceship-ember

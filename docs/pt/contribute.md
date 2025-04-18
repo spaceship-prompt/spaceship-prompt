@@ -4,7 +4,7 @@ Obrigado por visitar esta página! É realmente muito importante para os criador
 
 ## Codificação
 
-Ficamos sempre contentes por ver colaboradores de **todos os níveis de competência**! Qualquer ajuda é respeitada e apreciada. Se estivermos à procura duma maneira fácil de entrar no projeto, escolhemos uma das questões com o rótulo **primeira boa impressão** ou <0>good first issue</0>.
+Ficamos sempre contentes por ver colaboradores de **todos os níveis de competência**! Qualquer ajuda é respeitada e apreciada. Se estivermos à procura duma maneira fácil de entrar no projeto, escolhemos uma das questões com o rótulo **primeira boa impressão** ou
 
 [Primeira Boas Impressões](https://github.com/spaceship-prompt/spaceship-prompt/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22 ""){.md-button} [Guia de Colaboração](https://github.com/spaceship-prompt/spaceship-prompt/blob/master/CONTRIBUTING.md ""){.md-button}
 
