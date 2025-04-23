@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#General-utilities" class="md-skip">
+        <a href="#Загальні-утиліти" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -3061,82 +3061,82 @@
   
 
 
-<h1 id="General-utilities">General utilities<a class="headerlink" href="#General-utilities" title="Permanent link">&para;</a></h1>
-<p>Below you can find a list of general purpose utilities.</p>
+<h1 id="Загальні-утиліти">Загальні утиліти<a class="headerlink" href="#Загальні-утиліти" title="Permanent link">&para;</a></h1>
+<p>Тут ви можете ознайомитись з утилітами загального призначення.</p>
 <h2 id="spaceshipexists"><code>spaceship::exists</code><a class="headerlink" href="#spaceshipexists" title="Permanent link">&para;</a></h2>
 <div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::exists &lt;command&gt;
 </code></pre></div>
-<p>This command validates that given program is available for execution. It checks for PATH binaries, functions, and builtins. It returns zero exit code if a <code>command</code> exists and non-zero code otherwise.</p>
-<p>You can use this utility to check if some program is installed and perform actions conditionally. For example, you can either return an error and exit or continue script's execution. For example:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check multiple commands for existing</span>
+<p>Ця команда перевіряє, що вказана програма доступна в системі. Вона зчитує змінну PATH та шукає двійкові файли та функції. Вона повертає нульовий код виходу, якщо <code>command</code> існує і ненульовий код в іншому випадку.</p>
+<p>Ви можете використовувати цю утиліту, щоб перевірити, чи встановлено якусь програму, і виконувати дії на підставі якихось умов. Наприклад, ви можете повернути помилку та вийти або продовжити виконання сценарію. Наприклад:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Перевірте наявність кількох команд</span>
 <span class="k">if</span><span class="w"> </span>spaceship::exists<span class="w"> </span>nvm<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">  </span><span class="c1"># extract nvm version</span>
+<span class="w">  </span><span class="c1"># отримати версію nvm</span>
 <span class="k">elif</span><span class="w"> </span>spaceship::exists<span class="w"> </span>node<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">  </span><span class="c1"># extract node version</span>
+<span class="w">  </span><span class="c1"># отримати версію node</span>
 <span class="k">else</span>
 <span class="w">  </span><span class="k">return</span>
 <span class="k">fi</span>
 
-<span class="c1"># Do nothing if docker is not installed</span>
+<span class="c1"># Нічого не робити якщо docker не встановлено</span>
 spaceship::exists<span class="w"> </span>docker<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span>
 </code></pre></div>
 <h2 id="spaceshipdefined"><code>spaceship::defined</code><a class="headerlink" href="#spaceshipdefined" title="Permanent link">&para;</a></h2>
 <div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::defined &lt;function&gt;
 </code></pre></div>
-<p>The same as <a href="#spaceshipexists"><code>spaceship::exists</code></a>, but for functions. It returns zero exit code if a <code>function</code> has been defined previously and non-zero if <code>function</code> hasn't.</p>
-<p>You can use this utility to check if a user has previously defined a function or not. For example:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check if section has been defined</span>
+<p>Те саме, що і <a href="#spaceshipexists"><code>spaceship::exists</code></a>, але для функцій. Вона повертає нульовий код виходу, якщо <code>function</code> існує і ненульовий код в іншому випадку.</p>
+<p>Ви можете використовувати цю утиліту для перевірки, чи раніше користувач визначив функцію, чи ні. Наприклад:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Перевірте, чи секцію визначено</span>
 <span class="k">if</span><span class="w"> </span>spaceship::defined<span class="w"> </span>spaceship_section<span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">  </span>spaceship_section
 <span class="k">else</span>
-<span class="w">  </span><span class="c1"># section is not found</span>
+<span class="w">  </span><span class="c1"># секцію не знайдено</span>
 <span class="k">fi</span>
 </code></pre></div>
 <h2 id="spaceshipis_git"><code>spaceship::is_git</code><a class="headerlink" href="#spaceshipis_git" title="Permanent link">&para;</a></h2>
-<p>This utility returns zero exit code if a current working directory is a Git repository and non-zero if it's not. For example:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Return if current directory is not a git repository</span>
+<p>Ця утиліта повертає нульовий код виходу, якщо поточна робоча тека є репозиторієм Git, і відмінним від нуля, якщо це не так. Наприклад:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Вихід якщо поточна тека не є репозиторієм git</span>
 spaceship::is_git<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span>
 </code></pre></div>
 <h2 id="spaceshipis_hg"><code>spaceship::is_hg</code><a class="headerlink" href="#spaceshipis_hg" title="Permanent link">&para;</a></h2>
-<p>The same as <a href="#spaceshipisgit"><code>spaceship::is_git</code></a>, but for Mercurial repositories. This utility returns zero exit code if a current working directory is a Mercurial repository and non-zero if it's not.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Return if current directory is not a Mercurial repository</span>
+<p>Те саме, що і <a href="#spaceshipisgit"><code>spaceship::is_git</code></a>, але для репозиторіїв Mercurial. Ця утиліта повертає нульовий код виходу, якщо поточна робоча тека є репозиторієм Mercurial, і відмінним від нуля, якщо це не так.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Вихід якщо поточна тека не є репозиторієм Mercurial</span>
 spaceship::is_hg<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span>
 </code></pre></div>
 <h2 id="spaceshipis_section_async"><code>spaceship::is_section_async</code><a class="headerlink" href="#spaceshipis_section_async" title="Permanent link">&para;</a></h2>
-<p>Checks if a section is asynchronous or not by checking <code>SPACESHIP_&lt;SECTION&gt;_ASYNC</code> option. This utility returns zero exit code if a section is asynchronous and non-zero if it's not.</p>
-<p>If <code>SPACESHIP_PROMPT_ASYNC</code> is set to <code>false</code>, then all sections are considered to be synchronous.</p>
+<p>Перевіряє, чи є секція є асинхронною, чи ні шляхом перевірки параметра <code>SPACESHIP_&lt;SECTION&gt;_ASYNC</code>. Ця утиліта повертає нульовий код виходу, якщо секція є асинхронною, і відмінним від нуля, якщо це не так.</p>
+<p>Якщо <code>SPACESHIP_PROMPT_ASYNC</code> встановлено у <code>false</code>, тоді всі секції вважаються синхронними.</p>
 <div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::is_section_async &lt;section&gt;
 </code></pre></div>
 <ol>
-<li><code>section</code> <em>Required</em> — a section to be checked.</li>
+<li><code>section</code> <em>Обовʼязково</em> — секція, яку потрібно перевірити.</li>
 </ol>
-<p>Some sections are always synchronous, not matter what, to ensure correct work of the prompt. Those are: <code>user</code>, <code>dir</code>, <code>host</code>, <code>exec_time</code>, <code>async</code>, <code>line_sep</code>, <code>jobs</code>, <code>exit_code</code> and <code>char</code>.</p>
+<p>Деякі секції завжди синхронні, незважаючи ні на що, щоб забезпечити коректну роботу командного рядка. Це: <code>user</code>, <code>dir</code>, <code>host</code>, <code>exec_time</code>, <code>async</code>, <code>line_sep</code>, <code>jobs</code>, <code>exit_code</code> та <code>char</code>.</p>
 <h2 id="spaceshipis_prompt_async"><code>spaceship::is_prompt_async</code><a class="headerlink" href="#spaceshipis_prompt_async" title="Permanent link">&para;</a></h2>
-<p>Checks if the prompt works in asynchronous mode or not. This utility returns zero exit code if the prompt works in asynchronous mode and non-zero if it's not.</p>
-<p>Check if <code>SPACESHIP_PROMPT_ASYNC</code> is set to <code>true</code> and <a href="#spaceshipis_section_async"><code>zsh-async</code> is loaded</a>.</p>
+<p>Перевіряє, чи командний рядок працює в асинхронному режимі. Ця утиліта повертає нульовий код виходу, якщо командний рядок працює в асинхроннім режимі, і відмінним від нуля, якщо це не так.</p>
+<p>Перевіряє, чи <code>SPACESHIP_PROMPT_ASYNC</code> встановлено у <code>true</code> та <a href="#spaceshipis_section_async"><code>zsh-async</code> завантажено</a>.</p>
 <h2 id="spaceshipdeprecated"><code>spaceship::deprecated</code><a class="headerlink" href="#spaceshipdeprecated" title="Permanent link">&para;</a></h2>
-<p>This utility checks if <code>option</code> variable is set and if it is, prints the <code>message</code>. The <code>message</code> supports escapes to set foreground color, background color and other visual effects.</p>
+<p>Ця утиліта перевіряє, чи <code>option</code> встановлено і якщо так, виводить <code>message</code>. <code>message</code> підтримує esc-послідовності для встановлення кольору тексту, фону та інших візуальних ефектів.</p>
 <div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::deprecated &lt;option&gt; [message]
 </code></pre></div>
 <ol>
-<li><code>option</code> <em>Required</em> — the name of a deprecated variable. If this variable is set (contains any value), then <code>"%B$deprecated%b is deprecated.</code> will be printed. <code>%B</code> and <code>%b</code> is escapes to set the bold style for text.</li>
-<li><code>message</code> <em>Optional</em> — a string for additional deprecation message. Can contain prompt expansions.</li>
+<li><code>option</code> <em>Обовʼязково</em> — назва застарілою змінної. Якщо ця змінна встановлена (містить будь-яке значення), то буде надруковано <code>"%B$deprecated%b is deprecated.</code>. <code>%B</code> і <code>%b</code> використовуються, щоб встановити жирний стиль тексту.</li>
+<li><code>message</code> <em>опціонально</em> — додатковий текст, що додається до повідомлення. Може містити розширення командного рядка.</li>
 </ol>
-<p>Read more about escapes in <a href="http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html">Prompt Expansion</a> section of Zsh documentation.</p>
-<p>Here's an example of usage:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check if SPACESHIP_BATTERY_ALWAYS_SHOW is set</span>
+<p>Детальніше про esc-послідовності в розділі <a href="http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html">Prompt Expansion</a> документації Zsh.</p>
+<p>Приклад використання:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Перевірка чи встановлено SPACESHIP_BATTERY_ALWAYS_SHOW</span>
 spaceship::deprecated<span class="w"> </span>SPACESHIP_BATTERY_ALWAYS_SHOW<span class="w"> </span><span class="s2">&quot;Use %BSPACESHIP_BATTERY_SHOW=&#39;always&#39;%b instead.&quot;</span>
 <span class="c1">#&gt; SPACESHIP_BATTERY_ALWAYS_SHOW is deprecated. Use SPACESHIP_BATTERY_SHOW=&#39;always&#39; instead.</span>
 </code></pre></div>
 <h2 id="spaceshipdisplaytime"><code>spaceship::displaytime</code><a class="headerlink" href="#spaceshipdisplaytime" title="Permanent link">&para;</a></h2>
-<p>This utility converts <code>seconds</code> into a human-readable format. It splits <code>seconds</code> into days (<code>d</code>), hours (<code>h</code>), minutes (<code>m</code>) and seconds (<code>s</code>).</p>
+<p>Ця утиліта перетворює <code>seconds</code> на зрозумілий формат часу. Вона розділяє <code>seconds</code> на дні (<code>d</code>), години (<code>h</code>), хвилини (<code>m</code>) та секунди (<code>s</code>).</p>
 <div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::displaytime &lt;seconds&gt; [precision]
 </code></pre></div>
 <ol>
-<li><code>seconds</code> <em>Required</em> — seconds for conversion into the readable format.</li>
-<li><code>precision</code> <em>Optional</em> — precision of the output. Default value is <code>1</code>.</li>
+<li><code>seconds</code> <em>Обовʼязково</em> — секунди для перетворення у більш зрозумілий формат.</li>
+<li><code>precision</code> <em>Опціонально</em> — точність виводу. Стандартне значення — <code>1</code>.</li>
 </ol>
-<p>The usage example looks like this:</p>
+<p>Приклад використання виглядає наступним чином:</p>
 <div class="highlight"><pre><span></span><code>spaceship::displaytime<span class="w"> </span><span class="m">123456</span>
 <span class="c1">#&gt; 1d 10h 17m 36.0s</span>
 
@@ -3144,14 +3144,14 @@ paceship::displaytime<span class="w"> </span><span class="m">123</span>.45<span 
 <span class="c1">#&gt; 2m 3.45s</span>
 </code></pre></div>
 <h2 id="spaceshipunion"><code>spaceship::union</code><a class="headerlink" href="#spaceshipunion" title="Permanent link">&para;</a></h2>
-<p>A utility for performing a union (intersection) of arrays. It lists the contents found in two or more arrays.</p>
-<p>Spaceship uses this utility internally for resolution of sections that need to be sourced.</p>
+<p>Утиліта для виконання об'єднання (перетину) масивів. Вона містить список вмісту, знайденого у двох або більше масивах.</p>
+<p>Spaceship використовує цю утиліту внутрішньо для обробки секцій розділів, які потрібно знайти.</p>
 <div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::union &lt;arr1[ arr2[ ...]]&gt;
 </code></pre></div>
 <ol>
-<li><code>arr...</code> — a list of arrays.</li>
+<li><code>arr...</code> — перелік масивів.</li>
 </ol>
-<p>Here is an example:</p>
+<p>Розгляньмо приклад:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">arr1</span><span class="o">=(</span><span class="s1">&#39;a&#39;</span><span class="w"> </span><span class="s1">&#39;b&#39;</span><span class="w"> </span><span class="s1">&#39;c&#39;</span><span class="o">)</span>
 <span class="nv">arr2</span><span class="o">=(</span><span class="s1">&#39;b&#39;</span><span class="w"> </span><span class="s1">&#39;c&#39;</span><span class="w"> </span><span class="s1">&#39;d&#39;</span><span class="o">)</span>
 <span class="nv">arr3</span><span class="o">=(</span><span class="s1">&#39;c&#39;</span><span class="w"> </span><span class="s1">&#39;d&#39;</span><span class="w"> </span><span class="s1">&#39;e&#39;</span><span class="o">)</span>
@@ -3159,48 +3159,48 @@ spaceship::union<span class="w"> </span><span class="nv">$arr1</span><span class
 <span class="c1">#&gt; a b c d e</span>
 </code></pre></div>
 <h2 id="spaceshipupsearch"><code>spaceship::upsearch</code><a class="headerlink" href="#spaceshipupsearch" title="Permanent link">&para;</a></h2>
-<p>Performs an upward search for a specific file or directory. Returns the path of the first found file or directory. Goes upwards up to the repository or system root directory. Useful for understanding the context of a current directory.</p>
+<p>Виконує пошук вгору по конкретному файлу або теці. Повертає шлях першого знайденого файлу або теки. Рухається в бік кореня репозиторію або файлової системи. Корисно для розуміння контексту поточної теки.</p>
 <div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::upsearch [--silent] &lt;paths...&gt;
 </code></pre></div>
 <ol>
-<li><code>paths...</code> <em>Required</em> — a list of paths to search.</li>
-<li><code>--silent</code> or <code>-s</code> <em>Optional</em> — if set, then the utility will return zero exit code, if at least one of <code>paths</code> is found and non-zero, if not.</li>
+<li><code>paths...</code> <em>Обовʼязково</em> — перелік шляхів для пошуку.</li>
+<li><code>--silent</code> або <code>-s</code> <em>Опціонально</em> — якщо встановлено, утиліта поверне нульовий код виходу, якщо принаймні один із <code>шляхів</code> знайдено, і відмінний від нуля, якщо ні.</li>
 </ol>
-<p>This can be used for detecting project context or finding a specific file upwards.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Understanding the project context</span>
+<p>Це може бути використано для визначення контексту проєкту або пошуку конкретного файлу вгорі.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Розуміння контексту проєкту</span>
 spaceship::upsearch<span class="w"> </span>-s<span class="w"> </span>package.json<span class="w"> </span>node_modules<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Node project detected.&quot;</span>
 
-<span class="c1"># Finding a specific file upwards</span>
+<span class="c1"># Пошук конкретного файлу вгорі</span>
 spaceship::upsearch<span class="w"> </span>package.json
 <span class="c1">#&gt; /path/to/project/package.json</span>
 </code></pre></div>
 <h2 id="spaceshipextract"><code>spaceship::extract</code><a class="headerlink" href="#spaceshipextract" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This utility has an alias <code>spaceship::datafile</code></p>
+<p>Псевдонім цієї утиліти – <code>spaceship::datafile</code></p>
 </div>
-<p>This utility queries data files for a specific key. It returns the value of the key. Exits with non-zero code when the file type is unknown, data cannot be read, or the key is not found.</p>
+<p>Ця утиліта запитує файли даних для отримання певного ключа. Вона повертає значення цього ключа. Виходить з ненульовим кодом, коли тип файлу невідомий, дані не можна прочитати або ключ не знайдено.</p>
 <div class="highlight"><span class="filename">Signature</span><pre><span></span><code>spaceship::extract --&lt;type&gt; &lt;file&gt; [...keys]
 </code></pre></div>
 <ol>
-<li><code>--type</code> <em>Required</em> — a type of the data file. Can be <code>json</code>, <code>yaml</code>, <code>toml</code> or <code>xml</code>.</li>
-<li><code>file</code> <em>Required</em> — a path to the data file.</li>
-<li><code>key</code> <em>Optional</em> — a key to query within a data file.</li>
+<li><code>--type</code> <em>Обовʼязково</em> — тип файлу даних. Може бути <code>json</code>, <code>yaml</code>, <code>toml</code> або <code>xml</code>.</li>
+<li><code>file</code> <em>Обовʼязково</em> — шлях до файлу даних.</li>
+<li><code>key</code> <em>Опціонально</em> — ключ, значення якого потрібно отримати з файлу.</li>
 </ol>
-<p>You can use this utility to query data from a data file:</p>
+<p>Ви можете використовувати цю утиліту для запиту даних з файлів:</p>
 <div class="highlight"><pre><span></span><code>spaceship::extract<span class="w"> </span>--json<span class="w"> </span>package.json<span class="w"> </span><span class="s2">&quot;author.name&quot;</span>
 <span class="c1">#&gt; &quot;John Doe&quot;</span>
 </code></pre></div>
-<p>It needs the following tools for reading data files:</p>
+<p>Потрібні такі інструменти для читання файлів даних:</p>
 <ul>
-<li>JSON — <a href="https://stedolan.github.io/jq/"><code>jq</code></a>, <a href="https://mikefarah.gitbook.io/yq/"><code>yq</code></a> or <a href="https://kislyuk.github.io/yq/"><code>python-yq</code></a>, <a href="https://www.python.org/"><code>python</code></a>, <a href="https://nodejs.org/"><code>node</code></a></li>
-<li>YAML — <a href="https://mikefarah.gitbook.io/yq/"><code>yq</code></a> or <a href="https://kislyuk.github.io/yq/"><code>python-yq</code></a>, <a href="https://www.python.org/"><code>python</code></a></li>
-<li>TOML — <code>tomlq</code> (comes with <a href="https://kislyuk.github.io/yq/"><code>python-yq</code></a>)</li>
-<li>XML — <code>xq</code> (comes with <a href="https://kislyuk.github.io/yq/"><code>python-yq</code></a>)</li>
+<li>JSON — <a href="https://stedolan.github.io/jq/"><code>jq</code></a>, <a href="https://mikefarah.gitbook.io/yq/"><code>yq</code></a> або <a href="https://kislyuk.github.io/yq/"><code>python-yq</code></a>, <a href="https://www.python.org/"><code>python</code></a>, <a href="https://nodejs.org/"><code>node</code></a></li>
+<li>YAML — <a href="https://mikefarah.gitbook.io/yq/"><code>yq</code></a> або <a href="https://kislyuk.github.io/yq/"><code>python-yq</code></a>, <a href="https://www.python.org/"><code>python</code></a></li>
+<li>TOML — <code>tomlq</code> (постачається з <a href="https://kislyuk.github.io/yq/"><code>python-yq</code></a>)</li>
+<li>XML — <code>xq</code> (постачається з <a href="https://kislyuk.github.io/yq/"><code>python-yq</code></a>)</li>
 </ul>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The most universal solution for reading data files is to use <a href="https://kislyuk.github.io/yq/"><code>python-yq</code></a>.</p>
+<p class="admonition-title">Порада</p>
+<p>Найбільш універсальним рішенням для читання файлів даних є використання <a href="https://kislyuk.github.io/yq/"><code>python-yq</code></a>.</p>
 </div>
 
 

@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Prompt-configuration" class="md-skip">
+        <a href="#Налаштування-командного-рядка" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -731,28 +731,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#Terminology" class="md-nav__link">
+  <a href="#Термінологія" class="md-nav__link">
     <span class="md-ellipsis">
-      Terminology
+      Термінологія
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Prompt-order" class="md-nav__link">
+  <a href="#Послідовність-командного-рядка" class="md-nav__link">
     <span class="md-ellipsis">
-      Prompt order
+      Послідовність командного рядка
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Prompt order">
+    <nav class="md-nav" aria-label="Послідовність командного рядка">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#Right-prompt-order" class="md-nav__link">
+  <a href="#Послідовність-правого-командного-рядка" class="md-nav__link">
     <span class="md-ellipsis">
-      Right prompt order
+      Послідовність правого командного рядка
     </span>
   </a>
   
@@ -764,55 +764,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#Configuring-sections" class="md-nav__link">
+  <a href="#Налаштування-секцій" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuring sections
+      Налаштування секцій
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#Prompt-level-options" class="md-nav__link">
+  <a href="#Налаштування-командного-рядка_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Prompt-level options
+      Налаштування командного рядка
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Prompt-level options">
+    <nav class="md-nav" aria-label="Налаштування командного рядка">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#Asynchronous-rendering" class="md-nav__link">
+  <a href="#Асинхронне-відображення" class="md-nav__link">
     <span class="md-ellipsis">
-      Asynchronous rendering
+      Асинхронне відображення
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#Prompt-spacing" class="md-nav__link">
+  <a href="#Відступи-командного-рядка" class="md-nav__link">
     <span class="md-ellipsis">
-      Prompt spacing
+      Відступи командного рядка
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#Displaying-the-first-section-prefix" class="md-nav__link">
+  <a href="#Відображення-префіксу-першої-секції" class="md-nav__link">
     <span class="md-ellipsis">
-      Displaying the first section prefix
+      Відображення префіксу першої секції
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#Displaying-prefixes-and-suffixes" class="md-nav__link">
+  <a href="#Відображення-префіксів-та-суфіксів" class="md-nav__link">
     <span class="md-ellipsis">
-      Displaying prefixes and suffixes
+      Відображення префіксів та суфіксів
     </span>
   </a>
   
@@ -3053,175 +3053,174 @@
   
 
 
-<h1 id="Prompt-configuration">Prompt configuration<a class="headerlink" href="#Prompt-configuration" title="Permanent link">&para;</a></h1>
-<p>This page describes prompt-level options for Spaceship.</p>
-<h2 id="Terminology">Terminology<a class="headerlink" href="#Terminology" title="Permanent link">&para;</a></h2>
-<p>The prompt consists of <strong>sections</strong>. All sections are combined into a <a href="#prompt-order"><strong>prompt order</strong></a>.</p>
-<p>When the prompt is being rendered, just goes over the prompt order and executes each section. If you want to add a custom section, add it to the order. You can add or remove sections from the prompt order at any time.</p>
-<p>Typically, a section consist of a <strong>prefix</strong>, <strong>symbol</strong>, <strong>content</strong> and <strong>suffix</strong>. The symbol and the content are painted in <strong>color</strong>. Here's an example with a <code>package</code> section:</p>
+<h1 id="Налаштування-командного-рядка">Налаштування командного рядка<a class="headerlink" href="#Налаштування-командного-рядка" title="Permanent link">&para;</a></h1>
+<p>Ця сторінка описує опції командного рядка Spaceship.</p>
+<h2 id="Термінологія">Термінологія<a class="headerlink" href="#Термінологія" title="Permanent link">&para;</a></h2>
+<p>Командний рядок складається з <strong>секцій</strong>. Всі секції поєднуються в <a href="#prompt-order"><strong>послідовність командного рядка</strong></a>.</p>
+<p>Під час процесу відображення командний рядок проходить по послідовності та викликає кожну секцію. Якщо ви хочете додати власну секцію – додайте її в послідовність. Ви можете додавати чи вилучати секціїї з послідовності командного рядка в будь-який час.</p>
+<p>Типова секція складається з <strong>префіксу</strong>, <strong>символу</strong>, <strong>змісту</strong> та <strong>суфіксу</strong>. Символ та зміст виділяються <strong>кольором</strong>. Ось приклад для секції <code>package</code>:</p>
 <div class="highlight"><pre><span></span><code>is 📦 3.16.5
 </code></pre></div>
-<p>Above, <code>is</code> is a prefix, <code>📦</code> is a symbol, <code>3.16.5</code> is the content and <code></code> (a space) is the suffix.</p>
-<p>Each part can be configured via corresponding <strong>options</strong>. Options are just environment variables and have this signature <code>SPACESHIP_&lt;SECTION&gt;_&lt;OPTION&gt;</code>:</p>
+<p>У наведеному вище, <code>is</code> є префіксом, <code>📦</code> символом, <code>3.16.5</code> змістом, а `` (пробіл) суфіксом.</p>
+<p>Кожна складова секції може бути налаштована за допомогою відповідних <strong>опцій</strong>. Опції це звичайні змінні середовища з такою сигнатурою: <code>SPACESHIP_&lt;SECTION&gt;_&lt;OPTION&gt;</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># SPACESHIP_&lt;SECTION&gt;_&lt;OPTION&gt;</span>
 <span class="w">  </span><span class="nv">SPACESHIP_PACKAGE_PREFIX</span><span class="o">=</span><span class="s2">&quot;via·&quot;</span>
 <span class="w">  </span><span class="nv">SPACESHIP_PACKAGE_SUFFIX</span><span class="o">=</span><span class="s2">&quot; &quot;</span>
 <span class="w">  </span><span class="nv">SPACESHIP_PACKAGE_COLOR</span><span class="o">=</span><span class="s2">&quot;green&quot;</span>
 </code></pre></div>
-<p>Above <code>PACKAGE</code> is a <strong>section</strong> and <code>PREFIX</code>, <code>SUFFIX</code> and <code>COLOR</code> are <strong>options</strong> for prefix, suffix and color correspondingly.</p>
+<p>У прикладі вище <code>PACKAGE</code> це <strong>секція</strong>, а <code>PREFIX</code>, <code>SUFFIX</code> та <code>COLOR</code> це <strong>опції</strong> для префіксу, суфіксу та кольору відповідно.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Colors for sections can be <a href="https://wiki.archlinux.org/index.php/zsh#Colors">basic colors</a> or <a href="https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg">color codes</a>.</p>
+<p>Допускається використання <a href="https://wiki.archlinux.org/index.php/zsh#Colors">базових кольорів</a> або <a href="https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg">кольорових кодів</a>.</p>
 </div>
-<h2 id="Prompt-order">Prompt order<a class="headerlink" href="#Prompt-order" title="Permanent link">&para;</a></h2>
-<p>The <strong>prompt order</strong> is the order in which sections are executed and rendered. You can specify the order of prompt section using <code>SPACESHIP_PROMPT_ORDER</code> option.</p>
-<p>The default prompt order is:</p>
+<h2 id="Послідовність-командного-рядка">Послідовність командного рядка<a class="headerlink" href="#Послідовність-командного-рядка" title="Permanent link">&para;</a></h2>
+<p><strong>Послідовність командного рядка</strong> визначає порядок, в якому секції виконуються і відображаються. Порядок секцій у командному рядку контролюється опцією <code>SPACESHIP_PROMPT_ORDER</code>.</p>
+<p>За замовчуванням, порядок секцій наступний:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">SPACESHIP_PROMPT_ORDER</span><span class="o">=(</span>
-<span class="w">  </span><span class="nb">time</span><span class="w">           </span><span class="c1"># Time stamps section</span>
-<span class="w">  </span>user<span class="w">           </span><span class="c1"># Username section</span>
-<span class="w">  </span>dir<span class="w">            </span><span class="c1"># Current directory section</span>
-<span class="w">  </span>host<span class="w">           </span><span class="c1"># Hostname section</span>
-<span class="w">  </span>git<span class="w">            </span><span class="c1"># Git section (git_branch + git_status)</span>
-<span class="w">  </span>hg<span class="w">             </span><span class="c1"># Mercurial section (hg_branch  + hg_status)</span>
-<span class="w">  </span>package<span class="w">        </span><span class="c1"># Package version</span>
-<span class="w">  </span>node<span class="w">           </span><span class="c1"># Node.js section</span>
-<span class="w">  </span>bun<span class="w">            </span><span class="c1"># Bun section</span>
-<span class="w">  </span>deno<span class="w">           </span><span class="c1"># Deno section</span>
-<span class="w">  </span>ruby<span class="w">           </span><span class="c1"># Ruby section</span>
-<span class="w">  </span>python<span class="w">         </span><span class="c1"># Python section</span>
-<span class="w">  </span>elm<span class="w">            </span><span class="c1"># Elm section</span>
-<span class="w">  </span>elixir<span class="w">         </span><span class="c1"># Elixir section</span>
-<span class="w">  </span>xcode<span class="w">          </span><span class="c1"># Xcode section</span>
-<span class="w">  </span>swift<span class="w">          </span><span class="c1"># Swift section</span>
-<span class="w">  </span>golang<span class="w">         </span><span class="c1"># Go section</span>
-<span class="w">  </span>perl<span class="w">           </span><span class="c1"># Perl section</span>
-<span class="w">  </span>php<span class="w">            </span><span class="c1"># PHP section</span>
-<span class="w">  </span>rust<span class="w">           </span><span class="c1"># Rust section</span>
-<span class="w">  </span>haskell<span class="w">        </span><span class="c1"># Haskell Stack section</span>
-<span class="w">  </span>scala<span class="w">          </span><span class="c1"># Scala section</span>
-<span class="w">  </span>kotlin<span class="w">         </span><span class="c1"># Kotlin section</span>
-<span class="w">  </span>java<span class="w">           </span><span class="c1"># Java section</span>
-<span class="w">  </span>lua<span class="w">            </span><span class="c1"># Lua section</span>
-<span class="w">  </span>dart<span class="w">           </span><span class="c1"># Dart section</span>
-<span class="w">  </span>julia<span class="w">          </span><span class="c1"># Julia section</span>
-<span class="w">  </span>crystal<span class="w">        </span><span class="c1"># Crystal section</span>
-<span class="w">  </span>docker<span class="w">         </span><span class="c1"># Docker section</span>
-<span class="w">  </span>docker_compose<span class="w"> </span><span class="c1"># Docker section</span>
-<span class="w">  </span>aws<span class="w">            </span><span class="c1"># Amazon Web Services section</span>
-<span class="w">  </span>gcloud<span class="w">         </span><span class="c1"># Google Cloud Platform section</span>
-<span class="w">  </span>azure<span class="w">          </span><span class="c1"># Azure section</span>
-<span class="w">  </span>venv<span class="w">           </span><span class="c1"># virtualenv section</span>
-<span class="w">  </span>conda<span class="w">          </span><span class="c1"># conda virtualenv section</span>
-<span class="w">  </span>uv<span class="w">             </span><span class="c1"># uv section</span>
-<span class="w">  </span>dotnet<span class="w">         </span><span class="c1"># .NET section</span>
-<span class="w">  </span>ocaml<span class="w">          </span><span class="c1"># OCaml section</span>
-<span class="w">  </span>vlang<span class="w">          </span><span class="c1"># V section</span>
-<span class="w">  </span>zig<span class="w">            </span><span class="c1"># Zig section</span>
-<span class="w">  </span>purescript<span class="w">     </span><span class="c1"># PureScript section</span>
-<span class="w">  </span>erlang<span class="w">         </span><span class="c1"># Erlang section</span>
-<span class="w">  </span>gleam<span class="w">          </span><span class="c1"># Gleam section</span>
-<span class="w">  </span>kubectl<span class="w">        </span><span class="c1"># Kubectl context section</span>
-<span class="w">  </span>ansible<span class="w">        </span><span class="c1"># Ansible section</span>
-<span class="w">  </span>terraform<span class="w">      </span><span class="c1"># Terraform workspace section</span>
-<span class="w">  </span>pulumi<span class="w">         </span><span class="c1"># Pulumi stack section</span>
-<span class="w">  </span>ibmcloud<span class="w">       </span><span class="c1"># IBM Cloud section</span>
-<span class="w">  </span>nix_shell<span class="w">      </span><span class="c1"># Nix shell</span>
-<span class="w">  </span>gnu_screen<span class="w">     </span><span class="c1"># GNU Screen section</span>
-<span class="w">  </span>exec_time<span class="w">      </span><span class="c1"># Execution time</span>
-<span class="w">  </span>async<span class="w">          </span><span class="c1"># Async jobs indicator</span>
-<span class="w">  </span>line_sep<span class="w">       </span><span class="c1"># Line break</span>
-<span class="w">  </span>battery<span class="w">        </span><span class="c1"># Battery level and status</span>
-<span class="w">  </span><span class="nb">jobs</span><span class="w">           </span><span class="c1"># Background jobs indicator</span>
-<span class="w">  </span>exit_code<span class="w">      </span><span class="c1"># Exit code section</span>
-<span class="w">  </span>sudo<span class="w">           </span><span class="c1"># Sudo indicator</span>
-<span class="w">  </span>char<span class="w">           </span><span class="c1"># Prompt character</span>
+<span class="w">  </span><span class="nb">time</span><span class="w"> </span><span class="c1"># Секція міток часу</span>
+<span class="w">  </span>user<span class="w"> </span><span class="c1"># Секція імені користувача</span>
+<span class="w">  </span>dir<span class="w"> </span><span class="c1"># Секція поточної теки</span>
+<span class="w">  </span>host<span class="w"> </span><span class="c1"># Секція імені хосту</span>
+<span class="w">  </span>git<span class="w"> </span><span class="c1"># Секція Git (git_branch + git_status)</span>
+<span class="w">  </span>hg<span class="w"> </span><span class="c1"># Секція Mercurial (hg_branch + hg_status)</span>
+<span class="w">  </span>package<span class="w"> </span><span class="c1"># Версія пакунка</span>
+<span class="w">  </span>node<span class="w"> </span><span class="c1"># Секція Node.js</span>
+<span class="w">  </span>bun<span class="w"> </span><span class="c1"># Секція Bun</span>
+<span class="w">  </span>deno<span class="w"> </span><span class="c1"># Секція Deno</span>
+<span class="w">  </span>ruby<span class="w"> </span><span class="c1"># Секція Ruby</span>
+<span class="w">  </span>python<span class="w"> </span><span class="c1"># Секція Python</span>
+<span class="w">  </span>elm<span class="w"> </span><span class="c1"># Секція Elm</span>
+<span class="w">  </span>elixir<span class="w"> </span><span class="c1"># Секція Elixir</span>
+<span class="w">  </span>xcode<span class="w"> </span><span class="c1"># Секція Xcode</span>
+<span class="w">  </span>swift<span class="w"> </span><span class="c1"># Секція Swift</span>
+<span class="w">  </span>golang<span class="w"> </span><span class="c1"># Секція Go</span>
+<span class="w">  </span>perl<span class="w"> </span><span class="c1"># Секція Perl</span>
+<span class="w">  </span>php<span class="w"> </span><span class="c1"># Секція PHP</span>
+<span class="w">  </span>rust<span class="w"> </span><span class="c1"># Секція Rust</span>
+<span class="w">  </span>haskell<span class="w"> </span><span class="c1"># Секція стеку Haskell</span>
+<span class="w">  </span>scala<span class="w"> </span><span class="c1"># Секція Scala</span>
+<span class="w">  </span>kotlin<span class="w"> </span><span class="c1"># Секція Kotlin</span>
+<span class="w">  </span>java<span class="w"> </span><span class="c1"># Секція Java</span>
+<span class="w">  </span>lua<span class="w"> </span><span class="c1"># Секція Lua</span>
+<span class="w">  </span>dart<span class="w"> </span><span class="c1"># Секція Dart</span>
+<span class="w">  </span>julia<span class="w"> </span><span class="c1"># Секція Julia</span>
+<span class="w">  </span>crystal<span class="w"> </span><span class="c1"># Секція Crystal</span>
+<span class="w">  </span>docker<span class="w"> </span><span class="c1"># Секція Docker</span>
+<span class="w">  </span>docker_compose<span class="w"> </span><span class="c1"># Секція Docker</span>
+<span class="w">  </span>aws<span class="w"> </span><span class="c1"># Секція Amazon Web Services</span>
+<span class="w">  </span>gcloud<span class="w"> </span><span class="c1"># Секція Google Cloud Platform</span>
+<span class="w">  </span>azure<span class="w"> </span><span class="c1"># Секція Azure</span>
+<span class="w">  </span>venv<span class="w"> </span><span class="c1"># Секція virtualenv</span>
+<span class="w">  </span>conda<span class="w"> </span><span class="c1"># Секція conda virtualenv</span>
+<span class="w">  </span>uv<span class="w"> </span><span class="c1"># Секція uv</span>
+<span class="w">  </span>dotnet<span class="w"> </span><span class="c1"># Секція .NET</span>
+<span class="w">  </span>ocaml<span class="w"> </span><span class="c1"># Секція OCaml</span>
+<span class="w">  </span>vlang<span class="w"> </span><span class="c1"># Секція V</span>
+<span class="w">  </span>zig<span class="w"> </span><span class="c1"># Секція Zig</span>
+<span class="w">  </span>purescript<span class="w"> </span><span class="c1"># Секція PureScript</span>
+<span class="w">  </span>erlang<span class="w"> </span><span class="c1"># Секція Erlang</span>
+<span class="w">  </span>gleam<span class="w"> </span><span class="c1"># Секція Gleam</span>
+<span class="w">  </span>kubectl<span class="w"> </span><span class="c1"># Секція контексту Kubectl</span>
+<span class="w">  </span>ansible<span class="w"> </span><span class="c1"># Секція Ansible</span>
+<span class="w">  </span>terraform<span class="w"> </span><span class="c1"># Секція робочого простору Terraform</span>
+<span class="w">  </span>pulumi<span class="w"> </span><span class="c1"># Секція стеку Pulumi</span>
+<span class="w">  </span>ibmcloud<span class="w"> </span><span class="c1"># Секція IBM Cloud</span>
+<span class="w">  </span>nix_shell<span class="w"> </span><span class="c1"># Оболонка Nix</span>
+<span class="w">  </span>gnu_screen<span class="w"> </span><span class="c1"># Секція GNU Screen</span>
+<span class="w">  </span>exec_time<span class="w"> </span><span class="c1"># Час виконання</span>
+<span class="w">  </span>async<span class="w"> </span><span class="c1"># Індикатор асинхронних завдань</span>
+<span class="w">  </span>line_sep<span class="w"> </span><span class="c1"># Переведення рядка</span>
+<span class="w">  </span>battery<span class="w"> </span><span class="c1"># Рівень та стан заряду батареї</span>
+<span class="w">  </span><span class="nb">jobs</span><span class="w"> </span><span class="c1"># Індикатор фонових завдань</span>
+<span class="w">  </span>exit_code<span class="w"> </span><span class="c1"># Секція коду виходу</span>
+<span class="w">  </span>sudo<span class="w"> </span><span class="c1"># Індикатор sudo</span>
+<span class="w">  </span>char<span class="w"> </span><span class="c1"># Символ запрошення</span>
 <span class="o">)</span>
 </code></pre></div>
-<p>You can add or remove sections using <code>spaceship add</code> and <code>spaceship remove</code> commands, like this:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Removes git out of the prompt</span>
+<p>Ви можете додавати та видаляти секції за допомогою команд <code>spaceship add</code> та <code>spaceship remove</code> таким чином:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Видаляє секцію git з командного рядка</span>
 spaceship<span class="w"> </span>remove<span class="w"> </span>git
 
-<span class="c1"># Adds git back to the prompt</span>
+<span class="c1"># Додає секцію git до командного рядка</span>
 spaceship<span class="w"> </span>add<span class="w"> </span>git
 </code></pre></div>
-<h3 id="Right-prompt-order">Right prompt order<a class="headerlink" href="#Right-prompt-order" title="Permanent link">&para;</a></h3>
-<p>You can also add items to the right prompt by specifying them in the <code>SPACESHIP_RPROMPT_ORDER</code> option. By default, <code>SPACESHIP_RPROMPT_ORDER</code> is an empty array.</p>
-<h2 id="Configuring-sections">Configuring sections<a class="headerlink" href="#Configuring-sections" title="Permanent link">&para;</a></h2>
-<p>You can customize every section of the prompt with section's options. Check out each section's documentation for more information.</p>
-<p>Besides built-in sections, you can add external section to your prompt or build a custom one.</p>
-<p><a class="md-button" href="../../sections/">Browse built-in sections</a>
-<a class="md-button" href="../../registry/">Browse all sections</a></p>
-<h2 id="Prompt-level-options">Prompt-level options<a class="headerlink" href="#Prompt-level-options" title="Permanent link">&para;</a></h2>
-<p>This group of options defines a behavior of prompt and standard parameters for sections displaying.</p>
+<h3 id="Послідовність-правого-командного-рядка">Послідовність правого командного рядка<a class="headerlink" href="#Послідовність-правого-командного-рядка" title="Permanent link">&para;</a></h3>
+<p>Також ви можете додавати секції праворуч від командного рядка, вказуючи їх у опції <code>SPACESHIP_RPROMPT_ORDER</code>. За замовчуванням, <code>SPACESHIP_RPROMPT_ORDER</code> – порожній масив.</p>
+<h2 id="Налаштування-секцій">Налаштування секцій<a class="headerlink" href="#Налаштування-секцій" title="Permanent link">&para;</a></h2>
+<p>Ви можете налаштовувати кожну секцію командного рядка за допомогою опцій секції. Подивіться документацію секцій для отримання додаткової інформації.</p>
+<p>Крім використання вбудованих секцій, ви можете додавати сторонні секції або створити власні.</p>
+<p><a class="md-button" href="../../sections/" title="">Подивитись вбудовані секції</a> <a class="md-button" href="../../registry/" title="">Подивитися всі секції</a></p>
+<h2 id="Налаштування-командного-рядка_1">Налаштування командного рядка<a class="headerlink" href="#Налаштування-командного-рядка_1" title="Permanent link">&para;</a></h2>
+<p>Ця група налаштувань визначає поведінку командного рядка і стандартні параметри відображення секцій.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Variable</th>
-<th style="text-align: center;">Default</th>
-<th>Meaning</th>
+<th style="text-align: left;">Змінна</th>
+<th style="text-align: center;">За замовчуванням</th>
+<th>Пояснення</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PROMPT_ASYNC</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Render prompt asynchronously or not</td>
+<td>Чи відображати командний рядок асинхронно</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PROMPT_ADD_NEWLINE</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Adds a newline character before each prompt line</td>
+<td>Додає символ нового рядка перед кожним запитом</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PROMPT_SEPARATE_LINE</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Make the prompt span across two lines</td>
+<td>Розтягнути командний рядок на два рядки</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PROMPT_FIRST_PREFIX_SHOW</code></td>
 <td style="text-align: center;"><code>false</code></td>
-<td>Shows a prefix of the first section in prompt</td>
+<td>Показати префікс першої секції в командному рядку</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_RPROMPT_FIRST_PREFIX_SHOW</code></td>
 <td style="text-align: center;"><code>false</code></td>
-<td>Shows a prefix of the first section in right prompt</td>
+<td>Показати префікс першої секції в командному рядку праворуч</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PROMPT_PREFIXES_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Show prefixes before prompt sections or not</td>
+<td>Чи показувати префікси секцій</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PROMPT_SUFFIXES_SHOW</code></td>
 <td style="text-align: center;"><code>true</code></td>
-<td>Show suffixes before prompt sections or not</td>
+<td>Чи показувати суфікси секцій</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PROMPT_DEFAULT_PREFIX</code></td>
 <td style="text-align: center;"><code>via·</code></td>
-<td>Default prefix for prompt sections</td>
+<td>Префікс за замовчуванням для секцій</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>SPACESHIP_PROMPT_DEFAULT_SUFFIX</code></td>
-<td style="text-align: center;"><code></code></td>
-<td>Default suffix for prompt section</td>
+<td style="text-align: center;">``</td>
+<td>Суфікс за замовчуванням для секцій</td>
 </tr>
 </tbody>
 </table>
-<p>Here is a breakdown of these options:</p>
-<h3 id="Asynchronous-rendering">Asynchronous rendering<a class="headerlink" href="#Asynchronous-rendering" title="Permanent link">&para;</a></h3>
-<p>The <code>SPACESHIP_PROMPT_ASYNC</code> option defines whether the prompt is rendered asynchronously or not. By default, the prompt is rendered asynchronously.</p>
-<p>The synchronous sections are displayed immediately. The asynchronous sections are processed in the background and are displayed when the information is ready to be displayed.</p>
-<p>The <a href="../../sections/async/"><code>async</code> section</a> is used as a placeholder for not yet available asynchronous sections.</p>
-<h3 id="Prompt-spacing">Prompt spacing<a class="headerlink" href="#Prompt-spacing" title="Permanent link">&para;</a></h3>
-<p>Spaceship adds an empty line between each prompt. You can disable this behavior by setting <code>SPACESHIP_PROMPT_ADD_NEWLINE</code> to <code>false</code>.</p>
-<p>The prompt is also separated by a line break if <code>SPACESHIP_PROMPT_SEPARATE_LINE</code> is set to <code>true</code>.</p>
-<h3 id="Displaying-the-first-section-prefix">Displaying the first section prefix<a class="headerlink" href="#Displaying-the-first-section-prefix" title="Permanent link">&para;</a></h3>
-<p>Spaceship hides the prefix of the first section in the prompt. You can enable this behavior by setting <code>SPACESHIP_PROMPT_FIRST_PREFIX_SHOW</code> to <code>true</code>.</p>
-<h3 id="Displaying-prefixes-and-suffixes">Displaying prefixes and suffixes<a class="headerlink" href="#Displaying-prefixes-and-suffixes" title="Permanent link">&para;</a></h3>
-<p>You can disable the displaying of prefixes and suffixes by setting <code>SPACESHIP_PROMPT_PREFIXES_SHOW</code> and <code>SPACESHIP_PROMPT_SUFFIXES_SHOW</code> to <code>false</code>.</p>
-<p>Additionally, you can change the default prefix and suffix by setting <code>SPACESHIP_PROMPT_DEFAULT_PREFIX</code> and <code>SPACESHIP_PROMPT_DEFAULT_SUFFIX</code>. These options will be used to render prefixes or suffixes unless the corresponding section option is set.</p>
+<p>Трохи більше про ці налаштування:</p>
+<h3 id="Асинхронне-відображення">Асинхронне відображення<a class="headerlink" href="#Асинхронне-відображення" title="Permanent link">&para;</a></h3>
+<p>Опція <code>SPACESHIP_PROMPT_ASYNC</code> визначає, чи має командний рядок відображатися асинхронно, чи ні. За замовчуванням, він відображається асинхронно.</p>
+<p>Синхронні секції показуються миттєво. Асинхронні секції обробляються у фоні та показуються коли інформація готова до відображення.</p>
+<p><a href="../../sections/async/">Секція <code>async</code></a> заміняє асинхронні секції, поки вони завантажуються.</p>
+<h3 id="Відступи-командного-рядка">Відступи командного рядка<a class="headerlink" href="#Відступи-командного-рядка" title="Permanent link">&para;</a></h3>
+<p>Spaceship додає порожній рядок між запитами. Ви можете вимкнути цю поведінку, змінивши значення опції <code>SPACESHIP_PROMPT_ADD_NEWLINE</code> на <code>false</code>.</p>
+<p>Командний рядок також виділяється новим рядком якщо <code>SPACESHIP_PROMPT_SEPARATE_LINE</code> має значення <code>true</code>.</p>
+<h3 id="Відображення-префіксу-першої-секції">Відображення префіксу першої секції<a class="headerlink" href="#Відображення-префіксу-першої-секції" title="Permanent link">&para;</a></h3>
+<p>Spaceship приховує префікс першої секції командного рядка. Ви можете увімкнути цю поведінку, встановивши <code>SPACESHIP_PROMPT_FIRST_PREFIX_SHOW</code> у <code>true</code>.</p>
+<h3 id="Відображення-префіксів-та-суфіксів">Відображення префіксів та суфіксів<a class="headerlink" href="#Відображення-префіксів-та-суфіксів" title="Permanent link">&para;</a></h3>
+<p>Ви можете вимкнути відображення префіксів та суфіксів, встановивши <code>SPACESHIP_PROMPT_PREFIXES_SHOW</code> та <code>SPACESHIP_PROMPT_SUFFIXES_SHOW</code> у <code>false</code>.</p>
+<p>Додатково ви можете змінити префікс та суфікс за замовчуванням за допомогою опцій <code>SPACESHIP_PROMPT_DEFAULT_PREFIX</code> та <code>SPACESHIP_PROMPT_DEFAULT_SUFFIX</code>. Ці значення будуть використані для відображення префіксів або суфіксів, якщо не встановлено відповідні опції секції.</p>
 
 
 

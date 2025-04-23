@@ -136,7 +136,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#Loading-custom-sections" class="md-skip">
+        <a href="#Завантаження-власних-секцій" class="md-skip">
           Перейти до змісту
         </a>
       
@@ -754,18 +754,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#How-to-install-a-section" class="md-nav__link">
+  <a href="#Як-встановити-секцію" class="md-nav__link">
     <span class="md-ellipsis">
-      How to install a section
+      Як встановити секцію
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#How-to-add-a-section-to-the-prompt" class="md-nav__link">
+  <a href="#Як-додати-секцію-в-командний-рядок" class="md-nav__link">
     <span class="md-ellipsis">
-      How to add a section to the prompt
+      Як додати секцію в командний рядок
     </span>
   </a>
   
@@ -2978,22 +2978,21 @@
   
 
 
-<h1 id="Loading-custom-sections">Loading custom sections<a class="headerlink" href="#Loading-custom-sections" title="Permanent link">&para;</a></h1>
-<p>Though Spaceship has multiple sections for various use-cases, sometimes you may need to install a custom one: for a specific tool or something that you use personally.</p>
-<p>You can create your own section using <a href="../../api/section/">sections API</a> or use existing one from <a href="../../registry/">the Registry</a>:</p>
-<p><a class="md-button" href="../../registry/">Browse Registry</a>
-<a class="md-button" href="../../advanced/creating-section/">Create a custom section</a></p>
-<h2 id="How-to-install-a-section">How to install a section<a class="headerlink" href="#How-to-install-a-section" title="Permanent link">&para;</a></h2>
-<p>It better to follow the installation instructions provided by the section author.</p>
-<p>Most of the time, it's enough to just clone the repository locally (for example to <code>~/.config/spaceship</code>) and source the section somewhere in <a href="../intro/#create-a-config-file">Spaceship config</a> or directly in <code>~/.zshrc</code>.</p>
-<h2 id="How-to-add-a-section-to-the-prompt">How to add a section to the prompt<a class="headerlink" href="#How-to-add-a-section-to-the-prompt" title="Permanent link">&para;</a></h2>
-<p>Spaceship CLI provides a command to add a section to the prompt:</p>
+<h1 id="Завантаження-власних-секцій">Завантаження власних секцій<a class="headerlink" href="#Завантаження-власних-секцій" title="Permanent link">&para;</a></h1>
+<p>Хоча Spaceship пропонує чисельні вбудовані секції для різноманітних випадків, іноді вам може бути потрібно встановити щось інше: для специфічного інструменту або чогось персонального.</p>
+<p>Ви можете створити власну секцію за допомогою <a href="../../api/section/">API секцій</a>, або використати наявну з <a href="../../registry/">Реєстру</a>:</p>
+<p><a class="md-button" href="../../registry/" title="">Переглянути реєстр</a> <a class="md-button" href="../../advanced/creating-section/" title="">Створити власну секцію</a></p>
+<h2 id="Як-встановити-секцію">Як встановити секцію<a class="headerlink" href="#Як-встановити-секцію" title="Permanent link">&para;</a></h2>
+<p>Найкращій спосіб – слідувати інструкціям, наданим автором секції.</p>
+<p>В більшості випадків буде достатньо клонувати репозиторій локально (наприклад у <code>~/.config/spaceship</code>) та завантажити секцію десь у <a href="../intro/#create-a-config-file">конфігурації Spaceship</a> або напряму в <code>~/.zshrc</code>.</p>
+<h2 id="Як-додати-секцію-в-командний-рядок">Як додати секцію в командний рядок<a class="headerlink" href="#Як-додати-секцію-в-командний-рядок" title="Permanent link">&para;</a></h2>
+<p>Spaceship CLI має команду для додавання секції в командний рядок:</p>
 <div class="highlight"><pre><span></span><code>spaceship<span class="w"> </span>add<span class="w"> </span>&lt;section&gt;
 </code></pre></div>
-<p>For example, for <code>ember</code> section you can use:</p>
+<p>Наприклад, для секції <code>ember</code> треба використати:</p>
 <div class="highlight"><pre><span></span><code>spaceship<span class="w"> </span>add<span class="w"> </span>ember
 </code></pre></div>
-<p>You need to add this line somewhere in <code>~/.zshrc</code>.</p>
+<p>Вам потрібно додати цей рядок в <code>~/.zshrc</code>.</p>
 
 
 
