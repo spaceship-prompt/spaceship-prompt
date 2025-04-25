@@ -98,6 +98,7 @@ nav:
         - Scala (scala): sections/scala.md
         - Sudo (sudo): sections/sudo.md
         - Swift (swift): sections/swift.md
+        - swiftenv (swiftenv): sections/swiftenv.md
         - Terraform (terraform): sections/terraform.md
         - Time (time): sections/time.md
         - Username (user): sections/user.md
@@ -105,6 +106,7 @@ nav:
         - v (vlang): sections/vlang.md
         - Virtualenv (venv): sections/venv.md
         - Xcode (xcode): sections/xcode.md
+        - xcenv (xcenv): sections/xcenv.md
         - Zig (zig): sections/zig.md
   - Advanced:
       - Creating a custom section: advanced/creating-section.md
