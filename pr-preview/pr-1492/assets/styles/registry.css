@@ -1,0 +1,33 @@
+#sections-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-auto-rows: minmax(max-content, 1fr);
+  gap: 1rem;
+  list-style: none;
+  margin: 1rem 0;
+}
+
+#sections-list li {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.1rem;
+  cursor: pointer;
+  color: var(--md-default-fg-color--light);
+  transition: all 0.2s ease-in-out;
+}
+
+#sections-list li:hover,
+#sections-list li:focus {
+  background-color: var(--md-default-fg-color--lightest);
+  color: var(--md-typeset-a-color);
+}
+
+#sections-list li em {
+  font-weight: lighter;
+  font-size: smaller;
+  color: var(--md-typeset-a-color);
+}
