@@ -18,6 +18,13 @@ SPACESHIP_XCODE_SYMBOL="${SPACESHIP_XCODE_SYMBOL="$HAMMER "}"
 SPACESHIP_XCODE_COLOR="${SPACESHIP_XCODE_COLOR="blue"}"
 
 # ------------------------------------------------------------------------------
+# Deprecations
+# ------------------------------------------------------------------------------
+
+spaceship::deprecated SPACESHIP_XCODE_SHOW_LOCAL "Use %BSPACESHIP_XCENV_SHOW_LOCAL%b instead"
+spaceship::deprecated SPACESHIP_XCODE_SHOW_GLOBAL "Use %BSPACESHIP_XCENV_SHOW_GLOBAL%b instead"
+
+# ------------------------------------------------------------------------------
 # Section
 # ------------------------------------------------------------------------------
 

@@ -18,6 +18,13 @@ SPACESHIP_SWIFT_SYMBOL="${SPACESHIP_SWIFT_SYMBOL="$BIRD "}"
 SPACESHIP_SWIFT_COLOR="${SPACESHIP_SWIFT_COLOR="yellow"}"
 
 # ------------------------------------------------------------------------------
+# Deprecations
+# ------------------------------------------------------------------------------
+
+spaceship::deprecated SPACESHIP_SWIFT_SHOW_LOCAL "Use %BSPACESHIP_SWIFTENV_SHOW_LOCAL%b instead"
+spaceship::deprecated SPACESHIP_SWIFT_SHOW_GLOBAL "Use %BSPACESHIP_SWIFTENV_SHOW_GLOBAL%b instead"
+
+# ------------------------------------------------------------------------------
 # Section
 # ------------------------------------------------------------------------------
 
