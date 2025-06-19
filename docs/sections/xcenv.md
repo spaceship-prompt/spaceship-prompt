@@ -5,7 +5,7 @@
 !!! info
     Use [**xcenv**](https://xcenv.org/) to document and manage the Xcode version for your project and system..
 
-The `xcenv` section displays the version of the Xcode.
+The `xcenv` section displays the version of Xcode.
 
 The local version has more priority than the global one.
 
