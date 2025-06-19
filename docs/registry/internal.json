@@ -310,7 +310,13 @@
     {
       "name": "swift",
       "url": "https://spaceship-prompt.sh/sections/swift",
-      "description": "The version of Swift.",
+      "description": "The Swift version.",
+      "internal": true
+    },
+    {
+      "name": "swiftenv",
+      "url": "https://spaceship-prompt.sh/sections/swiftenv",
+      "description": "The `swiftenv` managed version of Swift.",
       "internal": true
     },
     {
@@ -346,7 +352,13 @@
     {
       "name": "xcode",
       "url": "https://spaceship-prompt.sh/sections/xcode",
-      "description": "The version of the Xcode environment.",
+      "description": "The Xcode version.",
+      "internal": true
+    },
+    {
+      "name": "xcenv",
+      "url": "https://spaceship-prompt.sh/sections/xcenv",
+      "description": "The `xcenv` managed version of Xcode.",
       "internal": true
     },
     {

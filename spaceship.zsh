@@ -56,7 +56,9 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     elm            # Elm section
     elixir         # Elixir section
     xcode          # Xcode section
+    xcenv          # xcenv section
     swift          # Swift section
+    swiftenv       # swiftenv section
     golang         # Go section
     perl           # Perl section
     php            # PHP section
