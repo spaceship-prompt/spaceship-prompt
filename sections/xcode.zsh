@@ -47,4 +47,7 @@ spaceship_xcode() {
     "v$xcode_version"
 }
 
-(xed --version >/dev/null 2>&1 &) # Perform once in background since first execution is slow.
+if command -v xed >/dev/null 2>&1
+then
+  xed --version >/dev/null 2>&1 & # Perform once in background since first execution is slow.
+fi
