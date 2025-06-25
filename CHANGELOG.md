@@ -1,3 +1,10 @@
+# [4.19.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.18.0...v4.19.0) (2025-06-25)
+
+
+### Features
+
+* **swift:** Repurpose Swift and Xcode sections to use native tools ([#1491](https://github.com/spaceship-prompt/spaceship-prompt/issues/1491)) ([47b83a1](https://github.com/spaceship-prompt/spaceship-prompt/commit/47b83a1d5b74d9653c09d16a0e4dde3227d5927e))
+
 # [4.18.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.17.0...v4.18.0) (2025-04-16)
 
 
