@@ -35,6 +35,8 @@ spaceship_ruby() {
     ruby_version=$(chruby | sed -n -e 's/ \* //p')
   elif spaceship::exists rbenv; then
     ruby_version=$(rbenv version-name)
+  elif spaceship::exists mise; then
+    ruby_version=$(mise current ruby)
   elif spaceship::exists asdf; then
     # split output on space and return second element
     ruby_version=${$(asdf current --no-header ruby)[2]}
