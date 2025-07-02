@@ -5,7 +5,7 @@
 !!! info
     [**Xcode**](https://developer.apple.com/xcode/) is a suite of tools developers use to build apps for Apple platforms.
 
-The `xcode` section displays the version of the Xcode.
+The `xcode` section displays the version of Xcode.
 
 ## Options
 
