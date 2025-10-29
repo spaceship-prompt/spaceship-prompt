@@ -1,3 +1,10 @@
+## [4.19.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.19.0...v4.19.1) (2025-10-29)
+
+
+### Bug Fixes
+
+* **ansible:** exclude ansible cfg files in home folder ([#1515](https://github.com/spaceship-prompt/spaceship-prompt/issues/1515)) ([b3bdab0](https://github.com/spaceship-prompt/spaceship-prompt/commit/b3bdab0a3f09134a9a9f56e39de1ec911ed8a81a))
+
 # [4.19.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.18.0...v4.19.0) (2025-06-25)
 
 
