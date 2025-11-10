@@ -16,6 +16,11 @@ if [ -z "$SPACESHIP_GIT_ORDER" ]; then
   SPACESHIP_GIT_ORDER=(git_branch git_status git_commit)
 fi
 
+# Ensure the Git icon is only added once
+if [[ $SPACESHIP_GIT_SHOW == true ]]; then
+  spaceship::section::v4 --color "$SPACESHIP_GIT_COLOR" --prefix "$SPACESHIP_GIT_PREFIX" --symbol "$SPACESHIP_GIT_SYMBOL" "$git_info"
+fi
+
 # ------------------------------------------------------------------------------
 # Dependencies
 # ------------------------------------------------------------------------------
