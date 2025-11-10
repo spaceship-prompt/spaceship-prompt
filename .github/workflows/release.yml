@@ -21,7 +21,7 @@ jobs:
           submodules: true
 
       - name: 🚀 Release
-        uses: cycjimmy/semantic-release-action@v4
+        uses: cycjimmy/semantic-release-action@v5
         id: semantic
         with:
           extra_plugins: |
