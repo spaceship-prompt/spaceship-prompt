@@ -13,7 +13,7 @@ SPACESHIP_RLANG_ASYNC="${SPACESHIP_RLANG_ASYNC=true}"
 SPACESHIP_RLANG_PREFIX="${SPACESHIP_RLANG_PREFIX="with "}"
 SPACESHIP_RLANG_SUFFIX="${SPACESHIP_RLANG_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
 SPACESHIP_RLANG_SYMBOL="${SPACESHIP_RLANG_SYMBOL="📊 "}"
-SPACESHIP_RLANG_COLOR="blue"
+SPACESHIP_RLANG_COLOR="${SPACESHIP_RLANG_COLOR="blue"}"
 SPACESHIP_RLANG_VERBOSE="${SPACESHIP_RLANG_VERBOSE=false}"
 
 # ------------------------------------------------------------------------------
@@ -30,8 +30,6 @@ spaceship_rlang() {
   local R_project_globs=('*.R' '*.Rd' '*.Rmd' '*.Rproj' '*.Rsx')
   local is_R_project="$(spaceship::upsearch "${R_project_globs[@]}")"
   [[ -n $is_R_project || -e .Rprofile || -d ".Rproj.user" ]] || return
-
-
   # Extract R version
   local R_version="$(R --version 2>/dev/null | head -n 1 | cut -d ' ' -f 3,6,7)"
 
@@ -47,5 +45,4 @@ spaceship_rlang() {
     --suffix "$SPACESHIP_RLANG_SUFFIX" \
     --symbol "$SPACESHIP_RLANG_SYMBOL" \
     "$R_version"
-
 }

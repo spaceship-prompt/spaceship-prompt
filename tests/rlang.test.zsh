@@ -11,6 +11,7 @@ SHUNIT_PARENT=$0
 oneTimeSetUp() {
   export TERM="xterm-256color"
   export PATH=$PWD/tests/stubs:$PATH
+
   SPACESHIP_PROMPT_ASYNC=false
   SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
   SPACESHIP_PROMPT_ADD_NEWLINE=false
@@ -26,6 +27,7 @@ setUp() {
   SPACESHIP_RLANG_SUFFIX=" "
   SPACESHIP_RLANG_SYMBOL="📊 "
   SPACESHIP_RLANG_COLOR="blue"
+  SPACESHIP_RLANG_VERBOSE=true
   cd $SHUNIT_TMPDIR
 }
 
@@ -41,6 +43,7 @@ tearDown() {
   unset SPACESHIP_RLANG_SUFFIX
   unset SPACESHIP_RLANG_SYMBOL
   unset SPACESHIP_RLANG_COLOR
+  unset SPACESHIP_RLANG_VERBOSE
 }
 
 test_rlang_no_files() {
