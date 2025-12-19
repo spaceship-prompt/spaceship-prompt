@@ -18,7 +18,7 @@ This section is displayed only when:
 | :------------------------ | :--------------------------------: | ------------------------------------------ |
 | `SPACESHIP_RLANG_SHOW`    |               `true`               | Show section                               |
 | `SPACESHIP_RLANG_ASYNC`   |               `true`               | Render section asynchronously              |
-| `SPACESHIP_RLANG_PREFIX`  |               `with`               | Section's prefix                           |
+| `SPACESHIP_RLANG_PREFIX`  |               `with `              | Section's prefix                           |
 | `SPACESHIP_RLANG_SUFFIX`  | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                           |
 | `SPACESHIP_RLANG_SYMBOL`  |                `📊`                | Symbol displayed before the section        |
 | `SPACESHIP_RLANG_COLOR`   |               `blue`               | Section's color                            |
