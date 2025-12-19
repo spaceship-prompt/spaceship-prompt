@@ -41,7 +41,6 @@ spaceship_rlang() {
   # Verbose output
   [[ $SPACESHIP_RLANG_VERBOSE == false ]] && R_version=$(echo $R_version | cut -d ' ' -f 1)
 
-
   spaceship::section \
     --color "$SPACESHIP_RLANG_COLOR" \
     --prefix "$SPACESHIP_RLANG_PREFIX" \
