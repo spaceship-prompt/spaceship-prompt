@@ -11,7 +11,6 @@ SHUNIT_PARENT=$0
 oneTimeSetUp() {
   export TERM="xterm-256color"
   export PATH=$PWD/tests/stubs:$PATH
-  
   SPACESHIP_PROMPT_ASYNC=false
   SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
   SPACESHIP_PROMPT_ADD_NEWLINE=false
