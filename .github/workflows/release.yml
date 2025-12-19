@@ -24,6 +24,22 @@ jobs:
           persist-credentials: false
           submodules: true
 
+      - name: 🧰 Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - name: ⬆️ Update npm (OIDC support)
+        run: npm install -g npm@11.5.1
+
+      - name: 🔎 node & npm info
+        run: |
+          node --version
+          npm --version
+          npm config get registry
+          npm config get userconfig
+
       - name: 🚀 Release
         uses: cycjimmy/semantic-release-action@v6
         id: semantic
@@ -37,4 +53,3 @@ jobs:
           # Using PAT here, because published release should trigger a workflow
           # See: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#triggering-new-workflows-using-a-personal-access-token
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          
