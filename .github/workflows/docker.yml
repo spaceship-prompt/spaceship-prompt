@@ -21,7 +21,7 @@ jobs:
       packages: write
     steps:
       - name: ⬇️ Checkout Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: true
 
