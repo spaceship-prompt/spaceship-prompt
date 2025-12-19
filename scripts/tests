@@ -50,6 +50,9 @@ header() {
 # ------------------------------------------------------------------------------
 
 main() {
+  # Set SPACESHIP_ROOT to repo root for test files to run in a proper context.
+  export SPACESHIP_ROOT="$PWD"
+
   for test in $TESTS; do
     header "Run $test..."
     ( eval zsh $test 2>&1 )
@@ -67,4 +70,3 @@ main() {
 }
 
 main "$@"
-

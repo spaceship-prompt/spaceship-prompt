@@ -10,6 +10,12 @@ SHUNIT_PARENT=$0
 
 oneTimeSetUp() {
   export TERM="xterm-256color"
+  export HOME="$SHUNIT_TMPDIR/home"
+  mkdir -p "$HOME"
+  export GIT_AUTHOR_NAME="Spaceship Test"
+  export GIT_AUTHOR_EMAIL="spaceship@example.com"
+  export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+  export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 
   SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
   SPACESHIP_PROMPT_ADD_NEWLINE=false
