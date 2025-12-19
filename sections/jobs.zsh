@@ -25,6 +25,14 @@ spaceship_jobs() {
 
   local jobs_amount=${#jobstates}
 
+  # Workaround for Zsh < 5.9 (#1449)
+  if ! is-at-least 5.9; then
+    jobs_amount=0;
+    while IFS= read -r line; do
+      [[ -n ${line//[[:space:]]/} ]] && ((jobs_amount++))
+    done <<< "$(jobs)"
+  fi
+
   [[ $jobs_amount -gt 0 ]] || return
 
   if [[ $jobs_amount -le $SPACESHIP_JOBS_AMOUNT_THRESHOLD ]]; then
