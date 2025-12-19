@@ -43,7 +43,7 @@ spaceship_rlang() {
 
 
   spaceship::section \
-    --color  "$SPACESHIP_RLANG_COLOR" \
+    --color "$SPACESHIP_RLANG_COLOR" \
     --prefix "$SPACESHIP_RLANG_PREFIX" \
     --suffix "$SPACESHIP_RLANG_SUFFIX" \
     --symbol "$SPACESHIP_RLANG_SYMBOL" \
