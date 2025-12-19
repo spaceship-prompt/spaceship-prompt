@@ -50,7 +50,7 @@ test_rlang_no_files() {
 }
 
 test_rlang_configs() {
-  FILES=('.R','.Rd','Rmd','.Rproj','.Rsx')
+  FILES=('*.R' '*.Rd' '*.Rmd' '*.Rproj' '*.Rsx')
   for file in $FILES; do
     touch $file
     local expected="%{%B%}$SPACESHIP_RLANG_PREFIX%{%b%}%{%B%F{$SPACESHIP_RLANG_COLOR}%}$SPACESHIP_RLANG_SYMBOL$R_VERSION%{%b%f%}%{%B%} %{%b%}"
