@@ -1,3 +1,10 @@
+## [4.19.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.19.1...v4.19.2) (2025-12-19)
+
+
+### Bug Fixes
+
+* **sections/jobs:** add support for ZSH <5.9 ([#1505](https://github.com/spaceship-prompt/spaceship-prompt/issues/1505)) ([539af72](https://github.com/spaceship-prompt/spaceship-prompt/commit/539af7254b63465d67d1b31bdaff39622dabd0d8))
+
 ## [4.19.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.19.0...v4.19.1) (2025-10-29)
 
 
