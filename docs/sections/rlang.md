@@ -3,7 +3,7 @@
 !!! important "This section is rendered asynchronously by default"
 
 !!! info
-[**R**](https://r-project.org) is a free software environment for statistical computing and graphics.
+    [**R**](https://r-project.org) is a free software environment for statistical computing and graphics.
 
 The `rlang` section displays the R version.
 
