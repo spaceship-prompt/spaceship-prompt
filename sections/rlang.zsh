@@ -29,7 +29,7 @@ spaceship_rlang() {
   # Detect R project
   local R_project_globs=('.R','.Rd','Rmd','.Rproj','.Rsx')
   local is_R_project="$(spaceship::upsearch $R_project_globs)"
-  [[ -n $is_R_project || -e .Rprofile ||  -d  ".Rproj.user" ]] || return
+  [[ -n $is_R_project || -e .Rprofile || -d ".Rproj.user" ]] || return
 
 
   # Extract R version
