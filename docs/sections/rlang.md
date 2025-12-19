@@ -9,7 +9,7 @@ The `rlang` section displays the R version.
 
 This section is displayed only when:
 
-- Upsearch finds `.R`, `.Rd`, `.Rmd`, `.Rproj` or `.Rsx` file
+- Upsearch finds `*.R`, `*.Rd`, `*.Rmd`, `*.Rproj` or `*.Rsx` files
 - Current directory contains `.Rprofile` file or `.Rproj.user` folder.
 
 ## Options
