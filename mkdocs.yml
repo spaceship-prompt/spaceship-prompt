@@ -31,7 +31,6 @@ theme:
   features:
     - navigation.sections
     - navigation.indexes
-    - navigation.instant
     - navigation.tracking
     - navigation.tabs
     - navigation.tabs.sticky
@@ -68,6 +67,7 @@ nav:
         - Execution time (exec_time): sections/exec_time.md
         - Exit code (exit_code): sections/exit_code.md
         - Git (git): sections/git.md
+        - Gleam (gleam): sections/gleam.md
         - GNU Screen (gnu_screen): sections/gnu_screen.md
         - Go (golang): sections/golang.md
         - Google Cloud (gcloud): sections/gcloud.md
@@ -84,6 +84,7 @@ nav:
         - Mercurial (hg): sections/hg.md
         - Nix Shell (nix-shell): sections/nix_shell.md
         - Node.js (node): sections/node.md
+        - R (Rlang): sections/rlang.md
         - OCaml (ocaml): sections/ocaml.md
         - Package (package): sections/package.md
         - Perl (perl): sections/perl.md
@@ -92,17 +93,21 @@ nav:
         - Pulumi (pulumi): sections/pulumi.md
         - PureScript (purescript): sections/purescript.md
         - Python (python): sections/python.md
+        - Red (red): sections/red.md
         - Ruby (ruby): sections/ruby.md
         - Rust (rust): sections/rust.md
         - Scala (scala): sections/scala.md
         - Sudo (sudo): sections/sudo.md
         - Swift (swift): sections/swift.md
+        - swiftenv (swiftenv): sections/swiftenv.md
         - Terraform (terraform): sections/terraform.md
         - Time (time): sections/time.md
         - Username (user): sections/user.md
+        - uv-managed virtualenv (uv): sections/uv.md
         - v (vlang): sections/vlang.md
         - Virtualenv (venv): sections/venv.md
         - Xcode (xcode): sections/xcode.md
+        - xcenv (xcenv): sections/xcenv.md
         - Zig (zig): sections/zig.md
   - Advanced:
       - Creating a custom section: advanced/creating-section.md
@@ -132,7 +137,7 @@ markdown_extensions:
       permalink: true
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
-          case: none 
+          case: none
   - attr_list
   - tables
   - pymdownx.tabbed:
@@ -144,28 +149,10 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra:
-  alternate:
-    - name: English
-      lang: en
-      link: /en
-    - name: Deutsch
-      lang: de
-      link: /de
-    - name: Français
-      lang: fr
-      link: /fr
-    - name: Українська
-      lang: uk
-      link: /uk
-    - name: 简体中文
-      lang: zh
-      link: /zh
-    - name: Help translating
-      link: https://translate.spaceship-prompt.sh
   analytics:
     provider: google
     property: G-0STBM9BNC1
@@ -203,41 +190,45 @@ plugins:
         api.md: api/environment.md
         troubleshooting.md: faq.md
   - i18n:
-      default_language: en
-      # Default behavior doesn't display language switcher for non-English pages
-      material_alternate: false
+      docs_structure: folder
+      fallback_to_default: true
       languages:
-        en:
+        - locale: en
           name: English
-        de:
+          build: true
+          default: true
+        - locale: de
           name: Deutsch
-        fr:
+          build: true
+        - locale: fr
           name: Français
-        uk:
+          build: true
+        - locale: uk
           name: Українська
-        zh:
+          build: true
+          nav_translations:
+            API: API
+            Advanced: Розширені можливості
+            Blog: Блог
+            Built-in Sections: Вбудовані секції
+            Configuration: Конфігурація
+            Contribute: Зробити внесок
+            Creating a custom section: Створення власної секції
+            Environment: Середовище
+            FAQ: ЧАПИ
+            General utilities: Загальні утиліти
+            Getting Started: Початок роботи
+            Home: Головна
+            Introduction: Вступ
+            Loading custom sections: Завантаження власних секцій
+            Per-directory configuration: Налаштування для кожної директорії
+            Prompt configuration: Налаштування командного рядка
+            Registry: Реєстр
+            Sections: Секції
+            Testing kit: Інструменти тестування
+        - locale: zh
           name: 简体中文
-      nav_translations:
-        de: # TODO: Add German translations
-        fr: # TODO: Add French translations
-        uk:
-          Home: Головна
-          Getting Started: Початок роботи
-          Configuration: Конфігурація
-          Introduction: Вступ
-          Prompt configuration: Налаштування командного рядка
-          Loading custom sections: Завантаження власних секцій
-          Built-in Sections: Вбудовані секції
-          Advanced: Розширені можливості
-          Creating a custom section: Створення власної секції
-          Per-directory configuration: Налаштування для кожної директорії
-          API: API
-          Environment: Середовище
-          Sections: Секції
-          General utilities: Загальні утиліти
-          Testing kit: Інструменти тестування
-          Registry: Реєстр
-          FAQ: ЧАПИ
-          Blog: Блог
-          Contribute: Зробити внесок
-        zh: # TODO: Add Chinese translations
+          build: true
+        - locale: "null"
+          name: Help translating
+          fixed_link: https://translate.spaceship-prompt.sh/

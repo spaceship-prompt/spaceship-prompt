@@ -28,7 +28,7 @@ Each part can be configured via corresponding **options**. Options are just envi
 Above `PACKAGE` is a **section** and `PREFIX`, `SUFFIX` and `COLOR` are **options** for prefix, suffix and color correspondingly.
 
 !!! info
-Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
+    Colors for sections can be [basic colors](https://wiki.archlinux.org/index.php/zsh#Colors) or [color codes](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg).
 
 ## Prompt order
 
@@ -53,7 +53,9 @@ SPACESHIP_PROMPT_ORDER=(
   elm            # Elm section
   elixir         # Elixir section
   xcode          # Xcode section
+  xcenv          # xcenv section
   swift          # Swift section
+  swiftenv       # swiftenv section
   golang         # Go section
   perl           # Perl section
   php            # PHP section
@@ -73,12 +75,14 @@ SPACESHIP_PROMPT_ORDER=(
   azure          # Azure section
   venv           # virtualenv section
   conda          # conda virtualenv section
+  uv             # uv section
   dotnet         # .NET section
   ocaml          # OCaml section
   vlang          # V section
   zig            # Zig section
   purescript     # PureScript section
   erlang         # Erlang section
+  gleam          # Gleam section
   kubectl        # Kubectl context section
   ansible        # Ansible section
   terraform      # Terraform workspace section
@@ -117,8 +121,8 @@ You can customize every section of the prompt with section's options. Check out 
 
 Besides built-in sections, you can add external section to your prompt or build a custom one.
 
-[Browse built-in sections](/sections){ .md-button }
-[Browse all sections](/registry){ .md-button }
+[Browse built-in sections](../sections/index.md){ .md-button }
+[Browse all sections](../registry.md){ .md-button }
 
 ## Prompt-level options
 
@@ -144,11 +148,11 @@ The `SPACESHIP_PROMPT_ASYNC` option defines whether the prompt is rendered async
 
 The synchronous sections are displayed immediately. The asynchronous sections are processed in the background and are displayed when the information is ready to be displayed.
 
-The [`async` section](/sections/async) is used as a placeholder for not yet available asynchronous sections.
+The [`async` section](../sections/async.md) is used as a placeholder for not yet available asynchronous sections.
 
 ### Prompt spacing
 
-Spaceship adds and empty line between each prompt. You can disable this behavior by setting `SPACESHIP_PROMPT_ADD_NEWLINE` to `false`.
+Spaceship adds an empty line between each prompt. You can disable this behavior by setting `SPACESHIP_PROMPT_ADD_NEWLINE` to `false`.
 
 The prompt is also separated by a line break if `SPACESHIP_PROMPT_SEPARATE_LINE` is set to `true`.
 

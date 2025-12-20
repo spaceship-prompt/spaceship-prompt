@@ -128,6 +128,18 @@
       "internal": true
     },
     {
+      "name": "git_commit",
+      "url": "https://spaceship-prompt.sh/sections/git/#git-commit-git_commit",
+      "description": "The current Git commit hash.",
+      "internal": true
+    },
+    {
+      "name": "gleam",
+      "url": "https://spaceship-prompt.sh/sections/gleam",
+      "description": "The current version of Gleam.",
+      "internal": true
+    },
+    {
       "name": "golang",
       "url": "https://spaceship-prompt.sh/sections/golang",
       "description": "The version of the Go.",
@@ -242,6 +254,12 @@
       "internal": true
     },
     {
+      "name": "rlang",
+      "url": "https://spaceship-prompt.sh/sections/rlang",
+      "description": "The current version of R",
+      "internal": true
+    },
+    {
       "name": "package",
       "url": "https://spaceship-prompt.sh/sections/package",
       "description": "The version of the package when the current directory is a package.",
@@ -263,6 +281,12 @@
       "name": "python",
       "url": "https://spaceship-prompt.sh/sections/python",
       "description": "The version of the Python binary.",
+      "internal": true
+    },
+    {
+      "name": "red",
+      "url": "https://spaceship-prompt.sh/sections/red",
+      "description": "The version of the Red binary.",
       "internal": true
     },
     {
@@ -292,7 +316,13 @@
     {
       "name": "swift",
       "url": "https://spaceship-prompt.sh/sections/swift",
-      "description": "The version of Swift.",
+      "description": "The Swift version.",
+      "internal": true
+    },
+    {
+      "name": "swiftenv",
+      "url": "https://spaceship-prompt.sh/sections/swiftenv",
+      "description": "The `swiftenv` managed version of Swift.",
       "internal": true
     },
     {
@@ -314,6 +344,12 @@
       "internal": true
     },
     {
+      "name": "uv",
+      "url": "https://spaceship-prompt.sh/sections/uv",
+      "description": "The uv workflow tool.",
+      "internal": true
+    },
+    {
       "name": "venv",
       "url": "https://spaceship-prompt.sh/sections/venv",
       "description": "The current Virtualenv name.",
@@ -322,7 +358,13 @@
     {
       "name": "xcode",
       "url": "https://spaceship-prompt.sh/sections/xcode",
-      "description": "The version of the Xcode environment.",
+      "description": "The Xcode version.",
+      "internal": true
+    },
+    {
+      "name": "xcenv",
+      "url": "https://spaceship-prompt.sh/sections/xcenv",
+      "description": "The `xcenv` managed version of Xcode.",
       "internal": true
     },
     {

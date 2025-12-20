@@ -38,6 +38,10 @@ spaceship_ansible() {
     detected_playbooks="$(spaceship::grep -oE "tasks|hosts|roles" $yaml_files)"
   fi
 
+  if [[ -n "$ansible_configs" ]] && [[ "$ansible_configs" == "$HOME/.ansible.cfg" || "$ansible_configs" == "$HOME/ansible.cfg" ]]; then
+    unset ansible_configs
+  fi
+
   [[ -n "$ansible_configs" || -n "$detected_playbooks" ]] || return
 
   # Retrieve ansible version

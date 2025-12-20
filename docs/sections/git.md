@@ -2,17 +2,17 @@
 
 !!! important "This section is rendered asynchronously by default"
 
-The `git` section consists of [`git_branch`](#git-branch-git_branch) and [`git_status`](#git-status-git_status) subsections.
+The `git` section consists of [`git_branch`](#git-branch-git_branch) and [`git_status`](#git-status-git_status) and [`git_commit`](#git-commit-git_commit) subsections.
 
 ## Options
 
-| Variable               |             Default                | Meaning                                                                                                     |
+| Variable               |              Default               | Meaning                                                                                                     |
 | :--------------------- | :--------------------------------: | ----------------------------------------------------------------------------------------------------------- |
 | `SPACESHIP_GIT_SHOW`   |               `true`               | Show section                                                                                                |
 | `SPACESHIP_GIT_ASYNC`  |               `true`               | Render section asynchronously                                                                               |
 | `SPACESHIP_GIT_PREFIX` |               `on·`                | Section's prefix                                                                                            |
 | `SPACESHIP_GIT_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                                                                                            |
-| `SPACESHIP_GIT_SYMBOL` |               ``                  | Symbol displayed before the section (requires [powerline patched font](https://github.com/powerline/fonts)) |
+| `SPACESHIP_GIT_SYMBOL` |                ``                 | Symbol displayed before the section (requires [powerline patched font](https://github.com/powerline/fonts)) |
 | `SPACESHIP_GIT_ORDER`  |     `(git_branch git_status)`      | Order of git subsection rendering                                                                           |
 
 ## Git branch `git_branch`
@@ -52,3 +52,18 @@ The `git_status` subsection displays indicators only when you have a dirty Git r
 | `SPACESHIP_GIT_STATUS_AHEAD`     |   `⇡`   | Indicator for unpushed changes (ahead of remote branch)      |
 | `SPACESHIP_GIT_STATUS_BEHIND`    |   `⇣`   | Indicator for unpulled changes (behind of remote branch)     |
 | `SPACESHIP_GIT_STATUS_DIVERGED`  |   `⇕`   | Indicator for diverged changes (diverged with remote branch) |
+
+## Git commit `git_commit`
+
+The `git_commit` section displays the current commit hash of the Git repository.
+
+### Options
+
+| Variable                      | Default  | Meaning                             |
+| :---------------------------- | :------: | ----------------------------------- |
+| `SPACESHIP_GIT_COMMIT_SHOW`   | `false`  | Show section                        |
+| `SPACESHIP_GIT_COMMIT_ASYNC`  |  `true`  | Render section asynchronously       |
+| `SPACESHIP_GIT_COMMIT_PREFIX` |   ` `    | Section's prefix                    |
+| `SPACESHIP_GIT_COMMIT_SUFFIX` |    ``    | Section's suffix                    |
+| `SPACESHIP_GIT_COMMIT_SYMBOL` |   `#`    | Symbol displayed before the section |
+| `SPACESHIP_GIT_COMMIT_COLOR`  | `yellow` | Section's color                     |

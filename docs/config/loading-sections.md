@@ -2,16 +2,16 @@
 
 Though Spaceship has multiple sections for various use-cases, sometimes you may need to install a custom one: for a specific tool or something that you use personally.
 
-You can create your own section using [sections API](/api/section) or use existing one from [the Registry](/registry):
+You can create your own section using [sections API](../api/section.md) or use existing one from [the Registry](../registry.md):
 
-[Browse Registry](/registry){ .md-button  }
-[Create a custom section](/advanced/creating-section){ .md-button }
+[Browse Registry](../registry.md){ .md-button  }
+[Create a custom section](../advanced/creating-section.md){ .md-button }
 
 ## How to install a section
 
 It better to follow the installation instructions provided by the section author.
 
-Most of the time, it's enough to just clone the repository locally (for example to `~/.config/spaceship`) and source the section somewhere in [Spaceship config](/config/intro/#create-a-config-file) or directly in `~/.zshrc`.
+Most of the time, it's enough to just clone the repository locally (for example to `~/.config/spaceship`) and source the section somewhere in [Spaceship config](intro.md#create-a-config-file) or directly in `~/.zshrc`.
 
 ## How to add a section to the prompt
 

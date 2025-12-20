@@ -182,7 +182,7 @@ Now that the requirements are satisfied, you can install Spaceship via any of th
     ```
 
     Also there is an unmaintained git package [spaceship-prompt-git](https://aur.archlinux.org/packages/spaceship-prompt-git/).
-    
+
 
 ## Congratulations!
 
@@ -190,12 +190,12 @@ You've made it! You've installed Spaceship on your machine!
 
 What's next? Spaceship has reasonable defaults, but you might want to adjust them to your needs. Learn how to configure your Spaceship:
 
-[Configure Spaceship](/config/intro){ .md-button }
+[Configure Spaceship](config/intro.md){ .md-button }
 
 Additionally, join our community or consider contributing to the project.
 
-[:material-hand-heart: Contribute](/contribute){ .md-button }
-[:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt){ .md-button }
+[:material-hand-heart: Contribute](contribute.md){ .md-button }
+[:fontawesome-brands-twitter: Twitter](https://twitter.com/SpaceshipPrompt){ .md-button }
 [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9){ .md-button }
 
 ## Having trouble?

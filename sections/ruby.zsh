@@ -36,8 +36,11 @@ spaceship_ruby() {
   elif spaceship::exists rbenv; then
     ruby_version=$(rbenv version-name)
   elif spaceship::exists asdf; then
-    # split output on space and return second element
-    ruby_version=${$(asdf current ruby)[2]}
+    local asdf_output
+    if asdf_output=$(asdf current --no-header ruby 2>/dev/null) && [[ -n "$asdf_output" ]]; then
+      # split output on space and return second element
+      ruby_version=${asdf_output[(w)2]}
+    fi
   else
     return
   fi

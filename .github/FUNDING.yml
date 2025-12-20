@@ -1,6 +1,9 @@
-# You can add one username per supported platform and one custom link
-github: denysdovhan
-patreon: denysdovhan
+github:
+  - denysdovhan
 open_collective: spaceship-prompt
-ko_fi: # Replace with your Ko-fi username
-custom: [buymeacoffee.com/denysdovhan]
+buy_me_a_coffee: denysdovhan
+patreon: denysdovhan
+custom:
+  - https://spaceship-prompt.sh/contribute
+  - https://www.comebackalive.in.ua/donate
+  - https://github.com/vshymanskyy/StandWithUkraine

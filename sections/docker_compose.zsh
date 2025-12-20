@@ -35,9 +35,10 @@ spaceship_docker_compose() {
   [[ $SPACESHIP_DOCKER_COMPOSE_SHOW == false ]] && return
 
   spaceship::exists docker-compose || return
-  spaceship::upsearch -s 'docker-compose.y*ml' || return
+  local docker_compose_globs=('docker-compose.y*ml' 'compose.y*ml')
+  spaceship::upsearch -s $docker_compose_globs || return
 
-  local containers="$(docker-compose ps 2>/dev/null | tail -n+2)"
+  local containers="$(docker-compose ps -a 2>/dev/null | tail -n+2)"
   [[ -n "$containers" ]] || return
 
   local statuses=""

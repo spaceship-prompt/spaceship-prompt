@@ -8,7 +8,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='4.14.0'
+export SPACESHIP_VERSION='4.20.0'
 
 # Set SPACESHIP_ROOT if it isn't defined yet or if the directory does
 # not exist anymore (e.g. after an update to a newer version)
@@ -44,19 +44,23 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     user           # Username section
     dir            # Current directory section
     host           # Hostname section
-    git            # Git section (git_branch + git_status)
+    git            # Git section (git_branch + git_status + [git_commit](default off))
     hg             # Mercurial section (hg_branch  + hg_status)
     package        # Package version
     haxe           # Haxe section
     node           # Node.js section
+    rlang          # R section
     bun            # Bun section
     deno           # Deno section
     ruby           # Ruby section
     python         # Python section
+    red            # Red section
     elm            # Elm section
     elixir         # Elixir section
     xcode          # Xcode section
+    xcenv          # xcenv section
     swift          # Swift section
+    swiftenv       # swiftenv section
     golang         # Go section
     perl           # Perl section
     php            # PHP section
@@ -76,12 +80,14 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     azure          # Azure section
     venv           # virtualenv section
     conda          # conda virtualenv section
+    uv             # uv virtualenv section
     dotnet         # .NET section
     ocaml          # OCaml section
     vlang          # V section
     zig            # Zig section
     purescript     # PureScript section
     erlang         # Erlang section
+    gleam          # Gleam section
     kubectl        # Kubectl context section
     ansible        # Ansible section
     terraform      # Terraform workspace section
@@ -124,6 +130,7 @@ SPACESHIP_PROMPT_DEFAULT_SUFFIX="${SPACESHIP_PROMPT_DEFAULT_SUFFIX=" "}"
 
 SPACESHIP_LIBS=(
   "lib/utils.zsh"   # General porpuse utils
+  "lib/extract.zsh" # Data extraction utils
   "lib/cache.zsh"   # Cache utils
   "lib/worker.zsh"  # Async worker
   "lib/hooks.zsh"   # Zsh hooks

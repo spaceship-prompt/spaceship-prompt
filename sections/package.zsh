@@ -38,8 +38,8 @@ spaceship_package::npm() {
 
   local package_json=$(spaceship::upsearch package.json) || return
 
-  local package_version="$(spaceship::datafile --json $package_json version)"
-  local is_private_package="$(spaceship::datafile --json $package_json private)"
+  local package_version="$(spaceship::extract --json $package_json version)"
+  local is_private_package="$(spaceship::extract --json $package_json private)"
 
   if [[ "$SPACESHIP_PACKAGE_SHOW_PRIVATE" == false && "$is_private_package" == true ]]; then
     return 0
@@ -60,7 +60,7 @@ spaceship_package::lerna() {
 
   local lerna_json=$(spaceship::upsearch lerna.json) || return
 
-  local package_version="$(spaceship::datafile --json $lerna_json version)"
+  local package_version="$(spaceship::extract --json $lerna_json version)"
 
   if [[ "$package_version" == "independent" ]]; then
     package_version="($package_version)"
@@ -86,7 +86,7 @@ spaceship_package::composer() {
 
   local composer_json=$(spaceship::upsearch composer.json) || return
 
-  spaceship::datafile --json $composer_json "version"
+  spaceship::extract --json $composer_json "version"
 }
 
 spaceship_package::julia() {
@@ -94,15 +94,22 @@ spaceship_package::julia() {
 
   local project_toml=$(spaceship::upsearch Project.toml) || return
 
-  spaceship::datafile --toml $project_toml "version"
+  spaceship::extract --toml $project_toml "version"
 }
 
 spaceship_package::maven() {
   spaceship::upsearch -s pom.xml || return
 
-  local maven_exe=$(spaceship::upsearch mvnw) || (spaceship::exists mvn && maven_exe="mvn") || return
+  local maven_exe=$(spaceship::upsearch mvnw)
+  if [[ -z $maven_exe ]] && spaceship::exists mvn; then
+      maven_exe="mvn"
+  fi
+  [[ -z $maven_exe ]] && return
 
-  $maven_exe help:evaluate -q -DforceStdout -D"expression=project.version" 2>/dev/null
+  local version
+  version=$($maven_exe help:evaluate -q -DforceStdout -Dexpression=project.version 2>/dev/null)
+  [[ $? != 0 ]] && return
+  echo "${version}"
 }
 
 spaceship_package::gradle() {
@@ -116,10 +123,7 @@ spaceship_package::gradle() {
 spaceship_package::python() {
   local pyproject_toml=$(spaceship::upsearch pyproject.toml) || return
 
-  spaceship::datafile --toml $project_toml "tool.poetry.version"
-  if [[ $? != 0 ]]; then
-    spaceship::datafile --toml $project_toml "project.version"
-  fi
+  spaceship::extract --toml "$pyproject_toml" "project.version" "tool.poetry.version"
 }
 
 spaceship_package::dart() {
@@ -127,7 +131,7 @@ spaceship_package::dart() {
 
   local pubspec_file=$(spaceship::upsearch pubspec.yaml pubspec.yml) || return
 
-  spaceship::datafile --yaml $pubspec_file "version" 
+  spaceship::extract --yaml $pubspec_file "version"
 }
 
 # ------------------------------------------------------------------------------

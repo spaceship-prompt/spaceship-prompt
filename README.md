@@ -61,7 +61,7 @@
 </div>
 <br>
 
-Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] prompt. Prompt is what you see when you type a command. It can show a lot of useful tips, saving your time and making user experience smooth and pleasant. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
+Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] prompt. Prompt is what you see when you type a command. It can show a lot of useful tips, saving your time and making the user experience smooth and pleasant. It combines everything you may need for convenient work, without unnecessary complications, like a real spaceship.
 
 <p align="center">
   <a href="https://asciinema.org/a/513451">
@@ -74,7 +74,7 @@ Spaceship is a minimalistic, powerful and extremely customizable [Zsh][zsh-url] 
 
 ## ✨ Features
 
-Here are some sneak picks of what **Spaceship** can show:
+Here are some sneak peeks of what **Spaceship** can show:
 
 - Clever hostname and username displaying
 - Repository statuses (Git and Mercurial are supported)
@@ -86,13 +86,13 @@ Here are some sneak picks of what **Spaceship** can show:
 - A lot of [useful information](https://spaceship-prompt.sh/sections)
 - Custom [information of your choice](https://spaceship-prompt.sh/advanced/creating-section)
 
-Want more features? Please, [open an issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose) or send pull request.
+Want more features? Please, [open an issue](https://github.com/spaceship-prompt/spaceship-prompt/issues/new/choose) or send a pull request.
 
 ## 🤝 Requirements
 
 Before we begin, let's make sure you have the following installed:
 
-- [Zsh](http://www.zsh.org/) (v5.2 or recent) must be installed. Run the following command to check you version of Zsh:
+- [Zsh](http://www.zsh.org/) (v5.2 or recent) must be installed. Run the following command to check your version of Zsh:
   ```zsh
   echo $ZSH_VERSION #> 5.8.1
   ```
@@ -103,7 +103,7 @@ Before we begin, let's make sure you have the following installed:
 
 ## 🚀 Installation
 
-Here's a few popular methods to install Spaceship. Select the one you use from the list below:
+Here are a few popular methods to install Spaceship. Select the one you use from the list below:
 
 <details>
 <summary>Homebrew</summary>
@@ -166,7 +166,7 @@ Add Spaceship to your `.zimrc`:
 zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules
 ```
 
-Then install Spaceship:
+Then, install Spaceship:
 
 ```zsh
 zimfw install
@@ -269,7 +269,7 @@ mkdir -p "$HOME/.zsh"
 git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/spaceship"
 ```
 
-For initializing prompt system add this to your `.zshrc`:
+For initializing prompt system, add this to your `.zshrc`:
 
 ```zsh title=".zshrc"
 source "$HOME/.zsh/spaceship/spaceship.zsh"
@@ -280,10 +280,10 @@ source "$HOME/.zsh/spaceship/spaceship.zsh"
 
 Spaceship works well out of the box, but you can customize almost everything if you want.
 
-- [**⚙️ Configuration**](https://spaceship-prompt.sh/config/intro) — Tweak section's behavior with tons of options.
+- [**⚙️ Configuration**](https://spaceship-prompt.sh/config/intro) — Tweak the section's behavior with tons of options.
 - [**😎 Advanced Usage**](https://spaceship-prompt.sh/advanced/creating-section) — Learn how to create a custom section, benefit of per-directory configuration and more.
 
-Additionally, join our community in [Discord](https://discord.gg/NTQWz8Dyt9) and follow our [Twitter](https//twitter.com/SpaceshipPrompt) for updates.
+Additionally, join our community in [Discord](https://discord.gg/NTQWz8Dyt9) and follow our [Twitter](https://twitter.com/SpaceshipPrompt) for updates.
 
 ## 🫶 Contributing
 
@@ -304,14 +304,13 @@ If you really enjoy this project, you can contribute financially. Any contributi
 * **One-time donations**:
   * [GitHub Sponsors](https://github.com/sponsors/denysdovhan?frequency=one-time)
   * [Buy Me A Coffee](https://buymeacoffee.com/denysdovhan)
-  * [Monobank Jar](https://send.monobank.ua/jar/2N46sWTaZZ)
 * **Crypto donations**:
   * Ethereum: `0x5C9496De5E51D48daf28354DC04d8f9D33955559`
   * Bitcoin: `bc1q5ezjvpgftmx42f9qgdf5lscjz43uh4jf02uvje`
 
 ## 🤔 Having trouble?
 
-Find answers on our troubleshooting page or get help by our community.
+Find answers on our troubleshooting page or get help from our community.
 
 [**Issues**](https://github.com/spaceship-prompt/spaceship-prompt/issues) • [**Discussions**](https://github.com/spaceship-prompt/spaceship-prompt/discussions/) • [**Discord**](https://discord.gg/NTQWz8Dyt9)
 

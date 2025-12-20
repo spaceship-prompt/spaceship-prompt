@@ -92,8 +92,8 @@ Here are some sneak picks of what **Spaceship** can show:
 - Package version (npm, lerna, cargo, composer and others)
 - Battery level and status
 - Indicator for jobs in the background `✦`
-- A lot of [useful information](/sections)
-- Custom [information of your choice](/advanced/creating-section)
+- A lot of [useful information](sections/index.md)
+- Custom [information of your choice](advanced/creating-section.md)
 
 Want more features? Please, [open an issue](https://github.com/spaceship-prompt/yspaceship-prompt/issues/new/choose) or send pull request.
 
@@ -101,15 +101,15 @@ Want more features? Please, [open an issue](https://github.com/spaceship-prompt/
 
 Installing Spaceship is simple and quick. It's configurable and easy to use.
 
-[Installation](/getting-started){ .md-button  }
-[Configuration](/config/intro){ .md-button }
+[Installation](getting-started.md){ .md-button  }
+[Configuration](config/intro.md){ .md-button }
 
 ## Support
 
 Join our community and consider contributing to the project.
 
-[:material-hand-heart: Contribute](/contribute){ .md-button }
-[:fontawesome-brands-twitter: Twitter](https//twitter.com/SpaceshipPrompt){ .md-button }
+[:material-hand-heart: Contribute](contribute.md){ .md-button }
+[:fontawesome-brands-twitter: Twitter](https://twitter.com/SpaceshipPrompt){ .md-button }
 [:fontawesome-brands-discord: Discord](https://discord.gg/NTQWz8Dyt9){ .md-button }
 [:fontawesome-brands-github: Discussions](https://github.com/spaceship-prompt/spaceship-prompt/discussions/){ .md-button }
 
@@ -117,4 +117,5 @@ Join our community and consider contributing to the project.
 
 MIT © [Denys Dovhan](http://denysdovhan.com)
 
-[^1]: The list of companies and projects whose contributors are using Spaceship is assembled based on people who opened an issue or PR to Spaceship's repo and explicitly specified their position at those companies and projects.
+<!-- markdownlint-disable-next-line MD053 -->
+[^1]: The list of companies and projects whose contributors are using Spaceship is assembled based on individuals who opened an issue or pull request in Spaceship's repository and explicitly mentioned their affiliation with those companies or projects.

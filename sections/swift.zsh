@@ -1,45 +1,48 @@
 #
 # Swift
 #
-# A general-purpose, multi-paradigm, compiled programming language by Apple Inc.
+# Swift is a powerful and intuitive programming language for all Apple platforms.
 # Link: https://developer.apple.com/swift/
+
+BIRD=$'\xF0\x9F\x90\xA6'
 
 # ------------------------------------------------------------------------------
 # Configuration
 # ------------------------------------------------------------------------------
 
 SPACESHIP_SWIFT_ASYNC="${SPACESHIP_SWIFT_ASYNC=true}"
-SPACESHIP_SWIFT_SHOW_LOCAL="${SPACESHIP_SWIFT_SHOW_LOCAL=true}"
-SPACESHIP_SWIFT_SHOW_GLOBAL="${SPACESHIP_SWIFT_SHOW_GLOBAL=false}"
+SPACESHIP_SWIFT_SHOW="${SPACESHIP_SWIFT_SHOW=true}"
 SPACESHIP_SWIFT_PREFIX="${SPACESHIP_SWIFT_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
 SPACESHIP_SWIFT_SUFFIX="${SPACESHIP_SWIFT_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
-SPACESHIP_SWIFT_SYMBOL="${SPACESHIP_SWIFT_SYMBOL="🐦 "}"
+SPACESHIP_SWIFT_SYMBOL="${SPACESHIP_SWIFT_SYMBOL="$BIRD "}"
 SPACESHIP_SWIFT_COLOR="${SPACESHIP_SWIFT_COLOR="yellow"}"
+
+# ------------------------------------------------------------------------------
+# Deprecations
+# ------------------------------------------------------------------------------
+
+spaceship::deprecated SPACESHIP_SWIFT_SHOW_LOCAL "Use %BSPACESHIP_SWIFTENV_SHOW_LOCAL%b instead"
+spaceship::deprecated SPACESHIP_SWIFT_SHOW_GLOBAL "Use %BSPACESHIP_SWIFTENV_SHOW_GLOBAL%b instead"
 
 # ------------------------------------------------------------------------------
 # Section
 # ------------------------------------------------------------------------------
 
-# Show current version of Swift
 spaceship_swift() {
-  spaceship::exists swiftenv || return
+  [[ $SPACESHIP_SWIFT_SHOW == false ]] && return
 
-  local swift_version
+  spaceship::upsearch -s "*.xcworkspace" "*.xcodeproj" "Package.swift" || return
 
-  if [[ $SPACESHIP_SWIFT_SHOW_GLOBAL == true ]] ; then
-    swift_version=$(swiftenv version | sed 's/ .*//')
-  elif [[ $SPACESHIP_SWIFT_SHOW_LOCAL == true ]] ; then
-    if swiftenv version | grep ".swift-version" > /dev/null; then
-      swift_version=$(swiftenv version | sed 's/ .*//')
-    fi
-  fi
+  spaceship::exists swift || return
 
-  [ -n "${swift_version}" ] || return
+  local swift_version=$(swift --version 2>/dev/null | head -n 1 | sed -En 's/^.*Apple Swift version (([[:digit:]]+\.)*[[:digit:]]+).*$/\1/ip')
 
-  spaceship::section \
-    --color "$SPACESHIP_SWIFT_COLOR" \
+  [[ -z $swift_version ]] && return
+
+  spaceship::section::v4 \
     --prefix "$SPACESHIP_SWIFT_PREFIX" \
     --suffix "$SPACESHIP_SWIFT_SUFFIX" \
     --symbol "$SPACESHIP_SWIFT_SYMBOL" \
-    "$swift_version"
+    --color "$SPACESHIP_SWIFT_COLOR" \
+    "v$swift_version"
 }
