@@ -47,6 +47,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     git            # Git section (git_branch + git_status + [git_commit](default off))
     hg             # Mercurial section (hg_branch  + hg_status)
     package        # Package version
+    haxe           # Haxe section
     node           # Node.js section
     rlang          # R section
     bun            # Bun section
