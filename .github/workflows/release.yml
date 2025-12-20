@@ -27,7 +27,7 @@ jobs:
       - name: 🧰 Setup Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: lts
+          node-version: latest
           registry-url: https://registry.npmjs.org
 
       - name: 🚀 Release
