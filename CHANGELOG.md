@@ -1,3 +1,15 @@
+# [4.20.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.19.3...v4.20.0) (2025-12-20)
+
+
+### Bug Fixes
+
+* make rlang.test.zsh executable ([bdb073c](https://github.com/spaceship-prompt/spaceship-prompt/commit/bdb073c50964a58b6448212beddf1c1f5c2c5d67))
+
+
+### Features
+
+* **rlang:** implement new section to support RLang ([3361bb7](https://github.com/spaceship-prompt/spaceship-prompt/commit/3361bb748a26305b25159cb63f2395b7e785e35a))
+
 ## [4.19.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.19.2...v4.19.3) (2025-12-19)
 
 
