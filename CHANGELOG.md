@@ -1,3 +1,10 @@
+## [4.19.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.19.2...v4.19.3) (2025-12-19)
+
+
+### Bug Fixes
+
+* more robust ruby/elixir version detection when asdf is installed but not managing ruby/elixir ([#1509](https://github.com/spaceship-prompt/spaceship-prompt/issues/1509)) ([3f7ec0c](https://github.com/spaceship-prompt/spaceship-prompt/commit/3f7ec0cabbef7bb32358fd3754701432ee7bd520))
+
 ## [4.19.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.19.1...v4.19.2) (2025-12-19)
 
 

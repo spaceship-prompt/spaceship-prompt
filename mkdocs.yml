@@ -84,6 +84,7 @@ nav:
         - Mercurial (hg): sections/hg.md
         - Nix Shell (nix-shell): sections/nix_shell.md
         - Node.js (node): sections/node.md
+        - R (Rlang): sections/rlang.md
         - OCaml (ocaml): sections/ocaml.md
         - Package (package): sections/package.md
         - Perl (perl): sections/perl.md
