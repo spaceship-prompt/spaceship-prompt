@@ -12,7 +12,7 @@ oneTimeSetUp() {
   export TERM="xterm-256color"
   export PATH=$PWD/tests/stubs:$PATH
 
-  SPACESHIP_PROMOT_ASYNC=false
+  SPACESHIP_PROMPT_ASYNC=false
   SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
   SPACESHIP_PROMPT_ADD_NEWLINE=false
   SPACESHIP_PROMPT_ORDER=(haxe)
@@ -51,7 +51,7 @@ test_haxe_no_files() {
 }
 
 test_haxe_configs() {
-  FILES=('project.xml','Project.xml','application.xml','haxelib.json','hxformat.json','.haxerc')
+  FILES=(project.xml Project.xml application.xml haxelib.json hxformat.json .haxerc)
   for file in $FILES; do
     touch $file
     local expected="%{%B%}$SPACESHIP_HAXE_PREFIX%{%b%}%{%B%F{$SPACESHIP_HAXE_COLOR}%}$SPACESHIP_HAXE_SYMBOL$HAXE_VERSION%{%b%f%}%{%B%} %{%b%}"
@@ -62,7 +62,7 @@ test_haxe_configs() {
 }
 
 test_haxe_files() {
-  FILES=(build.hxml,main.hx)
+  FILES=(build.hxml main.hx)
   for file in $FILES; do
     touch $file
     local expected="%{%B%}$SPACESHIP_HAXE_PREFIX%{%b%}%{%B%F{$SPACESHIP_HAXE_COLOR}%}$SPACESHIP_HAXE_SYMBOL$HAXE_VERSION%{%b%f%}%{%B%} %{%b%}"
