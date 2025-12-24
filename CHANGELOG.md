@@ -1,3 +1,10 @@
+# [4.21.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.20.0...v4.21.0) (2025-12-24)
+
+
+### Features
+
+* **haxe:** add support for haxe ([#1513](https://github.com/spaceship-prompt/spaceship-prompt/issues/1513)) ([ff0d638](https://github.com/spaceship-prompt/spaceship-prompt/commit/ff0d638cf2ebeb07490b3205f853ddb8e6c13fe6))
+
 # [4.20.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.19.3...v4.20.0) (2025-12-20)
 
 
