@@ -11,6 +11,9 @@
 typeset -g ASYNC_VERSION=1.8.6
 # Produce debug output from zsh-async when set to 1.
 typeset -g ASYNC_DEBUG=${ASYNC_DEBUG:-0}
+# Add sleep duration to give a leeway time for some terminal that haven't load
+# all the necessary script when the async job is being dispatch.
+typeset -g ASYNC_SLEEP_DURATION=${ASYNC_SLEEP_DURATION=0}
 
 # Execute commands that can manipulate the environment inside the async worker. Return output via callback.
 _async_eval() {
@@ -27,6 +30,8 @@ _async_eval() {
 _async_job() {
 	# Disable xtrace as it would mangle the output.
 	setopt localoptions noxtrace
+
+  sleep $ASYNC_SLEEP_DURATION
 
 	# Store start time for job.
 	float -F duration=$EPOCHREALTIME
