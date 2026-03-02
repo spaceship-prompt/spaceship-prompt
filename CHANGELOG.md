@@ -1,3 +1,10 @@
+## [4.21.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.21.0...v4.21.1) (2026-03-02)
+
+
+### Bug Fixes
+
+* initialize async worker before chpwd hook uses it ([#1527](https://github.com/spaceship-prompt/spaceship-prompt/issues/1527)) ([3043f47](https://github.com/spaceship-prompt/spaceship-prompt/commit/3043f478941173f1af8da8d5179a0869f9f05005))
+
 # [4.21.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.20.0...v4.21.0) (2025-12-24)
 
 
