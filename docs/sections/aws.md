@@ -1,5 +1,7 @@
 # Amazon Web Services (AWS) `aws`
 
+!!! important "This section is rendered asynchronously by default"
+
 !!! info
     [**Amazon Web Services (AWS)**](https://aws.amazon.com) provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis.
 

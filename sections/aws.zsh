@@ -37,7 +37,7 @@ spaceship_aws() {
     # 1. arn:aws:iam::123456789012:user/Alice => Alice
     # 2. arn:aws:sts::123456789012:assumed-role/my-role-name/my-role-session-name => my-role-session-name
     # 3. arn:aws:sts::123456789012:federated-user/my-federated-user-name => my-federated-user-name
-    local identity=$(aws sts get-caller-identity --query Arn --output text 2> /dev/null | awk -F'[:/]' '{print "'$profile' (" $NF "@" $5 ")"}')
+    local identity=$(aws sts get-caller-identity --query Arn --output text 2> /dev/null | awk -v profile="$profile" -F'[:/]' '{print profile " (" $NF "@" $5 ")"}')
     [[ -n $identity ]] && profile="$identity"
   fi
 
