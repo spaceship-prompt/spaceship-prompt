@@ -9,10 +9,12 @@ If the `AWS_VAULT` variable is not defined, this section will use the [`AWS_PROF
 
 ## Options
 
-| Variable               |              Default               | Meaning                             |
-| :--------------------- | :--------------------------------: | ----------------------------------- |
-| `SPACESHIP_AWS_SHOW`   |               `true`               | Show section                        |
-| `SPACESHIP_AWS_PREFIX` |              `using·`              | Section's prefix                    |
-| `SPACESHIP_AWS_SUFFIX` | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                    |
-| `SPACESHIP_AWS_SYMBOL` |               `☁️·`                | Symbol displayed before the section |
-| `SPACESHIP_AWS_COLOR`  |               `208`                | Section's color                     |
+| Variable                      |              Default               | Meaning                             |
+| :---------------------------- | :--------------------------------: | ----------------------------------- |
+| `SPACESHIP_AWS_SHOW`          |               `true`               | Show section                        |
+| `SPACESHIP_AWS_ASYNC`         |               `true`               | Render section asynchronously       |
+| `SPACESHIP_AWS_PREFIX`        |              `using·`              | Section's prefix                    |
+| `SPACESHIP_AWS_SUFFIX`        | `$SPACESHIP_PROMPT_DEFAULT_SUFFIX` | Section's suffix                    |
+| `SPACESHIP_AWS_SYMBOL`        |               `☁️·`                | Symbol displayed before the section |
+| `SPACESHIP_AWS_COLOR`         |               `208`                | Section's color                     |
+| `SPACESHIP_AWS_SHOW_IDENTITY` |              `false`               | Show AWS caller identity            |
