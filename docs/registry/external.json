@@ -2,6 +2,11 @@
   "$schema": "./schema.json",
   "sections": [
     {
+      "name": "jj",
+      "url": "https://github.com/lucean/spaceship-jj",
+      "description": "Jujutsu section for Spaceship prompt."
+    },
+    {
       "name": "ip",
       "url": "https://github.com/TheArqsz/spaceship-ip",
       "description": "A section for Spaceship prompt to show your current IP address."
