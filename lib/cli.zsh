@@ -54,7 +54,7 @@ _spaceship::cli::edit() {
 }
 
 _spaceship::cli::bug-report() {
-  local spaceship_version="$(command git -C $SPACESHIP_ROOT describe --tags)"
+  local spaceship_version="$SPACESHIP_VERSION"
   local zsh_version="$ZSH_VERSION"
   local terminal="${TERM_PROGRAM:-"$TERM"}"
 
