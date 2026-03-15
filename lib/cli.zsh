@@ -50,6 +50,11 @@ _spaceship::cli::edit() {
     echo "No spaceship config found."
   fi
 
+  if [[ -z $EDITOR ]]; then
+    echo "EDITOR is not set."
+    return 1
+  fi
+
   "$EDITOR" "$SPACESHIP_CONFIG" && source "$SPACESHIP_CONFIG"
 }
 
