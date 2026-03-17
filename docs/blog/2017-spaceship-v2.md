@@ -169,4 +169,4 @@ I work on this project in my spare time, beside my primary job. I hope enjoy usi
 
 I would appreciate your support! *Thank you!*
 
-> Thank you for reading! Follow me on [Twitter](https://twitter.com/denysdovhan) and [Facebook](https://www.facebook.com/denysdovhan), if you want to get updates.
+> Thank you for reading! Follow me on [Twitter](https://x.com/denysdovhan) and [Facebook](https://www.facebook.com/denysdovhan), if you want to get updates.

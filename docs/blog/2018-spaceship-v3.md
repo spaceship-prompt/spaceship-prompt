@@ -141,4 +141,4 @@ Hi! I work on this project in my spare time, beside my primary job. I hope enjoy
 
 I would appreciate your support! *Thank you!*
 
-> Thankyou for reading! If you like this article, please, press 👏. Follow me on [Twitter](https://twitter.com/denysdovhan) and [GitHub](https://github.com/denysdovhan), if you want to get updates.*
+> Thankyou for reading! If you like this article, please, press 👏. Follow me on [Twitter](https://x.com/denysdovhan) and [GitHub](https://github.com/denysdovhan), if you want to get updates.*
