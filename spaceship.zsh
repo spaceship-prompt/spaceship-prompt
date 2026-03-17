@@ -8,7 +8,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='4.19.3'
+export SPACESHIP_VERSION='4.21.1'
 
 # Set SPACESHIP_ROOT if it isn't defined yet or if the directory does
 # not exist anymore (e.g. after an update to a newer version)
@@ -47,6 +47,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     git            # Git section (git_branch + git_status + [git_commit](default off))
     hg             # Mercurial section (hg_branch  + hg_status)
     package        # Package version
+    haxe           # Haxe section
     node           # Node.js section
     rlang          # R section
     bun            # Bun section

@@ -61,6 +61,8 @@ prompt_spaceship_preexec() {
 
 # A hook after changing the working directory
 prompt_spaceship_chpwd() {
+  # Initialize worker if needed (e.g., when chpwd fires before first precmd)
+  spaceship::worker::init
   spaceship::worker::eval builtin cd -q $PWD
 
   # Restart execution time recording once dir is changed
