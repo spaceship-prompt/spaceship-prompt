@@ -1,12 +1,12 @@
-FROM frapsoft/zsh
+FROM alpine:3.23
 
 # Installing utils
-RUN apk add --update --no-cache git curl python3 py-pip
+RUN apk add --update --no-cache zsh git curl python3 py3-pip
 
 # Change workdir to root's home
 WORKDIR /root
 
-# Coppying Spaceship to the image
+# Copying Spaceship to the image
 COPY . /spaceship
 
 # Setting up .zshrc
