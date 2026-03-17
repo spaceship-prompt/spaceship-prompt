@@ -1,3 +1,16 @@
+# [4.22.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.21.1...v4.22.0) (2026-03-17)
+
+
+### Bug Fixes
+
+* **cli:** fix spaceship version show ([#1537](https://github.com/spaceship-prompt/spaceship-prompt/issues/1537)) ([6956deb](https://github.com/spaceship-prompt/spaceship-prompt/commit/6956deb1918e93f506b542f8fbad85ca96e73a58))
+* tweaks ([528b197](https://github.com/spaceship-prompt/spaceship-prompt/commit/528b197c466aab0c3de20fe9b926b5b7349b06fb))
+
+
+### Features
+
+* **aws:** support caller identity ([2dd6fec](https://github.com/spaceship-prompt/spaceship-prompt/commit/2dd6fec5436f07feb2852d4f7da92ea66ece6225)), closes [#1497](https://github.com/spaceship-prompt/spaceship-prompt/issues/1497)
+
 ## [4.21.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.21.0...v4.21.1) (2026-03-02)
 
 
