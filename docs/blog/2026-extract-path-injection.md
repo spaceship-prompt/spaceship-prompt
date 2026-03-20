@@ -3,11 +3,12 @@
 <aside class="mdx-author" markdown>
   ![@denysdovhan](https://unavatar.io/denysdovhan)
 
-  <span>__Denys Dovhan__ · @denysdovhan</span>
-  <span>
-  :octicons-calendar-24: Mar 20, 2026 ·
-  :octicons-shield-lock-24: Security update
-  </span>
+<span>**Denys Dovhan** · @denysdovhan</span>
+<span>
+:octicons-calendar-24: Mar 20, 2026 ·
+:octicons-shield-lock-24: Security update
+</span>
+
 </aside>
 
 ---
@@ -98,22 +99,12 @@ ever reach the hardened extractor.
 
 No configuration changes are required.
 
-Users get:
-
-* safer prompt rendering when visiting untrusted repositories or directories;
-* better handling for unusual path names in the `package` section; and
-* safer YAML parsing on the Ruby fallback path.
-
 ## Regression coverage
-
-We added focused tests for the extractor helpers and the `package` section:
-
-* interpreter helpers now verify that the discovered file path is passed via argv and
-  never embedded back into the interpreter source string;
-* the Ruby YAML path is checked for `YAML.safe_load`; and
-* the package section is covered with a path containing spaces, quotes, and backticks to
-  ensure the quoted call sites remain intact.
 
 Security fixes are most useful when they stay fixed. This change set keeps the
 interpreter boundary explicit and adds tests around the exact data flow that was
 previously exploitable.
+
+## Acknowledgments
+
+Thanks to [Trey Keown](https://github.com/trey-crystalpeak) for responsibly disclosing this issue, providing a proof of concept and a patch, and working with us to get it fixed.
