@@ -5,6 +5,29 @@ search:
 
 # Blog
 
+## [Fixing path-based interpreter injection in Spaceship][extract-path-injection]
+
+**A security hardening update for `spaceship::extract` and the `package` section.**
+
+<aside class="mdx-author" markdown>
+  ![@denysdovhna][denysdovhan]
+
+  <span>__Denys Dovhan__ · @denysdovhan</span>
+  <span>
+  :octicons-calendar-24: Mar 20, 2026 ·
+  :octicons-shield-lock-24: Security update
+  </span>
+</aside>
+
+---
+
+This update hardens the Python, Ruby, and Node extractors against path-based code
+injection, switches the Ruby YAML fallback to `YAML.safe_load`, and adds regression
+coverage for weird directory names.
+
+[:octicons-arrow-right-24: Continue reading][extract-path-injection]
+[extract-path-injection]: 2026-extract-path-injection.md
+
 ## [Announcing Spaceship v4 — the faster, the better][spaceship-v4]
 
 **_The wait is over._ We're finally ready to launch the new version of Spaceship.**
