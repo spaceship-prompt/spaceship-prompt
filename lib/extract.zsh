@@ -6,19 +6,19 @@
 # ------------------------------------------------------------------------------
 
 spaceship::extract::python() {
-  local imports=$1 load=$2; shift 2
+  local imports=$1 load=$2 file=$3; shift 3
   local keys=("$@")
-  python -c "import $imports, functools; data=$load; print(next(filter(None, map(lambda key: functools.reduce(lambda obj, key: obj[key] if key in obj else {}, key.split('.'), data), ['${(j|','|)keys}'])), None))" 2>/dev/null
+  python -c "import sys, $imports, functools; data=$load; print(next(filter(None, map(lambda key: functools.reduce(lambda obj, key: obj[key] if key in obj else {}, key.split('.'), data), ['${(j|','|)keys}'])), None))" "$file" 2>/dev/null
 }
 
 spaceship::extract::python::yaml() {
   local file=$1; shift
-  spaceship::extract::python yaml "yaml.safe_load(open('$file'))" "$@"
+  spaceship::extract::python yaml "yaml.safe_load(open(sys.argv[1]))" "$file" "$@"
 }
 
 spaceship::extract::python::json() {
   local file=$1; shift
-  spaceship::extract::python json "json.load(open('$file'))" "$@"
+  spaceship::extract::python json "json.load(open(sys.argv[1]))" "$file" "$@"
 }
 
 spaceship::extract::python::toml() {
@@ -32,7 +32,7 @@ spaceship::extract::python::toml() {
   else
     import=tomli
   fi
-  spaceship::extract::python "$import" "$import.load(open('$file', 'rb'))" "$@"
+  spaceship::extract::python "$import" "$import.load(open(sys.argv[1], 'rb'))" "$file" "$@"
 }
 
 spaceship::extract::jq() {
@@ -42,25 +42,25 @@ spaceship::extract::jq() {
 }
 
 spaceship::extract::ruby() {
-  local import=$1 load=$2; shift 2
+  local import=$1 load=$2 file=$3; shift 3
   local keys=("$@")
-  ruby -r "$import" -e "puts ['${(j|','|)keys}'].map { |key| key.split('.').reduce($load) { |obj, key| obj[key] } }.find(&:itself)" 2>/dev/null
+  ruby -r "$import" -e "puts ['${(j|','|)keys}'].map { |key| key.split('.').reduce($load) { |obj, key| obj[key] } }.find(&:itself)" -- "$file" 2>/dev/null
 }
 
 spaceship::extract::ruby::yaml() {
   local file=$1; shift
-  spaceship::extract::ruby 'yaml' "YAML::load_file('$file')" "$@"
+  spaceship::extract::ruby 'yaml' "YAML.safe_load(File.read(ARGV[0]))" "$file" "$@"
 }
 
 spaceship::extract::ruby::json() {
   local file=$1; shift
-  spaceship::extract::ruby 'json' "JSON::load(File.read('$file'))" "$@"
+  spaceship::extract::ruby 'json' "JSON::load(File.read(ARGV[0]))" "$file" "$@"
 }
 
 spaceship::extract::node::json() {
   local file=$1; shift
   local keys=("$@")
-  node -p "['${(j|','|)keys}'].map(s => s.split('.').reduce((obj, key) => obj[key], require('./$file'))).find(Boolean)" 2>/dev/null
+  node -p "['${(j|','|)keys}'].map(s => s.split('.').reduce((obj, key) => obj[key], require(require('path').resolve(process.argv[1])))).find(Boolean)" -- "$file" 2>/dev/null
 }
 
 # Read data file with dot notation (JSON, YAML, TOML, XML). Additional keys
