@@ -1,3 +1,10 @@
+## [4.22.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.22.0...v4.22.1) (2026-03-22)
+
+
+### Bug Fixes
+
+* **extract:** harden path handling against injection ([#1541](https://github.com/spaceship-prompt/spaceship-prompt/issues/1541)) ([085ef7b](https://github.com/spaceship-prompt/spaceship-prompt/commit/085ef7b753462a77187130d0c9ac620d1a6cfb2a))
+
 # [4.22.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.21.1...v4.22.0) (2026-03-17)
 
 
