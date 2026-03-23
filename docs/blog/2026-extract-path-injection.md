@@ -1,7 +1,7 @@
 # Fixing path-based interpreter injection in Spaceship
 
 <aside class="mdx-author" markdown>
-  ![@denysdovhan](https://unavatar.io/denysdovhan)
+  ![@denysdovhan](https://unavatar.io/github/denysdovhan)
 
 <span>**Denys Dovhan** · @denysdovhan</span>
 <span>
