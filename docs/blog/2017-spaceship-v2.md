@@ -1,7 +1,7 @@
 # A big update of spaceship-zsh-theme
 
 <aside class="mdx-author" markdown>
-  ![@denysdovhna](https://unavatar.io/denysdovhan)
+  ![@denysdovhna](https://unavatar.io/github/denysdovhan)
 
   <span>__Denys Dovhan__ · @denysdovhan</span>
   <span>

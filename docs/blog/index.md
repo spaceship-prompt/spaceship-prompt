@@ -94,4 +94,4 @@ I’ve been working on big PR for spaceship-zsh-theme last few weeks. This is th
 
 <!-- Common References -->
 
-[denysdovhan]: https://unavatar.io/denysdovhan
+[denysdovhan]: https://unavatar.io/github/denysdovhan

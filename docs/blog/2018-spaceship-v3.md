@@ -1,7 +1,7 @@
 # Meet Spaceship ZSH v3.0!
 
 <aside class="mdx-author" markdown>
-  ![@denysdovhan](https://unavatar.io/denysdovhan)
+  ![@denysdovhan](https://unavatar.io/github/denysdovhan)
 
   <span>__Denys Dovhan__ · @denysdovhan</span>
   <span>
