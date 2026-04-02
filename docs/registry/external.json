@@ -2,6 +2,11 @@
   "$schema": "./schema.json",
   "sections": [
     {
+      "name": "scw",
+      "url": "https://github.com/fouadchamoun/spaceship-scw",
+      "description": "Scaleway CLI section for Spaceship prompt."
+    },
+    {
       "name": "jj",
       "url": "https://github.com/lucean/spaceship-jj",
       "description": "Jujutsu section for Spaceship prompt."
