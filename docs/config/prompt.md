@@ -68,6 +68,7 @@ SPACESHIP_PROMPT_ORDER=(
   dart           # Dart section
   julia          # Julia section
   crystal        # Crystal section
+  cmake          # CMake section
   docker         # Docker section
   docker_compose # Docker section
   aws            # Amazon Web Services section

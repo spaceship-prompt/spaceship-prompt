@@ -53,6 +53,7 @@ nav:
         - Azure (azure): sections/azure.md
         - Battery (battery): sections/battery.md
         - Bun (bun): sections/bun.md
+        - CMake (cmake): sections/cmake.md
         - Conda (conda): sections/conda.md
         - Crystal (crystal): sections/crystal.md
         - Dart (dart): sections/dart.md
