@@ -30,6 +30,8 @@ spaceship_helm() {
   
   local helm_version=$(helm version --short --client 2>/dev/null | awk '{print $1}')
 
+  [[ -n "$helm_version" ]] || return
+
   spaceship::section \
     --color "$SPACESHIP_HELM_COLOR" \
     --prefix "$SPACESHIP_HELM_PREFIX" \
