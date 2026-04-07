@@ -83,6 +83,7 @@ nav:
         - Lua (lua): sections/lua.md
         - Mercurial (hg): sections/hg.md
         - Nix Shell (nix-shell): sections/nix_shell.md
+        - Nim (nim): sections/nim.md
         - Node.js (node): sections/node.md
         - R (Rlang): sections/rlang.md
         - OCaml (ocaml): sections/ocaml.md
