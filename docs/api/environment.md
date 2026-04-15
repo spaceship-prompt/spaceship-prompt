@@ -12,7 +12,7 @@ Accessible to any program or script running in a current shell session.
 
 ```zsh
 echo $SPACESHIP_VERSION
-#> 3.0.0
+# 3.0.0
 ```
 
 ### `SPACESHIP_ROOT`
@@ -27,7 +27,7 @@ Accessible to any program or script running in a current shell session.
 
 ```zsh
 echo $SPACESHIP_ROOT
-#> /path/to/spaceship-prompt
+# /path/to/spaceship-prompt
 ```
 
 ### `SPACESHIP_CONFIG_PATH`
