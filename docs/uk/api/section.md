@@ -99,7 +99,7 @@ spaceship::render section <data>
 local color="red" content="value"
 
 spaceship::section::render "$(spaceship::section --color "$color" "$content")"
-#> %{%B%F{red}%}value%{%b%f%}
+# %{%B%F{red}%}value%{%b%f%}
 ```
 
 !!! tip "Порада"

@@ -99,7 +99,7 @@ The `data` is a result of the `spaceship::section` function. For example:
 local color="red" content="value"
 
 spaceship::section::render "$(spaceship::section --color "$color" "$content")"
-#> %{%B%F{red}%}value%{%b%f%}
+# %{%B%F{red}%}value%{%b%f%}
 ```
 
 !!! tip

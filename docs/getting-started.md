@@ -6,13 +6,13 @@ Welcome aboard! Let's install Spaceship on your machine, astronaut!
 
 Before we begin, let's make sure you have the following installed:
 
-- [Zsh](http://www.zsh.org/) (v5.2 or recent) must be installed. Run the following command to check you version of Zsh:
+- [Zsh](http://www.zsh.org/) (v5.2 or recent) must be installed. Run the following command to check your version of Zsh:
   ```zsh
-  echo $ZSH_VERSION #> 5.8.1
+  echo $ZSH_VERSION # 5.8.1
   ```
 - [Powerline Font](https://github.com/powerline/fonts) or [Nerd Font](https://www.nerdfonts.com/) (even better) must be installed and used in your terminal. [Fira Code](https://github.com/tonsky/FiraCode) is a popular choice. To check if Powerline Font works for you, run:
   ```zsh
-  echo -e "\xee\x82\xa0" #> 
+  echo -e "\xee\x82\xa0" # 
   ```
 
 ## Installing
