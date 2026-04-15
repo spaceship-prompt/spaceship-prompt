@@ -101,7 +101,7 @@ Here's an example of usage:
 ```zsh
 # Check if SPACESHIP_BATTERY_ALWAYS_SHOW is set
 spaceship::deprecated SPACESHIP_BATTERY_ALWAYS_SHOW "Use %BSPACESHIP_BATTERY_SHOW='always'%b instead."
-#> SPACESHIP_BATTERY_ALWAYS_SHOW is deprecated. Use SPACESHIP_BATTERY_SHOW='always' instead.
+# SPACESHIP_BATTERY_ALWAYS_SHOW is deprecated. Use SPACESHIP_BATTERY_SHOW='always' instead.
 ```
 
 ## `spaceship::displaytime`
@@ -119,10 +119,10 @@ The usage example looks like this:
 
 ```zsh
 spaceship::displaytime 123456
-#> 1d 10h 17m 36.0s
+# 1d 10h 17m 36.0s
 
-paceship::displaytime 123.45 2
-#> 2m 3.45s
+spaceship::displaytime 123.45 2
+# 2m 3.45s
 ```
 
 ## `spaceship::union`
@@ -144,7 +144,7 @@ arr1=('a' 'b' 'c')
 arr2=('b' 'c' 'd')
 arr3=('c' 'd' 'e')
 spaceship::union $arr1 $arr2 $arr3
-#> a b c d e
+# a b c d e
 ```
 
 ## `spaceship::upsearch`
@@ -166,7 +166,7 @@ spaceship::upsearch -s package.json node_modules && echo "Node project detected.
 
 # Finding a specific file upwards
 spaceship::upsearch package.json
-#> /path/to/project/package.json
+# /path/to/project/package.json
 ```
 
 ## `spaceship::extract`
@@ -188,7 +188,7 @@ You can use this utility to query data from a data file:
 
 ```zsh
 spaceship::extract --json package.json "author.name"
-#> "John Doe"
+# "John Doe"
 ```
 
 It needs the following tools for reading data files:
