@@ -71,7 +71,11 @@ spaceship_package::lerna() {
 
 spaceship_package::cargo() {
   spaceship::exists cargo || return
-  spaceship::upsearch -s Cargo.toml || return
+  spaceship::upsearch -s Cargo.toml || return 
+
+  # Skip virtual workspaces (no [package] section)
+  local cargo_toml=$(spaceship::upsearch Cargo.toml)
+  grep -q '^\[package\]' "$cargo_toml" || return
 
   # Handle missing field `version` in Cargo.toml.
   # `cargo pkgid` need Cargo.lock exists too. If it does't, do not show package version
