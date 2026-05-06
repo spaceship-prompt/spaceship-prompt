@@ -27,7 +27,7 @@ spaceship::extract::python::toml() {
   autoload is-at-least
   # Python 3.11 added tomllib in the stdlib.
   # Previous versions require the tomli package
-  if is-at-least 3.11 "$py_version" ]]; then
+  if is-at-least 3.11 "$py_version"; then
     import=tomllib
   else
     import=tomli
