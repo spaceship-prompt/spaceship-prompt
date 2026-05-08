@@ -26,7 +26,7 @@ spaceship_dotnet() {
   [[ $SPACESHIP_DOTNET_SHOW == false ]] && return
 
   local is_dotnet_project="$(spaceship::upsearch project.json global.json paket.dependencies)"
-  [[ -n "$is_dotnet_project" || -n *.(cs|fs|x)proj(#qN^/) || -n *.sln(#qN^/) ]] || return
+  [[ -n "$is_dotnet_project" || -n *.(cs|fs|x)proj(#qN^/) || -n *.sln(#qN^/) || -n *.slnx(#qN^/) ]] || return
 
   spaceship::exists dotnet || return
 
