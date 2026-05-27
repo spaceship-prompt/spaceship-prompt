@@ -74,10 +74,12 @@ spaceship_package::cargo() {
   spaceship::upsearch -s Cargo.toml || return
 
   # Handle missing field `version` in Cargo.toml.
-  # `cargo pkgid` need Cargo.lock exists too. If it does't, do not show package version
+  # `cargo pkgid` needs Cargo.lock to exist too. If it doesn't, do not show package version
   # https://github.com/spaceship-prompt/spaceship-prompt/pull/617
-  local pkgid=$(cargo pkgid 2>&1)
-  echo "$pkgid" | grep -q "error:" && return
+  local pkgid
+  if ! pkgid=$(cargo pkgid 2>&1); then
+    return
+  fi
   echo "${pkgid##*\#}"
 }
 
