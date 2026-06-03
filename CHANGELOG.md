@@ -1,3 +1,10 @@
+## [4.22.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.22.2...v4.22.3) (2026-06-03)
+
+
+### Bug Fixes
+
+* **cargo:** handle a virtual manifest in Cargo.toml gracefully ([#1554](https://github.com/spaceship-prompt/spaceship-prompt/issues/1554)) ([4ef1964](https://github.com/spaceship-prompt/spaceship-prompt/commit/4ef1964a4e017c966e8b837d6ab47378403ecd02))
+
 ## [4.22.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.22.1...v4.22.2) (2026-05-13)
 
 
