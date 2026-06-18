@@ -1,50 +1,47 @@
 # Per-directory configuration
 
-Many users asked us how to change Spaceship options only for a specific directory. There are plenty solutions for this. We will show how to do that with a tool called `direnv`.
+Spaceship can load configuration for the current directory without external tools such as `direnv`. This is useful when a project needs a different prompt layout, section visibility, or section styling than your global configuration.
 
-`direnv` is a tool that allows you to manage environment variables for a directory. It is a simple wrapper around `.envrc` files. It can load and unload variables defined in `.envrc` based on current directory. It also works not only with Zsh, but with other popular shells.
+Per-directory configuration is disable by default. You can enabled it from your global Spaceship configuration:
 
-## Installing `direnv`
-
-Install `direnv` with the package manager of your choice. Or use a script to install a binary build of `direnv`.
-
-[Installation guide](https://github.com/direnv/direnv/blob/master/docs/installation.md){ .md-button }
-
-After successful installation of `direnv` you need to hook it to your shell.
-
-## Hooking `direnv` into Zsh
-
-Add the following line somewhere at the end of your `.zshrc` file:
-
-```zsh title=".zhrc"
-eval "$(direnv hook zsh)"
+```zsh title="~/.spaceshiprc.zsh"
+SPACESHIP_PER_DIRECTORY_CONFIG=true
 ```
 
-## Setting per-directory environment variables
+Then create a `.spaceshiprc` file in a project directory:
 
-As soon as you've installed `direnv` and hooked it to the Zsh, you can set environment variables for any directory in a `.envrc` file within that directory.
-
-```zsh title=".envrc"
-export SPACESHIP_USER_SHOW='always'
+```zsh title="/path/to/project/.spaceshiprc"
+SPACESHIP_USER_SHOW=always
+SPACESHIP_KUBECTL_SHOW=false
 ```
 
-After that you need explicitly grant permissions to source `.envrc` files in the directory.
+Spaceship restores your global configuration before applying local files. This means options set by one project do not leak into another project after you leave that directory.
 
+## Configuration lookup
+
+Spaceship looks for `.spaceshiprc` files from parent directories down to the current directory. Parent files are loaded first, and child files can override them.
+
+For example, when your current directory is `/work/app/service`, Spaceship checks:
+
+```text
+/work/.spaceshiprc
+/work/app/.spaceshiprc
+/work/app/service/.spaceshiprc
 ```
-direnv allow /path/to/directory
+
+If multiple files exist, they are sourced in that order.
+
+## Changing the file name
+
+You can change the per-directory file name from your global Spaceship configuration:
+
+```zsh title="~/.spaceshiprc.zsh"
+SPACESHIP_PER_DIRECTORY_CONFIG=true
+SPACESHIP_PER_DIRECTORY_CONFIG_FILE=".spaceship.local.zsh"
 ```
 
-Here is a live example of how `direnv` works:
+## Security
 
-<div class="terminal-demo">
-  <script id="asciicast-l6jOkth3csJQGkJRGV8A6DLl0" src="https://asciinema.org/a/l6jOkth3csJQGkJRGV8A6DLl0.js" data-autoplay="true" data-loop="true" data-preload="true" async></script>
-</div>
+Per-directory config files are Zsh scripts. Keep this feature enabled only when you trust the directories where Spaceship will find `.spaceshiprc` files.
 
-## Alternatives to `direnv`
-
-Besides `direnv` there are many other tools that allow you to manage environment variables for a directory. Here's a list of the most popular of them:
-
-* [zsh-autoenv](https://github.com/Tarrasch/zsh-autoenv)
-* [asdf-direnv](https://github.com/asdf-community/asdf-direnv)
-* [shadowenv](https://shopify.github.io/shadowenv/)
-* [quickenv](https://github.com/untitaker/quickenv)
+Spaceship will not treat your global `SPACESHIP_CONFIG` file as a per-directory config file, even if it has the same file name.
