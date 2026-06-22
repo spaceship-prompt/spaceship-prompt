@@ -21,10 +21,13 @@ setUp() {
   ORIGINAL_PWD="$PWD"
   LOAD_SECTIONS_CALLS=0
 
+  SPACESHIP_ROOT="$TEST_REPO_ROOT"
+  SPACESHIP_PROMPT_ASYNC=false
   SPACESHIP_PER_DIRECTORY_CONFIG=false
   SPACESHIP_PER_DIRECTORY_CONFIG_FILE=".spaceshiprc"
   SPACESHIP_PROMPT_ORDER=(user dir)
   SPACESHIP_RPROMPT_ORDER=()
+  SPACESHIP_PROMPT_DEFAULT_PREFIX="via "
   SPACESHIP_USER_SHOW=true
   SPACESHIP_GIT_ORDER=(git_branch git_status git_commit)
 
@@ -34,21 +37,19 @@ setUp() {
   _SPACESHIP_CONFIG_BASELINE=()
   _SPACESHIP_CONFIG_FILES=()
   _SPACESHIP_CONFIG_BASELINE_READY=false
-  _SPACESHIP_PER_DIRECTORY_VARS=()
-
-  spaceship::core::load_sections() {
-    (( LOAD_SECTIONS_CALLS += 1 ))
-  }
 }
 
 tearDown() {
   cd "$ORIGINAL_PWD"
   export SPACESHIP_CONFIG="$TEST_REPO_ROOT/tests/stubs/missing-spaceship-config"
 
+  SPACESHIP_ROOT="$TEST_REPO_ROOT"
+  unset SPACESHIP_PROMPT_ASYNC
   unset SPACESHIP_PER_DIRECTORY_CONFIG
   unset SPACESHIP_PER_DIRECTORY_CONFIG_FILE
   unset SPACESHIP_PROMPT_ORDER
   unset SPACESHIP_RPROMPT_ORDER
+  unset SPACESHIP_PROMPT_DEFAULT_PREFIX
   unset SPACESHIP_USER_SHOW
   unset SPACESHIP_GCLOUD_SHOW
   unset SPACESHIP_GIT_ORDER
@@ -58,9 +59,19 @@ tearDown() {
   unset SPACESHIP_NEW_SECTION_PREFIX
   unset LOAD_SECTIONS_CALLS
 
-  if (( $+functions[spaceship::core::load_sections] )); then
-    unset -f spaceship::core::load_sections
+  if (( $+functions[spaceship_new_section] )); then
+    unset -f spaceship_new_section
   fi
+}
+
+make_new_section_root() {
+  local root="$1"
+
+  mkdir -p "$root/sections"
+  print -r -- '(( LOAD_SECTIONS_CALLS += 1 ))
+SPACESHIP_NEW_SECTION_COLOR="${SPACESHIP_NEW_SECTION_COLOR="cyan"}"
+SPACESHIP_NEW_SECTION_PREFIX="${SPACESHIP_NEW_SECTION_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+spaceship_new_section() { :; }' > "$root/sections/new_section.zsh"
 }
 
 # ------------------------------------------------------------------------------
@@ -149,9 +160,12 @@ test_per_directory_config_skips_global_config_file() {
 
 test_per_directory_config_reloads_sections_when_order_changes() {
   local repo="$SHUNIT_TMPDIR/config/order"
+  local root="$SHUNIT_TMPDIR/config/order-root"
   mkdir -p "$repo"
-  print "SPACESHIP_PROMPT_ORDER=(user git)" > "$repo/.spaceshiprc"
+  make_new_section_root "$root"
+  print "SPACESHIP_PROMPT_ORDER=(new_section)" > "$repo/.spaceshiprc"
 
+  SPACESHIP_ROOT="$root"
   SPACESHIP_PER_DIRECTORY_CONFIG=true
   spaceship::config::capture_baseline
 
@@ -159,7 +173,8 @@ test_per_directory_config_reloads_sections_when_order_changes() {
   spaceship::config::apply_per_directory
 
   assertEquals "should reload sections after prompt order changes" 1 "$LOAD_SECTIONS_CALLS"
-  assertEquals "should keep local prompt order" "user git" "${(j: :)SPACESHIP_PROMPT_ORDER}"
+  assertEquals "should keep local prompt order" "new_section" "${(j: :)SPACESHIP_PROMPT_ORDER}"
+  assertTrue "should define section function" 'spaceship::defined spaceship_new_section'
 }
 
 test_per_directory_config_captures_late_zshrc_assignment() {
@@ -187,21 +202,15 @@ test_per_directory_config_captures_late_zshrc_assignment() {
 
 test_per_directory_config_section_defaults_survive_reapply() {
   local repo="$SHUNIT_TMPDIR/config/section-defaults"
+  local root="$SHUNIT_TMPDIR/config/section-defaults-root"
   mkdir -p "$repo"
+  make_new_section_root "$root"
   # Local config adds a section not present at baseline capture time.
-  print "SPACESHIP_PROMPT_ORDER=(user new_section)" > "$repo/.spaceshiprc"
+  print "SPACESHIP_PROMPT_ORDER=(new_section)" > "$repo/.spaceshiprc"
 
+  SPACESHIP_ROOT="$root"
   SPACESHIP_PER_DIRECTORY_CONFIG=true
   spaceship::config::capture_baseline
-
-  # Override the stub so it also simulates section-default initialisation.
-  # Real load_sections sources the section file the first time; subsequent calls
-  # find the function already defined and skip re-sourcing, leaving defaults set.
-  spaceship::core::load_sections() {
-    (( LOAD_SECTIONS_CALLS += 1 ))
-    SPACESHIP_NEW_SECTION_COLOR="${SPACESHIP_NEW_SECTION_COLOR:=cyan}"
-    SPACESHIP_NEW_SECTION_PREFIX="${SPACESHIP_NEW_SECTION_PREFIX:=via }"
-  }
 
   cd "$repo"
   spaceship::config::apply_per_directory
@@ -215,6 +224,32 @@ test_per_directory_config_section_defaults_survive_reapply() {
   assertEquals "load_sections called on second apply" 2 "$LOAD_SECTIONS_CALLS"
   assertEquals "section default color survives second apply" "cyan" "$SPACESHIP_NEW_SECTION_COLOR"
   assertEquals "section default prefix survives second apply" "via " "$SPACESHIP_NEW_SECTION_PREFIX"
+}
+
+test_per_directory_config_reinitializes_loaded_section_defaults() {
+  local project="$SHUNIT_TMPDIR/config/reinitialize"
+  local first="$project/first"
+  local second="$project/second"
+  local root="$SHUNIT_TMPDIR/config/reinitialize-root"
+  mkdir -p "$first" "$second"
+  make_new_section_root "$root"
+  print "SPACESHIP_PROMPT_ORDER=(new_section)\nSPACESHIP_PROMPT_DEFAULT_PREFIX='local '\nSPACESHIP_NEW_SECTION_COLOR=red" > "$first/.spaceshiprc"
+  print "SPACESHIP_PROMPT_ORDER=(new_section)" > "$second/.spaceshiprc"
+
+  SPACESHIP_ROOT="$root"
+  SPACESHIP_PER_DIRECTORY_CONFIG=true
+  spaceship::config::capture_baseline
+
+  cd "$first"
+  spaceship::config::apply_per_directory
+  assertEquals "first dir should apply local section color" red "$SPACESHIP_NEW_SECTION_COLOR"
+  assertEquals "first dir should apply derived local prefix" "local " "$SPACESHIP_NEW_SECTION_PREFIX"
+
+  cd "$second"
+  spaceship::config::apply_per_directory
+
+  assertEquals "second dir should restore section color default" cyan "$SPACESHIP_NEW_SECTION_COLOR"
+  assertEquals "second dir should restore derived global prefix" "via " "$SPACESHIP_NEW_SECTION_PREFIX"
 }
 
 test_per_directory_config_sync_does_not_reapply_after_baseline_capture() {
