@@ -2,7 +2,7 @@
 
 Spaceship can load configuration for the current directory without external tools such as `direnv`. This is useful when a project needs a different prompt layout, section visibility, or section styling than your global configuration.
 
-Per-directory configuration is disable by default. You can enabled it from your global Spaceship configuration:
+Per-directory configuration is disabled by default. You can enable it from your global Spaceship configuration:
 
 ```zsh title="~/.spaceshiprc.zsh"
 SPACESHIP_PER_DIRECTORY_CONFIG=true
