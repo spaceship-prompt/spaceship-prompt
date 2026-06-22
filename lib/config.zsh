@@ -38,6 +38,7 @@ typeset -ga _SPACESHIP_CONFIG_FILES
 typeset -g _SPACESHIP_CONFIG_BASELINE_READY=false
 typeset -g _SPACESHIP_PER_DIRECTORY_CONFIG_BASELINE
 typeset -g _SPACESHIP_PER_DIRECTORY_CONFIG_FILE_BASELINE
+typeset -ga _SPACESHIP_PER_DIRECTORY_VARS
 
 # Returns whether a parameter should be managed by per-directory config.
 spaceship::config::is_managed() {
@@ -96,18 +97,24 @@ spaceship::config::restore_controls() {
   SPACESHIP_PER_DIRECTORY_CONFIG_FILE="$_SPACESHIP_PER_DIRECTORY_CONFIG_FILE_BASELINE"
 }
 
-# Restores the baseline config and removes local-only SPACESHIP_* options.
+# Restores the baseline config and removes variables introduced by per-directory
+# config files. Variables introduced by load_sections after baseline capture
+# (section defaults) are intentionally preserved: load_sections will not
+# re-source a section file once the spaceship_<section> function exists, so
+# unsetting those defaults would leave the section with no configuration.
 spaceship::config::restore_baseline() {
   [[ "$_SPACESHIP_CONFIG_BASELINE_READY" == true ]] || return 0
 
   local name
 
-  for name in ${(ok)parameters[(I)SPACESHIP_*]}; do
+  for name in "${_SPACESHIP_PER_DIRECTORY_VARS[@]}"; do
     spaceship::config::is_managed "$name" || continue
     (( ${+_SPACESHIP_CONFIG_BASELINE[$name]} )) && continue
 
     unset "$name" 2>/dev/null
   done
+
+  _SPACESHIP_PER_DIRECTORY_VARS=()
 
   for name in ${(ok)_SPACESHIP_CONFIG_BASELINE}; do
     eval "${_SPACESHIP_CONFIG_BASELINE[$name]}"
@@ -159,12 +166,31 @@ spaceship::config::apply_per_directory() {
 
   local prompt_order_before="${(pj:|:)SPACESHIP_PROMPT_ORDER}"
   local rprompt_order_before="${(pj:|:)SPACESHIP_RPROMPT_ORDER}"
-  local config
+  local config name
 
   spaceship::config::find_per_directory_files
 
+  # Snapshot managed parameter names before sourcing local configs so we can
+  # track which new names the local configs introduce. Only those names will be
+  # unset by the next restore_baseline call; variables loaded by load_sections
+  # (section defaults) are excluded from cleanup.
+  local -A _spaceship_vars_before_local
+  for name in ${(ok)parameters[(I)SPACESHIP_*]}; do
+    spaceship::config::is_managed "$name" || continue
+    _spaceship_vars_before_local[$name]=1
+  done
+
   for config in "${_SPACESHIP_CONFIG_FILES[@]}"; do
     source "$config"
+  done
+
+  _SPACESHIP_PER_DIRECTORY_VARS=()
+  for name in ${(ok)parameters[(I)SPACESHIP_*]}; do
+    spaceship::config::is_managed "$name" || continue
+    (( ${+_SPACESHIP_CONFIG_BASELINE[$name]} )) && continue
+    (( ${+_spaceship_vars_before_local[$name]} )) && continue
+
+    _SPACESHIP_PER_DIRECTORY_VARS+=("$name")
   done
 
   # Local configs may assign these names while they run, but the assignments are
