@@ -34,6 +34,7 @@ setUp() {
   _SPACESHIP_CONFIG_BASELINE=()
   _SPACESHIP_CONFIG_FILES=()
   _SPACESHIP_CONFIG_BASELINE_READY=false
+  _SPACESHIP_PER_DIRECTORY_VARS=()
 
   spaceship::core::load_sections() {
     (( LOAD_SECTIONS_CALLS += 1 ))
@@ -53,6 +54,8 @@ tearDown() {
   unset SPACESHIP_GIT_ORDER
   unset SPACESHIP_HOST_SHOW
   unset SPACESHIP_LOCAL_ONLY
+  unset SPACESHIP_NEW_SECTION_COLOR
+  unset SPACESHIP_NEW_SECTION_PREFIX
   unset LOAD_SECTIONS_CALLS
 
   if (( $+functions[spaceship::core::load_sections] )); then
@@ -182,7 +185,39 @@ test_per_directory_config_captures_late_zshrc_assignment() {
   assertEquals "parent should restore late zshrc assignment" false "$SPACESHIP_GCLOUD_SHOW"
 }
 
-test_per_directory_sync_does_not_reapply_after_baseline_capture() {
+test_per_directory_config_section_defaults_survive_reapply() {
+  local repo="$SHUNIT_TMPDIR/config/section-defaults"
+  mkdir -p "$repo"
+  # Local config adds a section not present at baseline capture time.
+  print "SPACESHIP_PROMPT_ORDER=(user new_section)" > "$repo/.spaceshiprc"
+
+  SPACESHIP_PER_DIRECTORY_CONFIG=true
+  spaceship::config::capture_baseline
+
+  # Override the stub so it also simulates section-default initialisation.
+  # Real load_sections sources the section file the first time; subsequent calls
+  # find the function already defined and skip re-sourcing, leaving defaults set.
+  spaceship::core::load_sections() {
+    (( LOAD_SECTIONS_CALLS += 1 ))
+    SPACESHIP_NEW_SECTION_COLOR="${SPACESHIP_NEW_SECTION_COLOR:=cyan}"
+    SPACESHIP_NEW_SECTION_PREFIX="${SPACESHIP_NEW_SECTION_PREFIX:=via }"
+  }
+
+  cd "$repo"
+  spaceship::config::apply_per_directory
+  assertEquals "load_sections called on first apply" 1 "$LOAD_SECTIONS_CALLS"
+  assertEquals "section default color set after first apply" "cyan" "$SPACESHIP_NEW_SECTION_COLOR"
+
+  # Second apply simulates a chpwd within the same project (e.g., a subdirectory
+  # that has no .spaceshiprc of its own). The section function already exists so
+  # load_sections will not re-source the file; section defaults must survive.
+  spaceship::config::apply_per_directory
+  assertEquals "load_sections called on second apply" 2 "$LOAD_SECTIONS_CALLS"
+  assertEquals "section default color survives second apply" "cyan" "$SPACESHIP_NEW_SECTION_COLOR"
+  assertEquals "section default prefix survives second apply" "via " "$SPACESHIP_NEW_SECTION_PREFIX"
+}
+
+test_per_directory_config_sync_does_not_reapply_after_baseline_capture() {
   SPACESHIP_PER_DIRECTORY_CONFIG=true
   SPACESHIP_GCLOUD_SHOW=false
 
