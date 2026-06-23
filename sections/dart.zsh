@@ -29,7 +29,7 @@ spaceship_dart() {
   # The version can have the following patterns:
   # dart-sdk >       Dart SDK version: 2.19.0-edge.efb509c114dcaf54d0a011f717b48893d71ec9c3 (be) (Thu Sep 29 01:58:56 2022 +0000) on "macos_x64"
   # flutter bundle > Dart SDK version: 2.18.1 (stable) (Tue Sep 13 11:42:55 2022 +0200) on "macos_x64"
-  local dart_version=$(dart --version | awk '{sub(/-.*/, "", $4); print $4}')
+  local dart_version=$(dart --version | awk '{ if ($1 ~ /^Dart/) {sub(/-.*/, "", $4); print $4} }')
 
   spaceship::section \
     --color "$SPACESHIP_DART_COLOR" \

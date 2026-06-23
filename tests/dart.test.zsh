@@ -113,6 +113,31 @@ test_dart_sdk() {
   rm $file
 }
 
+test_dart_fvm() {
+  # alias to mock dart command installed as fvm
+  _dart() {
+    case "$1" in
+      --version)
+        printf "  Total    Received Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  205M  100  205M    0     0  8415k      0  0:00:25  0:00:25 --:--:--  9.8M
+Dart SDK version: 3.12.2 (stable) (Tue Jun 9 01:11:39 2026 -0700) on \"macos_arm64\""
+        ;;
+      *)
+        command dart "$@"
+        ;;
+    esac
+  }
+  alias "dart"="_dart"
+  local DART_VERSION="3.12.2"
+  file="main.dart"
+  touch $file
+  local expected="%{%B%}via %{%b%}%{%B%F{$SPACESHIP_DART_COLOR}%}${SPACESHIP_DART_SYMBOL}v$DART_VERSION%{%b%f%}"
+  local actual="$(spaceship::testkit::render_prompt)"
+  assertEquals "should render with $file" "$expected" "$actual"
+  rm $file
+}
+
 # ------------------------------------------------------------------------------
 # SHUNIT2
 # Run tests with shunit2
