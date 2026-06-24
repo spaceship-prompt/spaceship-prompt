@@ -72,6 +72,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     lua            # Lua section
     dart           # Dart section
     julia          # Julia section
+    nim            # Nim section
     crystal        # Crystal section
     docker         # Docker section
     docker_compose # Docker section

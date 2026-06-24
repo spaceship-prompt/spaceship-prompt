@@ -248,6 +248,12 @@
       "internal": true
     },
     {
+      "name": "nim",
+      "url": "https://spaceship-prompt.sh/sections/nim",
+      "description": "The current version of the Nim compiler.",
+      "internal": true
+    },
+    {
       "name": "node",
       "url": "https://spaceship-prompt.sh/sections/node",
       "description": "The current version of the Node.js binary.",
