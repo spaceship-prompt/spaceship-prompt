@@ -1,3 +1,10 @@
+## [4.22.4](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.22.3...v4.22.4) (2026-06-24)
+
+
+### Bug Fixes
+
+* **dart:** fix dart section ([9080556](https://github.com/spaceship-prompt/spaceship-prompt/commit/90805561d7363145d3219f5e1d016ab138cbd4d5))
+
 ## [4.22.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.22.2...v4.22.3) (2026-06-03)
 
 
