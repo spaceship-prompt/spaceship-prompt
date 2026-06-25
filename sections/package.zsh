@@ -119,9 +119,9 @@ spaceship_package::gradle() {
 
   local gradle_exe=$(spaceship::upsearch gradlew)
   if [[ -z $gradle_exe ]]; then
-    spaceship::exists gradle && gradle_exe="gradle"
+    spaceship::exists gradle || return
+    gradle_exe="gradle"
   fi
-  [[ -z $gradle_exe ]] && return
 
   local version=$($gradle_exe properties --no-daemon --console=plain -q 2>/dev/null | awk '/^version:/ {print $2}')
   [[ "$version" == "unspecified" ]] && return
