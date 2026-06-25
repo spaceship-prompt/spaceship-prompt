@@ -117,9 +117,15 @@ spaceship_package::maven() {
 spaceship_package::gradle() {
   spaceship::upsearch -s settings.gradle settings.gradle.kts || return
 
-  local gradle_exe=$(spaceship::upsearch gradlew) || (spaceship::exists gradle && gradle_exe="gradle") || return
+  local gradle_exe=$(spaceship::upsearch gradlew)
+  if [[ -z $gradle_exe ]]; then
+    spaceship::exists gradle && gradle_exe="gradle"
+  fi
+  [[ -z $gradle_exe ]] && return
 
-  $gradle_exe properties --no-daemon --console=plain -q 2>/dev/null | grep "^version:" | awk '{printf $2}'
+  local version=$($gradle_exe properties --no-daemon --console=plain -q 2>/dev/null | awk '/^version:/ {print $2}')
+  [[ "$version" == "unspecified" ]] && return
+  echo "${version}"
 }
 
 spaceship_package::python() {
