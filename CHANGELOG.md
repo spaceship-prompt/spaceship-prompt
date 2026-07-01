@@ -1,3 +1,10 @@
+## [4.22.5](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.22.4...v4.22.5) (2026-07-01)
+
+
+### Bug Fixes
+
+* fix gradle version show for package section ([#1559](https://github.com/spaceship-prompt/spaceship-prompt/issues/1559)) ([b773e22](https://github.com/spaceship-prompt/spaceship-prompt/commit/b773e222548e8047f523b7a23b9efe621a85a8b2))
+
 ## [4.22.4](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.22.3...v4.22.4) (2026-06-24)
 
 
