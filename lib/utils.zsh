@@ -157,6 +157,23 @@ spaceship::upsearch() {
   local files=("$@")
   local root="$(pwd -P)"
 
+  # Generate cache key from current directory and files
+  local cache_key="upsearch:${root}:${(j.:.)files}"
+
+  # Check cache first (use associative array key existence check)
+  if (( ${+SPACESHIP_CACHE[$cache_key]} )); then
+    local cached_result="${SPACESHIP_CACHE[$cache_key]}"
+    if [[ -n "$cached_result" ]]; then
+      [[ -z "$silent" ]] && echo "$cached_result"
+      return 0
+    else
+      # Cached as not found
+      return 1
+    fi
+  fi
+
+  local result=""
+
   # Go up to the root
   while [ "$root" ]; do
     # For every file as an argument
@@ -164,22 +181,30 @@ spaceship::upsearch() {
       local find_match="$(find $root -maxdepth 1 -name $file -print -quit 2>/dev/null)"
       local filename="$root/$file"
       if [[ -n "$find_match" ]]; then
-        [[ -z "$silent" ]] && echo "$find_match"
-        return 0
+        result="$find_match"
+        break 2
       elif [[ -e "$filename" ]]; then
-        [[ -z "$silent" ]] && echo "$filename"
-        return 0
+        result="$filename"
+        break 2
       fi
     done
 
     if [[ -d "$root/.git" || -d "$root/.hg" ]]; then
       # If we reached the root of repo, return non-zero
-      return 1
+      break
     fi
 
     # Go one level up
     root="${root%/*}"
   done
+
+  # Cache the result (empty string if not found)
+  SPACESHIP_CACHE[$cache_key]="$result"
+
+  if [[ -n "$result" ]]; then
+    [[ -z "$silent" ]] && echo "$result"
+    return 0
+  fi
 
   # If we reached the root, return non-zero
   return 1
