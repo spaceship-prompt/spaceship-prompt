@@ -34,7 +34,7 @@ spaceship_ruby() {
   elif spaceship::exists chruby; then
     ruby_version=$(chruby 2>/dev/null | sed -n -e 's/ \* //p')
   elif spaceship::exists rv; then
-    ruby_version=$(rv ruby pin | grep -oE '\d.*' 2>/dev/null)
+    ruby_version=$(rv ruby pin | spaceship::grep -oE '\d.*' 2>/dev/null)
   elif spaceship::exists rbenv; then
     ruby_version=$(rbenv version-name 2>/dev/null)
   elif spaceship::exists mise; then
