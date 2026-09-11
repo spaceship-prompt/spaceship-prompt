@@ -218,6 +218,12 @@
       "internal": true
     },
     {
+      "name": "cmake",
+      "url": "https://spaceship-prompt.sh/sections/cmake",
+      "description": "The version of the CMake tool.",
+      "internal": true
+    },
+    {
       "name": "kubectl",
       "url": "https://spaceship-prompt.sh/sections/kubectl",
       "description": "The information about Kubernetes cluster.",
