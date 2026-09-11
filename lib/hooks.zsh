@@ -40,6 +40,8 @@ prompt_spaceship_precmd() {
   # Stop measuring exec_time, must be the first precmd action
   spaceship_exec_time_stop
 
+  spaceship::config::sync_per_directory
+
   # Restarts the async worker, in order to get an update-to-date shell environment
   spaceship::worker::init
 
@@ -61,6 +63,8 @@ prompt_spaceship_preexec() {
 
 # A hook after changing the working directory
 prompt_spaceship_chpwd() {
+  spaceship::config::apply_per_directory
+
   # Initialize worker if needed (e.g., when chpwd fires before first precmd)
   spaceship::worker::init
   spaceship::worker::eval builtin cd -q $PWD
