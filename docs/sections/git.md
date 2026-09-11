@@ -2,7 +2,7 @@
 
 !!! important "This section is rendered asynchronously by default"
 
-The `git` section consists of [`git_branch`](#git-branch-git_branch) and [`git_status`](#git-status-git_status) and [`git_commit`](#git-commit-git_commit) subsections.
+The `git` section consists of [`git_branch`](#git-branch-git_branch), [`git_status`](#git-status-git_status), [`git_state`](#git-state-git_state) and [`git_commit`](#git-commit-git_commit) subsections.
 
 ## Options
 
@@ -52,6 +52,26 @@ The `git_status` subsection displays indicators only when you have a dirty Git r
 | `SPACESHIP_GIT_STATUS_AHEAD`     |   `⇡`   | Indicator for unpushed changes (ahead of remote branch)      |
 | `SPACESHIP_GIT_STATUS_BEHIND`    |   `⇣`   | Indicator for unpulled changes (behind of remote branch)     |
 | `SPACESHIP_GIT_STATUS_DIVERGED`  |   `⇕`   | Indicator for diverged changes (diverged with remote branch) |
+
+## Git state `git_state`
+
+The `git_state` subsection displays the active git operation state (if any), such as rebase, merge, revert, cherry-pick, or bisect.
+
+### Options
+
+| Variable                            | Default | Meaning                                |
+| :---------------------------------- | :-----: | -------------------------------------- |
+| `SPACESHIP_GIT_STATE_SHOW`          | `true`  | Show section                           |
+| `SPACESHIP_GIT_STATE_ASYNC`         | `false` | Render section asynchronously          |
+| `SPACESHIP_GIT_STATE_PREFIX`        |  ` [`   | Prefix before git state subsection     |
+| `SPACESHIP_GIT_STATE_SUFFIX`        |   `]`   | Suffix after git state subsection      |
+| `SPACESHIP_GIT_STATE_COLOR`         |  `red`  | Color of git state subsection          |
+| `SPACESHIP_GIT_STATE_REBASE_REBASING` | `rebase` | Text shown during rebase             |
+| `SPACESHIP_GIT_STATE_REBASE_APPLYING` |  `am`  | Text shown during git am              |
+| `SPACESHIP_GIT_STATE_MERGING`       | `merge` | Text shown during merge               |
+| `SPACESHIP_GIT_STATE_REVERTING`     | `revert` | Text shown during revert             |
+| `SPACESHIP_GIT_STATE_CHERRY_PICKING` | `cherry-pick` | Text shown during cherry-pick    |
+| `SPACESHIP_GIT_STATE_BISECTING`     | `bisect` | Text shown during bisect             |
 
 ## Git commit `git_commit`
 
