@@ -49,10 +49,13 @@ spaceship_docker() {
   local docker_context="$(spaceship_docker_context)"
   local docker_context_section="$(spaceship::section::render $docker_context)"
 
-  # Show Docker status only for Docker-specific folders or when connected to external host
+  # Show Docker status only for Docker-specific folders, inside a container, or when
+  # connected to an external host. A non-default `docker context` name alone doesn't
+  # count as "external host", since third-party tools (e.g. Dory, OrbStack) register
+  # their own local contexts under non-default names too.
   local docker_project_globs=('Dockerfile' '.devcontainer/Dockerfile' 'docker-compose.y*ml')
   local is_docker_project="$(spaceship::upsearch Dockerfile $docker_project_globs)"
-  [[ -n "$is_docker_project" || -f /.dockerenv || -n "$docker_context" ]] || return
+  [[ -n "$is_docker_project" || -f /.dockerenv || -n "$DOCKER_MACHINE_NAME" || -n "$DOCKER_HOST" ]] || return
 
   # if docker daemon isn't running you'll get an error saying it can't connect
   # Note: Declaration and assignment is separated for correctly getting the exit code
