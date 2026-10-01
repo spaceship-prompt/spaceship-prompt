@@ -75,8 +75,7 @@ test_ansible_configs() {
 test_ansible_playbooks() {
   FILES=(playbook.yml playbook.yaml)
   for file in $FILES; do
-    touch $file
-    echo "tasks: []" > $file
+    printf -- '- hosts: all\n  tasks: []\n' > $file
     local expected=(
       "%{%B%}$SPACESHIP_ANSIBLE_PREFIX%{%b%}"
       "%{%B%F{$SPACESHIP_ANSIBLE_COLOR}%}"
@@ -86,6 +85,17 @@ test_ansible_playbooks() {
     )
     local actual="$(spaceship::testkit::render_prompt)"
     assertEquals "should render with $file" "${(j::)expected}" "$actual"
+    rm $file
+  done
+}
+
+test_ansible_taskfile() {
+  FILES=(Taskfile.yml Taskfile.yaml)
+  for file in $FILES; do
+    printf -- "version: '3'\n\ntasks:\n  hello:\n    cmds:\n      - echo hello\n" > $file
+    local expected=""
+    local actual="$(spaceship::testkit::render_prompt)"
+    assertEquals "should not render with $file" "$expected" "$actual"
     rm $file
   done
 }

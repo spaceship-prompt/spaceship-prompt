@@ -35,7 +35,7 @@ spaceship_ansible() {
   local detected_playbooks
 
   if [[ -n "$yaml_files" ]]; then
-    detected_playbooks="$(spaceship::grep -oE "tasks|hosts|roles" $yaml_files)"
+    detected_playbooks="$(spaceship::grep -oE "^(-[[:space:]]+|[[:space:]]+)(hosts|tasks|roles):" $yaml_files)"
   fi
 
   if [[ -n "$ansible_configs" ]] && [[ "$ansible_configs" == "$HOME/.ansible.cfg" || "$ansible_configs" == "$HOME/ansible.cfg" ]]; then
