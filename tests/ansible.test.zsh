@@ -89,14 +89,43 @@ test_ansible_playbooks() {
   done
 }
 
-test_ansible_taskfile() {
-  FILES=(Taskfile.yml Taskfile.yaml)
-  for file in $FILES; do
-    printf -- "version: '3'\n\ntasks:\n  hello:\n    cmds:\n      - echo hello\n" > $file
+test_ansible_playbook_layouts() {
+  local contents=(
+    '- hosts: all\n  gather_facts: false\n'
+    '---\n- name: Web\n  hosts: web\n  tasks:\n    - name: ping\n      ansible.builtin.ping:\n'
+    '- hosts: db\n  roles:\n    - common\n'
+    '-   name: Wide indentation\n    hosts: all\n'
+  )
+  for content in "${contents[@]}"; do
+    printf '%b' "$content" > playbook.yml
+    local expected=(
+      "%{%B%}$SPACESHIP_ANSIBLE_PREFIX%{%b%}"
+      "%{%B%F{$SPACESHIP_ANSIBLE_COLOR}%}"
+      "${SPACESHIP_ANSIBLE_SYMBOL}"
+      "v$ANSIBLE_VERSION"
+      "%{%b%f%}"
+    )
+    local actual="$(spaceship::testkit::render_prompt)"
+    assertEquals "should render with playbook: $content" "${(j::)expected}" "$actual"
+    rm playbook.yml
+  done
+}
+
+test_ansible_non_playbook_yaml() {
+  local contents=(
+    "version: '3'\n\ntasks:\n  hello:\n    cmds:\n      - echo hello\n"
+    'metadata:\n  tasks: []\n'
+    'description: |\n  tasks: []\n  hosts: all\n'
+    'services:\n  web:\n    extra_hosts:\n      - "host:127.0.0.1"\n'
+    '- name: step\n  run: |\n    hosts: all\n'
+    '- name: step\n  items:\n    - tasks: []\n'
+  )
+  for content in "${contents[@]}"; do
+    printf '%b' "$content" > Taskfile.yml
     local expected=""
     local actual="$(spaceship::testkit::render_prompt)"
-    assertEquals "should not render with $file" "$expected" "$actual"
-    rm $file
+    assertEquals "should not render with: $content" "$expected" "$actual"
+    rm Taskfile.yml
   done
 }
 
