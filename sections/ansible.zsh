@@ -35,7 +35,31 @@ spaceship_ansible() {
   local detected_playbooks
 
   if [[ -n "$yaml_files" ]]; then
-    detected_playbooks="$(spaceship::grep -oE "tasks|hosts|roles" $yaml_files)"
+    detected_playbooks="$(command awk '
+      { line = $0; sub(/\r$/, "", line) }
+      # Skip blank lines, comments, document markers and directives
+      line ~ /^[ \t]*(#|$)/ || line ~ /^(---|\.\.\.|%)/ { next }
+      { body = line; sub(/^ +/, "", body); ind = length(line) - length(body) }
+      # The document root must be a sequence
+      !seen { seen = 1; if (line !~ /^-([ \t]|$)/) exit }
+      # Top-level sequence item: a new play
+      line ~ /^-([ \t]|$)/ {
+        rest = substr(line, 2); sub(/^[ \t]+/, "", rest)
+        play = 0; pending = 0
+        if (rest == "") { pending = 1; next }
+        if (rest ~ /^[A-Za-z_][A-Za-z0-9_]*:([ \t]|$)/) {
+          play = length(line) - length(rest)
+          if (rest ~ /^(hosts|tasks|roles):/) { print; exit }
+        }
+        next
+      }
+      # Any other line at column 0 ends the current play
+      ind == 0 { play = 0; pending = 0; next }
+      # A lone "-": the play keys start on the next line
+      pending { pending = 0; play = ind }
+      # A key that belongs directly to the current play
+      play && ind == play && body ~ /^(hosts|tasks|roles):/ { print; exit }
+    ' $yaml_files)"
   fi
 
   if [[ -n "$ansible_configs" ]] && [[ "$ansible_configs" == "$HOME/.ansible.cfg" || "$ansible_configs" == "$HOME/ansible.cfg" ]]; then
