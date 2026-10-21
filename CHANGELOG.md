@@ -1,3 +1,10 @@
+## [4.22.6](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.22.5...v4.22.6) (2026-10-21)
+
+
+### Bug Fixes
+
+* **docker:** don't show section outside Docker projects for non-default ([#1574](https://github.com/spaceship-prompt/spaceship-prompt/issues/1574)) ([9103afe](https://github.com/spaceship-prompt/spaceship-prompt/commit/9103afe138eb05fd5b761fb55ee6bb6c95797a1b))
+
 ## [4.22.5](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.22.4...v4.22.5) (2026-07-01)
 
 
