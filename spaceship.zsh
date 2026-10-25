@@ -75,6 +75,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     crystal        # Crystal section
     docker         # Docker section
     docker_compose # Docker section
+    singularityce  # SingularityCE section
     aws            # Amazon Web Services section
     gcloud         # Google Cloud Platform section
     azure          # Azure section
