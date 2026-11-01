@@ -5,6 +5,16 @@
 # Functions for packing, extracting and rendering sections.
 # ------------------------------------------------------------------------------
 
+# Strip control characters (e.g. terminal escape sequences) from a string
+# before it is embedded in the prompt. Section content, prefixes, suffixes
+# and symbols can originate from untrusted sources (git branch names,
+# package.json/Cargo.toml version fields, directory names, etc.), so this
+# is applied at the single choke point where they're written into the
+# rendered prompt string.
+spaceship::sanitize() {
+  echo -E "${1//[$'\x00'-$'\x1f'$'\x7f']/}"
+}
+
 # Pack section into a tuple of section data joined by a delimiter.
 # USAGE:
 #   spaceship::section \
@@ -75,10 +85,10 @@ spaceship::section::render() {
   opener="${section_data[1]}"
   color="${section_data[2]}"
   color="%F{$color}"
-  prefix="${section_data[3]}"
-  suffix="${section_data[4]}"
-  symbol="${section_data[5]}"
-  content="${section_data[6]}"
+  prefix="$(spaceship::sanitize "${section_data[3]}")"
+  suffix="$(spaceship::sanitize "${section_data[4]}")"
+  symbol="$(spaceship::sanitize "${section_data[5]}")"
+  content="$(spaceship::sanitize "${section_data[6]}")"
   closer="${section_data[7]}"
 
   if [[ -z "$content" && -z "$symbol" ]]; then
