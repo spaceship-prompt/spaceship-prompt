@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+
+echo "cmake version 4.3.1"
+echo ""
+echo "CMake suite maintained and supported by Kitware (kitware.com/cmake)"
