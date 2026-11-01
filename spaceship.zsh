@@ -71,6 +71,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     java           # Java section
     lua            # Lua section
     dart           # Dart section
+    daml           # Daml section 
     julia          # Julia section
     crystal        # Crystal section
     docker         # Docker section
