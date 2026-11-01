@@ -72,6 +72,7 @@ nav:
         - Go (golang): sections/golang.md
         - Google Cloud (gcloud): sections/gcloud.md
         - Haskell (haskell): sections/haskell.md
+        - Helm (helm): sections/helm.md
         - Hostname (host): sections/host.md
         - IBM Cloud (ibmcloud): sections/ibmcloud.md
         - Java (java): sections/java.md

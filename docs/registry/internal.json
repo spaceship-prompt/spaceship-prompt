@@ -152,6 +152,12 @@
       "internal": true
     },
     {
+      "name": "helm",
+      "url": "https://helm.sh/",
+      "description": "The version of Helm",
+      "internal": true
+    },
+    {
       "name": "hg",
       "url": "https://spaceship-prompt.sh/sections/hg",
       "description": "The information about the current Mercurial repository.",
