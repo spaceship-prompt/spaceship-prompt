@@ -16,6 +16,7 @@ SPACESHIP_DIR_TRUNC_REPO="${SPACESHIP_DIR_TRUNC_REPO=true}"
 SPACESHIP_DIR_COLOR="${SPACESHIP_DIR_COLOR="cyan"}"
 SPACESHIP_DIR_LOCK_SYMBOL="${SPACESHIP_DIR_LOCK_SYMBOL=" "}"
 SPACESHIP_DIR_LOCK_COLOR="${SPACESHIP_DIR_LOCK_COLOR="red"}"
+SPACESHIP_DIR_SHORT="${SPACESHIP_DIR_SHORT=false}"
 
 # ------------------------------------------------------------------------------
 # Section
@@ -64,6 +65,21 @@ spaceship_dir() {
 
   if [[ ! -w . ]]; then
     suffix="%F{$SPACESHIP_DIR_LOCK_COLOR}${SPACESHIP_DIR_LOCK_SYMBOL}%f${SPACESHIP_DIR_SUFFIX}"
+  fi
+
+  if [[ $SPACESHIP_DIR_SHORT == true ]]; then
+      local i pwd
+      pwd=("${(s:/:)PWD/#$HOME/~}")
+      if (( $#pwd > 1 )); then
+        for i in {1..$(($#pwd-1))}; do
+          if [[ "$pwd[$i]" = .* ]]; then
+            pwd[$i]="${${pwd[$i]}[1,2]}"
+          else
+            pwd[$i]="${${pwd[$i]}[1]}"
+          fi
+        done
+      fi
+      dir="${(j:/:)pwd}"
   fi
 
   spaceship::section \
