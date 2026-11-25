@@ -65,6 +65,8 @@ spaceship::core::async_callback() {
         # Our worker died unexpectedly, try to recover immediately.
         spaceship::worker::init
         spaceship::core::start
+        # Synchronous fallback has no later result callback to repaint the prompt.
+        spaceship::is_prompt_async || spaceship::core::render
         return
       fi
       ;;
@@ -72,6 +74,7 @@ spaceship::core::async_callback() {
       if (( code )); then
         # Looks like eval failed, rerun async tasks just in case.
         spaceship::core::start
+        spaceship::is_prompt_async || spaceship::core::render
         return
       fi
       ;;
