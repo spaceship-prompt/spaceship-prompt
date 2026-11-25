@@ -1,3 +1,10 @@
+## [4.22.7](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.22.6...v4.22.7) (2026-11-25)
+
+
+### Bug Fixes
+
+* **dir:** avoid running cygpath to detect Cygwin ([#1576](https://github.com/spaceship-prompt/spaceship-prompt/issues/1576)) ([c63e085](https://github.com/spaceship-prompt/spaceship-prompt/commit/c63e085697b8d95c31eb6e66d1bfed8d165b3c78))
+
 ## [4.22.6](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.22.5...v4.22.6) (2026-10-21)
 
 
