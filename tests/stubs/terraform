@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+echo 'Terraform v1.4.6'
+echo 'on linux_amd64'
