@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+echo "Nim Compiler Version 2.0.0 [Linux: amd64]"
+echo "Compiled at 2024-01-01"
+echo "Copyright (c) 2006-2024 by Andreas Rumpf"
