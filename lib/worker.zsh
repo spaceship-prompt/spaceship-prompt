@@ -8,6 +8,8 @@
 # Unique array of async jobs
 typeset -ahU SPACESHIP_JOBS=()
 
+ASYNC_SLEEP_DURATION="${SPACESHIP_ASYNC_SLEEP_DURATION=0}"
+
 # Load zsh-async if not loaded yet
 spaceship::worker::load() {
   if ! (( ASYNC_INIT_DONE )); then
