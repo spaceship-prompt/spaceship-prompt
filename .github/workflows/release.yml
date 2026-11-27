@@ -31,7 +31,7 @@ jobs:
           registry-url: https://registry.npmjs.org
 
       - name: 🚀 Release
-        uses: cycjimmy/semantic-release-action@v6
+        uses: cycjimmy/semantic-release-action@v8
         id: semantic
         with:
           extra_plugins: |
