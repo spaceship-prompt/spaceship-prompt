@@ -69,6 +69,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     scala          # Scala section
     kotlin         # Kotlin section
     java           # Java section
+    cmake	   # CMAKE section
     lua            # Lua section
     dart           # Dart section
     julia          # Julia section
