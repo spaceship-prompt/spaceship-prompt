@@ -122,6 +122,8 @@ SPACESHIP_PROMPT_PREFIXES_SHOW="${SPACESHIP_PROMPT_PREFIXES_SHOW=true}"
 SPACESHIP_PROMPT_SUFFIXES_SHOW="${SPACESHIP_PROMPT_SUFFIXES_SHOW=true}"
 SPACESHIP_PROMPT_DEFAULT_PREFIX="${SPACESHIP_PROMPT_DEFAULT_PREFIX="via "}"
 SPACESHIP_PROMPT_DEFAULT_SUFFIX="${SPACESHIP_PROMPT_DEFAULT_SUFFIX=" "}"
+SPACESHIP_PER_DIRECTORY_CONFIG="${SPACESHIP_PER_DIRECTORY_CONFIG=false}"
+SPACESHIP_PER_DIRECTORY_CONFIG_FILE="${SPACESHIP_PER_DIRECTORY_CONFIG_FILE=".spaceshiprc"}"
 
 # ------------------------------------------------------------------------------
 # LIBS
@@ -180,7 +182,6 @@ spaceship::deprecated SPACESHIP_KUBECONTEXT_COLOR_GROUPS "Use %BSPACESHIP_KUBECT
 # All preparation before drawing prompt should be done here
 prompt_spaceship_setup() {
   autoload -Uz vcs_info
-  autoload -Uz add-zsh-hook
   autoload -Uz add-zsh-hook
   autoload -Uz is-at-least
 

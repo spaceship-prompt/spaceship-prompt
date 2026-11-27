@@ -139,6 +139,8 @@ This group of options defines a behavior of prompt and standard parameters for s
 | `SPACESHIP_PROMPT_SUFFIXES_SHOW`      | `true`  | Show suffixes before prompt sections or not         |
 | `SPACESHIP_PROMPT_DEFAULT_PREFIX`     | `via·`  | Default prefix for prompt sections                  |
 | `SPACESHIP_PROMPT_DEFAULT_SUFFIX`     |   ` `   | Default suffix for prompt section                   |
+| `SPACESHIP_PER_DIRECTORY_CONFIG`      | `false`  | Load native per-directory config files              |
+| `SPACESHIP_PER_DIRECTORY_CONFIG_FILE` | `.spaceshiprc` | Per-directory config file name              |
 
 Here is a breakdown of these options:
 
