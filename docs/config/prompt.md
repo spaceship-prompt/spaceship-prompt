@@ -136,7 +136,9 @@ This group of options defines a behavior of prompt and standard parameters for s
 | `SPACESHIP_PROMPT_FIRST_PREFIX_SHOW`  | `false` | Shows a prefix of the first section in prompt       |
 | `SPACESHIP_RPROMPT_FIRST_PREFIX_SHOW` | `false` | Shows a prefix of the first section in right prompt |
 | `SPACESHIP_PROMPT_PREFIXES_SHOW`      | `true`  | Show prefixes before prompt sections or not         |
+| `SPACESHIP_PROMPT_COLORFUL_PREFIXES`  | `false` | Show prefixes with the content color                |
 | `SPACESHIP_PROMPT_SUFFIXES_SHOW`      | `true`  | Show suffixes before prompt sections or not         |
+| `SPACESHIP_PROMPT_COLORFUL_SUFFIXES`  | `false` | Show suffixes with the content color                |
 | `SPACESHIP_PROMPT_DEFAULT_PREFIX`     | `via·`  | Default prefix for prompt sections                  |
 | `SPACESHIP_PROMPT_DEFAULT_SUFFIX`     |   ` `   | Default suffix for prompt section                   |
 
@@ -164,4 +166,4 @@ Spaceship hides the prefix of the first section in the prompt. You can enable th
 
 You can disable the displaying of prefixes and suffixes by setting `SPACESHIP_PROMPT_PREFIXES_SHOW` and `SPACESHIP_PROMPT_SUFFIXES_SHOW` to `false`.
 
-Additionally, you can change the default prefix and suffix by setting `SPACESHIP_PROMPT_DEFAULT_PREFIX` and `SPACESHIP_PROMPT_DEFAULT_SUFFIX`. These options will be used to render prefixes or suffixes unless the corresponding section option is set.
+Additionally, you can change the default prefix and suffix by setting `SPACESHIP_PROMPT_DEFAULT_PREFIX` and `SPACESHIP_PROMPT_DEFAULT_SUFFIX`. By default, content color is not aplied to prefixes and suffixes, but you can configure `SPACESHIP_PROMPT_COLORFUL_PREFIXES` and `SPACESHIP_PROMPT_COLORFUL_SUFFIXES` to use the content color as prefix and suffix color, respectively. These options will be used to render prefixes or suffixes unless the corresponding section option is set.
