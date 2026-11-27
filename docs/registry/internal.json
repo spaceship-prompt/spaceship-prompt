@@ -193,6 +193,11 @@
       "description": "The current version of the Lua compiler.",
       "internal": true
     },
+    {"name": "daml",
+      "url": "https://spaceship-prompt.sh/sections/daml",
+      "description": "The current version of Daml.",
+      "internal": true
+    },
     {
       "name": "dart",
       "url": "https://spaceship-prompt.sh/sections/dart",
@@ -405,3 +410,4 @@
     }
   ]
 }
+

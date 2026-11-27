@@ -65,6 +65,7 @@ SPACESHIP_PROMPT_ORDER=(
   kotlin         # Kotlin section
   java           # Java section
   lua            # Lua section
+  daml           # Daml section
   dart           # Dart section
   julia          # Julia section
   crystal        # Crystal section

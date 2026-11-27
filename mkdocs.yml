@@ -55,6 +55,7 @@ nav:
         - Bun (bun): sections/bun.md
         - Conda (conda): sections/conda.md
         - Crystal (crystal): sections/crystal.md
+        - Damlc(daml): sections/daml.md
         - Dart (dart): sections/dart.md
         - Deno (deno): sections/deno.md
         - Directory (dir): sections/dir.md
