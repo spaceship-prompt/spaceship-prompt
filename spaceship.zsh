@@ -73,6 +73,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     dart           # Dart section
     julia          # Julia section
     crystal        # Crystal section
+    helm           # Helm section
     docker         # Docker section
     docker_compose # Docker section
     aws            # Amazon Web Services section
