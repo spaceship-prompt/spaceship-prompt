@@ -13,7 +13,7 @@ SPACESHIP_GIT_SUFFIX="${SPACESHIP_GIT_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}
 SPACESHIP_GIT_SYMBOL="${SPACESHIP_GIT_SYMBOL=" "}"
 
 if [ -z "$SPACESHIP_GIT_ORDER" ]; then
-  SPACESHIP_GIT_ORDER=(git_branch git_status git_commit)
+  SPACESHIP_GIT_ORDER=(git_branch git_status git_state git_commit)
 fi
 
 # ------------------------------------------------------------------------------
@@ -22,19 +22,22 @@ fi
 
 source "$SPACESHIP_ROOT/sections/git_branch.zsh"
 source "$SPACESHIP_ROOT/sections/git_status.zsh"
+source "$SPACESHIP_ROOT/sections/git_state.zsh"
 source "$SPACESHIP_ROOT/sections/git_commit.zsh"
 
 spaceship::precompile "$SPACESHIP_ROOT/sections/git_branch.zsh"
 spaceship::precompile "$SPACESHIP_ROOT/sections/git_status.zsh"
+spaceship::precompile "$SPACESHIP_ROOT/sections/git_state.zsh"
 spaceship::precompile "$SPACESHIP_ROOT/sections/git_commit.zsh"
 
 # ------------------------------------------------------------------------------
 # Section
 # ------------------------------------------------------------------------------
 
-# Show both git branch and git status:
+# Show git branch, status, state, and commit:
 #   spaceship_git_branch
 #   spaceship_git_status
+#   spaceship_git_state
 spaceship_git() {
   [[ $SPACESHIP_GIT_SHOW == false ]] && return
 

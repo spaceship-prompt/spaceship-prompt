@@ -128,6 +128,12 @@
       "internal": true
     },
     {
+      "name": "git_state",
+      "url": "https://spaceship-prompt.sh/sections/git/#git-state-git_state",
+      "description": "The active Git operation state (rebase, merge, revert, cherry-pick, bisect).",
+      "internal": true
+    },
+    {
       "name": "git_commit",
       "url": "https://spaceship-prompt.sh/sections/git/#git-commit-git_commit",
       "description": "The current Git commit hash.",
